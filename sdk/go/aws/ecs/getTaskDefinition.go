@@ -12,6 +12,50 @@ import (
 
 // The ECS task definition data source allows access to details of
 // a specific AWS ECS task definition.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.LookupTaskDefinition(ctx, &ecs.LookupTaskDefinitionArgs{
+// 			TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Family,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		foo, err := ecs.NewCluster(ctx, "foo", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewTaskDefinition(ctx, "mongoEcs_taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
+// 			Family:               pulumi.String("mongodb"),
+// 			ContainerDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "[\n", "  {\n", "    \"cpu\": 128,\n", "    \"environment\": [{\n", "      \"name\": \"SECRET\",\n", "      \"value\": \"KEY\"\n", "    }],\n", "    \"essential\": true,\n", "    \"image\": \"mongo:latest\",\n", "    \"memory\": 128,\n", "    \"memoryReservation\": 64,\n", "    \"name\": \"mongodb\"\n", "  }\n", "]\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewService(ctx, "mongoService", &ecs.ServiceArgs{
+// 			Cluster:        foo.ID(),
+// 			DesiredCount:   pulumi.Int(2),
+// 			TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
 	var rv LookupTaskDefinitionResult
 	err := ctx.Invoke("aws:ecs/getTaskDefinition:getTaskDefinition", args, &rv, opts...)
@@ -29,6 +73,8 @@ type LookupTaskDefinitionArgs struct {
 
 // A collection of values returned by getTaskDefinition.
 type LookupTaskDefinitionResult struct {
+	// The ARN of the task definition
+	Arn string `pulumi:"arn"`
 	// The family of this task definition
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
@@ -76,6 +122,11 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutput() L
 
 func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWithContext(ctx context.Context) LookupTaskDefinitionResultOutput {
 	return o
+}
+
+// The ARN of the task definition
+func (o LookupTaskDefinitionResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The family of this task definition

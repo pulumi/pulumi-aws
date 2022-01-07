@@ -140,6 +140,12 @@ namespace Pulumi.Aws.CodePipeline
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
+        /// The CodePipeline webhook's ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         /// </summary>
         [Output("authentication")]
@@ -300,6 +306,12 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class WebhookState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CodePipeline webhook's ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         /// </summary>

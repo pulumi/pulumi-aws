@@ -98,7 +98,7 @@ type Fleet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
 	State pulumi.StringOutput `pulumi:"state"`
-	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringOutput `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -176,7 +176,7 @@ type fleetState struct {
 	Name *string `pulumi:"name"`
 	// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
 	State *string `pulumi:"state"`
-	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView *string `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
 	Tags    map[string]string `pulumi:"tags"`
@@ -220,7 +220,7 @@ type FleetState struct {
 	Name pulumi.StringPtrInput
 	// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
 	State pulumi.StringPtrInput
-	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringPtrInput
 	// Map of tags to attach to AppStream instances.
 	Tags    pulumi.StringMapInput
@@ -262,7 +262,7 @@ type fleetArgs struct {
 	MaxUserDurationInSeconds *int `pulumi:"maxUserDurationInSeconds"`
 	// Unique name for the fleet.
 	Name *string `pulumi:"name"`
-	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView *string `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
 	Tags map[string]string `pulumi:"tags"`
@@ -300,7 +300,7 @@ type FleetArgs struct {
 	MaxUserDurationInSeconds pulumi.IntPtrInput
 	// Unique name for the fleet.
 	Name pulumi.StringPtrInput
-	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringPtrInput
 	// Map of tags to attach to AppStream instances.
 	Tags pulumi.StringMapInput

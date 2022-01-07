@@ -61,7 +61,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<bool>? ReportBuildStatus { get; set; }
 
         /// <summary>
-        /// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+        /// An identifier for a source in the build project.
         /// </summary>
         [Input("sourceIdentifier", required: true)]
         public Input<string> SourceIdentifier { get; set; } = null!;

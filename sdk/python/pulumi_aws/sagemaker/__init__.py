@@ -8,6 +8,7 @@ import typing
 from .app import *
 from .app_image_config import *
 from .code_repository import *
+from .device import *
 from .device_fleet import *
 from .domain import *
 from .endpoint import *

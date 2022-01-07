@@ -15,6 +15,8 @@ __all__ = [
     'JobDefinitionRetryStrategyArgs',
     'JobDefinitionRetryStrategyEvaluateOnExitArgs',
     'JobDefinitionTimeoutArgs',
+    'SchedulingPolicyFairSharePolicyArgs',
+    'SchedulingPolicyFairSharePolicyShareDistributionArgs',
 ]
 
 @pulumi.input_type
@@ -282,7 +284,7 @@ class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs:
                  image_id_override: Optional[pulumi.Input[str]] = None,
                  image_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] image_id_override: The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resourcess block.
+        :param pulumi.Input[str] image_id_override: The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
         :param pulumi.Input[str] image_type: The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
         """
         if image_id_override is not None:
@@ -294,7 +296,7 @@ class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs:
     @pulumi.getter(name="imageIdOverride")
     def image_id_override(self) -> Optional[pulumi.Input[str]]:
         """
-        The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resourcess block.
+        The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
         """
         return pulumi.get(self, "image_id_override")
 
@@ -500,5 +502,94 @@ class JobDefinitionTimeoutArgs:
     @attempt_duration_seconds.setter
     def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempt_duration_seconds", value)
+
+
+@pulumi.input_type
+class SchedulingPolicyFairSharePolicyArgs:
+    def __init__(__self__, *,
+                 compute_reservation: Optional[pulumi.Input[int]] = None,
+                 share_decay_seconds: Optional[pulumi.Input[int]] = None,
+                 share_distributions: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]] = None):
+        """
+        :param pulumi.Input[int] compute_reservation: A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        :param pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        """
+        if compute_reservation is not None:
+            pulumi.set(__self__, "compute_reservation", compute_reservation)
+        if share_decay_seconds is not None:
+            pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
+        if share_distributions is not None:
+            pulumi.set(__self__, "share_distributions", share_distributions)
+
+    @property
+    @pulumi.getter(name="computeReservation")
+    def compute_reservation(self) -> Optional[pulumi.Input[int]]:
+        """
+        A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        """
+        return pulumi.get(self, "compute_reservation")
+
+    @compute_reservation.setter
+    def compute_reservation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "compute_reservation", value)
+
+    @property
+    @pulumi.getter(name="shareDecaySeconds")
+    def share_decay_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "share_decay_seconds")
+
+    @share_decay_seconds.setter
+    def share_decay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "share_decay_seconds", value)
+
+    @property
+    @pulumi.getter(name="shareDistributions")
+    def share_distributions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]]:
+        """
+        One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        """
+        return pulumi.get(self, "share_distributions")
+
+    @share_distributions.setter
+    def share_distributions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]]):
+        pulumi.set(self, "share_distributions", value)
+
+
+@pulumi.input_type
+class SchedulingPolicyFairSharePolicyShareDistributionArgs:
+    def __init__(__self__, *,
+                 share_identifier: pulumi.Input[str],
+                 weight_factor: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] share_identifier: A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        :param pulumi.Input[float] weight_factor: The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        """
+        pulumi.set(__self__, "share_identifier", share_identifier)
+        if weight_factor is not None:
+            pulumi.set(__self__, "weight_factor", weight_factor)
+
+    @property
+    @pulumi.getter(name="shareIdentifier")
+    def share_identifier(self) -> pulumi.Input[str]:
+        """
+        A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        """
+        return pulumi.get(self, "share_identifier")
+
+    @share_identifier.setter
+    def share_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_identifier", value)
+
+    @property
+    @pulumi.getter(name="weightFactor")
+    def weight_factor(self) -> Optional[pulumi.Input[float]]:
+        """
+        The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        """
+        return pulumi.get(self, "weight_factor")
+
+    @weight_factor.setter
+    def weight_factor(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "weight_factor", value)
 
 

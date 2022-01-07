@@ -15,6 +15,7 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfigKernelSpec',
     'AppResourceSpec',
     'CodeRepositoryGitConfig',
+    'DeviceDevice',
     'DeviceFleetOutputConfig',
     'DomainDefaultUserSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettings',
@@ -246,8 +247,12 @@ class AppResourceSpec(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sagemakerImageArn":
             suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -262,15 +267,23 @@ class AppResourceSpec(dict):
 
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
-                 sagemaker_image_arn: Optional[str] = None):
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
         """
         :param str instance_type: The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -281,12 +294,28 @@ class AppResourceSpec(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
         The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -348,6 +377,67 @@ class CodeRepositoryGitConfig(dict):
         The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class DeviceDevice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "iotThingName":
+            suggest = "iot_thing_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceDevice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_name: str,
+                 description: Optional[str] = None,
+                 iot_thing_name: Optional[str] = None):
+        """
+        :param str device_name: The name of the device.
+        :param str description: A description for the device.
+        :param str iot_thing_name: Amazon Web Services Internet of Things (IoT) object name.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if iot_thing_name is not None:
+            pulumi.set(__self__, "iot_thing_name", iot_thing_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        """
+        The name of the device.
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for the device.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="iotThingName")
+    def iot_thing_name(self) -> Optional[str]:
+        """
+        Amazon Web Services Internet of Things (IoT) object name.
+        """
+        return pulumi.get(self, "iot_thing_name")
 
 
 @pulumi.output_type
@@ -561,8 +651,12 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sagemakerImageArn":
             suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -577,15 +671,23 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
 
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
-                 sagemaker_image_arn: Optional[str] = None):
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
         """
         :param str instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -596,12 +698,28 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
         The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -737,8 +855,12 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict)
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sagemakerImageArn":
             suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -753,15 +875,23 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict)
 
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
-                 sagemaker_image_arn: Optional[str] = None):
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
         """
         :param str instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -772,12 +902,28 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict)
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
         The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -887,8 +1033,12 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sagemakerImageArn":
             suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -903,15 +1053,23 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
 
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
-                 sagemaker_image_arn: Optional[str] = None):
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
         """
         :param str instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -922,12 +1080,28 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
         The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -3002,8 +3176,12 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sagemakerImageArn":
             suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -3018,15 +3196,23 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
 
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
-                 sagemaker_image_arn: Optional[str] = None):
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
         """
         :param str instance_type: The instance type.
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3037,12 +3223,28 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -3177,8 +3379,12 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sagemakerImageArn":
             suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -3193,15 +3399,23 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
 
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
-                 sagemaker_image_arn: Optional[str] = None):
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
         """
         :param str instance_type: The instance type.
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3212,12 +3426,28 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -3326,8 +3556,12 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sagemakerImageArn":
             suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -3342,15 +3576,23 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
 
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
-                 sagemaker_image_arn: Optional[str] = None):
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
         """
         :param str instance_type: The instance type.
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3361,12 +3603,28 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type

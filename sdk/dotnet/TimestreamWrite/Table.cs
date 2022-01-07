@@ -85,6 +85,12 @@ namespace Pulumi.Aws.TimestreamWrite
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        /// </summary>
+        [Output("magneticStoreWriteProperties")]
+        public Output<Outputs.TableMagneticStoreWriteProperties> MagneticStoreWriteProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
         [Output("retentionProperties")]
@@ -161,6 +167,12 @@ namespace Pulumi.Aws.TimestreamWrite
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        /// </summary>
+        [Input("magneticStoreWriteProperties")]
+        public Input<Inputs.TableMagneticStoreWritePropertiesArgs>? MagneticStoreWriteProperties { get; set; }
+
+        /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
         [Input("retentionProperties")]
@@ -202,6 +214,12 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        /// </summary>
+        [Input("magneticStoreWriteProperties")]
+        public Input<Inputs.TableMagneticStoreWritePropertiesGetArgs>? MagneticStoreWriteProperties { get; set; }
 
         /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.

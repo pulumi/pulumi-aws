@@ -10,6 +10,9 @@ from .lustre_file_system import *
 from .ontap_file_system import *
 from .ontap_storage_virtual_machine import *
 from .ontap_volume import *
+from .open_zfs_file_system import *
+from .open_zfs_snapshot import *
+from .open_zfs_volume import *
 from .windows_file_system import *
 from ._inputs import *
 from . import outputs

@@ -17,6 +17,7 @@ class JobQueueArgs:
                  priority: pulumi.Input[int],
                  state: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
+                 scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a JobQueue resource.
@@ -27,6 +28,7 @@ class JobQueueArgs:
                are evaluated first when associated with the same compute environment.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         :param pulumi.Input[str] name: Specifies the name of the job queue.
+        :param pulumi.Input[str] scheduling_policy_arn: The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "compute_environments", compute_environments)
@@ -34,6 +36,8 @@ class JobQueueArgs:
         pulumi.set(__self__, "state", state)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scheduling_policy_arn is not None:
+            pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -89,6 +93,18 @@ class JobQueueArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="schedulingPolicyArn")
+    def scheduling_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        """
+        return pulumi.get(self, "scheduling_policy_arn")
+
+    @scheduling_policy_arn.setter
+    def scheduling_policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduling_policy_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -108,6 +124,7 @@ class _JobQueueState:
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -120,6 +137,7 @@ class _JobQueueState:
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
+        :param pulumi.Input[str] scheduling_policy_arn: The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -132,6 +150,8 @@ class _JobQueueState:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if scheduling_policy_arn is not None:
+            pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -191,6 +211,18 @@ class _JobQueueState:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="schedulingPolicyArn")
+    def scheduling_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        """
+        return pulumi.get(self, "scheduling_policy_arn")
+
+    @scheduling_policy_arn.setter
+    def scheduling_policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduling_policy_arn", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -235,6 +267,7 @@ class JobQueue(pulumi.CustomResource):
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -242,12 +275,36 @@ class JobQueue(pulumi.CustomResource):
         Provides a Batch Job Queue resource.
 
         ## Example Usage
+        ### Basic Job Queue
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test_queue = aws.batch.JobQueue("testQueue",
+            state="ENABLED",
+            priority=1,
+            compute_environments=[
+                aws_batch_compute_environment["test_environment_1"]["arn"],
+                aws_batch_compute_environment["test_environment_2"]["arn"],
+            ])
+        ```
+        ### Job Queue with a fair share scheduling policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
+            compute_reservation=1,
+            share_decay_seconds=3600,
+            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
+                share_identifier="A1*",
+                weight_factor=0.1,
+            )],
+        ))
+        example_job_queue = aws.batch.JobQueue("exampleJobQueue",
+            scheduling_policy_arn=example_scheduling_policy.arn,
             state="ENABLED",
             priority=1,
             compute_environments=[
@@ -272,6 +329,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
+        :param pulumi.Input[str] scheduling_policy_arn: The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -285,12 +343,36 @@ class JobQueue(pulumi.CustomResource):
         Provides a Batch Job Queue resource.
 
         ## Example Usage
+        ### Basic Job Queue
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test_queue = aws.batch.JobQueue("testQueue",
+            state="ENABLED",
+            priority=1,
+            compute_environments=[
+                aws_batch_compute_environment["test_environment_1"]["arn"],
+                aws_batch_compute_environment["test_environment_2"]["arn"],
+            ])
+        ```
+        ### Job Queue with a fair share scheduling policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
+            compute_reservation=1,
+            share_decay_seconds=3600,
+            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
+                share_identifier="A1*",
+                weight_factor=0.1,
+            )],
+        ))
+        example_job_queue = aws.batch.JobQueue("exampleJobQueue",
+            scheduling_policy_arn=example_scheduling_policy.arn,
             state="ENABLED",
             priority=1,
             compute_environments=[
@@ -325,6 +407,7 @@ class JobQueue(pulumi.CustomResource):
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -346,6 +429,7 @@ class JobQueue(pulumi.CustomResource):
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["scheduling_policy_arn"] = scheduling_policy_arn
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
@@ -366,6 +450,7 @@ class JobQueue(pulumi.CustomResource):
             compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
+            scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'JobQueue':
@@ -383,6 +468,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
+        :param pulumi.Input[str] scheduling_policy_arn: The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -395,6 +481,7 @@ class JobQueue(pulumi.CustomResource):
         __props__.__dict__["compute_environments"] = compute_environments
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
+        __props__.__dict__["scheduling_policy_arn"] = scheduling_policy_arn
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -434,6 +521,14 @@ class JobQueue(pulumi.CustomResource):
         are evaluated first when associated with the same compute environment.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="schedulingPolicyArn")
+    def scheduling_policy_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        """
+        return pulumi.get(self, "scheduling_policy_arn")
 
     @property
     @pulumi.getter

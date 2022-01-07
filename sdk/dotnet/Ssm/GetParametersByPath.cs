@@ -29,6 +29,12 @@ namespace Pulumi.Aws.Ssm
         public string Path { get; set; } = null!;
 
         /// <summary>
+        /// Whether to recursively return parameters under `path`. Defaults to `false`.
+        /// </summary>
+        [Input("recursive")]
+        public bool? Recursive { get; set; }
+
+        /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
         /// </summary>
         [Input("withDecryption")]
@@ -46,6 +52,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to recursively return parameters under `path`. Defaults to `false`.
+        /// </summary>
+        [Input("recursive")]
+        public Input<bool>? Recursive { get; set; }
 
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
@@ -69,6 +81,7 @@ namespace Pulumi.Aws.Ssm
         public readonly string Id;
         public readonly ImmutableArray<string> Names;
         public readonly string Path;
+        public readonly bool? Recursive;
         public readonly ImmutableArray<string> Types;
         public readonly ImmutableArray<string> Values;
         public readonly bool? WithDecryption;
@@ -83,6 +96,8 @@ namespace Pulumi.Aws.Ssm
 
             string path,
 
+            bool? recursive,
+
             ImmutableArray<string> types,
 
             ImmutableArray<string> values,
@@ -93,6 +108,7 @@ namespace Pulumi.Aws.Ssm
             Id = id;
             Names = names;
             Path = path;
+            Recursive = recursive;
             Types = types;
             Values = values;
             WithDecryption = withDecryption;

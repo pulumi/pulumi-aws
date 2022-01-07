@@ -121,6 +121,9 @@ namespace Pulumi.Aws.DirectConnect
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("sitelinkEnabled")]
+        public Output<bool?> SitelinkEnabled { get; private set; } = null!;
+
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -246,6 +249,9 @@ namespace Pulumi.Aws.DirectConnect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("sitelinkEnabled")]
+        public Input<bool>? SitelinkEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -352,6 +358,9 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("sitelinkEnabled")]
+        public Input<bool>? SitelinkEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

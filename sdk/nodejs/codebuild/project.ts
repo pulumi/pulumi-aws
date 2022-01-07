@@ -280,13 +280,29 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     */
+    public readonly projectVisibility!: pulumi.Output<string | undefined>;
+    /**
+     * The project identifier used with the public build APIs.
+     */
+    public /*out*/ readonly publicProjectAlias!: pulumi.Output<string>;
+    /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
      */
     public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     */
+    public readonly resourceAccessRole!: pulumi.Output<string | undefined>;
+    /**
      * Configuration block. Detailed below.
      */
     public readonly secondaryArtifacts!: pulumi.Output<outputs.codebuild.ProjectSecondaryArtifact[] | undefined>;
+    /**
+     * Configuration block. Detailed below.
+     */
+    public readonly secondarySourceVersions!: pulumi.Output<outputs.codebuild.ProjectSecondarySourceVersion[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
@@ -300,7 +316,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
      */
     public readonly sourceVersion!: pulumi.Output<string | undefined>;
     /**
@@ -308,7 +324,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -343,8 +359,12 @@ export class Project extends pulumi.CustomResource {
             inputs["fileSystemLocations"] = state ? state.fileSystemLocations : undefined;
             inputs["logsConfig"] = state ? state.logsConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["projectVisibility"] = state ? state.projectVisibility : undefined;
+            inputs["publicProjectAlias"] = state ? state.publicProjectAlias : undefined;
             inputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
+            inputs["resourceAccessRole"] = state ? state.resourceAccessRole : undefined;
             inputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
+            inputs["secondarySourceVersions"] = state ? state.secondarySourceVersions : undefined;
             inputs["secondarySources"] = state ? state.secondarySources : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
             inputs["source"] = state ? state.source : undefined;
@@ -378,8 +398,11 @@ export class Project extends pulumi.CustomResource {
             inputs["fileSystemLocations"] = args ? args.fileSystemLocations : undefined;
             inputs["logsConfig"] = args ? args.logsConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["projectVisibility"] = args ? args.projectVisibility : undefined;
             inputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
+            inputs["resourceAccessRole"] = args ? args.resourceAccessRole : undefined;
             inputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
+            inputs["secondarySourceVersions"] = args ? args.secondarySourceVersions : undefined;
             inputs["secondarySources"] = args ? args.secondarySources : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["source"] = args ? args.source : undefined;
@@ -388,6 +411,7 @@ export class Project extends pulumi.CustomResource {
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["badgeUrl"] = undefined /*out*/;
+            inputs["publicProjectAlias"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -458,13 +482,29 @@ export interface ProjectState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     */
+    projectVisibility?: pulumi.Input<string>;
+    /**
+     * The project identifier used with the public build APIs.
+     */
+    publicProjectAlias?: pulumi.Input<string>;
+    /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     */
+    resourceAccessRole?: pulumi.Input<string>;
+    /**
      * Configuration block. Detailed below.
      */
     secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    /**
+     * Configuration block. Detailed below.
+     */
+    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[]>;
     /**
      * Configuration block. Detailed below.
      */
@@ -478,7 +518,7 @@ export interface ProjectState {
      */
     source?: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
      */
     sourceVersion?: pulumi.Input<string>;
     /**
@@ -486,7 +526,7 @@ export interface ProjectState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -548,13 +588,25 @@ export interface ProjectArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     */
+    projectVisibility?: pulumi.Input<string>;
+    /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     */
+    resourceAccessRole?: pulumi.Input<string>;
+    /**
      * Configuration block. Detailed below.
      */
     secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    /**
+     * Configuration block. Detailed below.
+     */
+    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[]>;
     /**
      * Configuration block. Detailed below.
      */
@@ -568,7 +620,7 @@ export interface ProjectArgs {
      */
     source: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
      */
     sourceVersion?: pulumi.Input<string>;
     /**

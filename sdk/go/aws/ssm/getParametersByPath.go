@@ -23,6 +23,8 @@ func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opt
 type GetParametersByPathArgs struct {
 	// The prefix path of the parameter.
 	Path string `pulumi:"path"`
+	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	Recursive *bool `pulumi:"recursive"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption *bool `pulumi:"withDecryption"`
 }
@@ -34,6 +36,7 @@ type GetParametersByPathResult struct {
 	Id             string   `pulumi:"id"`
 	Names          []string `pulumi:"names"`
 	Path           string   `pulumi:"path"`
+	Recursive      *bool    `pulumi:"recursive"`
 	Types          []string `pulumi:"types"`
 	Values         []string `pulumi:"values"`
 	WithDecryption *bool    `pulumi:"withDecryption"`
@@ -52,6 +55,8 @@ func GetParametersByPathOutput(ctx *pulumi.Context, args GetParametersByPathOutp
 type GetParametersByPathOutputArgs struct {
 	// The prefix path of the parameter.
 	Path pulumi.StringInput `pulumi:"path"`
+	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
 }
@@ -90,6 +95,10 @@ func (o GetParametersByPathResultOutput) Names() pulumi.StringArrayOutput {
 
 func (o GetParametersByPathResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GetParametersByPathResultOutput) Recursive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetParametersByPathResult) *bool { return v.Recursive }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetParametersByPathResultOutput) Types() pulumi.StringArrayOutput {

@@ -481,7 +481,7 @@ func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 type CanarySchedule struct {
 	// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
 	DurationInSeconds *int `pulumi:"durationInSeconds"`
-	// Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+	// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
 	Expression string `pulumi:"expression"`
 }
 
@@ -499,7 +499,7 @@ type CanaryScheduleInput interface {
 type CanaryScheduleArgs struct {
 	// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
 	DurationInSeconds pulumi.IntPtrInput `pulumi:"durationInSeconds"`
-	// Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+	// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
 	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
@@ -585,7 +585,7 @@ func (o CanaryScheduleOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanarySchedule) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -624,7 +624,7 @@ func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
 func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *string {
 		if v == nil {

@@ -16,12 +16,24 @@ namespace Pulumi.Aws.Ecr.Inputs
         private InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>? _destinations;
 
         /// <summary>
-        /// the details of a replication destination. See Destination.
+        /// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
         /// </summary>
         public InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>());
             set => _destinations = value;
+        }
+
+        [Input("repositoryFilters")]
+        private InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs>? _repositoryFilters;
+
+        /// <summary>
+        /// filters for a replication rule. See Repository Filter.
+        /// </summary>
+        public InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs> RepositoryFilters
+        {
+            get => _repositoryFilters ?? (_repositoryFilters = new InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs>());
+            set => _repositoryFilters = value;
         }
 
         public ReplicationConfigurationReplicationConfigurationRuleArgs()

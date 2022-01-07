@@ -128,7 +128,7 @@ namespace Pulumi.Aws.WafV2
     public partial class WebAclLoggingConfiguration : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        /// The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         /// </summary>
         [Output("logDestinationConfigs")]
         public Output<ImmutableArray<string>> LogDestinationConfigs { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<string>? _logDestinationConfigs;
 
         /// <summary>
-        /// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        /// The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         /// </summary>
         public InputList<string> LogDestinationConfigs
         {
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<string>? _logDestinationConfigs;
 
         /// <summary>
-        /// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        /// The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         /// </summary>
         public InputList<string> LogDestinationConfigs
         {

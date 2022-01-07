@@ -97,6 +97,53 @@ import (
 // }
 // ```
 //
+// ## Repository Filter Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecr"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleRegions, err := aws.GetRegions(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecr.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &ecr.ReplicationConfigurationArgs{
+// 			ReplicationConfiguration: &ecr.ReplicationConfigurationReplicationConfigurationArgs{
+// 				Rule: &ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
+// 					Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
+// 						&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
+// 							Region:     pulumi.String(exampleRegions.Names[0]),
+// 							RegistryId: pulumi.String(current.AccountId),
+// 						},
+// 					},
+// 					RepositoryFilters: ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{
+// 						&ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{
+// 							Filter:     pulumi.String("prod-microservice"),
+// 							FilterType: pulumi.String("PREFIX_MATCH"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // ECR Replication Configuration can be imported using the `registry_id`, e.g.,

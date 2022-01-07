@@ -8,13 +8,16 @@ import * as utilities from "../utilities";
 export * from "./computeEnvironment";
 export * from "./getComputeEnvironment";
 export * from "./getJobQueue";
+export * from "./getSchedulingPolicy";
 export * from "./jobDefinition";
 export * from "./jobQueue";
+export * from "./schedulingPolicy";
 
 // Import resources to register:
 import { ComputeEnvironment } from "./computeEnvironment";
 import { JobDefinition } from "./jobDefinition";
 import { JobQueue } from "./jobQueue";
+import { SchedulingPolicy } from "./schedulingPolicy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -26,6 +29,8 @@ const _module = {
                 return new JobDefinition(name, <any>undefined, { urn })
             case "aws:batch/jobQueue:JobQueue":
                 return new JobQueue(name, <any>undefined, { urn })
+            case "aws:batch/schedulingPolicy:SchedulingPolicy":
+                return new SchedulingPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -34,3 +39,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "batch/computeEnvironment", _module)
 pulumi.runtime.registerResourceModule("aws", "batch/jobDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "batch/jobQueue", _module)
+pulumi.runtime.registerResourceModule("aws", "batch/schedulingPolicy", _module)

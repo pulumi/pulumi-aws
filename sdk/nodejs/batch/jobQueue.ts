@@ -8,12 +8,37 @@ import * as utilities from "../utilities";
  * Provides a Batch Job Queue resource.
  *
  * ## Example Usage
+ * ### Basic Job Queue
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const testQueue = new aws.batch.JobQueue("testQueue", {
+ *     state: "ENABLED",
+ *     priority: 1,
+ *     computeEnvironments: [
+ *         aws_batch_compute_environment.test_environment_1.arn,
+ *         aws_batch_compute_environment.test_environment_2.arn,
+ *     ],
+ * });
+ * ```
+ * ### Job Queue with a fair share scheduling policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleSchedulingPolicy = new aws.batch.SchedulingPolicy("exampleSchedulingPolicy", {fairSharePolicy: {
+ *     computeReservation: 1,
+ *     shareDecaySeconds: 3600,
+ *     shareDistributions: [{
+ *         shareIdentifier: "A1*",
+ *         weightFactor: 0.1,
+ *     }],
+ * }});
+ * const exampleJobQueue = new aws.batch.JobQueue("exampleJobQueue", {
+ *     schedulingPolicyArn: exampleSchedulingPolicy.arn,
  *     state: "ENABLED",
  *     priority: 1,
  *     computeEnvironments: [
@@ -79,6 +104,10 @@ export class JobQueue extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
+     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+     */
+    public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
+    /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     public readonly state!: pulumi.Output<string>;
@@ -108,6 +137,7 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["computeEnvironments"] = state ? state.computeEnvironments : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["priority"] = state ? state.priority : undefined;
+            inputs["schedulingPolicyArn"] = state ? state.schedulingPolicyArn : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -125,6 +155,7 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["computeEnvironments"] = args ? args.computeEnvironments : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["priority"] = args ? args.priority : undefined;
+            inputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -161,6 +192,10 @@ export interface JobQueueState {
      */
     priority?: pulumi.Input<number>;
     /**
+     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+     */
+    schedulingPolicyArn?: pulumi.Input<string>;
+    /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     state?: pulumi.Input<string>;
@@ -193,6 +228,10 @@ export interface JobQueueArgs {
      * are evaluated first when associated with the same compute environment.
      */
     priority: pulumi.Input<number>;
+    /**
+     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+     */
+    schedulingPolicyArn?: pulumi.Input<string>;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */

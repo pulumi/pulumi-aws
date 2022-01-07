@@ -113,6 +113,40 @@ import (
 // }
 // ```
 //
+// ## OpenZFS Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/fsx"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
+// 			StorageCapacity: pulumi.Int(64),
+// 			SubnetIds: pulumi.String{
+// 				aws_subnet.Example.Id,
+// 			},
+// 			DeploymentType:     pulumi.String("SINGLE_AZ_1"),
+// 			ThroughputCapacity: pulumi.Int(64),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
+// 			FileSystemId: exampleOpenZfsFileSystem.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // FSx Backups can be imported using the `id`, e.g.,

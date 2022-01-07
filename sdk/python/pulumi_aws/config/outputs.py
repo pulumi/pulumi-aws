@@ -252,6 +252,7 @@ class Endpoints(dict):
                  iotthingsgraph: Optional[str] = None,
                  iotwireless: Optional[str] = None,
                  kafka: Optional[str] = None,
+                 kafkaconnect: Optional[str] = None,
                  kendra: Optional[str] = None,
                  kinesis: Optional[str] = None,
                  kinesisanalytics: Optional[str] = None,
@@ -704,6 +705,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "iotwireless", iotwireless)
         if kafka is not None:
             pulumi.set(__self__, "kafka", kafka)
+        if kafkaconnect is not None:
+            pulumi.set(__self__, "kafkaconnect", kafkaconnect)
         if kendra is not None:
             pulumi.set(__self__, "kendra", kendra)
         if kinesis is not None:
@@ -1760,6 +1763,11 @@ class Endpoints(dict):
     @pulumi.getter
     def kafka(self) -> Optional[str]:
         return pulumi.get(self, "kafka")
+
+    @property
+    @pulumi.getter
+    def kafkaconnect(self) -> Optional[str]:
+        return pulumi.get(self, "kafkaconnect")
 
     @property
     @pulumi.getter

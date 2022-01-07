@@ -110,6 +110,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      * The name for the virtual interface.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly sitelinkEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -149,6 +150,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
             inputs["mtu"] = state ? state.mtu : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["sitelinkEnabled"] = state ? state.sitelinkEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vlan"] = state ? state.vlan : undefined;
@@ -178,6 +180,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             inputs["mtu"] = args ? args.mtu : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["sitelinkEnabled"] = args ? args.sitelinkEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
             inputs["amazonSideAsn"] = undefined /*out*/;
@@ -247,6 +250,7 @@ export interface TransitVirtualInterfaceState {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string>;
+    sitelinkEnabled?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -302,6 +306,7 @@ export interface TransitVirtualInterfaceArgs {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string>;
+    sitelinkEnabled?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

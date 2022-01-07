@@ -11,6 +11,7 @@ export * from "./getDelegatedAdministrators";
 export * from "./getDelegatedServices";
 export * from "./getOrganization";
 export * from "./getOrganizationalUnits";
+export * from "./getResourceTags";
 export * from "./organization";
 export * from "./organizationalUnit";
 export * from "./policy";

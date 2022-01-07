@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobDefinition{}
 	case "aws:batch/jobQueue:JobQueue":
 		r = &JobQueue{}
+	case "aws:batch/schedulingPolicy:SchedulingPolicy":
+		r = &SchedulingPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"batch/jobQueue",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"batch/schedulingPolicy",
 		&module{version},
 	)
 }

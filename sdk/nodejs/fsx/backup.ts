@@ -53,6 +53,21 @@ import * as utilities from "../utilities";
  * const exampleBackup = new aws.fsx.Backup("exampleBackup", {volumeId: exampleOntapVolume.id});
  * ```
  *
+ * ## OpenZFS Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
+ *     storageCapacity: 64,
+ *     subnetIds: [aws_subnet.example.id],
+ *     deploymentType: "SINGLE_AZ_1",
+ *     throughputCapacity: 64,
+ * });
+ * const exampleBackup = new aws.fsx.Backup("exampleBackup", {fileSystemId: exampleOpenZfsFileSystem.id});
+ * ```
+ *
  * ## Import
  *
  * FSx Backups can be imported using the `id`, e.g.,

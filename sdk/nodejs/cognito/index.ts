@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getUserPoolClients";
+export * from "./getUserPoolSigningCertificate";
 export * from "./getUserPools";
 export * from "./identityPool";
 export * from "./identityPoolRoleAttachment";

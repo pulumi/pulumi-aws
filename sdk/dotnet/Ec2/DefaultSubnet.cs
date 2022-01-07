@@ -81,6 +81,15 @@ namespace Pulumi.Aws.Ec2
         [Output("customerOwnedIpv4Pool")]
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
+        [Output("enableDns64")]
+        public Output<bool?> EnableDns64 { get; private set; } = null!;
+
+        [Output("enableResourceNameDnsARecordOnLaunch")]
+        public Output<bool?> EnableResourceNameDnsARecordOnLaunch { get; private set; } = null!;
+
+        [Output("enableResourceNameDnsAaaaRecordOnLaunch")]
+        public Output<bool?> EnableResourceNameDnsAaaaRecordOnLaunch { get; private set; } = null!;
+
         /// <summary>
         /// IPv6 CIDR block.
         /// </summary>
@@ -89,6 +98,9 @@ namespace Pulumi.Aws.Ec2
 
         [Output("ipv6CidrBlockAssociationId")]
         public Output<string> Ipv6CidrBlockAssociationId { get; private set; } = null!;
+
+        [Output("ipv6Native")]
+        public Output<bool?> Ipv6Native { get; private set; } = null!;
 
         [Output("mapCustomerOwnedIpOnLaunch")]
         public Output<bool?> MapCustomerOwnedIpOnLaunch { get; private set; } = null!;
@@ -107,6 +119,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
+
+        [Output("privateDnsHostnameTypeOnLaunch")]
+        public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource.
@@ -178,6 +193,18 @@ namespace Pulumi.Aws.Ec2
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
+        [Input("enableDns64")]
+        public Input<bool>? EnableDns64 { get; set; }
+
+        [Input("enableResourceNameDnsARecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsARecordOnLaunch { get; set; }
+
+        [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
+
+        [Input("ipv6Native")]
+        public Input<bool>? Ipv6Native { get; set; }
+
         [Input("mapCustomerOwnedIpOnLaunch")]
         public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
@@ -189,6 +216,9 @@ namespace Pulumi.Aws.Ec2
 
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
+
+        [Input("privateDnsHostnameTypeOnLaunch")]
+        public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -240,6 +270,15 @@ namespace Pulumi.Aws.Ec2
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
+        [Input("enableDns64")]
+        public Input<bool>? EnableDns64 { get; set; }
+
+        [Input("enableResourceNameDnsARecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsARecordOnLaunch { get; set; }
+
+        [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
+
         /// <summary>
         /// IPv6 CIDR block.
         /// </summary>
@@ -248,6 +287,9 @@ namespace Pulumi.Aws.Ec2
 
         [Input("ipv6CidrBlockAssociationId")]
         public Input<string>? Ipv6CidrBlockAssociationId { get; set; }
+
+        [Input("ipv6Native")]
+        public Input<bool>? Ipv6Native { get; set; }
 
         [Input("mapCustomerOwnedIpOnLaunch")]
         public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
@@ -266,6 +308,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
+
+        [Input("privateDnsHostnameTypeOnLaunch")]
+        public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

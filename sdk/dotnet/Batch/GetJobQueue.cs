@@ -150,6 +150,10 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly int Priority;
         /// <summary>
+        /// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+        /// </summary>
+        public readonly string SchedulingPolicyArn;
+        /// <summary>
         /// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         /// </summary>
         public readonly string State;
@@ -179,6 +183,8 @@ namespace Pulumi.Aws.Batch
 
             int priority,
 
+            string schedulingPolicyArn,
+
             string state,
 
             string status,
@@ -192,6 +198,7 @@ namespace Pulumi.Aws.Batch
             Id = id;
             Name = name;
             Priority = priority;
+            SchedulingPolicyArn = schedulingPolicyArn;
             State = state;
             Status = status;
             StatusReason = statusReason;

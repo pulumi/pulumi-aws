@@ -13,6 +13,8 @@ import (
 type ProjectArtifacts struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 	ArtifactIdentifier *string `pulumi:"artifactIdentifier"`
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
 	// Location of the source code from git or s3.
@@ -45,6 +47,8 @@ type ProjectArtifactsInput interface {
 type ProjectArtifactsArgs struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 	ArtifactIdentifier pulumi.StringPtrInput `pulumi:"artifactIdentifier"`
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
 	// Location of the source code from git or s3.
@@ -145,6 +149,11 @@ func (o ProjectArtifactsOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.ArtifactIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+func (o ProjectArtifactsOutput) BucketOwnerAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *string { return v.BucketOwnerAccess }).(pulumi.StringPtrOutput)
+}
+
 // Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 func (o ProjectArtifactsOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
@@ -216,6 +225,16 @@ func (o ProjectArtifactsPtrOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ArtifactIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+func (o ProjectArtifactsPtrOutput) BucketOwnerAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwnerAccess
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1830,6 +1849,8 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) StreamName() pulumi.StringPtrO
 }
 
 type ProjectLogsConfigS3Logs struct {
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
 	// Location of the source code from git or s3.
@@ -1850,6 +1871,8 @@ type ProjectLogsConfigS3LogsInput interface {
 }
 
 type ProjectLogsConfigS3LogsArgs struct {
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
 	// Location of the source code from git or s3.
@@ -1935,6 +1958,11 @@ func (o ProjectLogsConfigS3LogsOutput) ToProjectLogsConfigS3LogsPtrOutputWithCon
 	}).(ProjectLogsConfigS3LogsPtrOutput)
 }
 
+// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+func (o ProjectLogsConfigS3LogsOutput) BucketOwnerAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *string { return v.BucketOwnerAccess }).(pulumi.StringPtrOutput)
+}
+
 // Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 func (o ProjectLogsConfigS3LogsOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
@@ -1974,6 +2002,16 @@ func (o ProjectLogsConfigS3LogsPtrOutput) Elem() ProjectLogsConfigS3LogsOutput {
 	}).(ProjectLogsConfigS3LogsOutput)
 }
 
+// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+func (o ProjectLogsConfigS3LogsPtrOutput) BucketOwnerAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwnerAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 // Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 func (o ProjectLogsConfigS3LogsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) *bool {
@@ -2007,6 +2045,8 @@ func (o ProjectLogsConfigS3LogsPtrOutput) Status() pulumi.StringPtrOutput {
 type ProjectSecondaryArtifact struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 	ArtifactIdentifier string `pulumi:"artifactIdentifier"`
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
 	// Location of the source code from git or s3.
@@ -2039,6 +2079,8 @@ type ProjectSecondaryArtifactInput interface {
 type ProjectSecondaryArtifactArgs struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 	ArtifactIdentifier pulumi.StringInput `pulumi:"artifactIdentifier"`
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
 	// Location of the source code from git or s3.
@@ -2111,6 +2153,11 @@ func (o ProjectSecondaryArtifactOutput) ToProjectSecondaryArtifactOutputWithCont
 // Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 func (o ProjectSecondaryArtifactOutput) ArtifactIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) string { return v.ArtifactIdentifier }).(pulumi.StringOutput)
+}
+
+// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+func (o ProjectSecondaryArtifactOutput) BucketOwnerAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.BucketOwnerAccess }).(pulumi.StringPtrOutput)
 }
 
 // Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
@@ -2192,7 +2239,7 @@ type ProjectSecondarySource struct {
 	Location *string `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
-	// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+	// An identifier for a source in the build project.
 	SourceIdentifier string `pulumi:"sourceIdentifier"`
 	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
 	Type string `pulumi:"type"`
@@ -2228,7 +2275,7 @@ type ProjectSecondarySourceArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
-	// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+	// An identifier for a source in the build project.
 	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
 	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2329,7 +2376,7 @@ func (o ProjectSecondarySourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
 
-// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+// An identifier for a source in the build project.
 func (o ProjectSecondarySourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
 }
@@ -2822,6 +2869,112 @@ func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) FetchSubmodules() pu
 		}
 		return &v.FetchSubmodules
 	}).(pulumi.BoolPtrOutput)
+}
+
+type ProjectSecondarySourceVersion struct {
+	// An identifier for a source in the build project.
+	SourceIdentifier string `pulumi:"sourceIdentifier"`
+	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+	SourceVersion string `pulumi:"sourceVersion"`
+}
+
+// ProjectSecondarySourceVersionInput is an input type that accepts ProjectSecondarySourceVersionArgs and ProjectSecondarySourceVersionOutput values.
+// You can construct a concrete instance of `ProjectSecondarySourceVersionInput` via:
+//
+//          ProjectSecondarySourceVersionArgs{...}
+type ProjectSecondarySourceVersionInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourceVersionOutput() ProjectSecondarySourceVersionOutput
+	ToProjectSecondarySourceVersionOutputWithContext(context.Context) ProjectSecondarySourceVersionOutput
+}
+
+type ProjectSecondarySourceVersionArgs struct {
+	// An identifier for a source in the build project.
+	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+	SourceVersion pulumi.StringInput `pulumi:"sourceVersion"`
+}
+
+func (ProjectSecondarySourceVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSecondarySourceVersion)(nil)).Elem()
+}
+
+func (i ProjectSecondarySourceVersionArgs) ToProjectSecondarySourceVersionOutput() ProjectSecondarySourceVersionOutput {
+	return i.ToProjectSecondarySourceVersionOutputWithContext(context.Background())
+}
+
+func (i ProjectSecondarySourceVersionArgs) ToProjectSecondarySourceVersionOutputWithContext(ctx context.Context) ProjectSecondarySourceVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceVersionOutput)
+}
+
+// ProjectSecondarySourceVersionArrayInput is an input type that accepts ProjectSecondarySourceVersionArray and ProjectSecondarySourceVersionArrayOutput values.
+// You can construct a concrete instance of `ProjectSecondarySourceVersionArrayInput` via:
+//
+//          ProjectSecondarySourceVersionArray{ ProjectSecondarySourceVersionArgs{...} }
+type ProjectSecondarySourceVersionArrayInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourceVersionArrayOutput() ProjectSecondarySourceVersionArrayOutput
+	ToProjectSecondarySourceVersionArrayOutputWithContext(context.Context) ProjectSecondarySourceVersionArrayOutput
+}
+
+type ProjectSecondarySourceVersionArray []ProjectSecondarySourceVersionInput
+
+func (ProjectSecondarySourceVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSecondarySourceVersion)(nil)).Elem()
+}
+
+func (i ProjectSecondarySourceVersionArray) ToProjectSecondarySourceVersionArrayOutput() ProjectSecondarySourceVersionArrayOutput {
+	return i.ToProjectSecondarySourceVersionArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSecondarySourceVersionArray) ToProjectSecondarySourceVersionArrayOutputWithContext(ctx context.Context) ProjectSecondarySourceVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceVersionArrayOutput)
+}
+
+type ProjectSecondarySourceVersionOutput struct{ *pulumi.OutputState }
+
+func (ProjectSecondarySourceVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSecondarySourceVersion)(nil)).Elem()
+}
+
+func (o ProjectSecondarySourceVersionOutput) ToProjectSecondarySourceVersionOutput() ProjectSecondarySourceVersionOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceVersionOutput) ToProjectSecondarySourceVersionOutputWithContext(ctx context.Context) ProjectSecondarySourceVersionOutput {
+	return o
+}
+
+// An identifier for a source in the build project.
+func (o ProjectSecondarySourceVersionOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSecondarySourceVersion) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+}
+
+// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+func (o ProjectSecondarySourceVersionOutput) SourceVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSecondarySourceVersion) string { return v.SourceVersion }).(pulumi.StringOutput)
+}
+
+type ProjectSecondarySourceVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSecondarySourceVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSecondarySourceVersion)(nil)).Elem()
+}
+
+func (o ProjectSecondarySourceVersionArrayOutput) ToProjectSecondarySourceVersionArrayOutput() ProjectSecondarySourceVersionArrayOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceVersionArrayOutput) ToProjectSecondarySourceVersionArrayOutputWithContext(ctx context.Context) ProjectSecondarySourceVersionArrayOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceVersionArrayOutput) Index(i pulumi.IntInput) ProjectSecondarySourceVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSecondarySourceVersion {
+		return vs[0].([]ProjectSecondarySourceVersion)[vs[1].(int)]
+	}).(ProjectSecondarySourceVersionOutput)
 }
 
 type ProjectSource struct {
@@ -4379,6 +4532,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceBuildStatusConfigPtrInput)(nil)).Elem(), ProjectSecondarySourceBuildStatusConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceGitSubmodulesConfigInput)(nil)).Elem(), ProjectSecondarySourceGitSubmodulesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceGitSubmodulesConfigPtrInput)(nil)).Elem(), ProjectSecondarySourceGitSubmodulesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceVersionInput)(nil)).Elem(), ProjectSecondarySourceVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceVersionArrayInput)(nil)).Elem(), ProjectSecondarySourceVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceInput)(nil)).Elem(), ProjectSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourcePtrInput)(nil)).Elem(), ProjectSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthInput)(nil)).Elem(), ProjectSourceAuthArgs{})
@@ -4429,6 +4584,8 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSecondarySourceBuildStatusConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceGitSubmodulesConfigOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceGitSubmodulesConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSecondarySourceVersionOutput{})
+	pulumi.RegisterOutputType(ProjectSecondarySourceVersionArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSourceOutput{})
 	pulumi.RegisterOutputType(ProjectSourcePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})

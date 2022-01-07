@@ -26,6 +26,7 @@ class QueueArgs:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  receive_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+                 redrive_allow_policy: Optional[pulumi.Input[str]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -45,6 +46,7 @@ class QueueArgs:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+        :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -76,6 +78,8 @@ class QueueArgs:
             pulumi.set(__self__, "policy", policy)
         if receive_wait_time_seconds is not None:
             pulumi.set(__self__, "receive_wait_time_seconds", receive_wait_time_seconds)
+        if redrive_allow_policy is not None:
+            pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
         if sqs_managed_sse_enabled is not None:
@@ -242,6 +246,18 @@ class QueueArgs:
         pulumi.set(self, "receive_wait_time_seconds", value)
 
     @property
+    @pulumi.getter(name="redriveAllowPolicy")
+    def redrive_allow_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
+        """
+        return pulumi.get(self, "redrive_allow_policy")
+
+    @redrive_allow_policy.setter
+    def redrive_allow_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redrive_allow_policy", value)
+
+    @property
     @pulumi.getter(name="redrivePolicy")
     def redrive_policy(self) -> Optional[pulumi.Input[str]]:
         """
@@ -307,6 +323,7 @@ class _QueueState:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  receive_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+                 redrive_allow_policy: Optional[pulumi.Input[str]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -329,6 +346,7 @@ class _QueueState:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+        :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -364,6 +382,8 @@ class _QueueState:
             pulumi.set(__self__, "policy", policy)
         if receive_wait_time_seconds is not None:
             pulumi.set(__self__, "receive_wait_time_seconds", receive_wait_time_seconds)
+        if redrive_allow_policy is not None:
+            pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
         if sqs_managed_sse_enabled is not None:
@@ -546,6 +566,18 @@ class _QueueState:
         pulumi.set(self, "receive_wait_time_seconds", value)
 
     @property
+    @pulumi.getter(name="redriveAllowPolicy")
+    def redrive_allow_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
+        """
+        return pulumi.get(self, "redrive_allow_policy")
+
+    @redrive_allow_policy.setter
+    def redrive_allow_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redrive_allow_policy", value)
+
+    @property
     @pulumi.getter(name="redrivePolicy")
     def redrive_policy(self) -> Optional[pulumi.Input[str]]:
         """
@@ -636,6 +668,7 @@ class Queue(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  receive_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+                 redrive_allow_policy: Optional[pulumi.Input[str]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -657,6 +690,10 @@ class Queue(pulumi.CustomResource):
             redrive_policy=json.dumps({
                 "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
                 "maxReceiveCount": 4,
+            }),
+            redrive_allow_policy=json.dumps({
+                "redrivePermission": "byQueue",
+                "sourceQueueArns": [aws_sqs_queue["terraform_queue_deadletter"]["arn"]],
             }),
             tags={
                 "Environment": "production",
@@ -730,6 +767,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+        :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -757,6 +795,10 @@ class Queue(pulumi.CustomResource):
             redrive_policy=json.dumps({
                 "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
                 "maxReceiveCount": 4,
+            }),
+            redrive_allow_policy=json.dumps({
+                "redrivePermission": "byQueue",
+                "sourceQueueArns": [aws_sqs_queue["terraform_queue_deadletter"]["arn"]],
             }),
             tags={
                 "Environment": "production",
@@ -843,6 +885,7 @@ class Queue(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  receive_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+                 redrive_allow_policy: Optional[pulumi.Input[str]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -872,6 +915,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["policy"] = policy
             __props__.__dict__["receive_wait_time_seconds"] = receive_wait_time_seconds
+            __props__.__dict__["redrive_allow_policy"] = redrive_allow_policy
             __props__.__dict__["redrive_policy"] = redrive_policy
             __props__.__dict__["sqs_managed_sse_enabled"] = sqs_managed_sse_enabled
             __props__.__dict__["tags"] = tags
@@ -903,6 +947,7 @@ class Queue(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             receive_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+            redrive_allow_policy: Optional[pulumi.Input[str]] = None,
             redrive_policy: Optional[pulumi.Input[str]] = None,
             sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -930,6 +975,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+        :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -955,6 +1001,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["policy"] = policy
         __props__.__dict__["receive_wait_time_seconds"] = receive_wait_time_seconds
+        __props__.__dict__["redrive_allow_policy"] = redrive_allow_policy
         __props__.__dict__["redrive_policy"] = redrive_policy
         __props__.__dict__["sqs_managed_sse_enabled"] = sqs_managed_sse_enabled
         __props__.__dict__["tags"] = tags
@@ -1074,6 +1121,14 @@ class Queue(pulumi.CustomResource):
         The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         """
         return pulumi.get(self, "receive_wait_time_seconds")
+
+    @property
+    @pulumi.getter(name="redriveAllowPolicy")
+    def redrive_allow_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
+        """
+        return pulumi.get(self, "redrive_allow_policy")
 
     @property
     @pulumi.getter(name="redrivePolicy")

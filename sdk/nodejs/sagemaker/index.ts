@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./app";
 export * from "./appImageConfig";
 export * from "./codeRepository";
+export * from "./device";
 export * from "./deviceFleet";
 export * from "./domain";
 export * from "./endpoint";
@@ -32,6 +33,7 @@ export * from "./workteam";
 import { App } from "./app";
 import { AppImageConfig } from "./appImageConfig";
 import { CodeRepository } from "./codeRepository";
+import { Device } from "./device";
 import { DeviceFleet } from "./deviceFleet";
 import { Domain } from "./domain";
 import { Endpoint } from "./endpoint";
@@ -61,6 +63,8 @@ const _module = {
                 return new AppImageConfig(name, <any>undefined, { urn })
             case "aws:sagemaker/codeRepository:CodeRepository":
                 return new CodeRepository(name, <any>undefined, { urn })
+            case "aws:sagemaker/device:Device":
+                return new Device(name, <any>undefined, { urn })
             case "aws:sagemaker/deviceFleet:DeviceFleet":
                 return new DeviceFleet(name, <any>undefined, { urn })
             case "aws:sagemaker/domain:Domain":
@@ -105,6 +109,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "sagemaker/app", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/appImageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/device", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/deviceFleet", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpoint", _module)

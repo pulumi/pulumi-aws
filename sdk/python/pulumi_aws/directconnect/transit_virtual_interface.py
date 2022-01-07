@@ -23,6 +23,7 @@ class TransitVirtualInterfaceArgs:
                  customer_address: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sitelink_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TransitVirtualInterface resource.
@@ -54,6 +55,8 @@ class TransitVirtualInterfaceArgs:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sitelink_enabled is not None:
+            pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -179,6 +182,15 @@ class TransitVirtualInterfaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="sitelinkEnabled")
+    def sitelink_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "sitelink_enabled")
+
+    @sitelink_enabled.setter
+    def sitelink_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sitelink_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -207,6 +219,7 @@ class _TransitVirtualInterfaceState:
                  jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sitelink_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vlan: Optional[pulumi.Input[int]] = None):
@@ -255,6 +268,8 @@ class _TransitVirtualInterfaceState:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sitelink_enabled is not None:
+            pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -417,6 +432,15 @@ class _TransitVirtualInterfaceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="sitelinkEnabled")
+    def sitelink_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "sitelink_enabled")
+
+    @sitelink_enabled.setter
+    def sitelink_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sitelink_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -467,6 +491,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sitelink_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vlan: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -569,6 +594,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sitelink_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vlan: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -600,6 +626,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["dx_gateway_id"] = dx_gateway_id
             __props__.__dict__["mtu"] = mtu
             __props__.__dict__["name"] = name
+            __props__.__dict__["sitelink_enabled"] = sitelink_enabled
             __props__.__dict__["tags"] = tags
             if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
@@ -632,6 +659,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
             jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
             mtu: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            sitelink_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vlan: Optional[pulumi.Input[int]] = None) -> 'TransitVirtualInterface':
@@ -676,6 +704,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["jumbo_frame_capable"] = jumbo_frame_capable
         __props__.__dict__["mtu"] = mtu
         __props__.__dict__["name"] = name
+        __props__.__dict__["sitelink_enabled"] = sitelink_enabled
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vlan"] = vlan
@@ -782,6 +811,11 @@ class TransitVirtualInterface(pulumi.CustomResource):
         The name for the virtual interface.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sitelinkEnabled")
+    def sitelink_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "sitelink_enabled")
 
     @property
     @pulumi.getter

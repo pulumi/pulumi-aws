@@ -5381,7 +5381,7 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
 	DynamicPartitioningConfiguration  *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration  `pulumi:"dynamicPartitioningConfiguration"`
-	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -5424,7 +5424,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
 	DynamicPartitioningConfiguration  FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput  `pulumi:"dynamicPartitioningConfiguration"`
-	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -5559,7 +5559,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) DynamicPartitioning
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
 }
 
-// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
 }
@@ -5693,7 +5693,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) DynamicPartition
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
 }
 
-// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -8429,6 +8429,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -8461,6 +8463,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs stru
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
@@ -8579,6 +8583,13 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 // be used.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
@@ -8667,6 +8678,16 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 			return nil
 		}
 		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11121,6 +11142,8 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -11153,6 +11176,8 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs struct
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
@@ -11269,6 +11294,13 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 // be used.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
@@ -11357,6 +11389,16 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 			return nil
 		}
 		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11584,6 +11626,8 @@ type FirehoseDeliveryStreamS3Configuration struct {
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -11616,6 +11660,8 @@ type FirehoseDeliveryStreamS3ConfigurationArgs struct {
 	CloudwatchLoggingOptions FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
@@ -11730,6 +11776,11 @@ func (o FirehoseDeliveryStreamS3ConfigurationOutput) CompressionFormat() pulumi.
 	return o.ApplyT(func(v FirehoseDeliveryStreamS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
 
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamS3ConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 // be used.
 func (o FirehoseDeliveryStreamS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
@@ -11818,6 +11869,16 @@ func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) CompressionFormat() pulu
 			return nil
 		}
 		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
 	}).(pulumi.StringPtrOutput)
 }
 

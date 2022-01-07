@@ -13,6 +13,9 @@ from .domain_identity import *
 from .domain_identity_verification import *
 from .email_identity import *
 from .event_destination import *
+from .get_active_receipt_rule_set import *
+from .get_domain_identity import *
+from .get_email_identity import *
 from .identity_notification_topic import *
 from .identity_policy import *
 from .mail_from import *

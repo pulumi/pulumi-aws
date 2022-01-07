@@ -21,7 +21,7 @@ class GetJobQueueResult:
     """
     A collection of values returned by getJobQueue.
     """
-    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, name=None, priority=None, state=None, status=None, status_reason=None, tags=None):
+    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, name=None, priority=None, scheduling_policy_arn=None, state=None, status=None, status_reason=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetJobQueueResult:
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
+        if scheduling_policy_arn and not isinstance(scheduling_policy_arn, str):
+            raise TypeError("Expected argument 'scheduling_policy_arn' to be a str")
+        pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -92,6 +95,14 @@ class GetJobQueueResult:
         return pulumi.get(self, "priority")
 
     @property
+    @pulumi.getter(name="schedulingPolicyArn")
+    def scheduling_policy_arn(self) -> str:
+        """
+        The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+        """
+        return pulumi.get(self, "scheduling_policy_arn")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -136,6 +147,7 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
             id=self.id,
             name=self.name,
             priority=self.priority,
+            scheduling_policy_arn=self.scheduling_policy_arn,
             state=self.state,
             status=self.status,
             status_reason=self.status_reason,
@@ -177,6 +189,7 @@ def get_job_queue(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         priority=__ret__.priority,
+        scheduling_policy_arn=__ret__.scheduling_policy_arn,
         state=__ret__.state,
         status=__ret__.status,
         status_reason=__ret__.status_reason,

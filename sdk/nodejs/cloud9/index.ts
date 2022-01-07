@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./environmentEC2";
+export * from "./environmentMembership";
 
 // Import resources to register:
 import { EnvironmentEC2 } from "./environmentEC2";
+import { EnvironmentMembership } from "./environmentMembership";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:cloud9/environmentEC2:EnvironmentEC2":
                 return new EnvironmentEC2(name, <any>undefined, { urn })
+            case "aws:cloud9/environmentMembership:EnvironmentMembership":
+                return new EnvironmentMembership(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "cloud9/environmentEC2", _module)
+pulumi.runtime.registerResourceModule("aws", "cloud9/environmentMembership", _module)

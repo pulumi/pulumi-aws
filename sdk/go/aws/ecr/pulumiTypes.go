@@ -219,7 +219,7 @@ func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) Index(i pu
 }
 
 type ReplicationConfigurationReplicationConfiguration struct {
-	// The replication rules for a replication configuration. See Rule.
+	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 	Rule ReplicationConfigurationReplicationConfigurationRule `pulumi:"rule"`
 }
 
@@ -235,7 +235,7 @@ type ReplicationConfigurationReplicationConfigurationInput interface {
 }
 
 type ReplicationConfigurationReplicationConfigurationArgs struct {
-	// The replication rules for a replication configuration. See Rule.
+	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 	Rule ReplicationConfigurationReplicationConfigurationRuleInput `pulumi:"rule"`
 }
 
@@ -316,7 +316,7 @@ func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationCon
 	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
 
-// The replication rules for a replication configuration. See Rule.
+// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 func (o ReplicationConfigurationReplicationConfigurationOutput) Rule() ReplicationConfigurationReplicationConfigurationRuleOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) ReplicationConfigurationReplicationConfigurationRule {
 		return v.Rule
@@ -347,7 +347,7 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() Replic
 	}).(ReplicationConfigurationReplicationConfigurationOutput)
 }
 
-// The replication rules for a replication configuration. See Rule.
+// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rule() ReplicationConfigurationReplicationConfigurationRulePtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) *ReplicationConfigurationReplicationConfigurationRule {
 		if v == nil {
@@ -358,8 +358,10 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rule() Replic
 }
 
 type ReplicationConfigurationReplicationConfigurationRule struct {
-	// the details of a replication destination. See Destination.
+	// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
 	Destinations []ReplicationConfigurationReplicationConfigurationRuleDestination `pulumi:"destinations"`
+	// filters for a replication rule. See Repository Filter.
+	RepositoryFilters []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter `pulumi:"repositoryFilters"`
 }
 
 // ReplicationConfigurationReplicationConfigurationRuleInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleArgs and ReplicationConfigurationReplicationConfigurationRuleOutput values.
@@ -374,8 +376,10 @@ type ReplicationConfigurationReplicationConfigurationRuleInput interface {
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleArgs struct {
-	// the details of a replication destination. See Destination.
+	// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
 	Destinations ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput `pulumi:"destinations"`
+	// filters for a replication rule. See Repository Filter.
+	RepositoryFilters ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
 }
 
 func (ReplicationConfigurationReplicationConfigurationRuleArgs) ElementType() reflect.Type {
@@ -455,11 +459,18 @@ func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicatio
 	}).(ReplicationConfigurationReplicationConfigurationRulePtrOutput)
 }
 
-// the details of a replication destination. See Destination.
+// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) Destinations() ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleDestination {
 		return v.Destinations
 	}).(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput)
+}
+
+// filters for a replication rule. See Repository Filter.
+func (o ReplicationConfigurationReplicationConfigurationRuleOutput) RepositoryFilters() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
+		return v.RepositoryFilters
+	}).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput)
 }
 
 type ReplicationConfigurationReplicationConfigurationRulePtrOutput struct{ *pulumi.OutputState }
@@ -486,7 +497,7 @@ func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) Elem() Re
 	}).(ReplicationConfigurationReplicationConfigurationRuleOutput)
 }
 
-// the details of a replication destination. See Destination.
+// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
 func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) Destinations() ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleDestination {
 		if v == nil {
@@ -494,6 +505,16 @@ func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) Destinati
 		}
 		return v.Destinations
 	}).(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput)
+}
+
+// filters for a replication rule. See Repository Filter.
+func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) RepositoryFilters() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryFilters
+	}).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput)
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleDestination struct {
@@ -600,6 +621,114 @@ func (o ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationReplicationConfigurationRuleDestination {
 		return vs[0].([]ReplicationConfigurationReplicationConfigurationRuleDestination)[vs[1].(int)]
 	}).(ReplicationConfigurationReplicationConfigurationRuleDestinationOutput)
+}
+
+type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter struct {
+	// The repository filter details.
+	Filter string `pulumi:"filter"`
+	// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+	FilterType string `pulumi:"filterType"`
+}
+
+// ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs and ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput` via:
+//
+//          ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{...}
+type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput
+	ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput
+}
+
+type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs struct {
+	// The repository filter details.
+	Filter pulumi.StringInput `pulumi:"filter"`
+	// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+	FilterType pulumi.StringInput `pulumi:"filterType"`
+}
+
+func (ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput {
+	return i.ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput)
+}
+
+// ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray and ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput` via:
+//
+//          ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{ ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{...} }
+type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput
+	ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput
+}
+
+type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput
+
+func (ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
+	return i.ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput)
+}
+
+type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput {
+	return o
+}
+
+// The repository filter details.
+func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
+}
+
+// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) FilterType() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter) string {
+		return v.FilterType
+	}).(pulumi.StringOutput)
+}
+
+type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
+		return vs[0].([]ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter)[vs[1].(int)]
+	}).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput)
 }
 
 type RepositoryEncryptionConfiguration struct {
@@ -1059,6 +1188,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRulePtrInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationInput)(nil)).Elem(), RepositoryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
@@ -1077,6 +1208,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRulePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleDestinationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})

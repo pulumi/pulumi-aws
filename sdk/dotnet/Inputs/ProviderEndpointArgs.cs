@@ -468,6 +468,9 @@ namespace Pulumi.Aws.Inputs
         [Input("kafka")]
         public Input<string>? Kafka { get; set; }
 
+        [Input("kafkaconnect")]
+        public Input<string>? Kafkaconnect { get; set; }
+
         [Input("kendra")]
         public Input<string>? Kendra { get; set; }
 

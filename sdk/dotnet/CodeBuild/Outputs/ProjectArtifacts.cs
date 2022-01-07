@@ -18,6 +18,10 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? ArtifactIdentifier;
         /// <summary>
+        /// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        /// </summary>
+        public readonly string? BucketOwnerAccess;
+        /// <summary>
         /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         /// </summary>
         public readonly bool? EncryptionDisabled;
@@ -54,6 +58,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         private ProjectArtifacts(
             string? artifactIdentifier,
 
+            string? bucketOwnerAccess,
+
             bool? encryptionDisabled,
 
             string? location,
@@ -71,6 +77,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
             string type)
         {
             ArtifactIdentifier = artifactIdentifier;
+            BucketOwnerAccess = bucketOwnerAccess;
             EncryptionDisabled = encryptionDisabled;
             Location = location;
             Name = name;

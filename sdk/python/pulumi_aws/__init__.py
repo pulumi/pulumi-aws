@@ -220,10 +220,14 @@ if typing.TYPE_CHECKING:
     mediapackage = __mediapackage
     import pulumi_aws.mediastore as __mediastore
     mediastore = __mediastore
+    import pulumi_aws.memorydb as __memorydb
+    memorydb = __memorydb
     import pulumi_aws.mq as __mq
     mq = __mq
     import pulumi_aws.msk as __msk
     msk = __msk
+    import pulumi_aws.mskconnect as __mskconnect
+    mskconnect = __mskconnect
     import pulumi_aws.mwaa as __mwaa
     mwaa = __mwaa
     import pulumi_aws.neptune as __neptune
@@ -419,8 +423,10 @@ else:
     mediaconvert = _utilities.lazy_import('pulumi_aws.mediaconvert')
     mediapackage = _utilities.lazy_import('pulumi_aws.mediapackage')
     mediastore = _utilities.lazy_import('pulumi_aws.mediastore')
+    memorydb = _utilities.lazy_import('pulumi_aws.memorydb')
     mq = _utilities.lazy_import('pulumi_aws.mq')
     msk = _utilities.lazy_import('pulumi_aws.msk')
+    mskconnect = _utilities.lazy_import('pulumi_aws.mskconnect')
     mwaa = _utilities.lazy_import('pulumi_aws.mwaa')
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
@@ -1412,6 +1418,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "batch/schedulingPolicy",
+  "fqn": "pulumi_aws.batch",
+  "classes": {
+   "aws:batch/schedulingPolicy:SchedulingPolicy": "SchedulingPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "budgets/budget",
   "fqn": "pulumi_aws.budgets",
   "classes": {
@@ -1576,6 +1590,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloud9",
   "classes": {
    "aws:cloud9/environmentEC2:EnvironmentEC2": "EnvironmentEC2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloud9/environmentMembership",
+  "fqn": "pulumi_aws.cloud9",
+  "classes": {
+   "aws:cloud9/environmentMembership:EnvironmentMembership": "EnvironmentMembership"
   }
  },
  {
@@ -1948,6 +1970,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codebuild/resourcePolicy",
+  "fqn": "pulumi_aws.codebuild",
+  "classes": {
+   "aws:codebuild/resourcePolicy:ResourcePolicy": "ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codebuild/sourceCredential",
   "fqn": "pulumi_aws.codebuild",
   "classes": {
@@ -2204,10 +2234,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datasync/locationFsxLustre",
+  "fqn": "pulumi_aws.datasync",
+  "classes": {
+   "aws:datasync/locationFsxLustre:LocationFsxLustre": "LocationFsxLustre"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datasync/locationFsxWindows",
   "fqn": "pulumi_aws.datasync",
   "classes": {
    "aws:datasync/locationFsxWindows:LocationFsxWindows": "LocationFsxWindows"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datasync/locationHdfs",
+  "fqn": "pulumi_aws.datasync",
+  "classes": {
+   "aws:datasync/locationHdfs:LocationHdfs": "LocationHdfs"
   }
  },
  {
@@ -2276,10 +2322,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "devicefarm/devicePool",
+  "fqn": "pulumi_aws.devicefarm",
+  "classes": {
+   "aws:devicefarm/devicePool:DevicePool": "DevicePool"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devicefarm/networkProfile",
+  "fqn": "pulumi_aws.devicefarm",
+  "classes": {
+   "aws:devicefarm/networkProfile:NetworkProfile": "NetworkProfile"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "devicefarm/project",
   "fqn": "pulumi_aws.devicefarm",
   "classes": {
    "aws:devicefarm/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devicefarm/upload",
+  "fqn": "pulumi_aws.devicefarm",
+  "classes": {
+   "aws:devicefarm/upload:Upload": "Upload"
   }
  },
  {
@@ -3132,6 +3202,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcEndpointConnectionAccepter",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter": "VpcEndpointConnectionAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcEndpointConnectionNotification",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -3180,6 +3258,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcIpamOrganizationAdminAccount",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount": "VpcIpamOrganizationAdminAccount"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcIpamPool",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -3200,6 +3286,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation": "VpcIpamPoolCidrAllocation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpamPreviewNextCidr",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr": "VpcIpamPreviewNextCidr"
   }
  },
  {
@@ -4016,6 +4110,30 @@ _utilities.register(
   "fqn": "pulumi_aws.fsx",
   "classes": {
    "aws:fsx/ontapVolume:OntapVolume": "OntapVolume"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/openZfsFileSystem",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/openZfsFileSystem:OpenZfsFileSystem": "OpenZfsFileSystem"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/openZfsSnapshot",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/openZfsSnapshot:OpenZfsSnapshot": "OpenZfsSnapshot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/openZfsVolume",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/openZfsVolume:OpenZfsVolume": "OpenZfsVolume"
   }
  },
  {
@@ -5116,6 +5234,46 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "memorydb/acl",
+  "fqn": "pulumi_aws.memorydb",
+  "classes": {
+   "aws:memorydb/acl:Acl": "Acl"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "memorydb/cluster",
+  "fqn": "pulumi_aws.memorydb",
+  "classes": {
+   "aws:memorydb/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "memorydb/parameterGroup",
+  "fqn": "pulumi_aws.memorydb",
+  "classes": {
+   "aws:memorydb/parameterGroup:ParameterGroup": "ParameterGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "memorydb/subnetGroup",
+  "fqn": "pulumi_aws.memorydb",
+  "classes": {
+   "aws:memorydb/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "memorydb/user",
+  "fqn": "pulumi_aws.memorydb",
+  "classes": {
+   "aws:memorydb/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mq/broker",
   "fqn": "pulumi_aws.mq",
   "classes": {
@@ -5152,6 +5310,22 @@ _utilities.register(
   "fqn": "pulumi_aws.msk",
   "classes": {
    "aws:msk/scramSecretAssociation:ScramSecretAssociation": "ScramSecretAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "mskconnect/customPlugin",
+  "fqn": "pulumi_aws.mskconnect",
+  "classes": {
+   "aws:mskconnect/customPlugin:CustomPlugin": "CustomPlugin"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "mskconnect/workerConfiguration",
+  "fqn": "pulumi_aws.mskconnect",
+  "classes": {
+   "aws:mskconnect/workerConfiguration:WorkerConfiguration": "WorkerConfiguration"
   }
  },
  {
@@ -6264,6 +6438,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/codeRepository:CodeRepository": "CodeRepository"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/device",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/device:Device": "Device"
   }
  },
  {

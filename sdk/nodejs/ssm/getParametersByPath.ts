@@ -14,6 +14,7 @@ export function getParametersByPath(args: GetParametersByPathArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("aws:ssm/getParametersByPath:getParametersByPath", {
         "path": args.path,
+        "recursive": args.recursive,
         "withDecryption": args.withDecryption,
     }, opts);
 }
@@ -26,6 +27,10 @@ export interface GetParametersByPathArgs {
      * The prefix path of the parameter.
      */
     path: string;
+    /**
+     * Whether to recursively return parameters under `path`. Defaults to `false`.
+     */
+    recursive?: boolean;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
      */
@@ -43,6 +48,7 @@ export interface GetParametersByPathResult {
     readonly id: string;
     readonly names: string[];
     readonly path: string;
+    readonly recursive?: boolean;
     readonly types: string[];
     readonly values: string[];
     readonly withDecryption?: boolean;
@@ -60,6 +66,10 @@ export interface GetParametersByPathOutputArgs {
      * The prefix path of the parameter.
      */
     path: pulumi.Input<string>;
+    /**
+     * Whether to recursively return parameters under `path`. Defaults to `false`.
+     */
+    recursive?: pulumi.Input<boolean>;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
      */

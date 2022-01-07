@@ -333,16 +333,40 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        /// </summary>
+        [Output("projectVisibility")]
+        public Output<string?> ProjectVisibility { get; private set; } = null!;
+
+        /// <summary>
+        /// The project identifier used with the public build APIs.
+        /// </summary>
+        [Output("publicProjectAlias")]
+        public Output<string> PublicProjectAlias { get; private set; } = null!;
+
+        /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         /// </summary>
         [Output("queuedTimeout")]
         public Output<int?> QueuedTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// </summary>
+        [Output("resourceAccessRole")]
+        public Output<string?> ResourceAccessRole { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Output("secondaryArtifacts")]
         public Output<ImmutableArray<Outputs.ProjectSecondaryArtifact>> SecondaryArtifacts { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Output("secondarySourceVersions")]
+        public Output<ImmutableArray<Outputs.ProjectSecondarySourceVersion>> SecondarySourceVersions { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block. Detailed below.
@@ -363,7 +387,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the build input to be built for this project. If not specified, the latest version is used.
+        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         /// </summary>
         [Output("sourceVersion")]
         public Output<string?> SourceVersion { get; private set; } = null!;
@@ -375,7 +399,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -511,10 +535,22 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        /// </summary>
+        [Input("projectVisibility")]
+        public Input<string>? ProjectVisibility { get; set; }
+
+        /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
+
+        /// <summary>
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// </summary>
+        [Input("resourceAccessRole")]
+        public Input<string>? ResourceAccessRole { get; set; }
 
         [Input("secondaryArtifacts")]
         private InputList<Inputs.ProjectSecondaryArtifactArgs>? _secondaryArtifacts;
@@ -526,6 +562,18 @@ namespace Pulumi.Aws.CodeBuild
         {
             get => _secondaryArtifacts ?? (_secondaryArtifacts = new InputList<Inputs.ProjectSecondaryArtifactArgs>());
             set => _secondaryArtifacts = value;
+        }
+
+        [Input("secondarySourceVersions")]
+        private InputList<Inputs.ProjectSecondarySourceVersionArgs>? _secondarySourceVersions;
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        public InputList<Inputs.ProjectSecondarySourceVersionArgs> SecondarySourceVersions
+        {
+            get => _secondarySourceVersions ?? (_secondarySourceVersions = new InputList<Inputs.ProjectSecondarySourceVersionArgs>());
+            set => _secondarySourceVersions = value;
         }
 
         [Input("secondarySources")]
@@ -553,7 +601,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
 
         /// <summary>
-        /// Version of the build input to be built for this project. If not specified, the latest version is used.
+        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
@@ -674,10 +722,28 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        /// </summary>
+        [Input("projectVisibility")]
+        public Input<string>? ProjectVisibility { get; set; }
+
+        /// <summary>
+        /// The project identifier used with the public build APIs.
+        /// </summary>
+        [Input("publicProjectAlias")]
+        public Input<string>? PublicProjectAlias { get; set; }
+
+        /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
+
+        /// <summary>
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// </summary>
+        [Input("resourceAccessRole")]
+        public Input<string>? ResourceAccessRole { get; set; }
 
         [Input("secondaryArtifacts")]
         private InputList<Inputs.ProjectSecondaryArtifactGetArgs>? _secondaryArtifacts;
@@ -689,6 +755,18 @@ namespace Pulumi.Aws.CodeBuild
         {
             get => _secondaryArtifacts ?? (_secondaryArtifacts = new InputList<Inputs.ProjectSecondaryArtifactGetArgs>());
             set => _secondaryArtifacts = value;
+        }
+
+        [Input("secondarySourceVersions")]
+        private InputList<Inputs.ProjectSecondarySourceVersionGetArgs>? _secondarySourceVersions;
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        public InputList<Inputs.ProjectSecondarySourceVersionGetArgs> SecondarySourceVersions
+        {
+            get => _secondarySourceVersions ?? (_secondarySourceVersions = new InputList<Inputs.ProjectSecondarySourceVersionGetArgs>());
+            set => _secondarySourceVersions = value;
         }
 
         [Input("secondarySources")]
@@ -716,7 +794,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// Version of the build input to be built for this project. If not specified, the latest version is used.
+        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
@@ -737,7 +815,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

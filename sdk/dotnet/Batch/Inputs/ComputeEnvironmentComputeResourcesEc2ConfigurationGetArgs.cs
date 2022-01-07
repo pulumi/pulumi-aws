@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class ComputeEnvironmentComputeResourcesEc2ConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resourcess block.
+        /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
         /// </summary>
         [Input("imageIdOverride")]
         public Input<string>? ImageIdOverride { get; set; }

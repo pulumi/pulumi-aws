@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'EfsLocationEc2ConfigArgs',
+    'LocationHdfsNameNodeArgs',
+    'LocationHdfsQopConfigurationArgs',
     'LocationSmbMountOptionsArgs',
     'NfsLocationMountOptionsArgs',
     'NfsLocationOnPremConfigArgs',
@@ -54,6 +56,82 @@ class EfsLocationEc2ConfigArgs:
     @subnet_arn.setter
     def subnet_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_arn", value)
+
+
+@pulumi.input_type
+class LocationHdfsNameNodeArgs:
+    def __init__(__self__, *,
+                 hostname: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] hostname: The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+        :param pulumi.Input[int] port: The port that the NameNode uses to listen to client requests.
+        """
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> pulumi.Input[str]:
+        """
+        The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port that the NameNode uses to listen to client requests.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class LocationHdfsQopConfigurationArgs:
+    def __init__(__self__, *,
+                 data_transfer_protection: Optional[pulumi.Input[str]] = None,
+                 rpc_protection: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_transfer_protection: The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        :param pulumi.Input[str] rpc_protection: The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        """
+        if data_transfer_protection is not None:
+            pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
+        if rpc_protection is not None:
+            pulumi.set(__self__, "rpc_protection", rpc_protection)
+
+    @property
+    @pulumi.getter(name="dataTransferProtection")
+    def data_transfer_protection(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        """
+        return pulumi.get(self, "data_transfer_protection")
+
+    @data_transfer_protection.setter
+    def data_transfer_protection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_transfer_protection", value)
+
+    @property
+    @pulumi.getter(name="rpcProtection")
+    def rpc_protection(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        """
+        return pulumi.get(self, "rpc_protection")
+
+    @rpc_protection.setter
+    def rpc_protection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rpc_protection", value)
 
 
 @pulumi.input_type

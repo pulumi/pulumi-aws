@@ -22,7 +22,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, available_ip_address_count=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, available_ip_address_count=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, enable_dns64=None, enable_resource_name_dns_a_record_on_launch=None, enable_resource_name_dns_aaaa_record_on_launch=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, ipv6_native=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, private_dns_hostname_type_on_launch=None, state=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,15 @@ class GetSubnetResult:
         if default_for_az and not isinstance(default_for_az, bool):
             raise TypeError("Expected argument 'default_for_az' to be a bool")
         pulumi.set(__self__, "default_for_az", default_for_az)
+        if enable_dns64 and not isinstance(enable_dns64, bool):
+            raise TypeError("Expected argument 'enable_dns64' to be a bool")
+        pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_resource_name_dns_a_record_on_launch and not isinstance(enable_resource_name_dns_a_record_on_launch, bool):
+            raise TypeError("Expected argument 'enable_resource_name_dns_a_record_on_launch' to be a bool")
+        pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
+        if enable_resource_name_dns_aaaa_record_on_launch and not isinstance(enable_resource_name_dns_aaaa_record_on_launch, bool):
+            raise TypeError("Expected argument 'enable_resource_name_dns_aaaa_record_on_launch' to be a bool")
+        pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -59,6 +68,9 @@ class GetSubnetResult:
         if ipv6_cidr_block_association_id and not isinstance(ipv6_cidr_block_association_id, str):
             raise TypeError("Expected argument 'ipv6_cidr_block_association_id' to be a str")
         pulumi.set(__self__, "ipv6_cidr_block_association_id", ipv6_cidr_block_association_id)
+        if ipv6_native and not isinstance(ipv6_native, bool):
+            raise TypeError("Expected argument 'ipv6_native' to be a bool")
+        pulumi.set(__self__, "ipv6_native", ipv6_native)
         if map_customer_owned_ip_on_launch and not isinstance(map_customer_owned_ip_on_launch, bool):
             raise TypeError("Expected argument 'map_customer_owned_ip_on_launch' to be a bool")
         pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
@@ -71,6 +83,9 @@ class GetSubnetResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if private_dns_hostname_type_on_launch and not isinstance(private_dns_hostname_type_on_launch, str):
+            raise TypeError("Expected argument 'private_dns_hostname_type_on_launch' to be a str")
+        pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -134,6 +149,30 @@ class GetSubnetResult:
         return pulumi.get(self, "default_for_az")
 
     @property
+    @pulumi.getter(name="enableDns64")
+    def enable_dns64(self) -> bool:
+        """
+        Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+        """
+        return pulumi.get(self, "enable_dns64")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
+    def enable_resource_name_dns_a_record_on_launch(self) -> bool:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record_on_launch")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecordOnLaunch")
+    def enable_resource_name_dns_aaaa_record_on_launch(self) -> bool:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
+
+    @property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetSubnetFilterResult']]:
         return pulumi.get(self, "filters")
@@ -155,6 +194,14 @@ class GetSubnetResult:
         Association ID of the IPv6 CIDR block.
         """
         return pulumi.get(self, "ipv6_cidr_block_association_id")
+
+    @property
+    @pulumi.getter(name="ipv6Native")
+    def ipv6_native(self) -> bool:
+        """
+        Indicates whether this is an IPv6-only subnet.
+        """
+        return pulumi.get(self, "ipv6_native")
 
     @property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
@@ -189,6 +236,14 @@ class GetSubnetResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
+    def private_dns_hostname_type_on_launch(self) -> str:
+        """
+        The type of hostnames assigned to instances in the subnet at launch.
+        """
+        return pulumi.get(self, "private_dns_hostname_type_on_launch")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         return pulumi.get(self, "state")
@@ -218,14 +273,19 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             cidr_block=self.cidr_block,
             customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             default_for_az=self.default_for_az,
+            enable_dns64=self.enable_dns64,
+            enable_resource_name_dns_a_record_on_launch=self.enable_resource_name_dns_a_record_on_launch,
+            enable_resource_name_dns_aaaa_record_on_launch=self.enable_resource_name_dns_aaaa_record_on_launch,
             filters=self.filters,
             id=self.id,
             ipv6_cidr_block=self.ipv6_cidr_block,
             ipv6_cidr_block_association_id=self.ipv6_cidr_block_association_id,
+            ipv6_native=self.ipv6_native,
             map_customer_owned_ip_on_launch=self.map_customer_owned_ip_on_launch,
             map_public_ip_on_launch=self.map_public_ip_on_launch,
             outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
+            private_dns_hostname_type_on_launch=self.private_dns_hostname_type_on_launch,
             state=self.state,
             tags=self.tags,
             vpc_id=self.vpc_id)
@@ -319,14 +379,19 @@ def get_subnet(availability_zone: Optional[str] = None,
         cidr_block=__ret__.cidr_block,
         customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
         default_for_az=__ret__.default_for_az,
+        enable_dns64=__ret__.enable_dns64,
+        enable_resource_name_dns_a_record_on_launch=__ret__.enable_resource_name_dns_a_record_on_launch,
+        enable_resource_name_dns_aaaa_record_on_launch=__ret__.enable_resource_name_dns_aaaa_record_on_launch,
         filters=__ret__.filters,
         id=__ret__.id,
         ipv6_cidr_block=__ret__.ipv6_cidr_block,
         ipv6_cidr_block_association_id=__ret__.ipv6_cidr_block_association_id,
+        ipv6_native=__ret__.ipv6_native,
         map_customer_owned_ip_on_launch=__ret__.map_customer_owned_ip_on_launch,
         map_public_ip_on_launch=__ret__.map_public_ip_on_launch,
         outpost_arn=__ret__.outpost_arn,
         owner_id=__ret__.owner_id,
+        private_dns_hostname_type_on_launch=__ret__.private_dns_hostname_type_on_launch,
         state=__ret__.state,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)

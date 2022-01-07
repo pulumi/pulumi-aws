@@ -104,16 +104,34 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The CIDR block for the subnet.
+        /// The IPv4 CIDR block for the subnet.
         /// </summary>
         [Output("cidrBlock")]
-        public Output<string> CidrBlock { get; private set; } = null!;
+        public Output<string?> CidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         /// </summary>
         [Output("customerOwnedIpv4Pool")]
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        /// </summary>
+        [Output("enableDns64")]
+        public Output<bool?> EnableDns64 { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
+        /// </summary>
+        [Output("enableResourceNameDnsARecordOnLaunch")]
+        public Output<bool?> EnableResourceNameDnsARecordOnLaunch { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        /// </summary>
+        [Output("enableResourceNameDnsAaaaRecordOnLaunch")]
+        public Output<bool?> EnableResourceNameDnsAaaaRecordOnLaunch { get; private set; } = null!;
 
         /// <summary>
         /// The IPv6 network range for the subnet,
@@ -127,6 +145,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("ipv6CidrBlockAssociationId")]
         public Output<string> Ipv6CidrBlockAssociationId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to create an IPv6-only subnet. Default: `false`.
+        /// </summary>
+        [Output("ipv6Native")]
+        public Output<bool?> Ipv6Native { get; private set; } = null!;
 
         /// <summary>
         /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
@@ -153,6 +177,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of hostnames to assign to instances in the subnet at launch. For IPv4-only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        /// </summary>
+        [Output("privateDnsHostnameTypeOnLaunch")]
+        public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -239,10 +269,10 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The CIDR block for the subnet.
+        /// The IPv4 CIDR block for the subnet.
         /// </summary>
-        [Input("cidrBlock", required: true)]
-        public Input<string> CidrBlock { get; set; } = null!;
+        [Input("cidrBlock")]
+        public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
         /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
@@ -251,11 +281,35 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        /// </summary>
+        [Input("enableDns64")]
+        public Input<bool>? EnableDns64 { get; set; }
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
+        /// </summary>
+        [Input("enableResourceNameDnsARecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsARecordOnLaunch { get; set; }
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        /// </summary>
+        [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
+
+        /// <summary>
         /// The IPv6 network range for the subnet,
         /// in CIDR notation. The subnet size must use a /64 prefix length.
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// Indicates whether to create an IPv6-only subnet. Default: `false`.
+        /// </summary>
+        [Input("ipv6Native")]
+        public Input<bool>? Ipv6Native { get; set; }
 
         /// <summary>
         /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
@@ -276,6 +330,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
+
+        /// <summary>
+        /// The type of hostnames to assign to instances in the subnet at launch. For IPv4-only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        /// </summary>
+        [Input("privateDnsHostnameTypeOnLaunch")]
+        public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -329,7 +389,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The CIDR block for the subnet.
+        /// The IPv4 CIDR block for the subnet.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
@@ -339,6 +399,24 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        /// <summary>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        /// </summary>
+        [Input("enableDns64")]
+        public Input<bool>? EnableDns64 { get; set; }
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
+        /// </summary>
+        [Input("enableResourceNameDnsARecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsARecordOnLaunch { get; set; }
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        /// </summary>
+        [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
+        public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
 
         /// <summary>
         /// The IPv6 network range for the subnet,
@@ -352,6 +430,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ipv6CidrBlockAssociationId")]
         public Input<string>? Ipv6CidrBlockAssociationId { get; set; }
+
+        /// <summary>
+        /// Indicates whether to create an IPv6-only subnet. Default: `false`.
+        /// </summary>
+        [Input("ipv6Native")]
+        public Input<bool>? Ipv6Native { get; set; }
 
         /// <summary>
         /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
@@ -378,6 +462,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// The type of hostnames to assign to instances in the subnet at launch. For IPv4-only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        /// </summary>
+        [Input("privateDnsHostnameTypeOnLaunch")]
+        public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

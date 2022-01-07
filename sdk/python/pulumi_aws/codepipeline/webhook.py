@@ -131,6 +131,7 @@ class WebhookArgs:
 @pulumi.input_type
 class _WebhookState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  authentication_configuration: Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]]] = None,
@@ -142,6 +143,7 @@ class _WebhookState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
+        :param pulumi.Input[str] arn: The CodePipeline webhook's ARN.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]] filters: One or more `filter` blocks. Filter blocks are documented below.
@@ -152,6 +154,8 @@ class _WebhookState:
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         :param pulumi.Input[str] url: The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
         if authentication_configuration is not None:
@@ -170,6 +174,18 @@ class _WebhookState:
             pulumi.set(__self__, "target_pipeline", target_pipeline)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CodePipeline webhook's ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -526,6 +542,7 @@ class Webhook(pulumi.CustomResource):
             if target_pipeline is None and not opts.urn:
                 raise TypeError("Missing required property 'target_pipeline'")
             __props__.__dict__["target_pipeline"] = target_pipeline
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
         super(Webhook, __self__).__init__(
@@ -538,6 +555,7 @@ class Webhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[str]] = None,
             authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]]] = None,
@@ -554,6 +572,7 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The CodePipeline webhook's ARN.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         :param pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
@@ -568,6 +587,7 @@ class Webhook(pulumi.CustomResource):
 
         __props__ = _WebhookState.__new__(_WebhookState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["authentication"] = authentication
         __props__.__dict__["authentication_configuration"] = authentication_configuration
         __props__.__dict__["filters"] = filters
@@ -578,6 +598,14 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["target_pipeline"] = target_pipeline
         __props__.__dict__["url"] = url
         return Webhook(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The CodePipeline webhook's ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

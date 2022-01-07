@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .project import *
 from .report_group import *
+from .resource_policy import *
 from .source_credential import *
 from .webhook import *
 from ._inputs import *

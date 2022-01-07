@@ -166,6 +166,268 @@ func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LocationHdfsNameNode struct {
+	// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+	Hostname string `pulumi:"hostname"`
+	// The port that the NameNode uses to listen to client requests.
+	Port int `pulumi:"port"`
+}
+
+// LocationHdfsNameNodeInput is an input type that accepts LocationHdfsNameNodeArgs and LocationHdfsNameNodeOutput values.
+// You can construct a concrete instance of `LocationHdfsNameNodeInput` via:
+//
+//          LocationHdfsNameNodeArgs{...}
+type LocationHdfsNameNodeInput interface {
+	pulumi.Input
+
+	ToLocationHdfsNameNodeOutput() LocationHdfsNameNodeOutput
+	ToLocationHdfsNameNodeOutputWithContext(context.Context) LocationHdfsNameNodeOutput
+}
+
+type LocationHdfsNameNodeArgs struct {
+	// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// The port that the NameNode uses to listen to client requests.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (LocationHdfsNameNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsNameNode)(nil)).Elem()
+}
+
+func (i LocationHdfsNameNodeArgs) ToLocationHdfsNameNodeOutput() LocationHdfsNameNodeOutput {
+	return i.ToLocationHdfsNameNodeOutputWithContext(context.Background())
+}
+
+func (i LocationHdfsNameNodeArgs) ToLocationHdfsNameNodeOutputWithContext(ctx context.Context) LocationHdfsNameNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsNameNodeOutput)
+}
+
+// LocationHdfsNameNodeArrayInput is an input type that accepts LocationHdfsNameNodeArray and LocationHdfsNameNodeArrayOutput values.
+// You can construct a concrete instance of `LocationHdfsNameNodeArrayInput` via:
+//
+//          LocationHdfsNameNodeArray{ LocationHdfsNameNodeArgs{...} }
+type LocationHdfsNameNodeArrayInput interface {
+	pulumi.Input
+
+	ToLocationHdfsNameNodeArrayOutput() LocationHdfsNameNodeArrayOutput
+	ToLocationHdfsNameNodeArrayOutputWithContext(context.Context) LocationHdfsNameNodeArrayOutput
+}
+
+type LocationHdfsNameNodeArray []LocationHdfsNameNodeInput
+
+func (LocationHdfsNameNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationHdfsNameNode)(nil)).Elem()
+}
+
+func (i LocationHdfsNameNodeArray) ToLocationHdfsNameNodeArrayOutput() LocationHdfsNameNodeArrayOutput {
+	return i.ToLocationHdfsNameNodeArrayOutputWithContext(context.Background())
+}
+
+func (i LocationHdfsNameNodeArray) ToLocationHdfsNameNodeArrayOutputWithContext(ctx context.Context) LocationHdfsNameNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsNameNodeArrayOutput)
+}
+
+type LocationHdfsNameNodeOutput struct{ *pulumi.OutputState }
+
+func (LocationHdfsNameNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsNameNode)(nil)).Elem()
+}
+
+func (o LocationHdfsNameNodeOutput) ToLocationHdfsNameNodeOutput() LocationHdfsNameNodeOutput {
+	return o
+}
+
+func (o LocationHdfsNameNodeOutput) ToLocationHdfsNameNodeOutputWithContext(ctx context.Context) LocationHdfsNameNodeOutput {
+	return o
+}
+
+// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+func (o LocationHdfsNameNodeOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationHdfsNameNode) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// The port that the NameNode uses to listen to client requests.
+func (o LocationHdfsNameNodeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LocationHdfsNameNode) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type LocationHdfsNameNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationHdfsNameNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationHdfsNameNode)(nil)).Elem()
+}
+
+func (o LocationHdfsNameNodeArrayOutput) ToLocationHdfsNameNodeArrayOutput() LocationHdfsNameNodeArrayOutput {
+	return o
+}
+
+func (o LocationHdfsNameNodeArrayOutput) ToLocationHdfsNameNodeArrayOutputWithContext(ctx context.Context) LocationHdfsNameNodeArrayOutput {
+	return o
+}
+
+func (o LocationHdfsNameNodeArrayOutput) Index(i pulumi.IntInput) LocationHdfsNameNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationHdfsNameNode {
+		return vs[0].([]LocationHdfsNameNode)[vs[1].(int)]
+	}).(LocationHdfsNameNodeOutput)
+}
+
+type LocationHdfsQopConfiguration struct {
+	// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+	DataTransferProtection *string `pulumi:"dataTransferProtection"`
+	// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+	RpcProtection *string `pulumi:"rpcProtection"`
+}
+
+// LocationHdfsQopConfigurationInput is an input type that accepts LocationHdfsQopConfigurationArgs and LocationHdfsQopConfigurationOutput values.
+// You can construct a concrete instance of `LocationHdfsQopConfigurationInput` via:
+//
+//          LocationHdfsQopConfigurationArgs{...}
+type LocationHdfsQopConfigurationInput interface {
+	pulumi.Input
+
+	ToLocationHdfsQopConfigurationOutput() LocationHdfsQopConfigurationOutput
+	ToLocationHdfsQopConfigurationOutputWithContext(context.Context) LocationHdfsQopConfigurationOutput
+}
+
+type LocationHdfsQopConfigurationArgs struct {
+	// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+	DataTransferProtection pulumi.StringPtrInput `pulumi:"dataTransferProtection"`
+	// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+	RpcProtection pulumi.StringPtrInput `pulumi:"rpcProtection"`
+}
+
+func (LocationHdfsQopConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsQopConfiguration)(nil)).Elem()
+}
+
+func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationOutput() LocationHdfsQopConfigurationOutput {
+	return i.ToLocationHdfsQopConfigurationOutputWithContext(context.Background())
+}
+
+func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsQopConfigurationOutput)
+}
+
+func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationPtrOutput() LocationHdfsQopConfigurationPtrOutput {
+	return i.ToLocationHdfsQopConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsQopConfigurationOutput).ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx)
+}
+
+// LocationHdfsQopConfigurationPtrInput is an input type that accepts LocationHdfsQopConfigurationArgs, LocationHdfsQopConfigurationPtr and LocationHdfsQopConfigurationPtrOutput values.
+// You can construct a concrete instance of `LocationHdfsQopConfigurationPtrInput` via:
+//
+//          LocationHdfsQopConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type LocationHdfsQopConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLocationHdfsQopConfigurationPtrOutput() LocationHdfsQopConfigurationPtrOutput
+	ToLocationHdfsQopConfigurationPtrOutputWithContext(context.Context) LocationHdfsQopConfigurationPtrOutput
+}
+
+type locationHdfsQopConfigurationPtrType LocationHdfsQopConfigurationArgs
+
+func LocationHdfsQopConfigurationPtr(v *LocationHdfsQopConfigurationArgs) LocationHdfsQopConfigurationPtrInput {
+	return (*locationHdfsQopConfigurationPtrType)(v)
+}
+
+func (*locationHdfsQopConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHdfsQopConfiguration)(nil)).Elem()
+}
+
+func (i *locationHdfsQopConfigurationPtrType) ToLocationHdfsQopConfigurationPtrOutput() LocationHdfsQopConfigurationPtrOutput {
+	return i.ToLocationHdfsQopConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *locationHdfsQopConfigurationPtrType) ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsQopConfigurationPtrOutput)
+}
+
+type LocationHdfsQopConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LocationHdfsQopConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHdfsQopConfiguration)(nil)).Elem()
+}
+
+func (o LocationHdfsQopConfigurationOutput) ToLocationHdfsQopConfigurationOutput() LocationHdfsQopConfigurationOutput {
+	return o
+}
+
+func (o LocationHdfsQopConfigurationOutput) ToLocationHdfsQopConfigurationOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationOutput {
+	return o
+}
+
+func (o LocationHdfsQopConfigurationOutput) ToLocationHdfsQopConfigurationPtrOutput() LocationHdfsQopConfigurationPtrOutput {
+	return o.ToLocationHdfsQopConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHdfsQopConfigurationOutput) ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHdfsQopConfiguration) *LocationHdfsQopConfiguration {
+		return &v
+	}).(LocationHdfsQopConfigurationPtrOutput)
+}
+
+// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+func (o LocationHdfsQopConfigurationOutput) DataTransferProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationHdfsQopConfiguration) *string { return v.DataTransferProtection }).(pulumi.StringPtrOutput)
+}
+
+// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+func (o LocationHdfsQopConfigurationOutput) RpcProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationHdfsQopConfiguration) *string { return v.RpcProtection }).(pulumi.StringPtrOutput)
+}
+
+type LocationHdfsQopConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationHdfsQopConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHdfsQopConfiguration)(nil)).Elem()
+}
+
+func (o LocationHdfsQopConfigurationPtrOutput) ToLocationHdfsQopConfigurationPtrOutput() LocationHdfsQopConfigurationPtrOutput {
+	return o
+}
+
+func (o LocationHdfsQopConfigurationPtrOutput) ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationPtrOutput {
+	return o
+}
+
+func (o LocationHdfsQopConfigurationPtrOutput) Elem() LocationHdfsQopConfigurationOutput {
+	return o.ApplyT(func(v *LocationHdfsQopConfiguration) LocationHdfsQopConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LocationHdfsQopConfiguration
+		return ret
+	}).(LocationHdfsQopConfigurationOutput)
+}
+
+// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+func (o LocationHdfsQopConfigurationPtrOutput) DataTransferProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHdfsQopConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferProtection
+	}).(pulumi.StringPtrOutput)
+}
+
+// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+func (o LocationHdfsQopConfigurationPtrOutput) RpcProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationHdfsQopConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RpcProtection
+	}).(pulumi.StringPtrOutput)
+}
+
 type LocationSmbMountOptions struct {
 	// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 	Version *string `pulumi:"version"`
@@ -1375,6 +1637,10 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigPtrInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeInput)(nil)).Elem(), LocationHdfsNameNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeArrayInput)(nil)).Elem(), LocationHdfsNameNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationInput)(nil)).Elem(), LocationHdfsQopConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationPtrInput)(nil)).Elem(), LocationHdfsQopConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsPtrInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationMountOptionsInput)(nil)).Elem(), NfsLocationMountOptionsArgs{})
@@ -1391,6 +1657,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigOutput{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationHdfsNameNodeOutput{})
+	pulumi.RegisterOutputType(LocationHdfsNameNodeArrayOutput{})
+	pulumi.RegisterOutputType(LocationHdfsQopConfigurationOutput{})
+	pulumi.RegisterOutputType(LocationHdfsQopConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(NfsLocationMountOptionsOutput{})

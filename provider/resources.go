@@ -133,8 +133,10 @@ const (
 	mediaconvertMod             = "MediaConvert"             // Media Convert
 	mediapackageMod             = "MediaPackage"             // Elemental MediaPackage
 	mediastoreMod               = "MediaStore"               // Elemental MediaStore
+	memoryDbMod                 = "MemoryDb"                 // Memory DB
 	mqMod                       = "Mq"                       // MQ
 	mskMod                      = "Msk"                      // MSK
+	mskConnectMod               = "MskConnect"               // MSK Connect
 	mwaaMod                     = "Mwaa"                     // Managed Workflows for Apache Airflow
 	neptuneMod                  = "Neptune"                  // Neptune
 	networkFirewallMod          = "NetworkFirewall"          // Network Firewall
@@ -696,6 +698,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
+			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
 			// Budgets
 			"aws_budgets_budget":        {Tok: awsResource(budgetsMod, "Budget")},
 			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
@@ -708,7 +711,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_chime_voice_connector_streaming":               {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
 			"aws_chime_voice_connector_termination_credentials": {Tok: awsResource(chimeMod, "VoiceConnectorTerminationCredentials")},
 			// Cloud9
-			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
+			"aws_cloud9_environment_ec2":        {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
+			"aws_cloud9_environment_membership": {Tok: awsResource(cloud9Mod, "EnvironmentMembership")},
 			// Cloud Control API
 			"aws_cloudcontrolapi_resource": {Tok: awsResource(cloudControlMod, "Resource")},
 			// CloudFormation
@@ -838,6 +842,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
 			"aws_codebuild_source_credential": {Tok: awsResource(codebuildMod, "SourceCredential")},
 			"aws_codebuild_report_group":      {Tok: awsResource(codebuildMod, "ReportGroup")},
+			"aws_codebuild_resource_policy":   {Tok: awsResource(codebuildMod, "ResourcePolicy")},
 			// CodeDeploy
 			"aws_codedeploy_app":               {Tok: awsResource(codedeployMod, "Application")},
 			"aws_codedeploy_deployment_config": {Tok: awsResource(codedeployMod, "DeploymentConfig")},
@@ -929,6 +934,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_datasync_location_smb":                     {Tok: awsResource(datasyncMod, "LocationSmb")},
 			"aws_datasync_location_fsx_windows_file_system": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
+			"aws_datasync_location_fsx_lustre_file_system":  {Tok: awsResource(datasyncMod, "LocationFsxLustre")},
+			"aws_datasync_location_hdfs":                    {Tok: awsResource(datasyncMod, "LocationHdfs")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 			// Detective
@@ -945,7 +952,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dax_parameter_group": {Tok: awsResource(daxMod, "ParameterGroup")},
 			"aws_dax_subnet_group":    {Tok: awsResource(daxMod, "SubnetGroup")},
 			// DeviceFarm
-			"aws_devicefarm_project": {Tok: awsResource(devicefarmMod, "Project")},
+			"aws_devicefarm_project":         {Tok: awsResource(devicefarmMod, "Project")},
+			"aws_devicefarm_device_pool":     {Tok: awsResource(devicefarmMod, "DevicePool")},
+			"aws_devicefarm_network_profile": {Tok: awsResource(devicefarmMod, "NetworkProfile")},
+			"aws_devicefarm_upload":          {Tok: awsResource(devicefarmMod, "Upload")},
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
 			"aws_directory_service_directory": {
@@ -1295,18 +1305,21 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_local_gateway_route_table_vpc_association": {
 				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
 			},
-			"aws_ec2_tag":                         {Tok: awsResource(ec2Mod, "Tag")},
-			"aws_ec2_host":                        {Tok: awsResource(ec2Mod, "DedicatedHost")},
-			"aws_ec2_managed_prefix_list":         {Tok: awsResource(ec2Mod, "ManagedPrefixList")},
-			"aws_ec2_carrier_gateway":             {Tok: awsResource(ec2Mod, "CarrierGateway")},
-			"aws_ec2_managed_prefix_list_entry":   {Tok: awsResource(ec2Mod, "ManagedPrefixListEntry")},
-			"aws_vpc_ipam":                        {Tok: awsResource(ec2Mod, "VpcIpam")},
-			"aws_vpc_ipam_pool":                   {Tok: awsResource(ec2Mod, "VpcIpamPool")},
-			"aws_vpc_ipam_scope":                  {Tok: awsResource(ec2Mod, "VpcIpamScope")},
-			"aws_vpc_ipam_pool_cidr":              {Tok: awsResource(ec2Mod, "VpcIpamPoolCidr")},
-			"aws_vpc_ipam_pool_cidr_allocation":   {Tok: awsResource(ec2Mod, "VpcIpamPoolCidrAllocation")},
-			"aws_vpc_ipv6_cidr_block_association": {Tok: awsResource(ec2Mod, "VpcIpv6CidrBlockAssociation")},
-			"aws_ec2_subnet_cidr_reservation":     {Tok: awsResource(ec2Mod, "SubnetCidrReservation")},
+			"aws_ec2_tag":                             {Tok: awsResource(ec2Mod, "Tag")},
+			"aws_ec2_host":                            {Tok: awsResource(ec2Mod, "DedicatedHost")},
+			"aws_ec2_managed_prefix_list":             {Tok: awsResource(ec2Mod, "ManagedPrefixList")},
+			"aws_ec2_carrier_gateway":                 {Tok: awsResource(ec2Mod, "CarrierGateway")},
+			"aws_ec2_managed_prefix_list_entry":       {Tok: awsResource(ec2Mod, "ManagedPrefixListEntry")},
+			"aws_vpc_ipam":                            {Tok: awsResource(ec2Mod, "VpcIpam")},
+			"aws_vpc_ipam_pool":                       {Tok: awsResource(ec2Mod, "VpcIpamPool")},
+			"aws_vpc_ipam_scope":                      {Tok: awsResource(ec2Mod, "VpcIpamScope")},
+			"aws_vpc_ipam_pool_cidr":                  {Tok: awsResource(ec2Mod, "VpcIpamPoolCidr")},
+			"aws_vpc_ipam_pool_cidr_allocation":       {Tok: awsResource(ec2Mod, "VpcIpamPoolCidrAllocation")},
+			"aws_vpc_ipv6_cidr_block_association":     {Tok: awsResource(ec2Mod, "VpcIpv6CidrBlockAssociation")},
+			"aws_ec2_subnet_cidr_reservation":         {Tok: awsResource(ec2Mod, "SubnetCidrReservation")},
+			"aws_vpc_endpoint_connection_accepter":    {Tok: awsResource(ec2Mod, "VpcEndpointConnectionAccepter")},
+			"aws_vpc_ipam_organization_admin_account": {Tok: awsResource(ec2Mod, "VpcIpamOrganizationAdminAccount")},
+			"aws_vpc_ipam_preview_next_cidr":          {Tok: awsResource(ec2Mod, "VpcIpamPreviewNextCidr")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1372,6 +1385,13 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"replication_configuration": {
 						CSharpName: "ReplicationConfigurationDetails",
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"rule": {
+									MaxItemsOne: tfbridge.True(),
+								},
+							},
+						},
 					},
 				},
 			},
@@ -1519,6 +1539,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_fsx_ontap_file_system":             {Tok: awsResource(fsxMod, "OntapFileSystem")},
 			"aws_fsx_ontap_storage_virtual_machine": {Tok: awsResource(fsxMod, "OntapStorageVirtualMachine")},
 			"aws_fsx_ontap_volume":                  {Tok: awsResource(fsxMod, "OntapVolume")},
+			"aws_fsx_openzfs_file_system":           {Tok: awsResource(fsxMod, "OpenZfsFileSystem")},
+			"aws_fsx_openzfs_snapshot":              {Tok: awsResource(fsxMod, "OpenZfsSnapshot")},
+			"aws_fsx_openzfs_volume":                {Tok: awsResource(fsxMod, "OpenZfsVolume")},
 			// GameLift
 			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
 			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
@@ -1971,6 +1994,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
+			// MemoryDB
+			"aws_memorydb_cluster":         {Tok: awsResource(memoryDbMod, "Cluster")},
+			"aws_memorydb_parameter_group": {Tok: awsResource(memoryDbMod, "ParameterGroup")},
+			"aws_memorydb_subnet_group":    {Tok: awsResource(memoryDbMod, "SubnetGroup")},
+			"aws_memorydb_user":            {Tok: awsResource(memoryDbMod, "User")},
+			"aws_memorydb_acl":             {Tok: awsResource(memoryDbMod, "Acl")},
 			// MQ
 			"aws_mq_broker": {
 				Tok: awsResource(mqMod, "Broker"),
@@ -2267,6 +2296,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_flow_definition":            {Tok: awsResource(sagemakerMod, "FlowDefinition")},
 			"aws_sagemaker_studio_lifecycle_config":    {Tok: awsResource(sagemakerMod, "StudioLifecycleConfig")},
 			"aws_sagemaker_model_package_group_policy": {Tok: awsResource(sagemakerMod, "ModelPackageGroupPolicy")},
+			"aws_sagemaker_device": {
+				Tok: awsResource(sagemakerMod, "Device"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"device": {
+						CSharpName: "DeviceDetails",
+					},
+				},
+			},
 			// Schemas
 			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
 			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},
@@ -2636,6 +2673,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_msk_configuration":            {Tok: awsResource(mskMod, "Configuration")},
 			"aws_msk_scram_secret_association": {Tok: awsResource(mskMod, "ScramSecretAssociation")},
+			// MSKConnect
+			"aws_mskconnect_custom_plugin":        {Tok: awsResource(mskConnectMod, "CustomPlugin")},
+			"aws_mskconnect_worker_configuration": {Tok: awsResource(mskConnectMod, "WorkerConfiguration")},
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 			// Quicksight
@@ -3909,6 +3949,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},
+			"aws_batch_scheduling_policy":   {Tok: awsDataSource(batchMod, "getSchedulingPolicy")},
 			// cloud control api
 			"aws_cloudcontrolapi_resource": {Tok: awsDataSource(cloudControlMod, "getResource")},
 			// CloudFormation
@@ -3936,7 +3977,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codecommit_repository":             {Tok: awsDataSource(codecommitMod, "getRepository")},
 			"aws_codecommit_approval_rule_template": {Tok: awsDataSource(codecommitMod, "getApprovalRuleTemplate")},
 			// Cognito
-			"aws_cognito_user_pools": {Tok: awsDataSource(cognitoMod, "getUserPools")},
+			"aws_cognito_user_pools":                    {Tok: awsDataSource(cognitoMod, "getUserPools")},
+			"aws_cognito_user_pool_clients":             {Tok: awsDataSource(cognitoMod, "getUserPoolClients")},
+			"aws_cognito_user_pool_signing_certificate": {Tok: awsDataSource(cognitoMod, "getUserPoolSigningCertificate")},
 			// Connect
 			"aws_connect_contact_flow":                {Tok: awsDataSource(connectMod, "getContactFlow")},
 			"aws_connect_instance":                    {Tok: awsDataSource(connectMod, "getInstance")},
@@ -4247,6 +4290,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_msk_configuration": {Tok: awsDataSource(mskMod, "getConfiguration")},
 			"aws_msk_broker_nodes":  {Tok: awsDataSource(mskMod, "getBrokerNodes")},
 			"aws_msk_kafka_version": {Tok: awsDataSource(mskMod, "getKafkaVersion")},
+			// MSK Connect
+			"aws_mskconnect_custom_plugin":        {Tok: awsDataSource(mskConnectMod, "getCustomPlugin")},
+			"aws_mskconnect_worker_configuration": {Tok: awsDataSource(mskConnectMod, "getWorkerConfiguration")},
 			// WAF
 			"aws_waf_rule":            {Tok: awsDataSource(wafMod, "getRule")},
 			"aws_waf_web_acl":         {Tok: awsDataSource(wafMod, "getWebAcl")},
@@ -4262,6 +4308,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_organizations_organizational_units":     {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
 			"aws_organizations_delegated_services":       {Tok: awsDataSource(organizationsMod, "getDelegatedServices")},
 			"aws_organizations_delegated_administrators": {Tok: awsDataSource(organizationsMod, "getDelegatedAdministrators")},
+			"aws_organizations_resource_tags":            {Tok: awsDataSource(organizationsMod, "getResourceTags")},
 			// ElasticSearch
 			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
 			// QLDB
@@ -4319,6 +4366,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_imagebuilder_image_recipe":   {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
 			"aws_imagebuilder_image":          {Tok: awsDataSource(imageBuilderMod, "getImage")},
 			"aws_imagebuilder_image_recipes":  {Tok: awsDataSource(imageBuilderMod, "getImageRecipes")},
+			//ses
+			"aws_ses_active_receipt_rule_set": {Tok: awsDataSource(sesMod, "getActiveReceiptRuleSet")},
+			"aws_ses_domain_identity":         {Tok: awsDataSource(sesMod, "getDomainIdentity")},
+			"aws_ses_email_identity":          {Tok: awsDataSource(sesMod, "getEmailIdentity")},
 			//signer
 			"aws_signer_signing_job":     {Tok: awsDataSource(signerMod, "getSigningJob")},
 			"aws_signer_signing_profile": {Tok: awsDataSource(signerMod, "getSigningProfile")},

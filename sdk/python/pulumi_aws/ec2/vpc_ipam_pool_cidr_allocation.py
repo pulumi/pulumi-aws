@@ -22,7 +22,7 @@ class VpcIpamPoolCidrAllocationArgs:
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
-        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         """
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if cidr is not None:
@@ -72,7 +72,7 @@ class VpcIpamPoolCidrAllocationArgs:
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         """
         return pulumi.get(self, "netmask_length")
 
@@ -97,7 +97,7 @@ class _VpcIpamPoolCidrAllocationState:
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         :param pulumi.Input[str] resource_id: The ID of the resource.
         :param pulumi.Input[str] resource_owner: The owner of the resource.
         :param pulumi.Input[str] resource_type: The type of the resource.
@@ -168,7 +168,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         """
         return pulumi.get(self, "netmask_length")
 
@@ -264,7 +264,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         """
         ...
     @overload
@@ -377,7 +377,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         :param pulumi.Input[str] resource_id: The ID of the resource.
         :param pulumi.Input[str] resource_owner: The owner of the resource.
         :param pulumi.Input[str] resource_type: The type of the resource.
@@ -429,7 +429,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> pulumi.Output[Optional[int]]:
         """
-        The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         """
         return pulumi.get(self, "netmask_length")
 
