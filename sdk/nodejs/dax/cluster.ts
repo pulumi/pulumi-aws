@@ -74,6 +74,12 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterAddress!: pulumi.Output<string>;
     /**
+     * The type of encryption the
+     * cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+     * Default value is `NONE`.
+     */
+    public readonly clusterEndpointEncryptionType!: pulumi.Output<string | undefined>;
+    /**
      * Group identifier. DAX converts this name to
      * lowercase
      */
@@ -171,6 +177,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["clusterAddress"] = state ? state.clusterAddress : undefined;
+            inputs["clusterEndpointEncryptionType"] = state ? state.clusterEndpointEncryptionType : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
             inputs["configurationEndpoint"] = state ? state.configurationEndpoint : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -202,6 +209,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'replicationFactor'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            inputs["clusterEndpointEncryptionType"] = args ? args.clusterEndpointEncryptionType : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
@@ -245,6 +253,12 @@ export interface ClusterState {
      * The DNS name of the DAX cluster without the port appended
      */
     clusterAddress?: pulumi.Input<string>;
+    /**
+     * The type of encryption the
+     * cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+     * Default value is `NONE`.
+     */
+    clusterEndpointEncryptionType?: pulumi.Input<string>;
     /**
      * Group identifier. DAX converts this name to
      * lowercase
@@ -337,6 +351,12 @@ export interface ClusterArgs {
      * nodes will be created
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The type of encryption the
+     * cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+     * Default value is `NONE`.
+     */
+    clusterEndpointEncryptionType?: pulumi.Input<string>;
     /**
      * Group identifier. DAX converts this name to
      * lowercase

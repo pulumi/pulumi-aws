@@ -297,6 +297,7 @@ class ProviderEndpointArgs:
                  iotthingsgraph: Optional[pulumi.Input[str]] = None,
                  iotwireless: Optional[pulumi.Input[str]] = None,
                  kafka: Optional[pulumi.Input[str]] = None,
+                 kafkaconnect: Optional[pulumi.Input[str]] = None,
                  kendra: Optional[pulumi.Input[str]] = None,
                  kinesis: Optional[pulumi.Input[str]] = None,
                  kinesisanalytics: Optional[pulumi.Input[str]] = None,
@@ -749,6 +750,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "iotwireless", iotwireless)
         if kafka is not None:
             pulumi.set(__self__, "kafka", kafka)
+        if kafkaconnect is not None:
+            pulumi.set(__self__, "kafkaconnect", kafkaconnect)
         if kendra is not None:
             pulumi.set(__self__, "kendra", kendra)
         if kinesis is not None:
@@ -2413,6 +2416,15 @@ class ProviderEndpointArgs:
     @kafka.setter
     def kafka(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kafka", value)
+
+    @property
+    @pulumi.getter
+    def kafkaconnect(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kafkaconnect")
+
+    @kafkaconnect.setter
+    def kafkaconnect(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kafkaconnect", value)
 
     @property
     @pulumi.getter

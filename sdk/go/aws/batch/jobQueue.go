@@ -14,6 +14,7 @@ import (
 // Provides a Batch Job Queue resource.
 //
 // ## Example Usage
+// ### Basic Job Queue
 //
 // ```go
 // package main
@@ -28,6 +29,49 @@ import (
 // 		_, err := batch.NewJobQueue(ctx, "testQueue", &batch.JobQueueArgs{
 // 			State:    pulumi.String("ENABLED"),
 // 			Priority: pulumi.Int(1),
+// 			ComputeEnvironments: pulumi.StringArray{
+// 				pulumi.Any(aws_batch_compute_environment.Test_environment_1.Arn),
+// 				pulumi.Any(aws_batch_compute_environment.Test_environment_2.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Job Queue with a fair share scheduling policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/batch"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleSchedulingPolicy, err := batch.NewSchedulingPolicy(ctx, "exampleSchedulingPolicy", &batch.SchedulingPolicyArgs{
+// 			FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
+// 				ComputeReservation: pulumi.Int(1),
+// 				ShareDecaySeconds:  pulumi.Int(3600),
+// 				ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
+// 					&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
+// 						ShareIdentifier: pulumi.String("A1*"),
+// 						WeightFactor:    pulumi.Float64(0.1),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = batch.NewJobQueue(ctx, "exampleJobQueue", &batch.JobQueueArgs{
+// 			SchedulingPolicyArn: exampleSchedulingPolicy.Arn,
+// 			State:               pulumi.String("ENABLED"),
+// 			Priority:            pulumi.Int(1),
 // 			ComputeEnvironments: pulumi.StringArray{
 // 				pulumi.Any(aws_batch_compute_environment.Test_environment_1.Arn),
 // 				pulumi.Any(aws_batch_compute_environment.Test_environment_2.Arn),
@@ -62,6 +106,8 @@ type JobQueue struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority pulumi.IntOutput `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn pulumi.StringPtrOutput `pulumi:"schedulingPolicyArn"`
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -119,6 +165,8 @@ type jobQueueState struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority *int `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,6 +187,8 @@ type JobQueueState struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority pulumi.IntPtrInput
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn pulumi.StringPtrInput
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +211,8 @@ type jobQueueArgs struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority int `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State string `pulumi:"state"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -178,6 +230,8 @@ type JobQueueArgs struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority pulumi.IntInput
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn pulumi.StringPtrInput
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

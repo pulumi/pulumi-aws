@@ -163,11 +163,15 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly schedule!: pulumi.Output<string | undefined>;
     /**
+     * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+     */
+    public readonly startOnCreation!: pulumi.Output<boolean | undefined>;
+    /**
      * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -203,6 +207,7 @@ export class Trigger extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["predicate"] = state ? state.predicate : undefined;
             inputs["schedule"] = state ? state.schedule : undefined;
+            inputs["startOnCreation"] = state ? state.startOnCreation : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -222,6 +227,7 @@ export class Trigger extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["predicate"] = args ? args.predicate : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["startOnCreation"] = args ? args.startOnCreation : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["workflowName"] = args ? args.workflowName : undefined;
@@ -269,11 +275,15 @@ export interface TriggerState {
      */
     schedule?: pulumi.Input<string>;
     /**
+     * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+     */
+    startOnCreation?: pulumi.Input<boolean>;
+    /**
      * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -319,7 +329,11 @@ export interface TriggerArgs {
      */
     schedule?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+     */
+    startOnCreation?: pulumi.Input<boolean>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

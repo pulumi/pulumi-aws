@@ -25,6 +25,7 @@ __all__ = [
     'ProjectSecondarySourceAuthArgs',
     'ProjectSecondarySourceBuildStatusConfigArgs',
     'ProjectSecondarySourceGitSubmodulesConfigArgs',
+    'ProjectSecondarySourceVersionArgs',
     'ProjectSourceArgs',
     'ProjectSourceAuthArgs',
     'ProjectSourceBuildStatusConfigArgs',
@@ -41,6 +42,7 @@ class ProjectArtifactsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  artifact_identifier: Optional[pulumi.Input[str]] = None,
+                 bucket_owner_access: Optional[pulumi.Input[str]] = None,
                  encryption_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -51,6 +53,7 @@ class ProjectArtifactsArgs:
         """
         :param pulumi.Input[str] type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param pulumi.Input[str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
+        :param pulumi.Input[str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -62,6 +65,8 @@ class ProjectArtifactsArgs:
         pulumi.set(__self__, "type", type)
         if artifact_identifier is not None:
             pulumi.set(__self__, "artifact_identifier", artifact_identifier)
+        if bucket_owner_access is not None:
+            pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
             pulumi.set(__self__, "encryption_disabled", encryption_disabled)
         if location is not None:
@@ -100,6 +105,18 @@ class ProjectArtifactsArgs:
     @artifact_identifier.setter
     def artifact_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "artifact_identifier", value)
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccess")
+    def bucket_owner_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        """
+        return pulumi.get(self, "bucket_owner_access")
+
+    @bucket_owner_access.setter
+    def bucket_owner_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner_access", value)
 
     @property
     @pulumi.getter(name="encryptionDisabled")
@@ -756,20 +773,36 @@ class ProjectLogsConfigCloudwatchLogsArgs:
 @pulumi.input_type
 class ProjectLogsConfigS3LogsArgs:
     def __init__(__self__, *,
+                 bucket_owner_access: Optional[pulumi.Input[str]] = None,
                  encryption_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
         """
+        if bucket_owner_access is not None:
+            pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
             pulumi.set(__self__, "encryption_disabled", encryption_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccess")
+    def bucket_owner_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        """
+        return pulumi.get(self, "bucket_owner_access")
+
+    @bucket_owner_access.setter
+    def bucket_owner_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner_access", value)
 
     @property
     @pulumi.getter(name="encryptionDisabled")
@@ -813,6 +846,7 @@ class ProjectSecondaryArtifactArgs:
     def __init__(__self__, *,
                  artifact_identifier: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 bucket_owner_access: Optional[pulumi.Input[str]] = None,
                  encryption_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -823,6 +857,7 @@ class ProjectSecondaryArtifactArgs:
         """
         :param pulumi.Input[str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
         :param pulumi.Input[str] type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+        :param pulumi.Input[str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -833,6 +868,8 @@ class ProjectSecondaryArtifactArgs:
         """
         pulumi.set(__self__, "artifact_identifier", artifact_identifier)
         pulumi.set(__self__, "type", type)
+        if bucket_owner_access is not None:
+            pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
             pulumi.set(__self__, "encryption_disabled", encryption_disabled)
         if location is not None:
@@ -871,6 +908,18 @@ class ProjectSecondaryArtifactArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccess")
+    def bucket_owner_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        """
+        return pulumi.get(self, "bucket_owner_access")
+
+    @bucket_owner_access.setter
+    def bucket_owner_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner_access", value)
 
     @property
     @pulumi.getter(name="encryptionDisabled")
@@ -971,7 +1020,7 @@ class ProjectSecondarySourceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] source_identifier: Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+        :param pulumi.Input[str] source_identifier: An identifier for a source in the build project.
         :param pulumi.Input[str] type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param pulumi.Input['ProjectSecondarySourceAuthArgs'] auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs'] build_status_config: Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
@@ -1008,7 +1057,7 @@ class ProjectSecondarySourceArgs:
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> pulumi.Input[str]:
         """
-        Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+        An identifier for a source in the build project.
         """
         return pulumi.get(self, "source_identifier")
 
@@ -1228,6 +1277,43 @@ class ProjectSecondarySourceGitSubmodulesConfigArgs:
     @fetch_submodules.setter
     def fetch_submodules(self, value: pulumi.Input[bool]):
         pulumi.set(self, "fetch_submodules", value)
+
+
+@pulumi.input_type
+class ProjectSecondarySourceVersionArgs:
+    def __init__(__self__, *,
+                 source_identifier: pulumi.Input[str],
+                 source_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] source_identifier: An identifier for a source in the build project.
+        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+        """
+        pulumi.set(__self__, "source_identifier", source_identifier)
+        pulumi.set(__self__, "source_version", source_version)
+
+    @property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> pulumi.Input[str]:
+        """
+        An identifier for a source in the build project.
+        """
+        return pulumi.get(self, "source_identifier")
+
+    @source_identifier.setter
+    def source_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_identifier", value)
+
+    @property
+    @pulumi.getter(name="sourceVersion")
+    def source_version(self) -> pulumi.Input[str]:
+        """
+        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+        """
+        return pulumi.get(self, "source_version")
+
+    @source_version.setter
+    def source_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_version", value)
 
 
 @pulumi.input_type

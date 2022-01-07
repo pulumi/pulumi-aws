@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecr.Inputs
     public sealed class ReplicationConfigurationReplicationConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The replication rules for a replication configuration. See Rule.
+        /// The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs> Rule { get; set; } = null!;

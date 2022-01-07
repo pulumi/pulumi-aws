@@ -11,6 +11,7 @@ from .get_delegated_administrators import *
 from .get_delegated_services import *
 from .get_organization import *
 from .get_organizational_units import *
+from .get_resource_tags import *
 from .organization import *
 from .organizational_unit import *
 from .policy import *

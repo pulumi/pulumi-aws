@@ -20,6 +20,10 @@ import * as utilities from "../utilities";
  *         deadLetterTargetArn: aws_sqs_queue.queue_deadletter.arn,
  *         maxReceiveCount: 4,
  *     }),
+ *     redriveAllowPolicy: JSON.stringify({
+ *         redrivePermission: "byQueue",
+ *         sourceQueueArns: [aws_sqs_queue.terraform_queue_deadletter.arn],
+ *     }),
  *     tags: {
  *         Environment: "production",
  *     },
@@ -168,6 +172,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly receiveWaitTimeSeconds!: pulumi.Output<number | undefined>;
     /**
+     * The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
+     */
+    public readonly redriveAllowPolicy!: pulumi.Output<string | undefined>;
+    /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
     public readonly redrivePolicy!: pulumi.Output<string | undefined>;
@@ -219,6 +227,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["receiveWaitTimeSeconds"] = state ? state.receiveWaitTimeSeconds : undefined;
+            inputs["redriveAllowPolicy"] = state ? state.redriveAllowPolicy : undefined;
             inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
             inputs["sqsManagedSseEnabled"] = state ? state.sqsManagedSseEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -240,6 +249,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["receiveWaitTimeSeconds"] = args ? args.receiveWaitTimeSeconds : undefined;
+            inputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
             inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
             inputs["sqsManagedSseEnabled"] = args ? args.sqsManagedSseEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -315,6 +325,10 @@ export interface QueueState {
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      */
     receiveWaitTimeSeconds?: pulumi.Input<number>;
+    /**
+     * The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
+     */
+    redriveAllowPolicy?: pulumi.Input<string>;
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
@@ -397,6 +411,10 @@ export interface QueueArgs {
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      */
     receiveWaitTimeSeconds?: pulumi.Input<number>;
+    /**
+     * The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
+     */
+    redriveAllowPolicy?: pulumi.Input<string>;
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */

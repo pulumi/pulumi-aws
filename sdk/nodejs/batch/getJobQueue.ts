@@ -74,6 +74,10 @@ export interface GetJobQueueResult {
      */
     readonly priority: number;
     /**
+     * The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+     */
+    readonly schedulingPolicyArn: string;
+    /**
      * Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
      */
     readonly state: string;

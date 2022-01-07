@@ -15,6 +15,7 @@ __all__ = [
     'ReplicationConfigurationReplicationConfiguration',
     'ReplicationConfigurationReplicationConfigurationRule',
     'ReplicationConfigurationReplicationConfigurationRuleDestination',
+    'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
     'GetRepositoryEncryptionConfigurationResult',
@@ -110,7 +111,7 @@ class ReplicationConfigurationReplicationConfiguration(dict):
     def __init__(__self__, *,
                  rule: 'outputs.ReplicationConfigurationReplicationConfigurationRule'):
         """
-        :param 'ReplicationConfigurationReplicationConfigurationRuleArgs' rule: The replication rules for a replication configuration. See Rule.
+        :param 'ReplicationConfigurationReplicationConfigurationRuleArgs' rule: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
         pulumi.set(__self__, "rule", rule)
 
@@ -118,27 +119,56 @@ class ReplicationConfigurationReplicationConfiguration(dict):
     @pulumi.getter
     def rule(self) -> 'outputs.ReplicationConfigurationReplicationConfigurationRule':
         """
-        The replication rules for a replication configuration. See Rule.
+        The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
         return pulumi.get(self, "rule")
 
 
 @pulumi.output_type
 class ReplicationConfigurationReplicationConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryFilters":
+            suggest = "repository_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationConfigurationReplicationConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationConfigurationReplicationConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationConfigurationReplicationConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 destinations: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination']):
+                 destinations: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination'],
+                 repository_filters: Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter']] = None):
         """
-        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs'] destinations: the details of a replication destination. See Destination.
+        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs'] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs'] repository_filters: filters for a replication rule. See Repository Filter.
         """
         pulumi.set(__self__, "destinations", destinations)
+        if repository_filters is not None:
+            pulumi.set(__self__, "repository_filters", repository_filters)
 
     @property
     @pulumi.getter
     def destinations(self) -> Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination']:
         """
-        the details of a replication destination. See Destination.
+        the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
         """
         return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter']]:
+        """
+        filters for a replication rule. See Repository Filter.
+        """
+        return pulumi.get(self, "repository_filters")
 
 
 @pulumi.output_type
@@ -185,6 +215,52 @@ class ReplicationConfigurationReplicationConfigurationRuleDestination(dict):
         The account ID of the destination registry to replicate to.
         """
         return pulumi.get(self, "registry_id")
+
+
+@pulumi.output_type
+class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter: str,
+                 filter_type: str):
+        """
+        :param str filter: The repository filter details.
+        :param str filter_type: The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> str:
+        """
+        The repository filter details.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> str:
+        """
+        The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+        """
+        return pulumi.get(self, "filter_type")
 
 
 @pulumi.output_type

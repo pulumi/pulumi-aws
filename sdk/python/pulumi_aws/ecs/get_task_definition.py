@@ -20,7 +20,10 @@ class GetTaskDefinitionResult:
     """
     A collection of values returned by getTaskDefinition.
     """
-    def __init__(__self__, family=None, id=None, network_mode=None, revision=None, status=None, task_definition=None, task_role_arn=None):
+    def __init__(__self__, arn=None, family=None, id=None, network_mode=None, revision=None, status=None, task_definition=None, task_role_arn=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if family and not isinstance(family, str):
             raise TypeError("Expected argument 'family' to be a str")
         pulumi.set(__self__, "family", family)
@@ -42,6 +45,14 @@ class GetTaskDefinitionResult:
         if task_role_arn and not isinstance(task_role_arn, str):
             raise TypeError("Expected argument 'task_role_arn' to be a str")
         pulumi.set(__self__, "task_role_arn", task_role_arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the task definition
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
         if False:
             yield self
         return GetTaskDefinitionResult(
+            arn=self.arn,
             family=self.family,
             id=self.id,
             network_mode=self.network_mode,
@@ -118,6 +130,37 @@ def get_task_definition(task_definition: Optional[str] = None,
     The ECS task definition data source allows access to details of
     a specific AWS ECS task definition.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    mongo_task_definition = aws.ecs.get_task_definition(task_definition=mongo_ecs / task_definition_task_definition["family"])
+    foo = aws.ecs.Cluster("foo")
+    mongo_ecs_task_definition_task_definition = aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition",
+        family="mongodb",
+        container_definitions=\"\"\"[
+      {
+        "cpu": 128,
+        "environment": [{
+          "name": "SECRET",
+          "value": "KEY"
+        }],
+        "essential": true,
+        "image": "mongo:latest",
+        "memory": 128,
+        "memoryReservation": 64,
+        "name": "mongodb"
+      }
+    ]
+    \"\"\")
+    mongo_service = aws.ecs.Service("mongoService",
+        cluster=foo.id,
+        desired_count=2,
+        task_definition=mongo_ecs / task_definition_task_definition["arn"])
+    ```
+
 
     :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
@@ -130,6 +173,7 @@ def get_task_definition(task_definition: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult).value
 
     return AwaitableGetTaskDefinitionResult(
+        arn=__ret__.arn,
         family=__ret__.family,
         id=__ret__.id,
         network_mode=__ret__.network_mode,
@@ -145,6 +189,37 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
     """
     The ECS task definition data source allows access to details of
     a specific AWS ECS task definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    mongo_task_definition = aws.ecs.get_task_definition(task_definition=mongo_ecs / task_definition_task_definition["family"])
+    foo = aws.ecs.Cluster("foo")
+    mongo_ecs_task_definition_task_definition = aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition",
+        family="mongodb",
+        container_definitions=\"\"\"[
+      {
+        "cpu": 128,
+        "environment": [{
+          "name": "SECRET",
+          "value": "KEY"
+        }],
+        "essential": true,
+        "image": "mongo:latest",
+        "memory": 128,
+        "memoryReservation": 64,
+        "name": "mongodb"
+      }
+    ]
+    \"\"\")
+    mongo_service = aws.ecs.Service("mongoService",
+        cluster=foo.id,
+        desired_count=2,
+        task_definition=mongo_ecs / task_definition_task_definition["arn"])
+    ```
 
 
     :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.

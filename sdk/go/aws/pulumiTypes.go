@@ -534,6 +534,7 @@ type ProviderEndpoint struct {
 	Iotthingsgraph                  *string `pulumi:"iotthingsgraph"`
 	Iotwireless                     *string `pulumi:"iotwireless"`
 	Kafka                           *string `pulumi:"kafka"`
+	Kafkaconnect                    *string `pulumi:"kafkaconnect"`
 	Kendra                          *string `pulumi:"kendra"`
 	Kinesis                         *string `pulumi:"kinesis"`
 	Kinesisanalytics                *string `pulumi:"kinesisanalytics"`
@@ -848,6 +849,7 @@ type ProviderEndpointArgs struct {
 	Iotthingsgraph                  pulumi.StringPtrInput `pulumi:"iotthingsgraph"`
 	Iotwireless                     pulumi.StringPtrInput `pulumi:"iotwireless"`
 	Kafka                           pulumi.StringPtrInput `pulumi:"kafka"`
+	Kafkaconnect                    pulumi.StringPtrInput `pulumi:"kafkaconnect"`
 	Kendra                          pulumi.StringPtrInput `pulumi:"kendra"`
 	Kinesis                         pulumi.StringPtrInput `pulumi:"kinesis"`
 	Kinesisanalytics                pulumi.StringPtrInput `pulumi:"kinesisanalytics"`
@@ -1655,6 +1657,10 @@ func (o ProviderEndpointOutput) Iotwireless() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Kafka() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Kafka }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Kafkaconnect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Kafkaconnect }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Kendra() pulumi.StringPtrOutput {

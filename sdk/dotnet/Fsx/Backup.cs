@@ -97,6 +97,35 @@ namespace Pulumi.Aws.Fsx
     /// }
     /// ```
     /// 
+    /// ## OpenZFS Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new Aws.Fsx.OpenZfsFileSystemArgs
+    ///         {
+    ///             StorageCapacity = 64,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
+    ///             DeploymentType = "SINGLE_AZ_1",
+    ///             ThroughputCapacity = 64,
+    ///         });
+    ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
+    ///         {
+    ///             FileSystemId = exampleOpenZfsFileSystem.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// FSx Backups can be imported using the `id`, e.g.,

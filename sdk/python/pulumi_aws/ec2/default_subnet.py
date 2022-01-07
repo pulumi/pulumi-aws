@@ -15,9 +15,14 @@ class DefaultSubnetArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DefaultSubnet resource.
@@ -28,12 +33,22 @@ class DefaultSubnetArgs:
         pulumi.set(__self__, "availability_zone", availability_zone)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if enable_dns64 is not None:
+            pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_resource_name_dns_a_record_on_launch is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
+        if enable_resource_name_dns_aaaa_record_on_launch is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
+        if ipv6_native is not None:
+            pulumi.set(__self__, "ipv6_native", ipv6_native)
         if map_customer_owned_ip_on_launch is not None:
             pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch is not None:
             pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
         if outpost_arn is not None:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if private_dns_hostname_type_on_launch is not None:
+            pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -57,6 +72,42 @@ class DefaultSubnetArgs:
     @customer_owned_ipv4_pool.setter
     def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
+
+    @property
+    @pulumi.getter(name="enableDns64")
+    def enable_dns64(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_dns64")
+
+    @enable_dns64.setter
+    def enable_dns64(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_dns64", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
+    def enable_resource_name_dns_a_record_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record_on_launch")
+
+    @enable_resource_name_dns_a_record_on_launch.setter
+    def enable_resource_name_dns_a_record_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record_on_launch", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecordOnLaunch")
+    def enable_resource_name_dns_aaaa_record_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
+
+    @enable_resource_name_dns_aaaa_record_on_launch.setter
+    def enable_resource_name_dns_aaaa_record_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record_on_launch", value)
+
+    @property
+    @pulumi.getter(name="ipv6Native")
+    def ipv6_native(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ipv6_native")
+
+    @ipv6_native.setter
+    def ipv6_native(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv6_native", value)
 
     @property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
@@ -89,6 +140,15 @@ class DefaultSubnetArgs:
         pulumi.set(self, "outpost_arn", value)
 
     @property
+    @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
+    def private_dns_hostname_type_on_launch(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_dns_hostname_type_on_launch")
+
+    @private_dns_hostname_type_on_launch.setter
+    def private_dns_hostname_type_on_launch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns_hostname_type_on_launch", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -110,12 +170,17 @@ class _DefaultSubnetState:
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
+                 private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
@@ -144,10 +209,18 @@ class _DefaultSubnetState:
             pulumi.set(__self__, "cidr_block", cidr_block)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if enable_dns64 is not None:
+            pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_resource_name_dns_a_record_on_launch is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
+        if enable_resource_name_dns_aaaa_record_on_launch is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_cidr_block_association_id is not None:
             pulumi.set(__self__, "ipv6_cidr_block_association_id", ipv6_cidr_block_association_id)
+        if ipv6_native is not None:
+            pulumi.set(__self__, "ipv6_native", ipv6_native)
         if map_customer_owned_ip_on_launch is not None:
             pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch is not None:
@@ -156,6 +229,8 @@ class _DefaultSubnetState:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if private_dns_hostname_type_on_launch is not None:
+            pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -231,6 +306,33 @@ class _DefaultSubnetState:
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @property
+    @pulumi.getter(name="enableDns64")
+    def enable_dns64(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_dns64")
+
+    @enable_dns64.setter
+    def enable_dns64(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_dns64", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
+    def enable_resource_name_dns_a_record_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record_on_launch")
+
+    @enable_resource_name_dns_a_record_on_launch.setter
+    def enable_resource_name_dns_a_record_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record_on_launch", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecordOnLaunch")
+    def enable_resource_name_dns_aaaa_record_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
+
+    @enable_resource_name_dns_aaaa_record_on_launch.setter
+    def enable_resource_name_dns_aaaa_record_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record_on_launch", value)
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
@@ -250,6 +352,15 @@ class _DefaultSubnetState:
     @ipv6_cidr_block_association_id.setter
     def ipv6_cidr_block_association_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_cidr_block_association_id", value)
+
+    @property
+    @pulumi.getter(name="ipv6Native")
+    def ipv6_native(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ipv6_native")
+
+    @ipv6_native.setter
+    def ipv6_native(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv6_native", value)
 
     @property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
@@ -294,6 +405,15 @@ class _DefaultSubnetState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
+    def private_dns_hostname_type_on_launch(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_dns_hostname_type_on_launch")
+
+    @private_dns_hostname_type_on_launch.setter
+    def private_dns_hostname_type_on_launch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns_hostname_type_on_launch", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -334,9 +454,14 @@ class DefaultSubnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -424,9 +549,14 @@ class DefaultSubnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -444,9 +574,14 @@ class DefaultSubnet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+            __props__.__dict__["enable_dns64"] = enable_dns64
+            __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
+            __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
+            __props__.__dict__["ipv6_native"] = ipv6_native
             __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["outpost_arn"] = outpost_arn
+            __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["assign_ipv6_address_on_creation"] = None
@@ -473,12 +608,17 @@ class DefaultSubnet(pulumi.CustomResource):
             availability_zone_id: Optional[pulumi.Input[str]] = None,
             cidr_block: Optional[pulumi.Input[str]] = None,
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+            enable_dns64: Optional[pulumi.Input[bool]] = None,
+            enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
+            enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
+            ipv6_native: Optional[pulumi.Input[bool]] = None,
             map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
             map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
             outpost_arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
+            private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'DefaultSubnet':
@@ -510,12 +650,17 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__.__dict__["availability_zone_id"] = availability_zone_id
         __props__.__dict__["cidr_block"] = cidr_block
         __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+        __props__.__dict__["enable_dns64"] = enable_dns64
+        __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
+        __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
         __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
         __props__.__dict__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
+        __props__.__dict__["ipv6_native"] = ipv6_native
         __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
         __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_id"] = vpc_id
@@ -565,6 +710,21 @@ class DefaultSubnet(pulumi.CustomResource):
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
+    @pulumi.getter(name="enableDns64")
+    def enable_dns64(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_dns64")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
+    def enable_resource_name_dns_a_record_on_launch(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_a_record_on_launch")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecordOnLaunch")
+    def enable_resource_name_dns_aaaa_record_on_launch(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[str]:
         """
@@ -576,6 +736,11 @@ class DefaultSubnet(pulumi.CustomResource):
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
     def ipv6_cidr_block_association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "ipv6_cidr_block_association_id")
+
+    @property
+    @pulumi.getter(name="ipv6Native")
+    def ipv6_native(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "ipv6_native")
 
     @property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
@@ -602,6 +767,11 @@ class DefaultSubnet(pulumi.CustomResource):
         ID of the AWS account that owns the subnet.
         """
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
+    def private_dns_hostname_type_on_launch(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "private_dns_hostname_type_on_launch")
 
     @property
     @pulumi.getter

@@ -167,7 +167,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+        /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         /// </summary>
         [Output("streamView")]
         public Output<string> StreamView { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+        /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         /// </summary>
         [Input("streamView")]
         public Input<string>? StreamView { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+        /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         /// </summary>
         [Input("streamView")]
         public Input<string>? StreamView { get; set; }

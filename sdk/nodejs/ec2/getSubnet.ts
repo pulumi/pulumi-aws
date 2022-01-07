@@ -142,6 +142,18 @@ export interface GetSubnetResult {
      */
     readonly customerOwnedIpv4Pool: string;
     readonly defaultForAz: boolean;
+    /**
+     * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+     */
+    readonly enableDns64: boolean;
+    /**
+     * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+     */
+    readonly enableResourceNameDnsARecordOnLaunch: boolean;
+    /**
+     * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+     */
+    readonly enableResourceNameDnsAaaaRecordOnLaunch: boolean;
     readonly filters?: outputs.ec2.GetSubnetFilter[];
     readonly id: string;
     readonly ipv6CidrBlock: string;
@@ -149,6 +161,10 @@ export interface GetSubnetResult {
      * Association ID of the IPv6 CIDR block.
      */
     readonly ipv6CidrBlockAssociationId: string;
+    /**
+     * Indicates whether this is an IPv6-only subnet.
+     */
+    readonly ipv6Native: boolean;
     /**
      * Whether customer owned IP addresses are assigned on network interface creation.
      */
@@ -165,6 +181,10 @@ export interface GetSubnetResult {
      * ID of the AWS account that owns the subnet.
      */
     readonly ownerId: string;
+    /**
+     * The type of hostnames assigned to instances in the subnet at launch.
+     */
+    readonly privateDnsHostnameTypeOnLaunch: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
     readonly vpcId: string;

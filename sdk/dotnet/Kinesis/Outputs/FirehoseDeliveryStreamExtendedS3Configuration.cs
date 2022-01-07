@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? DataFormatConversionConfiguration;
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
         /// <summary>
-        /// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+        /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         /// </summary>
         public readonly string? ErrorOutputPrefix;
         /// <summary>

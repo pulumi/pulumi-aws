@@ -82,6 +82,8 @@ type Table struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Timestream database.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesOutput `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesOutput `pulumi:"retentionProperties"`
 	// The name of the Timestream table.
@@ -131,6 +133,8 @@ type tableState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the Timestream database.
 	DatabaseName *string `pulumi:"databaseName"`
+	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	MagneticStoreWriteProperties *TableMagneticStoreWriteProperties `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
 	// The name of the Timestream table.
@@ -146,6 +150,8 @@ type TableState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the Timestream database.
 	DatabaseName pulumi.StringPtrInput
+	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesPtrInput
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesPtrInput
 	// The name of the Timestream table.
@@ -163,6 +169,8 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	// The name of the Timestream database.
 	DatabaseName string `pulumi:"databaseName"`
+	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	MagneticStoreWriteProperties *TableMagneticStoreWriteProperties `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
 	// The name of the Timestream table.
@@ -175,6 +183,8 @@ type tableArgs struct {
 type TableArgs struct {
 	// The name of the Timestream database.
 	DatabaseName pulumi.StringInput
+	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesPtrInput
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesPtrInput
 	// The name of the Timestream table.

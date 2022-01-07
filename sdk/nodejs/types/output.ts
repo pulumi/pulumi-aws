@@ -5515,7 +5515,7 @@ export namespace batch {
 
     export interface ComputeEnvironmentComputeResourcesEc2Configuration {
         /**
-         * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResourcess block.
+         * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
          */
         imageIdOverride: string;
         /**
@@ -5542,6 +5542,29 @@ export namespace batch {
     export interface GetJobQueueComputeEnvironmentOrder {
         computeEnvironment: string;
         order: number;
+    }
+
+    export interface GetSchedulingPolicyFairSharePolicy {
+        /**
+         * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         */
+        computeReservation: number;
+        shareDecaySeconds: number;
+        /**
+         * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+         */
+        shareDistributions: outputs.batch.GetSchedulingPolicyFairSharePolicyShareDistribution[];
+    }
+
+    export interface GetSchedulingPolicyFairSharePolicyShareDistribution {
+        /**
+         * A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         */
+        shareIdentifier: string;
+        /**
+         * The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         */
+        weightFactor: number;
     }
 
     export interface JobDefinitionRetryStrategy {
@@ -5579,6 +5602,29 @@ export namespace batch {
          * The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
          */
         attemptDurationSeconds?: number;
+    }
+
+    export interface SchedulingPolicyFairSharePolicy {
+        /**
+         * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         */
+        computeReservation?: number;
+        shareDecaySeconds?: number;
+        /**
+         * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+         */
+        shareDistributions?: outputs.batch.SchedulingPolicyFairSharePolicyShareDistribution[];
+    }
+
+    export interface SchedulingPolicyFairSharePolicyShareDistribution {
+        /**
+         * A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         */
+        shareIdentifier: string;
+        /**
+         * The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         */
+        weightFactor?: number;
     }
 
 }
@@ -7908,6 +7954,10 @@ export namespace codebuild {
          */
         artifactIdentifier?: string;
         /**
+         * Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+         */
+        bucketOwnerAccess?: string;
+        /**
          * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
          */
         encryptionDisabled?: boolean;
@@ -8098,6 +8148,10 @@ export namespace codebuild {
 
     export interface ProjectLogsConfigS3Logs {
         /**
+         * Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+         */
+        bucketOwnerAccess?: string;
+        /**
          * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
          */
         encryptionDisabled?: boolean;
@@ -8116,6 +8170,10 @@ export namespace codebuild {
          * Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
          */
         artifactIdentifier: string;
+        /**
+         * Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+         */
+        bucketOwnerAccess?: string;
         /**
          * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
          */
@@ -8186,7 +8244,7 @@ export namespace codebuild {
          */
         reportBuildStatus?: boolean;
         /**
-         * Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+         * An identifier for a source in the build project.
          */
         sourceIdentifier: string;
         /**
@@ -8226,6 +8284,17 @@ export namespace codebuild {
          * Whether to fetch Git submodules for the AWS CodeBuild build project.
          */
         fetchSubmodules: boolean;
+    }
+
+    export interface ProjectSecondarySourceVersion {
+        /**
+         * An identifier for a source in the build project.
+         */
+        sourceIdentifier: string;
+        /**
+         * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+         */
+        sourceVersion: string;
     }
 
     export interface ProjectSource {
@@ -9413,6 +9482,7 @@ export namespace config {
         iotthingsgraph?: string;
         iotwireless?: string;
         kafka?: string;
+        kafkaconnect?: string;
         kendra?: string;
         kinesis?: string;
         kinesisanalytics?: string;
@@ -9681,6 +9751,28 @@ export namespace datasync {
         subnetArn: string;
     }
 
+    export interface LocationHdfsNameNode {
+        /**
+         * The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+         */
+        hostname: string;
+        /**
+         * The port that the NameNode uses to listen to client requests.
+         */
+        port: number;
+    }
+
+    export interface LocationHdfsQopConfiguration {
+        /**
+         * The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+         */
+        dataTransferProtection?: string;
+        /**
+         * The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+         */
+        rpcProtection?: string;
+    }
+
     export interface LocationSmbMountOptions {
         /**
          * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
@@ -9811,6 +9903,24 @@ export namespace dax {
          * The value for the parameter.
          */
         value: string;
+    }
+
+}
+
+export namespace devicefarm {
+    export interface DevicePoolRule {
+        /**
+         * The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
+         */
+        attribute?: string;
+        /**
+         * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
+         */
+        operator?: string;
+        /**
+         * The rule's value.
+         */
+        value?: string;
     }
 
 }
@@ -10425,11 +10535,6 @@ export namespace dynamodb {
          * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled?: boolean;
-        /**
-         * The ARN of the CMK that should be used for the AWS KMS encryption.
-         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-         */
-        kmsKeyArn: string;
     }
 
 }
@@ -13504,16 +13609,20 @@ export namespace ecr {
 
     export interface ReplicationConfigurationReplicationConfiguration {
         /**
-         * The replication rules for a replication configuration. See Rule.
+         * The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
          */
         rule: outputs.ecr.ReplicationConfigurationReplicationConfigurationRule;
     }
 
     export interface ReplicationConfigurationReplicationConfigurationRule {
         /**
-         * the details of a replication destination. See Destination.
+         * the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
          */
         destinations: outputs.ecr.ReplicationConfigurationReplicationConfigurationRuleDestination[];
+        /**
+         * filters for a replication rule. See Repository Filter.
+         */
+        repositoryFilters?: outputs.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter[];
     }
 
     export interface ReplicationConfigurationReplicationConfigurationRuleDestination {
@@ -13525,6 +13634,17 @@ export namespace ecr {
          * The account ID of the destination registry to replicate to.
          */
         registryId: string;
+    }
+
+    export interface ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
+        /**
+         * The repository filter details.
+         */
+        filter: string;
+        /**
+         * The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+         */
+        filterType: string;
     }
 
     export interface RepositoryEncryptionConfiguration {
@@ -13544,7 +13664,6 @@ export namespace ecr {
          */
         scanOnPush: boolean;
     }
-
 }
 
 export namespace ecrpublic {
@@ -17017,6 +17136,105 @@ export namespace fsx {
         name: string;
     }
 
+    export interface OpenZfsFileSystemDiskIopsConfiguration {
+        /**
+         * - The total number of SSD IOPS provisioned for the file system.
+         */
+        iops: number;
+        /**
+         * - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         */
+        mode?: string;
+    }
+
+    export interface OpenZfsFileSystemRootVolumeConfiguration {
+        /**
+         * - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         */
+        copyTagsToSnapshots?: boolean;
+        /**
+         * - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+         */
+        dataCompressionType?: string;
+        /**
+         * - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         */
+        nfsExports?: outputs.fsx.OpenZfsFileSystemRootVolumeConfigurationNfsExports;
+        /**
+         * - specifies whether the volume is read-only. Default is false.
+         */
+        readOnly: boolean;
+        /**
+         * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         */
+        userAndGroupQuotas: outputs.fsx.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota[];
+    }
+
+    export interface OpenZfsFileSystemRootVolumeConfigurationNfsExports {
+        /**
+         * - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         */
+        clientConfigurations: outputs.fsx.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration[];
+    }
+
+    export interface OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
+        /**
+         * - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+         */
+        clients: string;
+        /**
+         * -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         */
+        options: string[];
+    }
+
+    export interface OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
+        /**
+         * - The ID of the user or group. Valid values between `0` and `2147483647`
+         */
+        id: number;
+        /**
+         * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         */
+        storageCapacityQuotaGib: number;
+        type: string;
+    }
+
+    export interface OpenZfsVolumeNfsExports {
+        /**
+         * - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         */
+        clientConfigurations: outputs.fsx.OpenZfsVolumeNfsExportsClientConfiguration[];
+    }
+
+    export interface OpenZfsVolumeNfsExportsClientConfiguration {
+        /**
+         * - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+         */
+        clients: string;
+        /**
+         * -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         */
+        options: string[];
+    }
+
+    export interface OpenZfsVolumeOriginSnapshot {
+        copyStrategy: string;
+        snapshotArn: string;
+    }
+
+    export interface OpenZfsVolumeUserAndGroupQuota {
+        /**
+         * - The ID of the user or group. Valid values between `0` and `2147483647`
+         */
+        id: number;
+        /**
+         * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         */
+        storageCapacityQuotaGib: number;
+        type: string;
+    }
+
     export interface WindowsFileSystemAuditLogConfiguration {
         /**
          * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
@@ -19797,7 +20015,7 @@ export namespace kinesis {
         dataFormatConversionConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration;
         dynamicPartitioningConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration;
         /**
-         * Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
          */
         errorOutputPrefix?: string;
         /**
@@ -20083,6 +20301,10 @@ export namespace kinesis {
          */
         compressionFormat?: string;
         /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
+        errorOutputPrefix?: string;
+        /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
          */
@@ -20362,6 +20584,10 @@ export namespace kinesis {
          */
         compressionFormat?: string;
         /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
+        errorOutputPrefix?: string;
+        /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
          */
@@ -20413,6 +20639,10 @@ export namespace kinesis {
          * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
+        errorOutputPrefix?: string;
         /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
@@ -22893,6 +23123,94 @@ export namespace mediapackage {
 
 }
 
+export namespace memorydb {
+    export interface ClusterClusterEndpoint {
+        /**
+         * DNS hostname of the node.
+         */
+        address: string;
+        /**
+         * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+         */
+        port: number;
+    }
+
+    export interface ClusterShard {
+        /**
+         * Name of this node.
+         * * `endpoint`
+         */
+        name: string;
+        /**
+         * Set of nodes in this shard.
+         */
+        nodes: outputs.memorydb.ClusterShardNode[];
+        /**
+         * Number of individual nodes in this shard.
+         */
+        numNodes: number;
+        /**
+         * Keyspace for this shard. Example: `0-16383`.
+         */
+        slots: string;
+    }
+
+    export interface ClusterShardNode {
+        /**
+         * The Availability Zone in which the node resides.
+         */
+        availabilityZone: string;
+        /**
+         * The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+         */
+        createTime: string;
+        endpoints: outputs.memorydb.ClusterShardNodeEndpoint[];
+        /**
+         * Name of this node.
+         * * `endpoint`
+         */
+        name: string;
+    }
+
+    export interface ClusterShardNodeEndpoint {
+        /**
+         * DNS hostname of the node.
+         */
+        address: string;
+        /**
+         * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+         */
+        port: number;
+    }
+
+    export interface ParameterGroupParameter {
+        /**
+         * The name of the parameter.
+         */
+        name: string;
+        /**
+         * The value of the parameter.
+         */
+        value: string;
+    }
+
+    export interface UserAuthenticationMode {
+        /**
+         * The number of passwords belonging to the user.
+         */
+        passwordCount: number;
+        /**
+         * The set of passwords used for authentication. You can create up to two passwords for each user.
+         */
+        passwords: string[];
+        /**
+         * Indicates whether the user requires a password to authenticate. Must be set to `password`.
+         */
+        type: string;
+    }
+
+}
+
 export namespace mq {
     export interface BrokerConfiguration {
         /**
@@ -23256,6 +23574,31 @@ export namespace msk {
          * The Amazon Resource Name (ARN) of the node
          */
         nodeArn: string;
+    }
+
+}
+
+export namespace mskconnect {
+    export interface CustomPluginLocation {
+        /**
+         * Information of the plugin file stored in Amazon S3. See below.
+         */
+        s3: outputs.mskconnect.CustomPluginLocationS3;
+    }
+
+    export interface CustomPluginLocationS3 {
+        /**
+         * The Amazon Resource Name (ARN) of an S3 bucket.
+         */
+        bucketArn: string;
+        /**
+         * The file key for an object in an S3 bucket.
+         */
+        fileKey: string;
+        /**
+         * The version of an object in an S3 bucket.
+         */
+        objectVersion?: string;
     }
 
 }
@@ -26655,9 +26998,17 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface CodeRepositoryGitConfig {
@@ -26673,6 +27024,21 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
          */
         secretArn?: string;
+    }
+
+    export interface DeviceDevice {
+        /**
+         * A description for the device.
+         */
+        description?: string;
+        /**
+         * The name of the device.
+         */
+        deviceName: string;
+        /**
+         * Amazon Web Services Internet of Things (IoT) object name.
+         */
+        iotThingName?: string;
     }
 
     export interface DeviceFleetOutputConfig {
@@ -26730,9 +27096,17 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettings {
@@ -26771,9 +27145,17 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface DomainDefaultUserSettingsSharingSettings {
@@ -26804,9 +27186,17 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface DomainRetentionPolicy {
@@ -27317,9 +27707,17 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
          */
         sagemakerImageArn?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface UserProfileUserSettingsKernelGatewayAppSettings {
@@ -27358,9 +27756,17 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
          */
         sagemakerImageArn?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface UserProfileUserSettingsSharingSettings {
@@ -27391,9 +27797,17 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
          * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
          */
         sagemakerImageArn?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface WorkforceCognitoConfig {
@@ -29985,7 +30399,7 @@ export namespace synthetics {
          */
         durationInSeconds?: number;
         /**
-         * Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+         * Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
          */
         expression: string;
     }
@@ -30027,6 +30441,43 @@ export namespace synthetics {
 }
 
 export namespace timestreamwrite {
+    export interface TableMagneticStoreWriteProperties {
+        /**
+         * A flag to enable magnetic store writes.
+         */
+        enableMagneticStoreWrites?: boolean;
+        /**
+         * The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+         */
+        magneticStoreRejectedDataLocation?: outputs.timestreamwrite.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation;
+    }
+
+    export interface TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
+        /**
+         * Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+         */
+        s3Configuration?: outputs.timestreamwrite.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration;
+    }
+
+    export interface TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
+        /**
+         * Bucket name of the customer S3 bucket.
+         */
+        bucketName?: string;
+        /**
+         * Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
+         */
+        encryptionOption?: string;
+        /**
+         * KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+         */
+        kmsKeyId?: string;
+        /**
+         * Object key prefix for the customer S3 location.
+         */
+        objectKeyPrefix?: string;
+    }
+
     export interface TableRetentionProperties {
         /**
          * The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.

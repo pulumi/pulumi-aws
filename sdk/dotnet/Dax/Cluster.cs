@@ -67,6 +67,14 @@ namespace Pulumi.Aws.Dax
         public Output<string> ClusterAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The type of encryption the
+        /// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+        /// Default value is `NONE`.
+        /// </summary>
+        [Output("clusterEndpointEncryptionType")]
+        public Output<string?> ClusterEndpointEncryptionType { get; private set; } = null!;
+
+        /// <summary>
         /// Group identifier. DAX converts this name to
         /// lowercase
         /// </summary>
@@ -239,6 +247,14 @@ namespace Pulumi.Aws.Dax
         }
 
         /// <summary>
+        /// The type of encryption the
+        /// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+        /// Default value is `NONE`.
+        /// </summary>
+        [Input("clusterEndpointEncryptionType")]
+        public Input<string>? ClusterEndpointEncryptionType { get; set; }
+
+        /// <summary>
         /// Group identifier. DAX converts this name to
         /// lowercase
         /// </summary>
@@ -367,6 +383,14 @@ namespace Pulumi.Aws.Dax
         /// </summary>
         [Input("clusterAddress")]
         public Input<string>? ClusterAddress { get; set; }
+
+        /// <summary>
+        /// The type of encryption the
+        /// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+        /// Default value is `NONE`.
+        /// </summary>
+        [Input("clusterEndpointEncryptionType")]
+        public Input<string>? ClusterEndpointEncryptionType { get; set; }
 
         /// <summary>
         /// Group identifier. DAX converts this name to

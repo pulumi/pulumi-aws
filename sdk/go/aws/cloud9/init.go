@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:cloud9/environmentEC2:EnvironmentEC2":
 		r = &EnvironmentEC2{}
+	case "aws:cloud9/environmentMembership:EnvironmentMembership":
+		r = &EnvironmentMembership{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloud9/environmentEC2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloud9/environmentMembership",
 		&module{version},
 	)
 }

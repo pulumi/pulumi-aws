@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'EfsLocationEc2Config',
+    'LocationHdfsNameNode',
+    'LocationHdfsQopConfiguration',
     'LocationSmbMountOptions',
     'NfsLocationMountOptions',
     'NfsLocationOnPremConfig',
@@ -65,6 +67,85 @@ class EfsLocationEc2Config(dict):
         Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
         """
         return pulumi.get(self, "subnet_arn")
+
+
+@pulumi.output_type
+class LocationHdfsNameNode(dict):
+    def __init__(__self__, *,
+                 hostname: str,
+                 port: int):
+        """
+        :param str hostname: The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+        :param int port: The port that the NameNode uses to listen to client requests.
+        """
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> str:
+        """
+        The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
+        """
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port that the NameNode uses to listen to client requests.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class LocationHdfsQopConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTransferProtection":
+            suggest = "data_transfer_protection"
+        elif key == "rpcProtection":
+            suggest = "rpc_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationHdfsQopConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationHdfsQopConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationHdfsQopConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_transfer_protection: Optional[str] = None,
+                 rpc_protection: Optional[str] = None):
+        """
+        :param str data_transfer_protection: The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        :param str rpc_protection: The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        """
+        if data_transfer_protection is not None:
+            pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
+        if rpc_protection is not None:
+            pulumi.set(__self__, "rpc_protection", rpc_protection)
+
+    @property
+    @pulumi.getter(name="dataTransferProtection")
+    def data_transfer_protection(self) -> Optional[str]:
+        """
+        The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        """
+        return pulumi.get(self, "data_transfer_protection")
+
+    @property
+    @pulumi.getter(name="rpcProtection")
+    def rpc_protection(self) -> Optional[str]:
+        """
+        The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
+        """
+        return pulumi.get(self, "rpc_protection")
 
 
 @pulumi.output_type

@@ -7,6 +7,41 @@ import * as utilities from "../utilities";
 /**
  * The ECS task definition data source allows access to details of
  * a specific AWS ECS task definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mongoTaskDefinition = aws.ecs.getTaskDefinition({
+ *     taskDefinition: mongoEcs / taskDefinitionTaskDefinition.family,
+ * });
+ * const foo = new aws.ecs.Cluster("foo", {});
+ * const mongoEcs_taskDefinitionTaskDefinition = new aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", {
+ *     family: "mongodb",
+ *     containerDefinitions: `[
+ *   {
+ *     "cpu": 128,
+ *     "environment": [{
+ *       "name": "SECRET",
+ *       "value": "KEY"
+ *     }],
+ *     "essential": true,
+ *     "image": "mongo:latest",
+ *     "memory": 128,
+ *     "memoryReservation": 64,
+ *     "name": "mongodb"
+ *   }
+ * ]
+ * `,
+ * });
+ * const mongoService = new aws.ecs.Service("mongoService", {
+ *     cluster: foo.id,
+ *     desiredCount: 2,
+ *     taskDefinition: mongoEcs / taskDefinitionTaskDefinition.arn,
+ * });
+ * ```
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
     if (!opts) {
@@ -35,6 +70,10 @@ export interface GetTaskDefinitionArgs {
  * A collection of values returned by getTaskDefinition.
  */
 export interface GetTaskDefinitionResult {
+    /**
+     * The ARN of the task definition
+     */
+    readonly arn: string;
     /**
      * The family of this task definition
      */

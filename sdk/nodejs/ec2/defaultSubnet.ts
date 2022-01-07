@@ -80,11 +80,15 @@ export class DefaultSubnet extends pulumi.CustomResource {
      */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    public readonly enableDns64!: pulumi.Output<boolean | undefined>;
+    public readonly enableResourceNameDnsARecordOnLaunch!: pulumi.Output<boolean | undefined>;
+    public readonly enableResourceNameDnsAaaaRecordOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * IPv6 CIDR block.
      */
     public /*out*/ readonly ipv6CidrBlock!: pulumi.Output<string>;
     public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
+    public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
     public readonly mapCustomerOwnedIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * Whether instances launched into the subnet should be assigned a public IP address.
@@ -95,6 +99,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
      * ID of the AWS account that owns the subnet.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource.
      */
@@ -124,12 +129,17 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
+            inputs["enableDns64"] = state ? state.enableDns64 : undefined;
+            inputs["enableResourceNameDnsARecordOnLaunch"] = state ? state.enableResourceNameDnsARecordOnLaunch : undefined;
+            inputs["enableResourceNameDnsAaaaRecordOnLaunch"] = state ? state.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
+            inputs["ipv6Native"] = state ? state.ipv6Native : undefined;
             inputs["mapCustomerOwnedIpOnLaunch"] = state ? state.mapCustomerOwnedIpOnLaunch : undefined;
             inputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["privateDnsHostnameTypeOnLaunch"] = state ? state.privateDnsHostnameTypeOnLaunch : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -140,9 +150,14 @@ export class DefaultSubnet extends pulumi.CustomResource {
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            inputs["enableDns64"] = args ? args.enableDns64 : undefined;
+            inputs["enableResourceNameDnsARecordOnLaunch"] = args ? args.enableResourceNameDnsARecordOnLaunch : undefined;
+            inputs["enableResourceNameDnsAaaaRecordOnLaunch"] = args ? args.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
+            inputs["ipv6Native"] = args ? args.ipv6Native : undefined;
             inputs["mapCustomerOwnedIpOnLaunch"] = args ? args.mapCustomerOwnedIpOnLaunch : undefined;
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = args ? args.outpostArn : undefined;
+            inputs["privateDnsHostnameTypeOnLaunch"] = args ? args.privateDnsHostnameTypeOnLaunch : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
@@ -184,11 +199,15 @@ export interface DefaultSubnetState {
      */
     cidrBlock?: pulumi.Input<string>;
     customerOwnedIpv4Pool?: pulumi.Input<string>;
+    enableDns64?: pulumi.Input<boolean>;
+    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean>;
+    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean>;
     /**
      * IPv6 CIDR block.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
     ipv6CidrBlockAssociationId?: pulumi.Input<string>;
+    ipv6Native?: pulumi.Input<boolean>;
     mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Whether instances launched into the subnet should be assigned a public IP address.
@@ -199,6 +218,7 @@ export interface DefaultSubnetState {
      * ID of the AWS account that owns the subnet.
      */
     ownerId?: pulumi.Input<string>;
+    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource.
      */
@@ -219,12 +239,17 @@ export interface DefaultSubnetArgs {
      */
     availabilityZone: pulumi.Input<string>;
     customerOwnedIpv4Pool?: pulumi.Input<string>;
+    enableDns64?: pulumi.Input<boolean>;
+    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean>;
+    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean>;
+    ipv6Native?: pulumi.Input<boolean>;
     mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Whether instances launched into the subnet should be assigned a public IP address.
      */
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     outpostArn?: pulumi.Input<string>;
+    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource.
      */

@@ -127,6 +127,28 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ))
         ```
 
+        ## Repository Filter Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rule=aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                    region=example_regions.names[0],
+                    registry_id=current.account_id,
+                )],
+                repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(
+                    filter="prod-microservice",
+                    filter_type="PREFIX_MATCH",
+                )],
+            ),
+        ))
+        ```
+
         ## Import
 
         ECR Replication Configuration can be imported using the `registry_id`, e.g.,
@@ -185,6 +207,28 @@ class ReplicationConfiguration(pulumi.CustomResource):
                         registry_id=current.account_id,
                     ),
                 ],
+            ),
+        ))
+        ```
+
+        ## Repository Filter Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rule=aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                    region=example_regions.names[0],
+                    registry_id=current.account_id,
+                )],
+                repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(
+                    filter="prod-microservice",
+                    filter_type="PREFIX_MATCH",
+                )],
             ),
         ))
         ```

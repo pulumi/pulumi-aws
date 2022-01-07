@@ -22,6 +22,7 @@ class TriggerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
+                 start_on_creation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None):
         """
@@ -33,7 +34,8 @@ class TriggerArgs:
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
         pulumi.set(__self__, "actions", actions)
@@ -48,6 +50,8 @@ class TriggerArgs:
             pulumi.set(__self__, "predicate", predicate)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
+        if start_on_creation is not None:
+            pulumi.set(__self__, "start_on_creation", start_on_creation)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workflow_name is not None:
@@ -138,10 +142,22 @@ class TriggerArgs:
         pulumi.set(self, "schedule", value)
 
     @property
+    @pulumi.getter(name="startOnCreation")
+    def start_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        """
+        return pulumi.get(self, "start_on_creation")
+
+    @start_on_creation.setter
+    def start_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_on_creation", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -172,6 +188,7 @@ class _TriggerState:
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
+                 start_on_creation: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -186,8 +203,9 @@ class _TriggerState:
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[str] state: The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
@@ -206,6 +224,8 @@ class _TriggerState:
             pulumi.set(__self__, "predicate", predicate)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
+        if start_on_creation is not None:
+            pulumi.set(__self__, "start_on_creation", start_on_creation)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -302,6 +322,18 @@ class _TriggerState:
         pulumi.set(self, "schedule", value)
 
     @property
+    @pulumi.getter(name="startOnCreation")
+    def start_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        """
+        return pulumi.get(self, "start_on_creation")
+
+    @start_on_creation.setter
+    def start_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_on_creation", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -317,7 +349,7 @@ class _TriggerState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -373,6 +405,7 @@ class Trigger(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
+                 start_on_creation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
@@ -481,7 +514,8 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
@@ -608,6 +642,7 @@ class Trigger(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
+                 start_on_creation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
@@ -631,6 +666,7 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["predicate"] = predicate
             __props__.__dict__["schedule"] = schedule
+            __props__.__dict__["start_on_creation"] = start_on_creation
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -656,6 +692,7 @@ class Trigger(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
+            start_on_creation: Optional[pulumi.Input[bool]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -675,8 +712,9 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[str] state: The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
@@ -692,6 +730,7 @@ class Trigger(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["predicate"] = predicate
         __props__.__dict__["schedule"] = schedule
+        __props__.__dict__["start_on_creation"] = start_on_creation
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -756,6 +795,14 @@ class Trigger(pulumi.CustomResource):
         return pulumi.get(self, "schedule")
 
     @property
+    @pulumi.getter(name="startOnCreation")
+    def start_on_creation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        """
+        return pulumi.get(self, "start_on_creation")
+
+    @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         """
@@ -767,7 +814,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

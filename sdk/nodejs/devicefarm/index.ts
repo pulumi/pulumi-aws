@@ -5,20 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./devicePool";
+export * from "./networkProfile";
 export * from "./project";
+export * from "./upload";
 
 // Import resources to register:
+import { DevicePool } from "./devicePool";
+import { NetworkProfile } from "./networkProfile";
 import { Project } from "./project";
+import { Upload } from "./upload";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:devicefarm/devicePool:DevicePool":
+                return new DevicePool(name, <any>undefined, { urn })
+            case "aws:devicefarm/networkProfile:NetworkProfile":
+                return new NetworkProfile(name, <any>undefined, { urn })
             case "aws:devicefarm/project:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws:devicefarm/upload:Upload":
+                return new Upload(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "devicefarm/devicePool", _module)
+pulumi.runtime.registerResourceModule("aws", "devicefarm/networkProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/project", _module)
+pulumi.runtime.registerResourceModule("aws", "devicefarm/upload", _module)

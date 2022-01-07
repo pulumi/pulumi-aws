@@ -258,6 +258,78 @@ import (
 // }
 // ```
 //
+// ## Example Cross-Account Event Bus target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.LookupRole(ctx, &iam.LookupRoleArgs{
+// 			Name:             "event-bus-invoke-remote-event-bus",
+// 			AssumeRolePolicy: fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"events.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		eventBusInvokeRemoteEventBusPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Effect: "Allow",
+// 					Actions: []string{
+// 						"events.PutEvents",
+// 					},
+// 					Resources: []string{
+// 						"arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		eventBusInvokeRemoteEventBusPolicy, err := iam.NewPolicy(ctx, "eventBusInvokeRemoteEventBusPolicy", &iam.PolicyArgs{
+// 			Policy: pulumi.String(eventBusInvokeRemoteEventBusPolicyDocument.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "eventBusInvokeRemoteEventBusRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+// 			Role:      pulumi.Any(aws_iam_role.Event_bus_invoke_remote_event_bus.Name),
+// 			PolicyArn: eventBusInvokeRemoteEventBusPolicy.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
+// 			Description:        pulumi.String("Stop instances nightly"),
+// 			ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
+// 			Arn:     pulumi.String("arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"),
+// 			Rule:    stopInstancesEventRule.Name,
+// 			RoleArn: pulumi.Any(aws_iam_role.Event_bus_invoke_remote_event_bus.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Example Input Transformer Usage - JSON Object
 //
 // ```go
@@ -366,7 +438,7 @@ type EventTarget struct {
 	RedshiftTarget EventTargetRedshiftTargetPtrOutput `pulumi:"redshiftTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrOutput `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	Rule pulumi.StringOutput `pulumi:"rule"`
@@ -437,7 +509,7 @@ type eventTargetState struct {
 	RedshiftTarget *EventTargetRedshiftTarget `pulumi:"redshiftTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	Rule *string `pulumi:"rule"`
@@ -474,7 +546,7 @@ type EventTargetState struct {
 	RedshiftTarget EventTargetRedshiftTargetPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
 	Rule pulumi.StringPtrInput
@@ -515,7 +587,7 @@ type eventTargetArgs struct {
 	RedshiftTarget *EventTargetRedshiftTarget `pulumi:"redshiftTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	Rule string `pulumi:"rule"`
@@ -553,7 +625,7 @@ type EventTargetArgs struct {
 	RedshiftTarget EventTargetRedshiftTargetPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
 	Rule pulumi.StringInput

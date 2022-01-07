@@ -49,6 +49,28 @@ import * as utilities from "../utilities";
  * }});
  * ```
  *
+ * ## Repository Filter Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const exampleRegions = aws.getRegions({});
+ * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
+ *     rule: {
+ *         destinations: [{
+ *             region: exampleRegions.then(exampleRegions => exampleRegions.names?[0]),
+ *             registryId: current.then(current => current.accountId),
+ *         }],
+ *         repositoryFilters: [{
+ *             filter: "prod-microservice",
+ *             filterType: "PREFIX_MATCH",
+ *         }],
+ *     },
+ * }});
+ * ```
+ *
  * ## Import
  *
  * ECR Replication Configuration can be imported using the `registry_id`, e.g.,

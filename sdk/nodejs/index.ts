@@ -128,8 +128,10 @@ import * as macie2 from "./macie2";
 import * as mediaconvert from "./mediaconvert";
 import * as mediapackage from "./mediapackage";
 import * as mediastore from "./mediastore";
+import * as memorydb from "./memorydb";
 import * as mq from "./mq";
 import * as msk from "./msk";
+import * as mskconnect from "./mskconnect";
 import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
@@ -279,8 +281,10 @@ export {
     mediaconvert,
     mediapackage,
     mediastore,
+    memorydb,
     mq,
     msk,
+    mskconnect,
     mwaa,
     neptune,
     networkfirewall,

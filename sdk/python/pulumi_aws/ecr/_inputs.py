@@ -14,6 +14,7 @@ __all__ = [
     'ReplicationConfigurationReplicationConfigurationArgs',
     'ReplicationConfigurationReplicationConfigurationRuleArgs',
     'ReplicationConfigurationReplicationConfigurationRuleDestinationArgs',
+    'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
 ]
@@ -87,7 +88,7 @@ class ReplicationConfigurationReplicationConfigurationArgs:
     def __init__(__self__, *,
                  rule: pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']):
         """
-        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs'] rule: The replication rules for a replication configuration. See Rule.
+        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs'] rule: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
         pulumi.set(__self__, "rule", rule)
 
@@ -95,7 +96,7 @@ class ReplicationConfigurationReplicationConfigurationArgs:
     @pulumi.getter
     def rule(self) -> pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']:
         """
-        The replication rules for a replication configuration. See Rule.
+        The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
         return pulumi.get(self, "rule")
 
@@ -107,23 +108,39 @@ class ReplicationConfigurationReplicationConfigurationArgs:
 @pulumi.input_type
 class ReplicationConfigurationReplicationConfigurationRuleArgs:
     def __init__(__self__, *,
-                 destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]):
+                 destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]],
+                 repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]] destinations: the details of a replication destination. See Destination.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]] repository_filters: filters for a replication rule. See Repository Filter.
         """
         pulumi.set(__self__, "destinations", destinations)
+        if repository_filters is not None:
+            pulumi.set(__self__, "repository_filters", repository_filters)
 
     @property
     @pulumi.getter
     def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]:
         """
-        the details of a replication destination. See Destination.
+        the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
     def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]):
         pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]]:
+        """
+        filters for a replication rule. See Repository Filter.
+        """
+        return pulumi.get(self, "repository_filters")
+
+    @repository_filters.setter
+    def repository_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]]):
+        pulumi.set(self, "repository_filters", value)
 
 
 @pulumi.input_type
@@ -161,6 +178,43 @@ class ReplicationConfigurationReplicationConfigurationRuleDestinationArgs:
     @registry_id.setter
     def registry_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "registry_id", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs:
+    def __init__(__self__, *,
+                 filter: pulumi.Input[str],
+                 filter_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] filter: The repository filter details.
+        :param pulumi.Input[str] filter_type: The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[str]:
+        """
+        The repository filter details.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input[str]:
+        """
+        The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_type", value)
 
 
 @pulumi.input_type

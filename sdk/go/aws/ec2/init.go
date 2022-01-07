@@ -143,6 +143,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcDhcpOptionsAssociation{}
 	case "aws:ec2/vpcEndpoint:VpcEndpoint":
 		r = &VpcEndpoint{}
+	case "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter":
+		r = &VpcEndpointConnectionAccepter{}
 	case "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification":
 		r = &VpcEndpointConnectionNotification{}
 	case "aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation":
@@ -155,12 +157,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcEndpointSubnetAssociation{}
 	case "aws:ec2/vpcIpam:VpcIpam":
 		r = &VpcIpam{}
+	case "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount":
+		r = &VpcIpamOrganizationAdminAccount{}
 	case "aws:ec2/vpcIpamPool:VpcIpamPool":
 		r = &VpcIpamPool{}
 	case "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr":
 		r = &VpcIpamPoolCidr{}
 	case "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation":
 		r = &VpcIpamPoolCidrAllocation{}
+	case "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr":
+		r = &VpcIpamPreviewNextCidr{}
 	case "aws:ec2/vpcIpamScope:VpcIpamScope":
 		r = &VpcIpamScope{}
 	case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
@@ -501,6 +507,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ec2/vpcEndpointConnectionAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ec2/vpcEndpointConnectionNotification",
 		&module{version},
 	)
@@ -531,6 +542,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ec2/vpcIpamOrganizationAdminAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ec2/vpcIpamPool",
 		&module{version},
 	)
@@ -542,6 +558,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcIpamPoolCidrAllocation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpamPreviewNextCidr",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

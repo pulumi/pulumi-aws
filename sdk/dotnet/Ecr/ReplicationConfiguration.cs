@@ -84,6 +84,48 @@ namespace Pulumi.Aws.Ecr
     /// }
     /// ```
     /// 
+    /// ## Repository Filter Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
+    ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
+    ///         {
+    ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             {
+    ///                 Rule = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 {
+    ///                     Destinations = 
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
+    ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                         },
+    ///                     },
+    ///                     RepositoryFilters = 
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
+    ///                         {
+    ///                             Filter = "prod-microservice",
+    ///                             FilterType = "PREFIX_MATCH",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ECR Replication Configuration can be imported using the `registry_id`, e.g.,

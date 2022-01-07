@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         /// </summary>
         [Output("netmaskLength")]
         public Output<int?> NetmaskLength { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string> IpamPoolId { get; set; } = null!;
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to allocate to the IPAM pool.
+        /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }

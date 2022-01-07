@@ -7,7 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./agent";
 export * from "./efsLocation";
+export * from "./locationFsxLustre";
 export * from "./locationFsxWindows";
+export * from "./locationHdfs";
 export * from "./locationSmb";
 export * from "./nfsLocation";
 export * from "./s3location";
@@ -16,7 +18,9 @@ export * from "./task";
 // Import resources to register:
 import { Agent } from "./agent";
 import { EfsLocation } from "./efsLocation";
+import { LocationFsxLustre } from "./locationFsxLustre";
 import { LocationFsxWindows } from "./locationFsxWindows";
+import { LocationHdfs } from "./locationHdfs";
 import { LocationSmb } from "./locationSmb";
 import { NfsLocation } from "./nfsLocation";
 import { S3Location } from "./s3location";
@@ -30,8 +34,12 @@ const _module = {
                 return new Agent(name, <any>undefined, { urn })
             case "aws:datasync/efsLocation:EfsLocation":
                 return new EfsLocation(name, <any>undefined, { urn })
+            case "aws:datasync/locationFsxLustre:LocationFsxLustre":
+                return new LocationFsxLustre(name, <any>undefined, { urn })
             case "aws:datasync/locationFsxWindows:LocationFsxWindows":
                 return new LocationFsxWindows(name, <any>undefined, { urn })
+            case "aws:datasync/locationHdfs:LocationHdfs":
+                return new LocationHdfs(name, <any>undefined, { urn })
             case "aws:datasync/locationSmb:LocationSmb":
                 return new LocationSmb(name, <any>undefined, { urn })
             case "aws:datasync/nfsLocation:NfsLocation":
@@ -47,7 +55,9 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "datasync/agent", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/efsLocation", _module)
+pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxLustre", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxWindows", _module)
+pulumi.runtime.registerResourceModule("aws", "datasync/locationHdfs", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationSmb", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/nfsLocation", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/s3Location", _module)

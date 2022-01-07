@@ -31,6 +31,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OntapStorageVirtualMachine{}
 	case "aws:fsx/ontapVolume:OntapVolume":
 		r = &OntapVolume{}
+	case "aws:fsx/openZfsFileSystem:OpenZfsFileSystem":
+		r = &OpenZfsFileSystem{}
+	case "aws:fsx/openZfsSnapshot:OpenZfsSnapshot":
+		r = &OpenZfsSnapshot{}
+	case "aws:fsx/openZfsVolume:OpenZfsVolume":
+		r = &OpenZfsVolume{}
 	case "aws:fsx/windowsFileSystem:WindowsFileSystem":
 		r = &WindowsFileSystem{}
 	default:
@@ -69,6 +75,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"fsx/ontapVolume",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/openZfsFileSystem",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/openZfsSnapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/openZfsVolume",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

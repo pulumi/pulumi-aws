@@ -20,7 +20,7 @@ class GetParametersByPathResult:
     """
     A collection of values returned by getParametersByPath.
     """
-    def __init__(__self__, arns=None, id=None, names=None, path=None, types=None, values=None, with_decryption=None):
+    def __init__(__self__, arns=None, id=None, names=None, path=None, recursive=None, types=None, values=None, with_decryption=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -33,6 +33,9 @@ class GetParametersByPathResult:
         if path and not isinstance(path, str):
             raise TypeError("Expected argument 'path' to be a str")
         pulumi.set(__self__, "path", path)
+        if recursive and not isinstance(recursive, bool):
+            raise TypeError("Expected argument 'recursive' to be a bool")
+        pulumi.set(__self__, "recursive", recursive)
         if types and not isinstance(types, list):
             raise TypeError("Expected argument 'types' to be a list")
         pulumi.set(__self__, "types", types)
@@ -68,6 +71,11 @@ class GetParametersByPathResult:
 
     @property
     @pulumi.getter
+    def recursive(self) -> Optional[bool]:
+        return pulumi.get(self, "recursive")
+
+    @property
+    @pulumi.getter
     def types(self) -> Sequence[str]:
         return pulumi.get(self, "types")
 
@@ -92,22 +100,26 @@ class AwaitableGetParametersByPathResult(GetParametersByPathResult):
             id=self.id,
             names=self.names,
             path=self.path,
+            recursive=self.recursive,
             types=self.types,
             values=self.values,
             with_decryption=self.with_decryption)
 
 
 def get_parameters_by_path(path: Optional[str] = None,
+                           recursive: Optional[bool] = None,
                            with_decryption: Optional[bool] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersByPathResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str path: The prefix path of the parameter.
+    :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
     __args__ = dict()
     __args__['path'] = path
+    __args__['recursive'] = recursive
     __args__['withDecryption'] = with_decryption
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -120,6 +132,7 @@ def get_parameters_by_path(path: Optional[str] = None,
         id=__ret__.id,
         names=__ret__.names,
         path=__ret__.path,
+        recursive=__ret__.recursive,
         types=__ret__.types,
         values=__ret__.values,
         with_decryption=__ret__.with_decryption)
@@ -127,12 +140,14 @@ def get_parameters_by_path(path: Optional[str] = None,
 
 @_utilities.lift_output_func(get_parameters_by_path)
 def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
+                                  recursive: Optional[pulumi.Input[Optional[bool]]] = None,
                                   with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
     Use this data source to access information about an existing resource.
 
     :param str path: The prefix path of the parameter.
+    :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
     ...

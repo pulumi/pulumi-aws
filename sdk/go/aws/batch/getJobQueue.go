@@ -67,6 +67,8 @@ type LookupJobQueueResult struct {
 	// The priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
 	Priority int `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+	SchedulingPolicyArn string `pulumi:"schedulingPolicyArn"`
 	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 	State string `pulumi:"state"`
 	// The current status of the job queue (for example, `CREATING` or `VALID`).
@@ -140,6 +142,11 @@ func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
 // associated with the same compute environment.
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.SchedulingPolicyArn }).(pulumi.StringOutput)
 }
 
 // Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).

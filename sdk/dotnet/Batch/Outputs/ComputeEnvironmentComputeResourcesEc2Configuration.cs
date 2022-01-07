@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class ComputeEnvironmentComputeResourcesEc2Configuration
     {
         /// <summary>
-        /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resourcess block.
+        /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
         /// </summary>
         public readonly string? ImageIdOverride;
         /// <summary>

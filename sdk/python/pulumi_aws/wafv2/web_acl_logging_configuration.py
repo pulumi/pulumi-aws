@@ -21,7 +21,7 @@ class WebAclLoggingConfigurationArgs:
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]] = None):
         """
         The set of arguments for constructing a WebAclLoggingConfiguration resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         :param pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs'] logging_filter: A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
@@ -37,7 +37,7 @@ class WebAclLoggingConfigurationArgs:
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         """
         return pulumi.get(self, "log_destination_configs")
 
@@ -91,7 +91,7 @@ class _WebAclLoggingConfigurationState:
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WebAclLoggingConfiguration resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         :param pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs'] logging_filter: A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
@@ -109,7 +109,7 @@ class _WebAclLoggingConfigurationState:
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         """
         return pulumi.get(self, "log_destination_configs")
 
@@ -238,7 +238,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArgs']] logging_filter: A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
@@ -381,7 +381,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArgs']] logging_filter: A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
@@ -400,7 +400,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> pulumi.Output[Sequence[str]]:
         """
-        The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
         """
         return pulumi.get(self, "log_destination_configs")
 

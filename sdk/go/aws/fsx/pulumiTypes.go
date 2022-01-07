@@ -1605,6 +1605,1245 @@ func (o OntapVolumeTieringPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type OpenZfsFileSystemDiskIopsConfiguration struct {
+	// - The total number of SSD IOPS provisioned for the file system.
+	Iops *int `pulumi:"iops"`
+	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	Mode *string `pulumi:"mode"`
+}
+
+// OpenZfsFileSystemDiskIopsConfigurationInput is an input type that accepts OpenZfsFileSystemDiskIopsConfigurationArgs and OpenZfsFileSystemDiskIopsConfigurationOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemDiskIopsConfigurationInput` via:
+//
+//          OpenZfsFileSystemDiskIopsConfigurationArgs{...}
+type OpenZfsFileSystemDiskIopsConfigurationInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemDiskIopsConfigurationOutput() OpenZfsFileSystemDiskIopsConfigurationOutput
+	ToOpenZfsFileSystemDiskIopsConfigurationOutputWithContext(context.Context) OpenZfsFileSystemDiskIopsConfigurationOutput
+}
+
+type OpenZfsFileSystemDiskIopsConfigurationArgs struct {
+	// - The total number of SSD IOPS provisioned for the file system.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (OpenZfsFileSystemDiskIopsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemDiskIopsConfigurationArgs) ToOpenZfsFileSystemDiskIopsConfigurationOutput() OpenZfsFileSystemDiskIopsConfigurationOutput {
+	return i.ToOpenZfsFileSystemDiskIopsConfigurationOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemDiskIopsConfigurationArgs) ToOpenZfsFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemDiskIopsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemDiskIopsConfigurationOutput)
+}
+
+func (i OpenZfsFileSystemDiskIopsConfigurationArgs) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutput() OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemDiskIopsConfigurationArgs) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemDiskIopsConfigurationOutput).ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx)
+}
+
+// OpenZfsFileSystemDiskIopsConfigurationPtrInput is an input type that accepts OpenZfsFileSystemDiskIopsConfigurationArgs, OpenZfsFileSystemDiskIopsConfigurationPtr and OpenZfsFileSystemDiskIopsConfigurationPtrOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemDiskIopsConfigurationPtrInput` via:
+//
+//          OpenZfsFileSystemDiskIopsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenZfsFileSystemDiskIopsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemDiskIopsConfigurationPtrOutput() OpenZfsFileSystemDiskIopsConfigurationPtrOutput
+	ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Context) OpenZfsFileSystemDiskIopsConfigurationPtrOutput
+}
+
+type openZfsFileSystemDiskIopsConfigurationPtrType OpenZfsFileSystemDiskIopsConfigurationArgs
+
+func OpenZfsFileSystemDiskIopsConfigurationPtr(v *OpenZfsFileSystemDiskIopsConfigurationArgs) OpenZfsFileSystemDiskIopsConfigurationPtrInput {
+	return (*openZfsFileSystemDiskIopsConfigurationPtrType)(v)
+}
+
+func (*openZfsFileSystemDiskIopsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i *openZfsFileSystemDiskIopsConfigurationPtrType) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutput() OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *openZfsFileSystemDiskIopsConfigurationPtrType) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemDiskIopsConfigurationPtrOutput)
+}
+
+type OpenZfsFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOpenZfsFileSystemDiskIopsConfigurationOutput() OpenZfsFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOpenZfsFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutput() OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsFileSystemDiskIopsConfiguration) *OpenZfsFileSystemDiskIopsConfiguration {
+		return &v
+	}).(OpenZfsFileSystemDiskIopsConfigurationPtrOutput)
+}
+
+// - The total number of SSD IOPS provisioned for the file system.
+func (o OpenZfsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+func (o OpenZfsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type OpenZfsFileSystemDiskIopsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemDiskIopsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutput() OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Elem() OpenZfsFileSystemDiskIopsConfigurationOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemDiskIopsConfiguration) OpenZfsFileSystemDiskIopsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OpenZfsFileSystemDiskIopsConfiguration
+		return ret
+	}).(OpenZfsFileSystemDiskIopsConfigurationOutput)
+}
+
+// - The total number of SSD IOPS provisioned for the file system.
+func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemDiskIopsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemDiskIopsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfiguration struct {
+	// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
+	// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	DataCompressionType *string `pulumi:"dataCompressionType"`
+	// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	NfsExports *OpenZfsFileSystemRootVolumeConfigurationNfsExports `pulumi:"nfsExports"`
+	// - specifies whether the volume is read-only. Default is false.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	UserAndGroupQuotas []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationArgs and OpenZfsFileSystemRootVolumeConfigurationOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationArgs{...}
+type OpenZfsFileSystemRootVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationOutput() OpenZfsFileSystemRootVolumeConfigurationOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationOutput
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationArgs struct {
+	// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	CopyTagsToSnapshots pulumi.BoolPtrInput `pulumi:"copyTagsToSnapshots"`
+	// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	DataCompressionType pulumi.StringPtrInput `pulumi:"dataCompressionType"`
+	// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	NfsExports OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput `pulumi:"nfsExports"`
+	// - specifies whether the volume is read-only. Default is false.
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	UserAndGroupQuotas OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput `pulumi:"userAndGroupQuotas"`
+}
+
+func (OpenZfsFileSystemRootVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationArgs) ToOpenZfsFileSystemRootVolumeConfigurationOutput() OpenZfsFileSystemRootVolumeConfigurationOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationArgs) ToOpenZfsFileSystemRootVolumeConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationOutput)
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationArgs) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutput() OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationArgs) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationOutput).ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationPtrInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationArgs, OpenZfsFileSystemRootVolumeConfigurationPtr and OpenZfsFileSystemRootVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationPtrInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenZfsFileSystemRootVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationPtrOutput() OpenZfsFileSystemRootVolumeConfigurationPtrOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationPtrOutput
+}
+
+type openZfsFileSystemRootVolumeConfigurationPtrType OpenZfsFileSystemRootVolumeConfigurationArgs
+
+func OpenZfsFileSystemRootVolumeConfigurationPtr(v *OpenZfsFileSystemRootVolumeConfigurationArgs) OpenZfsFileSystemRootVolumeConfigurationPtrInput {
+	return (*openZfsFileSystemRootVolumeConfigurationPtrType)(v)
+}
+
+func (*openZfsFileSystemRootVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *openZfsFileSystemRootVolumeConfigurationPtrType) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutput() OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *openZfsFileSystemRootVolumeConfigurationPtrType) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationPtrOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOpenZfsFileSystemRootVolumeConfigurationOutput() OpenZfsFileSystemRootVolumeConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOpenZfsFileSystemRootVolumeConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutput() OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return o.ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfiguration {
+		return &v
+	}).(OpenZfsFileSystemRootVolumeConfigurationPtrOutput)
+}
+
+// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
+}
+
+// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
+}
+
+// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) NfsExports() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfigurationNfsExports {
+		return v.NfsExports
+	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
+}
+
+// - specifies whether the volume is read-only. Default is false.
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+func (o OpenZfsFileSystemRootVolumeConfigurationOutput) UserAndGroupQuotas() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
+		return v.UserAndGroupQuotas
+	}).(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutput() OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) Elem() OpenZfsFileSystemRootVolumeConfigurationOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) OpenZfsFileSystemRootVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OpenZfsFileSystemRootVolumeConfiguration
+		return ret
+	}).(OpenZfsFileSystemRootVolumeConfigurationOutput)
+}
+
+// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToSnapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) NfsExports() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfigurationNfsExports {
+		if v == nil {
+			return nil
+		}
+		return v.NfsExports
+	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
+}
+
+// - specifies whether the volume is read-only. Default is false.
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
+		if v == nil {
+			return nil
+		}
+		return v.UserAndGroupQuotas
+	}).(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExports struct {
+	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	ClientConfigurations []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration `pulumi:"clientConfigurations"`
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs and OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs{...}
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs struct {
+	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	ClientConfigurations OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput `pulumi:"clientConfigurations"`
+}
+
+func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExports)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput)
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput).ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(ctx)
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs, OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtr and OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput
+}
+
+type openZfsFileSystemRootVolumeConfigurationNfsExportsPtrType OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs
+
+func OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtr(v *OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput {
+	return (*openZfsFileSystemRootVolumeConfigurationNfsExportsPtrType)(v)
+}
+
+func (*openZfsFileSystemRootVolumeConfigurationNfsExportsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemRootVolumeConfigurationNfsExports)(nil)).Elem()
+}
+
+func (i *openZfsFileSystemRootVolumeConfigurationNfsExportsPtrType) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(context.Background())
+}
+
+func (i *openZfsFileSystemRootVolumeConfigurationNfsExportsPtrType) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExports)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return o.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(context.Background())
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsFileSystemRootVolumeConfigurationNfsExports) *OpenZfsFileSystemRootVolumeConfigurationNfsExports {
+		return &v
+	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
+}
+
+// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
+		return v.ClientConfigurations
+	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsFileSystemRootVolumeConfigurationNfsExports)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) Elem() OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfigurationNfsExports) OpenZfsFileSystemRootVolumeConfigurationNfsExports {
+		if v != nil {
+			return *v
+		}
+		var ret OpenZfsFileSystemRootVolumeConfigurationNfsExports
+		return ret
+	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput)
+}
+
+// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ClientConfigurations
+	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration struct {
+	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	Clients string `pulumi:"clients"`
+	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	Options []string `pulumi:"options"`
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs and OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs{...}
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs struct {
+	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	Clients pulumi.StringInput `pulumi:"clients"`
+	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	Options pulumi.StringArrayInput `pulumi:"options"`
+}
+
+func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput)
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray and OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray{ OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs{...} }
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput
+
+func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput {
+	return o
+}
+
+// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) Clients() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) string { return v.Clients }).(pulumi.StringOutput)
+}
+
+// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) []string {
+		return v.Options
+	}).(pulumi.StringArrayOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput) Index(i pulumi.IntInput) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
+		return vs[0].([]OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration)[vs[1].(int)]
+	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota struct {
+	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	Id int `pulumi:"id"`
+	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	StorageCapacityQuotaGib int    `pulumi:"storageCapacityQuotaGib"`
+	Type                    string `pulumi:"type"`
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs and OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs{...}
+type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs struct {
+	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	Id pulumi.IntInput `pulumi:"id"`
+	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	StorageCapacityQuotaGib pulumi.IntInput    `pulumi:"storageCapacityQuotaGib"`
+	Type                    pulumi.StringInput `pulumi:"type"`
+}
+
+func (OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput)
+}
+
+// OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray and OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput values.
+// You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput` via:
+//
+//          OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray{ OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs{...} }
+type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput interface {
+	pulumi.Input
+
+	ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput
+	ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutputWithContext(context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput
+
+func (OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota)(nil)).Elem()
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
+	return i.ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutputWithContext(context.Background())
+}
+
+func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput {
+	return o
+}
+
+// - The ID of the user or group. Valid values between `0` and `2147483647`
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) int {
+		return v.StorageCapacityQuotaGib
+	}).(pulumi.IntOutput)
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota)(nil)).Elem()
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
+	return o
+}
+
+func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) Index(i pulumi.IntInput) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
+		return vs[0].([]OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota)[vs[1].(int)]
+	}).(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput)
+}
+
+type OpenZfsVolumeNfsExports struct {
+	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	ClientConfigurations []OpenZfsVolumeNfsExportsClientConfiguration `pulumi:"clientConfigurations"`
+}
+
+// OpenZfsVolumeNfsExportsInput is an input type that accepts OpenZfsVolumeNfsExportsArgs and OpenZfsVolumeNfsExportsOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeNfsExportsInput` via:
+//
+//          OpenZfsVolumeNfsExportsArgs{...}
+type OpenZfsVolumeNfsExportsInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeNfsExportsOutput() OpenZfsVolumeNfsExportsOutput
+	ToOpenZfsVolumeNfsExportsOutputWithContext(context.Context) OpenZfsVolumeNfsExportsOutput
+}
+
+type OpenZfsVolumeNfsExportsArgs struct {
+	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	ClientConfigurations OpenZfsVolumeNfsExportsClientConfigurationArrayInput `pulumi:"clientConfigurations"`
+}
+
+func (OpenZfsVolumeNfsExportsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeNfsExports)(nil)).Elem()
+}
+
+func (i OpenZfsVolumeNfsExportsArgs) ToOpenZfsVolumeNfsExportsOutput() OpenZfsVolumeNfsExportsOutput {
+	return i.ToOpenZfsVolumeNfsExportsOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeNfsExportsArgs) ToOpenZfsVolumeNfsExportsOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsOutput)
+}
+
+func (i OpenZfsVolumeNfsExportsArgs) ToOpenZfsVolumeNfsExportsPtrOutput() OpenZfsVolumeNfsExportsPtrOutput {
+	return i.ToOpenZfsVolumeNfsExportsPtrOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeNfsExportsArgs) ToOpenZfsVolumeNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsOutput).ToOpenZfsVolumeNfsExportsPtrOutputWithContext(ctx)
+}
+
+// OpenZfsVolumeNfsExportsPtrInput is an input type that accepts OpenZfsVolumeNfsExportsArgs, OpenZfsVolumeNfsExportsPtr and OpenZfsVolumeNfsExportsPtrOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeNfsExportsPtrInput` via:
+//
+//          OpenZfsVolumeNfsExportsArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenZfsVolumeNfsExportsPtrInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeNfsExportsPtrOutput() OpenZfsVolumeNfsExportsPtrOutput
+	ToOpenZfsVolumeNfsExportsPtrOutputWithContext(context.Context) OpenZfsVolumeNfsExportsPtrOutput
+}
+
+type openZfsVolumeNfsExportsPtrType OpenZfsVolumeNfsExportsArgs
+
+func OpenZfsVolumeNfsExportsPtr(v *OpenZfsVolumeNfsExportsArgs) OpenZfsVolumeNfsExportsPtrInput {
+	return (*openZfsVolumeNfsExportsPtrType)(v)
+}
+
+func (*openZfsVolumeNfsExportsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsVolumeNfsExports)(nil)).Elem()
+}
+
+func (i *openZfsVolumeNfsExportsPtrType) ToOpenZfsVolumeNfsExportsPtrOutput() OpenZfsVolumeNfsExportsPtrOutput {
+	return i.ToOpenZfsVolumeNfsExportsPtrOutputWithContext(context.Background())
+}
+
+func (i *openZfsVolumeNfsExportsPtrType) ToOpenZfsVolumeNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsPtrOutput)
+}
+
+type OpenZfsVolumeNfsExportsOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeNfsExportsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeNfsExports)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeNfsExportsOutput) ToOpenZfsVolumeNfsExportsOutput() OpenZfsVolumeNfsExportsOutput {
+	return o
+}
+
+func (o OpenZfsVolumeNfsExportsOutput) ToOpenZfsVolumeNfsExportsOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsOutput {
+	return o
+}
+
+func (o OpenZfsVolumeNfsExportsOutput) ToOpenZfsVolumeNfsExportsPtrOutput() OpenZfsVolumeNfsExportsPtrOutput {
+	return o.ToOpenZfsVolumeNfsExportsPtrOutputWithContext(context.Background())
+}
+
+func (o OpenZfsVolumeNfsExportsOutput) ToOpenZfsVolumeNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsVolumeNfsExports) *OpenZfsVolumeNfsExports {
+		return &v
+	}).(OpenZfsVolumeNfsExportsPtrOutput)
+}
+
+// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+func (o OpenZfsVolumeNfsExportsOutput) ClientConfigurations() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
+	return o.ApplyT(func(v OpenZfsVolumeNfsExports) []OpenZfsVolumeNfsExportsClientConfiguration {
+		return v.ClientConfigurations
+	}).(OpenZfsVolumeNfsExportsClientConfigurationArrayOutput)
+}
+
+type OpenZfsVolumeNfsExportsPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeNfsExportsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsVolumeNfsExports)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeNfsExportsPtrOutput) ToOpenZfsVolumeNfsExportsPtrOutput() OpenZfsVolumeNfsExportsPtrOutput {
+	return o
+}
+
+func (o OpenZfsVolumeNfsExportsPtrOutput) ToOpenZfsVolumeNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsPtrOutput {
+	return o
+}
+
+func (o OpenZfsVolumeNfsExportsPtrOutput) Elem() OpenZfsVolumeNfsExportsOutput {
+	return o.ApplyT(func(v *OpenZfsVolumeNfsExports) OpenZfsVolumeNfsExports {
+		if v != nil {
+			return *v
+		}
+		var ret OpenZfsVolumeNfsExports
+		return ret
+	}).(OpenZfsVolumeNfsExportsOutput)
+}
+
+// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+func (o OpenZfsVolumeNfsExportsPtrOutput) ClientConfigurations() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
+	return o.ApplyT(func(v *OpenZfsVolumeNfsExports) []OpenZfsVolumeNfsExportsClientConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ClientConfigurations
+	}).(OpenZfsVolumeNfsExportsClientConfigurationArrayOutput)
+}
+
+type OpenZfsVolumeNfsExportsClientConfiguration struct {
+	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	Clients string `pulumi:"clients"`
+	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	Options []string `pulumi:"options"`
+}
+
+// OpenZfsVolumeNfsExportsClientConfigurationInput is an input type that accepts OpenZfsVolumeNfsExportsClientConfigurationArgs and OpenZfsVolumeNfsExportsClientConfigurationOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeNfsExportsClientConfigurationInput` via:
+//
+//          OpenZfsVolumeNfsExportsClientConfigurationArgs{...}
+type OpenZfsVolumeNfsExportsClientConfigurationInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeNfsExportsClientConfigurationOutput() OpenZfsVolumeNfsExportsClientConfigurationOutput
+	ToOpenZfsVolumeNfsExportsClientConfigurationOutputWithContext(context.Context) OpenZfsVolumeNfsExportsClientConfigurationOutput
+}
+
+type OpenZfsVolumeNfsExportsClientConfigurationArgs struct {
+	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	Clients pulumi.StringInput `pulumi:"clients"`
+	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	Options pulumi.StringArrayInput `pulumi:"options"`
+}
+
+func (OpenZfsVolumeNfsExportsClientConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (i OpenZfsVolumeNfsExportsClientConfigurationArgs) ToOpenZfsVolumeNfsExportsClientConfigurationOutput() OpenZfsVolumeNfsExportsClientConfigurationOutput {
+	return i.ToOpenZfsVolumeNfsExportsClientConfigurationOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeNfsExportsClientConfigurationArgs) ToOpenZfsVolumeNfsExportsClientConfigurationOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsClientConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsClientConfigurationOutput)
+}
+
+// OpenZfsVolumeNfsExportsClientConfigurationArrayInput is an input type that accepts OpenZfsVolumeNfsExportsClientConfigurationArray and OpenZfsVolumeNfsExportsClientConfigurationArrayOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeNfsExportsClientConfigurationArrayInput` via:
+//
+//          OpenZfsVolumeNfsExportsClientConfigurationArray{ OpenZfsVolumeNfsExportsClientConfigurationArgs{...} }
+type OpenZfsVolumeNfsExportsClientConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutput() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput
+	ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutputWithContext(context.Context) OpenZfsVolumeNfsExportsClientConfigurationArrayOutput
+}
+
+type OpenZfsVolumeNfsExportsClientConfigurationArray []OpenZfsVolumeNfsExportsClientConfigurationInput
+
+func (OpenZfsVolumeNfsExportsClientConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsVolumeNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (i OpenZfsVolumeNfsExportsClientConfigurationArray) ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutput() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
+	return i.ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeNfsExportsClientConfigurationArray) ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsClientConfigurationArrayOutput)
+}
+
+type OpenZfsVolumeNfsExportsClientConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeNfsExportsClientConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) ToOpenZfsVolumeNfsExportsClientConfigurationOutput() OpenZfsVolumeNfsExportsClientConfigurationOutput {
+	return o
+}
+
+func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) ToOpenZfsVolumeNfsExportsClientConfigurationOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsClientConfigurationOutput {
+	return o
+}
+
+// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) Clients() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenZfsVolumeNfsExportsClientConfiguration) string { return v.Clients }).(pulumi.StringOutput)
+}
+
+// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OpenZfsVolumeNfsExportsClientConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+type OpenZfsVolumeNfsExportsClientConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsVolumeNfsExportsClientConfiguration)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutput() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
+	return o
+}
+
+func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
+	return o
+}
+
+func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) Index(i pulumi.IntInput) OpenZfsVolumeNfsExportsClientConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenZfsVolumeNfsExportsClientConfiguration {
+		return vs[0].([]OpenZfsVolumeNfsExportsClientConfiguration)[vs[1].(int)]
+	}).(OpenZfsVolumeNfsExportsClientConfigurationOutput)
+}
+
+type OpenZfsVolumeOriginSnapshot struct {
+	CopyStrategy string `pulumi:"copyStrategy"`
+	SnapshotArn  string `pulumi:"snapshotArn"`
+}
+
+// OpenZfsVolumeOriginSnapshotInput is an input type that accepts OpenZfsVolumeOriginSnapshotArgs and OpenZfsVolumeOriginSnapshotOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeOriginSnapshotInput` via:
+//
+//          OpenZfsVolumeOriginSnapshotArgs{...}
+type OpenZfsVolumeOriginSnapshotInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeOriginSnapshotOutput() OpenZfsVolumeOriginSnapshotOutput
+	ToOpenZfsVolumeOriginSnapshotOutputWithContext(context.Context) OpenZfsVolumeOriginSnapshotOutput
+}
+
+type OpenZfsVolumeOriginSnapshotArgs struct {
+	CopyStrategy pulumi.StringInput `pulumi:"copyStrategy"`
+	SnapshotArn  pulumi.StringInput `pulumi:"snapshotArn"`
+}
+
+func (OpenZfsVolumeOriginSnapshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (i OpenZfsVolumeOriginSnapshotArgs) ToOpenZfsVolumeOriginSnapshotOutput() OpenZfsVolumeOriginSnapshotOutput {
+	return i.ToOpenZfsVolumeOriginSnapshotOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeOriginSnapshotArgs) ToOpenZfsVolumeOriginSnapshotOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeOriginSnapshotOutput)
+}
+
+func (i OpenZfsVolumeOriginSnapshotArgs) ToOpenZfsVolumeOriginSnapshotPtrOutput() OpenZfsVolumeOriginSnapshotPtrOutput {
+	return i.ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeOriginSnapshotArgs) ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeOriginSnapshotOutput).ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(ctx)
+}
+
+// OpenZfsVolumeOriginSnapshotPtrInput is an input type that accepts OpenZfsVolumeOriginSnapshotArgs, OpenZfsVolumeOriginSnapshotPtr and OpenZfsVolumeOriginSnapshotPtrOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeOriginSnapshotPtrInput` via:
+//
+//          OpenZfsVolumeOriginSnapshotArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenZfsVolumeOriginSnapshotPtrInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeOriginSnapshotPtrOutput() OpenZfsVolumeOriginSnapshotPtrOutput
+	ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(context.Context) OpenZfsVolumeOriginSnapshotPtrOutput
+}
+
+type openZfsVolumeOriginSnapshotPtrType OpenZfsVolumeOriginSnapshotArgs
+
+func OpenZfsVolumeOriginSnapshotPtr(v *OpenZfsVolumeOriginSnapshotArgs) OpenZfsVolumeOriginSnapshotPtrInput {
+	return (*openZfsVolumeOriginSnapshotPtrType)(v)
+}
+
+func (*openZfsVolumeOriginSnapshotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsVolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (i *openZfsVolumeOriginSnapshotPtrType) ToOpenZfsVolumeOriginSnapshotPtrOutput() OpenZfsVolumeOriginSnapshotPtrOutput {
+	return i.ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i *openZfsVolumeOriginSnapshotPtrType) ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeOriginSnapshotPtrOutput)
+}
+
+type OpenZfsVolumeOriginSnapshotOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeOriginSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeOriginSnapshotOutput) ToOpenZfsVolumeOriginSnapshotOutput() OpenZfsVolumeOriginSnapshotOutput {
+	return o
+}
+
+func (o OpenZfsVolumeOriginSnapshotOutput) ToOpenZfsVolumeOriginSnapshotOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotOutput {
+	return o
+}
+
+func (o OpenZfsVolumeOriginSnapshotOutput) ToOpenZfsVolumeOriginSnapshotPtrOutput() OpenZfsVolumeOriginSnapshotPtrOutput {
+	return o.ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (o OpenZfsVolumeOriginSnapshotOutput) ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsVolumeOriginSnapshot) *OpenZfsVolumeOriginSnapshot {
+		return &v
+	}).(OpenZfsVolumeOriginSnapshotPtrOutput)
+}
+
+func (o OpenZfsVolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenZfsVolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
+}
+
+func (o OpenZfsVolumeOriginSnapshotOutput) SnapshotArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenZfsVolumeOriginSnapshot) string { return v.SnapshotArn }).(pulumi.StringOutput)
+}
+
+type OpenZfsVolumeOriginSnapshotPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeOriginSnapshotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenZfsVolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeOriginSnapshotPtrOutput) ToOpenZfsVolumeOriginSnapshotPtrOutput() OpenZfsVolumeOriginSnapshotPtrOutput {
+	return o
+}
+
+func (o OpenZfsVolumeOriginSnapshotPtrOutput) ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotPtrOutput {
+	return o
+}
+
+func (o OpenZfsVolumeOriginSnapshotPtrOutput) Elem() OpenZfsVolumeOriginSnapshotOutput {
+	return o.ApplyT(func(v *OpenZfsVolumeOriginSnapshot) OpenZfsVolumeOriginSnapshot {
+		if v != nil {
+			return *v
+		}
+		var ret OpenZfsVolumeOriginSnapshot
+		return ret
+	}).(OpenZfsVolumeOriginSnapshotOutput)
+}
+
+func (o OpenZfsVolumeOriginSnapshotPtrOutput) CopyStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolumeOriginSnapshot) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CopyStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OpenZfsVolumeOriginSnapshotPtrOutput) SnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolumeOriginSnapshot) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type OpenZfsVolumeUserAndGroupQuota struct {
+	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	Id int `pulumi:"id"`
+	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	StorageCapacityQuotaGib int    `pulumi:"storageCapacityQuotaGib"`
+	Type                    string `pulumi:"type"`
+}
+
+// OpenZfsVolumeUserAndGroupQuotaInput is an input type that accepts OpenZfsVolumeUserAndGroupQuotaArgs and OpenZfsVolumeUserAndGroupQuotaOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeUserAndGroupQuotaInput` via:
+//
+//          OpenZfsVolumeUserAndGroupQuotaArgs{...}
+type OpenZfsVolumeUserAndGroupQuotaInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeUserAndGroupQuotaOutput() OpenZfsVolumeUserAndGroupQuotaOutput
+	ToOpenZfsVolumeUserAndGroupQuotaOutputWithContext(context.Context) OpenZfsVolumeUserAndGroupQuotaOutput
+}
+
+type OpenZfsVolumeUserAndGroupQuotaArgs struct {
+	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	Id pulumi.IntInput `pulumi:"id"`
+	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	StorageCapacityQuotaGib pulumi.IntInput    `pulumi:"storageCapacityQuotaGib"`
+	Type                    pulumi.StringInput `pulumi:"type"`
+}
+
+func (OpenZfsVolumeUserAndGroupQuotaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeUserAndGroupQuota)(nil)).Elem()
+}
+
+func (i OpenZfsVolumeUserAndGroupQuotaArgs) ToOpenZfsVolumeUserAndGroupQuotaOutput() OpenZfsVolumeUserAndGroupQuotaOutput {
+	return i.ToOpenZfsVolumeUserAndGroupQuotaOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeUserAndGroupQuotaArgs) ToOpenZfsVolumeUserAndGroupQuotaOutputWithContext(ctx context.Context) OpenZfsVolumeUserAndGroupQuotaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeUserAndGroupQuotaOutput)
+}
+
+// OpenZfsVolumeUserAndGroupQuotaArrayInput is an input type that accepts OpenZfsVolumeUserAndGroupQuotaArray and OpenZfsVolumeUserAndGroupQuotaArrayOutput values.
+// You can construct a concrete instance of `OpenZfsVolumeUserAndGroupQuotaArrayInput` via:
+//
+//          OpenZfsVolumeUserAndGroupQuotaArray{ OpenZfsVolumeUserAndGroupQuotaArgs{...} }
+type OpenZfsVolumeUserAndGroupQuotaArrayInput interface {
+	pulumi.Input
+
+	ToOpenZfsVolumeUserAndGroupQuotaArrayOutput() OpenZfsVolumeUserAndGroupQuotaArrayOutput
+	ToOpenZfsVolumeUserAndGroupQuotaArrayOutputWithContext(context.Context) OpenZfsVolumeUserAndGroupQuotaArrayOutput
+}
+
+type OpenZfsVolumeUserAndGroupQuotaArray []OpenZfsVolumeUserAndGroupQuotaInput
+
+func (OpenZfsVolumeUserAndGroupQuotaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsVolumeUserAndGroupQuota)(nil)).Elem()
+}
+
+func (i OpenZfsVolumeUserAndGroupQuotaArray) ToOpenZfsVolumeUserAndGroupQuotaArrayOutput() OpenZfsVolumeUserAndGroupQuotaArrayOutput {
+	return i.ToOpenZfsVolumeUserAndGroupQuotaArrayOutputWithContext(context.Background())
+}
+
+func (i OpenZfsVolumeUserAndGroupQuotaArray) ToOpenZfsVolumeUserAndGroupQuotaArrayOutputWithContext(ctx context.Context) OpenZfsVolumeUserAndGroupQuotaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeUserAndGroupQuotaArrayOutput)
+}
+
+type OpenZfsVolumeUserAndGroupQuotaOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeUserAndGroupQuotaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenZfsVolumeUserAndGroupQuota)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeUserAndGroupQuotaOutput) ToOpenZfsVolumeUserAndGroupQuotaOutput() OpenZfsVolumeUserAndGroupQuotaOutput {
+	return o
+}
+
+func (o OpenZfsVolumeUserAndGroupQuotaOutput) ToOpenZfsVolumeUserAndGroupQuotaOutputWithContext(ctx context.Context) OpenZfsVolumeUserAndGroupQuotaOutput {
+	return o
+}
+
+// - The ID of the user or group. Valid values between `0` and `2147483647`
+func (o OpenZfsVolumeUserAndGroupQuotaOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+func (o OpenZfsVolumeUserAndGroupQuotaOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
+	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) int { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
+}
+
+func (o OpenZfsVolumeUserAndGroupQuotaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OpenZfsVolumeUserAndGroupQuotaArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenZfsVolumeUserAndGroupQuotaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenZfsVolumeUserAndGroupQuota)(nil)).Elem()
+}
+
+func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) ToOpenZfsVolumeUserAndGroupQuotaArrayOutput() OpenZfsVolumeUserAndGroupQuotaArrayOutput {
+	return o
+}
+
+func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) ToOpenZfsVolumeUserAndGroupQuotaArrayOutputWithContext(ctx context.Context) OpenZfsVolumeUserAndGroupQuotaArrayOutput {
+	return o
+}
+
+func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) Index(i pulumi.IntInput) OpenZfsVolumeUserAndGroupQuotaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenZfsVolumeUserAndGroupQuota {
+		return vs[0].([]OpenZfsVolumeUserAndGroupQuota)[vs[1].(int)]
+	}).(OpenZfsVolumeUserAndGroupQuotaOutput)
+}
+
 type WindowsFileSystemAuditLogConfiguration struct {
 	// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 	AuditLogDestination *string `pulumi:"auditLogDestination"`
@@ -2039,6 +3278,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmbArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointSmbArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeTieringPolicyInput)(nil)).Elem(), OntapVolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeTieringPolicyPtrInput)(nil)).Elem(), OntapVolumeTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OpenZfsFileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), OpenZfsFileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationPtrInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput)(nil)).Elem(), OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeNfsExportsInput)(nil)).Elem(), OpenZfsVolumeNfsExportsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeNfsExportsPtrInput)(nil)).Elem(), OpenZfsVolumeNfsExportsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeNfsExportsClientConfigurationInput)(nil)).Elem(), OpenZfsVolumeNfsExportsClientConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeNfsExportsClientConfigurationArrayInput)(nil)).Elem(), OpenZfsVolumeNfsExportsClientConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeOriginSnapshotInput)(nil)).Elem(), OpenZfsVolumeOriginSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeOriginSnapshotPtrInput)(nil)).Elem(), OpenZfsVolumeOriginSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeUserAndGroupQuotaInput)(nil)).Elem(), OpenZfsVolumeUserAndGroupQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeUserAndGroupQuotaArrayInput)(nil)).Elem(), OpenZfsVolumeUserAndGroupQuotaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
@@ -2067,6 +3324,24 @@ func init() {
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointSmbArrayOutput{})
 	pulumi.RegisterOutputType(OntapVolumeTieringPolicyOutput{})
 	pulumi.RegisterOutputType(OntapVolumeTieringPolicyPtrOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemDiskIopsConfigurationOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemDiskIopsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput{})
+	pulumi.RegisterOutputType(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeNfsExportsOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeNfsExportsPtrOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeNfsExportsClientConfigurationOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeNfsExportsClientConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeOriginSnapshotOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeOriginSnapshotPtrOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeUserAndGroupQuotaOutput{})
+	pulumi.RegisterOutputType(OpenZfsVolumeUserAndGroupQuotaArrayOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryOutput{})

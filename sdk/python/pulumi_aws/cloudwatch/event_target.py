@@ -47,7 +47,7 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
@@ -245,7 +245,7 @@ class EventTargetArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         """
         return pulumi.get(self, "role_arn")
 
@@ -324,7 +324,7 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
@@ -513,7 +513,7 @@ class _EventTargetState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         """
         return pulumi.get(self, "role_arn")
 
@@ -748,6 +748,44 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
 
+        ## Example Cross-Account Event Bus target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        event_bus_invoke_remote_event_bus_role = aws.iam.get_role(name="event-bus-invoke-remote-event-bus",
+            assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "events.amazonaws.com"
+              },
+              "Effect": "Allow"
+            }
+          ]
+        }
+        \"\"\")
+        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["events.PutEvents"],
+            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
+        )])
+        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
+        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
+            role=aws_iam_role["event_bus_invoke_remote_event_bus"]["name"],
+            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+            rule=stop_instances_event_rule.name,
+            role_arn=aws_iam_role["event_bus_invoke_remote_event_bus"]["arn"])
+        ```
+
         ## Example Input Transformer Usage - JSON Object
 
         ```python
@@ -814,7 +852,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetRedshiftTargetArgs']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
@@ -981,6 +1019,44 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
 
+        ## Example Cross-Account Event Bus target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        event_bus_invoke_remote_event_bus_role = aws.iam.get_role(name="event-bus-invoke-remote-event-bus",
+            assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "events.amazonaws.com"
+              },
+              "Effect": "Allow"
+            }
+          ]
+        }
+        \"\"\")
+        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["events.PutEvents"],
+            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
+        )])
+        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
+        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
+            role=aws_iam_role["event_bus_invoke_remote_event_bus"]["name"],
+            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+            rule=stop_instances_event_rule.name,
+            role_arn=aws_iam_role["event_bus_invoke_remote_event_bus"]["arn"])
+        ```
+
         ## Example Input Transformer Usage - JSON Object
 
         ```python
@@ -1144,7 +1220,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetRedshiftTargetArgs']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
@@ -1273,7 +1349,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         """
         return pulumi.get(self, "role_arn")
 

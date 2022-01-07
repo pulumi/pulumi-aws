@@ -29,8 +29,11 @@ class ProjectArgs:
                  file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
                  logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_visibility: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
+                 resource_access_role: Optional[pulumi.Input[str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -51,10 +54,13 @@ class ProjectArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]] secondary_source_versions: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
+        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
@@ -82,10 +88,16 @@ class ProjectArgs:
             pulumi.set(__self__, "logs_config", logs_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_visibility is not None:
+            pulumi.set(__self__, "project_visibility", project_visibility)
         if queued_timeout is not None:
             pulumi.set(__self__, "queued_timeout", queued_timeout)
+        if resource_access_role is not None:
+            pulumi.set(__self__, "resource_access_role", resource_access_role)
         if secondary_artifacts is not None:
             pulumi.set(__self__, "secondary_artifacts", secondary_artifacts)
+        if secondary_source_versions is not None:
+            pulumi.set(__self__, "secondary_source_versions", secondary_source_versions)
         if secondary_sources is not None:
             pulumi.set(__self__, "secondary_sources", secondary_sources)
         if source_version is not None:
@@ -264,6 +276,18 @@ class ProjectArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="projectVisibility")
+    def project_visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        """
+        return pulumi.get(self, "project_visibility")
+
+    @project_visibility.setter
+    def project_visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_visibility", value)
+
+    @property
     @pulumi.getter(name="queuedTimeout")
     def queued_timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -276,6 +300,18 @@ class ProjectArgs:
         pulumi.set(self, "queued_timeout", value)
 
     @property
+    @pulumi.getter(name="resourceAccessRole")
+    def resource_access_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        """
+        return pulumi.get(self, "resource_access_role")
+
+    @resource_access_role.setter
+    def resource_access_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_access_role", value)
+
+    @property
     @pulumi.getter(name="secondaryArtifacts")
     def secondary_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
         """
@@ -286,6 +322,18 @@ class ProjectArgs:
     @secondary_artifacts.setter
     def secondary_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]):
         pulumi.set(self, "secondary_artifacts", value)
+
+    @property
+    @pulumi.getter(name="secondarySourceVersions")
+    def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "secondary_source_versions")
+
+    @secondary_source_versions.setter
+    def secondary_source_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]):
+        pulumi.set(self, "secondary_source_versions", value)
 
     @property
     @pulumi.getter(name="secondarySources")
@@ -303,7 +351,7 @@ class ProjectArgs:
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of the build input to be built for this project. If not specified, the latest version is used.
+        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         """
         return pulumi.get(self, "source_version")
 
@@ -353,8 +401,12 @@ class _ProjectState:
                  file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
                  logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_visibility: Optional[pulumi.Input[str]] = None,
+                 public_project_alias: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
+                 resource_access_role: Optional[pulumi.Input[str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input['ProjectSourceArgs']] = None,
@@ -378,14 +430,18 @@ class _ProjectState:
         :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        :param pulumi.Input[str] public_project_alias: The project identifier used with the public build APIs.
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]] secondary_source_versions: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
+        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         if arn is not None:
@@ -416,10 +472,18 @@ class _ProjectState:
             pulumi.set(__self__, "logs_config", logs_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_visibility is not None:
+            pulumi.set(__self__, "project_visibility", project_visibility)
+        if public_project_alias is not None:
+            pulumi.set(__self__, "public_project_alias", public_project_alias)
         if queued_timeout is not None:
             pulumi.set(__self__, "queued_timeout", queued_timeout)
+        if resource_access_role is not None:
+            pulumi.set(__self__, "resource_access_role", resource_access_role)
         if secondary_artifacts is not None:
             pulumi.set(__self__, "secondary_artifacts", secondary_artifacts)
+        if secondary_source_versions is not None:
+            pulumi.set(__self__, "secondary_source_versions", secondary_source_versions)
         if secondary_sources is not None:
             pulumi.set(__self__, "secondary_sources", secondary_sources)
         if service_role is not None:
@@ -604,6 +668,30 @@ class _ProjectState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="projectVisibility")
+    def project_visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        """
+        return pulumi.get(self, "project_visibility")
+
+    @project_visibility.setter
+    def project_visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_visibility", value)
+
+    @property
+    @pulumi.getter(name="publicProjectAlias")
+    def public_project_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project identifier used with the public build APIs.
+        """
+        return pulumi.get(self, "public_project_alias")
+
+    @public_project_alias.setter
+    def public_project_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_project_alias", value)
+
+    @property
     @pulumi.getter(name="queuedTimeout")
     def queued_timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -616,6 +704,18 @@ class _ProjectState:
         pulumi.set(self, "queued_timeout", value)
 
     @property
+    @pulumi.getter(name="resourceAccessRole")
+    def resource_access_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        """
+        return pulumi.get(self, "resource_access_role")
+
+    @resource_access_role.setter
+    def resource_access_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_access_role", value)
+
+    @property
     @pulumi.getter(name="secondaryArtifacts")
     def secondary_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
         """
@@ -626,6 +726,18 @@ class _ProjectState:
     @secondary_artifacts.setter
     def secondary_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]):
         pulumi.set(self, "secondary_artifacts", value)
+
+    @property
+    @pulumi.getter(name="secondarySourceVersions")
+    def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "secondary_source_versions")
+
+    @secondary_source_versions.setter
+    def secondary_source_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]):
+        pulumi.set(self, "secondary_source_versions", value)
 
     @property
     @pulumi.getter(name="secondarySources")
@@ -667,7 +779,7 @@ class _ProjectState:
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of the build input to be built for this project. If not specified, the latest version is used.
+        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         """
         return pulumi.get(self, "source_version")
 
@@ -691,7 +803,7 @@ class _ProjectState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider.
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -729,8 +841,11 @@ class Project(pulumi.CustomResource):
                  file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
                  logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_visibility: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
+                 resource_access_role: Optional[pulumi.Input[str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
@@ -939,12 +1054,15 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]] secondary_source_versions: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
+        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         """
@@ -1168,8 +1286,11 @@ class Project(pulumi.CustomResource):
                  file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
                  logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 project_visibility: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
+                 resource_access_role: Optional[pulumi.Input[str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
@@ -1204,8 +1325,11 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["file_system_locations"] = file_system_locations
             __props__.__dict__["logs_config"] = logs_config
             __props__.__dict__["name"] = name
+            __props__.__dict__["project_visibility"] = project_visibility
             __props__.__dict__["queued_timeout"] = queued_timeout
+            __props__.__dict__["resource_access_role"] = resource_access_role
             __props__.__dict__["secondary_artifacts"] = secondary_artifacts
+            __props__.__dict__["secondary_source_versions"] = secondary_source_versions
             __props__.__dict__["secondary_sources"] = secondary_sources
             if service_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role'")
@@ -1218,6 +1342,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["badge_url"] = None
+            __props__.__dict__["public_project_alias"] = None
             __props__.__dict__["tags_all"] = None
         super(Project, __self__).__init__(
             'aws:codebuild/project:Project',
@@ -1243,8 +1368,12 @@ class Project(pulumi.CustomResource):
             file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
             logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            project_visibility: Optional[pulumi.Input[str]] = None,
+            public_project_alias: Optional[pulumi.Input[str]] = None,
             queued_timeout: Optional[pulumi.Input[int]] = None,
+            resource_access_role: Optional[pulumi.Input[str]] = None,
             secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]]] = None,
+            secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]]] = None,
             secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]]] = None,
             service_role: Optional[pulumi.Input[str]] = None,
             source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
@@ -1273,14 +1402,18 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        :param pulumi.Input[str] public_project_alias: The project identifier used with the public build APIs.
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]] secondary_source_versions: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
+        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1301,8 +1434,12 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["file_system_locations"] = file_system_locations
         __props__.__dict__["logs_config"] = logs_config
         __props__.__dict__["name"] = name
+        __props__.__dict__["project_visibility"] = project_visibility
+        __props__.__dict__["public_project_alias"] = public_project_alias
         __props__.__dict__["queued_timeout"] = queued_timeout
+        __props__.__dict__["resource_access_role"] = resource_access_role
         __props__.__dict__["secondary_artifacts"] = secondary_artifacts
+        __props__.__dict__["secondary_source_versions"] = secondary_source_versions
         __props__.__dict__["secondary_sources"] = secondary_sources
         __props__.__dict__["service_role"] = service_role
         __props__.__dict__["source"] = source
@@ -1425,6 +1562,22 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="projectVisibility")
+    def project_visibility(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+        """
+        return pulumi.get(self, "project_visibility")
+
+    @property
+    @pulumi.getter(name="publicProjectAlias")
+    def public_project_alias(self) -> pulumi.Output[str]:
+        """
+        The project identifier used with the public build APIs.
+        """
+        return pulumi.get(self, "public_project_alias")
+
+    @property
     @pulumi.getter(name="queuedTimeout")
     def queued_timeout(self) -> pulumi.Output[Optional[int]]:
         """
@@ -1433,12 +1586,28 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "queued_timeout")
 
     @property
+    @pulumi.getter(name="resourceAccessRole")
+    def resource_access_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        """
+        return pulumi.get(self, "resource_access_role")
+
+    @property
     @pulumi.getter(name="secondaryArtifacts")
     def secondary_artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectSecondaryArtifact']]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "secondary_artifacts")
+
+    @property
+    @pulumi.getter(name="secondarySourceVersions")
+    def secondary_source_versions(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectSecondarySourceVersion']]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "secondary_source_versions")
 
     @property
     @pulumi.getter(name="secondarySources")
@@ -1468,7 +1637,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Version of the build input to be built for this project. If not specified, the latest version is used.
+        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         """
         return pulumi.get(self, "source_version")
 
@@ -1484,7 +1653,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider.
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -130,6 +130,8 @@ import (
 type Webhook struct {
 	pulumi.CustomResourceState
 
+	// The CodePipeline webhook's ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
 	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
@@ -191,6 +193,8 @@ func GetWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Webhook resources.
 type webhookState struct {
+	// The CodePipeline webhook's ARN.
+	Arn *string `pulumi:"arn"`
 	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
 	Authentication *string `pulumi:"authentication"`
 	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
@@ -212,6 +216,8 @@ type webhookState struct {
 }
 
 type WebhookState struct {
+	// The CodePipeline webhook's ARN.
+	Arn pulumi.StringPtrInput
 	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
 	Authentication pulumi.StringPtrInput
 	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.

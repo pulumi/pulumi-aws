@@ -120,15 +120,18 @@ export * from "./vpc";
 export * from "./vpcDhcpOptions";
 export * from "./vpcDhcpOptionsAssociation";
 export * from "./vpcEndpoint";
+export * from "./vpcEndpointConnectionAccepter";
 export * from "./vpcEndpointConnectionNotification";
 export * from "./vpcEndpointRouteTableAssociation";
 export * from "./vpcEndpointService";
 export * from "./vpcEndpointServiceAllowedPrinciple";
 export * from "./vpcEndpointSubnetAssociation";
 export * from "./vpcIpam";
+export * from "./vpcIpamOrganizationAdminAccount";
 export * from "./vpcIpamPool";
 export * from "./vpcIpamPoolCidr";
 export * from "./vpcIpamPoolCidrAllocation";
+export * from "./vpcIpamPreviewNextCidr";
 export * from "./vpcIpamScope";
 export * from "./vpcIpv4CidrBlockAssociation";
 export * from "./vpcIpv6CidrBlockAssociation";
@@ -205,15 +208,18 @@ import { Vpc } from "./vpc";
 import { VpcDhcpOptions } from "./vpcDhcpOptions";
 import { VpcDhcpOptionsAssociation } from "./vpcDhcpOptionsAssociation";
 import { VpcEndpoint } from "./vpcEndpoint";
+import { VpcEndpointConnectionAccepter } from "./vpcEndpointConnectionAccepter";
 import { VpcEndpointConnectionNotification } from "./vpcEndpointConnectionNotification";
 import { VpcEndpointRouteTableAssociation } from "./vpcEndpointRouteTableAssociation";
 import { VpcEndpointService } from "./vpcEndpointService";
 import { VpcEndpointServiceAllowedPrinciple } from "./vpcEndpointServiceAllowedPrinciple";
 import { VpcEndpointSubnetAssociation } from "./vpcEndpointSubnetAssociation";
 import { VpcIpam } from "./vpcIpam";
+import { VpcIpamOrganizationAdminAccount } from "./vpcIpamOrganizationAdminAccount";
 import { VpcIpamPool } from "./vpcIpamPool";
 import { VpcIpamPoolCidr } from "./vpcIpamPoolCidr";
 import { VpcIpamPoolCidrAllocation } from "./vpcIpamPoolCidrAllocation";
+import { VpcIpamPreviewNextCidr } from "./vpcIpamPreviewNextCidr";
 import { VpcIpamScope } from "./vpcIpamScope";
 import { VpcIpv4CidrBlockAssociation } from "./vpcIpv4CidrBlockAssociation";
 import { VpcIpv6CidrBlockAssociation } from "./vpcIpv6CidrBlockAssociation";
@@ -351,6 +357,8 @@ const _module = {
                 return new VpcDhcpOptionsAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpoint:VpcEndpoint":
                 return new VpcEndpoint(name, <any>undefined, { urn })
+            case "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter":
+                return new VpcEndpointConnectionAccepter(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification":
                 return new VpcEndpointConnectionNotification(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation":
@@ -363,12 +371,16 @@ const _module = {
                 return new VpcEndpointSubnetAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpam:VpcIpam":
                 return new VpcIpam(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount":
+                return new VpcIpamOrganizationAdminAccount(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamPool:VpcIpamPool":
                 return new VpcIpamPool(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr":
                 return new VpcIpamPoolCidr(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation":
                 return new VpcIpamPoolCidrAllocation(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr":
+                return new VpcIpamPreviewNextCidr(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamScope:VpcIpamScope":
                 return new VpcIpamScope(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
@@ -455,15 +467,18 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpc", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptionsAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpoint", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionNotification", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointRouteTableAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointService", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointServiceAllowedPrinciple", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointSubnetAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpam", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamOrganizationAdminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPool", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidr", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidrAllocation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPreviewNextCidr", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamScope", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv4CidrBlockAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv6CidrBlockAssociation", _module)

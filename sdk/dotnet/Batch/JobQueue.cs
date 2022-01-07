@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Batch
     /// Provides a Batch Job Queue resource.
     /// 
     /// ## Example Usage
+    /// ### Basic Job Queue
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -24,6 +25,47 @@ namespace Pulumi.Aws.Batch
     ///     {
     ///         var testQueue = new Aws.Batch.JobQueue("testQueue", new Aws.Batch.JobQueueArgs
     ///         {
+    ///             State = "ENABLED",
+    ///             Priority = 1,
+    ///             ComputeEnvironments = 
+    ///             {
+    ///                 aws_batch_compute_environment.Test_environment_1.Arn,
+    ///                 aws_batch_compute_environment.Test_environment_2.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Job Queue with a fair share scheduling policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleSchedulingPolicy = new Aws.Batch.SchedulingPolicy("exampleSchedulingPolicy", new Aws.Batch.SchedulingPolicyArgs
+    ///         {
+    ///             FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
+    ///             {
+    ///                 ComputeReservation = 1,
+    ///                 ShareDecaySeconds = 3600,
+    ///                 ShareDistributions = 
+    ///                 {
+    ///                     new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
+    ///                     {
+    ///                         ShareIdentifier = "A1*",
+    ///                         WeightFactor = 0.1,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleJobQueue = new Aws.Batch.JobQueue("exampleJobQueue", new Aws.Batch.JobQueueArgs
+    ///         {
+    ///             SchedulingPolicyArn = exampleSchedulingPolicy.Arn,
     ///             State = "ENABLED",
     ///             Priority = 1,
     ///             ComputeEnvironments = 
@@ -74,6 +116,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        /// </summary>
+        [Output("schedulingPolicyArn")]
+        public Output<string?> SchedulingPolicyArn { get; private set; } = null!;
 
         /// <summary>
         /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
@@ -167,6 +215,12 @@ namespace Pulumi.Aws.Batch
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
+        /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        /// </summary>
+        [Input("schedulingPolicyArn")]
+        public Input<string>? SchedulingPolicyArn { get; set; }
+
+        /// <summary>
         /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         /// </summary>
         [Input("state", required: true)]
@@ -223,6 +277,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        /// </summary>
+        [Input("schedulingPolicyArn")]
+        public Input<string>? SchedulingPolicyArn { get; set; }
 
         /// <summary>
         /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`

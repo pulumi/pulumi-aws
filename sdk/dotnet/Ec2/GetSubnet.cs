@@ -364,6 +364,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string CustomerOwnedIpv4Pool;
         public readonly bool DefaultForAz;
+        /// <summary>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+        /// </summary>
+        public readonly bool EnableDns64;
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        /// </summary>
+        public readonly bool EnableResourceNameDnsARecordOnLaunch;
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        /// </summary>
+        public readonly bool EnableResourceNameDnsAaaaRecordOnLaunch;
         public readonly ImmutableArray<Outputs.GetSubnetFilterResult> Filters;
         public readonly string Id;
         public readonly string Ipv6CidrBlock;
@@ -371,6 +383,10 @@ namespace Pulumi.Aws.Ec2
         /// Association ID of the IPv6 CIDR block.
         /// </summary>
         public readonly string Ipv6CidrBlockAssociationId;
+        /// <summary>
+        /// Indicates whether this is an IPv6-only subnet.
+        /// </summary>
+        public readonly bool Ipv6Native;
         /// <summary>
         /// Whether customer owned IP addresses are assigned on network interface creation.
         /// </summary>
@@ -387,6 +403,10 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the subnet.
         /// </summary>
         public readonly string OwnerId;
+        /// <summary>
+        /// The type of hostnames assigned to instances in the subnet at launch.
+        /// </summary>
+        public readonly string PrivateDnsHostnameTypeOnLaunch;
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
@@ -409,6 +429,12 @@ namespace Pulumi.Aws.Ec2
 
             bool defaultForAz,
 
+            bool enableDns64,
+
+            bool enableResourceNameDnsARecordOnLaunch,
+
+            bool enableResourceNameDnsAaaaRecordOnLaunch,
+
             ImmutableArray<Outputs.GetSubnetFilterResult> filters,
 
             string id,
@@ -417,6 +443,8 @@ namespace Pulumi.Aws.Ec2
 
             string ipv6CidrBlockAssociationId,
 
+            bool ipv6Native,
+
             bool mapCustomerOwnedIpOnLaunch,
 
             bool mapPublicIpOnLaunch,
@@ -424,6 +452,8 @@ namespace Pulumi.Aws.Ec2
             string outpostArn,
 
             string ownerId,
+
+            string privateDnsHostnameTypeOnLaunch,
 
             string state,
 
@@ -439,14 +469,19 @@ namespace Pulumi.Aws.Ec2
             CidrBlock = cidrBlock;
             CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DefaultForAz = defaultForAz;
+            EnableDns64 = enableDns64;
+            EnableResourceNameDnsARecordOnLaunch = enableResourceNameDnsARecordOnLaunch;
+            EnableResourceNameDnsAaaaRecordOnLaunch = enableResourceNameDnsAaaaRecordOnLaunch;
             Filters = filters;
             Id = id;
             Ipv6CidrBlock = ipv6CidrBlock;
             Ipv6CidrBlockAssociationId = ipv6CidrBlockAssociationId;
+            Ipv6Native = ipv6Native;
             MapCustomerOwnedIpOnLaunch = mapCustomerOwnedIpOnLaunch;
             MapPublicIpOnLaunch = mapPublicIpOnLaunch;
             OutpostArn = outpostArn;
             OwnerId = ownerId;
+            PrivateDnsHostnameTypeOnLaunch = privateDnsHostnameTypeOnLaunch;
             State = state;
             Tags = tags;
             VpcId = vpcId;

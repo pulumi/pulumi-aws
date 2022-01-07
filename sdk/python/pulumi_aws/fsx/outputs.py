@@ -22,6 +22,15 @@ __all__ = [
     'OntapStorageVirtualMachineEndpointNf',
     'OntapStorageVirtualMachineEndpointSmb',
     'OntapVolumeTieringPolicy',
+    'OpenZfsFileSystemDiskIopsConfiguration',
+    'OpenZfsFileSystemRootVolumeConfiguration',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExports',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration',
+    'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota',
+    'OpenZfsVolumeNfsExports',
+    'OpenZfsVolumeNfsExportsClientConfiguration',
+    'OpenZfsVolumeOriginSnapshot',
+    'OpenZfsVolumeUserAndGroupQuota',
     'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
 ]
@@ -639,6 +648,401 @@ class OntapVolumeTieringPolicy(dict):
         Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class OpenZfsFileSystemDiskIopsConfiguration(dict):
+    def __init__(__self__, *,
+                 iops: Optional[int] = None,
+                 mode: Optional[str] = None):
+        """
+        :param int iops: - The total number of SSD IOPS provisioned for the file system.
+        :param str mode: - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        - The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class OpenZfsFileSystemRootVolumeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyTagsToSnapshots":
+            suggest = "copy_tags_to_snapshots"
+        elif key == "dataCompressionType":
+            suggest = "data_compression_type"
+        elif key == "nfsExports":
+            suggest = "nfs_exports"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "userAndGroupQuotas":
+            suggest = "user_and_group_quotas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenZfsFileSystemRootVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenZfsFileSystemRootVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenZfsFileSystemRootVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_tags_to_snapshots: Optional[bool] = None,
+                 data_compression_type: Optional[str] = None,
+                 nfs_exports: Optional['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports'] = None,
+                 read_only: Optional[bool] = None,
+                 user_and_group_quotas: Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']] = None):
+        """
+        :param bool copy_tags_to_snapshots: - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param str data_compression_type: - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param bool read_only: - specifies whether the volume is read-only. Default is false.
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
+        if copy_tags_to_snapshots is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if nfs_exports is not None:
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if user_and_group_quotas is not None:
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshots")
+    def copy_tags_to_snapshots(self) -> Optional[bool]:
+        """
+        - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshots")
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[str]:
+        """
+        - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        """
+        return pulumi.get(self, "data_compression_type")
+
+    @property
+    @pulumi.getter(name="nfsExports")
+    def nfs_exports(self) -> Optional['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports']:
+        """
+        - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        """
+        return pulumi.get(self, "nfs_exports")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        """
+        - specifies whether the volume is read-only. Default is false.
+        """
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="userAndGroupQuotas")
+    def user_and_group_quotas(self) -> Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']]:
+        """
+        - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
+        return pulumi.get(self, "user_and_group_quotas")
+
+
+@pulumi.output_type
+class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientConfigurations":
+            suggest = "client_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenZfsFileSystemRootVolumeConfigurationNfsExports. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenZfsFileSystemRootVolumeConfigurationNfsExports.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenZfsFileSystemRootVolumeConfigurationNfsExports.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_configurations: Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']):
+        """
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']:
+        """
+        - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        return pulumi.get(self, "client_configurations")
+
+
+@pulumi.output_type
+class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict):
+    def __init__(__self__, *,
+                 clients: str,
+                 options: Sequence[str]):
+        """
+        :param str clients: - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param Sequence[str] options: -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> str:
+        """
+        - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
+        return pulumi.get(self, "clients")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Sequence[str]:
+        """
+        -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageCapacityQuotaGib":
+            suggest = "storage_capacity_quota_gib"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: int,
+                 storage_capacity_quota_gib: int,
+                 type: str):
+        """
+        :param int id: - The ID of the user or group. Valid values between `0` and `2147483647`
+        :param int storage_capacity_quota_gib: - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        """
+        - The ID of the user or group. Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGib")
+    def storage_capacity_quota_gib(self) -> int:
+        """
+        - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "storage_capacity_quota_gib")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class OpenZfsVolumeNfsExports(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientConfigurations":
+            suggest = "client_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenZfsVolumeNfsExports. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenZfsVolumeNfsExports.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenZfsVolumeNfsExports.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_configurations: Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']):
+        """
+        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']:
+        """
+        - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        return pulumi.get(self, "client_configurations")
+
+
+@pulumi.output_type
+class OpenZfsVolumeNfsExportsClientConfiguration(dict):
+    def __init__(__self__, *,
+                 clients: str,
+                 options: Sequence[str]):
+        """
+        :param str clients: - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param Sequence[str] options: -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> str:
+        """
+        - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
+        return pulumi.get(self, "clients")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Sequence[str]:
+        """
+        -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class OpenZfsVolumeOriginSnapshot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyStrategy":
+            suggest = "copy_strategy"
+        elif key == "snapshotArn":
+            suggest = "snapshot_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenZfsVolumeOriginSnapshot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenZfsVolumeOriginSnapshot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenZfsVolumeOriginSnapshot.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_strategy: str,
+                 snapshot_arn: str):
+        pulumi.set(__self__, "copy_strategy", copy_strategy)
+        pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+
+    @property
+    @pulumi.getter(name="copyStrategy")
+    def copy_strategy(self) -> str:
+        return pulumi.get(self, "copy_strategy")
+
+    @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> str:
+        return pulumi.get(self, "snapshot_arn")
+
+
+@pulumi.output_type
+class OpenZfsVolumeUserAndGroupQuota(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageCapacityQuotaGib":
+            suggest = "storage_capacity_quota_gib"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenZfsVolumeUserAndGroupQuota. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenZfsVolumeUserAndGroupQuota.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenZfsVolumeUserAndGroupQuota.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: int,
+                 storage_capacity_quota_gib: int,
+                 type: str):
+        """
+        :param int id: - The ID of the user or group. Valid values between `0` and `2147483647`
+        :param int storage_capacity_quota_gib: - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        """
+        - The ID of the user or group. Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGib")
+    def storage_capacity_quota_gib(self) -> int:
+        """
+        - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "storage_capacity_quota_gib")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

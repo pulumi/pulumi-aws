@@ -82,7 +82,8 @@ type TransitVirtualInterface struct {
 	// The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name for the virtual interface.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name            pulumi.StringOutput  `pulumi:"name"`
+	SitelinkEnabled pulumi.BoolPtrOutput `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -160,7 +161,8 @@ type transitVirtualInterfaceState struct {
 	// The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
-	Name *string `pulumi:"name"`
+	Name            *string `pulumi:"name"`
+	SitelinkEnabled *bool   `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -195,7 +197,8 @@ type TransitVirtualInterfaceState struct {
 	// The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	SitelinkEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -227,7 +230,8 @@ type transitVirtualInterfaceArgs struct {
 	// The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
-	Name *string `pulumi:"name"`
+	Name            *string `pulumi:"name"`
+	SitelinkEnabled *bool   `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The VLAN ID.
@@ -254,7 +258,8 @@ type TransitVirtualInterfaceArgs struct {
 	// The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	SitelinkEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The VLAN ID.

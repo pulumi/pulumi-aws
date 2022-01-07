@@ -21,8 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:devicefarm/devicePool:DevicePool":
+		r = &DevicePool{}
+	case "aws:devicefarm/networkProfile:NetworkProfile":
+		r = &NetworkProfile{}
 	case "aws:devicefarm/project:Project":
 		r = &Project{}
+	case "aws:devicefarm/upload:Upload":
+		r = &Upload{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,7 +44,22 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"devicefarm/devicePool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"devicefarm/networkProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"devicefarm/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"devicefarm/upload",
 		&module{version},
 	)
 }

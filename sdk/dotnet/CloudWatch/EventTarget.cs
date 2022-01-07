@@ -294,6 +294,76 @@ namespace Pulumi.Aws.CloudWatch
     /// }
     /// ```
     /// 
+    /// ## Example Cross-Account Event Bus target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventBusInvokeRemoteEventBusRole = Output.Create(Aws.Iam.GetRole.InvokeAsync(new Aws.Iam.GetRoleArgs
+    ///         {
+    ///             Name = "event-bus-invoke-remote-event-bus",
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""events.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         }));
+    ///         var eventBusInvokeRemoteEventBusPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Effect = "Allow",
+    ///                     Actions = 
+    ///                     {
+    ///                         "events.PutEvents",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var eventBusInvokeRemoteEventBusPolicy = new Aws.Iam.Policy("eventBusInvokeRemoteEventBusPolicy", new Aws.Iam.PolicyArgs
+    ///         {
+    ///             Policy = eventBusInvokeRemoteEventBusPolicyDocument.Apply(eventBusInvokeRemoteEventBusPolicyDocument =&gt; eventBusInvokeRemoteEventBusPolicyDocument.Json),
+    ///         });
+    ///         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = aws_iam_role.Event_bus_invoke_remote_event_bus.Name,
+    ///             PolicyArn = eventBusInvokeRemoteEventBusPolicy.Arn,
+    ///         });
+    ///         var stopInstancesEventRule = new Aws.CloudWatch.EventRule("stopInstancesEventRule", new Aws.CloudWatch.EventRuleArgs
+    ///         {
+    ///             Description = "Stop instances nightly",
+    ///             ScheduleExpression = "cron(0 0 * * ? *)",
+    ///         });
+    ///         var stopInstancesEventTarget = new Aws.CloudWatch.EventTarget("stopInstancesEventTarget", new Aws.CloudWatch.EventTargetArgs
+    ///         {
+    ///             Arn = "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+    ///             Rule = stopInstancesEventRule.Name,
+    ///             RoleArn = aws_iam_role.Event_bus_invoke_remote_event_bus.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Example Input Transformer Usage - JSON Object
     /// 
     /// ```csharp
@@ -448,7 +518,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetRetryPolicy?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -596,7 +666,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRetryPolicyArgs>? RetryPolicy { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -711,7 +781,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRetryPolicyGetArgs>? RetryPolicy { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

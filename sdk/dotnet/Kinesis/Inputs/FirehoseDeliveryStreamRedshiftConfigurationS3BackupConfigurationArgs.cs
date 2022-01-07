@@ -44,6 +44,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? CompressionFormat { get; set; }
 
         /// <summary>
+        /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        /// </summary>
+        [Input("errorOutputPrefix")]
+        public Input<string>? ErrorOutputPrefix { get; set; }
+
+        /// <summary>
         /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
         /// be used.
         /// </summary>

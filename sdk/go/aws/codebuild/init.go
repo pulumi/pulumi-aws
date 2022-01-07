@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "aws:codebuild/reportGroup:ReportGroup":
 		r = &ReportGroup{}
+	case "aws:codebuild/resourcePolicy:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws:codebuild/sourceCredential:SourceCredential":
 		r = &SourceCredential{}
 	case "aws:codebuild/webhook:Webhook":
@@ -50,6 +52,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"codebuild/reportGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"codebuild/resourcePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

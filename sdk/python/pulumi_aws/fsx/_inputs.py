@@ -21,6 +21,15 @@ __all__ = [
     'OntapStorageVirtualMachineEndpointNfArgs',
     'OntapStorageVirtualMachineEndpointSmbArgs',
     'OntapVolumeTieringPolicyArgs',
+    'OpenZfsFileSystemDiskIopsConfigurationArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs',
+    'OpenZfsVolumeNfsExportsArgs',
+    'OpenZfsVolumeNfsExportsClientConfigurationArgs',
+    'OpenZfsVolumeOriginSnapshotArgs',
+    'OpenZfsVolumeUserAndGroupQuotaArgs',
     'WindowsFileSystemAuditLogConfigurationArgs',
     'WindowsFileSystemSelfManagedActiveDirectoryArgs',
 ]
@@ -590,6 +599,373 @@ class OntapVolumeTieringPolicyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class OpenZfsFileSystemDiskIopsConfigurationArgs:
+    def __init__(__self__, *,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] iops: - The total number of SSD IOPS provisioned for the file system.
+        :param pulumi.Input[str] mode: - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        - The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class OpenZfsFileSystemRootVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
+                 data_compression_type: Optional[pulumi.Input[str]] = None,
+                 nfs_exports: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] copy_tags_to_snapshots: - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param pulumi.Input[str] data_compression_type: - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs'] nfs_exports: - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param pulumi.Input[bool] read_only: - specifies whether the volume is read-only. Default is false.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]] user_and_group_quotas: - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
+        if copy_tags_to_snapshots is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if nfs_exports is not None:
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if user_and_group_quotas is not None:
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshots")
+    def copy_tags_to_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshots")
+
+    @copy_tags_to_snapshots.setter
+    def copy_tags_to_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshots", value)
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        """
+        return pulumi.get(self, "data_compression_type")
+
+    @data_compression_type.setter
+    def data_compression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_compression_type", value)
+
+    @property
+    @pulumi.getter(name="nfsExports")
+    def nfs_exports(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']]:
+        """
+        - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        """
+        return pulumi.get(self, "nfs_exports")
+
+    @nfs_exports.setter
+    def nfs_exports(self, value: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']]):
+        pulumi.set(self, "nfs_exports", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        - specifies whether the volume is read-only. Default is false.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="userAndGroupQuotas")
+    def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]]:
+        """
+        - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
+        return pulumi.get(self, "user_and_group_quotas")
+
+    @user_and_group_quotas.setter
+    def user_and_group_quotas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]]):
+        pulumi.set(self, "user_and_group_quotas", value)
+
+
+@pulumi.input_type
+class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs:
+    def __init__(__self__, *,
+                 client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]] client_configurations: - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]:
+        """
+        - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        return pulumi.get(self, "client_configurations")
+
+    @client_configurations.setter
+    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]):
+        pulumi.set(self, "client_configurations", value)
+
+
+@pulumi.input_type
+class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs:
+    def __init__(__self__, *,
+                 clients: pulumi.Input[str],
+                 options: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] clients: - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] options: -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> pulumi.Input[str]:
+        """
+        - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
+        return pulumi.get(self, "clients")
+
+    @clients.setter
+    def clients(self, value: pulumi.Input[str]):
+        pulumi.set(self, "clients", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
+class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[int],
+                 storage_capacity_quota_gib: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] id: - The ID of the user or group. Valid values between `0` and `2147483647`
+        :param pulumi.Input[int] storage_capacity_quota_gib: - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[int]:
+        """
+        - The ID of the user or group. Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGib")
+    def storage_capacity_quota_gib(self) -> pulumi.Input[int]:
+        """
+        - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "storage_capacity_quota_gib")
+
+    @storage_capacity_quota_gib.setter
+    def storage_capacity_quota_gib(self, value: pulumi.Input[int]):
+        pulumi.set(self, "storage_capacity_quota_gib", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class OpenZfsVolumeNfsExportsArgs:
+    def __init__(__self__, *,
+                 client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]] client_configurations: - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]:
+        """
+        - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+        return pulumi.get(self, "client_configurations")
+
+    @client_configurations.setter
+    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]):
+        pulumi.set(self, "client_configurations", value)
+
+
+@pulumi.input_type
+class OpenZfsVolumeNfsExportsClientConfigurationArgs:
+    def __init__(__self__, *,
+                 clients: pulumi.Input[str],
+                 options: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] clients: - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] options: -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> pulumi.Input[str]:
+        """
+        - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
+        return pulumi.get(self, "clients")
+
+    @clients.setter
+    def clients(self, value: pulumi.Input[str]):
+        pulumi.set(self, "clients", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
+class OpenZfsVolumeOriginSnapshotArgs:
+    def __init__(__self__, *,
+                 copy_strategy: pulumi.Input[str],
+                 snapshot_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "copy_strategy", copy_strategy)
+        pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+
+    @property
+    @pulumi.getter(name="copyStrategy")
+    def copy_strategy(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "copy_strategy")
+
+    @copy_strategy.setter
+    def copy_strategy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "copy_strategy", value)
+
+    @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "snapshot_arn")
+
+    @snapshot_arn.setter
+    def snapshot_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_arn", value)
+
+
+@pulumi.input_type
+class OpenZfsVolumeUserAndGroupQuotaArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[int],
+                 storage_capacity_quota_gib: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] id: - The ID of the user or group. Valid values between `0` and `2147483647`
+        :param pulumi.Input[int] storage_capacity_quota_gib: - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[int]:
+        """
+        - The ID of the user or group. Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGib")
+    def storage_capacity_quota_gib(self) -> pulumi.Input[int]:
+        """
+        - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        return pulumi.get(self, "storage_capacity_quota_gib")
+
+    @storage_capacity_quota_gib.setter
+    def storage_capacity_quota_gib(self, value: pulumi.Input[int]):
+        pulumi.set(self, "storage_capacity_quota_gib", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

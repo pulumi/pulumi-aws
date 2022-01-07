@@ -174,6 +174,51 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Example Cross-Account Event Bus target
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const eventBusInvokeRemoteEventBusRole = aws.iam.getRole({
+ *     name: "event-bus-invoke-remote-event-bus",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "events.amazonaws.com"
+ *       },
+ *       "Effect": "Allow"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const eventBusInvokeRemoteEventBusPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["events.PutEvents"],
+ *         resources: ["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
+ *     }],
+ * });
+ * const eventBusInvokeRemoteEventBusPolicy = new aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", {policy: eventBusInvokeRemoteEventBusPolicyDocument.then(eventBusInvokeRemoteEventBusPolicyDocument => eventBusInvokeRemoteEventBusPolicyDocument.json)});
+ * const eventBusInvokeRemoteEventBusRolePolicyAttachment = new aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", {
+ *     role: aws_iam_role.event_bus_invoke_remote_event_bus.name,
+ *     policyArn: eventBusInvokeRemoteEventBusPolicy.arn,
+ * });
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstancesEventRule", {
+ *     description: "Stop instances nightly",
+ *     scheduleExpression: "cron(0 0 * * ? *)",
+ * });
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstancesEventTarget", {
+ *     arn: "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+ *     rule: stopInstancesEventRule.name,
+ *     roleArn: aws_iam_role.event_bus_invoke_remote_event_bus.arn,
+ * });
+ * ```
+ *
  * ## Example Input Transformer Usage - JSON Object
  *
  * ```typescript
@@ -305,7 +350,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly retryPolicy!: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
@@ -441,7 +486,7 @@ export interface EventTargetState {
      */
     retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
     roleArn?: pulumi.Input<string>;
     /**
@@ -515,7 +560,7 @@ export interface EventTargetArgs {
      */
     retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
     roleArn?: pulumi.Input<string>;
     /**

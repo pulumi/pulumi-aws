@@ -191,7 +191,7 @@ class CanarySchedule(dict):
                  expression: str,
                  duration_in_seconds: Optional[int] = None):
         """
-        :param str expression: Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+        :param str expression: Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
         :param int duration_in_seconds: Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
         """
         pulumi.set(__self__, "expression", expression)
@@ -202,7 +202,7 @@ class CanarySchedule(dict):
     @pulumi.getter
     def expression(self) -> str:
         """
-        Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
+        Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
         """
         return pulumi.get(self, "expression")
 

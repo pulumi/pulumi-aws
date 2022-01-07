@@ -121,6 +121,10 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /**
+     * The CodePipeline webhook's ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */
     public readonly authentication!: pulumi.Output<string>;
@@ -170,6 +174,7 @@ export class Webhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
             inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
             inputs["filters"] = state ? state.filters : undefined;
@@ -200,6 +205,7 @@ export class Webhook extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetAction"] = args ? args.targetAction : undefined;
             inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
@@ -214,6 +220,10 @@ export class Webhook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Webhook resources.
  */
 export interface WebhookState {
+    /**
+     * The CodePipeline webhook's ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */

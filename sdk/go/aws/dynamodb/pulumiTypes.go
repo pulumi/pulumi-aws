@@ -938,9 +938,6 @@ type TableTtl struct {
 	AttributeName string `pulumi:"attributeName"`
 	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled *bool `pulumi:"enabled"`
-	// The ARN of the CMK that should be used for the AWS KMS encryption.
-	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // TableTtlInput is an input type that accepts TableTtlArgs and TableTtlOutput values.
@@ -959,9 +956,6 @@ type TableTtlArgs struct {
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
 	// Indicates whether ttl is enabled (true) or disabled (false).
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The ARN of the CMK that should be used for the AWS KMS encryption.
-	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (TableTtlArgs) ElementType() reflect.Type {
@@ -1051,12 +1045,6 @@ func (o TableTtlOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableTtl) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the CMK that should be used for the AWS KMS encryption.
-// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-func (o TableTtlOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTtl) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
-}
-
 type TableTtlPtrOutput struct{ *pulumi.OutputState }
 
 func (TableTtlPtrOutput) ElementType() reflect.Type {
@@ -1099,17 +1087,6 @@ func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// The ARN of the CMK that should be used for the AWS KMS encryption.
-// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-func (o TableTtlPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTtl) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetTableAttribute struct {

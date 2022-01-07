@@ -7,12 +7,14 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./project";
 export * from "./reportGroup";
+export * from "./resourcePolicy";
 export * from "./sourceCredential";
 export * from "./webhook";
 
 // Import resources to register:
 import { Project } from "./project";
 import { ReportGroup } from "./reportGroup";
+import { ResourcePolicy } from "./resourcePolicy";
 import { SourceCredential } from "./sourceCredential";
 import { Webhook } from "./webhook";
 
@@ -24,6 +26,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "aws:codebuild/reportGroup:ReportGroup":
                 return new ReportGroup(name, <any>undefined, { urn })
+            case "aws:codebuild/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:codebuild/sourceCredential:SourceCredential":
                 return new SourceCredential(name, <any>undefined, { urn })
             case "aws:codebuild/webhook:Webhook":
@@ -35,5 +39,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "codebuild/project", _module)
 pulumi.runtime.registerResourceModule("aws", "codebuild/reportGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "codebuild/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "codebuild/sourceCredential", _module)
 pulumi.runtime.registerResourceModule("aws", "codebuild/webhook", _module)

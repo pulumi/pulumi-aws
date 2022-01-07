@@ -84,6 +84,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+     */
+    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
     public readonly retentionProperties!: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
@@ -115,6 +119,7 @@ export class Table extends pulumi.CustomResource {
             const state = argsOrState as TableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
+            inputs["magneticStoreWriteProperties"] = state ? state.magneticStoreWriteProperties : undefined;
             inputs["retentionProperties"] = state ? state.retentionProperties : undefined;
             inputs["tableName"] = state ? state.tableName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -128,6 +133,7 @@ export class Table extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
             inputs["retentionProperties"] = args ? args.retentionProperties : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -154,6 +160,10 @@ export interface TableState {
      */
     databaseName?: pulumi.Input<string>;
     /**
+     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+     */
+    magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
     retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
@@ -179,6 +189,10 @@ export interface TableArgs {
      * The name of the Timestream database.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+     */
+    magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */

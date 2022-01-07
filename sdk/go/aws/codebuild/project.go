@@ -201,21 +201,29 @@ type Project struct {
 	LogsConfig ProjectLogsConfigPtrOutput `pulumi:"logsConfig"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+	ProjectVisibility pulumi.StringPtrOutput `pulumi:"projectVisibility"`
+	// The project identifier used with the public build APIs.
+	PublicProjectAlias pulumi.StringOutput `pulumi:"publicProjectAlias"`
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout pulumi.IntPtrOutput `pulumi:"queuedTimeout"`
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	ResourceAccessRole pulumi.StringPtrOutput `pulumi:"resourceAccessRole"`
 	// Configuration block. Detailed below.
 	SecondaryArtifacts ProjectSecondaryArtifactArrayOutput `pulumi:"secondaryArtifacts"`
+	// Configuration block. Detailed below.
+	SecondarySourceVersions ProjectSecondarySourceVersionArrayOutput `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayOutput `pulumi:"secondarySources"`
 	// Specifies the service role ARN for the batch build project.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source ProjectSourceOutput `pulumi:"source"`
-	// Version of the build input to be built for this project. If not specified, the latest version is used.
+	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
 	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
@@ -290,21 +298,29 @@ type projectState struct {
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name *string `pulumi:"name"`
+	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+	ProjectVisibility *string `pulumi:"projectVisibility"`
+	// The project identifier used with the public build APIs.
+	PublicProjectAlias *string `pulumi:"publicProjectAlias"`
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	ResourceAccessRole *string `pulumi:"resourceAccessRole"`
 	// Configuration block. Detailed below.
 	SecondaryArtifacts []ProjectSecondaryArtifact `pulumi:"secondaryArtifacts"`
+	// Configuration block. Detailed below.
+	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
 	// Specifies the service role ARN for the batch build project.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source *ProjectSource `pulumi:"source"`
-	// Version of the build input to be built for this project. If not specified, the latest version is used.
+	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion *string `pulumi:"sourceVersion"`
 	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
@@ -339,21 +355,29 @@ type ProjectState struct {
 	LogsConfig ProjectLogsConfigPtrInput
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name pulumi.StringPtrInput
+	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+	ProjectVisibility pulumi.StringPtrInput
+	// The project identifier used with the public build APIs.
+	PublicProjectAlias pulumi.StringPtrInput
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout pulumi.IntPtrInput
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	ResourceAccessRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	SecondaryArtifacts ProjectSecondaryArtifactArrayInput
+	// Configuration block. Detailed below.
+	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
 	// Specifies the service role ARN for the batch build project.
 	ServiceRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Source ProjectSourcePtrInput
-	// Version of the build input to be built for this project. If not specified, the latest version is used.
+	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion pulumi.StringPtrInput
 	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrInput
@@ -388,17 +412,23 @@ type projectArgs struct {
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name *string `pulumi:"name"`
+	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+	ProjectVisibility *string `pulumi:"projectVisibility"`
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	ResourceAccessRole *string `pulumi:"resourceAccessRole"`
 	// Configuration block. Detailed below.
 	SecondaryArtifacts []ProjectSecondaryArtifact `pulumi:"secondaryArtifacts"`
+	// Configuration block. Detailed below.
+	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
 	// Specifies the service role ARN for the batch build project.
 	ServiceRole string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source ProjectSource `pulumi:"source"`
-	// Version of the build input to be built for this project. If not specified, the latest version is used.
+	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion *string `pulumi:"sourceVersion"`
 	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -432,17 +462,23 @@ type ProjectArgs struct {
 	LogsConfig ProjectLogsConfigPtrInput
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name pulumi.StringPtrInput
+	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+	ProjectVisibility pulumi.StringPtrInput
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout pulumi.IntPtrInput
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	ResourceAccessRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	SecondaryArtifacts ProjectSecondaryArtifactArrayInput
+	// Configuration block. Detailed below.
+	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
 	// Specifies the service role ARN for the batch build project.
 	ServiceRole pulumi.StringInput
 	// Configuration block. Detailed below.
 	Source ProjectSourceInput
-	// Version of the build input to be built for this project. If not specified, the latest version is used.
+	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion pulumi.StringPtrInput
 	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput

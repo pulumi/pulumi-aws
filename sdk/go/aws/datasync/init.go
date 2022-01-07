@@ -25,8 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Agent{}
 	case "aws:datasync/efsLocation:EfsLocation":
 		r = &EfsLocation{}
+	case "aws:datasync/locationFsxLustre:LocationFsxLustre":
+		r = &LocationFsxLustre{}
 	case "aws:datasync/locationFsxWindows:LocationFsxWindows":
 		r = &LocationFsxWindows{}
+	case "aws:datasync/locationHdfs:LocationHdfs":
+		r = &LocationHdfs{}
 	case "aws:datasync/locationSmb:LocationSmb":
 		r = &LocationSmb{}
 	case "aws:datasync/nfsLocation:NfsLocation":
@@ -60,7 +64,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"datasync/locationFsxLustre",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"datasync/locationFsxWindows",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datasync/locationHdfs",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

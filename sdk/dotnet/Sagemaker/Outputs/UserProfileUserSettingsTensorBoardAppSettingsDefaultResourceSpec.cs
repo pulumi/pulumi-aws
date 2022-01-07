@@ -18,18 +18,32 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        /// </summary>
+        public readonly string? LifecycleConfigArn;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         /// </summary>
         public readonly string? SagemakerImageArn;
+        /// <summary>
+        /// The ARN of the image version created on the instance.
+        /// </summary>
+        public readonly string? SagemakerImageVersionArn;
 
         [OutputConstructor]
         private UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(
             string? instanceType,
 
-            string? sagemakerImageArn)
+            string? lifecycleConfigArn,
+
+            string? sagemakerImageArn,
+
+            string? sagemakerImageVersionArn)
         {
             InstanceType = instanceType;
+            LifecycleConfigArn = lifecycleConfigArn;
             SagemakerImageArn = sagemakerImageArn;
+            SagemakerImageVersionArn = sagemakerImageVersionArn;
         }
     }
 }

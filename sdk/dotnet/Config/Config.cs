@@ -406,6 +406,7 @@ namespace Pulumi.Aws
                 public string? Iotthingsgraph { get; set; } = null!;
                 public string? Iotwireless { get; set; } = null!;
                 public string? Kafka { get; set; } = null!;
+                public string? Kafkaconnect { get; set; } = null!;
                 public string? Kendra { get; set; } = null!;
                 public string? Kinesis { get; set; } = null!;
                 public string? Kinesisanalytics { get; set; } = null!;

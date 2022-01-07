@@ -20,6 +20,7 @@ class ClusterArgs:
                  node_type: pulumi.Input[str],
                  replication_factor: pulumi.Input[int],
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,9 @@ class ClusterArgs:
                replicas
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
                nodes will be created
+        :param pulumi.Input[str] cluster_endpoint_encryption_type: The type of encryption the
+               cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+               Default value is `NONE`.
         :param pulumi.Input[str] description: Description for the cluster
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when
                maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
@@ -65,6 +69,8 @@ class ClusterArgs:
         pulumi.set(__self__, "replication_factor", replication_factor)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
+        if cluster_endpoint_encryption_type is not None:
+            pulumi.set(__self__, "cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if maintenance_window is not None:
@@ -148,6 +154,20 @@ class ClusterArgs:
     @availability_zones.setter
     def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="clusterEndpointEncryptionType")
+    def cluster_endpoint_encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of encryption the
+        cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+        Default value is `NONE`.
+        """
+        return pulumi.get(self, "cluster_endpoint_encryption_type")
+
+    @cluster_endpoint_encryption_type.setter
+    def cluster_endpoint_encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_endpoint_encryption_type", value)
 
     @property
     @pulumi.getter
@@ -260,6 +280,7 @@ class _ClusterState:
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_address: Optional[pulumi.Input[str]] = None,
+                 cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_endpoint: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -282,6 +303,9 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
                nodes will be created
         :param pulumi.Input[str] cluster_address: The DNS name of the DAX cluster without the port appended
+        :param pulumi.Input[str] cluster_endpoint_encryption_type: The type of encryption the
+               cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+               Default value is `NONE`.
         :param pulumi.Input[str] cluster_name: Group identifier. DAX converts this name to
                lowercase
         :param pulumi.Input[str] configuration_endpoint: The configuration endpoint for this DAX cluster,
@@ -322,6 +346,8 @@ class _ClusterState:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if cluster_address is not None:
             pulumi.set(__self__, "cluster_address", cluster_address)
+        if cluster_endpoint_encryption_type is not None:
+            pulumi.set(__self__, "cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if configuration_endpoint is not None:
@@ -391,6 +417,20 @@ class _ClusterState:
     @cluster_address.setter
     def cluster_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_address", value)
+
+    @property
+    @pulumi.getter(name="clusterEndpointEncryptionType")
+    def cluster_endpoint_encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of encryption the
+        cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+        Default value is `NONE`.
+        """
+        return pulumi.get(self, "cluster_endpoint_encryption_type")
+
+    @cluster_endpoint_encryption_type.setter
+    def cluster_endpoint_encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_endpoint_encryption_type", value)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -608,6 +648,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
@@ -651,6 +692,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
                nodes will be created
+        :param pulumi.Input[str] cluster_endpoint_encryption_type: The type of encryption the
+               cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+               Default value is `NONE`.
         :param pulumi.Input[str] cluster_name: Group identifier. DAX converts this name to
                lowercase
         :param pulumi.Input[str] description: Description for the cluster
@@ -726,6 +770,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
@@ -751,6 +796,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["availability_zones"] = availability_zones
+            __props__.__dict__["cluster_endpoint_encryption_type"] = cluster_endpoint_encryption_type
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
@@ -790,6 +836,7 @@ class Cluster(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cluster_address: Optional[pulumi.Input[str]] = None,
+            cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             configuration_endpoint: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -817,6 +864,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
                nodes will be created
         :param pulumi.Input[str] cluster_address: The DNS name of the DAX cluster without the port appended
+        :param pulumi.Input[str] cluster_endpoint_encryption_type: The type of encryption the
+               cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+               Default value is `NONE`.
         :param pulumi.Input[str] cluster_name: Group identifier. DAX converts this name to
                lowercase
         :param pulumi.Input[str] configuration_endpoint: The configuration endpoint for this DAX cluster,
@@ -858,6 +908,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["availability_zones"] = availability_zones
         __props__.__dict__["cluster_address"] = cluster_address
+        __props__.__dict__["cluster_endpoint_encryption_type"] = cluster_endpoint_encryption_type
         __props__.__dict__["cluster_name"] = cluster_name
         __props__.__dict__["configuration_endpoint"] = configuration_endpoint
         __props__.__dict__["description"] = description
@@ -900,6 +951,16 @@ class Cluster(pulumi.CustomResource):
         The DNS name of the DAX cluster without the port appended
         """
         return pulumi.get(self, "cluster_address")
+
+    @property
+    @pulumi.getter(name="clusterEndpointEncryptionType")
+    def cluster_endpoint_encryption_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of encryption the
+        cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+        Default value is `NONE`.
+        """
+        return pulumi.get(self, "cluster_endpoint_encryption_type")
 
     @property
     @pulumi.getter(name="clusterName")

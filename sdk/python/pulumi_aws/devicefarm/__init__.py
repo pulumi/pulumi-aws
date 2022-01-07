@@ -5,4 +5,9 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .device_pool import *
+from .network_profile import *
 from .project import *
+from .upload import *
+from ._inputs import *
+from . import outputs

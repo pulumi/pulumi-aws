@@ -134,13 +134,21 @@ type LookupSubnetResult struct {
 	AvailableIpAddressCount int    `pulumi:"availableIpAddressCount"`
 	CidrBlock               string `pulumi:"cidrBlock"`
 	// Identifier of customer owned IPv4 address pool.
-	CustomerOwnedIpv4Pool string            `pulumi:"customerOwnedIpv4Pool"`
-	DefaultForAz          bool              `pulumi:"defaultForAz"`
-	Filters               []GetSubnetFilter `pulumi:"filters"`
-	Id                    string            `pulumi:"id"`
-	Ipv6CidrBlock         string            `pulumi:"ipv6CidrBlock"`
+	CustomerOwnedIpv4Pool string `pulumi:"customerOwnedIpv4Pool"`
+	DefaultForAz          bool   `pulumi:"defaultForAz"`
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+	EnableDns64 bool `pulumi:"enableDns64"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecordOnLaunch bool `pulumi:"enableResourceNameDnsARecordOnLaunch"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecordOnLaunch bool              `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
+	Filters                                 []GetSubnetFilter `pulumi:"filters"`
+	Id                                      string            `pulumi:"id"`
+	Ipv6CidrBlock                           string            `pulumi:"ipv6CidrBlock"`
 	// Association ID of the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId string `pulumi:"ipv6CidrBlockAssociationId"`
+	// Indicates whether this is an IPv6-only subnet.
+	Ipv6Native bool `pulumi:"ipv6Native"`
 	// Whether customer owned IP addresses are assigned on network interface creation.
 	MapCustomerOwnedIpOnLaunch bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Whether public IP addresses are assigned on instance launch.
@@ -148,10 +156,12 @@ type LookupSubnetResult struct {
 	// ARN of the Outpost.
 	OutpostArn string `pulumi:"outpostArn"`
 	// ID of the AWS account that owns the subnet.
-	OwnerId string            `pulumi:"ownerId"`
-	State   string            `pulumi:"state"`
-	Tags    map[string]string `pulumi:"tags"`
-	VpcId   string            `pulumi:"vpcId"`
+	OwnerId string `pulumi:"ownerId"`
+	// The type of hostnames assigned to instances in the subnet at launch.
+	PrivateDnsHostnameTypeOnLaunch string            `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	State                          string            `pulumi:"state"`
+	Tags                           map[string]string `pulumi:"tags"`
+	VpcId                          string            `pulumi:"vpcId"`
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
@@ -242,6 +252,21 @@ func (o LookupSubnetResultOutput) DefaultForAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.DefaultForAz }).(pulumi.BoolOutput)
 }
 
+// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+func (o LookupSubnetResultOutput) EnableDns64() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnableDns64 }).(pulumi.BoolOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+func (o LookupSubnetResultOutput) EnableResourceNameDnsARecordOnLaunch() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnableResourceNameDnsARecordOnLaunch }).(pulumi.BoolOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o LookupSubnetResultOutput) EnableResourceNameDnsAaaaRecordOnLaunch() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnableResourceNameDnsAaaaRecordOnLaunch }).(pulumi.BoolOutput)
+}
+
 func (o LookupSubnetResultOutput) Filters() GetSubnetFilterArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []GetSubnetFilter { return v.Filters }).(GetSubnetFilterArrayOutput)
 }
@@ -257,6 +282,11 @@ func (o LookupSubnetResultOutput) Ipv6CidrBlock() pulumi.StringOutput {
 // Association ID of the IPv6 CIDR block.
 func (o LookupSubnetResultOutput) Ipv6CidrBlockAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.Ipv6CidrBlockAssociationId }).(pulumi.StringOutput)
+}
+
+// Indicates whether this is an IPv6-only subnet.
+func (o LookupSubnetResultOutput) Ipv6Native() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.Ipv6Native }).(pulumi.BoolOutput)
 }
 
 // Whether customer owned IP addresses are assigned on network interface creation.
@@ -277,6 +307,11 @@ func (o LookupSubnetResultOutput) OutpostArn() pulumi.StringOutput {
 // ID of the AWS account that owns the subnet.
 func (o LookupSubnetResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The type of hostnames assigned to instances in the subnet at launch.
+func (o LookupSubnetResultOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringOutput)
 }
 
 func (o LookupSubnetResultOutput) State() pulumi.StringOutput {

@@ -58,6 +58,10 @@ type Cluster struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The DNS name of the DAX cluster without the port appended
 	ClusterAddress pulumi.StringOutput `pulumi:"clusterAddress"`
+	// The type of encryption the
+	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+	// Default value is `NONE`.
+	ClusterEndpointEncryptionType pulumi.StringPtrOutput `pulumi:"clusterEndpointEncryptionType"`
 	// Group identifier. DAX converts this name to
 	// lowercase
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -157,6 +161,10 @@ type clusterState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS name of the DAX cluster without the port appended
 	ClusterAddress *string `pulumi:"clusterAddress"`
+	// The type of encryption the
+	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+	// Default value is `NONE`.
+	ClusterEndpointEncryptionType *string `pulumi:"clusterEndpointEncryptionType"`
 	// Group identifier. DAX converts this name to
 	// lowercase
 	ClusterName *string `pulumi:"clusterName"`
@@ -216,6 +224,10 @@ type ClusterState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// The DNS name of the DAX cluster without the port appended
 	ClusterAddress pulumi.StringPtrInput
+	// The type of encryption the
+	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+	// Default value is `NONE`.
+	ClusterEndpointEncryptionType pulumi.StringPtrInput
 	// Group identifier. DAX converts this name to
 	// lowercase
 	ClusterName pulumi.StringPtrInput
@@ -275,6 +287,10 @@ type clusterArgs struct {
 	// List of Availability Zones in which the
 	// nodes will be created
 	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The type of encryption the
+	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+	// Default value is `NONE`.
+	ClusterEndpointEncryptionType *string `pulumi:"clusterEndpointEncryptionType"`
 	// Group identifier. DAX converts this name to
 	// lowercase
 	ClusterName string `pulumi:"clusterName"`
@@ -320,6 +336,10 @@ type ClusterArgs struct {
 	// List of Availability Zones in which the
 	// nodes will be created
 	AvailabilityZones pulumi.StringArrayInput
+	// The type of encryption the
+	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
+	// Default value is `NONE`.
+	ClusterEndpointEncryptionType pulumi.StringPtrInput
 	// Group identifier. DAX converts this name to
 	// lowercase
 	ClusterName pulumi.StringInput
