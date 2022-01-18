@@ -37,7 +37,7 @@ build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs:: # build the node sdk
 	$(WORKING_DIR)/bin/$(TFGEN) nodejs --overlays provider/overlays/nodejs --out sdk/nodejs/
 	cd sdk/nodejs/ && \
-		touch go.mod && \
+		echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
         yarn install && \
         yarn run tsc && \
         cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
@@ -47,12 +47,12 @@ build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python:: # build the python sdk
 	$(WORKING_DIR)/bin/$(TFGEN) python --overlays provider/overlays/python --out sdk/python/
 	cd sdk/python/ && \
-		touch go.mod && \
+		echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
         cp ../../README.md . && \
         python3 setup.py clean --all 2>/dev/null && \
         rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
         sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
-        rm ./bin/setup.py.bak && \
+        rm ./bin/setup.py.bak && rm ./bin/go.mod && \
         cd ./bin && python3 setup.py build sdist
 
 build_go:: # build the go sdk
@@ -65,7 +65,7 @@ build_dotnet:: # build the dotnet sdk
 	pulumictl get version --language dotnet
 	$(WORKING_DIR)/bin/$(TFGEN) dotnet --overlays provider/overlays/dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
-		touch go.mod && \
+		echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
 		echo "${DOTNET_VERSION}" >version.txt && \
         dotnet build /p:Version=${DOTNET_VERSION}
 
