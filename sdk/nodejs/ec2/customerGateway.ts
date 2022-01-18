@@ -68,6 +68,10 @@ export class CustomerGateway extends pulumi.CustomResource {
      */
     public readonly bgpAsn!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     */
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    /**
      * A name for the customer gateway device.
      */
     public readonly deviceName!: pulumi.Output<string | undefined>;
@@ -104,6 +108,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             const state = argsOrState as CustomerGatewayState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["deviceName"] = state ? state.deviceName : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -121,6 +126,7 @@ export class CustomerGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -147,6 +153,10 @@ export interface CustomerGatewayState {
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     bgpAsn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     */
+    certificateArn?: pulumi.Input<string>;
     /**
      * A name for the customer gateway device.
      */
@@ -178,6 +188,10 @@ export interface CustomerGatewayArgs {
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     bgpAsn: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     */
+    certificateArn?: pulumi.Input<string>;
     /**
      * A name for the customer gateway device.
      */

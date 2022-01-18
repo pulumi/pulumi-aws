@@ -85,6 +85,7 @@ import (
 // 				HttpEndpoint:            pulumi.String("enabled"),
 // 				HttpTokens:              pulumi.String("required"),
 // 				HttpPutResponseHopLimit: pulumi.Int(1),
+// 				InstanceMetadataTags:    pulumi.String("enabled"),
 // 			},
 // 			Monitoring: &ec2.LaunchTemplateMonitoringArgs{
 // 				Enabled: pulumi.Bool(true),

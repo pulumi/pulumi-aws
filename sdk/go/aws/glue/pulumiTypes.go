@@ -2850,6 +2850,121 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 	}).(CrawlerCatalogTargetOutput)
 }
 
+type CrawlerDeltaTarget struct {
+	// The name of the connection to use to connect to the Delta table target.
+	ConnectionName string `pulumi:"connectionName"`
+	// A list of the Amazon S3 paths to the Delta tables.
+	DeltaTables []string `pulumi:"deltaTables"`
+	// Specifies whether to write the manifest files to the Delta table path.
+	WriteManifest bool `pulumi:"writeManifest"`
+}
+
+// CrawlerDeltaTargetInput is an input type that accepts CrawlerDeltaTargetArgs and CrawlerDeltaTargetOutput values.
+// You can construct a concrete instance of `CrawlerDeltaTargetInput` via:
+//
+//          CrawlerDeltaTargetArgs{...}
+type CrawlerDeltaTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput
+	ToCrawlerDeltaTargetOutputWithContext(context.Context) CrawlerDeltaTargetOutput
+}
+
+type CrawlerDeltaTargetArgs struct {
+	// The name of the connection to use to connect to the Delta table target.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// A list of the Amazon S3 paths to the Delta tables.
+	DeltaTables pulumi.StringArrayInput `pulumi:"deltaTables"`
+	// Specifies whether to write the manifest files to the Delta table path.
+	WriteManifest pulumi.BoolInput `pulumi:"writeManifest"`
+}
+
+func (CrawlerDeltaTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (i CrawlerDeltaTargetArgs) ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput {
+	return i.ToCrawlerDeltaTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerDeltaTargetArgs) ToCrawlerDeltaTargetOutputWithContext(ctx context.Context) CrawlerDeltaTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDeltaTargetOutput)
+}
+
+// CrawlerDeltaTargetArrayInput is an input type that accepts CrawlerDeltaTargetArray and CrawlerDeltaTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerDeltaTargetArrayInput` via:
+//
+//          CrawlerDeltaTargetArray{ CrawlerDeltaTargetArgs{...} }
+type CrawlerDeltaTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput
+	ToCrawlerDeltaTargetArrayOutputWithContext(context.Context) CrawlerDeltaTargetArrayOutput
+}
+
+type CrawlerDeltaTargetArray []CrawlerDeltaTargetInput
+
+func (CrawlerDeltaTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (i CrawlerDeltaTargetArray) ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput {
+	return i.ToCrawlerDeltaTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerDeltaTargetArray) ToCrawlerDeltaTargetArrayOutputWithContext(ctx context.Context) CrawlerDeltaTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDeltaTargetArrayOutput)
+}
+
+type CrawlerDeltaTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDeltaTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutputWithContext(ctx context.Context) CrawlerDeltaTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Delta table target.
+func (o CrawlerDeltaTargetOutput) ConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
+}
+
+// A list of the Amazon S3 paths to the Delta tables.
+func (o CrawlerDeltaTargetOutput) DeltaTables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) []string { return v.DeltaTables }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether to write the manifest files to the Delta table path.
+func (o CrawlerDeltaTargetOutput) WriteManifest() pulumi.BoolOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) bool { return v.WriteManifest }).(pulumi.BoolOutput)
+}
+
+type CrawlerDeltaTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDeltaTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (o CrawlerDeltaTargetArrayOutput) ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetArrayOutput) ToCrawlerDeltaTargetArrayOutputWithContext(ctx context.Context) CrawlerDeltaTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDeltaTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDeltaTarget {
+		return vs[0].([]CrawlerDeltaTarget)[vs[1].(int)]
+	}).(CrawlerDeltaTargetOutput)
+}
+
 type CrawlerDynamodbTarget struct {
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
@@ -2966,7 +3081,7 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 }
 
 type CrawlerJdbcTarget struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName string `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
@@ -2986,7 +3101,7 @@ type CrawlerJdbcTargetInput interface {
 }
 
 type CrawlerJdbcTargetArgs struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
@@ -3045,7 +3160,7 @@ func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+// The name of the connection to use to connect to the Delta table target.
 func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
@@ -3218,7 +3333,7 @@ func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.St
 }
 
 type CrawlerMongodbTarget struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName string `pulumi:"connectionName"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
@@ -3238,7 +3353,7 @@ type CrawlerMongodbTargetInput interface {
 }
 
 type CrawlerMongodbTargetArgs struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path pulumi.StringInput `pulumi:"path"`
@@ -3297,7 +3412,7 @@ func (o CrawlerMongodbTargetOutput) ToCrawlerMongodbTargetOutputWithContext(ctx 
 	return o
 }
 
-// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+// The name of the connection to use to connect to the Delta table target.
 func (o CrawlerMongodbTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerMongodbTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
@@ -3470,7 +3585,7 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 }
 
 type CrawlerS3Target struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName *string `pulumi:"connectionName"`
 	// The ARN of the dead-letter SQS queue.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
@@ -3496,7 +3611,7 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// The ARN of the dead-letter SQS queue.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
@@ -3561,7 +3676,7 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+// The name of the connection to use to connect to the Delta table target.
 func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
@@ -8510,6 +8625,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsPtrInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetInput)(nil)).Elem(), CrawlerDeltaTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetInput)(nil)).Elem(), CrawlerDynamodbTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetArrayInput)(nil)).Elem(), CrawlerDynamodbTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
@@ -8622,6 +8739,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})

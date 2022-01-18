@@ -13,6 +13,10 @@ __all__ = [
     'HoursOfOperationConfigArgs',
     'HoursOfOperationConfigEndTimeArgs',
     'HoursOfOperationConfigStartTimeArgs',
+    'QuickConnectQuickConnectConfigArgs',
+    'QuickConnectQuickConnectConfigPhoneConfigArgs',
+    'QuickConnectQuickConnectConfigQueueConfigArgs',
+    'QuickConnectQuickConnectConfigUserConfigArgs',
     'GetBotAssociationLexBotArgs',
 ]
 
@@ -178,6 +182,172 @@ class HoursOfOperationConfigStartTimeArgs:
     @minutes.setter
     def minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "minutes", value)
+
+
+@pulumi.input_type
+class QuickConnectQuickConnectConfigArgs:
+    def __init__(__self__, *,
+                 quick_connect_type: pulumi.Input[str],
+                 phone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]] = None,
+                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]] = None,
+                 user_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]] = None):
+        """
+        :param pulumi.Input[str] quick_connect_type: Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        """
+        pulumi.set(__self__, "quick_connect_type", quick_connect_type)
+        if phone_configs is not None:
+            pulumi.set(__self__, "phone_configs", phone_configs)
+        if queue_configs is not None:
+            pulumi.set(__self__, "queue_configs", queue_configs)
+        if user_configs is not None:
+            pulumi.set(__self__, "user_configs", user_configs)
+
+    @property
+    @pulumi.getter(name="quickConnectType")
+    def quick_connect_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        """
+        return pulumi.get(self, "quick_connect_type")
+
+    @quick_connect_type.setter
+    def quick_connect_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "quick_connect_type", value)
+
+    @property
+    @pulumi.getter(name="phoneConfigs")
+    def phone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]:
+        """
+        Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        """
+        return pulumi.get(self, "phone_configs")
+
+    @phone_configs.setter
+    def phone_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]):
+        pulumi.set(self, "phone_configs", value)
+
+    @property
+    @pulumi.getter(name="queueConfigs")
+    def queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]:
+        """
+        Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        """
+        return pulumi.get(self, "queue_configs")
+
+    @queue_configs.setter
+    def queue_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]):
+        pulumi.set(self, "queue_configs", value)
+
+    @property
+    @pulumi.getter(name="userConfigs")
+    def user_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]:
+        """
+        Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        """
+        return pulumi.get(self, "user_configs")
+
+    @user_configs.setter
+    def user_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]):
+        pulumi.set(self, "user_configs", value)
+
+
+@pulumi.input_type
+class QuickConnectQuickConnectConfigPhoneConfigArgs:
+    def __init__(__self__, *,
+                 phone_number: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] phone_number: Specifies the phone number in in E.164 format.
+        """
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[str]:
+        """
+        Specifies the phone number in in E.164 format.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phone_number", value)
+
+
+@pulumi.input_type
+class QuickConnectQuickConnectConfigQueueConfigArgs:
+    def __init__(__self__, *,
+                 contact_flow_id: pulumi.Input[str],
+                 queue_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] contact_flow_id: Specifies the identifier of the contact flow.
+        :param pulumi.Input[str] queue_id: Specifies the identifier for the queue.
+        """
+        pulumi.set(__self__, "contact_flow_id", contact_flow_id)
+        pulumi.set(__self__, "queue_id", queue_id)
+
+    @property
+    @pulumi.getter(name="contactFlowId")
+    def contact_flow_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier of the contact flow.
+        """
+        return pulumi.get(self, "contact_flow_id")
+
+    @contact_flow_id.setter
+    def contact_flow_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "contact_flow_id", value)
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier for the queue.
+        """
+        return pulumi.get(self, "queue_id")
+
+    @queue_id.setter
+    def queue_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "queue_id", value)
+
+
+@pulumi.input_type
+class QuickConnectQuickConnectConfigUserConfigArgs:
+    def __init__(__self__, *,
+                 contact_flow_id: pulumi.Input[str],
+                 user_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] contact_flow_id: Specifies the identifier of the contact flow.
+        :param pulumi.Input[str] user_id: Specifies the identifier for the user.
+        """
+        pulumi.set(__self__, "contact_flow_id", contact_flow_id)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="contactFlowId")
+    def contact_flow_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier of the contact flow.
+        """
+        return pulumi.get(self, "contact_flow_id")
+
+    @contact_flow_id.setter
+    def contact_flow_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "contact_flow_id", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier for the user.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
 
 
 @pulumi.input_type

@@ -90,11 +90,11 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
     /**
-     * The AZ for the subnet.
+     * AZ for the subnet.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The AZ ID of the subnet.
+     * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
     public readonly availabilityZoneId!: pulumi.Output<string>;
     /**
@@ -246,11 +246,11 @@ export interface SubnetState {
      */
     assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
     /**
-     * The AZ for the subnet.
+     * AZ for the subnet.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The AZ ID of the subnet.
+     * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
     availabilityZoneId?: pulumi.Input<string>;
     /**
@@ -333,11 +333,11 @@ export interface SubnetArgs {
      */
     assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
     /**
-     * The AZ for the subnet.
+     * AZ for the subnet.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The AZ ID of the subnet.
+     * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
     availabilityZoneId?: pulumi.Input<string>;
     /**

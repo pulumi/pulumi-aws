@@ -8,6 +8,7 @@ import typing
 from .acl import *
 from .cluster import *
 from .parameter_group import *
+from .snapshot import *
 from .subnet_group import *
 from .user import *
 from ._inputs import *

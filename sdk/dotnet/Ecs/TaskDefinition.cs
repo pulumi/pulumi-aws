@@ -449,6 +449,9 @@ namespace Pulumi.Aws.Ecs
         [Output("runtimePlatform")]
         public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
 
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
+
         /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
@@ -621,6 +624,9 @@ namespace Pulumi.Aws.Ecs
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
 
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -771,6 +777,9 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformGetArgs>? RuntimePlatform { get; set; }
+
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -92,6 +92,7 @@ namespace Pulumi.Aws.Ec2
     ///                 HttpEndpoint = "enabled",
     ///                 HttpTokens = "required",
     ///                 HttpPutResponseHopLimit = 1,
+    ///                 InstanceMetadataTags = "enabled",
     ///             },
     ///             Monitoring = new Aws.Ec2.Inputs.LaunchTemplateMonitoringArgs
     ///             {

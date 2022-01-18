@@ -2350,11 +2350,13 @@ class InstanceMetadataOptionsArgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
-                 http_tokens: Optional[pulumi.Input[str]] = None):
+                 http_tokens: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[int] http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -2362,6 +2364,8 @@ class InstanceMetadataOptionsArgs:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
             pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -2398,6 +2402,18 @@ class InstanceMetadataOptionsArgs:
     @http_tokens.setter
     def http_tokens(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_tokens", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataTags")
+    def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+        """
+        return pulumi.get(self, "instance_metadata_tags")
+
+    @instance_metadata_tags.setter
+    def instance_metadata_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_metadata_tags", value)
 
 
 @pulumi.input_type
@@ -3519,12 +3535,14 @@ class LaunchTemplateMetadataOptionsArgs:
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
-                 http_tokens: Optional[pulumi.Input[str]] = None):
+                 http_tokens: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         :param pulumi.Input[str] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
         :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
         :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -3534,6 +3552,8 @@ class LaunchTemplateMetadataOptionsArgs:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
             pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -3582,6 +3602,18 @@ class LaunchTemplateMetadataOptionsArgs:
     @http_tokens.setter
     def http_tokens(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_tokens", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataTags")
+    def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+        """
+        return pulumi.get(self, "instance_metadata_tags")
+
+    @instance_metadata_tags.setter
+    def instance_metadata_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_metadata_tags", value)
 
 
 @pulumi.input_type
@@ -6195,11 +6227,13 @@ class SpotInstanceRequestMetadataOptionsArgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
-                 http_tokens: Optional[pulumi.Input[str]] = None):
+                 http_tokens: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[int] http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -6207,6 +6241,8 @@ class SpotInstanceRequestMetadataOptionsArgs:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
             pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -6243,6 +6279,18 @@ class SpotInstanceRequestMetadataOptionsArgs:
     @http_tokens.setter
     def http_tokens(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_tokens", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataTags")
+    def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+        """
+        return pulumi.get(self, "instance_metadata_tags")
+
+    @instance_metadata_tags.setter
+    def instance_metadata_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_metadata_tags", value)
 
 
 @pulumi.input_type
@@ -6968,6 +7016,11 @@ class VpnConnectionRouteArgs:
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer data center.
+        :param pulumi.Input[str] source: Indicates how the routes were provided.
+        :param pulumi.Input[str] state: The current state of the static route.
+        """
         if destination_cidr_block is not None:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if source is not None:
@@ -6978,6 +7031,9 @@ class VpnConnectionRouteArgs:
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block associated with the local subnet of the customer data center.
+        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -6987,6 +7043,9 @@ class VpnConnectionRouteArgs:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates how the routes were provided.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -6996,6 +7055,9 @@ class VpnConnectionRouteArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current state of the static route.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -7007,12 +7069,23 @@ class VpnConnectionRouteArgs:
 class VpnConnectionVgwTelemetryArgs:
     def __init__(__self__, *,
                  accepted_route_count: Optional[pulumi.Input[int]] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
                  last_status_change: Optional[pulumi.Input[str]] = None,
                  outside_ip_address: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  status_message: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] accepted_route_count: The number of accepted routes.
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+        :param pulumi.Input[str] last_status_change: The date and time of the last change in status.
+        :param pulumi.Input[str] outside_ip_address: The Internet-routable IP address of the virtual private gateway's outside interface.
+        :param pulumi.Input[str] status: The status of the VPN tunnel.
+        :param pulumi.Input[str] status_message: If an error occurs, a description of the error.
+        """
         if accepted_route_count is not None:
             pulumi.set(__self__, "accepted_route_count", accepted_route_count)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
         if last_status_change is not None:
             pulumi.set(__self__, "last_status_change", last_status_change)
         if outside_ip_address is not None:
@@ -7025,6 +7098,9 @@ class VpnConnectionVgwTelemetryArgs:
     @property
     @pulumi.getter(name="acceptedRouteCount")
     def accepted_route_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of accepted routes.
+        """
         return pulumi.get(self, "accepted_route_count")
 
     @accepted_route_count.setter
@@ -7032,8 +7108,23 @@ class VpnConnectionVgwTelemetryArgs:
         pulumi.set(self, "accepted_route_count", value)
 
     @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
     @pulumi.getter(name="lastStatusChange")
     def last_status_change(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time of the last change in status.
+        """
         return pulumi.get(self, "last_status_change")
 
     @last_status_change.setter
@@ -7043,6 +7134,9 @@ class VpnConnectionVgwTelemetryArgs:
     @property
     @pulumi.getter(name="outsideIpAddress")
     def outside_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Internet-routable IP address of the virtual private gateway's outside interface.
+        """
         return pulumi.get(self, "outside_ip_address")
 
     @outside_ip_address.setter
@@ -7052,6 +7146,9 @@ class VpnConnectionVgwTelemetryArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the VPN tunnel.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -7061,6 +7158,9 @@ class VpnConnectionVgwTelemetryArgs:
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        If an error occurs, a description of the error.
+        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter

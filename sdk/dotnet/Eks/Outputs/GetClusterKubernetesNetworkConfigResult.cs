@@ -13,14 +13,19 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterKubernetesNetworkConfigResult
     {
+        public readonly string IpFamily;
         /// <summary>
         /// The CIDR block to assign Kubernetes service IP addresses from.
         /// </summary>
         public readonly string ServiceIpv4Cidr;
 
         [OutputConstructor]
-        private GetClusterKubernetesNetworkConfigResult(string serviceIpv4Cidr)
+        private GetClusterKubernetesNetworkConfigResult(
+            string ipFamily,
+
+            string serviceIpv4Cidr)
         {
+            IpFamily = ipFamily;
             ServiceIpv4Cidr = serviceIpv4Cidr;
         }
     }

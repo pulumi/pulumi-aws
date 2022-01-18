@@ -69,14 +69,22 @@ type Snapshot struct {
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays pulumi.IntPtrOutput `pulumi:"temporaryRestoreDays"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -125,14 +133,22 @@ type snapshotState struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier *string `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays *int `pulumi:"temporaryRestoreDays"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -150,14 +166,22 @@ type SnapshotState struct {
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key.
 	KmsKeyId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	OutpostArn pulumi.StringPtrInput
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrInput
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays pulumi.IntPtrInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
@@ -171,8 +195,16 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	OutpostArn *string `pulumi:"outpostArn"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier *string `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays *int `pulumi:"temporaryRestoreDays"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId string `pulumi:"volumeId"`
 }
@@ -181,8 +213,16 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	OutpostArn pulumi.StringPtrInput
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrInput
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays pulumi.IntPtrInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringInput
 }

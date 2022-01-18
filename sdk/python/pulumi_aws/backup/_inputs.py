@@ -14,6 +14,11 @@ __all__ = [
     'PlanRuleCopyActionArgs',
     'PlanRuleCopyActionLifecycleArgs',
     'PlanRuleLifecycleArgs',
+    'SelectionConditionArgs',
+    'SelectionConditionStringEqualArgs',
+    'SelectionConditionStringLikeArgs',
+    'SelectionConditionStringNotEqualArgs',
+    'SelectionConditionStringNotLikeArgs',
     'SelectionSelectionTagArgs',
 ]
 
@@ -317,6 +322,207 @@ class PlanRuleLifecycleArgs:
     @delete_after.setter
     def delete_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "delete_after", value)
+
+
+@pulumi.input_type
+class SelectionConditionArgs:
+    def __init__(__self__, *,
+                 string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]] = None,
+                 string_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]] = None,
+                 string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]] = None,
+                 string_not_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]] = None):
+        if string_equals is not None:
+            pulumi.set(__self__, "string_equals", string_equals)
+        if string_likes is not None:
+            pulumi.set(__self__, "string_likes", string_likes)
+        if string_not_equals is not None:
+            pulumi.set(__self__, "string_not_equals", string_not_equals)
+        if string_not_likes is not None:
+            pulumi.set(__self__, "string_not_likes", string_not_likes)
+
+    @property
+    @pulumi.getter(name="stringEquals")
+    def string_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]]:
+        return pulumi.get(self, "string_equals")
+
+    @string_equals.setter
+    def string_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]]):
+        pulumi.set(self, "string_equals", value)
+
+    @property
+    @pulumi.getter(name="stringLikes")
+    def string_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]]:
+        return pulumi.get(self, "string_likes")
+
+    @string_likes.setter
+    def string_likes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]]):
+        pulumi.set(self, "string_likes", value)
+
+    @property
+    @pulumi.getter(name="stringNotEquals")
+    def string_not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]]:
+        return pulumi.get(self, "string_not_equals")
+
+    @string_not_equals.setter
+    def string_not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]]):
+        pulumi.set(self, "string_not_equals", value)
+
+    @property
+    @pulumi.getter(name="stringNotLikes")
+    def string_not_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]]:
+        return pulumi.get(self, "string_not_likes")
+
+    @string_not_likes.setter
+    def string_not_likes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]]):
+        pulumi.set(self, "string_not_likes", value)
+
+
+@pulumi.input_type
+class SelectionConditionStringEqualArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SelectionConditionStringLikeArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SelectionConditionStringNotEqualArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SelectionConditionStringNotLikeArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key in a key-value pair.
+        :param pulumi.Input[str] value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

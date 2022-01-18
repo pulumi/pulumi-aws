@@ -15,6 +15,11 @@ __all__ = [
     'PlanRuleCopyAction',
     'PlanRuleCopyActionLifecycle',
     'PlanRuleLifecycle',
+    'SelectionCondition',
+    'SelectionConditionStringEqual',
+    'SelectionConditionStringLike',
+    'SelectionConditionStringNotEqual',
+    'SelectionConditionStringNotLike',
     'SelectionSelectionTag',
 ]
 
@@ -353,6 +358,182 @@ class PlanRuleLifecycle(dict):
         Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
+
+
+@pulumi.output_type
+class SelectionCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringEquals":
+            suggest = "string_equals"
+        elif key == "stringLikes":
+            suggest = "string_likes"
+        elif key == "stringNotEquals":
+            suggest = "string_not_equals"
+        elif key == "stringNotLikes":
+            suggest = "string_not_likes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SelectionCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SelectionCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SelectionCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_equals: Optional[Sequence['outputs.SelectionConditionStringEqual']] = None,
+                 string_likes: Optional[Sequence['outputs.SelectionConditionStringLike']] = None,
+                 string_not_equals: Optional[Sequence['outputs.SelectionConditionStringNotEqual']] = None,
+                 string_not_likes: Optional[Sequence['outputs.SelectionConditionStringNotLike']] = None):
+        if string_equals is not None:
+            pulumi.set(__self__, "string_equals", string_equals)
+        if string_likes is not None:
+            pulumi.set(__self__, "string_likes", string_likes)
+        if string_not_equals is not None:
+            pulumi.set(__self__, "string_not_equals", string_not_equals)
+        if string_not_likes is not None:
+            pulumi.set(__self__, "string_not_likes", string_not_likes)
+
+    @property
+    @pulumi.getter(name="stringEquals")
+    def string_equals(self) -> Optional[Sequence['outputs.SelectionConditionStringEqual']]:
+        return pulumi.get(self, "string_equals")
+
+    @property
+    @pulumi.getter(name="stringLikes")
+    def string_likes(self) -> Optional[Sequence['outputs.SelectionConditionStringLike']]:
+        return pulumi.get(self, "string_likes")
+
+    @property
+    @pulumi.getter(name="stringNotEquals")
+    def string_not_equals(self) -> Optional[Sequence['outputs.SelectionConditionStringNotEqual']]:
+        return pulumi.get(self, "string_not_equals")
+
+    @property
+    @pulumi.getter(name="stringNotLikes")
+    def string_not_likes(self) -> Optional[Sequence['outputs.SelectionConditionStringNotLike']]:
+        return pulumi.get(self, "string_not_likes")
+
+
+@pulumi.output_type
+class SelectionConditionStringEqual(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SelectionConditionStringLike(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SelectionConditionStringNotEqual(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SelectionConditionStringNotLike(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

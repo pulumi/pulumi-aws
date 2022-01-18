@@ -22,7 +22,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, arn=None, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, state=None, tags=None, volume_id=None, volume_size=None):
+    def __init__(__self__, arn=None, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, outpost_arn=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, state=None, storage_tier=None, tags=None, volume_id=None, volume_size=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetSnapshotResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
+        if outpost_arn and not isinstance(outpost_arn, str):
+            raise TypeError("Expected argument 'outpost_arn' to be a str")
+        pulumi.set(__self__, "outpost_arn", outpost_arn)
         if owner_alias and not isinstance(owner_alias, str):
             raise TypeError("Expected argument 'owner_alias' to be a str")
         pulumi.set(__self__, "owner_alias", owner_alias)
@@ -68,6 +71,9 @@ class GetSnapshotResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if storage_tier and not isinstance(storage_tier, str):
+            raise TypeError("Expected argument 'storage_tier' to be a str")
+        pulumi.set(__self__, "storage_tier", storage_tier)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -137,6 +143,14 @@ class GetSnapshotResult:
         return pulumi.get(self, "most_recent")
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> str:
+        """
+        The ARN of the Outpost on which the snapshot is stored.
+        """
+        return pulumi.get(self, "outpost_arn")
+
+    @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> str:
         """
@@ -184,6 +198,14 @@ class GetSnapshotResult:
         return pulumi.get(self, "state")
 
     @property
+    @pulumi.getter(name="storageTier")
+    def storage_tier(self) -> str:
+        """
+        The storage tier in which the snapshot is stored.
+        """
+        return pulumi.get(self, "storage_tier")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -222,6 +244,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             id=self.id,
             kms_key_id=self.kms_key_id,
             most_recent=self.most_recent,
+            outpost_arn=self.outpost_arn,
             owner_alias=self.owner_alias,
             owner_id=self.owner_id,
             owners=self.owners,
@@ -229,6 +252,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             snapshot_id=self.snapshot_id,
             snapshot_ids=self.snapshot_ids,
             state=self.state,
+            storage_tier=self.storage_tier,
             tags=self.tags,
             volume_id=self.volume_id,
             volume_size=self.volume_size)
@@ -296,6 +320,7 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
         id=__ret__.id,
         kms_key_id=__ret__.kms_key_id,
         most_recent=__ret__.most_recent,
+        outpost_arn=__ret__.outpost_arn,
         owner_alias=__ret__.owner_alias,
         owner_id=__ret__.owner_id,
         owners=__ret__.owners,
@@ -303,6 +328,7 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
         snapshot_id=__ret__.snapshot_id,
         snapshot_ids=__ret__.snapshot_ids,
         state=__ret__.state,
+        storage_tier=__ret__.storage_tier,
         tags=__ret__.tags,
         volume_id=__ret__.volume_id,
         volume_size=__ret__.volume_size)

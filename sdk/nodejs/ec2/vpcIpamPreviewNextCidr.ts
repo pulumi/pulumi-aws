@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  * const exampleVpcIpamPreviewNextCidr = new aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     netmaskLength: 28,
+ *     disallowedCidrs: ["172.2.0.0/32"],
  * }, {
  *     dependsOn: [exampleVpcIpamPoolCidr],
  * });
@@ -69,6 +70,10 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
      */
     public /*out*/ readonly cidr!: pulumi.Output<string>;
     /**
+     * Exclude a particular CIDR range from being returned by the pool.
+     */
+    public readonly disallowedCidrs!: pulumi.Output<string[] | undefined>;
+    /**
      * The ID of the pool to which you want to assign a CIDR.
      */
     public readonly ipamPoolId!: pulumi.Output<string>;
@@ -91,6 +96,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcIpamPreviewNextCidrState | undefined;
             inputs["cidr"] = state ? state.cidr : undefined;
+            inputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
             inputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
             inputs["netmaskLength"] = state ? state.netmaskLength : undefined;
         } else {
@@ -98,6 +104,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
+            inputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
             inputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             inputs["netmaskLength"] = args ? args.netmaskLength : undefined;
             inputs["cidr"] = undefined /*out*/;
@@ -118,6 +125,10 @@ export interface VpcIpamPreviewNextCidrState {
      */
     cidr?: pulumi.Input<string>;
     /**
+     * Exclude a particular CIDR range from being returned by the pool.
+     */
+    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The ID of the pool to which you want to assign a CIDR.
      */
     ipamPoolId?: pulumi.Input<string>;
@@ -131,6 +142,10 @@ export interface VpcIpamPreviewNextCidrState {
  * The set of arguments for constructing a VpcIpamPreviewNextCidr resource.
  */
 export interface VpcIpamPreviewNextCidrArgs {
+    /**
+     * Exclude a particular CIDR range from being returned by the pool.
+     */
+    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
      */

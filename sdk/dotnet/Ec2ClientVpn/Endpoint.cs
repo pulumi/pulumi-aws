@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         /// </summary>
         [Output("dnsServers")]
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputList<string>? _dnsServers;
 
         /// <summary>
-        /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         /// </summary>
         public InputList<string> DnsServers
         {
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputList<string>? _dnsServers;
 
         /// <summary>
-        /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         /// </summary>
         public InputList<string> DnsServers
         {

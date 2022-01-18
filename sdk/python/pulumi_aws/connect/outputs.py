@@ -14,6 +14,10 @@ __all__ = [
     'HoursOfOperationConfig',
     'HoursOfOperationConfigEndTime',
     'HoursOfOperationConfigStartTime',
+    'QuickConnectQuickConnectConfig',
+    'QuickConnectQuickConnectConfigPhoneConfig',
+    'QuickConnectQuickConnectConfigQueueConfig',
+    'QuickConnectQuickConnectConfigUserConfig',
     'GetBotAssociationLexBotResult',
     'GetHoursOfOperationConfigResult',
     'GetHoursOfOperationConfigEndTimeResult',
@@ -182,6 +186,214 @@ class HoursOfOperationConfigStartTime(dict):
         Specifies the minute of opening.
         """
         return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class QuickConnectQuickConnectConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "quickConnectType":
+            suggest = "quick_connect_type"
+        elif key == "phoneConfigs":
+            suggest = "phone_configs"
+        elif key == "queueConfigs":
+            suggest = "queue_configs"
+        elif key == "userConfigs":
+            suggest = "user_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickConnectQuickConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickConnectQuickConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickConnectQuickConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 quick_connect_type: str,
+                 phone_configs: Optional[Sequence['outputs.QuickConnectQuickConnectConfigPhoneConfig']] = None,
+                 queue_configs: Optional[Sequence['outputs.QuickConnectQuickConnectConfigQueueConfig']] = None,
+                 user_configs: Optional[Sequence['outputs.QuickConnectQuickConnectConfigUserConfig']] = None):
+        """
+        :param str quick_connect_type: Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        :param Sequence['QuickConnectQuickConnectConfigPhoneConfigArgs'] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        :param Sequence['QuickConnectQuickConnectConfigQueueConfigArgs'] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        :param Sequence['QuickConnectQuickConnectConfigUserConfigArgs'] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        """
+        pulumi.set(__self__, "quick_connect_type", quick_connect_type)
+        if phone_configs is not None:
+            pulumi.set(__self__, "phone_configs", phone_configs)
+        if queue_configs is not None:
+            pulumi.set(__self__, "queue_configs", queue_configs)
+        if user_configs is not None:
+            pulumi.set(__self__, "user_configs", user_configs)
+
+    @property
+    @pulumi.getter(name="quickConnectType")
+    def quick_connect_type(self) -> str:
+        """
+        Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        """
+        return pulumi.get(self, "quick_connect_type")
+
+    @property
+    @pulumi.getter(name="phoneConfigs")
+    def phone_configs(self) -> Optional[Sequence['outputs.QuickConnectQuickConnectConfigPhoneConfig']]:
+        """
+        Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        """
+        return pulumi.get(self, "phone_configs")
+
+    @property
+    @pulumi.getter(name="queueConfigs")
+    def queue_configs(self) -> Optional[Sequence['outputs.QuickConnectQuickConnectConfigQueueConfig']]:
+        """
+        Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        """
+        return pulumi.get(self, "queue_configs")
+
+    @property
+    @pulumi.getter(name="userConfigs")
+    def user_configs(self) -> Optional[Sequence['outputs.QuickConnectQuickConnectConfigUserConfig']]:
+        """
+        Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        """
+        return pulumi.get(self, "user_configs")
+
+
+@pulumi.output_type
+class QuickConnectQuickConnectConfigPhoneConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickConnectQuickConnectConfigPhoneConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickConnectQuickConnectConfigPhoneConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickConnectQuickConnectConfigPhoneConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 phone_number: str):
+        """
+        :param str phone_number: Specifies the phone number in in E.164 format.
+        """
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> str:
+        """
+        Specifies the phone number in in E.164 format.
+        """
+        return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class QuickConnectQuickConnectConfigQueueConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactFlowId":
+            suggest = "contact_flow_id"
+        elif key == "queueId":
+            suggest = "queue_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickConnectQuickConnectConfigQueueConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickConnectQuickConnectConfigQueueConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickConnectQuickConnectConfigQueueConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_flow_id: str,
+                 queue_id: str):
+        """
+        :param str contact_flow_id: Specifies the identifier of the contact flow.
+        :param str queue_id: Specifies the identifier for the queue.
+        """
+        pulumi.set(__self__, "contact_flow_id", contact_flow_id)
+        pulumi.set(__self__, "queue_id", queue_id)
+
+    @property
+    @pulumi.getter(name="contactFlowId")
+    def contact_flow_id(self) -> str:
+        """
+        Specifies the identifier of the contact flow.
+        """
+        return pulumi.get(self, "contact_flow_id")
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> str:
+        """
+        Specifies the identifier for the queue.
+        """
+        return pulumi.get(self, "queue_id")
+
+
+@pulumi.output_type
+class QuickConnectQuickConnectConfigUserConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactFlowId":
+            suggest = "contact_flow_id"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickConnectQuickConnectConfigUserConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickConnectQuickConnectConfigUserConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickConnectQuickConnectConfigUserConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_flow_id: str,
+                 user_id: str):
+        """
+        :param str contact_flow_id: Specifies the identifier of the contact flow.
+        :param str user_id: Specifies the identifier for the user.
+        """
+        pulumi.set(__self__, "contact_flow_id", contact_flow_id)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="contactFlowId")
+    def contact_flow_id(self) -> str:
+        """
+        Specifies the identifier of the contact flow.
+        """
+        return pulumi.get(self, "contact_flow_id")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        Specifies the identifier for the user.
+        """
+        return pulumi.get(self, "user_id")
 
 
 @pulumi.output_type

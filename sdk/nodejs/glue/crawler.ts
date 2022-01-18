@@ -173,6 +173,7 @@ export class Crawler extends pulumi.CustomResource {
      * The name of the Glue database to be synchronized.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    public readonly deltaTargets!: pulumi.Output<outputs.glue.CrawlerDeltaTarget[] | undefined>;
     /**
      * Description of the crawler.
      */
@@ -252,6 +253,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["classifiers"] = state ? state.classifiers : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
+            inputs["deltaTargets"] = state ? state.deltaTargets : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
@@ -279,6 +281,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["classifiers"] = args ? args.classifiers : undefined;
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["deltaTargets"] = args ? args.deltaTargets : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
@@ -324,6 +327,7 @@ export interface CrawlerState {
      * The name of the Glue database to be synchronized.
      */
     databaseName?: pulumi.Input<string>;
+    deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.
      */
@@ -403,6 +407,7 @@ export interface CrawlerArgs {
      * The name of the Glue database to be synchronized.
      */
     databaseName: pulumi.Input<string>;
+    deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.
      */

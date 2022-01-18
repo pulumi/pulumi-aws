@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['FunctionArgs', 'Function']
 
@@ -19,7 +21,9 @@ class FunctionArgs:
                  response_mapping_template: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] api_id: The ID of the associated AppSync API.
@@ -28,7 +32,9 @@ class FunctionArgs:
         :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
         :param pulumi.Input[str] description: The Function description.
         :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
+        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "data_source", data_source)
@@ -38,8 +44,12 @@ class FunctionArgs:
             pulumi.set(__self__, "description", description)
         if function_version is not None:
             pulumi.set(__self__, "function_version", function_version)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sync_config is not None:
+            pulumi.set(__self__, "sync_config", sync_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -114,6 +124,18 @@ class FunctionArgs:
         pulumi.set(self, "function_version", value)
 
     @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
+        return pulumi.get(self, "max_batch_size")
+
+    @max_batch_size.setter
+    def max_batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_batch_size", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -125,6 +147,18 @@ class FunctionArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="syncConfig")
+    def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
+        return pulumi.get(self, "sync_config")
+
+    @sync_config.setter
+    def sync_config(self, value: Optional[pulumi.Input['FunctionSyncConfigArgs']]):
+        pulumi.set(self, "sync_config", value)
+
 
 @pulumi.input_type
 class _FunctionState:
@@ -135,9 +169,11 @@ class _FunctionState:
                  description: Optional[pulumi.Input[str]] = None,
                  function_id: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[str]] = None):
+                 response_mapping_template: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
         :param pulumi.Input[str] api_id: The ID of the associated AppSync API.
@@ -146,9 +182,11 @@ class _FunctionState:
         :param pulumi.Input[str] description: The Function description.
         :param pulumi.Input[str] function_id: A unique ID representing the Function object.
         :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -162,12 +200,16 @@ class _FunctionState:
             pulumi.set(__self__, "function_id", function_id)
         if function_version is not None:
             pulumi.set(__self__, "function_version", function_version)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if request_mapping_template is not None:
             pulumi.set(__self__, "request_mapping_template", request_mapping_template)
         if response_mapping_template is not None:
             pulumi.set(__self__, "response_mapping_template", response_mapping_template)
+        if sync_config is not None:
+            pulumi.set(__self__, "sync_config", sync_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -242,6 +284,18 @@ class _FunctionState:
         pulumi.set(self, "function_version", value)
 
     @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
+        return pulumi.get(self, "max_batch_size")
+
+    @max_batch_size.setter
+    def max_batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_batch_size", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -277,6 +331,18 @@ class _FunctionState:
     def response_mapping_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "response_mapping_template", value)
 
+    @property
+    @pulumi.getter(name="syncConfig")
+    def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
+        return pulumi.get(self, "sync_config")
+
+    @sync_config.setter
+    def sync_config(self, value: Optional[pulumi.Input['FunctionSyncConfigArgs']]):
+        pulumi.set(self, "sync_config", value)
+
 
 class Function(pulumi.CustomResource):
     @overload
@@ -287,9 +353,11 @@ class Function(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']]] = None,
                  __props__=None):
         """
         Provides an AppSync Function.
@@ -362,9 +430,11 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] data_source: The Function DataSource name.
         :param pulumi.Input[str] description: The Function description.
         :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         ...
     @overload
@@ -456,9 +526,11 @@ class Function(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -479,6 +551,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["data_source"] = data_source
             __props__.__dict__["description"] = description
             __props__.__dict__["function_version"] = function_version
+            __props__.__dict__["max_batch_size"] = max_batch_size
             __props__.__dict__["name"] = name
             if request_mapping_template is None and not opts.urn:
                 raise TypeError("Missing required property 'request_mapping_template'")
@@ -486,6 +559,7 @@ class Function(pulumi.CustomResource):
             if response_mapping_template is None and not opts.urn:
                 raise TypeError("Missing required property 'response_mapping_template'")
             __props__.__dict__["response_mapping_template"] = response_mapping_template
+            __props__.__dict__["sync_config"] = sync_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["function_id"] = None
         super(Function, __self__).__init__(
@@ -504,9 +578,11 @@ class Function(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             function_id: Optional[pulumi.Input[str]] = None,
             function_version: Optional[pulumi.Input[str]] = None,
+            max_batch_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             request_mapping_template: Optional[pulumi.Input[str]] = None,
-            response_mapping_template: Optional[pulumi.Input[str]] = None) -> 'Function':
+            response_mapping_template: Optional[pulumi.Input[str]] = None,
+            sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']]] = None) -> 'Function':
         """
         Get an existing Function resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -520,9 +596,11 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Function description.
         :param pulumi.Input[str] function_id: A unique ID representing the Function object.
         :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,9 +612,11 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["function_id"] = function_id
         __props__.__dict__["function_version"] = function_version
+        __props__.__dict__["max_batch_size"] = max_batch_size
         __props__.__dict__["name"] = name
         __props__.__dict__["request_mapping_template"] = request_mapping_template
         __props__.__dict__["response_mapping_template"] = response_mapping_template
+        __props__.__dict__["sync_config"] = sync_config
         return Function(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -588,6 +668,14 @@ class Function(pulumi.CustomResource):
         return pulumi.get(self, "function_version")
 
     @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
+        return pulumi.get(self, "max_batch_size")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -610,4 +698,12 @@ class Function(pulumi.CustomResource):
         The Function response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
+
+    @property
+    @pulumi.getter(name="syncConfig")
+    def sync_config(self) -> pulumi.Output[Optional['outputs.FunctionSyncConfig']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
+        return pulumi.get(self, "sync_config")
 

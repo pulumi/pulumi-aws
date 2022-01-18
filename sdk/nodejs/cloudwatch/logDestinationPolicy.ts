@@ -78,6 +78,10 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
      * A name for the subscription filter
      */
     public readonly destinationName!: pulumi.Output<string>;
+    /**
+     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     */
+    public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LogDestinationPolicy resource with the given unique name, arguments, and options.
@@ -94,6 +98,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             const state = argsOrState as LogDestinationPolicyState | undefined;
             inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             inputs["destinationName"] = state ? state.destinationName : undefined;
+            inputs["forceUpdate"] = state ? state.forceUpdate : undefined;
         } else {
             const args = argsOrState as LogDestinationPolicyArgs | undefined;
             if ((!args || args.accessPolicy === undefined) && !opts.urn) {
@@ -104,6 +109,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             }
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             inputs["destinationName"] = args ? args.destinationName : undefined;
+            inputs["forceUpdate"] = args ? args.forceUpdate : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -124,6 +130,10 @@ export interface LogDestinationPolicyState {
      * A name for the subscription filter
      */
     destinationName?: pulumi.Input<string>;
+    /**
+     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     */
+    forceUpdate?: pulumi.Input<boolean>;
 }
 
 /**
@@ -138,4 +148,8 @@ export interface LogDestinationPolicyArgs {
      * A name for the subscription filter
      */
     destinationName: pulumi.Input<string>;
+    /**
+     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     */
+    forceUpdate?: pulumi.Input<boolean>;
 }

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpnConnectionRoute
     {
+        /// <summary>
+        /// The CIDR block associated with the local subnet of the customer data center.
+        /// </summary>
         public readonly string? DestinationCidrBlock;
+        /// <summary>
+        /// Indicates how the routes were provided.
+        /// </summary>
         public readonly string? Source;
+        /// <summary>
+        /// The current state of the static route.
+        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

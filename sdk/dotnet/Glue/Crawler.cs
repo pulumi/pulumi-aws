@@ -244,6 +244,9 @@ namespace Pulumi.Aws.Glue
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
+        [Output("deltaTargets")]
+        public Output<ImmutableArray<Outputs.CrawlerDeltaTarget>> DeltaTargets { get; private set; } = null!;
+
         /// <summary>
         /// Description of the crawler.
         /// </summary>
@@ -412,6 +415,14 @@ namespace Pulumi.Aws.Glue
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        [Input("deltaTargets")]
+        private InputList<Inputs.CrawlerDeltaTargetArgs>? _deltaTargets;
+        public InputList<Inputs.CrawlerDeltaTargetArgs> DeltaTargets
+        {
+            get => _deltaTargets ?? (_deltaTargets = new InputList<Inputs.CrawlerDeltaTargetArgs>());
+            set => _deltaTargets = value;
+        }
+
         /// <summary>
         /// Description of the crawler.
         /// </summary>
@@ -570,6 +581,14 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        [Input("deltaTargets")]
+        private InputList<Inputs.CrawlerDeltaTargetGetArgs>? _deltaTargets;
+        public InputList<Inputs.CrawlerDeltaTargetGetArgs> DeltaTargets
+        {
+            get => _deltaTargets ?? (_deltaTargets = new InputList<Inputs.CrawlerDeltaTargetGetArgs>());
+            set => _deltaTargets = value;
+        }
 
         /// <summary>
         /// Description of the crawler.

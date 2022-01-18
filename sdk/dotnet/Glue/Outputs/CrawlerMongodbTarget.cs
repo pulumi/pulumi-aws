@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerMongodbTarget
     {
         /// <summary>
-        /// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        /// The name of the connection to use to connect to the Delta table target.
         /// </summary>
         public readonly string ConnectionName;
         /// <summary>

@@ -48,6 +48,10 @@ export interface GetDistributionArgs {
  */
 export interface GetDistributionResult {
     /**
+     * A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+     */
+    readonly aliases: string[];
+    /**
      * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
     readonly arn: string;

@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./botAssociation";
 export * from "./contactFlow";
+export * from "./contactFlowModule";
 export * from "./getBotAssociation";
 export * from "./getContactFlow";
 export * from "./getHoursOfOperation";
@@ -15,13 +16,16 @@ export * from "./getLambdaFunctionAssociation";
 export * from "./hoursOfOperation";
 export * from "./instance";
 export * from "./lambdaFunctionAssociation";
+export * from "./quickConnect";
 
 // Import resources to register:
 import { BotAssociation } from "./botAssociation";
 import { ContactFlow } from "./contactFlow";
+import { ContactFlowModule } from "./contactFlowModule";
 import { HoursOfOperation } from "./hoursOfOperation";
 import { Instance } from "./instance";
 import { LambdaFunctionAssociation } from "./lambdaFunctionAssociation";
+import { QuickConnect } from "./quickConnect";
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,12 +35,16 @@ const _module = {
                 return new BotAssociation(name, <any>undefined, { urn })
             case "aws:connect/contactFlow:ContactFlow":
                 return new ContactFlow(name, <any>undefined, { urn })
+            case "aws:connect/contactFlowModule:ContactFlowModule":
+                return new ContactFlowModule(name, <any>undefined, { urn })
             case "aws:connect/hoursOfOperation:HoursOfOperation":
                 return new HoursOfOperation(name, <any>undefined, { urn })
             case "aws:connect/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
                 return new LambdaFunctionAssociation(name, <any>undefined, { urn })
+            case "aws:connect/quickConnect:QuickConnect":
+                return new QuickConnect(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -44,6 +52,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "connect/botAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/contactFlow", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/contactFlowModule", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/hoursOfOperation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/lambdaFunctionAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/quickConnect", _module)

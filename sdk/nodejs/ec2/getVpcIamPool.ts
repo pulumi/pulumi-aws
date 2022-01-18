@@ -93,7 +93,7 @@ export interface GetVpcIamPoolResult {
     /**
      * Tags that are required to create resources in using this pool.
      */
-    readonly allocationResourceTags?: {[key: string]: string};
+    readonly allocationResourceTags: {[key: string]: string};
     /**
      * Amazon Resource Name (ARN) of the pool
      */

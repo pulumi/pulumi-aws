@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./acl";
 export * from "./cluster";
 export * from "./parameterGroup";
+export * from "./snapshot";
 export * from "./subnetGroup";
 export * from "./user";
 
@@ -15,6 +16,7 @@ export * from "./user";
 import { Acl } from "./acl";
 import { Cluster } from "./cluster";
 import { ParameterGroup } from "./parameterGroup";
+import { Snapshot } from "./snapshot";
 import { SubnetGroup } from "./subnetGroup";
 import { User } from "./user";
 
@@ -28,6 +30,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:memorydb/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
+            case "aws:memorydb/snapshot:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "aws:memorydb/subnetGroup:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             case "aws:memorydb/user:User":
@@ -40,5 +44,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "memorydb/acl", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/parameterGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "memorydb/snapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/subnetGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/user", _module)

@@ -60,6 +60,9 @@ import (
 // 		_, err = ec2.NewVpcIpamPreviewNextCidr(ctx, "exampleVpcIpamPreviewNextCidr", &ec2.VpcIpamPreviewNextCidrArgs{
 // 			IpamPoolId:    exampleVpcIpamPool.ID(),
 // 			NetmaskLength: pulumi.Int(28),
+// 			DisallowedCidrs: pulumi.StringArray{
+// 				pulumi.String("172.2.0.0/32"),
+// 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleVpcIpamPoolCidr,
 // 		}))
@@ -75,6 +78,8 @@ type VpcIpamPreviewNextCidr struct {
 
 	// The previewed CIDR from the pool.
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
+	// Exclude a particular CIDR range from being returned by the pool.
+	DisallowedCidrs pulumi.StringArrayOutput `pulumi:"disallowedCidrs"`
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
@@ -115,6 +120,8 @@ func GetVpcIpamPreviewNextCidr(ctx *pulumi.Context,
 type vpcIpamPreviewNextCidrState struct {
 	// The previewed CIDR from the pool.
 	Cidr *string `pulumi:"cidr"`
+	// Exclude a particular CIDR range from being returned by the pool.
+	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
@@ -124,6 +131,8 @@ type vpcIpamPreviewNextCidrState struct {
 type VpcIpamPreviewNextCidrState struct {
 	// The previewed CIDR from the pool.
 	Cidr pulumi.StringPtrInput
+	// Exclude a particular CIDR range from being returned by the pool.
+	DisallowedCidrs pulumi.StringArrayInput
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
@@ -135,6 +144,8 @@ func (VpcIpamPreviewNextCidrState) ElementType() reflect.Type {
 }
 
 type vpcIpamPreviewNextCidrArgs struct {
+	// Exclude a particular CIDR range from being returned by the pool.
+	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
@@ -143,6 +154,8 @@ type vpcIpamPreviewNextCidrArgs struct {
 
 // The set of arguments for constructing a VpcIpamPreviewNextCidr resource.
 type VpcIpamPreviewNextCidrArgs struct {
+	// Exclude a particular CIDR range from being returned by the pool.
+	DisallowedCidrs pulumi.StringArrayInput
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.

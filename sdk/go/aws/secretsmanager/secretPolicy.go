@@ -34,7 +34,7 @@ import (
 // 		}
 // 		_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
 // 			SecretArn: exampleSecret.Arn,
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "	{\n", "	  \"Sid\": \"EnableAllPermissions\",\n", "	  \"Effect\": \"Allow\",\n", "	  \"Principal\": {\n", "		\"AWS\": \"*\"\n", "	  },\n", "	  \"Action\": \"secretsmanager:GetSecretValue\",\n", "	  \"Resource\": \"*\"\n", "	}\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "	{\n", "	  \"Sid\": \"EnableAnotherAWSAccountToReadTheSecret\",\n", "	  \"Effect\": \"Allow\",\n", "	  \"Principal\": {\n", "		\"AWS\": \"arn:aws:iam::123456789012:root\"\n", "	  },\n", "	  \"Action\": \"secretsmanager:GetSecretValue\",\n", "	  \"Resource\": \"*\"\n", "	}\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

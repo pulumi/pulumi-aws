@@ -6,7 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
+ * Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+ * Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
  *
  * > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
@@ -119,6 +120,9 @@ export class VpnConnection extends pulumi.CustomResource {
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
     public readonly remoteIpv6NetworkCidr!: pulumi.Output<string>;
+    /**
+     * The static routes associated with the VPN connection. Detailed below.
+     */
     public /*out*/ readonly routes!: pulumi.Output<outputs.ec2.VpnConnectionRoute[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -332,6 +336,9 @@ export class VpnConnection extends pulumi.CustomResource {
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Telemetry for the VPN tunnels. Detailed below.
+     */
     public /*out*/ readonly vgwTelemetries!: pulumi.Output<outputs.ec2.VpnConnectionVgwTelemetry[]>;
     /**
      * The ID of the Virtual Private Gateway.
@@ -531,6 +538,9 @@ export interface VpnConnectionState {
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
     remoteIpv6NetworkCidr?: pulumi.Input<string>;
+    /**
+     * The static routes associated with the VPN connection. Detailed below.
+     */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionRoute>[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -744,6 +754,9 @@ export interface VpnConnectionState {
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
     type?: pulumi.Input<string>;
+    /**
+     * Telemetry for the VPN tunnels. Detailed below.
+     */
     vgwTelemetries?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionVgwTelemetry>[]>;
     /**
      * The ID of the Virtual Private Gateway.

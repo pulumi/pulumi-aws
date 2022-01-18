@@ -156,12 +156,17 @@ export class Vpc extends pulumi.CustomResource {
     public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
+     * * ipv6CidrBlockNetworkBorderGroup - The Network Border Group Zone name
      */
     public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string>;
     /**
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    /**
+     * By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+     */
+    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string>;
     /**
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */
@@ -218,6 +223,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
             inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            inputs["ipv6CidrBlockNetworkBorderGroup"] = state ? state.ipv6CidrBlockNetworkBorderGroup : undefined;
             inputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
             inputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
@@ -236,6 +242,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             inputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            inputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
             inputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             inputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -318,12 +325,17 @@ export interface VpcState {
     ipv4NetmaskLength?: pulumi.Input<number>;
     /**
      * The association ID for the IPv6 CIDR block.
+     * * ipv6CidrBlockNetworkBorderGroup - The Network Border Group Zone name
      */
     ipv6AssociationId?: pulumi.Input<string>;
     /**
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+     */
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     /**
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */
@@ -399,6 +411,10 @@ export interface VpcArgs {
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+     */
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     /**
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */

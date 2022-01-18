@@ -5,10 +5,12 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_user_pool_client import *
 from .get_user_pool_clients import *
 from .get_user_pool_signing_certificate import *
 from .get_user_pools import *
 from .identity_pool import *
+from .identity_pool_provider_principal_tag import *
 from .identity_pool_role_attachment import *
 from .identity_provider import *
 from .resource_server import *

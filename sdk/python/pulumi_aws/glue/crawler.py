@@ -20,6 +20,7 @@ class CrawlerArgs:
                  catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
                  classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  configuration: Optional[pulumi.Input[str]] = None,
+                 delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
@@ -61,6 +62,8 @@ class CrawlerArgs:
             pulumi.set(__self__, "classifiers", classifiers)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if delta_targets is not None:
+            pulumi.set(__self__, "delta_targets", delta_targets)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if dynamodb_targets is not None:
@@ -144,6 +147,15 @@ class CrawlerArgs:
     @configuration.setter
     def configuration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter(name="deltaTargets")
+    def delta_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]:
+        return pulumi.get(self, "delta_targets")
+
+    @delta_targets.setter
+    def delta_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]):
+        pulumi.set(self, "delta_targets", value)
 
     @property
     @pulumi.getter
@@ -310,6 +322,7 @@ class _CrawlerState:
                  classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  configuration: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
@@ -357,6 +370,8 @@ class _CrawlerState:
             pulumi.set(__self__, "configuration", configuration)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if delta_targets is not None:
+            pulumi.set(__self__, "delta_targets", delta_targets)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if dynamodb_targets is not None:
@@ -444,6 +459,15 @@ class _CrawlerState:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="deltaTargets")
+    def delta_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]:
+        return pulumi.get(self, "delta_targets")
+
+    @delta_targets.setter
+    def delta_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]):
+        pulumi.set(self, "delta_targets", value)
 
     @property
     @pulumi.getter
@@ -635,6 +659,7 @@ class Crawler(pulumi.CustomResource):
                  classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  configuration: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
@@ -931,6 +956,7 @@ class Crawler(pulumi.CustomResource):
                  classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  configuration: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
@@ -963,6 +989,7 @@ class Crawler(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["delta_targets"] = delta_targets
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamodb_targets"] = dynamodb_targets
             __props__.__dict__["jdbc_targets"] = jdbc_targets
@@ -996,6 +1023,7 @@ class Crawler(pulumi.CustomResource):
             classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             configuration: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
+            delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
             jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
@@ -1047,6 +1075,7 @@ class Crawler(pulumi.CustomResource):
         __props__.__dict__["classifiers"] = classifiers
         __props__.__dict__["configuration"] = configuration
         __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["delta_targets"] = delta_targets
         __props__.__dict__["description"] = description
         __props__.__dict__["dynamodb_targets"] = dynamodb_targets
         __props__.__dict__["jdbc_targets"] = jdbc_targets
@@ -1100,6 +1129,11 @@ class Crawler(pulumi.CustomResource):
         The name of the Glue database to be synchronized.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="deltaTargets")
+    def delta_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerDeltaTarget']]]:
+        return pulumi.get(self, "delta_targets")
 
     @property
     @pulumi.getter

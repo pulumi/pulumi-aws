@@ -29,6 +29,7 @@ class TaskDefinitionArgs:
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None):
@@ -78,6 +79,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
         if runtime_platform is not None:
             pulumi.set(__self__, "runtime_platform", runtime_platform)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if task_role_arn is not None:
@@ -254,6 +257,15 @@ class TaskDefinitionArgs:
         pulumi.set(self, "runtime_platform", value)
 
     @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -309,6 +321,7 @@ class _TaskDefinitionState:
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  revision: Optional[pulumi.Input[int]] = None,
                  runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
@@ -368,6 +381,8 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "revision", revision)
         if runtime_platform is not None:
             pulumi.set(__self__, "runtime_platform", runtime_platform)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -570,6 +585,15 @@ class _TaskDefinitionState:
         pulumi.set(self, "runtime_platform", value)
 
     @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -637,6 +661,7 @@ class TaskDefinition(pulumi.CustomResource):
                  proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
@@ -1134,6 +1159,7 @@ class TaskDefinition(pulumi.CustomResource):
                  proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
@@ -1167,6 +1193,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["proxy_configuration"] = proxy_configuration
             __props__.__dict__["requires_compatibilities"] = requires_compatibilities
             __props__.__dict__["runtime_platform"] = runtime_platform
+            __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["volumes"] = volumes
@@ -1199,6 +1226,7 @@ class TaskDefinition(pulumi.CustomResource):
             requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             revision: Optional[pulumi.Input[int]] = None,
             runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
+            skip_destroy: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             task_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1251,6 +1279,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["requires_compatibilities"] = requires_compatibilities
         __props__.__dict__["revision"] = revision
         __props__.__dict__["runtime_platform"] = runtime_platform
+        __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["task_role_arn"] = task_role_arn
@@ -1384,6 +1413,11 @@ class TaskDefinition(pulumi.CustomResource):
         Configuration block for runtime_platform that containers in your task may use.
         """
         return pulumi.get(self, "runtime_platform")
+
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "skip_destroy")
 
     @property
     @pulumi.getter

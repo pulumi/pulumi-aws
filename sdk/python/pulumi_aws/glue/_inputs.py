@@ -26,6 +26,7 @@ __all__ = [
     'ClassifierXmlClassifierArgs',
     'ConnectionPhysicalConnectionRequirementsArgs',
     'CrawlerCatalogTargetArgs',
+    'CrawlerDeltaTargetArgs',
     'CrawlerDynamodbTargetArgs',
     'CrawlerJdbcTargetArgs',
     'CrawlerLineageConfigurationArgs',
@@ -1104,6 +1105,58 @@ class CrawlerCatalogTargetArgs:
 
 
 @pulumi.input_type
+class CrawlerDeltaTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: pulumi.Input[str],
+                 delta_tables: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 write_manifest: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] delta_tables: A list of the Amazon S3 paths to the Delta tables.
+        :param pulumi.Input[bool] write_manifest: Specifies whether to write the manifest files to the Delta table path.
+        """
+        pulumi.set(__self__, "connection_name", connection_name)
+        pulumi.set(__self__, "delta_tables", delta_tables)
+        pulumi.set(__self__, "write_manifest", write_manifest)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[str]:
+        """
+        The name of the connection to use to connect to the Delta table target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="deltaTables")
+    def delta_tables(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the Amazon S3 paths to the Delta tables.
+        """
+        return pulumi.get(self, "delta_tables")
+
+    @delta_tables.setter
+    def delta_tables(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "delta_tables", value)
+
+    @property
+    @pulumi.getter(name="writeManifest")
+    def write_manifest(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether to write the manifest files to the Delta table path.
+        """
+        return pulumi.get(self, "write_manifest")
+
+    @write_manifest.setter
+    def write_manifest(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "write_manifest", value)
+
+
+@pulumi.input_type
 class CrawlerDynamodbTargetArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
@@ -1164,7 +1217,7 @@ class CrawlerJdbcTargetArgs:
                  path: pulumi.Input[str],
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
         :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         """
@@ -1177,7 +1230,7 @@ class CrawlerJdbcTargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Input[str]:
         """
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        The name of the connection to use to connect to the Delta table target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1240,7 +1293,7 @@ class CrawlerMongodbTargetArgs:
                  path: pulumi.Input[str],
                  scan_all: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
         :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
         """
@@ -1253,7 +1306,7 @@ class CrawlerMongodbTargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Input[str]:
         """
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        The name of the connection to use to connect to the Delta table target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1320,7 +1373,7 @@ class CrawlerS3TargetArgs:
                  sample_size: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
         :param pulumi.Input[str] dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
         :param pulumi.Input[str] event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
@@ -1354,7 +1407,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        The name of the connection to use to connect to the Delta table target.
         """
         return pulumi.get(self, "connection_name")
 

@@ -112,6 +112,10 @@ export interface GetSnapshotResult {
     readonly kmsKeyId: string;
     readonly mostRecent?: boolean;
     /**
+     * The ARN of the Outpost on which the snapshot is stored.
+     */
+    readonly outpostArn: string;
+    /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
     readonly ownerAlias: string;
@@ -130,6 +134,10 @@ export interface GetSnapshotResult {
      * The snapshot state.
      */
     readonly state: string;
+    /**
+     * The storage tier in which the snapshot is stored.
+     */
+    readonly storageTier: string;
     /**
      * A map of tags for the resource.
      */

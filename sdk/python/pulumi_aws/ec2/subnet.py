@@ -35,8 +35,8 @@ class SubnetArgs:
         :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate
                that network interfaces created in the specified subnet should be
                assigned an IPv6 address. Default is `false`
-        :param pulumi.Input[str] availability_zone: The AZ for the subnet.
-        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
+        :param pulumi.Input[str] availability_zone: AZ for the subnet.
+        :param pulumi.Input[str] availability_zone_id: AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
@@ -115,7 +115,7 @@ class SubnetArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The AZ for the subnet.
+        AZ for the subnet.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -127,7 +127,7 @@ class SubnetArgs:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AZ ID of the subnet.
+        AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -312,8 +312,8 @@ class _SubnetState:
         :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate
                that network interfaces created in the specified subnet should be
                assigned an IPv6 address. Default is `false`
-        :param pulumi.Input[str] availability_zone: The AZ for the subnet.
-        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
+        :param pulumi.Input[str] availability_zone: AZ for the subnet.
+        :param pulumi.Input[str] availability_zone_id: AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
@@ -405,7 +405,7 @@ class _SubnetState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The AZ for the subnet.
+        AZ for the subnet.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -417,7 +417,7 @@ class _SubnetState:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AZ ID of the subnet.
+        AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -692,8 +692,8 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate
                that network interfaces created in the specified subnet should be
                assigned an IPv6 address. Default is `false`
-        :param pulumi.Input[str] availability_zone: The AZ for the subnet.
-        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
+        :param pulumi.Input[str] availability_zone: AZ for the subnet.
+        :param pulumi.Input[str] availability_zone_id: AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
@@ -867,8 +867,8 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate
                that network interfaces created in the specified subnet should be
                assigned an IPv6 address. Default is `false`
-        :param pulumi.Input[str] availability_zone: The AZ for the subnet.
-        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
+        :param pulumi.Input[str] availability_zone: AZ for the subnet.
+        :param pulumi.Input[str] availability_zone_id: AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
@@ -937,7 +937,7 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
         """
-        The AZ for the subnet.
+        AZ for the subnet.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -945,7 +945,7 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[str]:
         """
-        The AZ ID of the subnet.
+        AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         """
         return pulumi.get(self, "availability_zone_id")
 

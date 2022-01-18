@@ -21,9 +21,11 @@ class ResolverArgs:
                  caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
-                 response_template: Optional[pulumi.Input[str]] = None):
+                 response_template: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Resolver resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
@@ -32,9 +34,11 @@ class ResolverArgs:
         :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The CachingConfig.
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "field", field)
@@ -45,12 +49,16 @@ class ResolverArgs:
             pulumi.set(__self__, "data_source", data_source)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if pipeline_config is not None:
             pulumi.set(__self__, "pipeline_config", pipeline_config)
         if request_template is not None:
             pulumi.set(__self__, "request_template", request_template)
         if response_template is not None:
             pulumi.set(__self__, "response_template", response_template)
+        if sync_config is not None:
+            pulumi.set(__self__, "sync_config", sync_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -125,6 +133,18 @@ class ResolverArgs:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
+        return pulumi.get(self, "max_batch_size")
+
+    @max_batch_size.setter
+    def max_batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_batch_size", value)
+
+    @property
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
         """
@@ -160,6 +180,18 @@ class ResolverArgs:
     def response_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "response_template", value)
 
+    @property
+    @pulumi.getter(name="syncConfig")
+    def sync_config(self) -> Optional[pulumi.Input['ResolverSyncConfigArgs']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
+        return pulumi.get(self, "sync_config")
+
+    @sync_config.setter
+    def sync_config(self, value: Optional[pulumi.Input['ResolverSyncConfigArgs']]):
+        pulumi.set(self, "sync_config", value)
+
 
 @pulumi.input_type
 class _ResolverState:
@@ -170,9 +202,11 @@ class _ResolverState:
                  data_source: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
                  response_template: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Resolver resources.
@@ -182,9 +216,11 @@ class _ResolverState:
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         """
         if api_id is not None:
@@ -199,12 +235,16 @@ class _ResolverState:
             pulumi.set(__self__, "field", field)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if pipeline_config is not None:
             pulumi.set(__self__, "pipeline_config", pipeline_config)
         if request_template is not None:
             pulumi.set(__self__, "request_template", request_template)
         if response_template is not None:
             pulumi.set(__self__, "response_template", response_template)
+        if sync_config is not None:
+            pulumi.set(__self__, "sync_config", sync_config)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -281,6 +321,18 @@ class _ResolverState:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
+        return pulumi.get(self, "max_batch_size")
+
+    @max_batch_size.setter
+    def max_batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_batch_size", value)
+
+    @property
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
         """
@@ -317,6 +369,18 @@ class _ResolverState:
         pulumi.set(self, "response_template", value)
 
     @property
+    @pulumi.getter(name="syncConfig")
+    def sync_config(self) -> Optional[pulumi.Input['ResolverSyncConfigArgs']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
+        return pulumi.get(self, "sync_config")
+
+    @sync_config.setter
+    def sync_config(self, value: Optional[pulumi.Input['ResolverSyncConfigArgs']]):
+        pulumi.set(self, "sync_config", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -339,9 +403,11 @@ class Resolver(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
                  response_template: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -440,9 +506,11 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         """
         ...
@@ -560,9 +628,11 @@ class Resolver(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
                  response_template: Optional[pulumi.Input[str]] = None,
+                 sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -585,9 +655,11 @@ class Resolver(pulumi.CustomResource):
                 raise TypeError("Missing required property 'field'")
             __props__.__dict__["field"] = field
             __props__.__dict__["kind"] = kind
+            __props__.__dict__["max_batch_size"] = max_batch_size
             __props__.__dict__["pipeline_config"] = pipeline_config
             __props__.__dict__["request_template"] = request_template
             __props__.__dict__["response_template"] = response_template
+            __props__.__dict__["sync_config"] = sync_config
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -608,9 +680,11 @@ class Resolver(pulumi.CustomResource):
             data_source: Optional[pulumi.Input[str]] = None,
             field: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
+            max_batch_size: Optional[pulumi.Input[int]] = None,
             pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
             request_template: Optional[pulumi.Input[str]] = None,
             response_template: Optional[pulumi.Input[str]] = None,
+            sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Resolver':
         """
         Get an existing Resolver resource's state with the given name, id, and optional extra
@@ -625,9 +699,11 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -640,9 +716,11 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["data_source"] = data_source
         __props__.__dict__["field"] = field
         __props__.__dict__["kind"] = kind
+        __props__.__dict__["max_batch_size"] = max_batch_size
         __props__.__dict__["pipeline_config"] = pipeline_config
         __props__.__dict__["request_template"] = request_template
         __props__.__dict__["response_template"] = response_template
+        __props__.__dict__["sync_config"] = sync_config
         __props__.__dict__["type"] = type
         return Resolver(resource_name, opts=opts, __props__=__props__)
 
@@ -695,6 +773,14 @@ class Resolver(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
+        return pulumi.get(self, "max_batch_size")
+
+    @property
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> pulumi.Output[Optional['outputs.ResolverPipelineConfig']]:
         """
@@ -717,6 +803,14 @@ class Resolver(pulumi.CustomResource):
         The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "response_template")
+
+    @property
+    @pulumi.getter(name="syncConfig")
+    def sync_config(self) -> pulumi.Output[Optional['outputs.ResolverSyncConfig']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
+        return pulumi.get(self, "sync_config")
 
     @property
     @pulumi.getter

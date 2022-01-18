@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .bot_association import *
 from .contact_flow import *
+from .contact_flow_module import *
 from .get_bot_association import *
 from .get_contact_flow import *
 from .get_hours_of_operation import *
@@ -15,5 +16,6 @@ from .get_lambda_function_association import *
 from .hours_of_operation import *
 from .instance import *
 from .lambda_function_association import *
+from .quick_connect import *
 from ._inputs import *
 from . import outputs

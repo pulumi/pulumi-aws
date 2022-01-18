@@ -161,9 +161,12 @@ type Vpc struct {
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
 	// The association ID for the IPv6 CIDR block.
+	// * ipv6CidrBlockNetworkBorderGroup - The Network Border Group Zone name
 	Ipv6AssociationId pulumi.StringOutput `pulumi:"ipv6AssociationId"`
 	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
 	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+	// By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringOutput `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
 	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
@@ -240,9 +243,12 @@ type vpcState struct {
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The association ID for the IPv6 CIDR block.
+	// * ipv6CidrBlockNetworkBorderGroup - The Network Border Group Zone name
 	Ipv6AssociationId *string `pulumi:"ipv6AssociationId"`
 	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
 	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
@@ -291,9 +297,12 @@ type VpcState struct {
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The association ID for the IPv6 CIDR block.
+	// * ipv6CidrBlockNetworkBorderGroup - The Network Border Group Zone name
 	Ipv6AssociationId pulumi.StringPtrInput
 	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
 	Ipv6CidrBlock pulumi.StringPtrInput
+	// By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId pulumi.StringPtrInput
 	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
@@ -338,6 +347,8 @@ type vpcArgs struct {
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
 	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
@@ -371,6 +382,8 @@ type VpcArgs struct {
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
 	Ipv6CidrBlock pulumi.StringPtrInput
+	// By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6IpamPoolId pulumi.StringPtrInput
 	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.

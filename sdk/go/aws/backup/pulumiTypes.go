@@ -703,6 +703,542 @@ func (o PlanRuleLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type SelectionCondition struct {
+	StringEquals    []SelectionConditionStringEqual    `pulumi:"stringEquals"`
+	StringLikes     []SelectionConditionStringLike     `pulumi:"stringLikes"`
+	StringNotEquals []SelectionConditionStringNotEqual `pulumi:"stringNotEquals"`
+	StringNotLikes  []SelectionConditionStringNotLike  `pulumi:"stringNotLikes"`
+}
+
+// SelectionConditionInput is an input type that accepts SelectionConditionArgs and SelectionConditionOutput values.
+// You can construct a concrete instance of `SelectionConditionInput` via:
+//
+//          SelectionConditionArgs{...}
+type SelectionConditionInput interface {
+	pulumi.Input
+
+	ToSelectionConditionOutput() SelectionConditionOutput
+	ToSelectionConditionOutputWithContext(context.Context) SelectionConditionOutput
+}
+
+type SelectionConditionArgs struct {
+	StringEquals    SelectionConditionStringEqualArrayInput    `pulumi:"stringEquals"`
+	StringLikes     SelectionConditionStringLikeArrayInput     `pulumi:"stringLikes"`
+	StringNotEquals SelectionConditionStringNotEqualArrayInput `pulumi:"stringNotEquals"`
+	StringNotLikes  SelectionConditionStringNotLikeArrayInput  `pulumi:"stringNotLikes"`
+}
+
+func (SelectionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionCondition)(nil)).Elem()
+}
+
+func (i SelectionConditionArgs) ToSelectionConditionOutput() SelectionConditionOutput {
+	return i.ToSelectionConditionOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionArgs) ToSelectionConditionOutputWithContext(ctx context.Context) SelectionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionOutput)
+}
+
+// SelectionConditionArrayInput is an input type that accepts SelectionConditionArray and SelectionConditionArrayOutput values.
+// You can construct a concrete instance of `SelectionConditionArrayInput` via:
+//
+//          SelectionConditionArray{ SelectionConditionArgs{...} }
+type SelectionConditionArrayInput interface {
+	pulumi.Input
+
+	ToSelectionConditionArrayOutput() SelectionConditionArrayOutput
+	ToSelectionConditionArrayOutputWithContext(context.Context) SelectionConditionArrayOutput
+}
+
+type SelectionConditionArray []SelectionConditionInput
+
+func (SelectionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionCondition)(nil)).Elem()
+}
+
+func (i SelectionConditionArray) ToSelectionConditionArrayOutput() SelectionConditionArrayOutput {
+	return i.ToSelectionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionArray) ToSelectionConditionArrayOutputWithContext(ctx context.Context) SelectionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionArrayOutput)
+}
+
+type SelectionConditionOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionCondition)(nil)).Elem()
+}
+
+func (o SelectionConditionOutput) ToSelectionConditionOutput() SelectionConditionOutput {
+	return o
+}
+
+func (o SelectionConditionOutput) ToSelectionConditionOutputWithContext(ctx context.Context) SelectionConditionOutput {
+	return o
+}
+
+func (o SelectionConditionOutput) StringEquals() SelectionConditionStringEqualArrayOutput {
+	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringEqual { return v.StringEquals }).(SelectionConditionStringEqualArrayOutput)
+}
+
+func (o SelectionConditionOutput) StringLikes() SelectionConditionStringLikeArrayOutput {
+	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringLike { return v.StringLikes }).(SelectionConditionStringLikeArrayOutput)
+}
+
+func (o SelectionConditionOutput) StringNotEquals() SelectionConditionStringNotEqualArrayOutput {
+	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringNotEqual { return v.StringNotEquals }).(SelectionConditionStringNotEqualArrayOutput)
+}
+
+func (o SelectionConditionOutput) StringNotLikes() SelectionConditionStringNotLikeArrayOutput {
+	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringNotLike { return v.StringNotLikes }).(SelectionConditionStringNotLikeArrayOutput)
+}
+
+type SelectionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionCondition)(nil)).Elem()
+}
+
+func (o SelectionConditionArrayOutput) ToSelectionConditionArrayOutput() SelectionConditionArrayOutput {
+	return o
+}
+
+func (o SelectionConditionArrayOutput) ToSelectionConditionArrayOutputWithContext(ctx context.Context) SelectionConditionArrayOutput {
+	return o
+}
+
+func (o SelectionConditionArrayOutput) Index(i pulumi.IntInput) SelectionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelectionCondition {
+		return vs[0].([]SelectionCondition)[vs[1].(int)]
+	}).(SelectionConditionOutput)
+}
+
+type SelectionConditionStringEqual struct {
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
+	Value string `pulumi:"value"`
+}
+
+// SelectionConditionStringEqualInput is an input type that accepts SelectionConditionStringEqualArgs and SelectionConditionStringEqualOutput values.
+// You can construct a concrete instance of `SelectionConditionStringEqualInput` via:
+//
+//          SelectionConditionStringEqualArgs{...}
+type SelectionConditionStringEqualInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringEqualOutput() SelectionConditionStringEqualOutput
+	ToSelectionConditionStringEqualOutputWithContext(context.Context) SelectionConditionStringEqualOutput
+}
+
+type SelectionConditionStringEqualArgs struct {
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SelectionConditionStringEqualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringEqual)(nil)).Elem()
+}
+
+func (i SelectionConditionStringEqualArgs) ToSelectionConditionStringEqualOutput() SelectionConditionStringEqualOutput {
+	return i.ToSelectionConditionStringEqualOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringEqualArgs) ToSelectionConditionStringEqualOutputWithContext(ctx context.Context) SelectionConditionStringEqualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringEqualOutput)
+}
+
+// SelectionConditionStringEqualArrayInput is an input type that accepts SelectionConditionStringEqualArray and SelectionConditionStringEqualArrayOutput values.
+// You can construct a concrete instance of `SelectionConditionStringEqualArrayInput` via:
+//
+//          SelectionConditionStringEqualArray{ SelectionConditionStringEqualArgs{...} }
+type SelectionConditionStringEqualArrayInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringEqualArrayOutput() SelectionConditionStringEqualArrayOutput
+	ToSelectionConditionStringEqualArrayOutputWithContext(context.Context) SelectionConditionStringEqualArrayOutput
+}
+
+type SelectionConditionStringEqualArray []SelectionConditionStringEqualInput
+
+func (SelectionConditionStringEqualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringEqual)(nil)).Elem()
+}
+
+func (i SelectionConditionStringEqualArray) ToSelectionConditionStringEqualArrayOutput() SelectionConditionStringEqualArrayOutput {
+	return i.ToSelectionConditionStringEqualArrayOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringEqualArray) ToSelectionConditionStringEqualArrayOutputWithContext(ctx context.Context) SelectionConditionStringEqualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringEqualArrayOutput)
+}
+
+type SelectionConditionStringEqualOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringEqualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringEqual)(nil)).Elem()
+}
+
+func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutput() SelectionConditionStringEqualOutput {
+	return o
+}
+
+func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutputWithContext(ctx context.Context) SelectionConditionStringEqualOutput {
+	return o
+}
+
+// The key in a key-value pair.
+func (o SelectionConditionStringEqualOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value in a key-value pair.
+func (o SelectionConditionStringEqualOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SelectionConditionStringEqualArrayOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringEqualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringEqual)(nil)).Elem()
+}
+
+func (o SelectionConditionStringEqualArrayOutput) ToSelectionConditionStringEqualArrayOutput() SelectionConditionStringEqualArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringEqualArrayOutput) ToSelectionConditionStringEqualArrayOutputWithContext(ctx context.Context) SelectionConditionStringEqualArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringEqualArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringEqualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelectionConditionStringEqual {
+		return vs[0].([]SelectionConditionStringEqual)[vs[1].(int)]
+	}).(SelectionConditionStringEqualOutput)
+}
+
+type SelectionConditionStringLike struct {
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
+	Value string `pulumi:"value"`
+}
+
+// SelectionConditionStringLikeInput is an input type that accepts SelectionConditionStringLikeArgs and SelectionConditionStringLikeOutput values.
+// You can construct a concrete instance of `SelectionConditionStringLikeInput` via:
+//
+//          SelectionConditionStringLikeArgs{...}
+type SelectionConditionStringLikeInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringLikeOutput() SelectionConditionStringLikeOutput
+	ToSelectionConditionStringLikeOutputWithContext(context.Context) SelectionConditionStringLikeOutput
+}
+
+type SelectionConditionStringLikeArgs struct {
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SelectionConditionStringLikeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringLike)(nil)).Elem()
+}
+
+func (i SelectionConditionStringLikeArgs) ToSelectionConditionStringLikeOutput() SelectionConditionStringLikeOutput {
+	return i.ToSelectionConditionStringLikeOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringLikeArgs) ToSelectionConditionStringLikeOutputWithContext(ctx context.Context) SelectionConditionStringLikeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringLikeOutput)
+}
+
+// SelectionConditionStringLikeArrayInput is an input type that accepts SelectionConditionStringLikeArray and SelectionConditionStringLikeArrayOutput values.
+// You can construct a concrete instance of `SelectionConditionStringLikeArrayInput` via:
+//
+//          SelectionConditionStringLikeArray{ SelectionConditionStringLikeArgs{...} }
+type SelectionConditionStringLikeArrayInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringLikeArrayOutput() SelectionConditionStringLikeArrayOutput
+	ToSelectionConditionStringLikeArrayOutputWithContext(context.Context) SelectionConditionStringLikeArrayOutput
+}
+
+type SelectionConditionStringLikeArray []SelectionConditionStringLikeInput
+
+func (SelectionConditionStringLikeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringLike)(nil)).Elem()
+}
+
+func (i SelectionConditionStringLikeArray) ToSelectionConditionStringLikeArrayOutput() SelectionConditionStringLikeArrayOutput {
+	return i.ToSelectionConditionStringLikeArrayOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringLikeArray) ToSelectionConditionStringLikeArrayOutputWithContext(ctx context.Context) SelectionConditionStringLikeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringLikeArrayOutput)
+}
+
+type SelectionConditionStringLikeOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringLikeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringLike)(nil)).Elem()
+}
+
+func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutput() SelectionConditionStringLikeOutput {
+	return o
+}
+
+func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutputWithContext(ctx context.Context) SelectionConditionStringLikeOutput {
+	return o
+}
+
+// The key in a key-value pair.
+func (o SelectionConditionStringLikeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value in a key-value pair.
+func (o SelectionConditionStringLikeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SelectionConditionStringLikeArrayOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringLikeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringLike)(nil)).Elem()
+}
+
+func (o SelectionConditionStringLikeArrayOutput) ToSelectionConditionStringLikeArrayOutput() SelectionConditionStringLikeArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringLikeArrayOutput) ToSelectionConditionStringLikeArrayOutputWithContext(ctx context.Context) SelectionConditionStringLikeArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringLikeArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringLikeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelectionConditionStringLike {
+		return vs[0].([]SelectionConditionStringLike)[vs[1].(int)]
+	}).(SelectionConditionStringLikeOutput)
+}
+
+type SelectionConditionStringNotEqual struct {
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
+	Value string `pulumi:"value"`
+}
+
+// SelectionConditionStringNotEqualInput is an input type that accepts SelectionConditionStringNotEqualArgs and SelectionConditionStringNotEqualOutput values.
+// You can construct a concrete instance of `SelectionConditionStringNotEqualInput` via:
+//
+//          SelectionConditionStringNotEqualArgs{...}
+type SelectionConditionStringNotEqualInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringNotEqualOutput() SelectionConditionStringNotEqualOutput
+	ToSelectionConditionStringNotEqualOutputWithContext(context.Context) SelectionConditionStringNotEqualOutput
+}
+
+type SelectionConditionStringNotEqualArgs struct {
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SelectionConditionStringNotEqualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringNotEqual)(nil)).Elem()
+}
+
+func (i SelectionConditionStringNotEqualArgs) ToSelectionConditionStringNotEqualOutput() SelectionConditionStringNotEqualOutput {
+	return i.ToSelectionConditionStringNotEqualOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringNotEqualArgs) ToSelectionConditionStringNotEqualOutputWithContext(ctx context.Context) SelectionConditionStringNotEqualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotEqualOutput)
+}
+
+// SelectionConditionStringNotEqualArrayInput is an input type that accepts SelectionConditionStringNotEqualArray and SelectionConditionStringNotEqualArrayOutput values.
+// You can construct a concrete instance of `SelectionConditionStringNotEqualArrayInput` via:
+//
+//          SelectionConditionStringNotEqualArray{ SelectionConditionStringNotEqualArgs{...} }
+type SelectionConditionStringNotEqualArrayInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringNotEqualArrayOutput() SelectionConditionStringNotEqualArrayOutput
+	ToSelectionConditionStringNotEqualArrayOutputWithContext(context.Context) SelectionConditionStringNotEqualArrayOutput
+}
+
+type SelectionConditionStringNotEqualArray []SelectionConditionStringNotEqualInput
+
+func (SelectionConditionStringNotEqualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringNotEqual)(nil)).Elem()
+}
+
+func (i SelectionConditionStringNotEqualArray) ToSelectionConditionStringNotEqualArrayOutput() SelectionConditionStringNotEqualArrayOutput {
+	return i.ToSelectionConditionStringNotEqualArrayOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringNotEqualArray) ToSelectionConditionStringNotEqualArrayOutputWithContext(ctx context.Context) SelectionConditionStringNotEqualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotEqualArrayOutput)
+}
+
+type SelectionConditionStringNotEqualOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringNotEqualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringNotEqual)(nil)).Elem()
+}
+
+func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqualOutput() SelectionConditionStringNotEqualOutput {
+	return o
+}
+
+func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqualOutputWithContext(ctx context.Context) SelectionConditionStringNotEqualOutput {
+	return o
+}
+
+// The key in a key-value pair.
+func (o SelectionConditionStringNotEqualOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value in a key-value pair.
+func (o SelectionConditionStringNotEqualOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SelectionConditionStringNotEqualArrayOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringNotEqualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringNotEqual)(nil)).Elem()
+}
+
+func (o SelectionConditionStringNotEqualArrayOutput) ToSelectionConditionStringNotEqualArrayOutput() SelectionConditionStringNotEqualArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringNotEqualArrayOutput) ToSelectionConditionStringNotEqualArrayOutputWithContext(ctx context.Context) SelectionConditionStringNotEqualArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringNotEqualArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringNotEqualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelectionConditionStringNotEqual {
+		return vs[0].([]SelectionConditionStringNotEqual)[vs[1].(int)]
+	}).(SelectionConditionStringNotEqualOutput)
+}
+
+type SelectionConditionStringNotLike struct {
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
+	Value string `pulumi:"value"`
+}
+
+// SelectionConditionStringNotLikeInput is an input type that accepts SelectionConditionStringNotLikeArgs and SelectionConditionStringNotLikeOutput values.
+// You can construct a concrete instance of `SelectionConditionStringNotLikeInput` via:
+//
+//          SelectionConditionStringNotLikeArgs{...}
+type SelectionConditionStringNotLikeInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringNotLikeOutput() SelectionConditionStringNotLikeOutput
+	ToSelectionConditionStringNotLikeOutputWithContext(context.Context) SelectionConditionStringNotLikeOutput
+}
+
+type SelectionConditionStringNotLikeArgs struct {
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SelectionConditionStringNotLikeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringNotLike)(nil)).Elem()
+}
+
+func (i SelectionConditionStringNotLikeArgs) ToSelectionConditionStringNotLikeOutput() SelectionConditionStringNotLikeOutput {
+	return i.ToSelectionConditionStringNotLikeOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringNotLikeArgs) ToSelectionConditionStringNotLikeOutputWithContext(ctx context.Context) SelectionConditionStringNotLikeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotLikeOutput)
+}
+
+// SelectionConditionStringNotLikeArrayInput is an input type that accepts SelectionConditionStringNotLikeArray and SelectionConditionStringNotLikeArrayOutput values.
+// You can construct a concrete instance of `SelectionConditionStringNotLikeArrayInput` via:
+//
+//          SelectionConditionStringNotLikeArray{ SelectionConditionStringNotLikeArgs{...} }
+type SelectionConditionStringNotLikeArrayInput interface {
+	pulumi.Input
+
+	ToSelectionConditionStringNotLikeArrayOutput() SelectionConditionStringNotLikeArrayOutput
+	ToSelectionConditionStringNotLikeArrayOutputWithContext(context.Context) SelectionConditionStringNotLikeArrayOutput
+}
+
+type SelectionConditionStringNotLikeArray []SelectionConditionStringNotLikeInput
+
+func (SelectionConditionStringNotLikeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringNotLike)(nil)).Elem()
+}
+
+func (i SelectionConditionStringNotLikeArray) ToSelectionConditionStringNotLikeArrayOutput() SelectionConditionStringNotLikeArrayOutput {
+	return i.ToSelectionConditionStringNotLikeArrayOutputWithContext(context.Background())
+}
+
+func (i SelectionConditionStringNotLikeArray) ToSelectionConditionStringNotLikeArrayOutputWithContext(ctx context.Context) SelectionConditionStringNotLikeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotLikeArrayOutput)
+}
+
+type SelectionConditionStringNotLikeOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringNotLikeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelectionConditionStringNotLike)(nil)).Elem()
+}
+
+func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLikeOutput() SelectionConditionStringNotLikeOutput {
+	return o
+}
+
+func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLikeOutputWithContext(ctx context.Context) SelectionConditionStringNotLikeOutput {
+	return o
+}
+
+// The key in a key-value pair.
+func (o SelectionConditionStringNotLikeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value in a key-value pair.
+func (o SelectionConditionStringNotLikeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SelectionConditionStringNotLikeArrayOutput struct{ *pulumi.OutputState }
+
+func (SelectionConditionStringNotLikeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SelectionConditionStringNotLike)(nil)).Elem()
+}
+
+func (o SelectionConditionStringNotLikeArrayOutput) ToSelectionConditionStringNotLikeArrayOutput() SelectionConditionStringNotLikeArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringNotLikeArrayOutput) ToSelectionConditionStringNotLikeArrayOutputWithContext(ctx context.Context) SelectionConditionStringNotLikeArrayOutput {
+	return o
+}
+
+func (o SelectionConditionStringNotLikeArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringNotLikeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelectionConditionStringNotLike {
+		return vs[0].([]SelectionConditionStringNotLike)[vs[1].(int)]
+	}).(SelectionConditionStringNotLikeOutput)
+}
+
 type SelectionSelectionTag struct {
 	// The key in a key-value pair.
 	Key string `pulumi:"key"`
@@ -829,6 +1365,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleCopyActionLifecyclePtrInput)(nil)).Elem(), PlanRuleCopyActionLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleLifecycleInput)(nil)).Elem(), PlanRuleLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleLifecyclePtrInput)(nil)).Elem(), PlanRuleLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionInput)(nil)).Elem(), SelectionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionArrayInput)(nil)).Elem(), SelectionConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringEqualInput)(nil)).Elem(), SelectionConditionStringEqualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringEqualArrayInput)(nil)).Elem(), SelectionConditionStringEqualArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringLikeInput)(nil)).Elem(), SelectionConditionStringLikeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringLikeArrayInput)(nil)).Elem(), SelectionConditionStringLikeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringNotEqualInput)(nil)).Elem(), SelectionConditionStringNotEqualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringNotEqualArrayInput)(nil)).Elem(), SelectionConditionStringNotEqualArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringNotLikeInput)(nil)).Elem(), SelectionConditionStringNotLikeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringNotLikeArrayInput)(nil)).Elem(), SelectionConditionStringNotLikeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionSelectionTagInput)(nil)).Elem(), SelectionSelectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionSelectionTagArrayInput)(nil)).Elem(), SelectionSelectionTagArray{})
 	pulumi.RegisterOutputType(PlanAdvancedBackupSettingOutput{})
@@ -841,6 +1387,16 @@ func init() {
 	pulumi.RegisterOutputType(PlanRuleCopyActionLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(PlanRuleLifecycleOutput{})
 	pulumi.RegisterOutputType(PlanRuleLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(SelectionConditionOutput{})
+	pulumi.RegisterOutputType(SelectionConditionArrayOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringEqualOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringEqualArrayOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringLikeOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringLikeArrayOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringNotEqualOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringNotEqualArrayOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringNotLikeOutput{})
+	pulumi.RegisterOutputType(SelectionConditionStringNotLikeArrayOutput{})
 	pulumi.RegisterOutputType(SelectionSelectionTagOutput{})
 	pulumi.RegisterOutputType(SelectionSelectionTagArrayOutput{})
 }

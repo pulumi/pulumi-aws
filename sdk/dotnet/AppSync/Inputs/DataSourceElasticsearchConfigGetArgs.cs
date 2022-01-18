@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// AWS region of Elasticsearch domain. Defaults to current region.
+        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

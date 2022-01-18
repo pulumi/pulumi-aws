@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:cognito/identityPool:IdentityPool":
 		r = &IdentityPool{}
+	case "aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag":
+		r = &IdentityPoolProviderPrincipalTag{}
 	case "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment":
 		r = &IdentityPoolRoleAttachment{}
 	case "aws:cognito/identityProvider:IdentityProvider":
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cognito/identityPool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cognito/identityPoolProviderPrincipalTag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

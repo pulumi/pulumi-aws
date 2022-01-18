@@ -27,6 +27,7 @@ __all__ = [
     'ClassifierXmlClassifier',
     'ConnectionPhysicalConnectionRequirements',
     'CrawlerCatalogTarget',
+    'CrawlerDeltaTarget',
     'CrawlerDynamodbTarget',
     'CrawlerJdbcTarget',
     'CrawlerLineageConfiguration',
@@ -1174,6 +1175,67 @@ class CrawlerCatalogTarget(dict):
 
 
 @pulumi.output_type
+class CrawlerDeltaTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+        elif key == "deltaTables":
+            suggest = "delta_tables"
+        elif key == "writeManifest":
+            suggest = "write_manifest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerDeltaTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerDeltaTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerDeltaTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: str,
+                 delta_tables: Sequence[str],
+                 write_manifest: bool):
+        """
+        :param str connection_name: The name of the connection to use to connect to the Delta table target.
+        :param Sequence[str] delta_tables: A list of the Amazon S3 paths to the Delta tables.
+        :param bool write_manifest: Specifies whether to write the manifest files to the Delta table path.
+        """
+        pulumi.set(__self__, "connection_name", connection_name)
+        pulumi.set(__self__, "delta_tables", delta_tables)
+        pulumi.set(__self__, "write_manifest", write_manifest)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> str:
+        """
+        The name of the connection to use to connect to the Delta table target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter(name="deltaTables")
+    def delta_tables(self) -> Sequence[str]:
+        """
+        A list of the Amazon S3 paths to the Delta tables.
+        """
+        return pulumi.get(self, "delta_tables")
+
+    @property
+    @pulumi.getter(name="writeManifest")
+    def write_manifest(self) -> bool:
+        """
+        Specifies whether to write the manifest files to the Delta table path.
+        """
+        return pulumi.get(self, "write_manifest")
+
+
+@pulumi.output_type
 class CrawlerDynamodbTarget(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1258,7 +1320,7 @@ class CrawlerJdbcTarget(dict):
                  path: str,
                  exclusions: Optional[Sequence[str]] = None):
         """
-        :param str connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param str connection_name: The name of the connection to use to connect to the Delta table target.
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         """
@@ -1271,7 +1333,7 @@ class CrawlerJdbcTarget(dict):
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> str:
         """
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        The name of the connection to use to connect to the Delta table target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1354,7 +1416,7 @@ class CrawlerMongodbTarget(dict):
                  path: str,
                  scan_all: Optional[bool] = None):
         """
-        :param str connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param str connection_name: The name of the connection to use to connect to the Delta table target.
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param bool scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
         """
@@ -1367,7 +1429,7 @@ class CrawlerMongodbTarget(dict):
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> str:
         """
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        The name of the connection to use to connect to the Delta table target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1458,7 +1520,7 @@ class CrawlerS3Target(dict):
                  sample_size: Optional[int] = None):
         """
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
-        :param str connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param str connection_name: The name of the connection to use to connect to the Delta table target.
         :param str dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
         :param str event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
@@ -1488,7 +1550,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[str]:
         """
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        The name of the connection to use to connect to the Delta table target.
         """
         return pulumi.get(self, "connection_name")
 

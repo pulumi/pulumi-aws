@@ -36,6 +36,34 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * With the `disallowedCidrs` attribute:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ *     regionName: current.then(current => current.name),
+ * }]});
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
+ *     locale: current.then(current => current.name),
+ * });
+ * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     cidr: "172.2.0.0/16",
+ * });
+ * const exampleVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     netmaskLength: 28,
+ *     disallowedCidrs: ["172.2.0.0/28"],
+ * }, {
+ *     dependsOn: [exampleVpcIpamPoolCidr],
+ * });
+ * ```
+ *
  * ## Import
  *
  * IPAMs can be imported using the `allocation id`, e.g.
@@ -80,6 +108,10 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
      * The description for the allocation.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Exclude a particular CIDR range from being returned by the pool.
+     */
+    public readonly disallowedCidrs!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly ipamPoolAllocationId!: pulumi.Output<string>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
@@ -117,6 +149,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
             const state = argsOrState as VpcIpamPoolCidrAllocationState | undefined;
             inputs["cidr"] = state ? state.cidr : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
             inputs["ipamPoolAllocationId"] = state ? state.ipamPoolAllocationId : undefined;
             inputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
             inputs["netmaskLength"] = state ? state.netmaskLength : undefined;
@@ -130,6 +163,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
             }
             inputs["cidr"] = args ? args.cidr : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
             inputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             inputs["netmaskLength"] = args ? args.netmaskLength : undefined;
             inputs["ipamPoolAllocationId"] = undefined /*out*/;
@@ -156,6 +190,10 @@ export interface VpcIpamPoolCidrAllocationState {
      * The description for the allocation.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Exclude a particular CIDR range from being returned by the pool.
+     */
+    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     ipamPoolAllocationId?: pulumi.Input<string>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
@@ -191,6 +229,10 @@ export interface VpcIpamPoolCidrAllocationArgs {
      * The description for the allocation.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Exclude a particular CIDR range from being returned by the pool.
+     */
+    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
      */

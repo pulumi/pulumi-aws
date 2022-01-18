@@ -88,9 +88,10 @@ type DefaultVpc struct {
 	// The association ID for the IPv6 CIDR block of the VPC
 	Ipv6AssociationId pulumi.StringOutput `pulumi:"ipv6AssociationId"`
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock     pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
-	Ipv6IpamPoolId    pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
+	Ipv6CidrBlock                   pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringOutput    `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                  pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength               pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`
@@ -161,9 +162,10 @@ type defaultVpcState struct {
 	// The association ID for the IPv6 CIDR block of the VPC
 	Ipv6AssociationId *string `pulumi:"ipv6AssociationId"`
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock     *string `pulumi:"ipv6CidrBlock"`
-	Ipv6IpamPoolId    *string `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength *int    `pulumi:"ipv6NetmaskLength"`
+	Ipv6CidrBlock                   *string `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                  *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength               *int    `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`
@@ -206,9 +208,10 @@ type DefaultVpcState struct {
 	// The association ID for the IPv6 CIDR block of the VPC
 	Ipv6AssociationId pulumi.StringPtrInput
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock     pulumi.StringPtrInput
-	Ipv6IpamPoolId    pulumi.StringPtrInput
-	Ipv6NetmaskLength pulumi.IntPtrInput
+	Ipv6CidrBlock                   pulumi.StringPtrInput
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
+	Ipv6IpamPoolId                  pulumi.StringPtrInput
+	Ipv6NetmaskLength               pulumi.IntPtrInput
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`
@@ -237,9 +240,10 @@ type defaultVpcArgs struct {
 	Ipv4IpamPoolId    *string `pulumi:"ipv4IpamPoolId"`
 	Ipv4NetmaskLength *int    `pulumi:"ipv4NetmaskLength"`
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock     *string `pulumi:"ipv6CidrBlock"`
-	Ipv6IpamPoolId    *string `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength *int    `pulumi:"ipv6NetmaskLength"`
+	Ipv6CidrBlock                   *string `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                  *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength               *int    `pulumi:"ipv6NetmaskLength"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -258,9 +262,10 @@ type DefaultVpcArgs struct {
 	Ipv4IpamPoolId    pulumi.StringPtrInput
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock     pulumi.StringPtrInput
-	Ipv6IpamPoolId    pulumi.StringPtrInput
-	Ipv6NetmaskLength pulumi.IntPtrInput
+	Ipv6CidrBlock                   pulumi.StringPtrInput
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
+	Ipv6IpamPoolId                  pulumi.StringPtrInput
+	Ipv6NetmaskLength               pulumi.IntPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

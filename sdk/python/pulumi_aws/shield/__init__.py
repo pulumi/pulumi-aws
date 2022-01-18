@@ -7,3 +7,4 @@ import typing
 # Export this package's modules as members:
 from .protection import *
 from .protection_group import *
+from .protection_health_check_association import *

@@ -4494,8 +4494,9 @@ export namespace appstream {
 
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
+        deltaSyncConfig?: outputs.appsync.DataSourceDynamodbConfigDeltaSyncConfig;
         /**
-         * AWS region of Elasticsearch domain. Defaults to current region.
+         * AWS Region for RDS HTTP endpoint. Defaults to current region.
          */
         region: string;
         /**
@@ -4506,6 +4507,13 @@ export namespace appsync {
          * Set to `true` to use Amazon Cognito credentials with this data source.
          */
         useCallerCredentials?: boolean;
+        versioned?: boolean;
+    }
+
+    export interface DataSourceDynamodbConfigDeltaSyncConfig {
+        baseTableTtl?: number;
+        deltaSyncTableName: string;
+        deltaSyncTableTtl?: number;
     }
 
     export interface DataSourceElasticsearchConfig {
@@ -4514,16 +4522,42 @@ export namespace appsync {
          */
         endpoint: string;
         /**
-         * AWS region of Elasticsearch domain. Defaults to current region.
+         * AWS Region for RDS HTTP endpoint. Defaults to current region.
          */
         region: string;
     }
 
     export interface DataSourceHttpConfig {
         /**
+         * The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+         */
+        authorizationConfig?: outputs.appsync.DataSourceHttpConfigAuthorizationConfig;
+        /**
          * HTTP URL.
          */
         endpoint: string;
+    }
+
+    export interface DataSourceHttpConfigAuthorizationConfig {
+        /**
+         * The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+         */
+        authorizationType?: string;
+        /**
+         * The Identity and Access Management (IAM) settings. See AWS IAM Config.
+         */
+        awsIamConfig?: outputs.appsync.DataSourceHttpConfigAuthorizationConfigAwsIamConfig;
+    }
+
+    export interface DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
+        /**
+         * The signing Amazon Web Services Region for IAM authorization.
+         */
+        signingRegion?: string;
+        /**
+         * The signing service name for IAM authorization.
+         */
+        signingServiceName?: string;
     }
 
     export interface DataSourceLambdaConfig {
@@ -4531,6 +4565,62 @@ export namespace appsync {
          * The ARN for the Lambda function.
          */
         functionArn: string;
+    }
+
+    export interface DataSourceRelationalDatabaseConfig {
+        /**
+         * The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+         */
+        httpEndpointConfig?: outputs.appsync.DataSourceRelationalDatabaseConfigHttpEndpointConfig;
+        /**
+         * Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
+         */
+        sourceType?: string;
+    }
+
+    export interface DataSourceRelationalDatabaseConfigHttpEndpointConfig {
+        /**
+         * AWS secret store ARN for database credentials.
+         */
+        awsSecretStoreArn: string;
+        /**
+         * Logical database name.
+         */
+        databaseName?: string;
+        /**
+         * Amazon RDS cluster identifier.
+         */
+        dbClusterIdentifier: string;
+        /**
+         * AWS Region for RDS HTTP endpoint. Defaults to current region.
+         */
+        region: string;
+        /**
+         * Logical schema name.
+         */
+        schema?: string;
+    }
+
+    export interface FunctionSyncConfig {
+        /**
+         * The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+         */
+        conflictDetection?: string;
+        /**
+         * The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+         */
+        conflictHandler?: string;
+        /**
+         * The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+         */
+        lambdaConflictHandlerConfig?: outputs.appsync.FunctionSyncConfigLambdaConflictHandlerConfig;
+    }
+
+    export interface FunctionSyncConfigLambdaConflictHandlerConfig {
+        /**
+         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         */
+        lambdaConflictHandlerArn?: string;
     }
 
     export interface GraphQLApiAdditionalAuthenticationProvider {
@@ -4685,6 +4775,28 @@ export namespace appsync {
          * The list of Function ID.
          */
         functions?: string[];
+    }
+
+    export interface ResolverSyncConfig {
+        /**
+         * The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+         */
+        conflictDetection?: string;
+        /**
+         * The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+         */
+        conflictHandler?: string;
+        /**
+         * The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+         */
+        lambdaConflictHandlerConfig?: outputs.appsync.ResolverSyncConfigLambdaConflictHandlerConfig;
+    }
+
+    export interface ResolverSyncConfigLambdaConflictHandlerConfig {
+        /**
+         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         */
+        lambdaConflictHandlerArn?: string;
     }
 
 }
@@ -5426,6 +5538,57 @@ export namespace backup {
          * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: number;
+    }
+
+    export interface SelectionCondition {
+        stringEquals?: outputs.backup.SelectionConditionStringEqual[];
+        stringLikes?: outputs.backup.SelectionConditionStringLike[];
+        stringNotEquals?: outputs.backup.SelectionConditionStringNotEqual[];
+        stringNotLikes?: outputs.backup.SelectionConditionStringNotLike[];
+    }
+
+    export interface SelectionConditionStringEqual {
+        /**
+         * The key in a key-value pair.
+         */
+        key: string;
+        /**
+         * The value in a key-value pair.
+         */
+        value: string;
+    }
+
+    export interface SelectionConditionStringLike {
+        /**
+         * The key in a key-value pair.
+         */
+        key: string;
+        /**
+         * The value in a key-value pair.
+         */
+        value: string;
+    }
+
+    export interface SelectionConditionStringNotEqual {
+        /**
+         * The key in a key-value pair.
+         */
+        key: string;
+        /**
+         * The value in a key-value pair.
+         */
+        value: string;
+    }
+
+    export interface SelectionConditionStringNotLike {
+        /**
+         * The key in a key-value pair.
+         */
+        key: string;
+        /**
+         * The value in a key-value pair.
+         */
+        value: string;
     }
 
     export interface SelectionSelectionTag {
@@ -8915,6 +9078,42 @@ export namespace codestarnotifications {
 }
 
 export namespace cognito {
+    export interface GetUserPoolClientAnalyticsConfiguration {
+        /**
+         * (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+         */
+        applicationArn: string;
+        /**
+         * (Optional) Application ID for an Amazon Pinpoint application.
+         */
+        applicationId: string;
+        /**
+         * (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
+         */
+        externalId: string;
+        /**
+         * (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+         * * `userDataShared` (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         */
+        roleArn: string;
+        userDataShared: boolean;
+    }
+
+    export interface GetUserPoolClientTokenValidityUnit {
+        /**
+         * (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+         */
+        accessToken: string;
+        /**
+         * (Optional) Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+         */
+        idToken: string;
+        /**
+         * (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+         */
+        refreshToken: string;
+    }
+
     export interface IdentityPoolCognitoIdentityProvider {
         /**
          * The client ID for the Amazon Cognito Identity User Pool.
@@ -9737,6 +9936,53 @@ export namespace connect {
         minutes: number;
     }
 
+    export interface QuickConnectQuickConnectConfig {
+        /**
+         * Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
+         */
+        phoneConfigs?: outputs.connect.QuickConnectQuickConnectConfigPhoneConfig[];
+        /**
+         * Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
+         */
+        queueConfigs?: outputs.connect.QuickConnectQuickConnectConfigQueueConfig[];
+        /**
+         * Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+         */
+        quickConnectType: string;
+        /**
+         * Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
+         */
+        userConfigs?: outputs.connect.QuickConnectQuickConnectConfigUserConfig[];
+    }
+
+    export interface QuickConnectQuickConnectConfigPhoneConfig {
+        /**
+         * Specifies the phone number in in E.164 format.
+         */
+        phoneNumber: string;
+    }
+
+    export interface QuickConnectQuickConnectConfigQueueConfig {
+        /**
+         * Specifies the identifier of the contact flow.
+         */
+        contactFlowId: string;
+        /**
+         * Specifies the identifier for the queue.
+         */
+        queueId: string;
+    }
+
+    export interface QuickConnectQuickConnectConfigUserConfig {
+        /**
+         * Specifies the identifier of the contact flow.
+         */
+        contactFlowId: string;
+        /**
+         * Specifies the identifier for the user.
+         */
+        userId: string;
+    }
 }
 
 export namespace datasync {
@@ -11278,6 +11524,10 @@ export namespace ec2 {
          * If session tokens are required: `optional`, `required`.
          */
         httpTokens: string;
+        /**
+         * If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+         */
+        instanceMetadataTags: string;
     }
 
     export interface GetInstanceRootBlockDevice {
@@ -11603,6 +11853,10 @@ export namespace ec2 {
          * If session tokens are required: `optional`, `required`.
          */
         httpTokens: string;
+        /**
+         * If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+         */
+        instanceMetadataTags: string;
     }
 
     export interface GetLaunchTemplateMonitoring {
@@ -12296,6 +12550,10 @@ export namespace ec2 {
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens: string;
+        /**
+         * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+         */
+        instanceMetadataTags?: string;
     }
 
     export interface InstanceNetworkInterface {
@@ -12592,6 +12850,10 @@ export namespace ec2 {
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
          */
         httpTokens: string;
+        /**
+         * Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+         */
+        instanceMetadataTags?: string;
     }
 
     export interface LaunchTemplateMonitoring {
@@ -13242,6 +13504,10 @@ export namespace ec2 {
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens: string;
+        /**
+         * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+         */
+        instanceMetadataTags?: string;
     }
 
     export interface SpotInstanceRequestNetworkInterface {
@@ -13446,16 +13712,44 @@ export namespace ec2 {
     }
 
     export interface VpnConnectionRoute {
+        /**
+         * The CIDR block associated with the local subnet of the customer data center.
+         */
         destinationCidrBlock: string;
+        /**
+         * Indicates how the routes were provided.
+         */
         source: string;
+        /**
+         * The current state of the static route.
+         */
         state: string;
     }
 
     export interface VpnConnectionVgwTelemetry {
+        /**
+         * The number of accepted routes.
+         */
         acceptedRouteCount: number;
+        /**
+         * The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+         */
+        certificateArn: string;
+        /**
+         * The date and time of the last change in status.
+         */
         lastStatusChange: string;
+        /**
+         * The Internet-routable IP address of the virtual private gateway's outside interface.
+         */
         outsideIpAddress: string;
+        /**
+         * The status of the VPN tunnel.
+         */
         status: string;
+        /**
+         * If an error occurs, a description of the error.
+         */
         statusMessage: string;
     }
 }
@@ -14331,6 +14625,10 @@ export namespace eks {
 
     export interface ClusterKubernetesNetworkConfig {
         /**
+         * The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+         */
+        ipFamily: string;
+        /**
          * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
          */
         serviceIpv4Cidr: string;
@@ -14400,6 +14698,7 @@ export namespace eks {
     }
 
     export interface GetClusterKubernetesNetworkConfig {
+        ipFamily: string;
         /**
          * The CIDR block to assign Kubernetes service IP addresses from.
          */
@@ -17760,6 +18059,21 @@ export namespace glue {
         tables: string[];
     }
 
+    export interface CrawlerDeltaTarget {
+        /**
+         * The name of the connection to use to connect to the Delta table target.
+         */
+        connectionName: string;
+        /**
+         * A list of the Amazon S3 paths to the Delta tables.
+         */
+        deltaTables: string[];
+        /**
+         * Specifies whether to write the manifest files to the Delta table path.
+         */
+        writeManifest: boolean;
+    }
+
     export interface CrawlerDynamodbTarget {
         /**
          * The path of the Amazon DocumentDB or MongoDB target (database/collection).
@@ -17777,7 +18091,7 @@ export namespace glue {
 
     export interface CrawlerJdbcTarget {
         /**
-         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * The name of the connection to use to connect to the Delta table target.
          */
         connectionName: string;
         /**
@@ -17799,7 +18113,7 @@ export namespace glue {
 
     export interface CrawlerMongodbTarget {
         /**
-         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * The name of the connection to use to connect to the Delta table target.
          */
         connectionName: string;
         /**
@@ -17821,7 +18135,7 @@ export namespace glue {
 
     export interface CrawlerS3Target {
         /**
-         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * The name of the connection to use to connect to the Delta table target.
          */
         connectionName?: string;
         /**
@@ -23192,6 +23506,61 @@ export namespace memorydb {
          * The value of the parameter.
          */
         value: string;
+    }
+
+    export interface SnapshotClusterConfiguration {
+        /**
+         * Description for the cluster.
+         */
+        description: string;
+        /**
+         * Version number of the Redis engine used by the cluster.
+         */
+        engineVersion: string;
+        /**
+         * The weekly time range during which maintenance on the cluster is performed.
+         */
+        maintenanceWindow: string;
+        /**
+         * Name of the cluster.
+         */
+        name: string;
+        /**
+         * Compute and memory capacity of the nodes in the cluster.
+         */
+        nodeType: string;
+        /**
+         * Number of shards in the cluster.
+         */
+        numShards: number;
+        /**
+         * Name of the parameter group associated with the cluster.
+         */
+        parameterGroupName: string;
+        /**
+         * Port number on which the cluster accepts connections.
+         */
+        port: number;
+        /**
+         * Number of days for which MemoryDB retains automatic snapshots before deleting them.
+         */
+        snapshotRetentionLimit: number;
+        /**
+         * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+         */
+        snapshotWindow: string;
+        /**
+         * Name of the subnet group used by the cluster.
+         */
+        subnetGroupName: string;
+        /**
+         * ARN of the SNS topic to which cluster notifications are sent.
+         */
+        topicArn: string;
+        /**
+         * The VPC in which the cluster exists.
+         */
+        vpcId: string;
     }
 
     export interface UserAuthenticationMode {

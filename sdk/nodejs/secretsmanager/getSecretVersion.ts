@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.secretsmanager.getSecretVersion({
+ * const secret-version = aws.secretsmanager.getSecretVersion({
  *     secretId: data.aws_secretsmanager_secret.example.id,
  * });
  * ```

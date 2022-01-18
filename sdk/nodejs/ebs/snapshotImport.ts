@@ -85,6 +85,7 @@ export class SnapshotImport extends pulumi.CustomResource {
      * An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
@@ -94,14 +95,27 @@ export class SnapshotImport extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    public readonly permanentRestore!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
     public readonly roleName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+     */
+    public readonly storageTier!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    public readonly temporaryRestoreDays!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
      */
@@ -127,11 +141,16 @@ export class SnapshotImport extends pulumi.CustomResource {
             inputs["diskContainer"] = state ? state.diskContainer : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["permanentRestore"] = state ? state.permanentRestore : undefined;
             inputs["roleName"] = state ? state.roleName : undefined;
+            inputs["storageTier"] = state ? state.storageTier : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            inputs["temporaryRestoreDays"] = state ? state.temporaryRestoreDays : undefined;
+            inputs["volumeId"] = state ? state.volumeId : undefined;
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as SnapshotImportArgs | undefined;
@@ -143,13 +162,18 @@ export class SnapshotImport extends pulumi.CustomResource {
             inputs["diskContainer"] = args ? args.diskContainer : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["permanentRestore"] = args ? args.permanentRestore : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
+            inputs["storageTier"] = args ? args.storageTier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["temporaryRestoreDays"] = args ? args.temporaryRestoreDays : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
+            inputs["outpostArn"] = undefined /*out*/;
             inputs["ownerAlias"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
+            inputs["volumeId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -191,6 +215,7 @@ export interface SnapshotImportState {
      * An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
      */
     kmsKeyId?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
@@ -200,14 +225,27 @@ export interface SnapshotImportState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    permanentRestore?: pulumi.Input<boolean>;
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
     roleName?: pulumi.Input<string>;
+    /**
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+     */
+    storageTier?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    temporaryRestoreDays?: pulumi.Input<number>;
+    volumeId?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
      */
@@ -239,11 +277,23 @@ export interface SnapshotImportArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    permanentRestore?: pulumi.Input<boolean>;
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
     roleName?: pulumi.Input<string>;
     /**
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+     */
+    storageTier?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    temporaryRestoreDays?: pulumi.Input<number>;
 }

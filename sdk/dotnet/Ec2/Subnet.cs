@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> AssignIpv6AddressOnCreation { get; private set; } = null!;
 
         /// <summary>
-        /// The AZ for the subnet.
+        /// AZ for the subnet.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The AZ ID of the subnet.
+        /// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
@@ -257,13 +257,13 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
 
         /// <summary>
-        /// The AZ for the subnet.
+        /// AZ for the subnet.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The AZ ID of the subnet.
+        /// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
@@ -377,13 +377,13 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
 
         /// <summary>
-        /// The AZ for the subnet.
+        /// AZ for the subnet.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The AZ ID of the subnet.
+        /// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }

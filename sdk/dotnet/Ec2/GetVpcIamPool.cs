@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Tags that are required to create resources in using this pool.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? AllocationResourceTags;
+        public readonly ImmutableDictionary<string, string> AllocationResourceTags;
         /// <summary>
         /// Amazon Resource Name (ARN) of the pool
         /// </summary>
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Ec2
 
             int allocationMinNetmaskLength,
 
-            ImmutableDictionary<string, string>? allocationResourceTags,
+            ImmutableDictionary<string, string> allocationResourceTags,
 
             string arn,
 

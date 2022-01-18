@@ -108,12 +108,16 @@ type Resolver struct {
 	Field pulumi.StringOutput `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
 	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrOutput `pulumi:"requestTemplate"`
 	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrOutput `pulumi:"responseTemplate"`
+	// Describes a Sync configuration for a resolver. See Sync Config.
+	SyncConfig ResolverSyncConfigPtrOutput `pulumi:"syncConfig"`
 	// The type name from the schema defined in the GraphQL API.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -168,12 +172,16 @@ type resolverState struct {
 	Field *string `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind *string `pulumi:"kind"`
+	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// The PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
 	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate *string `pulumi:"responseTemplate"`
+	// Describes a Sync configuration for a resolver. See Sync Config.
+	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
 	// The type name from the schema defined in the GraphQL API.
 	Type *string `pulumi:"type"`
 }
@@ -191,12 +199,16 @@ type ResolverState struct {
 	Field pulumi.StringPtrInput
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrInput
+	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	MaxBatchSize pulumi.IntPtrInput
 	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
 	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrInput
+	// Describes a Sync configuration for a resolver. See Sync Config.
+	SyncConfig ResolverSyncConfigPtrInput
 	// The type name from the schema defined in the GraphQL API.
 	Type pulumi.StringPtrInput
 }
@@ -216,12 +228,16 @@ type resolverArgs struct {
 	Field string `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind *string `pulumi:"kind"`
+	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// The PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
 	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate *string `pulumi:"responseTemplate"`
+	// Describes a Sync configuration for a resolver. See Sync Config.
+	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
 	// The type name from the schema defined in the GraphQL API.
 	Type string `pulumi:"type"`
 }
@@ -238,12 +254,16 @@ type ResolverArgs struct {
 	Field pulumi.StringInput
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrInput
+	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	MaxBatchSize pulumi.IntPtrInput
 	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
 	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrInput
+	// Describes a Sync configuration for a resolver. See Sync Config.
+	SyncConfig ResolverSyncConfigPtrInput
 	// The type name from the schema defined in the GraphQL API.
 	Type pulumi.StringInput
 }

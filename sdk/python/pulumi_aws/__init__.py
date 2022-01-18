@@ -2098,6 +2098,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/identityPoolProviderPrincipalTag",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag": "IdentityPoolProviderPrincipalTag"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/identityPoolRoleAttachment",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -2178,6 +2186,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/contactFlowModule",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/contactFlowModule:ContactFlowModule": "ContactFlowModule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/hoursOfOperation",
   "fqn": "pulumi_aws.connect",
   "classes": {
@@ -2198,6 +2214,14 @@ _utilities.register(
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation": "LambdaFunctionAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/quickConnect",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/quickConnect:QuickConnect": "QuickConnect"
   }
  },
  {
@@ -2326,6 +2350,14 @@ _utilities.register(
   "fqn": "pulumi_aws.devicefarm",
   "classes": {
    "aws:devicefarm/devicePool:DevicePool": "DevicePool"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devicefarm/instanceProfile",
+  "fqn": "pulumi_aws.devicefarm",
+  "classes": {
+   "aws:devicefarm/instanceProfile:InstanceProfile": "InstanceProfile"
   }
  },
  {
@@ -5258,6 +5290,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "memorydb/snapshot",
+  "fqn": "pulumi_aws.memorydb",
+  "classes": {
+   "aws:memorydb/snapshot:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "memorydb/subnetGroup",
   "fqn": "pulumi_aws.memorydb",
   "classes": {
@@ -7046,6 +7086,14 @@ _utilities.register(
   "fqn": "pulumi_aws.shield",
   "classes": {
    "aws:shield/protectionGroup:ProtectionGroup": "ProtectionGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "shield/protectionHealthCheckAssociation",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation": "ProtectionHealthCheckAssociation"
   }
  },
  {

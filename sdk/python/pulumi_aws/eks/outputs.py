@@ -163,7 +163,9 @@ class ClusterKubernetesNetworkConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "serviceIpv4Cidr":
+        if key == "ipFamily":
+            suggest = "ip_family"
+        elif key == "serviceIpv4Cidr":
             suggest = "service_ipv4_cidr"
 
         if suggest:
@@ -178,12 +180,24 @@ class ClusterKubernetesNetworkConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 ip_family: Optional[str] = None,
                  service_ipv4_cidr: Optional[str] = None):
         """
+        :param str ip_family: The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
         :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
         """
+        if ip_family is not None:
+            pulumi.set(__self__, "ip_family", ip_family)
         if service_ipv4_cidr is not None:
             pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+
+    @property
+    @pulumi.getter(name="ipFamily")
+    def ip_family(self) -> Optional[str]:
+        """
+        The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+        """
+        return pulumi.get(self, "ip_family")
 
     @property
     @pulumi.getter(name="serviceIpv4Cidr")
@@ -844,11 +858,18 @@ class GetClusterIdentityOidcResult(dict):
 @pulumi.output_type
 class GetClusterKubernetesNetworkConfigResult(dict):
     def __init__(__self__, *,
+                 ip_family: str,
                  service_ipv4_cidr: str):
         """
         :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from.
         """
+        pulumi.set(__self__, "ip_family", ip_family)
         pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+
+    @property
+    @pulumi.getter(name="ipFamily")
+    def ip_family(self) -> str:
+        return pulumi.get(self, "ip_family")
 
     @property
     @pulumi.getter(name="serviceIpv4Cidr")

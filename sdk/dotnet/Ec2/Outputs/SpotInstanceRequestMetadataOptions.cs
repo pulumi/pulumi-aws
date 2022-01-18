@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         /// </summary>
         public readonly string? HttpTokens;
+        /// <summary>
+        /// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+        /// </summary>
+        public readonly string? InstanceMetadataTags;
 
         [OutputConstructor]
         private SpotInstanceRequestMetadataOptions(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int? httpPutResponseHopLimit,
 
-            string? httpTokens)
+            string? httpTokens,
+
+            string? instanceMetadataTags)
         {
             HttpEndpoint = httpEndpoint;
             HttpPutResponseHopLimit = httpPutResponseHopLimit;
             HttpTokens = httpTokens;
+            InstanceMetadataTags = instanceMetadataTags;
         }
     }
 }

@@ -89,6 +89,9 @@ namespace Pulumi.Aws.Ebs
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        [Output("outpostArn")]
+        public Output<string> OutpostArn { get; private set; } = null!;
+
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
@@ -102,10 +105,22 @@ namespace Pulumi.Aws.Ebs
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether to permanently restore an archived snapshot.
+        /// </summary>
+        [Output("permanentRestore")]
+        public Output<bool?> PermanentRestore { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         /// </summary>
         [Output("roleName")]
         public Output<string?> RoleName { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// </summary>
+        [Output("storageTier")]
+        public Output<string> StorageTier { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the snapshot.
@@ -115,6 +130,15 @@ namespace Pulumi.Aws.Ebs
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        /// </summary>
+        [Output("temporaryRestoreDays")]
+        public Output<int?> TemporaryRestoreDays { get; private set; } = null!;
+
+        [Output("volumeId")]
+        public Output<string> VolumeId { get; private set; } = null!;
 
         /// <summary>
         /// The size of the drive in GiBs.
@@ -199,10 +223,22 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// Indicates whether to permanently restore an archived snapshot.
+        /// </summary>
+        [Input("permanentRestore")]
+        public Input<bool>? PermanentRestore { get; set; }
+
+        /// <summary>
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
+
+        /// <summary>
+        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// </summary>
+        [Input("storageTier")]
+        public Input<string>? StorageTier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -215,6 +251,12 @@ namespace Pulumi.Aws.Ebs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        /// </summary>
+        [Input("temporaryRestoreDays")]
+        public Input<int>? TemporaryRestoreDays { get; set; }
 
         public SnapshotImportArgs()
         {
@@ -265,6 +307,9 @@ namespace Pulumi.Aws.Ebs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
@@ -278,10 +323,22 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
+        /// Indicates whether to permanently restore an archived snapshot.
+        /// </summary>
+        [Input("permanentRestore")]
+        public Input<bool>? PermanentRestore { get; set; }
+
+        /// <summary>
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
+
+        /// <summary>
+        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// </summary>
+        [Input("storageTier")]
+        public Input<string>? StorageTier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -302,6 +359,15 @@ namespace Pulumi.Aws.Ebs
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        /// </summary>
+        [Input("temporaryRestoreDays")]
+        public Input<int>? TemporaryRestoreDays { get; set; }
+
+        [Input("volumeId")]
+        public Input<string>? VolumeId { get; set; }
 
         /// <summary>
         /// The size of the drive in GiBs.

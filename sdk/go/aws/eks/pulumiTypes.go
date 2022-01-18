@@ -635,6 +635,8 @@ func (o ClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) ClusterIdentity
 }
 
 type ClusterKubernetesNetworkConfig struct {
+	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+	IpFamily *string `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
 	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
 }
@@ -651,6 +653,8 @@ type ClusterKubernetesNetworkConfigInput interface {
 }
 
 type ClusterKubernetesNetworkConfigArgs struct {
+	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
 	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
 }
@@ -732,6 +736,11 @@ func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPt
 	}).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
+// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+func (o ClusterKubernetesNetworkConfigOutput) IpFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
+}
+
 // The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
 func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
@@ -759,6 +768,16 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetwork
 		var ret ClusterKubernetesNetworkConfig
 		return ret
 	}).(ClusterKubernetesNetworkConfigOutput)
+}
+
+// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+func (o ClusterKubernetesNetworkConfigPtrOutput) IpFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpFamily
+	}).(pulumi.StringPtrOutput)
 }
 
 // The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
@@ -2625,6 +2644,7 @@ func (o GetClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) GetClusterId
 }
 
 type GetClusterKubernetesNetworkConfig struct {
+	IpFamily string `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	ServiceIpv4Cidr string `pulumi:"serviceIpv4Cidr"`
 }
@@ -2641,6 +2661,7 @@ type GetClusterKubernetesNetworkConfigInput interface {
 }
 
 type GetClusterKubernetesNetworkConfigArgs struct {
+	IpFamily pulumi.StringInput `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	ServiceIpv4Cidr pulumi.StringInput `pulumi:"serviceIpv4Cidr"`
 }
@@ -2694,6 +2715,10 @@ func (o GetClusterKubernetesNetworkConfigOutput) ToGetClusterKubernetesNetworkCo
 
 func (o GetClusterKubernetesNetworkConfigOutput) ToGetClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigOutput {
 	return o
+}
+
+func (o GetClusterKubernetesNetworkConfigOutput) IpFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterKubernetesNetworkConfig) string { return v.IpFamily }).(pulumi.StringOutput)
 }
 
 // The CIDR block to assign Kubernetes service IP addresses from.

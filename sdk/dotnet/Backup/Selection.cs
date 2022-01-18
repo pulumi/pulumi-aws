@@ -85,6 +85,63 @@ namespace Pulumi.Aws.Backup
     /// 
     /// }
     /// ```
+    /// ### Selecting Backups By Conditions
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         {
+    ///             IamRoleArn = aws_iam_role.Example.Arn,
+    ///             PlanId = aws_backup_plan.Example.Id,
+    ///             Conditions = 
+    ///             {
+    ///                 new Aws.Backup.Inputs.SelectionConditionArgs
+    ///                 {
+    ///                     StringEquals = 
+    ///                     {
+    ///                         new Aws.Backup.Inputs.SelectionConditionStringEqualArgs
+    ///                         {
+    ///                             Key = "aws:ResourceTag/Component",
+    ///                             Value = "rds",
+    ///                         },
+    ///                     },
+    ///                     StringLikes = 
+    ///                     {
+    ///                         new Aws.Backup.Inputs.SelectionConditionStringLikeArgs
+    ///                         {
+    ///                             Key = "aws:ResourceTag/Application",
+    ///                             Value = "app*",
+    ///                         },
+    ///                     },
+    ///                     StringNotEquals = 
+    ///                     {
+    ///                         new Aws.Backup.Inputs.SelectionConditionStringNotEqualArgs
+    ///                         {
+    ///                             Key = "aws:ResourceTag/Backup",
+    ///                             Value = "false",
+    ///                         },
+    ///                     },
+    ///                     StringNotLikes = 
+    ///                     {
+    ///                         new Aws.Backup.Inputs.SelectionConditionStringNotLikeArgs
+    ///                         {
+    ///                             Key = "aws:ResourceTag/Environment",
+    ///                             Value = "test*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Selecting Backups By Resource
     /// 
     /// ```csharp
@@ -110,6 +167,31 @@ namespace Pulumi.Aws.Backup
     /// 
     /// }
     /// ```
+    /// ### Selecting Backups By Not Resource
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         {
+    ///             IamRoleArn = aws_iam_role.Example.Arn,
+    ///             PlanId = aws_backup_plan.Example.Id,
+    ///             NotResources = 
+    ///             {
+    ///                 aws_db_instance.Example.Arn,
+    ///                 aws_ebs_volume.Example.Arn,
+    ///                 aws_efs_file_system.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -123,6 +205,12 @@ namespace Pulumi.Aws.Backup
     public partial class Selection : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of conditions that you define to assign resources to your backup plans using tags.
+        /// </summary>
+        [Output("conditions")]
+        public Output<ImmutableArray<Outputs.SelectionCondition>> Conditions { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         /// </summary>
         [Output("iamRoleArn")]
@@ -135,13 +223,19 @@ namespace Pulumi.Aws.Backup
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// </summary>
+        [Output("notResources")]
+        public Output<ImmutableArray<string>> NotResources { get; private set; } = null!;
+
+        /// <summary>
         /// The backup plan ID to be associated with the selection of resources.
         /// </summary>
         [Output("planId")]
         public Output<string> PlanId { get; private set; } = null!;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
@@ -198,6 +292,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class SelectionArgs : Pulumi.ResourceArgs
     {
+        [Input("conditions")]
+        private InputList<Inputs.SelectionConditionArgs>? _conditions;
+
+        /// <summary>
+        /// A list of conditions that you define to assign resources to your backup plans using tags.
+        /// </summary>
+        public InputList<Inputs.SelectionConditionArgs> Conditions
+        {
+            get => _conditions ?? (_conditions = new InputList<Inputs.SelectionConditionArgs>());
+            set => _conditions = value;
+        }
+
         /// <summary>
         /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         /// </summary>
@@ -210,6 +316,18 @@ namespace Pulumi.Aws.Backup
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("notResources")]
+        private InputList<string>? _notResources;
+
+        /// <summary>
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// </summary>
+        public InputList<string> NotResources
+        {
+            get => _notResources ?? (_notResources = new InputList<string>());
+            set => _notResources = value;
+        }
+
         /// <summary>
         /// The backup plan ID to be associated with the selection of resources.
         /// </summary>
@@ -220,7 +338,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         /// </summary>
         public InputList<string> Resources
         {
@@ -247,6 +365,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class SelectionState : Pulumi.ResourceArgs
     {
+        [Input("conditions")]
+        private InputList<Inputs.SelectionConditionGetArgs>? _conditions;
+
+        /// <summary>
+        /// A list of conditions that you define to assign resources to your backup plans using tags.
+        /// </summary>
+        public InputList<Inputs.SelectionConditionGetArgs> Conditions
+        {
+            get => _conditions ?? (_conditions = new InputList<Inputs.SelectionConditionGetArgs>());
+            set => _conditions = value;
+        }
+
         /// <summary>
         /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         /// </summary>
@@ -259,6 +389,18 @@ namespace Pulumi.Aws.Backup
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("notResources")]
+        private InputList<string>? _notResources;
+
+        /// <summary>
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// </summary>
+        public InputList<string> NotResources
+        {
+            get => _notResources ?? (_notResources = new InputList<string>());
+            set => _notResources = value;
+        }
+
         /// <summary>
         /// The backup plan ID to be associated with the selection of resources.
         /// </summary>
@@ -269,7 +411,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         /// </summary>
         public InputList<string> Resources
         {
