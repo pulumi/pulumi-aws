@@ -53,6 +53,8 @@ type GetUserPoolClientsArgs struct {
 type GetUserPoolClientsResult struct {
 	// List of Cognito user pool client IDs.
 	ClientIds []string `pulumi:"clientIds"`
+	// List of Cognito user pool client names.
+	ClientNames []string `pulumi:"clientNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	UserPoolId string `pulumi:"userPoolId"`
@@ -95,6 +97,11 @@ func (o GetUserPoolClientsResultOutput) ToGetUserPoolClientsResultOutputWithCont
 // List of Cognito user pool client IDs.
 func (o GetUserPoolClientsResultOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolClientsResult) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
+}
+
+// List of Cognito user pool client names.
+func (o GetUserPoolClientsResultOutput) ClientNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUserPoolClientsResult) []string { return v.ClientNames }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

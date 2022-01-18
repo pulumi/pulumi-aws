@@ -49,9 +49,10 @@ type RailsAppLayer struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing pulumi.BoolPtrOutput `pulumi:"autoHealing"`
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion         pulumi.StringPtrOutput   `pulumi:"bundlerVersion"`
-	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+	BundlerVersion          pulumi.StringPtrOutput                        `pulumi:"bundlerVersion"`
+	CloudwatchConfiguration RailsAppLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  pulumi.StringArrayOutput                      `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     pulumi.StringArrayOutput                      `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -136,9 +137,10 @@ type railsAppLayerState struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing *bool `pulumi:"autoHealing"`
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion         *string  `pulumi:"bundlerVersion"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	BundlerVersion          *string                               `pulumi:"bundlerVersion"`
+	CloudwatchConfiguration *RailsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                              `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                              `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -192,9 +194,10 @@ type RailsAppLayerState struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing pulumi.BoolPtrInput
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion         pulumi.StringPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	BundlerVersion          pulumi.StringPtrInput
+	CloudwatchConfiguration RailsAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
@@ -250,9 +253,10 @@ type railsAppLayerArgs struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing *bool `pulumi:"autoHealing"`
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion         *string  `pulumi:"bundlerVersion"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	BundlerVersion          *string                               `pulumi:"bundlerVersion"`
+	CloudwatchConfiguration *RailsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                              `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                              `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -303,9 +307,10 @@ type RailsAppLayerArgs struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing pulumi.BoolPtrInput
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion         pulumi.StringPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	BundlerVersion          pulumi.StringPtrInput
+	CloudwatchConfiguration RailsAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.

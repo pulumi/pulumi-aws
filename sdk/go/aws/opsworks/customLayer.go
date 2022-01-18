@@ -54,9 +54,11 @@ type CustomLayer struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrOutput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrOutput     `pulumi:"autoHealing"`
-	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+	AutoHealing pulumi.BoolPtrOutput `pulumi:"autoHealing"`
+	// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+	CloudwatchConfiguration CustomLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  pulumi.StringArrayOutput                    `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     pulumi.StringArrayOutput                    `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -68,7 +70,7 @@ type CustomLayer struct {
 	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
 	EbsVolumes CustomLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
@@ -134,9 +136,11 @@ type customLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            *bool    `pulumi:"autoHealing"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	AutoHealing *bool `pulumi:"autoHealing"`
+	// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+	CloudwatchConfiguration *CustomLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                            `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                            `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -148,7 +152,7 @@ type customLayerState struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
 	EbsVolumes []CustomLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -180,9 +184,11 @@ type CustomLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	AutoHealing pulumi.BoolPtrInput
+	// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+	CloudwatchConfiguration CustomLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
@@ -194,7 +200,7 @@ type CustomLayerState struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
 	EbsVolumes CustomLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -228,9 +234,11 @@ type customLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            *bool    `pulumi:"autoHealing"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	AutoHealing *bool `pulumi:"autoHealing"`
+	// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+	CloudwatchConfiguration *CustomLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                            `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                            `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -242,7 +250,7 @@ type customLayerArgs struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
 	EbsVolumes []CustomLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -271,9 +279,11 @@ type CustomLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	AutoHealing pulumi.BoolPtrInput
+	// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+	CloudwatchConfiguration CustomLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
@@ -285,7 +295,7 @@ type CustomLayerArgs struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
 	EbsVolumes CustomLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput

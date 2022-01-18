@@ -3306,6 +3306,7 @@ class ResponseHeadersPolicyCorsConfig(dict):
         :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs' access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
         :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs' access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
         :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs' access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+        :param bool origin_override: A Boolean value that determines how CloudFront behaves for the HTTP response header.
         :param 'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs' access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
         :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
         """
@@ -3354,6 +3355,9 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @property
     @pulumi.getter(name="originOverride")
     def origin_override(self) -> bool:
+        """
+        A Boolean value that determines how CloudFront behaves for the HTTP response header.
+        """
         return pulumi.get(self, "origin_override")
 
     @property

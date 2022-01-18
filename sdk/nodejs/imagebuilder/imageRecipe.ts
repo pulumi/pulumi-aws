@@ -104,13 +104,17 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+     */
+    public readonly userDataBase64!: pulumi.Output<string>;
     /**
      * Version of the image recipe.
      */
@@ -144,6 +148,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["platform"] = state ? state.platform : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            inputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["workingDirectory"] = state ? state.workingDirectory : undefined;
         } else {
@@ -163,6 +168,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parentImage"] = args ? args.parentImage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["workingDirectory"] = args ? args.workingDirectory : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -219,13 +225,17 @@ export interface ImageRecipeState {
      */
     platform?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+     */
+    userDataBase64?: pulumi.Input<string>;
     /**
      * Version of the image recipe.
      */
@@ -261,9 +271,13 @@ export interface ImageRecipeArgs {
      */
     parentImage: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+     */
+    userDataBase64?: pulumi.Input<string>;
     /**
      * Version of the image recipe.
      */

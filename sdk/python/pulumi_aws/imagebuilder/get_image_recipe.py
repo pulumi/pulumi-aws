@@ -21,7 +21,7 @@ class GetImageRecipeResult:
     """
     A collection of values returned by getImageRecipe.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, components=None, date_created=None, description=None, id=None, name=None, owner=None, parent_image=None, platform=None, tags=None, version=None, working_directory=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, components=None, date_created=None, description=None, id=None, name=None, owner=None, parent_image=None, platform=None, tags=None, user_data_base64=None, version=None, working_directory=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetImageRecipeResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if user_data_base64 and not isinstance(user_data_base64, str):
+            raise TypeError("Expected argument 'user_data_base64' to be a str")
+        pulumi.set(__self__, "user_data_base64", user_data_base64)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -148,6 +151,14 @@ class GetImageRecipeResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="userDataBase64")
+    def user_data_base64(self) -> str:
+        """
+        Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
+        """
+        return pulumi.get(self, "user_data_base64")
+
+    @property
     @pulumi.getter
     def version(self) -> str:
         """
@@ -181,6 +192,7 @@ class AwaitableGetImageRecipeResult(GetImageRecipeResult):
             parent_image=self.parent_image,
             platform=self.platform,
             tags=self.tags,
+            user_data_base64=self.user_data_base64,
             version=self.version,
             working_directory=self.working_directory)
 
@@ -225,6 +237,7 @@ def get_image_recipe(arn: Optional[str] = None,
         parent_image=__ret__.parent_image,
         platform=__ret__.platform,
         tags=__ret__.tags,
+        user_data_base64=__ret__.user_data_base64,
         version=__ret__.version,
         working_directory=__ret__.working_directory)
 

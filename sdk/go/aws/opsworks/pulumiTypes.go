@@ -382,6 +382,347 @@ func (o ApplicationSslConfigurationArrayOutput) Index(i pulumi.IntInput) Applica
 	}).(ApplicationSslConfigurationOutput)
 }
 
+type CustomLayerCloudwatchConfiguration struct {
+	Enabled *bool `pulumi:"enabled"`
+	// A block the specifies how an opsworks logs look like. See Log Streams.
+	LogStreams []CustomLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// CustomLayerCloudwatchConfigurationInput is an input type that accepts CustomLayerCloudwatchConfigurationArgs and CustomLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `CustomLayerCloudwatchConfigurationInput` via:
+//
+//          CustomLayerCloudwatchConfigurationArgs{...}
+type CustomLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToCustomLayerCloudwatchConfigurationOutput() CustomLayerCloudwatchConfigurationOutput
+	ToCustomLayerCloudwatchConfigurationOutputWithContext(context.Context) CustomLayerCloudwatchConfigurationOutput
+}
+
+type CustomLayerCloudwatchConfigurationArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A block the specifies how an opsworks logs look like. See Log Streams.
+	LogStreams CustomLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (CustomLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i CustomLayerCloudwatchConfigurationArgs) ToCustomLayerCloudwatchConfigurationOutput() CustomLayerCloudwatchConfigurationOutput {
+	return i.ToCustomLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i CustomLayerCloudwatchConfigurationArgs) ToCustomLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationOutput)
+}
+
+func (i CustomLayerCloudwatchConfigurationArgs) ToCustomLayerCloudwatchConfigurationPtrOutput() CustomLayerCloudwatchConfigurationPtrOutput {
+	return i.ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLayerCloudwatchConfigurationArgs) ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationOutput).ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// CustomLayerCloudwatchConfigurationPtrInput is an input type that accepts CustomLayerCloudwatchConfigurationArgs, CustomLayerCloudwatchConfigurationPtr and CustomLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `CustomLayerCloudwatchConfigurationPtrInput` via:
+//
+//          CustomLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCustomLayerCloudwatchConfigurationPtrOutput() CustomLayerCloudwatchConfigurationPtrOutput
+	ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) CustomLayerCloudwatchConfigurationPtrOutput
+}
+
+type customLayerCloudwatchConfigurationPtrType CustomLayerCloudwatchConfigurationArgs
+
+func CustomLayerCloudwatchConfigurationPtr(v *CustomLayerCloudwatchConfigurationArgs) CustomLayerCloudwatchConfigurationPtrInput {
+	return (*customLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*customLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *customLayerCloudwatchConfigurationPtrType) ToCustomLayerCloudwatchConfigurationPtrOutput() CustomLayerCloudwatchConfigurationPtrOutput {
+	return i.ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *customLayerCloudwatchConfigurationPtrType) ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationPtrOutput)
+}
+
+type CustomLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o CustomLayerCloudwatchConfigurationOutput) ToCustomLayerCloudwatchConfigurationOutput() CustomLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationOutput) ToCustomLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationOutput) ToCustomLayerCloudwatchConfigurationPtrOutput() CustomLayerCloudwatchConfigurationPtrOutput {
+	return o.ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLayerCloudwatchConfigurationOutput) ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerCloudwatchConfiguration) *CustomLayerCloudwatchConfiguration {
+		return &v
+	}).(CustomLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o CustomLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A block the specifies how an opsworks logs look like. See Log Streams.
+func (o CustomLayerCloudwatchConfigurationOutput) LogStreams() CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfiguration) []CustomLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(CustomLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type CustomLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o CustomLayerCloudwatchConfigurationPtrOutput) ToCustomLayerCloudwatchConfigurationPtrOutput() CustomLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationPtrOutput) ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationPtrOutput) Elem() CustomLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *CustomLayerCloudwatchConfiguration) CustomLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLayerCloudwatchConfiguration
+		return ret
+	}).(CustomLayerCloudwatchConfigurationOutput)
+}
+
+func (o CustomLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A block the specifies how an opsworks logs look like. See Log Streams.
+func (o CustomLayerCloudwatchConfigurationPtrOutput) LogStreams() CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *CustomLayerCloudwatchConfiguration) []CustomLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(CustomLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type CustomLayerCloudwatchConfigurationLogStream struct {
+	// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+	BatchCount *int `pulumi:"batchCount"`
+	// Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+	BatchSize *int `pulumi:"batchSize"`
+	// Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+	BufferDuration *int `pulumi:"bufferDuration"`
+	// Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+	DatetimeFormat *string `pulumi:"datetimeFormat"`
+	// Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
+	Encoding *string `pulumi:"encoding"`
+	// Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+	File string `pulumi:"file"`
+	// Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+	FileFingerprintLines *string `pulumi:"fileFingerprintLines"`
+	// Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
+	InitialPosition *string `pulumi:"initialPosition"`
+	// Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+	LogGroupName string `pulumi:"logGroupName"`
+	// Specifies the pattern for identifying the start of a log message.
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	// Specifies the time zone of log event time stamps.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// CustomLayerCloudwatchConfigurationLogStreamInput is an input type that accepts CustomLayerCloudwatchConfigurationLogStreamArgs and CustomLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `CustomLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          CustomLayerCloudwatchConfigurationLogStreamArgs{...}
+type CustomLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToCustomLayerCloudwatchConfigurationLogStreamOutput() CustomLayerCloudwatchConfigurationLogStreamOutput
+	ToCustomLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) CustomLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type CustomLayerCloudwatchConfigurationLogStreamArgs struct {
+	// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+	BatchCount pulumi.IntPtrInput `pulumi:"batchCount"`
+	// Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
+	// Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+	BufferDuration pulumi.IntPtrInput `pulumi:"bufferDuration"`
+	// Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+	DatetimeFormat pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	// Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+	File pulumi.StringInput `pulumi:"file"`
+	// Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+	FileFingerprintLines pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	// Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
+	InitialPosition pulumi.StringPtrInput `pulumi:"initialPosition"`
+	// Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+	// Specifies the pattern for identifying the start of a log message.
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	// Specifies the time zone of log event time stamps.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (CustomLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i CustomLayerCloudwatchConfigurationLogStreamArgs) ToCustomLayerCloudwatchConfigurationLogStreamOutput() CustomLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToCustomLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i CustomLayerCloudwatchConfigurationLogStreamArgs) ToCustomLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// CustomLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts CustomLayerCloudwatchConfigurationLogStreamArray and CustomLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `CustomLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          CustomLayerCloudwatchConfigurationLogStreamArray{ CustomLayerCloudwatchConfigurationLogStreamArgs{...} }
+type CustomLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToCustomLayerCloudwatchConfigurationLogStreamArrayOutput() CustomLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToCustomLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) CustomLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type CustomLayerCloudwatchConfigurationLogStreamArray []CustomLayerCloudwatchConfigurationLogStreamInput
+
+func (CustomLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i CustomLayerCloudwatchConfigurationLogStreamArray) ToCustomLayerCloudwatchConfigurationLogStreamArrayOutput() CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToCustomLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i CustomLayerCloudwatchConfigurationLogStreamArray) ToCustomLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type CustomLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) ToCustomLayerCloudwatchConfigurationLogStreamOutput() CustomLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) ToCustomLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+// Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+// Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+// Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+// Specifies the pattern for identifying the start of a log message.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time zone of log event time stamps.
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type CustomLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o CustomLayerCloudwatchConfigurationLogStreamArrayOutput) ToCustomLayerCloudwatchConfigurationLogStreamArrayOutput() CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationLogStreamArrayOutput) ToCustomLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) CustomLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]CustomLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(CustomLayerCloudwatchConfigurationLogStreamOutput)
+}
+
 type CustomLayerEbsVolume struct {
 	// Encrypt the volume.
 	Encrypted *bool `pulumi:"encrypted"`
@@ -533,6 +874,310 @@ func (o CustomLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) CustomLayerEbs
 	}).(CustomLayerEbsVolumeOutput)
 }
 
+type GangliaLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                          `pulumi:"enabled"`
+	LogStreams []GangliaLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// GangliaLayerCloudwatchConfigurationInput is an input type that accepts GangliaLayerCloudwatchConfigurationArgs and GangliaLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `GangliaLayerCloudwatchConfigurationInput` via:
+//
+//          GangliaLayerCloudwatchConfigurationArgs{...}
+type GangliaLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToGangliaLayerCloudwatchConfigurationOutput() GangliaLayerCloudwatchConfigurationOutput
+	ToGangliaLayerCloudwatchConfigurationOutputWithContext(context.Context) GangliaLayerCloudwatchConfigurationOutput
+}
+
+type GangliaLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                    `pulumi:"enabled"`
+	LogStreams GangliaLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (GangliaLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i GangliaLayerCloudwatchConfigurationArgs) ToGangliaLayerCloudwatchConfigurationOutput() GangliaLayerCloudwatchConfigurationOutput {
+	return i.ToGangliaLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerCloudwatchConfigurationArgs) ToGangliaLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationOutput)
+}
+
+func (i GangliaLayerCloudwatchConfigurationArgs) ToGangliaLayerCloudwatchConfigurationPtrOutput() GangliaLayerCloudwatchConfigurationPtrOutput {
+	return i.ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerCloudwatchConfigurationArgs) ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationOutput).ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// GangliaLayerCloudwatchConfigurationPtrInput is an input type that accepts GangliaLayerCloudwatchConfigurationArgs, GangliaLayerCloudwatchConfigurationPtr and GangliaLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `GangliaLayerCloudwatchConfigurationPtrInput` via:
+//
+//          GangliaLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GangliaLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGangliaLayerCloudwatchConfigurationPtrOutput() GangliaLayerCloudwatchConfigurationPtrOutput
+	ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) GangliaLayerCloudwatchConfigurationPtrOutput
+}
+
+type gangliaLayerCloudwatchConfigurationPtrType GangliaLayerCloudwatchConfigurationArgs
+
+func GangliaLayerCloudwatchConfigurationPtr(v *GangliaLayerCloudwatchConfigurationArgs) GangliaLayerCloudwatchConfigurationPtrInput {
+	return (*gangliaLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*gangliaLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *gangliaLayerCloudwatchConfigurationPtrType) ToGangliaLayerCloudwatchConfigurationPtrOutput() GangliaLayerCloudwatchConfigurationPtrOutput {
+	return i.ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gangliaLayerCloudwatchConfigurationPtrType) ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationPtrOutput)
+}
+
+type GangliaLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o GangliaLayerCloudwatchConfigurationOutput) ToGangliaLayerCloudwatchConfigurationOutput() GangliaLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationOutput) ToGangliaLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationOutput) ToGangliaLayerCloudwatchConfigurationPtrOutput() GangliaLayerCloudwatchConfigurationPtrOutput {
+	return o.ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GangliaLayerCloudwatchConfigurationOutput) ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GangliaLayerCloudwatchConfiguration) *GangliaLayerCloudwatchConfiguration {
+		return &v
+	}).(GangliaLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationOutput) LogStreams() GangliaLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfiguration) []GangliaLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(GangliaLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type GangliaLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o GangliaLayerCloudwatchConfigurationPtrOutput) ToGangliaLayerCloudwatchConfigurationPtrOutput() GangliaLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationPtrOutput) ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationPtrOutput) Elem() GangliaLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *GangliaLayerCloudwatchConfiguration) GangliaLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GangliaLayerCloudwatchConfiguration
+		return ret
+	}).(GangliaLayerCloudwatchConfigurationOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationPtrOutput) LogStreams() GangliaLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *GangliaLayerCloudwatchConfiguration) []GangliaLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(GangliaLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type GangliaLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// GangliaLayerCloudwatchConfigurationLogStreamInput is an input type that accepts GangliaLayerCloudwatchConfigurationLogStreamArgs and GangliaLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `GangliaLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          GangliaLayerCloudwatchConfigurationLogStreamArgs{...}
+type GangliaLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToGangliaLayerCloudwatchConfigurationLogStreamOutput() GangliaLayerCloudwatchConfigurationLogStreamOutput
+	ToGangliaLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) GangliaLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type GangliaLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (GangliaLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i GangliaLayerCloudwatchConfigurationLogStreamArgs) ToGangliaLayerCloudwatchConfigurationLogStreamOutput() GangliaLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToGangliaLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerCloudwatchConfigurationLogStreamArgs) ToGangliaLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// GangliaLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts GangliaLayerCloudwatchConfigurationLogStreamArray and GangliaLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `GangliaLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          GangliaLayerCloudwatchConfigurationLogStreamArray{ GangliaLayerCloudwatchConfigurationLogStreamArgs{...} }
+type GangliaLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutput() GangliaLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) GangliaLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type GangliaLayerCloudwatchConfigurationLogStreamArray []GangliaLayerCloudwatchConfigurationLogStreamInput
+
+func (GangliaLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GangliaLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i GangliaLayerCloudwatchConfigurationLogStreamArray) ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutput() GangliaLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerCloudwatchConfigurationLogStreamArray) ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type GangliaLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) ToGangliaLayerCloudwatchConfigurationLogStreamOutput() GangliaLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) ToGangliaLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GangliaLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type GangliaLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GangliaLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutput() GangliaLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) GangliaLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GangliaLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]GangliaLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(GangliaLayerCloudwatchConfigurationLogStreamOutput)
+}
+
 type GangliaLayerEbsVolume struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// For PIOPS volumes, the IOPS per disk.
@@ -679,6 +1324,310 @@ func (o GangliaLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) GangliaLayerE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GangliaLayerEbsVolume {
 		return vs[0].([]GangliaLayerEbsVolume)[vs[1].(int)]
 	}).(GangliaLayerEbsVolumeOutput)
+}
+
+type HaproxyLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                          `pulumi:"enabled"`
+	LogStreams []HaproxyLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// HaproxyLayerCloudwatchConfigurationInput is an input type that accepts HaproxyLayerCloudwatchConfigurationArgs and HaproxyLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `HaproxyLayerCloudwatchConfigurationInput` via:
+//
+//          HaproxyLayerCloudwatchConfigurationArgs{...}
+type HaproxyLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerCloudwatchConfigurationOutput() HaproxyLayerCloudwatchConfigurationOutput
+	ToHaproxyLayerCloudwatchConfigurationOutputWithContext(context.Context) HaproxyLayerCloudwatchConfigurationOutput
+}
+
+type HaproxyLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                    `pulumi:"enabled"`
+	LogStreams HaproxyLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (HaproxyLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i HaproxyLayerCloudwatchConfigurationArgs) ToHaproxyLayerCloudwatchConfigurationOutput() HaproxyLayerCloudwatchConfigurationOutput {
+	return i.ToHaproxyLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerCloudwatchConfigurationArgs) ToHaproxyLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationOutput)
+}
+
+func (i HaproxyLayerCloudwatchConfigurationArgs) ToHaproxyLayerCloudwatchConfigurationPtrOutput() HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return i.ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerCloudwatchConfigurationArgs) ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationOutput).ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// HaproxyLayerCloudwatchConfigurationPtrInput is an input type that accepts HaproxyLayerCloudwatchConfigurationArgs, HaproxyLayerCloudwatchConfigurationPtr and HaproxyLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `HaproxyLayerCloudwatchConfigurationPtrInput` via:
+//
+//          HaproxyLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type HaproxyLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerCloudwatchConfigurationPtrOutput() HaproxyLayerCloudwatchConfigurationPtrOutput
+	ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) HaproxyLayerCloudwatchConfigurationPtrOutput
+}
+
+type haproxyLayerCloudwatchConfigurationPtrType HaproxyLayerCloudwatchConfigurationArgs
+
+func HaproxyLayerCloudwatchConfigurationPtr(v *HaproxyLayerCloudwatchConfigurationArgs) HaproxyLayerCloudwatchConfigurationPtrInput {
+	return (*haproxyLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*haproxyLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *haproxyLayerCloudwatchConfigurationPtrType) ToHaproxyLayerCloudwatchConfigurationPtrOutput() HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return i.ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *haproxyLayerCloudwatchConfigurationPtrType) ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationPtrOutput)
+}
+
+type HaproxyLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o HaproxyLayerCloudwatchConfigurationOutput) ToHaproxyLayerCloudwatchConfigurationOutput() HaproxyLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationOutput) ToHaproxyLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationOutput) ToHaproxyLayerCloudwatchConfigurationPtrOutput() HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return o.ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HaproxyLayerCloudwatchConfigurationOutput) ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayerCloudwatchConfiguration) *HaproxyLayerCloudwatchConfiguration {
+		return &v
+	}).(HaproxyLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationOutput) LogStreams() HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfiguration) []HaproxyLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type HaproxyLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o HaproxyLayerCloudwatchConfigurationPtrOutput) ToHaproxyLayerCloudwatchConfigurationPtrOutput() HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationPtrOutput) ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationPtrOutput) Elem() HaproxyLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *HaproxyLayerCloudwatchConfiguration) HaproxyLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HaproxyLayerCloudwatchConfiguration
+		return ret
+	}).(HaproxyLayerCloudwatchConfigurationOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationPtrOutput) LogStreams() HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *HaproxyLayerCloudwatchConfiguration) []HaproxyLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type HaproxyLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// HaproxyLayerCloudwatchConfigurationLogStreamInput is an input type that accepts HaproxyLayerCloudwatchConfigurationLogStreamArgs and HaproxyLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `HaproxyLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          HaproxyLayerCloudwatchConfigurationLogStreamArgs{...}
+type HaproxyLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerCloudwatchConfigurationLogStreamOutput() HaproxyLayerCloudwatchConfigurationLogStreamOutput
+	ToHaproxyLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) HaproxyLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type HaproxyLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (HaproxyLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i HaproxyLayerCloudwatchConfigurationLogStreamArgs) ToHaproxyLayerCloudwatchConfigurationLogStreamOutput() HaproxyLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToHaproxyLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerCloudwatchConfigurationLogStreamArgs) ToHaproxyLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// HaproxyLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts HaproxyLayerCloudwatchConfigurationLogStreamArray and HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `HaproxyLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          HaproxyLayerCloudwatchConfigurationLogStreamArray{ HaproxyLayerCloudwatchConfigurationLogStreamArgs{...} }
+type HaproxyLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutput() HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type HaproxyLayerCloudwatchConfigurationLogStreamArray []HaproxyLayerCloudwatchConfigurationLogStreamInput
+
+func (HaproxyLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HaproxyLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i HaproxyLayerCloudwatchConfigurationLogStreamArray) ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutput() HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerCloudwatchConfigurationLogStreamArray) ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type HaproxyLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) ToHaproxyLayerCloudwatchConfigurationLogStreamOutput() HaproxyLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) ToHaproxyLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HaproxyLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutput() HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) HaproxyLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HaproxyLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]HaproxyLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(HaproxyLayerCloudwatchConfigurationLogStreamOutput)
 }
 
 type HaproxyLayerEbsVolume struct {
@@ -1165,6 +2114,310 @@ func (o InstanceRootBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceRoo
 	}).(InstanceRootBlockDeviceOutput)
 }
 
+type JavaAppLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                          `pulumi:"enabled"`
+	LogStreams []JavaAppLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// JavaAppLayerCloudwatchConfigurationInput is an input type that accepts JavaAppLayerCloudwatchConfigurationArgs and JavaAppLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `JavaAppLayerCloudwatchConfigurationInput` via:
+//
+//          JavaAppLayerCloudwatchConfigurationArgs{...}
+type JavaAppLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerCloudwatchConfigurationOutput() JavaAppLayerCloudwatchConfigurationOutput
+	ToJavaAppLayerCloudwatchConfigurationOutputWithContext(context.Context) JavaAppLayerCloudwatchConfigurationOutput
+}
+
+type JavaAppLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                    `pulumi:"enabled"`
+	LogStreams JavaAppLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (JavaAppLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i JavaAppLayerCloudwatchConfigurationArgs) ToJavaAppLayerCloudwatchConfigurationOutput() JavaAppLayerCloudwatchConfigurationOutput {
+	return i.ToJavaAppLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerCloudwatchConfigurationArgs) ToJavaAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationOutput)
+}
+
+func (i JavaAppLayerCloudwatchConfigurationArgs) ToJavaAppLayerCloudwatchConfigurationPtrOutput() JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerCloudwatchConfigurationArgs) ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationOutput).ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// JavaAppLayerCloudwatchConfigurationPtrInput is an input type that accepts JavaAppLayerCloudwatchConfigurationArgs, JavaAppLayerCloudwatchConfigurationPtr and JavaAppLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `JavaAppLayerCloudwatchConfigurationPtrInput` via:
+//
+//          JavaAppLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type JavaAppLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerCloudwatchConfigurationPtrOutput() JavaAppLayerCloudwatchConfigurationPtrOutput
+	ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) JavaAppLayerCloudwatchConfigurationPtrOutput
+}
+
+type javaAppLayerCloudwatchConfigurationPtrType JavaAppLayerCloudwatchConfigurationArgs
+
+func JavaAppLayerCloudwatchConfigurationPtr(v *JavaAppLayerCloudwatchConfigurationArgs) JavaAppLayerCloudwatchConfigurationPtrInput {
+	return (*javaAppLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*javaAppLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *javaAppLayerCloudwatchConfigurationPtrType) ToJavaAppLayerCloudwatchConfigurationPtrOutput() JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *javaAppLayerCloudwatchConfigurationPtrType) ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+type JavaAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o JavaAppLayerCloudwatchConfigurationOutput) ToJavaAppLayerCloudwatchConfigurationOutput() JavaAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationOutput) ToJavaAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationOutput) ToJavaAppLayerCloudwatchConfigurationPtrOutput() JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JavaAppLayerCloudwatchConfigurationOutput) ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayerCloudwatchConfiguration) *JavaAppLayerCloudwatchConfiguration {
+		return &v
+	}).(JavaAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationOutput) LogStreams() JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfiguration) []JavaAppLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type JavaAppLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o JavaAppLayerCloudwatchConfigurationPtrOutput) ToJavaAppLayerCloudwatchConfigurationPtrOutput() JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationPtrOutput) ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationPtrOutput) Elem() JavaAppLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *JavaAppLayerCloudwatchConfiguration) JavaAppLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JavaAppLayerCloudwatchConfiguration
+		return ret
+	}).(JavaAppLayerCloudwatchConfigurationOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationPtrOutput) LogStreams() JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *JavaAppLayerCloudwatchConfiguration) []JavaAppLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type JavaAppLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// JavaAppLayerCloudwatchConfigurationLogStreamInput is an input type that accepts JavaAppLayerCloudwatchConfigurationLogStreamArgs and JavaAppLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `JavaAppLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          JavaAppLayerCloudwatchConfigurationLogStreamArgs{...}
+type JavaAppLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerCloudwatchConfigurationLogStreamOutput() JavaAppLayerCloudwatchConfigurationLogStreamOutput
+	ToJavaAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) JavaAppLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type JavaAppLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (JavaAppLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i JavaAppLayerCloudwatchConfigurationLogStreamArgs) ToJavaAppLayerCloudwatchConfigurationLogStreamOutput() JavaAppLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToJavaAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerCloudwatchConfigurationLogStreamArgs) ToJavaAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// JavaAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts JavaAppLayerCloudwatchConfigurationLogStreamArray and JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `JavaAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          JavaAppLayerCloudwatchConfigurationLogStreamArray{ JavaAppLayerCloudwatchConfigurationLogStreamArgs{...} }
+type JavaAppLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutput() JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type JavaAppLayerCloudwatchConfigurationLogStreamArray []JavaAppLayerCloudwatchConfigurationLogStreamInput
+
+func (JavaAppLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JavaAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i JavaAppLayerCloudwatchConfigurationLogStreamArray) ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutput() JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerCloudwatchConfigurationLogStreamArray) ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type JavaAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) ToJavaAppLayerCloudwatchConfigurationLogStreamOutput() JavaAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) ToJavaAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JavaAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutput() JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) JavaAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JavaAppLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]JavaAppLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(JavaAppLayerCloudwatchConfigurationLogStreamOutput)
+}
+
 type JavaAppLayerEbsVolume struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// For PIOPS volumes, the IOPS per disk.
@@ -1311,6 +2564,310 @@ func (o JavaAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) JavaAppLayerE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JavaAppLayerEbsVolume {
 		return vs[0].([]JavaAppLayerEbsVolume)[vs[1].(int)]
 	}).(JavaAppLayerEbsVolumeOutput)
+}
+
+type MemcachedLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                            `pulumi:"enabled"`
+	LogStreams []MemcachedLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// MemcachedLayerCloudwatchConfigurationInput is an input type that accepts MemcachedLayerCloudwatchConfigurationArgs and MemcachedLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `MemcachedLayerCloudwatchConfigurationInput` via:
+//
+//          MemcachedLayerCloudwatchConfigurationArgs{...}
+type MemcachedLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerCloudwatchConfigurationOutput() MemcachedLayerCloudwatchConfigurationOutput
+	ToMemcachedLayerCloudwatchConfigurationOutputWithContext(context.Context) MemcachedLayerCloudwatchConfigurationOutput
+}
+
+type MemcachedLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                      `pulumi:"enabled"`
+	LogStreams MemcachedLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (MemcachedLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i MemcachedLayerCloudwatchConfigurationArgs) ToMemcachedLayerCloudwatchConfigurationOutput() MemcachedLayerCloudwatchConfigurationOutput {
+	return i.ToMemcachedLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerCloudwatchConfigurationArgs) ToMemcachedLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationOutput)
+}
+
+func (i MemcachedLayerCloudwatchConfigurationArgs) ToMemcachedLayerCloudwatchConfigurationPtrOutput() MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return i.ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerCloudwatchConfigurationArgs) ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationOutput).ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// MemcachedLayerCloudwatchConfigurationPtrInput is an input type that accepts MemcachedLayerCloudwatchConfigurationArgs, MemcachedLayerCloudwatchConfigurationPtr and MemcachedLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `MemcachedLayerCloudwatchConfigurationPtrInput` via:
+//
+//          MemcachedLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type MemcachedLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerCloudwatchConfigurationPtrOutput() MemcachedLayerCloudwatchConfigurationPtrOutput
+	ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) MemcachedLayerCloudwatchConfigurationPtrOutput
+}
+
+type memcachedLayerCloudwatchConfigurationPtrType MemcachedLayerCloudwatchConfigurationArgs
+
+func MemcachedLayerCloudwatchConfigurationPtr(v *MemcachedLayerCloudwatchConfigurationArgs) MemcachedLayerCloudwatchConfigurationPtrInput {
+	return (*memcachedLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*memcachedLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *memcachedLayerCloudwatchConfigurationPtrType) ToMemcachedLayerCloudwatchConfigurationPtrOutput() MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return i.ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *memcachedLayerCloudwatchConfigurationPtrType) ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationPtrOutput)
+}
+
+type MemcachedLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o MemcachedLayerCloudwatchConfigurationOutput) ToMemcachedLayerCloudwatchConfigurationOutput() MemcachedLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationOutput) ToMemcachedLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationOutput) ToMemcachedLayerCloudwatchConfigurationPtrOutput() MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return o.ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MemcachedLayerCloudwatchConfigurationOutput) ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayerCloudwatchConfiguration) *MemcachedLayerCloudwatchConfiguration {
+		return &v
+	}).(MemcachedLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationOutput) LogStreams() MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfiguration) []MemcachedLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type MemcachedLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o MemcachedLayerCloudwatchConfigurationPtrOutput) ToMemcachedLayerCloudwatchConfigurationPtrOutput() MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationPtrOutput) ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationPtrOutput) Elem() MemcachedLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *MemcachedLayerCloudwatchConfiguration) MemcachedLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MemcachedLayerCloudwatchConfiguration
+		return ret
+	}).(MemcachedLayerCloudwatchConfigurationOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationPtrOutput) LogStreams() MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *MemcachedLayerCloudwatchConfiguration) []MemcachedLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type MemcachedLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// MemcachedLayerCloudwatchConfigurationLogStreamInput is an input type that accepts MemcachedLayerCloudwatchConfigurationLogStreamArgs and MemcachedLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `MemcachedLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          MemcachedLayerCloudwatchConfigurationLogStreamArgs{...}
+type MemcachedLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerCloudwatchConfigurationLogStreamOutput() MemcachedLayerCloudwatchConfigurationLogStreamOutput
+	ToMemcachedLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) MemcachedLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type MemcachedLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (MemcachedLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i MemcachedLayerCloudwatchConfigurationLogStreamArgs) ToMemcachedLayerCloudwatchConfigurationLogStreamOutput() MemcachedLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToMemcachedLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerCloudwatchConfigurationLogStreamArgs) ToMemcachedLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// MemcachedLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts MemcachedLayerCloudwatchConfigurationLogStreamArray and MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `MemcachedLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          MemcachedLayerCloudwatchConfigurationLogStreamArray{ MemcachedLayerCloudwatchConfigurationLogStreamArgs{...} }
+type MemcachedLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutput() MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type MemcachedLayerCloudwatchConfigurationLogStreamArray []MemcachedLayerCloudwatchConfigurationLogStreamInput
+
+func (MemcachedLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemcachedLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i MemcachedLayerCloudwatchConfigurationLogStreamArray) ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutput() MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerCloudwatchConfigurationLogStreamArray) ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type MemcachedLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) ToMemcachedLayerCloudwatchConfigurationLogStreamOutput() MemcachedLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) ToMemcachedLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemcachedLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutput() MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) MemcachedLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemcachedLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]MemcachedLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(MemcachedLayerCloudwatchConfigurationLogStreamOutput)
 }
 
 type MemcachedLayerEbsVolume struct {
@@ -1461,6 +3018,310 @@ func (o MemcachedLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MemcachedLa
 	}).(MemcachedLayerEbsVolumeOutput)
 }
 
+type MysqlLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                        `pulumi:"enabled"`
+	LogStreams []MysqlLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// MysqlLayerCloudwatchConfigurationInput is an input type that accepts MysqlLayerCloudwatchConfigurationArgs and MysqlLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `MysqlLayerCloudwatchConfigurationInput` via:
+//
+//          MysqlLayerCloudwatchConfigurationArgs{...}
+type MysqlLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToMysqlLayerCloudwatchConfigurationOutput() MysqlLayerCloudwatchConfigurationOutput
+	ToMysqlLayerCloudwatchConfigurationOutputWithContext(context.Context) MysqlLayerCloudwatchConfigurationOutput
+}
+
+type MysqlLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                  `pulumi:"enabled"`
+	LogStreams MysqlLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (MysqlLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i MysqlLayerCloudwatchConfigurationArgs) ToMysqlLayerCloudwatchConfigurationOutput() MysqlLayerCloudwatchConfigurationOutput {
+	return i.ToMysqlLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerCloudwatchConfigurationArgs) ToMysqlLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationOutput)
+}
+
+func (i MysqlLayerCloudwatchConfigurationArgs) ToMysqlLayerCloudwatchConfigurationPtrOutput() MysqlLayerCloudwatchConfigurationPtrOutput {
+	return i.ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerCloudwatchConfigurationArgs) ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationOutput).ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// MysqlLayerCloudwatchConfigurationPtrInput is an input type that accepts MysqlLayerCloudwatchConfigurationArgs, MysqlLayerCloudwatchConfigurationPtr and MysqlLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `MysqlLayerCloudwatchConfigurationPtrInput` via:
+//
+//          MysqlLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type MysqlLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMysqlLayerCloudwatchConfigurationPtrOutput() MysqlLayerCloudwatchConfigurationPtrOutput
+	ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) MysqlLayerCloudwatchConfigurationPtrOutput
+}
+
+type mysqlLayerCloudwatchConfigurationPtrType MysqlLayerCloudwatchConfigurationArgs
+
+func MysqlLayerCloudwatchConfigurationPtr(v *MysqlLayerCloudwatchConfigurationArgs) MysqlLayerCloudwatchConfigurationPtrInput {
+	return (*mysqlLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*mysqlLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *mysqlLayerCloudwatchConfigurationPtrType) ToMysqlLayerCloudwatchConfigurationPtrOutput() MysqlLayerCloudwatchConfigurationPtrOutput {
+	return i.ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mysqlLayerCloudwatchConfigurationPtrType) ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationPtrOutput)
+}
+
+type MysqlLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o MysqlLayerCloudwatchConfigurationOutput) ToMysqlLayerCloudwatchConfigurationOutput() MysqlLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationOutput) ToMysqlLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationOutput) ToMysqlLayerCloudwatchConfigurationPtrOutput() MysqlLayerCloudwatchConfigurationPtrOutput {
+	return o.ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MysqlLayerCloudwatchConfigurationOutput) ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayerCloudwatchConfiguration) *MysqlLayerCloudwatchConfiguration {
+		return &v
+	}).(MysqlLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationOutput) LogStreams() MysqlLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfiguration) []MysqlLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(MysqlLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type MysqlLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o MysqlLayerCloudwatchConfigurationPtrOutput) ToMysqlLayerCloudwatchConfigurationPtrOutput() MysqlLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationPtrOutput) ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationPtrOutput) Elem() MysqlLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *MysqlLayerCloudwatchConfiguration) MysqlLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MysqlLayerCloudwatchConfiguration
+		return ret
+	}).(MysqlLayerCloudwatchConfigurationOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationPtrOutput) LogStreams() MysqlLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *MysqlLayerCloudwatchConfiguration) []MysqlLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(MysqlLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type MysqlLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// MysqlLayerCloudwatchConfigurationLogStreamInput is an input type that accepts MysqlLayerCloudwatchConfigurationLogStreamArgs and MysqlLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `MysqlLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          MysqlLayerCloudwatchConfigurationLogStreamArgs{...}
+type MysqlLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToMysqlLayerCloudwatchConfigurationLogStreamOutput() MysqlLayerCloudwatchConfigurationLogStreamOutput
+	ToMysqlLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) MysqlLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type MysqlLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (MysqlLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i MysqlLayerCloudwatchConfigurationLogStreamArgs) ToMysqlLayerCloudwatchConfigurationLogStreamOutput() MysqlLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToMysqlLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerCloudwatchConfigurationLogStreamArgs) ToMysqlLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// MysqlLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts MysqlLayerCloudwatchConfigurationLogStreamArray and MysqlLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `MysqlLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          MysqlLayerCloudwatchConfigurationLogStreamArray{ MysqlLayerCloudwatchConfigurationLogStreamArgs{...} }
+type MysqlLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutput() MysqlLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) MysqlLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type MysqlLayerCloudwatchConfigurationLogStreamArray []MysqlLayerCloudwatchConfigurationLogStreamInput
+
+func (MysqlLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MysqlLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i MysqlLayerCloudwatchConfigurationLogStreamArray) ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutput() MysqlLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerCloudwatchConfigurationLogStreamArray) ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type MysqlLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) ToMysqlLayerCloudwatchConfigurationLogStreamOutput() MysqlLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) ToMysqlLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MysqlLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type MysqlLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MysqlLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutput() MysqlLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) MysqlLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MysqlLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]MysqlLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(MysqlLayerCloudwatchConfigurationLogStreamOutput)
+}
+
 type MysqlLayerEbsVolume struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// For PIOPS volumes, the IOPS per disk.
@@ -1607,6 +3468,310 @@ func (o MysqlLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MysqlLayerEbsVo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MysqlLayerEbsVolume {
 		return vs[0].([]MysqlLayerEbsVolume)[vs[1].(int)]
 	}).(MysqlLayerEbsVolumeOutput)
+}
+
+type NodejsAppLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                            `pulumi:"enabled"`
+	LogStreams []NodejsAppLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// NodejsAppLayerCloudwatchConfigurationInput is an input type that accepts NodejsAppLayerCloudwatchConfigurationArgs and NodejsAppLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `NodejsAppLayerCloudwatchConfigurationInput` via:
+//
+//          NodejsAppLayerCloudwatchConfigurationArgs{...}
+type NodejsAppLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerCloudwatchConfigurationOutput() NodejsAppLayerCloudwatchConfigurationOutput
+	ToNodejsAppLayerCloudwatchConfigurationOutputWithContext(context.Context) NodejsAppLayerCloudwatchConfigurationOutput
+}
+
+type NodejsAppLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                      `pulumi:"enabled"`
+	LogStreams NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (NodejsAppLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationArgs) ToNodejsAppLayerCloudwatchConfigurationOutput() NodejsAppLayerCloudwatchConfigurationOutput {
+	return i.ToNodejsAppLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationArgs) ToNodejsAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationOutput)
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationArgs) ToNodejsAppLayerCloudwatchConfigurationPtrOutput() NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationArgs) ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationOutput).ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// NodejsAppLayerCloudwatchConfigurationPtrInput is an input type that accepts NodejsAppLayerCloudwatchConfigurationArgs, NodejsAppLayerCloudwatchConfigurationPtr and NodejsAppLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `NodejsAppLayerCloudwatchConfigurationPtrInput` via:
+//
+//          NodejsAppLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type NodejsAppLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerCloudwatchConfigurationPtrOutput() NodejsAppLayerCloudwatchConfigurationPtrOutput
+	ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) NodejsAppLayerCloudwatchConfigurationPtrOutput
+}
+
+type nodejsAppLayerCloudwatchConfigurationPtrType NodejsAppLayerCloudwatchConfigurationArgs
+
+func NodejsAppLayerCloudwatchConfigurationPtr(v *NodejsAppLayerCloudwatchConfigurationArgs) NodejsAppLayerCloudwatchConfigurationPtrInput {
+	return (*nodejsAppLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*nodejsAppLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *nodejsAppLayerCloudwatchConfigurationPtrType) ToNodejsAppLayerCloudwatchConfigurationPtrOutput() NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *nodejsAppLayerCloudwatchConfigurationPtrType) ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+type NodejsAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationOutput) ToNodejsAppLayerCloudwatchConfigurationOutput() NodejsAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationOutput) ToNodejsAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationOutput) ToNodejsAppLayerCloudwatchConfigurationPtrOutput() NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationOutput) ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayerCloudwatchConfiguration) *NodejsAppLayerCloudwatchConfiguration {
+		return &v
+	}).(NodejsAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationOutput) LogStreams() NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfiguration) []NodejsAppLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type NodejsAppLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) ToNodejsAppLayerCloudwatchConfigurationPtrOutput() NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) Elem() NodejsAppLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *NodejsAppLayerCloudwatchConfiguration) NodejsAppLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NodejsAppLayerCloudwatchConfiguration
+		return ret
+	}).(NodejsAppLayerCloudwatchConfigurationOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) LogStreams() NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *NodejsAppLayerCloudwatchConfiguration) []NodejsAppLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type NodejsAppLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// NodejsAppLayerCloudwatchConfigurationLogStreamInput is an input type that accepts NodejsAppLayerCloudwatchConfigurationLogStreamArgs and NodejsAppLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `NodejsAppLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          NodejsAppLayerCloudwatchConfigurationLogStreamArgs{...}
+type NodejsAppLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerCloudwatchConfigurationLogStreamOutput() NodejsAppLayerCloudwatchConfigurationLogStreamOutput
+	ToNodejsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type NodejsAppLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (NodejsAppLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationLogStreamArgs) ToNodejsAppLayerCloudwatchConfigurationLogStreamOutput() NodejsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToNodejsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationLogStreamArgs) ToNodejsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts NodejsAppLayerCloudwatchConfigurationLogStreamArray and NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          NodejsAppLayerCloudwatchConfigurationLogStreamArray{ NodejsAppLayerCloudwatchConfigurationLogStreamArgs{...} }
+type NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput() NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type NodejsAppLayerCloudwatchConfigurationLogStreamArray []NodejsAppLayerCloudwatchConfigurationLogStreamInput
+
+func (NodejsAppLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodejsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationLogStreamArray) ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput() NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerCloudwatchConfigurationLogStreamArray) ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type NodejsAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) ToNodejsAppLayerCloudwatchConfigurationLogStreamOutput() NodejsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) ToNodejsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodejsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput() NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodejsAppLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]NodejsAppLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(NodejsAppLayerCloudwatchConfigurationLogStreamOutput)
 }
 
 type NodejsAppLayerEbsVolume struct {
@@ -1757,6 +3922,310 @@ func (o NodejsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) NodejsAppLa
 	}).(NodejsAppLayerEbsVolumeOutput)
 }
 
+type PhpAppLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                         `pulumi:"enabled"`
+	LogStreams []PhpAppLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// PhpAppLayerCloudwatchConfigurationInput is an input type that accepts PhpAppLayerCloudwatchConfigurationArgs and PhpAppLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `PhpAppLayerCloudwatchConfigurationInput` via:
+//
+//          PhpAppLayerCloudwatchConfigurationArgs{...}
+type PhpAppLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerCloudwatchConfigurationOutput() PhpAppLayerCloudwatchConfigurationOutput
+	ToPhpAppLayerCloudwatchConfigurationOutputWithContext(context.Context) PhpAppLayerCloudwatchConfigurationOutput
+}
+
+type PhpAppLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                   `pulumi:"enabled"`
+	LogStreams PhpAppLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (PhpAppLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i PhpAppLayerCloudwatchConfigurationArgs) ToPhpAppLayerCloudwatchConfigurationOutput() PhpAppLayerCloudwatchConfigurationOutput {
+	return i.ToPhpAppLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerCloudwatchConfigurationArgs) ToPhpAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationOutput)
+}
+
+func (i PhpAppLayerCloudwatchConfigurationArgs) ToPhpAppLayerCloudwatchConfigurationPtrOutput() PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerCloudwatchConfigurationArgs) ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationOutput).ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// PhpAppLayerCloudwatchConfigurationPtrInput is an input type that accepts PhpAppLayerCloudwatchConfigurationArgs, PhpAppLayerCloudwatchConfigurationPtr and PhpAppLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `PhpAppLayerCloudwatchConfigurationPtrInput` via:
+//
+//          PhpAppLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type PhpAppLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerCloudwatchConfigurationPtrOutput() PhpAppLayerCloudwatchConfigurationPtrOutput
+	ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) PhpAppLayerCloudwatchConfigurationPtrOutput
+}
+
+type phpAppLayerCloudwatchConfigurationPtrType PhpAppLayerCloudwatchConfigurationArgs
+
+func PhpAppLayerCloudwatchConfigurationPtr(v *PhpAppLayerCloudwatchConfigurationArgs) PhpAppLayerCloudwatchConfigurationPtrInput {
+	return (*phpAppLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*phpAppLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *phpAppLayerCloudwatchConfigurationPtrType) ToPhpAppLayerCloudwatchConfigurationPtrOutput() PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *phpAppLayerCloudwatchConfigurationPtrType) ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+type PhpAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o PhpAppLayerCloudwatchConfigurationOutput) ToPhpAppLayerCloudwatchConfigurationOutput() PhpAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationOutput) ToPhpAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationOutput) ToPhpAppLayerCloudwatchConfigurationPtrOutput() PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PhpAppLayerCloudwatchConfigurationOutput) ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayerCloudwatchConfiguration) *PhpAppLayerCloudwatchConfiguration {
+		return &v
+	}).(PhpAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationOutput) LogStreams() PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfiguration) []PhpAppLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type PhpAppLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o PhpAppLayerCloudwatchConfigurationPtrOutput) ToPhpAppLayerCloudwatchConfigurationPtrOutput() PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationPtrOutput) ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationPtrOutput) Elem() PhpAppLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *PhpAppLayerCloudwatchConfiguration) PhpAppLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PhpAppLayerCloudwatchConfiguration
+		return ret
+	}).(PhpAppLayerCloudwatchConfigurationOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationPtrOutput) LogStreams() PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *PhpAppLayerCloudwatchConfiguration) []PhpAppLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type PhpAppLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// PhpAppLayerCloudwatchConfigurationLogStreamInput is an input type that accepts PhpAppLayerCloudwatchConfigurationLogStreamArgs and PhpAppLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `PhpAppLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          PhpAppLayerCloudwatchConfigurationLogStreamArgs{...}
+type PhpAppLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerCloudwatchConfigurationLogStreamOutput() PhpAppLayerCloudwatchConfigurationLogStreamOutput
+	ToPhpAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) PhpAppLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type PhpAppLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (PhpAppLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i PhpAppLayerCloudwatchConfigurationLogStreamArgs) ToPhpAppLayerCloudwatchConfigurationLogStreamOutput() PhpAppLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToPhpAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerCloudwatchConfigurationLogStreamArgs) ToPhpAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// PhpAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts PhpAppLayerCloudwatchConfigurationLogStreamArray and PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `PhpAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          PhpAppLayerCloudwatchConfigurationLogStreamArray{ PhpAppLayerCloudwatchConfigurationLogStreamArgs{...} }
+type PhpAppLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutput() PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type PhpAppLayerCloudwatchConfigurationLogStreamArray []PhpAppLayerCloudwatchConfigurationLogStreamInput
+
+func (PhpAppLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PhpAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i PhpAppLayerCloudwatchConfigurationLogStreamArray) ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutput() PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerCloudwatchConfigurationLogStreamArray) ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type PhpAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) ToPhpAppLayerCloudwatchConfigurationLogStreamOutput() PhpAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) ToPhpAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PhpAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutput() PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) PhpAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PhpAppLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]PhpAppLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(PhpAppLayerCloudwatchConfigurationLogStreamOutput)
+}
+
 type PhpAppLayerEbsVolume struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// For PIOPS volumes, the IOPS per disk.
@@ -1903,6 +4372,310 @@ func (o PhpAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) PhpAppLayerEbs
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PhpAppLayerEbsVolume {
 		return vs[0].([]PhpAppLayerEbsVolume)[vs[1].(int)]
 	}).(PhpAppLayerEbsVolumeOutput)
+}
+
+type RailsAppLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                           `pulumi:"enabled"`
+	LogStreams []RailsAppLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// RailsAppLayerCloudwatchConfigurationInput is an input type that accepts RailsAppLayerCloudwatchConfigurationArgs and RailsAppLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `RailsAppLayerCloudwatchConfigurationInput` via:
+//
+//          RailsAppLayerCloudwatchConfigurationArgs{...}
+type RailsAppLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerCloudwatchConfigurationOutput() RailsAppLayerCloudwatchConfigurationOutput
+	ToRailsAppLayerCloudwatchConfigurationOutputWithContext(context.Context) RailsAppLayerCloudwatchConfigurationOutput
+}
+
+type RailsAppLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                     `pulumi:"enabled"`
+	LogStreams RailsAppLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (RailsAppLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i RailsAppLayerCloudwatchConfigurationArgs) ToRailsAppLayerCloudwatchConfigurationOutput() RailsAppLayerCloudwatchConfigurationOutput {
+	return i.ToRailsAppLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerCloudwatchConfigurationArgs) ToRailsAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationOutput)
+}
+
+func (i RailsAppLayerCloudwatchConfigurationArgs) ToRailsAppLayerCloudwatchConfigurationPtrOutput() RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerCloudwatchConfigurationArgs) ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationOutput).ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// RailsAppLayerCloudwatchConfigurationPtrInput is an input type that accepts RailsAppLayerCloudwatchConfigurationArgs, RailsAppLayerCloudwatchConfigurationPtr and RailsAppLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `RailsAppLayerCloudwatchConfigurationPtrInput` via:
+//
+//          RailsAppLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RailsAppLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerCloudwatchConfigurationPtrOutput() RailsAppLayerCloudwatchConfigurationPtrOutput
+	ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) RailsAppLayerCloudwatchConfigurationPtrOutput
+}
+
+type railsAppLayerCloudwatchConfigurationPtrType RailsAppLayerCloudwatchConfigurationArgs
+
+func RailsAppLayerCloudwatchConfigurationPtr(v *RailsAppLayerCloudwatchConfigurationArgs) RailsAppLayerCloudwatchConfigurationPtrInput {
+	return (*railsAppLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*railsAppLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *railsAppLayerCloudwatchConfigurationPtrType) ToRailsAppLayerCloudwatchConfigurationPtrOutput() RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return i.ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *railsAppLayerCloudwatchConfigurationPtrType) ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+type RailsAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o RailsAppLayerCloudwatchConfigurationOutput) ToRailsAppLayerCloudwatchConfigurationOutput() RailsAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationOutput) ToRailsAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationOutput) ToRailsAppLayerCloudwatchConfigurationPtrOutput() RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RailsAppLayerCloudwatchConfigurationOutput) ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayerCloudwatchConfiguration) *RailsAppLayerCloudwatchConfiguration {
+		return &v
+	}).(RailsAppLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationOutput) LogStreams() RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfiguration) []RailsAppLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type RailsAppLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o RailsAppLayerCloudwatchConfigurationPtrOutput) ToRailsAppLayerCloudwatchConfigurationPtrOutput() RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationPtrOutput) ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationPtrOutput) Elem() RailsAppLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *RailsAppLayerCloudwatchConfiguration) RailsAppLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RailsAppLayerCloudwatchConfiguration
+		return ret
+	}).(RailsAppLayerCloudwatchConfigurationOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationPtrOutput) LogStreams() RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *RailsAppLayerCloudwatchConfiguration) []RailsAppLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type RailsAppLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// RailsAppLayerCloudwatchConfigurationLogStreamInput is an input type that accepts RailsAppLayerCloudwatchConfigurationLogStreamArgs and RailsAppLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `RailsAppLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          RailsAppLayerCloudwatchConfigurationLogStreamArgs{...}
+type RailsAppLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerCloudwatchConfigurationLogStreamOutput() RailsAppLayerCloudwatchConfigurationLogStreamOutput
+	ToRailsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) RailsAppLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type RailsAppLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (RailsAppLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i RailsAppLayerCloudwatchConfigurationLogStreamArgs) ToRailsAppLayerCloudwatchConfigurationLogStreamOutput() RailsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToRailsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerCloudwatchConfigurationLogStreamArgs) ToRailsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// RailsAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts RailsAppLayerCloudwatchConfigurationLogStreamArray and RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `RailsAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          RailsAppLayerCloudwatchConfigurationLogStreamArray{ RailsAppLayerCloudwatchConfigurationLogStreamArgs{...} }
+type RailsAppLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutput() RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type RailsAppLayerCloudwatchConfigurationLogStreamArray []RailsAppLayerCloudwatchConfigurationLogStreamInput
+
+func (RailsAppLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RailsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i RailsAppLayerCloudwatchConfigurationLogStreamArray) ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutput() RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerCloudwatchConfigurationLogStreamArray) ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type RailsAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) ToRailsAppLayerCloudwatchConfigurationLogStreamOutput() RailsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) ToRailsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RailsAppLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutput() RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) RailsAppLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RailsAppLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]RailsAppLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(RailsAppLayerCloudwatchConfigurationLogStreamOutput)
 }
 
 type RailsAppLayerEbsVolume struct {
@@ -2195,6 +4968,310 @@ func (o StackCustomCookbooksSourceArrayOutput) Index(i pulumi.IntInput) StackCus
 	}).(StackCustomCookbooksSourceOutput)
 }
 
+type StaticWebLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                            `pulumi:"enabled"`
+	LogStreams []StaticWebLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// StaticWebLayerCloudwatchConfigurationInput is an input type that accepts StaticWebLayerCloudwatchConfigurationArgs and StaticWebLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `StaticWebLayerCloudwatchConfigurationInput` via:
+//
+//          StaticWebLayerCloudwatchConfigurationArgs{...}
+type StaticWebLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerCloudwatchConfigurationOutput() StaticWebLayerCloudwatchConfigurationOutput
+	ToStaticWebLayerCloudwatchConfigurationOutputWithContext(context.Context) StaticWebLayerCloudwatchConfigurationOutput
+}
+
+type StaticWebLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                      `pulumi:"enabled"`
+	LogStreams StaticWebLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (StaticWebLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i StaticWebLayerCloudwatchConfigurationArgs) ToStaticWebLayerCloudwatchConfigurationOutput() StaticWebLayerCloudwatchConfigurationOutput {
+	return i.ToStaticWebLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerCloudwatchConfigurationArgs) ToStaticWebLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationOutput)
+}
+
+func (i StaticWebLayerCloudwatchConfigurationArgs) ToStaticWebLayerCloudwatchConfigurationPtrOutput() StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return i.ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerCloudwatchConfigurationArgs) ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationOutput).ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// StaticWebLayerCloudwatchConfigurationPtrInput is an input type that accepts StaticWebLayerCloudwatchConfigurationArgs, StaticWebLayerCloudwatchConfigurationPtr and StaticWebLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `StaticWebLayerCloudwatchConfigurationPtrInput` via:
+//
+//          StaticWebLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StaticWebLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerCloudwatchConfigurationPtrOutput() StaticWebLayerCloudwatchConfigurationPtrOutput
+	ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) StaticWebLayerCloudwatchConfigurationPtrOutput
+}
+
+type staticWebLayerCloudwatchConfigurationPtrType StaticWebLayerCloudwatchConfigurationArgs
+
+func StaticWebLayerCloudwatchConfigurationPtr(v *StaticWebLayerCloudwatchConfigurationArgs) StaticWebLayerCloudwatchConfigurationPtrInput {
+	return (*staticWebLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*staticWebLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *staticWebLayerCloudwatchConfigurationPtrType) ToStaticWebLayerCloudwatchConfigurationPtrOutput() StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return i.ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *staticWebLayerCloudwatchConfigurationPtrType) ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationPtrOutput)
+}
+
+type StaticWebLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o StaticWebLayerCloudwatchConfigurationOutput) ToStaticWebLayerCloudwatchConfigurationOutput() StaticWebLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationOutput) ToStaticWebLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationOutput) ToStaticWebLayerCloudwatchConfigurationPtrOutput() StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return o.ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StaticWebLayerCloudwatchConfigurationOutput) ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayerCloudwatchConfiguration) *StaticWebLayerCloudwatchConfiguration {
+		return &v
+	}).(StaticWebLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationOutput) LogStreams() StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfiguration) []StaticWebLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type StaticWebLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o StaticWebLayerCloudwatchConfigurationPtrOutput) ToStaticWebLayerCloudwatchConfigurationPtrOutput() StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationPtrOutput) ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationPtrOutput) Elem() StaticWebLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *StaticWebLayerCloudwatchConfiguration) StaticWebLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StaticWebLayerCloudwatchConfiguration
+		return ret
+	}).(StaticWebLayerCloudwatchConfigurationOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationPtrOutput) LogStreams() StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *StaticWebLayerCloudwatchConfiguration) []StaticWebLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type StaticWebLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// StaticWebLayerCloudwatchConfigurationLogStreamInput is an input type that accepts StaticWebLayerCloudwatchConfigurationLogStreamArgs and StaticWebLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `StaticWebLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          StaticWebLayerCloudwatchConfigurationLogStreamArgs{...}
+type StaticWebLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerCloudwatchConfigurationLogStreamOutput() StaticWebLayerCloudwatchConfigurationLogStreamOutput
+	ToStaticWebLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) StaticWebLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type StaticWebLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (StaticWebLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i StaticWebLayerCloudwatchConfigurationLogStreamArgs) ToStaticWebLayerCloudwatchConfigurationLogStreamOutput() StaticWebLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToStaticWebLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerCloudwatchConfigurationLogStreamArgs) ToStaticWebLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// StaticWebLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts StaticWebLayerCloudwatchConfigurationLogStreamArray and StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `StaticWebLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          StaticWebLayerCloudwatchConfigurationLogStreamArray{ StaticWebLayerCloudwatchConfigurationLogStreamArgs{...} }
+type StaticWebLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutput() StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type StaticWebLayerCloudwatchConfigurationLogStreamArray []StaticWebLayerCloudwatchConfigurationLogStreamInput
+
+func (StaticWebLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticWebLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i StaticWebLayerCloudwatchConfigurationLogStreamArray) ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutput() StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerCloudwatchConfigurationLogStreamArray) ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type StaticWebLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) ToStaticWebLayerCloudwatchConfigurationLogStreamOutput() StaticWebLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) ToStaticWebLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticWebLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutput() StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) StaticWebLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticWebLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]StaticWebLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(StaticWebLayerCloudwatchConfigurationLogStreamOutput)
+}
+
 type StaticWebLayerEbsVolume struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// For PIOPS volumes, the IOPS per disk.
@@ -2350,10 +5427,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentArrayInput)(nil)).Elem(), ApplicationEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSslConfigurationInput)(nil)).Elem(), ApplicationSslConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSslConfigurationArrayInput)(nil)).Elem(), ApplicationSslConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerCloudwatchConfigurationInput)(nil)).Elem(), CustomLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), CustomLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), CustomLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), CustomLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerEbsVolumeInput)(nil)).Elem(), CustomLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerEbsVolumeArrayInput)(nil)).Elem(), CustomLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerEbsVolumeInput)(nil)).Elem(), GangliaLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerEbsVolumeArrayInput)(nil)).Elem(), GangliaLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerEbsVolumeInput)(nil)).Elem(), HaproxyLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerEbsVolumeArrayInput)(nil)).Elem(), HaproxyLayerEbsVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEbsBlockDeviceInput)(nil)).Elem(), InstanceEbsBlockDeviceArgs{})
@@ -2362,20 +5451,48 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRootBlockDeviceInput)(nil)).Elem(), InstanceRootBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRootBlockDeviceArrayInput)(nil)).Elem(), InstanceRootBlockDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerCloudwatchConfigurationInput)(nil)).Elem(), JavaAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), JavaAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), JavaAppLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), JavaAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerEbsVolumeInput)(nil)).Elem(), JavaAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerEbsVolumeArrayInput)(nil)).Elem(), JavaAppLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerEbsVolumeInput)(nil)).Elem(), MemcachedLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerEbsVolumeArrayInput)(nil)).Elem(), MemcachedLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerEbsVolumeInput)(nil)).Elem(), MysqlLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerEbsVolumeArrayInput)(nil)).Elem(), MysqlLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerEbsVolumeInput)(nil)).Elem(), NodejsAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerEbsVolumeArrayInput)(nil)).Elem(), NodejsAppLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerEbsVolumeInput)(nil)).Elem(), PhpAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerEbsVolumeArrayInput)(nil)).Elem(), PhpAppLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerEbsVolumeInput)(nil)).Elem(), RailsAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerEbsVolumeArrayInput)(nil)).Elem(), RailsAppLayerEbsVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackCustomCookbooksSourceInput)(nil)).Elem(), StackCustomCookbooksSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackCustomCookbooksSourceArrayInput)(nil)).Elem(), StackCustomCookbooksSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerEbsVolumeInput)(nil)).Elem(), StaticWebLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerEbsVolumeArrayInput)(nil)).Elem(), StaticWebLayerEbsVolumeArray{})
 	pulumi.RegisterOutputType(ApplicationAppSourceOutput{})
@@ -2384,10 +5501,22 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationSslConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSslConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(CustomLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(CustomLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CustomLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(CustomLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(CustomLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(CustomLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(GangliaLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(GangliaLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerEbsVolumeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceOutput{})
@@ -2396,20 +5525,48 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceRootBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(MysqlLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(MysqlLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerEbsVolumeArrayOutput{})
 	pulumi.RegisterOutputType(StackCustomCookbooksSourceOutput{})
 	pulumi.RegisterOutputType(StackCustomCookbooksSourceArrayOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerEbsVolumeArrayOutput{})
 }

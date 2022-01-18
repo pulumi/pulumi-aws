@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Compatibility { get; private set; } = null!;
 
         /// <summary>
-        /// The data format of the schema definition. Currently only `AVRO` is supported.
+        /// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         /// </summary>
         [Output("dataFormat")]
         public Output<string> DataFormat { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> Compatibility { get; set; } = null!;
 
         /// <summary>
-        /// The data format of the schema definition. Currently only `AVRO` is supported.
+        /// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         /// </summary>
         [Input("dataFormat", required: true)]
         public Input<string> DataFormat { get; set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Compatibility { get; set; }
 
         /// <summary>
-        /// The data format of the schema definition. Currently only `AVRO` is supported.
+        /// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }

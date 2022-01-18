@@ -107,6 +107,10 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly ImmutableArray<string> ClientIds;
         /// <summary>
+        /// List of Cognito user pool client names.
+        /// </summary>
+        public readonly ImmutableArray<string> ClientNames;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -116,11 +120,14 @@ namespace Pulumi.Aws.Cognito
         private GetUserPoolClientsResult(
             ImmutableArray<string> clientIds,
 
+            ImmutableArray<string> clientNames,
+
             string id,
 
             string userPoolId)
         {
             ClientIds = clientIds;
+            ClientNames = clientNames;
             Id = id;
             UserPoolId = userPoolId;
         }

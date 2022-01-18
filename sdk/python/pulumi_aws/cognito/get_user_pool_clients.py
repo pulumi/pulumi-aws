@@ -20,10 +20,13 @@ class GetUserPoolClientsResult:
     """
     A collection of values returned by getUserPoolClients.
     """
-    def __init__(__self__, client_ids=None, id=None, user_pool_id=None):
+    def __init__(__self__, client_ids=None, client_names=None, id=None, user_pool_id=None):
         if client_ids and not isinstance(client_ids, list):
             raise TypeError("Expected argument 'client_ids' to be a list")
         pulumi.set(__self__, "client_ids", client_ids)
+        if client_names and not isinstance(client_names, list):
+            raise TypeError("Expected argument 'client_names' to be a list")
+        pulumi.set(__self__, "client_names", client_names)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +41,14 @@ class GetUserPoolClientsResult:
         List of Cognito user pool client IDs.
         """
         return pulumi.get(self, "client_ids")
+
+    @property
+    @pulumi.getter(name="clientNames")
+    def client_names(self) -> Sequence[str]:
+        """
+        List of Cognito user pool client names.
+        """
+        return pulumi.get(self, "client_names")
 
     @property
     @pulumi.getter
@@ -60,6 +71,7 @@ class AwaitableGetUserPoolClientsResult(GetUserPoolClientsResult):
             yield self
         return GetUserPoolClientsResult(
             client_ids=self.client_ids,
+            client_names=self.client_names,
             id=self.id,
             user_pool_id=self.user_pool_id)
 
@@ -91,6 +103,7 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
 
     return AwaitableGetUserPoolClientsResult(
         client_ids=__ret__.client_ids,
+        client_names=__ret__.client_names,
         id=__ret__.id,
         user_pool_id=__ret__.user_pool_id)
 

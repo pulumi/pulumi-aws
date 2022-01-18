@@ -69,6 +69,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
      * Whether to enable auto-healing for the layer.
      */
     public readonly autoHealing!: pulumi.Output<boolean | undefined>;
+    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.PhpAppLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
@@ -148,6 +149,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;
+            inputs["cloudwatchConfiguration"] = state ? state.cloudwatchConfiguration : undefined;
             inputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
             inputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
             inputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
@@ -175,6 +177,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
             inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = args ? args.autoHealing : undefined;
+            inputs["cloudwatchConfiguration"] = args ? args.cloudwatchConfiguration : undefined;
             inputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
             inputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
             inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
@@ -223,6 +226,7 @@ export interface PhpAppLayerState {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.PhpAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -302,6 +306,7 @@ export interface PhpAppLayerArgs {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.PhpAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

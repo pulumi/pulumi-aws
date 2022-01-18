@@ -74,6 +74,8 @@ type LookupImageRecipeResult struct {
 	Platform string `pulumi:"platform"`
 	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
+	// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
+	UserDataBase64 string `pulumi:"userDataBase64"`
 	// Version of the image recipe.
 	Version string `pulumi:"version"`
 	// The working directory used during build and test workflows.
@@ -168,6 +170,11 @@ func (o LookupImageRecipeResultOutput) Platform() pulumi.StringOutput {
 // Key-value map of resource tags for the image recipe.
 func (o LookupImageRecipeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
+func (o LookupImageRecipeResultOutput) UserDataBase64() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.UserDataBase64 }).(pulumi.StringOutput)
 }
 
 // Version of the image recipe.

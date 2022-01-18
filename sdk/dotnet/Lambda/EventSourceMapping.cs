@@ -355,7 +355,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+        /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         /// </summary>
         [Output("functionResponseTypes")]
         public Output<ImmutableArray<string>> FunctionResponseTypes { get; private set; } = null!;
@@ -534,7 +534,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _functionResponseTypes;
 
         /// <summary>
-        /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+        /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         /// </summary>
         public InputList<string> FunctionResponseTypes
         {
@@ -670,7 +670,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _functionResponseTypes;
 
         /// <summary>
-        /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+        /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         /// </summary>
         public InputList<string> FunctionResponseTypes
         {

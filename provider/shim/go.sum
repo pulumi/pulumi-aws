@@ -67,8 +67,8 @@ github.com/aws/aws-sdk-go v1.15.78/go.mod h1:E3/ieXAlvM0XWO57iftYVDLLvQ824smPP3A
 github.com/aws/aws-sdk-go v1.25.3/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
 github.com/aws/aws-sdk-go v1.42.18/go.mod h1:585smgzpB/KqRA+K3y/NL/oYRqQvpNJYvLm+LY1U59Q=
-github.com/aws/aws-sdk-go v1.42.29 h1:7nR+Ls5GGw1ZglG6YOfLzI8kDSy8didom/pLsb/K0fc=
-github.com/aws/aws-sdk-go v1.42.29/go.mod h1:OGr6lGMAKGlG9CVrYnWYDKIyb829c6EVBRjxqjmPepc=
+github.com/aws/aws-sdk-go v1.42.34 h1:fqGAiKmCSRY1rEa4G9VqgkKKbNmLKYq5dKmLtQkvYi8=
+github.com/aws/aws-sdk-go v1.42.34/go.mod h1:OGr6lGMAKGlG9CVrYnWYDKIyb829c6EVBRjxqjmPepc=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d h1:xDfNPAt8lFiC1UJrqV3uuy861HCTo708pDMbjHHdCas=
@@ -316,8 +316,8 @@ github.com/posener/complete v1.1.1/go.mod h1:em0nMJCgc9GFtwrmVmEMR/ZL6WyhyjMBndr
 github.com/pquerna/otp v1.3.0 h1:oJV/SkzR33anKXwQU3Of42rL4wbrffP4uvUf1SvS5Xs=
 github.com/pquerna/otp v1.3.0/go.mod h1:dkJfzwRKNiegxyNb54X/3fLwhCynbMspSyWKnvi1AEg=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20220118221527-29a24e9de57f h1:SmZMmlHQF9Ex6xpW4u6+nd6XIHClQr/b/fon+nb5dhg=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20220118221527-29a24e9de57f/go.mod h1:2mLu/98NeqgDU8uyg5A8+QecsCvNsmtewt8du/hJdSQ=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20220121160414-9b658a2e6262 h1:Lr5EsXkUr1mi/rcVtEoLzQFudTvmcjvuq3LRmsEGjCQ=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20220121160414-9b658a2e6262/go.mod h1:hLnR0w/R7ZjFl1iqpw/ZFjzEgTNwgfkcMfEnFNySg68=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/sebdah/goldie v1.0.0/go.mod h1:jXP4hmWywNEwZzhMuv2ccnqTSFpuq8iyQhtQdkkZBH4=
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=

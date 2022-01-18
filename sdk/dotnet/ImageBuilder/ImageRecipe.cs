@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the image recipe. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -128,6 +128,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+        /// </summary>
+        [Output("userDataBase64")]
+        public Output<string> UserDataBase64 { get; private set; } = null!;
 
         /// <summary>
         /// Version of the image recipe.
@@ -233,13 +239,19 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the image recipe. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+        /// </summary>
+        [Input("userDataBase64")]
+        public Input<string>? UserDataBase64 { get; set; }
 
         /// <summary>
         /// Version of the image recipe.
@@ -330,7 +342,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the image recipe. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -349,6 +361,12 @@ namespace Pulumi.Aws.ImageBuilder
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+        /// </summary>
+        [Input("userDataBase64")]
+        public Input<string>? UserDataBase64 { get; set; }
 
         /// <summary>
         /// Version of the image recipe.

@@ -69,6 +69,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
      */
     public readonly bundlerVersion!: pulumi.Output<string | undefined>;
+    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.RailsAppLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
@@ -166,6 +167,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;
             inputs["bundlerVersion"] = state ? state.bundlerVersion : undefined;
+            inputs["cloudwatchConfiguration"] = state ? state.cloudwatchConfiguration : undefined;
             inputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
             inputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
             inputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
@@ -199,6 +201,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
             inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = args ? args.autoHealing : undefined;
             inputs["bundlerVersion"] = args ? args.bundlerVersion : undefined;
+            inputs["cloudwatchConfiguration"] = args ? args.cloudwatchConfiguration : undefined;
             inputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
             inputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
             inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
@@ -259,6 +262,7 @@ export interface RailsAppLayerState {
      * When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
      */
     bundlerVersion?: pulumi.Input<string>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.RailsAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -362,6 +366,7 @@ export interface RailsAppLayerArgs {
      * When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
      */
     bundlerVersion?: pulumi.Input<string>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.RailsAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -20,6 +20,7 @@ class CustomLayerArgs:
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['CustomLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -44,11 +45,12 @@ class CustomLayerArgs:
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
+        :param pulumi.Input['CustomLayerCloudwatchConfigurationArgs'] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerEbsVolumeArgs']]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -65,6 +67,8 @@ class CustomLayerArgs:
             pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
             pulumi.set(__self__, "auto_healing", auto_healing)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -159,6 +163,18 @@ class CustomLayerArgs:
     @auto_healing.setter
     def auto_healing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_healing", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['CustomLayerCloudwatchConfigurationArgs']]:
+        """
+        Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        """
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['CustomLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -257,7 +273,7 @@ class CustomLayerArgs:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -357,6 +373,7 @@ class _CustomLayerState:
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['CustomLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -383,11 +400,12 @@ class _CustomLayerState:
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
+        :param pulumi.Input['CustomLayerCloudwatchConfigurationArgs'] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerEbsVolumeArgs']]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -407,6 +425,8 @@ class _CustomLayerState:
             pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
             pulumi.set(__self__, "auto_healing", auto_healing)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -495,6 +515,18 @@ class _CustomLayerState:
     @auto_healing.setter
     def auto_healing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_healing", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['CustomLayerCloudwatchConfigurationArgs']]:
+        """
+        Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        """
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['CustomLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -593,7 +625,7 @@ class _CustomLayerState:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -730,6 +762,7 @@ class CustomLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -777,11 +810,12 @@ class CustomLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
+        :param pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -838,6 +872,7 @@ class CustomLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -872,6 +907,7 @@ class CustomLayer(pulumi.CustomResource):
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
             __props__.__dict__["auto_healing"] = auto_healing
+            __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
             __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
             __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
             __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -911,6 +947,7 @@ class CustomLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -942,11 +979,12 @@ class CustomLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
+        :param pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -966,6 +1004,7 @@ class CustomLayer(pulumi.CustomResource):
         __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
         __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
         __props__.__dict__["auto_healing"] = auto_healing
+        __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
         __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
         __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
         __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -1019,6 +1058,14 @@ class CustomLayer(pulumi.CustomResource):
         Whether to enable auto-healing for the layer.
         """
         return pulumi.get(self, "auto_healing")
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> pulumi.Output[Optional['outputs.CustomLayerCloudwatchConfiguration']]:
+        """
+        Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        """
+        return pulumi.get(self, "cloudwatch_configuration")
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -1081,7 +1128,7 @@ class CustomLayer(pulumi.CustomResource):
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.CustomLayerEbsVolume']]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         """
         return pulumi.get(self, "ebs_volumes")
 

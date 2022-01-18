@@ -48,6 +48,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("accessControlMaxAgeSec")]
         public Input<int>? AccessControlMaxAgeSec { get; set; }
 
+        /// <summary>
+        /// A Boolean value that determines how CloudFront behaves for the HTTP response header.
+        /// </summary>
         [Input("originOverride", required: true)]
         public Input<bool> OriginOverride { get; set; } = null!;
 

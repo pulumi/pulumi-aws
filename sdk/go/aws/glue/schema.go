@@ -54,7 +54,7 @@ type Schema struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility pulumi.StringOutput `pulumi:"compatibility"`
-	// The data format of the schema definition. Currently only `AVRO` is supported.
+	// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
 	DataFormat pulumi.StringOutput `pulumi:"dataFormat"`
 	// A description of the schema.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -123,7 +123,7 @@ type schemaState struct {
 	Arn *string `pulumi:"arn"`
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility *string `pulumi:"compatibility"`
-	// The data format of the schema definition. Currently only `AVRO` is supported.
+	// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
 	DataFormat *string `pulumi:"dataFormat"`
 	// A description of the schema.
 	Description *string `pulumi:"description"`
@@ -152,7 +152,7 @@ type SchemaState struct {
 	Arn pulumi.StringPtrInput
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility pulumi.StringPtrInput
-	// The data format of the schema definition. Currently only `AVRO` is supported.
+	// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
 	DataFormat pulumi.StringPtrInput
 	// A description of the schema.
 	Description pulumi.StringPtrInput
@@ -183,7 +183,7 @@ func (SchemaState) ElementType() reflect.Type {
 type schemaArgs struct {
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility string `pulumi:"compatibility"`
-	// The data format of the schema definition. Currently only `AVRO` is supported.
+	// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
 	DataFormat string `pulumi:"dataFormat"`
 	// A description of the schema.
 	Description *string `pulumi:"description"`
@@ -201,7 +201,7 @@ type schemaArgs struct {
 type SchemaArgs struct {
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility pulumi.StringInput
-	// The data format of the schema definition. Currently only `AVRO` is supported.
+	// The data format of the schema definition. Valid values are `AVRO` and `JSON`.
 	DataFormat pulumi.StringInput
 	// A description of the schema.
 	Description pulumi.StringPtrInput

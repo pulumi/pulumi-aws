@@ -304,9 +304,8 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     public MyStack()
     ///     {
-    ///         var eventBusInvokeRemoteEventBusRole = Output.Create(Aws.Iam.GetRole.InvokeAsync(new Aws.Iam.GetRoleArgs
+    ///         var eventBusInvokeRemoteEventBusRole = new Aws.Iam.Role("eventBusInvokeRemoteEventBusRole", new Aws.Iam.RoleArgs
     ///         {
-    ///             Name = "event-bus-invoke-remote-event-bus",
     ///             AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -320,7 +319,7 @@ namespace Pulumi.Aws.CloudWatch
     ///   ]
     /// }
     /// ",
-    ///         }));
+    ///         });
     ///         var eventBusInvokeRemoteEventBusPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
     ///         {
     ///             Statements = 
@@ -345,7 +344,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         });
     ///         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {
-    ///             Role = aws_iam_role.Event_bus_invoke_remote_event_bus.Name,
+    ///             Role = eventBusInvokeRemoteEventBusRole.Name,
     ///             PolicyArn = eventBusInvokeRemoteEventBusPolicy.Arn,
     ///         });
     ///         var stopInstancesEventRule = new Aws.CloudWatch.EventRule("stopInstancesEventRule", new Aws.CloudWatch.EventRuleArgs
@@ -357,7 +356,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             Arn = "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
     ///             Rule = stopInstancesEventRule.Name,
-    ///             RoleArn = aws_iam_role.Event_bus_invoke_remote_event_bus.Arn,
+    ///             RoleArn = eventBusInvokeRemoteEventBusRole.Arn,
     ///         });
     ///     }
     /// 

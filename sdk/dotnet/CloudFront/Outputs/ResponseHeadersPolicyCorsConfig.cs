@@ -37,6 +37,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         public readonly int? AccessControlMaxAgeSec;
+        /// <summary>
+        /// A Boolean value that determines how CloudFront behaves for the HTTP response header.
+        /// </summary>
         public readonly bool OriginOverride;
 
         [OutputConstructor]

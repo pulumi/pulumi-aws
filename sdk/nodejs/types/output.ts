@@ -7348,6 +7348,9 @@ export namespace cloudfront {
          * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
          */
         accessControlMaxAgeSec?: number;
+        /**
+         * A Boolean value that determines how CloudFront behaves for the HTTP response header.
+         */
         originOverride: boolean;
     }
 
@@ -24634,6 +24637,61 @@ export namespace opsworks {
         privateKey: string;
     }
 
+    export interface CustomLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        /**
+         * A block the specifies how an opsworks logs look like. See Log Streams.
+         */
+        logStreams?: outputs.opsworks.CustomLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface CustomLayerCloudwatchConfigurationLogStream {
+        /**
+         * Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+         */
+        batchCount?: number;
+        /**
+         * Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+         */
+        batchSize?: number;
+        /**
+         * Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+         */
+        bufferDuration?: number;
+        /**
+         * Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+         */
+        datetimeFormat?: string;
+        /**
+         * Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
+         */
+        encoding?: string;
+        /**
+         * Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+         */
+        file: string;
+        /**
+         * Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+         */
+        fileFingerprintLines?: string;
+        /**
+         * Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
+         */
+        initialPosition?: string;
+        /**
+         * Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+         */
+        logGroupName: string;
+        /**
+         * Specifies the pattern for identifying the start of a log message.
+         */
+        multilineStartPattern?: string;
+        /**
+         * Specifies the time zone of log event time stamps.
+         */
+        timeZone?: string;
+    }
+
     export interface CustomLayerEbsVolume {
         /**
          * Encrypt the volume.
@@ -24665,6 +24723,25 @@ export namespace opsworks {
         type?: string;
     }
 
+    export interface GangliaLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.GangliaLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface GangliaLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface GangliaLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24691,6 +24768,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface HaproxyLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.HaproxyLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface HaproxyLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface HaproxyLayerEbsVolume {
@@ -24742,6 +24838,25 @@ export namespace opsworks {
         volumeType: string;
     }
 
+    export interface JavaAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.JavaAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface JavaAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface JavaAppLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24768,6 +24883,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface MemcachedLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.MemcachedLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface MemcachedLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface MemcachedLayerEbsVolume {
@@ -24798,6 +24932,25 @@ export namespace opsworks {
         type?: string;
     }
 
+    export interface MysqlLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.MysqlLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface MysqlLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface MysqlLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24824,6 +24977,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface NodejsAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.NodejsAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface NodejsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface NodejsAppLayerEbsVolume {
@@ -24854,6 +25026,25 @@ export namespace opsworks {
         type?: string;
     }
 
+    export interface PhpAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.PhpAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface PhpAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface PhpAppLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24880,6 +25071,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface RailsAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.RailsAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface RailsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface RailsAppLayerEbsVolume {
@@ -24935,6 +25145,25 @@ export namespace opsworks {
          * Username to use when authenticating to the source.
          */
         username?: string;
+    }
+
+    export interface StaticWebLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.StaticWebLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface StaticWebLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface StaticWebLayerEbsVolume {

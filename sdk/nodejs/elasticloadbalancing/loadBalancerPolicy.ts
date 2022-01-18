@@ -120,7 +120,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * Policy attribute to apply to the policy.
      */
-    public readonly policyAttributes!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerPolicyPolicyAttribute[] | undefined>;
+    public readonly policyAttributes!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerPolicyPolicyAttribute[]>;
     /**
      * The name of the load balancer policy.
      */

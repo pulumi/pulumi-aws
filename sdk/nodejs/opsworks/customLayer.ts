@@ -72,6 +72,10 @@ export class CustomLayer extends pulumi.CustomResource {
      * Whether to enable auto-healing for the layer.
      */
     public readonly autoHealing!: pulumi.Output<boolean | undefined>;
+    /**
+     * Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+     */
+    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.CustomLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
@@ -94,7 +98,7 @@ export class CustomLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.CustomLayerEbsVolume[] | undefined>;
     /**
@@ -155,6 +159,7 @@ export class CustomLayer extends pulumi.CustomResource {
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;
+            inputs["cloudwatchConfiguration"] = state ? state.cloudwatchConfiguration : undefined;
             inputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
             inputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
             inputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
@@ -186,6 +191,7 @@ export class CustomLayer extends pulumi.CustomResource {
             inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = args ? args.autoHealing : undefined;
+            inputs["cloudwatchConfiguration"] = args ? args.cloudwatchConfiguration : undefined;
             inputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
             inputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
             inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
@@ -235,6 +241,10 @@ export interface CustomLayerState {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
+    /**
+     * Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+     */
+    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.CustomLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -257,7 +267,7 @@ export interface CustomLayerState {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.CustomLayerEbsVolume>[]>;
     /**
@@ -318,6 +328,10 @@ export interface CustomLayerArgs {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
+    /**
+     * Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+     */
+    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.CustomLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -340,7 +354,7 @@ export interface CustomLayerArgs {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.CustomLayerEbsVolume>[]>;
     /**

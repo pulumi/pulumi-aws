@@ -19,6 +19,7 @@ class PhpAppLayerArgs:
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -62,6 +63,8 @@ class PhpAppLayerArgs:
             pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
             pulumi.set(__self__, "auto_healing", auto_healing)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -144,6 +147,15 @@ class PhpAppLayerArgs:
     @auto_healing.setter
     def auto_healing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_healing", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]:
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -342,6 +354,7 @@ class _PhpAppLayerState:
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -390,6 +403,8 @@ class _PhpAppLayerState:
             pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
             pulumi.set(__self__, "auto_healing", auto_healing)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -476,6 +491,15 @@ class _PhpAppLayerState:
     @auto_healing.setter
     def auto_healing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_healing", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]:
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -699,6 +723,7 @@ class PhpAppLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -801,6 +826,7 @@ class PhpAppLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -834,6 +860,7 @@ class PhpAppLayer(pulumi.CustomResource):
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
             __props__.__dict__["auto_healing"] = auto_healing
+            __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
             __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
             __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
             __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -870,6 +897,7 @@ class PhpAppLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -923,6 +951,7 @@ class PhpAppLayer(pulumi.CustomResource):
         __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
         __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
         __props__.__dict__["auto_healing"] = auto_healing
+        __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
         __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
         __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
         __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -975,6 +1004,11 @@ class PhpAppLayer(pulumi.CustomResource):
         Whether to enable auto-healing for the layer.
         """
         return pulumi.get(self, "auto_healing")
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> pulumi.Output[Optional['outputs.PhpAppLayerCloudwatchConfiguration']]:
+        return pulumi.get(self, "cloudwatch_configuration")
 
     @property
     @pulumi.getter(name="customConfigureRecipes")

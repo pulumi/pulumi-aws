@@ -168,6 +168,10 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
+        /// </summary>
+        public readonly string UserDataBase64;
+        /// <summary>
         /// Version of the image recipe.
         /// </summary>
         public readonly string Version;
@@ -200,6 +204,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             ImmutableDictionary<string, string>? tags,
 
+            string userDataBase64,
+
             string version,
 
             string workingDirectory)
@@ -215,6 +221,7 @@ namespace Pulumi.Aws.ImageBuilder
             ParentImage = parentImage;
             Platform = platform;
             Tags = tags;
+            UserDataBase64 = userDataBase64;
             Version = version;
             WorkingDirectory = workingDirectory;
         }

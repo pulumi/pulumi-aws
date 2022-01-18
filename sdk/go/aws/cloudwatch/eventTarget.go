@@ -274,10 +274,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.LookupRole(ctx, &iam.LookupRoleArgs{
-// 			Name:             "event-bus-invoke-remote-event-bus",
-// 			AssumeRolePolicy: fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"events.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n"),
-// 		}, nil)
+// 		eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "eventBusInvokeRemoteEventBusRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"events.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -304,7 +303,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicyAttachment(ctx, "eventBusInvokeRemoteEventBusRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			Role:      pulumi.Any(aws_iam_role.Event_bus_invoke_remote_event_bus.Name),
+// 			Role:      eventBusInvokeRemoteEventBusRole.Name,
 // 			PolicyArn: eventBusInvokeRemoteEventBusPolicy.Arn,
 // 		})
 // 		if err != nil {
@@ -320,7 +319,7 @@ import (
 // 		_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
 // 			Arn:     pulumi.String("arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"),
 // 			Rule:    stopInstancesEventRule.Name,
-// 			RoleArn: pulumi.Any(aws_iam_role.Event_bus_invoke_remote_event_bus.Arn),
+// 			RoleArn: eventBusInvokeRemoteEventBusRole.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
