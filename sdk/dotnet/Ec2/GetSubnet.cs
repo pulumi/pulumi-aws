@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2
         public string? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// ID of the Availability Zone for the subnet.
+        /// ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         /// </summary>
         [Input("availabilityZoneId")]
         public string? AvailabilityZoneId { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// ID of the Availability Zone for the subnet.
+        /// ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }

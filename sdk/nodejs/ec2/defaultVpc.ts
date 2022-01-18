@@ -122,6 +122,7 @@ export class DefaultVpc extends pulumi.CustomResource {
      * The IPv6 CIDR block of the VPC
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string>;
     public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
@@ -169,6 +170,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
             inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            inputs["ipv6CidrBlockNetworkBorderGroup"] = state ? state.ipv6CidrBlockNetworkBorderGroup : undefined;
             inputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
             inputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
@@ -184,6 +186,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             inputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            inputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
             inputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             inputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -266,6 +269,7 @@ export interface DefaultVpcState {
      * The IPv6 CIDR block of the VPC
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     ipv6IpamPoolId?: pulumi.Input<string>;
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
@@ -310,6 +314,7 @@ export interface DefaultVpcArgs {
      * The IPv6 CIDR block of the VPC
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     ipv6IpamPoolId?: pulumi.Input<string>;
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**

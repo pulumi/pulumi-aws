@@ -34,6 +34,8 @@ __all__ = [
     'UserPoolUserPoolAddOns',
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
+    'GetUserPoolClientAnalyticsConfigurationResult',
+    'GetUserPoolClientTokenValidityUnitResult',
 ]
 
 @pulumi.output_type
@@ -1626,5 +1628,105 @@ class UserPoolVerificationMessageTemplate(dict):
         SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         return pulumi.get(self, "sms_message")
+
+
+@pulumi.output_type
+class GetUserPoolClientAnalyticsConfigurationResult(dict):
+    def __init__(__self__, *,
+                 application_arn: str,
+                 application_id: str,
+                 external_id: str,
+                 role_arn: str,
+                 user_data_shared: bool):
+        """
+        :param str application_arn: (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        :param str application_id: (Optional) Application ID for an Amazon Pinpoint application.
+        :param str external_id: (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
+        :param str role_arn: (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+               * `user_data_shared` (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
+        pulumi.set(__self__, "application_arn", application_arn)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "user_data_shared", user_data_shared)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> str:
+        """
+        (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> str:
+        """
+        (Optional) Application ID for an Amazon Pinpoint application.
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> str:
+        """
+        (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        * `user_data_shared` (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="userDataShared")
+    def user_data_shared(self) -> bool:
+        return pulumi.get(self, "user_data_shared")
+
+
+@pulumi.output_type
+class GetUserPoolClientTokenValidityUnitResult(dict):
+    def __init__(__self__, *,
+                 access_token: str,
+                 id_token: str,
+                 refresh_token: str):
+        """
+        :param str access_token: (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        :param str id_token: (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        :param str refresh_token: (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "id_token", id_token)
+        pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> str:
+        """
+        (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="idToken")
+    def id_token(self) -> str:
+        """
+        (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        """
+        return pulumi.get(self, "id_token")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> str:
+        """
+        (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
+        return pulumi.get(self, "refresh_token")
 
 

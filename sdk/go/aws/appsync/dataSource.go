@@ -107,9 +107,11 @@ type DataSource struct {
 	LambdaConfig DataSourceLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
 	// A user-supplied name for the DataSource.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// AWS RDS settings. See Relational Database Config
+	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrOutput `pulumi:"serviceRoleArn"`
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -164,9 +166,11 @@ type dataSourceState struct {
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
 	// A user-supplied name for the DataSource.
 	Name *string `pulumi:"name"`
+	// AWS RDS settings. See Relational Database Config
+	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type *string `pulumi:"type"`
 }
 
@@ -187,9 +191,11 @@ type DataSourceState struct {
 	LambdaConfig DataSourceLambdaConfigPtrInput
 	// A user-supplied name for the DataSource.
 	Name pulumi.StringPtrInput
+	// AWS RDS settings. See Relational Database Config
+	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -212,9 +218,11 @@ type dataSourceArgs struct {
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
 	// A user-supplied name for the DataSource.
 	Name *string `pulumi:"name"`
+	// AWS RDS settings. See Relational Database Config
+	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type string `pulumi:"type"`
 }
 
@@ -234,9 +242,11 @@ type DataSourceArgs struct {
 	LambdaConfig DataSourceLambdaConfigPtrInput
 	// A user-supplied name for the DataSource.
 	Name pulumi.StringPtrInput
+	// AWS RDS settings. See Relational Database Config
+	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type pulumi.StringInput
 }
 

@@ -158,6 +158,12 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Output("maxBatchSize")]
+        public Output<int?> MaxBatchSize { get; private set; } = null!;
+
+        /// <summary>
         /// The PipelineConfig.
         /// </summary>
         [Output("pipelineConfig")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Output("responseTemplate")]
         public Output<string?> ResponseTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See Sync Config.
+        /// </summary>
+        [Output("syncConfig")]
+        public Output<Outputs.ResolverSyncConfig?> SyncConfig { get; private set; } = null!;
 
         /// <summary>
         /// The type name from the schema defined in the GraphQL API.
@@ -258,6 +270,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Kind { get; set; }
 
         /// <summary>
+        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
+
+        /// <summary>
         /// The PipelineConfig.
         /// </summary>
         [Input("pipelineConfig")]
@@ -274,6 +292,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("responseTemplate")]
         public Input<string>? ResponseTemplate { get; set; }
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See Sync Config.
+        /// </summary>
+        [Input("syncConfig")]
+        public Input<Inputs.ResolverSyncConfigArgs>? SyncConfig { get; set; }
 
         /// <summary>
         /// The type name from the schema defined in the GraphQL API.
@@ -325,6 +349,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Kind { get; set; }
 
         /// <summary>
+        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
+
+        /// <summary>
         /// The PipelineConfig.
         /// </summary>
         [Input("pipelineConfig")]
@@ -341,6 +371,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("responseTemplate")]
         public Input<string>? ResponseTemplate { get; set; }
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See Sync Config.
+        /// </summary>
+        [Input("syncConfig")]
+        public Input<Inputs.ResolverSyncConfigGetArgs>? SyncConfig { get; set; }
 
         /// <summary>
         /// The type name from the schema defined in the GraphQL API.

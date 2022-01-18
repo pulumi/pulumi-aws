@@ -81,7 +81,7 @@ export interface GetSubnetArgs {
      */
     availabilityZone?: string;
     /**
-     * ID of the Availability Zone for the subnet.
+     * ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
     availabilityZoneId?: string;
     /**
@@ -203,7 +203,7 @@ export interface GetSubnetOutputArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * ID of the Availability Zone for the subnet.
+     * ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
     availabilityZoneId?: pulumi.Input<string>;
     /**

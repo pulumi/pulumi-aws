@@ -15,18 +15,34 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  volume_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
+                 storage_tier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[str] description: A description of what the snapshot is.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         pulumi.set(__self__, "volume_id", volume_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if permanent_restore is not None:
+            pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if storage_tier is not None:
+            pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if temporary_restore_days is not None:
+            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
 
     @property
     @pulumi.getter(name="volumeId")
@@ -53,6 +69,42 @@ class SnapshotArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        """
+        return pulumi.get(self, "outpost_arn")
+
+    @outpost_arn.setter
+    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_arn", value)
+
+    @property
+    @pulumi.getter(name="permanentRestore")
+    def permanent_restore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to permanently restore an archived snapshot.
+        """
+        return pulumi.get(self, "permanent_restore")
+
+    @permanent_restore.setter
+    def permanent_restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permanent_restore", value)
+
+    @property
+    @pulumi.getter(name="storageTier")
+    def storage_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        """
+        return pulumi.get(self, "storage_tier")
+
+    @storage_tier.setter
+    def storage_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -64,6 +116,18 @@ class SnapshotArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="temporaryRestoreDays")
+    def temporary_restore_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        """
+        return pulumi.get(self, "temporary_restore_days")
+
+    @temporary_restore_days.setter
+    def temporary_restore_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "temporary_restore_days", value)
+
 
 @pulumi.input_type
 class _SnapshotState:
@@ -73,10 +137,14 @@ class _SnapshotState:
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
                  owner_alias: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
+                 storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None):
         """
@@ -86,10 +154,14 @@ class _SnapshotState:
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
@@ -103,14 +175,22 @@ class _SnapshotState:
             pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if owner_alias is not None:
             pulumi.set(__self__, "owner_alias", owner_alias)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if permanent_restore is not None:
+            pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if storage_tier is not None:
+            pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if temporary_restore_days is not None:
+            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
@@ -177,6 +257,18 @@ class _SnapshotState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        """
+        return pulumi.get(self, "outpost_arn")
+
+    @outpost_arn.setter
+    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_arn", value)
+
+    @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> Optional[pulumi.Input[str]]:
         """
@@ -201,6 +293,30 @@ class _SnapshotState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter(name="permanentRestore")
+    def permanent_restore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to permanently restore an archived snapshot.
+        """
+        return pulumi.get(self, "permanent_restore")
+
+    @permanent_restore.setter
+    def permanent_restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permanent_restore", value)
+
+    @property
+    @pulumi.getter(name="storageTier")
+    def storage_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        """
+        return pulumi.get(self, "storage_tier")
+
+    @storage_tier.setter
+    def storage_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -223,6 +339,18 @@ class _SnapshotState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="temporaryRestoreDays")
+    def temporary_restore_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        """
+        return pulumi.get(self, "temporary_restore_days")
+
+    @temporary_restore_days.setter
+    def temporary_restore_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "temporary_restore_days", value)
 
     @property
     @pulumi.getter(name="volumeId")
@@ -255,7 +383,11 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
+                 storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -291,7 +423,11 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of what the snapshot is.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         """
         ...
@@ -346,7 +482,11 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
+                 storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -361,7 +501,11 @@ class Snapshot(pulumi.CustomResource):
             __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["outpost_arn"] = outpost_arn
+            __props__.__dict__["permanent_restore"] = permanent_restore
+            __props__.__dict__["storage_tier"] = storage_tier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["temporary_restore_days"] = temporary_restore_days
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__.__dict__["volume_id"] = volume_id
@@ -388,10 +532,14 @@ class Snapshot(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
+            outpost_arn: Optional[pulumi.Input[str]] = None,
             owner_alias: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
+            permanent_restore: Optional[pulumi.Input[bool]] = None,
+            storage_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            temporary_restore_days: Optional[pulumi.Input[int]] = None,
             volume_id: Optional[pulumi.Input[str]] = None,
             volume_size: Optional[pulumi.Input[int]] = None) -> 'Snapshot':
         """
@@ -406,10 +554,14 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
@@ -422,10 +574,14 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["encrypted"] = encrypted
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["owner_alias"] = owner_alias
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["permanent_restore"] = permanent_restore
+        __props__.__dict__["storage_tier"] = storage_tier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["temporary_restore_days"] = temporary_restore_days
         __props__.__dict__["volume_id"] = volume_id
         __props__.__dict__["volume_size"] = volume_size
         return Snapshot(resource_name, opts=opts, __props__=__props__)
@@ -471,6 +627,14 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        """
+        return pulumi.get(self, "outpost_arn")
+
+    @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> pulumi.Output[str]:
         """
@@ -487,6 +651,22 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter(name="permanentRestore")
+    def permanent_restore(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to permanently restore an archived snapshot.
+        """
+        return pulumi.get(self, "permanent_restore")
+
+    @property
+    @pulumi.getter(name="storageTier")
+    def storage_tier(self) -> pulumi.Output[str]:
+        """
+        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        """
+        return pulumi.get(self, "storage_tier")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -501,6 +681,14 @@ class Snapshot(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="temporaryRestoreDays")
+    def temporary_restore_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        """
+        return pulumi.get(self, "temporary_restore_days")
 
     @property
     @pulumi.getter(name="volumeId")

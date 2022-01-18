@@ -6,12 +6,14 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./devicePool";
+export * from "./instanceProfile";
 export * from "./networkProfile";
 export * from "./project";
 export * from "./upload";
 
 // Import resources to register:
 import { DevicePool } from "./devicePool";
+import { InstanceProfile } from "./instanceProfile";
 import { NetworkProfile } from "./networkProfile";
 import { Project } from "./project";
 import { Upload } from "./upload";
@@ -22,6 +24,8 @@ const _module = {
         switch (type) {
             case "aws:devicefarm/devicePool:DevicePool":
                 return new DevicePool(name, <any>undefined, { urn })
+            case "aws:devicefarm/instanceProfile:InstanceProfile":
+                return new InstanceProfile(name, <any>undefined, { urn })
             case "aws:devicefarm/networkProfile:NetworkProfile":
                 return new NetworkProfile(name, <any>undefined, { urn })
             case "aws:devicefarm/project:Project":
@@ -34,6 +38,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "devicefarm/devicePool", _module)
+pulumi.runtime.registerResourceModule("aws", "devicefarm/instanceProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/networkProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/project", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/upload", _module)

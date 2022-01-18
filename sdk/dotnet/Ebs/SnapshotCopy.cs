@@ -64,8 +64,6 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The data encryption key identifier for the snapshot.
-        /// * `source_snapshot_id` The ARN of the copied snapshot.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Output("dataEncryptionKeyId")]
         public Output<string> DataEncryptionKeyId { get; private set; } = null!;
@@ -88,6 +86,9 @@ namespace Pulumi.Aws.Ebs
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        [Output("outpostArn")]
+        public Output<string> OutpostArn { get; private set; } = null!;
+
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
@@ -99,6 +100,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to permanently restore an archived snapshot.
+        /// </summary>
+        [Output("permanentRestore")]
+        public Output<bool?> PermanentRestore { get; private set; } = null!;
 
         /// <summary>
         /// The region of the source snapshot.
@@ -113,8 +120,11 @@ namespace Pulumi.Aws.Ebs
         public Output<string> SourceSnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
+        [Output("storageTier")]
+        public Output<string> StorageTier { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -123,6 +133,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        /// </summary>
+        [Output("temporaryRestoreDays")]
+        public Output<int?> TemporaryRestoreDays { get; private set; } = null!;
 
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -198,6 +214,12 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// Indicates whether to permanently restore an archived snapshot.
+        /// </summary>
+        [Input("permanentRestore")]
+        public Input<bool>? PermanentRestore { get; set; }
+
+        /// <summary>
         /// The region of the source snapshot.
         /// </summary>
         [Input("sourceRegion", required: true)]
@@ -209,17 +231,25 @@ namespace Pulumi.Aws.Ebs
         [Input("sourceSnapshotId", required: true)]
         public Input<string> SourceSnapshotId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// </summary>
+        [Input("storageTier")]
+        public Input<string>? StorageTier { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        /// </summary>
+        [Input("temporaryRestoreDays")]
+        public Input<int>? TemporaryRestoreDays { get; set; }
 
         public SnapshotCopyArgs()
         {
@@ -236,8 +266,6 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The data encryption key identifier for the snapshot.
-        /// * `source_snapshot_id` The ARN of the copied snapshot.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Input("dataEncryptionKeyId")]
         public Input<string>? DataEncryptionKeyId { get; set; }
@@ -260,6 +288,9 @@ namespace Pulumi.Aws.Ebs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
@@ -273,6 +304,12 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
+        /// Indicates whether to permanently restore an archived snapshot.
+        /// </summary>
+        [Input("permanentRestore")]
+        public Input<bool>? PermanentRestore { get; set; }
+
+        /// <summary>
         /// The region of the source snapshot.
         /// </summary>
         [Input("sourceRegion")]
@@ -284,12 +321,14 @@ namespace Pulumi.Aws.Ebs
         [Input("sourceSnapshotId")]
         public Input<string>? SourceSnapshotId { get; set; }
 
+        /// <summary>
+        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// </summary>
+        [Input("storageTier")]
+        public Input<string>? StorageTier { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -307,6 +346,12 @@ namespace Pulumi.Aws.Ebs
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        /// </summary>
+        [Input("temporaryRestoreDays")]
+        public Input<int>? TemporaryRestoreDays { get; set; }
 
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

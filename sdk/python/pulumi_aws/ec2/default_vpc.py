@@ -20,6 +20,7 @@ class DefaultVpcArgs:
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -47,6 +48,8 @@ class DefaultVpcArgs:
             pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_cidr_block_network_border_group is not None:
+            pulumi.set(__self__, "ipv6_cidr_block_network_border_group", ipv6_cidr_block_network_border_group)
         if ipv6_ipam_pool_id is not None:
             pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_netmask_length is not None:
@@ -132,6 +135,15 @@ class DefaultVpcArgs:
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @property
+    @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
+    def ipv6_cidr_block_network_border_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_cidr_block_network_border_group")
+
+    @ipv6_cidr_block_network_border_group.setter
+    def ipv6_cidr_block_network_border_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block_network_border_group", value)
+
+    @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ipv6_ipam_pool_id")
@@ -181,6 +193,7 @@ class _DefaultVpcState:
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_association_id: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  main_route_table_id: Optional[pulumi.Input[str]] = None,
@@ -242,6 +255,8 @@ class _DefaultVpcState:
             pulumi.set(__self__, "ipv6_association_id", ipv6_association_id)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_cidr_block_network_border_group is not None:
+            pulumi.set(__self__, "ipv6_cidr_block_network_border_group", ipv6_cidr_block_network_border_group)
         if ipv6_ipam_pool_id is not None:
             pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_netmask_length is not None:
@@ -439,6 +454,15 @@ class _DefaultVpcState:
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @property
+    @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
+    def ipv6_cidr_block_network_border_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_cidr_block_network_border_group")
+
+    @ipv6_cidr_block_network_border_group.setter
+    def ipv6_cidr_block_network_border_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block_network_border_group", value)
+
+    @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ipv6_ipam_pool_id")
@@ -516,6 +540,7 @@ class DefaultVpc(pulumi.CustomResource):
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -624,6 +649,7 @@ class DefaultVpc(pulumi.CustomResource):
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -646,6 +672,7 @@ class DefaultVpc(pulumi.CustomResource):
             __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
             __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["ipv6_cidr_block_network_border_group"] = ipv6_cidr_block_network_border_group
             __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
             __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["tags"] = tags
@@ -687,6 +714,7 @@ class DefaultVpc(pulumi.CustomResource):
             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
             ipv6_association_id: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+            ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
             ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
             ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
             main_route_table_id: Optional[pulumi.Input[str]] = None,
@@ -741,6 +769,7 @@ class DefaultVpc(pulumi.CustomResource):
         __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
         __props__.__dict__["ipv6_association_id"] = ipv6_association_id
         __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+        __props__.__dict__["ipv6_cidr_block_network_border_group"] = ipv6_cidr_block_network_border_group
         __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
         __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
         __props__.__dict__["main_route_table_id"] = main_route_table_id
@@ -867,6 +896,11 @@ class DefaultVpc(pulumi.CustomResource):
         The IPv6 CIDR block of the VPC
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
+    def ipv6_cidr_block_network_border_group(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "ipv6_cidr_block_network_border_group")
 
     @property
     @pulumi.getter(name="ipv6IpamPoolId")

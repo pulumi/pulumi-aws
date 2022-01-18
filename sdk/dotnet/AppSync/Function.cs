@@ -128,6 +128,12 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> FunctionVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Output("maxBatchSize")]
+        public Output<int?> MaxBatchSize { get; private set; } = null!;
+
+        /// <summary>
         /// The Function name. The function name does not have to be unique.
         /// </summary>
         [Output("name")]
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Output("responseMappingTemplate")]
         public Output<string> ResponseMappingTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See Sync Config.
+        /// </summary>
+        [Output("syncConfig")]
+        public Output<Outputs.FunctionSyncConfig?> SyncConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -216,6 +228,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? FunctionVersion { get; set; }
 
         /// <summary>
+        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
+
+        /// <summary>
         /// The Function name. The function name does not have to be unique.
         /// </summary>
         [Input("name")]
@@ -232,6 +250,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("responseMappingTemplate", required: true)]
         public Input<string> ResponseMappingTemplate { get; set; } = null!;
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See Sync Config.
+        /// </summary>
+        [Input("syncConfig")]
+        public Input<Inputs.FunctionSyncConfigArgs>? SyncConfig { get; set; }
 
         public FunctionArgs()
         {
@@ -277,6 +301,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? FunctionVersion { get; set; }
 
         /// <summary>
+        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
+
+        /// <summary>
         /// The Function name. The function name does not have to be unique.
         /// </summary>
         [Input("name")]
@@ -293,6 +323,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("responseMappingTemplate")]
         public Input<string>? ResponseMappingTemplate { get; set; }
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See Sync Config.
+        /// </summary>
+        [Input("syncConfig")]
+        public Input<Inputs.FunctionSyncConfigGetArgs>? SyncConfig { get; set; }
 
         public FunctionState()
         {

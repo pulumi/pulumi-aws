@@ -16,12 +16,14 @@ class VpcIpamPoolCidrAllocationArgs:
                  ipam_pool_id: pulumi.Input[str],
                  cidr: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netmask_length: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         """
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
@@ -29,6 +31,8 @@ class VpcIpamPoolCidrAllocationArgs:
             pulumi.set(__self__, "cidr", cidr)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disallowed_cidrs is not None:
+            pulumi.set(__self__, "disallowed_cidrs", disallowed_cidrs)
         if netmask_length is not None:
             pulumi.set(__self__, "netmask_length", netmask_length)
 
@@ -69,6 +73,18 @@ class VpcIpamPoolCidrAllocationArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="disallowedCidrs")
+    def disallowed_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Exclude a particular CIDR range from being returned by the pool.
+        """
+        return pulumi.get(self, "disallowed_cidrs")
+
+    @disallowed_cidrs.setter
+    def disallowed_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disallowed_cidrs", value)
+
+    @property
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> Optional[pulumi.Input[int]]:
         """
@@ -86,6 +102,7 @@ class _VpcIpamPoolCidrAllocationState:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipam_pool_allocation_id: Optional[pulumi.Input[str]] = None,
                  ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  netmask_length: Optional[pulumi.Input[int]] = None,
@@ -96,6 +113,7 @@ class _VpcIpamPoolCidrAllocationState:
         Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         :param pulumi.Input[str] resource_id: The ID of the resource.
@@ -106,6 +124,8 @@ class _VpcIpamPoolCidrAllocationState:
             pulumi.set(__self__, "cidr", cidr)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disallowed_cidrs is not None:
+            pulumi.set(__self__, "disallowed_cidrs", disallowed_cidrs)
         if ipam_pool_allocation_id is not None:
             pulumi.set(__self__, "ipam_pool_allocation_id", ipam_pool_allocation_id)
         if ipam_pool_id is not None:
@@ -142,6 +162,18 @@ class _VpcIpamPoolCidrAllocationState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disallowedCidrs")
+    def disallowed_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Exclude a particular CIDR range from being returned by the pool.
+        """
+        return pulumi.get(self, "disallowed_cidrs")
+
+    @disallowed_cidrs.setter
+    def disallowed_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disallowed_cidrs", value)
 
     @property
     @pulumi.getter(name="ipamPoolAllocationId")
@@ -220,6 +252,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  netmask_length: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -251,6 +284,30 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
+        With the `disallowed_cidrs` attribute:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+            region_name=current.name,
+        )])
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+            address_family="ipv4",
+            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            locale=current.name)
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.2.0.0/16")
+        example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            netmask_length=28,
+            disallowed_cidrs=["172.2.0.0/28"],
+            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+        ```
+
         ## Import
 
         IPAMs can be imported using the `allocation id`, e.g.
@@ -263,6 +320,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         """
@@ -300,6 +358,30 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
+        With the `disallowed_cidrs` attribute:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+            region_name=current.name,
+        )])
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+            address_family="ipv4",
+            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            locale=current.name)
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.2.0.0/16")
+        example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            netmask_length=28,
+            disallowed_cidrs=["172.2.0.0/28"],
+            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+        ```
+
         ## Import
 
         IPAMs can be imported using the `allocation id`, e.g.
@@ -325,6 +407,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  netmask_length: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -341,6 +424,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
             __props__.__dict__["cidr"] = cidr
             __props__.__dict__["description"] = description
+            __props__.__dict__["disallowed_cidrs"] = disallowed_cidrs
             if ipam_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_pool_id'")
             __props__.__dict__["ipam_pool_id"] = ipam_pool_id
@@ -361,6 +445,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cidr: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ipam_pool_allocation_id: Optional[pulumi.Input[str]] = None,
             ipam_pool_id: Optional[pulumi.Input[str]] = None,
             netmask_length: Optional[pulumi.Input[int]] = None,
@@ -376,6 +461,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[str] description: The description for the allocation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
         :param pulumi.Input[str] resource_id: The ID of the resource.
@@ -388,6 +474,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         __props__.__dict__["cidr"] = cidr
         __props__.__dict__["description"] = description
+        __props__.__dict__["disallowed_cidrs"] = disallowed_cidrs
         __props__.__dict__["ipam_pool_allocation_id"] = ipam_pool_allocation_id
         __props__.__dict__["ipam_pool_id"] = ipam_pool_id
         __props__.__dict__["netmask_length"] = netmask_length
@@ -411,6 +498,14 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         The description for the allocation.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disallowedCidrs")
+    def disallowed_cidrs(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Exclude a particular CIDR range from being returned by the pool.
+        """
+        return pulumi.get(self, "disallowed_cidrs")
 
     @property
     @pulumi.getter(name="ipamPoolAllocationId")

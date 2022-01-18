@@ -143,6 +143,9 @@ namespace Pulumi.Aws.Ec2
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
 
+        [Output("ipv6CidrBlockNetworkBorderGroup")]
+        public Output<string> Ipv6CidrBlockNetworkBorderGroup { get; private set; } = null!;
+
         [Output("ipv6IpamPoolId")]
         public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
 
@@ -252,6 +255,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        public Input<string>? Ipv6CidrBlockNetworkBorderGroup { get; set; }
 
         [Input("ipv6IpamPoolId")]
         public Input<string>? Ipv6IpamPoolId { get; set; }
@@ -364,6 +370,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        public Input<string>? Ipv6CidrBlockNetworkBorderGroup { get; set; }
 
         [Input("ipv6IpamPoolId")]
         public Input<string>? Ipv6IpamPoolId { get; set; }

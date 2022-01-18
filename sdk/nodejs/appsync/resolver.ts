@@ -151,6 +151,10 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
+     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     */
+    public readonly maxBatchSize!: pulumi.Output<number | undefined>;
+    /**
      * The PipelineConfig.
      */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
@@ -162,6 +166,10 @@ export class Resolver extends pulumi.CustomResource {
      * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     public readonly responseTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     */
+    public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
     /**
      * The type name from the schema defined in the GraphQL API.
      */
@@ -186,9 +194,11 @@ export class Resolver extends pulumi.CustomResource {
             inputs["dataSource"] = state ? state.dataSource : undefined;
             inputs["field"] = state ? state.field : undefined;
             inputs["kind"] = state ? state.kind : undefined;
+            inputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
             inputs["pipelineConfig"] = state ? state.pipelineConfig : undefined;
             inputs["requestTemplate"] = state ? state.requestTemplate : undefined;
             inputs["responseTemplate"] = state ? state.responseTemplate : undefined;
+            inputs["syncConfig"] = state ? state.syncConfig : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ResolverArgs | undefined;
@@ -206,9 +216,11 @@ export class Resolver extends pulumi.CustomResource {
             inputs["dataSource"] = args ? args.dataSource : undefined;
             inputs["field"] = args ? args.field : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
             inputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
             inputs["requestTemplate"] = args ? args.requestTemplate : undefined;
             inputs["responseTemplate"] = args ? args.responseTemplate : undefined;
+            inputs["syncConfig"] = args ? args.syncConfig : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -248,6 +260,10 @@ export interface ResolverState {
      */
     kind?: pulumi.Input<string>;
     /**
+     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     */
+    maxBatchSize?: pulumi.Input<number>;
+    /**
      * The PipelineConfig.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
@@ -259,6 +275,10 @@ export interface ResolverState {
      * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     responseTemplate?: pulumi.Input<string>;
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     */
+    syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
     /**
      * The type name from the schema defined in the GraphQL API.
      */
@@ -290,6 +310,10 @@ export interface ResolverArgs {
      */
     kind?: pulumi.Input<string>;
     /**
+     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     */
+    maxBatchSize?: pulumi.Input<number>;
+    /**
      * The PipelineConfig.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
@@ -301,6 +325,10 @@ export interface ResolverArgs {
      * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     responseTemplate?: pulumi.Input<string>;
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     */
+    syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
     /**
      * The type name from the schema defined in the GraphQL API.
      */

@@ -20,7 +20,10 @@ class GetDistributionResult:
     """
     A collection of values returned by getDistribution.
     """
-    def __init__(__self__, arn=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, id=None, in_progress_validation_batches=None, last_modified_time=None, status=None, tags=None):
+    def __init__(__self__, aliases=None, arn=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, id=None, in_progress_validation_batches=None, last_modified_time=None, status=None, tags=None):
+        if aliases and not isinstance(aliases, list):
+            raise TypeError("Expected argument 'aliases' to be a list")
+        pulumi.set(__self__, "aliases", aliases)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +54,14 @@ class GetDistributionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Sequence[str]:
+        """
+        A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        """
+        return pulumi.get(self, "aliases")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetDistributionResult(GetDistributionResult):
         if False:
             yield self
         return GetDistributionResult(
+            aliases=self.aliases,
             arn=self.arn,
             domain_name=self.domain_name,
             enabled=self.enabled,
@@ -180,6 +192,7 @@ def get_distribution(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getDistribution:getDistribution', __args__, opts=opts, typ=GetDistributionResult).value
 
     return AwaitableGetDistributionResult(
+        aliases=__ret__.aliases,
         arn=__ret__.arn,
         domain_name=__ret__.domain_name,
         enabled=__ret__.enabled,

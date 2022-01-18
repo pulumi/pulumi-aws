@@ -10,9 +10,16 @@ from .. import _utilities
 
 __all__ = [
     'DataSourceDynamodbConfigArgs',
+    'DataSourceDynamodbConfigDeltaSyncConfigArgs',
     'DataSourceElasticsearchConfigArgs',
     'DataSourceHttpConfigArgs',
+    'DataSourceHttpConfigAuthorizationConfigArgs',
+    'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs',
     'DataSourceLambdaConfigArgs',
+    'DataSourceRelationalDatabaseConfigArgs',
+    'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs',
+    'FunctionSyncConfigArgs',
+    'FunctionSyncConfigLambdaConflictHandlerConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderArgs',
     'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs',
@@ -23,24 +30,32 @@ __all__ = [
     'GraphQLApiUserPoolConfigArgs',
     'ResolverCachingConfigArgs',
     'ResolverPipelineConfigArgs',
+    'ResolverSyncConfigArgs',
+    'ResolverSyncConfigLambdaConflictHandlerConfigArgs',
 ]
 
 @pulumi.input_type
 class DataSourceDynamodbConfigArgs:
     def __init__(__self__, *,
                  table_name: pulumi.Input[str],
+                 delta_sync_config: Optional[pulumi.Input['DataSourceDynamodbConfigDeltaSyncConfigArgs']] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 use_caller_credentials: Optional[pulumi.Input[bool]] = None):
+                 use_caller_credentials: Optional[pulumi.Input[bool]] = None,
+                 versioned: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] table_name: Name of the DynamoDB table.
-        :param pulumi.Input[str] region: AWS region of Elasticsearch domain. Defaults to current region.
+        :param pulumi.Input[str] region: AWS Region for RDS HTTP endpoint. Defaults to current region.
         :param pulumi.Input[bool] use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
         """
         pulumi.set(__self__, "table_name", table_name)
+        if delta_sync_config is not None:
+            pulumi.set(__self__, "delta_sync_config", delta_sync_config)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if use_caller_credentials is not None:
             pulumi.set(__self__, "use_caller_credentials", use_caller_credentials)
+        if versioned is not None:
+            pulumi.set(__self__, "versioned", versioned)
 
     @property
     @pulumi.getter(name="tableName")
@@ -55,10 +70,19 @@ class DataSourceDynamodbConfigArgs:
         pulumi.set(self, "table_name", value)
 
     @property
+    @pulumi.getter(name="deltaSyncConfig")
+    def delta_sync_config(self) -> Optional[pulumi.Input['DataSourceDynamodbConfigDeltaSyncConfigArgs']]:
+        return pulumi.get(self, "delta_sync_config")
+
+    @delta_sync_config.setter
+    def delta_sync_config(self, value: Optional[pulumi.Input['DataSourceDynamodbConfigDeltaSyncConfigArgs']]):
+        pulumi.set(self, "delta_sync_config", value)
+
+    @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS region of Elasticsearch domain. Defaults to current region.
+        AWS Region for RDS HTTP endpoint. Defaults to current region.
         """
         return pulumi.get(self, "region")
 
@@ -78,6 +102,55 @@ class DataSourceDynamodbConfigArgs:
     def use_caller_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_caller_credentials", value)
 
+    @property
+    @pulumi.getter
+    def versioned(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "versioned")
+
+    @versioned.setter
+    def versioned(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "versioned", value)
+
+
+@pulumi.input_type
+class DataSourceDynamodbConfigDeltaSyncConfigArgs:
+    def __init__(__self__, *,
+                 delta_sync_table_name: pulumi.Input[str],
+                 base_table_ttl: Optional[pulumi.Input[int]] = None,
+                 delta_sync_table_ttl: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "delta_sync_table_name", delta_sync_table_name)
+        if base_table_ttl is not None:
+            pulumi.set(__self__, "base_table_ttl", base_table_ttl)
+        if delta_sync_table_ttl is not None:
+            pulumi.set(__self__, "delta_sync_table_ttl", delta_sync_table_ttl)
+
+    @property
+    @pulumi.getter(name="deltaSyncTableName")
+    def delta_sync_table_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "delta_sync_table_name")
+
+    @delta_sync_table_name.setter
+    def delta_sync_table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "delta_sync_table_name", value)
+
+    @property
+    @pulumi.getter(name="baseTableTtl")
+    def base_table_ttl(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "base_table_ttl")
+
+    @base_table_ttl.setter
+    def base_table_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "base_table_ttl", value)
+
+    @property
+    @pulumi.getter(name="deltaSyncTableTtl")
+    def delta_sync_table_ttl(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "delta_sync_table_ttl")
+
+    @delta_sync_table_ttl.setter
+    def delta_sync_table_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delta_sync_table_ttl", value)
+
 
 @pulumi.input_type
 class DataSourceElasticsearchConfigArgs:
@@ -86,7 +159,7 @@ class DataSourceElasticsearchConfigArgs:
                  region: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] endpoint: HTTP URL.
-        :param pulumi.Input[str] region: AWS region of Elasticsearch domain. Defaults to current region.
+        :param pulumi.Input[str] region: AWS Region for RDS HTTP endpoint. Defaults to current region.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -108,7 +181,7 @@ class DataSourceElasticsearchConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS region of Elasticsearch domain. Defaults to current region.
+        AWS Region for RDS HTTP endpoint. Defaults to current region.
         """
         return pulumi.get(self, "region")
 
@@ -120,11 +193,15 @@ class DataSourceElasticsearchConfigArgs:
 @pulumi.input_type
 class DataSourceHttpConfigArgs:
     def __init__(__self__, *,
-                 endpoint: pulumi.Input[str]):
+                 endpoint: pulumi.Input[str],
+                 authorization_config: Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgs']] = None):
         """
         :param pulumi.Input[str] endpoint: HTTP URL.
+        :param pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgs'] authorization_config: The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
         """
         pulumi.set(__self__, "endpoint", endpoint)
+        if authorization_config is not None:
+            pulumi.set(__self__, "authorization_config", authorization_config)
 
     @property
     @pulumi.getter
@@ -137,6 +214,96 @@ class DataSourceHttpConfigArgs:
     @endpoint.setter
     def endpoint(self, value: pulumi.Input[str]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgs']]:
+        """
+        The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        """
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgs']]):
+        pulumi.set(self, "authorization_config", value)
+
+
+@pulumi.input_type
+class DataSourceHttpConfigAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 authorization_type: Optional[pulumi.Input[str]] = None,
+                 aws_iam_config: Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] authorization_type: The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+        :param pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs'] aws_iam_config: The Identity and Access Management (IAM) settings. See AWS IAM Config.
+        """
+        if authorization_type is not None:
+            pulumi.set(__self__, "authorization_type", authorization_type)
+        if aws_iam_config is not None:
+            pulumi.set(__self__, "aws_iam_config", aws_iam_config)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @authorization_type.setter
+    def authorization_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_type", value)
+
+    @property
+    @pulumi.getter(name="awsIamConfig")
+    def aws_iam_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs']]:
+        """
+        The Identity and Access Management (IAM) settings. See AWS IAM Config.
+        """
+        return pulumi.get(self, "aws_iam_config")
+
+    @aws_iam_config.setter
+    def aws_iam_config(self, value: Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs']]):
+        pulumi.set(self, "aws_iam_config", value)
+
+
+@pulumi.input_type
+class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs:
+    def __init__(__self__, *,
+                 signing_region: Optional[pulumi.Input[str]] = None,
+                 signing_service_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] signing_region: The signing Amazon Web Services Region for IAM authorization.
+        :param pulumi.Input[str] signing_service_name: The signing service name for IAM authorization.
+        """
+        if signing_region is not None:
+            pulumi.set(__self__, "signing_region", signing_region)
+        if signing_service_name is not None:
+            pulumi.set(__self__, "signing_service_name", signing_service_name)
+
+    @property
+    @pulumi.getter(name="signingRegion")
+    def signing_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The signing Amazon Web Services Region for IAM authorization.
+        """
+        return pulumi.get(self, "signing_region")
+
+    @signing_region.setter
+    def signing_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_region", value)
+
+    @property
+    @pulumi.getter(name="signingServiceName")
+    def signing_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The signing service name for IAM authorization.
+        """
+        return pulumi.get(self, "signing_service_name")
+
+    @signing_service_name.setter
+    def signing_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_service_name", value)
 
 
 @pulumi.input_type
@@ -159,6 +326,208 @@ class DataSourceLambdaConfigArgs:
     @function_arn.setter
     def function_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "function_arn", value)
+
+
+@pulumi.input_type
+class DataSourceRelationalDatabaseConfigArgs:
+    def __init__(__self__, *,
+                 http_endpoint_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs']] = None,
+                 source_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs'] http_endpoint_config: The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        :param pulumi.Input[str] source_type: Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
+        """
+        if http_endpoint_config is not None:
+            pulumi.set(__self__, "http_endpoint_config", http_endpoint_config)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="httpEndpointConfig")
+    def http_endpoint_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs']]:
+        """
+        The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        """
+        return pulumi.get(self, "http_endpoint_config")
+
+    @http_endpoint_config.setter
+    def http_endpoint_config(self, value: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs']]):
+        pulumi.set(self, "http_endpoint_config", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_type", value)
+
+
+@pulumi.input_type
+class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
+    def __init__(__self__, *,
+                 aws_secret_store_arn: pulumi.Input[str],
+                 db_cluster_identifier: pulumi.Input[str],
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aws_secret_store_arn: AWS secret store ARN for database credentials.
+        :param pulumi.Input[str] db_cluster_identifier: Amazon RDS cluster identifier.
+        :param pulumi.Input[str] database_name: Logical database name.
+        :param pulumi.Input[str] region: AWS Region for RDS HTTP endpoint. Defaults to current region.
+        :param pulumi.Input[str] schema: Logical schema name.
+        """
+        pulumi.set(__self__, "aws_secret_store_arn", aws_secret_store_arn)
+        pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="awsSecretStoreArn")
+    def aws_secret_store_arn(self) -> pulumi.Input[str]:
+        """
+        AWS secret store ARN for database credentials.
+        """
+        return pulumi.get(self, "aws_secret_store_arn")
+
+    @aws_secret_store_arn.setter
+    def aws_secret_store_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_secret_store_arn", value)
+
+    @property
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        Amazon RDS cluster identifier.
+        """
+        return pulumi.get(self, "db_cluster_identifier")
+
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logical database name.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS Region for RDS HTTP endpoint. Defaults to current region.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logical schema name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class FunctionSyncConfigArgs:
+    def __init__(__self__, *,
+                 conflict_detection: Optional[pulumi.Input[str]] = None,
+                 conflict_handler: Optional[pulumi.Input[str]] = None,
+                 lambda_conflict_handler_config: Optional[pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] conflict_detection: The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        :param pulumi.Input[str] conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        :param pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgs'] lambda_conflict_handler_config: The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
+        if conflict_detection is not None:
+            pulumi.set(__self__, "conflict_detection", conflict_detection)
+        if conflict_handler is not None:
+            pulumi.set(__self__, "conflict_handler", conflict_handler)
+        if lambda_conflict_handler_config is not None:
+            pulumi.set(__self__, "lambda_conflict_handler_config", lambda_conflict_handler_config)
+
+    @property
+    @pulumi.getter(name="conflictDetection")
+    def conflict_detection(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        """
+        return pulumi.get(self, "conflict_detection")
+
+    @conflict_detection.setter
+    def conflict_detection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conflict_detection", value)
+
+    @property
+    @pulumi.getter(name="conflictHandler")
+    def conflict_handler(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        """
+        return pulumi.get(self, "conflict_handler")
+
+    @conflict_handler.setter
+    def conflict_handler(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conflict_handler", value)
+
+    @property
+    @pulumi.getter(name="lambdaConflictHandlerConfig")
+    def lambda_conflict_handler_config(self) -> Optional[pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgs']]:
+        """
+        The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
+        return pulumi.get(self, "lambda_conflict_handler_config")
+
+    @lambda_conflict_handler_config.setter
+    def lambda_conflict_handler_config(self, value: Optional[pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgs']]):
+        pulumi.set(self, "lambda_conflict_handler_config", value)
+
+
+@pulumi.input_type
+class FunctionSyncConfigLambdaConflictHandlerConfigArgs:
+    def __init__(__self__, *,
+                 lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] lambda_conflict_handler_arn: The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
+        if lambda_conflict_handler_arn is not None:
+            pulumi.set(__self__, "lambda_conflict_handler_arn", lambda_conflict_handler_arn)
+
+    @property
+    @pulumi.getter(name="lambdaConflictHandlerArn")
+    def lambda_conflict_handler_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
+        return pulumi.get(self, "lambda_conflict_handler_arn")
+
+    @lambda_conflict_handler_arn.setter
+    def lambda_conflict_handler_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_conflict_handler_arn", value)
 
 
 @pulumi.input_type
@@ -715,5 +1084,83 @@ class ResolverPipelineConfigArgs:
     @functions.setter
     def functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "functions", value)
+
+
+@pulumi.input_type
+class ResolverSyncConfigArgs:
+    def __init__(__self__, *,
+                 conflict_detection: Optional[pulumi.Input[str]] = None,
+                 conflict_handler: Optional[pulumi.Input[str]] = None,
+                 lambda_conflict_handler_config: Optional[pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] conflict_detection: The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        :param pulumi.Input[str] conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        :param pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgs'] lambda_conflict_handler_config: The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
+        if conflict_detection is not None:
+            pulumi.set(__self__, "conflict_detection", conflict_detection)
+        if conflict_handler is not None:
+            pulumi.set(__self__, "conflict_handler", conflict_handler)
+        if lambda_conflict_handler_config is not None:
+            pulumi.set(__self__, "lambda_conflict_handler_config", lambda_conflict_handler_config)
+
+    @property
+    @pulumi.getter(name="conflictDetection")
+    def conflict_detection(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        """
+        return pulumi.get(self, "conflict_detection")
+
+    @conflict_detection.setter
+    def conflict_detection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conflict_detection", value)
+
+    @property
+    @pulumi.getter(name="conflictHandler")
+    def conflict_handler(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        """
+        return pulumi.get(self, "conflict_handler")
+
+    @conflict_handler.setter
+    def conflict_handler(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conflict_handler", value)
+
+    @property
+    @pulumi.getter(name="lambdaConflictHandlerConfig")
+    def lambda_conflict_handler_config(self) -> Optional[pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgs']]:
+        """
+        The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
+        return pulumi.get(self, "lambda_conflict_handler_config")
+
+    @lambda_conflict_handler_config.setter
+    def lambda_conflict_handler_config(self, value: Optional[pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgs']]):
+        pulumi.set(self, "lambda_conflict_handler_config", value)
+
+
+@pulumi.input_type
+class ResolverSyncConfigLambdaConflictHandlerConfigArgs:
+    def __init__(__self__, *,
+                 lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] lambda_conflict_handler_arn: The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
+        if lambda_conflict_handler_arn is not None:
+            pulumi.set(__self__, "lambda_conflict_handler_arn", lambda_conflict_handler_arn)
+
+    @property
+    @pulumi.getter(name="lambdaConflictHandlerArn")
+    def lambda_conflict_handler_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
+        return pulumi.get(self, "lambda_conflict_handler_arn")
+
+    @lambda_conflict_handler_arn.setter
+    def lambda_conflict_handler_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_conflict_handler_arn", value)
 
 

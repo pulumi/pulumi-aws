@@ -118,7 +118,7 @@ class GetVpcIamPoolResult:
 
     @property
     @pulumi.getter(name="allocationResourceTags")
-    def allocation_resource_tags(self) -> Optional[Mapping[str, str]]:
+    def allocation_resource_tags(self) -> Mapping[str, str]:
         """
         Tags that are required to create resources in using this pool.
         """

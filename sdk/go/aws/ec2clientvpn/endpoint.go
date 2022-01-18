@@ -72,7 +72,7 @@ type Endpoint struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrOutput `pulumi:"selfServicePortal"`
@@ -143,7 +143,7 @@ type endpointState struct {
 	Description *string `pulumi:"description"`
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName *string `pulumi:"dnsName"`
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal *string `pulumi:"selfServicePortal"`
@@ -174,7 +174,7 @@ type EndpointState struct {
 	Description pulumi.StringPtrInput
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName pulumi.StringPtrInput
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayInput
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type endpointArgs struct {
 	ConnectionLogOptions EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
 	Description *string `pulumi:"description"`
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal *string `pulumi:"selfServicePortal"`
@@ -229,7 +229,7 @@ type EndpointArgs struct {
 	ConnectionLogOptions EndpointConnectionLogOptionsInput
 	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrInput
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayInput
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrInput

@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class DataSourceHttpConfigGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        /// </summary>
+        [Input("authorizationConfig")]
+        public Input<Inputs.DataSourceHttpConfigAuthorizationConfigGetArgs>? AuthorizationConfig { get; set; }
+
+        /// <summary>
         /// HTTP URL.
         /// </summary>
         [Input("endpoint", required: true)]

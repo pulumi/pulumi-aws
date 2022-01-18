@@ -13,8 +13,9 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceDynamodbConfig
     {
+        public readonly Outputs.DataSourceDynamodbConfigDeltaSyncConfig? DeltaSyncConfig;
         /// <summary>
-        /// AWS region of Elasticsearch domain. Defaults to current region.
+        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
         /// </summary>
         public readonly string? Region;
         /// <summary>
@@ -25,18 +26,25 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// Set to `true` to use Amazon Cognito credentials with this data source.
         /// </summary>
         public readonly bool? UseCallerCredentials;
+        public readonly bool? Versioned;
 
         [OutputConstructor]
         private DataSourceDynamodbConfig(
+            Outputs.DataSourceDynamodbConfigDeltaSyncConfig? deltaSyncConfig,
+
             string? region,
 
             string tableName,
 
-            bool? useCallerCredentials)
+            bool? useCallerCredentials,
+
+            bool? versioned)
         {
+            DeltaSyncConfig = deltaSyncConfig;
             Region = region;
             TableName = tableName;
             UseCallerCredentials = useCallerCredentials;
+            Versioned = versioned;
         }
     }
 }

@@ -23,17 +23,19 @@ class DataSourceArgs:
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataSource resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the DataSource.
-        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         :param pulumi.Input[str] description: A description of the DataSource.
         :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See below
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
+        :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -50,6 +52,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "lambda_config", lambda_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if relational_database_config is not None:
+            pulumi.set(__self__, "relational_database_config", relational_database_config)
         if service_role_arn is not None:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
 
@@ -69,7 +73,7 @@ class DataSourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         return pulumi.get(self, "type")
 
@@ -150,6 +154,18 @@ class DataSourceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="relationalDatabaseConfig")
+    def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
+        """
+        AWS RDS settings. See Relational Database Config
+        """
+        return pulumi.get(self, "relational_database_config")
+
+    @relational_database_config.setter
+    def relational_database_config(self, value: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]):
+        pulumi.set(self, "relational_database_config", value)
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -173,6 +189,7 @@ class _DataSourceState:
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -185,8 +202,9 @@ class _DataSourceState:
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
+        :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -204,6 +222,8 @@ class _DataSourceState:
             pulumi.set(__self__, "lambda_config", lambda_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if relational_database_config is not None:
+            pulumi.set(__self__, "relational_database_config", relational_database_config)
         if service_role_arn is not None:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if type is not None:
@@ -306,6 +326,18 @@ class _DataSourceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="relationalDatabaseConfig")
+    def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
+        """
+        AWS RDS settings. See Relational Database Config
+        """
+        return pulumi.get(self, "relational_database_config")
+
+    @relational_database_config.setter
+    def relational_database_config(self, value: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]):
+        pulumi.set(self, "relational_database_config", value)
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -321,7 +353,7 @@ class _DataSourceState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         return pulumi.get(self, "type")
 
@@ -342,6 +374,7 @@ class DataSource(pulumi.CustomResource):
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -420,8 +453,9 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
+        :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         ...
     @overload
@@ -517,6 +551,7 @@ class DataSource(pulumi.CustomResource):
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -540,6 +575,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["http_config"] = http_config
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["name"] = name
+            __props__.__dict__["relational_database_config"] = relational_database_config
             __props__.__dict__["service_role_arn"] = service_role_arn
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -563,6 +599,7 @@ class DataSource(pulumi.CustomResource):
             http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
             lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
             service_role_arn: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'DataSource':
         """
@@ -580,8 +617,9 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
+        :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -595,6 +633,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["http_config"] = http_config
         __props__.__dict__["lambda_config"] = lambda_config
         __props__.__dict__["name"] = name
+        __props__.__dict__["relational_database_config"] = relational_database_config
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["type"] = type
         return DataSource(resource_name, opts=opts, __props__=__props__)
@@ -664,6 +703,14 @@ class DataSource(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="relationalDatabaseConfig")
+    def relational_database_config(self) -> pulumi.Output[Optional['outputs.DataSourceRelationalDatabaseConfig']]:
+        """
+        AWS RDS settings. See Relational Database Config
+        """
+        return pulumi.get(self, "relational_database_config")
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
@@ -675,7 +722,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         return pulumi.get(self, "type")
 

@@ -92,7 +92,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
-     * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+     * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface EndpointState {
      */
     dnsName?: pulumi.Input<string>;
     /**
-     * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+     * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -270,7 +270,7 @@ export interface EndpointArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+     * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**

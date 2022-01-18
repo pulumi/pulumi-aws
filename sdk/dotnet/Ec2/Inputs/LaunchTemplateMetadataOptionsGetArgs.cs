@@ -36,6 +36,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("httpTokens")]
         public Input<string>? HttpTokens { get; set; }
 
+        /// <summary>
+        /// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+        /// </summary>
+        [Input("instanceMetadataTags")]
+        public Input<string>? InstanceMetadataTags { get; set; }
+
         public LaunchTemplateMetadataOptionsGetArgs()
         {
         }

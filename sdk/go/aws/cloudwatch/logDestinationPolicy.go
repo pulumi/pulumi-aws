@@ -61,6 +61,8 @@ type LogDestinationPolicy struct {
 	AccessPolicy pulumi.StringOutput `pulumi:"accessPolicy"`
 	// A name for the subscription filter
 	DestinationName pulumi.StringOutput `pulumi:"destinationName"`
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate pulumi.BoolPtrOutput `pulumi:"forceUpdate"`
 }
 
 // NewLogDestinationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -102,6 +104,8 @@ type logDestinationPolicyState struct {
 	AccessPolicy *string `pulumi:"accessPolicy"`
 	// A name for the subscription filter
 	DestinationName *string `pulumi:"destinationName"`
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate *bool `pulumi:"forceUpdate"`
 }
 
 type LogDestinationPolicyState struct {
@@ -109,6 +113,8 @@ type LogDestinationPolicyState struct {
 	AccessPolicy pulumi.StringPtrInput
 	// A name for the subscription filter
 	DestinationName pulumi.StringPtrInput
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate pulumi.BoolPtrInput
 }
 
 func (LogDestinationPolicyState) ElementType() reflect.Type {
@@ -120,6 +126,8 @@ type logDestinationPolicyArgs struct {
 	AccessPolicy string `pulumi:"accessPolicy"`
 	// A name for the subscription filter
 	DestinationName string `pulumi:"destinationName"`
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate *bool `pulumi:"forceUpdate"`
 }
 
 // The set of arguments for constructing a LogDestinationPolicy resource.
@@ -128,6 +136,8 @@ type LogDestinationPolicyArgs struct {
 	AccessPolicy pulumi.StringInput
 	// A name for the subscription filter
 	DestinationName pulumi.StringInput
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate pulumi.BoolPtrInput
 }
 
 func (LogDestinationPolicyArgs) ElementType() reflect.Type {

@@ -12,8 +12,11 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceDynamodbConfigGetArgs : Pulumi.ResourceArgs
     {
+        [Input("deltaSyncConfig")]
+        public Input<Inputs.DataSourceDynamodbConfigDeltaSyncConfigGetArgs>? DeltaSyncConfig { get; set; }
+
         /// <summary>
-        /// AWS region of Elasticsearch domain. Defaults to current region.
+        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -29,6 +32,9 @@ namespace Pulumi.Aws.AppSync.Inputs
         /// </summary>
         [Input("useCallerCredentials")]
         public Input<bool>? UseCallerCredentials { get; set; }
+
+        [Input("versioned")]
+        public Input<bool>? Versioned { get; set; }
 
         public DataSourceDynamodbConfigGetArgs()
         {

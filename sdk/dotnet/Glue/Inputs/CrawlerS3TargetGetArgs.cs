@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerS3TargetGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        /// The name of the connection to use to connect to the Delta table target.
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }

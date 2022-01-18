@@ -396,6 +396,7 @@ type TaskDefinition struct {
 	Revision pulumi.IntOutput `pulumi:"revision"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
+	SkipDestroy     pulumi.BoolPtrOutput                   `pulumi:"skipDestroy"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider.
@@ -473,6 +474,7 @@ type taskDefinitionState struct {
 	Revision *int `pulumi:"revision"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
+	SkipDestroy     *bool                          `pulumi:"skipDestroy"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider.
@@ -516,6 +518,7 @@ type TaskDefinitionState struct {
 	Revision pulumi.IntPtrInput
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
+	SkipDestroy     pulumi.BoolPtrInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider.
@@ -559,6 +562,7 @@ type taskDefinitionArgs struct {
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
+	SkipDestroy     *bool                          `pulumi:"skipDestroy"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -597,6 +601,7 @@ type TaskDefinitionArgs struct {
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
+	SkipDestroy     pulumi.BoolPtrInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.

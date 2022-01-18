@@ -1260,6 +1260,7 @@ class LaunchTemplate(pulumi.CustomResource):
                 http_endpoint="enabled",
                 http_tokens="required",
                 http_put_response_hop_limit=1,
+                instance_metadata_tags="enabled",
             ),
             monitoring=aws.ec2.LaunchTemplateMonitoringArgs(
                 enabled=True,
@@ -1393,6 +1394,7 @@ class LaunchTemplate(pulumi.CustomResource):
                 http_endpoint="enabled",
                 http_tokens="required",
                 http_put_response_hop_limit=1,
+                instance_metadata_tags="enabled",
             ),
             monitoring=aws.ec2.LaunchTemplateMonitoringArgs(
                 enabled=True,

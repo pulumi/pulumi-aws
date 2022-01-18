@@ -95,6 +95,8 @@ type LookupSnapshotResult struct {
 	// The ARN for the KMS encryption key.
 	KmsKeyId   string `pulumi:"kmsKeyId"`
 	MostRecent *bool  `pulumi:"mostRecent"`
+	// The ARN of the Outpost on which the snapshot is stored.
+	OutpostArn string `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
@@ -106,6 +108,8 @@ type LookupSnapshotResult struct {
 	SnapshotIds []string `pulumi:"snapshotIds"`
 	// The snapshot state.
 	State string `pulumi:"state"`
+	// The storage tier in which the snapshot is stored.
+	StorageTier string `pulumi:"storageTier"`
 	// A map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The volume ID (e.g., vol-59fcb34e).
@@ -198,6 +202,11 @@ func (o LookupSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
+// The ARN of the Outpost on which the snapshot is stored.
+func (o LookupSnapshotResultOutput) OutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+}
+
 // Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 func (o LookupSnapshotResultOutput) OwnerAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OwnerAlias }).(pulumi.StringOutput)
@@ -228,6 +237,11 @@ func (o LookupSnapshotResultOutput) SnapshotIds() pulumi.StringArrayOutput {
 // The snapshot state.
 func (o LookupSnapshotResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The storage tier in which the snapshot is stored.
+func (o LookupSnapshotResultOutput) StorageTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.StorageTier }).(pulumi.StringOutput)
 }
 
 // A map of tags for the resource.

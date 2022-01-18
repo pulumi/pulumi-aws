@@ -244,10 +244,16 @@ class AlternativeContact(pulumi.CustomResource):
 
         ## Import
 
-        The current Alternate Contact can be imported using the `alternate_contact_type`, e.g.,
+        The Alternate Contact for the current account can be imported using the `alternate_contact_type`, e.g.,
 
         ```sh
          $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+        ```
+
+         If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
+
+        ```sh
+         $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,10 +289,16 @@ class AlternativeContact(pulumi.CustomResource):
 
         ## Import
 
-        The current Alternate Contact can be imported using the `alternate_contact_type`, e.g.,
+        The Alternate Contact for the current account can be imported using the `alternate_contact_type`, e.g.,
 
         ```sh
          $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+        ```
+
+         If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
+
+        ```sh
+         $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
         ```
 
         :param str resource_name: The name of the resource.

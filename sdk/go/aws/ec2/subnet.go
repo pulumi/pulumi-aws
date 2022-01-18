@@ -92,9 +92,9 @@ type Subnet struct {
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
 	AssignIpv6AddressOnCreation pulumi.BoolPtrOutput `pulumi:"assignIpv6AddressOnCreation"`
-	// The AZ for the subnet.
+	// AZ for the subnet.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The AZ ID of the subnet.
+	// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
 	// The IPv4 CIDR block for the subnet.
 	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
@@ -171,9 +171,9 @@ type subnetState struct {
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
 	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
-	// The AZ for the subnet.
+	// AZ for the subnet.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The AZ ID of the subnet.
+	// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The IPv4 CIDR block for the subnet.
 	CidrBlock *string `pulumi:"cidrBlock"`
@@ -219,9 +219,9 @@ type SubnetState struct {
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
 	AssignIpv6AddressOnCreation pulumi.BoolPtrInput
-	// The AZ for the subnet.
+	// AZ for the subnet.
 	AvailabilityZone pulumi.StringPtrInput
-	// The AZ ID of the subnet.
+	// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId pulumi.StringPtrInput
 	// The IPv4 CIDR block for the subnet.
 	CidrBlock pulumi.StringPtrInput
@@ -269,9 +269,9 @@ type subnetArgs struct {
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
 	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
-	// The AZ for the subnet.
+	// AZ for the subnet.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The AZ ID of the subnet.
+	// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The IPv4 CIDR block for the subnet.
 	CidrBlock *string `pulumi:"cidrBlock"`
@@ -310,9 +310,9 @@ type SubnetArgs struct {
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
 	AssignIpv6AddressOnCreation pulumi.BoolPtrInput
-	// The AZ for the subnet.
+	// AZ for the subnet.
 	AvailabilityZone pulumi.StringPtrInput
-	// The AZ ID of the subnet.
+	// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId pulumi.StringPtrInput
 	// The IPv4 CIDR block for the subnet.
 	CidrBlock pulumi.StringPtrInput

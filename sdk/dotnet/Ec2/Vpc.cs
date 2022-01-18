@@ -202,6 +202,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The association ID for the IPv6 CIDR block.
+        /// * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         /// </summary>
         [Output("ipv6AssociationId")]
         public Output<string> Ipv6AssociationId { get; private set; } = null!;
@@ -211,6 +212,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
+
+        /// <summary>
+        /// By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+        /// </summary>
+        [Output("ipv6CidrBlockNetworkBorderGroup")]
+        public Output<string> Ipv6CidrBlockNetworkBorderGroup { get; private set; } = null!;
 
         /// <summary>
         /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
@@ -360,6 +367,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Ipv6CidrBlock { get; set; }
 
         /// <summary>
+        /// By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+        /// </summary>
+        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        public Input<string>? Ipv6CidrBlockNetworkBorderGroup { get; set; }
+
+        /// <summary>
         /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
         /// </summary>
         [Input("ipv6IpamPoolId")]
@@ -476,6 +489,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The association ID for the IPv6 CIDR block.
+        /// * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         /// </summary>
         [Input("ipv6AssociationId")]
         public Input<string>? Ipv6AssociationId { get; set; }
@@ -485,6 +499,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+        /// </summary>
+        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        public Input<string>? Ipv6CidrBlockNetworkBorderGroup { get; set; }
 
         /// <summary>
         /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.

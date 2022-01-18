@@ -62,6 +62,58 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// 
+    /// With the `disallowed_cidrs` attribute:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
+    ///         var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new Aws.Ec2.VpcIpamArgs
+    ///         {
+    ///             OperatingRegions = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///                 {
+    ///                     RegionName = current.Apply(current =&gt; current.Name),
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new Aws.Ec2.VpcIpamPoolArgs
+    ///         {
+    ///             AddressFamily = "ipv4",
+    ///             IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
+    ///             Locale = current.Apply(current =&gt; current.Name),
+    ///         });
+    ///         var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new Aws.Ec2.VpcIpamPoolCidrArgs
+    ///         {
+    ///             IpamPoolId = exampleVpcIpamPool.Id,
+    ///             Cidr = "172.2.0.0/16",
+    ///         });
+    ///         var exampleVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", new Aws.Ec2.VpcIpamPoolCidrAllocationArgs
+    ///         {
+    ///             IpamPoolId = exampleVpcIpamPool.Id,
+    ///             NetmaskLength = 28,
+    ///             DisallowedCidrs = 
+    ///             {
+    ///                 "172.2.0.0/28",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleVpcIpamPoolCidr,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IPAMs can be imported using the `allocation id`, e.g.
@@ -84,6 +136,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        [Output("disallowedCidrs")]
+        public Output<ImmutableArray<string>> DisallowedCidrs { get; private set; } = null!;
 
         [Output("ipamPoolAllocationId")]
         public Output<string> IpamPoolAllocationId { get; private set; } = null!;
@@ -176,6 +234,18 @@ namespace Pulumi.Aws.Ec2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("disallowedCidrs")]
+        private InputList<string>? _disallowedCidrs;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        public InputList<string> DisallowedCidrs
+        {
+            get => _disallowedCidrs ?? (_disallowedCidrs = new InputList<string>());
+            set => _disallowedCidrs = value;
+        }
+
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
@@ -206,6 +276,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("disallowedCidrs")]
+        private InputList<string>? _disallowedCidrs;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        public InputList<string> DisallowedCidrs
+        {
+            get => _disallowedCidrs ?? (_disallowedCidrs = new InputList<string>());
+            set => _disallowedCidrs = value;
+        }
 
         [Input("ipamPoolAllocationId")]
         public Input<string>? IpamPoolAllocationId { get; set; }

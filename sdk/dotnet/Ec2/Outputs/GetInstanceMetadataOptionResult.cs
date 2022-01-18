@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// If session tokens are required: `optional`, `required`.
         /// </summary>
         public readonly string HttpTokens;
+        /// <summary>
+        /// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+        /// </summary>
+        public readonly string InstanceMetadataTags;
 
         [OutputConstructor]
         private GetInstanceMetadataOptionResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int httpPutResponseHopLimit,
 
-            string httpTokens)
+            string httpTokens,
+
+            string instanceMetadataTags)
         {
             HttpEndpoint = httpEndpoint;
             HttpPutResponseHopLimit = httpPutResponseHopLimit;
             HttpTokens = httpTokens;
+            InstanceMetadataTags = instanceMetadataTags;
         }
     }
 }

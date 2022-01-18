@@ -30,7 +30,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Aws.SecretsManager.GetSecretVersion.InvokeAsync(new Aws.SecretsManager.GetSecretVersionArgs
+        ///         var secret_version = Output.Create(Aws.SecretsManager.GetSecretVersion.InvokeAsync(new Aws.SecretsManager.GetSecretVersionArgs
         ///         {
         ///             SecretId = data.Aws_secretsmanager_secret.Example.Id,
         ///         }));
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Aws.SecretsManager.GetSecretVersion.InvokeAsync(new Aws.SecretsManager.GetSecretVersionArgs
+        ///         var secret_version = Output.Create(Aws.SecretsManager.GetSecretVersion.InvokeAsync(new Aws.SecretsManager.GetSecretVersionArgs
         ///         {
         ///             SecretId = data.Aws_secretsmanager_secret.Example.Id,
         ///         }));

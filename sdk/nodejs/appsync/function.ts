@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -125,6 +126,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly functionVersion!: pulumi.Output<string | undefined>;
     /**
+     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     */
+    public readonly maxBatchSize!: pulumi.Output<number | undefined>;
+    /**
      * The Function name. The function name does not have to be unique.
      */
     public readonly name!: pulumi.Output<string>;
@@ -136,6 +141,10 @@ export class Function extends pulumi.CustomResource {
      * The Function response mapping template.
      */
     public readonly responseMappingTemplate!: pulumi.Output<string>;
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     */
+    public readonly syncConfig!: pulumi.Output<outputs.appsync.FunctionSyncConfig | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -156,9 +165,11 @@ export class Function extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["functionId"] = state ? state.functionId : undefined;
             inputs["functionVersion"] = state ? state.functionVersion : undefined;
+            inputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["requestMappingTemplate"] = state ? state.requestMappingTemplate : undefined;
             inputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
+            inputs["syncConfig"] = state ? state.syncConfig : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -177,9 +188,11 @@ export class Function extends pulumi.CustomResource {
             inputs["dataSource"] = args ? args.dataSource : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["functionVersion"] = args ? args.functionVersion : undefined;
+            inputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
             inputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
+            inputs["syncConfig"] = args ? args.syncConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["functionId"] = undefined /*out*/;
         }
@@ -219,6 +232,10 @@ export interface FunctionState {
      */
     functionVersion?: pulumi.Input<string>;
     /**
+     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     */
+    maxBatchSize?: pulumi.Input<number>;
+    /**
      * The Function name. The function name does not have to be unique.
      */
     name?: pulumi.Input<string>;
@@ -230,6 +247,10 @@ export interface FunctionState {
      * The Function response mapping template.
      */
     responseMappingTemplate?: pulumi.Input<string>;
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     */
+    syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig>;
 }
 
 /**
@@ -253,6 +274,10 @@ export interface FunctionArgs {
      */
     functionVersion?: pulumi.Input<string>;
     /**
+     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     */
+    maxBatchSize?: pulumi.Input<number>;
+    /**
      * The Function name. The function name does not have to be unique.
      */
     name?: pulumi.Input<string>;
@@ -264,4 +289,8 @@ export interface FunctionArgs {
      * The Function response mapping template.
      */
     responseMappingTemplate: pulumi.Input<string>;
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     */
+    syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig>;
 }

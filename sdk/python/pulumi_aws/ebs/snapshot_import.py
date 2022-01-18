@@ -20,8 +20,11 @@ class SnapshotImportArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 storage_tier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a SnapshotImport resource.
         :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
@@ -29,8 +32,11 @@ class SnapshotImportArgs:
         :param pulumi.Input[str] description: The description of the disk image being imported.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         pulumi.set(__self__, "disk_container", disk_container)
         if client_data is not None:
@@ -41,10 +47,16 @@ class SnapshotImportArgs:
             pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if permanent_restore is not None:
+            pulumi.set(__self__, "permanent_restore", permanent_restore)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
+        if storage_tier is not None:
+            pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if temporary_restore_days is not None:
+            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
 
     @property
     @pulumi.getter(name="diskContainer")
@@ -107,6 +119,18 @@ class SnapshotImportArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="permanentRestore")
+    def permanent_restore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to permanently restore an archived snapshot.
+        """
+        return pulumi.get(self, "permanent_restore")
+
+    @permanent_restore.setter
+    def permanent_restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permanent_restore", value)
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -117,6 +141,18 @@ class SnapshotImportArgs:
     @role_name.setter
     def role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter(name="storageTier")
+    def storage_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        """
+        return pulumi.get(self, "storage_tier")
+
+    @storage_tier.setter
+    def storage_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_tier", value)
 
     @property
     @pulumi.getter
@@ -130,6 +166,18 @@ class SnapshotImportArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="temporaryRestoreDays")
+    def temporary_restore_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        """
+        return pulumi.get(self, "temporary_restore_days")
+
+    @temporary_restore_days.setter
+    def temporary_restore_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "temporary_restore_days", value)
+
 
 @pulumi.input_type
 class _SnapshotImportState:
@@ -141,11 +189,16 @@ class _SnapshotImportState:
                  disk_container: Optional[pulumi.Input['SnapshotImportDiskContainerArgs']] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
                  owner_alias: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
+                 storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None,
+                 volume_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering SnapshotImport resources.
@@ -158,8 +211,11 @@ class _SnapshotImportState:
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         if arn is not None:
@@ -176,16 +232,26 @@ class _SnapshotImportState:
             pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if owner_alias is not None:
             pulumi.set(__self__, "owner_alias", owner_alias)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if permanent_restore is not None:
+            pulumi.set(__self__, "permanent_restore", permanent_restore)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
+        if storage_tier is not None:
+            pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if temporary_restore_days is not None:
+            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
+        if volume_id is not None:
+            pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
 
@@ -274,6 +340,15 @@ class _SnapshotImportState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outpost_arn")
+
+    @outpost_arn.setter
+    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_arn", value)
+
+    @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> Optional[pulumi.Input[str]]:
         """
@@ -298,6 +373,18 @@ class _SnapshotImportState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter(name="permanentRestore")
+    def permanent_restore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to permanently restore an archived snapshot.
+        """
+        return pulumi.get(self, "permanent_restore")
+
+    @permanent_restore.setter
+    def permanent_restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permanent_restore", value)
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -308,6 +395,18 @@ class _SnapshotImportState:
     @role_name.setter
     def role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter(name="storageTier")
+    def storage_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        """
+        return pulumi.get(self, "storage_tier")
+
+    @storage_tier.setter
+    def storage_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_tier", value)
 
     @property
     @pulumi.getter
@@ -329,6 +428,27 @@ class _SnapshotImportState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="temporaryRestoreDays")
+    def temporary_restore_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        """
+        return pulumi.get(self, "temporary_restore_days")
+
+    @temporary_restore_days.setter
+    def temporary_restore_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "temporary_restore_days", value)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_id", value)
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -353,8 +473,11 @@ class SnapshotImport(pulumi.CustomResource):
                  disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
+                 storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Imports a disk image from S3 as a Snapshot.
@@ -386,8 +509,11 @@ class SnapshotImport(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         ...
     @overload
@@ -438,8 +564,11 @@ class SnapshotImport(pulumi.CustomResource):
                  disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 permanent_restore: Optional[pulumi.Input[bool]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
+                 storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -459,13 +588,18 @@ class SnapshotImport(pulumi.CustomResource):
             __props__.__dict__["disk_container"] = disk_container
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["permanent_restore"] = permanent_restore
             __props__.__dict__["role_name"] = role_name
+            __props__.__dict__["storage_tier"] = storage_tier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["temporary_restore_days"] = temporary_restore_days
             __props__.__dict__["arn"] = None
             __props__.__dict__["data_encryption_key_id"] = None
+            __props__.__dict__["outpost_arn"] = None
             __props__.__dict__["owner_alias"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["volume_id"] = None
             __props__.__dict__["volume_size"] = None
         super(SnapshotImport, __self__).__init__(
             'aws:ebs/snapshotImport:SnapshotImport',
@@ -484,11 +618,16 @@ class SnapshotImport(pulumi.CustomResource):
             disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
+            outpost_arn: Optional[pulumi.Input[str]] = None,
             owner_alias: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
+            permanent_restore: Optional[pulumi.Input[bool]] = None,
             role_name: Optional[pulumi.Input[str]] = None,
+            storage_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            temporary_restore_days: Optional[pulumi.Input[int]] = None,
+            volume_id: Optional[pulumi.Input[str]] = None,
             volume_size: Optional[pulumi.Input[int]] = None) -> 'SnapshotImport':
         """
         Get an existing SnapshotImport resource's state with the given name, id, and optional extra
@@ -506,8 +645,11 @@ class SnapshotImport(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
+        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
+        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot.
+        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -521,11 +663,16 @@ class SnapshotImport(pulumi.CustomResource):
         __props__.__dict__["disk_container"] = disk_container
         __props__.__dict__["encrypted"] = encrypted
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["owner_alias"] = owner_alias
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["permanent_restore"] = permanent_restore
         __props__.__dict__["role_name"] = role_name
+        __props__.__dict__["storage_tier"] = storage_tier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["temporary_restore_days"] = temporary_restore_days
+        __props__.__dict__["volume_id"] = volume_id
         __props__.__dict__["volume_size"] = volume_size
         return SnapshotImport(resource_name, opts=opts, __props__=__props__)
 
@@ -586,6 +733,11 @@ class SnapshotImport(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "outpost_arn")
+
+    @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> pulumi.Output[str]:
         """
@@ -602,12 +754,28 @@ class SnapshotImport(pulumi.CustomResource):
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter(name="permanentRestore")
+    def permanent_restore(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to permanently restore an archived snapshot.
+        """
+        return pulumi.get(self, "permanent_restore")
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         """
         return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="storageTier")
+    def storage_tier(self) -> pulumi.Output[str]:
+        """
+        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        """
+        return pulumi.get(self, "storage_tier")
 
     @property
     @pulumi.getter
@@ -621,6 +789,19 @@ class SnapshotImport(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="temporaryRestoreDays")
+    def temporary_restore_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        """
+        return pulumi.get(self, "temporary_restore_days")
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "volume_id")
 
     @property
     @pulumi.getter(name="volumeSize")

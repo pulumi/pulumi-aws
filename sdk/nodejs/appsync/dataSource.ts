@@ -135,11 +135,15 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * AWS RDS settings. See Relational Database Config
+     */
+    public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
+    /**
      * The IAM service role ARN for the data source.
      */
     public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -164,6 +168,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["httpConfig"] = state ? state.httpConfig : undefined;
             inputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["relationalDatabaseConfig"] = state ? state.relationalDatabaseConfig : undefined;
             inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
@@ -181,6 +186,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["httpConfig"] = args ? args.httpConfig : undefined;
             inputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -229,11 +235,15 @@ export interface DataSourceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * AWS RDS settings. See Relational Database Config
+     */
+    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
+    /**
      * The IAM service role ARN for the data source.
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -271,11 +281,15 @@ export interface DataSourceArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * AWS RDS settings. See Relational Database Config
+     */
+    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
+    /**
      * The IAM service role ARN for the data source.
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     type: pulumi.Input<string>;
 }

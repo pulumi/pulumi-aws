@@ -102,7 +102,7 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 type LookupSubnetArgs struct {
 	// Availability zone where the subnet must reside.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// ID of the Availability Zone for the subnet.
+	// ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// CIDR block of the desired subnet.
 	CidrBlock *string `pulumi:"cidrBlock"`
@@ -177,7 +177,7 @@ func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts .
 type LookupSubnetOutputArgs struct {
 	// Availability zone where the subnet must reside.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// ID of the Availability Zone for the subnet.
+	// ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// CIDR block of the desired subnet.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`

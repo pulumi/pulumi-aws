@@ -69,8 +69,6 @@ export class SnapshotCopy extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The data encryption key identifier for the snapshot.
-     * * `sourceSnapshotId` The ARN of the copied snapshot.
-     * * `sourceRegion` The region of the source snapshot.
      */
     public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
     /**
@@ -85,6 +83,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * The ARN for the KMS encryption key.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
@@ -94,6 +93,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    public readonly permanentRestore!: pulumi.Output<boolean | undefined>;
+    /**
      * The region of the source snapshot.
      */
     public readonly sourceRegion!: pulumi.Output<string>;
@@ -102,13 +105,18 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public readonly sourceSnapshotId!: pulumi.Output<string>;
     /**
-     * A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
+    public readonly storageTier!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    public readonly temporaryRestoreDays!: pulumi.Output<number | undefined>;
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
@@ -133,12 +141,16 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["permanentRestore"] = state ? state.permanentRestore : undefined;
             inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
             inputs["sourceSnapshotId"] = state ? state.sourceSnapshotId : undefined;
+            inputs["storageTier"] = state ? state.storageTier : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            inputs["temporaryRestoreDays"] = state ? state.temporaryRestoreDays : undefined;
             inputs["volumeId"] = state ? state.volumeId : undefined;
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
@@ -152,11 +164,15 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["permanentRestore"] = args ? args.permanentRestore : undefined;
             inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             inputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
+            inputs["storageTier"] = args ? args.storageTier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["temporaryRestoreDays"] = args ? args.temporaryRestoreDays : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
+            inputs["outpostArn"] = undefined /*out*/;
             inputs["ownerAlias"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
@@ -180,8 +196,6 @@ export interface SnapshotCopyState {
     arn?: pulumi.Input<string>;
     /**
      * The data encryption key identifier for the snapshot.
-     * * `sourceSnapshotId` The ARN of the copied snapshot.
-     * * `sourceRegion` The region of the source snapshot.
      */
     dataEncryptionKeyId?: pulumi.Input<string>;
     /**
@@ -196,6 +210,7 @@ export interface SnapshotCopyState {
      * The ARN for the KMS encryption key.
      */
     kmsKeyId?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
@@ -205,6 +220,10 @@ export interface SnapshotCopyState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    permanentRestore?: pulumi.Input<boolean>;
+    /**
      * The region of the source snapshot.
      */
     sourceRegion?: pulumi.Input<string>;
@@ -213,13 +232,18 @@ export interface SnapshotCopyState {
      */
     sourceSnapshotId?: pulumi.Input<string>;
     /**
-     * A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
+    storageTier?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    temporaryRestoreDays?: pulumi.Input<number>;
     volumeId?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
@@ -244,6 +268,10 @@ export interface SnapshotCopyArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    permanentRestore?: pulumi.Input<boolean>;
+    /**
      * The region of the source snapshot.
      */
     sourceRegion: pulumi.Input<string>;
@@ -252,7 +280,12 @@ export interface SnapshotCopyArgs {
      */
     sourceSnapshotId: pulumi.Input<string>;
     /**
-     * A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
+    storageTier?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    temporaryRestoreDays?: pulumi.Input<number>;
 }

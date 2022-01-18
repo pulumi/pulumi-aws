@@ -343,7 +343,7 @@ def get_subnet(availability_zone: Optional[str] = None,
 
 
     :param str availability_zone: Availability zone where the subnet must reside.
-    :param str availability_zone_id: ID of the Availability Zone for the subnet.
+    :param str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
     :param str cidr_block: CIDR block of the desired subnet.
     :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
     :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.
@@ -450,7 +450,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
 
 
     :param str availability_zone: Availability zone where the subnet must reside.
-    :param str availability_zone_id: ID of the Availability Zone for the subnet.
+    :param str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
     :param str cidr_block: CIDR block of the desired subnet.
     :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
     :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.

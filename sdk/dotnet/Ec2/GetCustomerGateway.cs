@@ -199,17 +199,21 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         public readonly int BgpAsn;
         /// <summary>
-        /// (Optional) A name for the customer gateway device.
+        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// </summary>
+        public readonly string CertificateArn;
+        /// <summary>
+        /// A name for the customer gateway device.
         /// </summary>
         public readonly string DeviceName;
         public readonly ImmutableArray<Outputs.GetCustomerGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// (Optional) The IP address of the gateway's Internet-routable external interface.
+        /// The IP address of the gateway's Internet-routable external interface.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
@@ -217,7 +221,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+        /// The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
         public readonly string Type;
 
@@ -226,6 +230,8 @@ namespace Pulumi.Aws.Ec2
             string arn,
 
             int bgpAsn,
+
+            string certificateArn,
 
             string deviceName,
 
@@ -241,6 +247,7 @@ namespace Pulumi.Aws.Ec2
         {
             Arn = arn;
             BgpAsn = bgpAsn;
+            CertificateArn = certificateArn;
             DeviceName = deviceName;
             Filters = filters;
             Id = id;

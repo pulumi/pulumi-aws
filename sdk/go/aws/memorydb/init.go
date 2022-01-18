@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "aws:memorydb/parameterGroup:ParameterGroup":
 		r = &ParameterGroup{}
+	case "aws:memorydb/snapshot:Snapshot":
+		r = &Snapshot{}
 	case "aws:memorydb/subnetGroup:SubnetGroup":
 		r = &SubnetGroup{}
 	case "aws:memorydb/user:User":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"memorydb/parameterGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"memorydb/snapshot",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

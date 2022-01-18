@@ -22,13 +22,16 @@ class GetCustomerGatewayResult:
     """
     A collection of values returned by getCustomerGateway.
     """
-    def __init__(__self__, arn=None, bgp_asn=None, device_name=None, filters=None, id=None, ip_address=None, tags=None, type=None):
+    def __init__(__self__, arn=None, bgp_asn=None, certificate_arn=None, device_name=None, filters=None, id=None, ip_address=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if bgp_asn and not isinstance(bgp_asn, int):
             raise TypeError("Expected argument 'bgp_asn' to be a int")
         pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if certificate_arn and not isinstance(certificate_arn, str):
+            raise TypeError("Expected argument 'certificate_arn' to be a str")
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
         if device_name and not isinstance(device_name, str):
             raise TypeError("Expected argument 'device_name' to be a str")
         pulumi.set(__self__, "device_name", device_name)
@@ -60,15 +63,23 @@ class GetCustomerGatewayResult:
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> int:
         """
-        (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for the customer gateway certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> str:
         """
-        (Optional) A name for the customer gateway device.
+        A name for the customer gateway device.
         """
         return pulumi.get(self, "device_name")
 
@@ -86,7 +97,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        (Optional) The IP address of the gateway's Internet-routable external interface.
+        The IP address of the gateway's Internet-routable external interface.
         """
         return pulumi.get(self, "ip_address")
 
@@ -102,7 +113,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+        The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         """
         return pulumi.get(self, "type")
 
@@ -115,6 +126,7 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
         return GetCustomerGatewayResult(
             arn=self.arn,
             bgp_asn=self.bgp_asn,
+            certificate_arn=self.certificate_arn,
             device_name=self.device_name,
             filters=self.filters,
             id=self.id,
@@ -168,6 +180,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
     return AwaitableGetCustomerGatewayResult(
         arn=__ret__.arn,
         bgp_asn=__ret__.bgp_asn,
+        certificate_arn=__ret__.certificate_arn,
         device_name=__ret__.device_name,
         filters=__ret__.filters,
         id=__ret__.id,

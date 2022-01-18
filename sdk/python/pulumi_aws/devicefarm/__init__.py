@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .device_pool import *
+from .instance_profile import *
 from .network_profile import *
 from .project import *
 from .upload import *

@@ -89,6 +89,12 @@ namespace Pulumi.Aws.CloudWatch
         [Output("destinationName")]
         public Output<string> DestinationName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+        /// </summary>
+        [Output("forceUpdate")]
+        public Output<bool?> ForceUpdate { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogDestinationPolicy resource with the given unique name, arguments, and options.
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("destinationName", required: true)]
         public Input<string> DestinationName { get; set; } = null!;
 
+        /// <summary>
+        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+        /// </summary>
+        [Input("forceUpdate")]
+        public Input<bool>? ForceUpdate { get; set; }
+
         public LogDestinationPolicyArgs()
         {
         }
@@ -165,6 +177,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("destinationName")]
         public Input<string>? DestinationName { get; set; }
+
+        /// <summary>
+        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+        /// </summary>
+        [Input("forceUpdate")]
+        public Input<bool>? ForceUpdate { get; set; }
 
         public LogDestinationPolicyState()
         {

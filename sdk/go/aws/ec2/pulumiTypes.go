@@ -4240,6 +4240,8 @@ type InstanceMetadataOptions struct {
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens *string `pulumi:"httpTokens"`
+	// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
 }
 
 // InstanceMetadataOptionsInput is an input type that accepts InstanceMetadataOptionsArgs and InstanceMetadataOptionsOutput values.
@@ -4260,6 +4262,8 @@ type InstanceMetadataOptionsArgs struct {
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+	// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
 }
 
 func (InstanceMetadataOptionsArgs) ElementType() reflect.Type {
@@ -4354,6 +4358,11 @@ func (o InstanceMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+func (o InstanceMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.InstanceMetadataTags }).(pulumi.StringPtrOutput)
+}
+
 type InstanceMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceMetadataOptionsPtrOutput) ElementType() reflect.Type {
@@ -4405,6 +4414,16 @@ func (o InstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+func (o InstanceMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMetadataTags
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7611,6 +7630,8 @@ type LaunchTemplateMetadataOptions struct {
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens *string `pulumi:"httpTokens"`
+	// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
 }
 
 // LaunchTemplateMetadataOptionsInput is an input type that accepts LaunchTemplateMetadataOptionsArgs and LaunchTemplateMetadataOptionsOutput values.
@@ -7633,6 +7654,8 @@ type LaunchTemplateMetadataOptionsArgs struct {
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+	// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
 }
 
 func (LaunchTemplateMetadataOptionsArgs) ElementType() reflect.Type {
@@ -7732,6 +7755,11 @@ func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+func (o LaunchTemplateMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.InstanceMetadataTags }).(pulumi.StringPtrOutput)
+}
+
 type LaunchTemplateMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMetadataOptionsPtrOutput) ElementType() reflect.Type {
@@ -7793,6 +7821,16 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOut
 			return nil
 		}
 		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMetadataTags
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12291,6 +12329,8 @@ type SpotInstanceRequestMetadataOptions struct {
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens *string `pulumi:"httpTokens"`
+	// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
 }
 
 // SpotInstanceRequestMetadataOptionsInput is an input type that accepts SpotInstanceRequestMetadataOptionsArgs and SpotInstanceRequestMetadataOptionsOutput values.
@@ -12311,6 +12351,8 @@ type SpotInstanceRequestMetadataOptionsArgs struct {
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+	// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
 }
 
 func (SpotInstanceRequestMetadataOptionsArgs) ElementType() reflect.Type {
@@ -12405,6 +12447,11 @@ func (o SpotInstanceRequestMetadataOptionsOutput) HttpTokens() pulumi.StringPtrO
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+func (o SpotInstanceRequestMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.InstanceMetadataTags }).(pulumi.StringPtrOutput)
+}
+
 type SpotInstanceRequestMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (SpotInstanceRequestMetadataOptionsPtrOutput) ElementType() reflect.Type {
@@ -12456,6 +12503,16 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpTokens() pulumi.StringP
 			return nil
 		}
 		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMetadataTags
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14438,9 +14495,12 @@ func (o VpcPeeringConnectionRequesterPtrOutput) AllowVpcToRemoteClassicLink() pu
 }
 
 type VpnConnectionRouteType struct {
+	// The CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	Source               *string `pulumi:"source"`
-	State                *string `pulumi:"state"`
+	// Indicates how the routes were provided.
+	Source *string `pulumi:"source"`
+	// The current state of the static route.
+	State *string `pulumi:"state"`
 }
 
 // VpnConnectionRouteTypeInput is an input type that accepts VpnConnectionRouteTypeArgs and VpnConnectionRouteTypeOutput values.
@@ -14455,9 +14515,12 @@ type VpnConnectionRouteTypeInput interface {
 }
 
 type VpnConnectionRouteTypeArgs struct {
+	// The CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
-	Source               pulumi.StringPtrInput `pulumi:"source"`
-	State                pulumi.StringPtrInput `pulumi:"state"`
+	// Indicates how the routes were provided.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The current state of the static route.
+	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (VpnConnectionRouteTypeArgs) ElementType() reflect.Type {
@@ -14511,14 +14574,17 @@ func (o VpnConnectionRouteTypeOutput) ToVpnConnectionRouteTypeOutputWithContext(
 	return o
 }
 
+// The CIDR block associated with the local subnet of the customer data center.
 func (o VpnConnectionRouteTypeOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionRouteType) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
 }
 
+// Indicates how the routes were provided.
 func (o VpnConnectionRouteTypeOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionRouteType) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
+// The current state of the static route.
 func (o VpnConnectionRouteTypeOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionRouteType) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -14544,11 +14610,18 @@ func (o VpnConnectionRouteTypeArrayOutput) Index(i pulumi.IntInput) VpnConnectio
 }
 
 type VpnConnectionVgwTelemetry struct {
-	AcceptedRouteCount *int    `pulumi:"acceptedRouteCount"`
-	LastStatusChange   *string `pulumi:"lastStatusChange"`
-	OutsideIpAddress   *string `pulumi:"outsideIpAddress"`
-	Status             *string `pulumi:"status"`
-	StatusMessage      *string `pulumi:"statusMessage"`
+	// The number of accepted routes.
+	AcceptedRouteCount *int `pulumi:"acceptedRouteCount"`
+	// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// The date and time of the last change in status.
+	LastStatusChange *string `pulumi:"lastStatusChange"`
+	// The Internet-routable IP address of the virtual private gateway's outside interface.
+	OutsideIpAddress *string `pulumi:"outsideIpAddress"`
+	// The status of the VPN tunnel.
+	Status *string `pulumi:"status"`
+	// If an error occurs, a description of the error.
+	StatusMessage *string `pulumi:"statusMessage"`
 }
 
 // VpnConnectionVgwTelemetryInput is an input type that accepts VpnConnectionVgwTelemetryArgs and VpnConnectionVgwTelemetryOutput values.
@@ -14563,11 +14636,18 @@ type VpnConnectionVgwTelemetryInput interface {
 }
 
 type VpnConnectionVgwTelemetryArgs struct {
-	AcceptedRouteCount pulumi.IntPtrInput    `pulumi:"acceptedRouteCount"`
-	LastStatusChange   pulumi.StringPtrInput `pulumi:"lastStatusChange"`
-	OutsideIpAddress   pulumi.StringPtrInput `pulumi:"outsideIpAddress"`
-	Status             pulumi.StringPtrInput `pulumi:"status"`
-	StatusMessage      pulumi.StringPtrInput `pulumi:"statusMessage"`
+	// The number of accepted routes.
+	AcceptedRouteCount pulumi.IntPtrInput `pulumi:"acceptedRouteCount"`
+	// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// The date and time of the last change in status.
+	LastStatusChange pulumi.StringPtrInput `pulumi:"lastStatusChange"`
+	// The Internet-routable IP address of the virtual private gateway's outside interface.
+	OutsideIpAddress pulumi.StringPtrInput `pulumi:"outsideIpAddress"`
+	// The status of the VPN tunnel.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// If an error occurs, a description of the error.
+	StatusMessage pulumi.StringPtrInput `pulumi:"statusMessage"`
 }
 
 func (VpnConnectionVgwTelemetryArgs) ElementType() reflect.Type {
@@ -14621,22 +14701,32 @@ func (o VpnConnectionVgwTelemetryOutput) ToVpnConnectionVgwTelemetryOutputWithCo
 	return o
 }
 
+// The number of accepted routes.
 func (o VpnConnectionVgwTelemetryOutput) AcceptedRouteCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *int { return v.AcceptedRouteCount }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+func (o VpnConnectionVgwTelemetryOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// The date and time of the last change in status.
 func (o VpnConnectionVgwTelemetryOutput) LastStatusChange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.LastStatusChange }).(pulumi.StringPtrOutput)
 }
 
+// The Internet-routable IP address of the virtual private gateway's outside interface.
 func (o VpnConnectionVgwTelemetryOutput) OutsideIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.OutsideIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The status of the VPN tunnel.
 func (o VpnConnectionVgwTelemetryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// If an error occurs, a description of the error.
 func (o VpnConnectionVgwTelemetryOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
@@ -16212,6 +16302,8 @@ type GetInstanceMetadataOption struct {
 	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
 	HttpTokens string `pulumi:"httpTokens"`
+	// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+	InstanceMetadataTags string `pulumi:"instanceMetadataTags"`
 }
 
 // GetInstanceMetadataOptionInput is an input type that accepts GetInstanceMetadataOptionArgs and GetInstanceMetadataOptionOutput values.
@@ -16232,6 +16324,8 @@ type GetInstanceMetadataOptionArgs struct {
 	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
 	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
+	// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+	InstanceMetadataTags pulumi.StringInput `pulumi:"instanceMetadataTags"`
 }
 
 func (GetInstanceMetadataOptionArgs) ElementType() reflect.Type {
@@ -16298,6 +16392,11 @@ func (o GetInstanceMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.IntOut
 // If session tokens are required: `optional`, `required`.
 func (o GetInstanceMetadataOptionOutput) HttpTokens() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMetadataOption) string { return v.HttpTokens }).(pulumi.StringOutput)
+}
+
+// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+func (o GetInstanceMetadataOptionOutput) InstanceMetadataTags() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMetadataOption) string { return v.InstanceMetadataTags }).(pulumi.StringOutput)
 }
 
 type GetInstanceMetadataOptionArrayOutput struct{ *pulumi.OutputState }
@@ -19276,6 +19375,8 @@ type GetLaunchTemplateMetadataOption struct {
 	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
 	HttpTokens string `pulumi:"httpTokens"`
+	// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+	InstanceMetadataTags string `pulumi:"instanceMetadataTags"`
 }
 
 // GetLaunchTemplateMetadataOptionInput is an input type that accepts GetLaunchTemplateMetadataOptionArgs and GetLaunchTemplateMetadataOptionOutput values.
@@ -19298,6 +19399,8 @@ type GetLaunchTemplateMetadataOptionArgs struct {
 	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
 	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
+	// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+	InstanceMetadataTags pulumi.StringInput `pulumi:"instanceMetadataTags"`
 }
 
 func (GetLaunchTemplateMetadataOptionArgs) ElementType() reflect.Type {
@@ -19369,6 +19472,11 @@ func (o GetLaunchTemplateMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.
 // If session tokens are required: `optional`, `required`.
 func (o GetLaunchTemplateMetadataOptionOutput) HttpTokens() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.HttpTokens }).(pulumi.StringOutput)
+}
+
+// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+func (o GetLaunchTemplateMetadataOptionOutput) InstanceMetadataTags() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.InstanceMetadataTags }).(pulumi.StringOutput)
 }
 
 type GetLaunchTemplateMetadataOptionArrayOutput struct{ *pulumi.OutputState }

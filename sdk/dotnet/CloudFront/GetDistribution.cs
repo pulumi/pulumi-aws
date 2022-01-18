@@ -119,6 +119,10 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetDistributionResult
     {
         /// <summary>
+        /// A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        /// </summary>
+        public readonly ImmutableArray<string> Aliases;
+        /// <summary>
         /// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
         /// </summary>
         public readonly string Arn;
@@ -162,6 +166,8 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetDistributionResult(
+            ImmutableArray<string> aliases,
+
             string arn,
 
             string domainName,
@@ -182,6 +188,7 @@ namespace Pulumi.Aws.CloudFront
 
             ImmutableDictionary<string, string>? tags)
         {
+            Aliases = aliases;
             Arn = arn;
             DomainName = domainName;
             Enabled = enabled;

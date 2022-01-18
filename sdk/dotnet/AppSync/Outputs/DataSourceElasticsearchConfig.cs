@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// AWS region of Elasticsearch domain. Defaults to current region.
+        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
         /// </summary>
         public readonly string? Region;
 

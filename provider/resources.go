@@ -876,15 +876,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codepipeline_webhook": {Tok: awsResource(codepipelineMod, "Webhook")},
 
 			// Cognito
-			"aws_cognito_identity_pool":                  {Tok: awsResource(cognitoMod, "IdentityPool")},
-			"aws_cognito_identity_pool_roles_attachment": {Tok: awsResource(cognitoMod, "IdentityPoolRoleAttachment")},
-			"aws_cognito_identity_provider":              {Tok: awsResource(cognitoMod, "IdentityProvider")},
-			"aws_cognito_resource_server":                {Tok: awsResource(cognitoMod, "ResourceServer")},
-			"aws_cognito_user_group":                     {Tok: awsResource(cognitoMod, "UserGroup")},
-			"aws_cognito_user_pool":                      {Tok: awsResource(cognitoMod, "UserPool")},
-			"aws_cognito_user_pool_client":               {Tok: awsResource(cognitoMod, "UserPoolClient")},
-			"aws_cognito_user_pool_domain":               {Tok: awsResource(cognitoMod, "UserPoolDomain")},
-			"aws_cognito_user_pool_ui_customization":     {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
+			"aws_cognito_identity_pool":                        {Tok: awsResource(cognitoMod, "IdentityPool")},
+			"aws_cognito_identity_pool_roles_attachment":       {Tok: awsResource(cognitoMod, "IdentityPoolRoleAttachment")},
+			"aws_cognito_identity_provider":                    {Tok: awsResource(cognitoMod, "IdentityProvider")},
+			"aws_cognito_resource_server":                      {Tok: awsResource(cognitoMod, "ResourceServer")},
+			"aws_cognito_user_group":                           {Tok: awsResource(cognitoMod, "UserGroup")},
+			"aws_cognito_user_pool":                            {Tok: awsResource(cognitoMod, "UserPool")},
+			"aws_cognito_user_pool_client":                     {Tok: awsResource(cognitoMod, "UserPoolClient")},
+			"aws_cognito_user_pool_domain":                     {Tok: awsResource(cognitoMod, "UserPoolDomain")},
+			"aws_cognito_user_pool_ui_customization":           {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
+			"aws_cognito_identity_pool_provider_principal_tag": {Tok: awsResource(cognitoMod, "IdentityPoolProviderPrincipalTag")},
 
 			// Connect
 			"aws_connect_contact_flow":                {Tok: awsResource(connectMod, "ContactFlow")},
@@ -892,6 +893,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_connect_bot_association":             {Tok: awsResource(connectMod, "BotAssociation")},
 			"aws_connect_hours_of_operation":          {Tok: awsResource(connectMod, "HoursOfOperation")},
 			"aws_connect_lambda_function_association": {Tok: awsResource(connectMod, "LambdaFunctionAssociation")},
+			"aws_connect_contact_flow_module":         {Tok: awsResource(connectMod, "ContactFlowModule")},
+			"aws_connect_quick_connect":               {Tok: awsResource(connectMod, "QuickConnect")},
 
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
@@ -951,11 +954,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dax_cluster":         {Tok: awsResource(daxMod, "Cluster")},
 			"aws_dax_parameter_group": {Tok: awsResource(daxMod, "ParameterGroup")},
 			"aws_dax_subnet_group":    {Tok: awsResource(daxMod, "SubnetGroup")},
+
 			// DeviceFarm
-			"aws_devicefarm_project":         {Tok: awsResource(devicefarmMod, "Project")},
-			"aws_devicefarm_device_pool":     {Tok: awsResource(devicefarmMod, "DevicePool")},
-			"aws_devicefarm_network_profile": {Tok: awsResource(devicefarmMod, "NetworkProfile")},
-			"aws_devicefarm_upload":          {Tok: awsResource(devicefarmMod, "Upload")},
+			"aws_devicefarm_project":          {Tok: awsResource(devicefarmMod, "Project")},
+			"aws_devicefarm_device_pool":      {Tok: awsResource(devicefarmMod, "DevicePool")},
+			"aws_devicefarm_network_profile":  {Tok: awsResource(devicefarmMod, "NetworkProfile")},
+			"aws_devicefarm_upload":           {Tok: awsResource(devicefarmMod, "Upload")},
+			"aws_devicefarm_instance_profile": {Tok: awsResource(devicefarmMod, "InstanceProfile")},
+
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
 			"aws_directory_service_directory": {
@@ -1994,12 +2000,15 @@ func Provider() tfbridge.ProviderInfo {
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
+
 			// MemoryDB
 			"aws_memorydb_cluster":         {Tok: awsResource(memoryDbMod, "Cluster")},
 			"aws_memorydb_parameter_group": {Tok: awsResource(memoryDbMod, "ParameterGroup")},
 			"aws_memorydb_subnet_group":    {Tok: awsResource(memoryDbMod, "SubnetGroup")},
 			"aws_memorydb_user":            {Tok: awsResource(memoryDbMod, "User")},
 			"aws_memorydb_acl":             {Tok: awsResource(memoryDbMod, "Acl")},
+			"aws_memorydb_snapshot":        {Tok: awsResource(memoryDbMod, "Snapshot")},
+
 			// MQ
 			"aws_mq_broker": {
 				Tok: awsResource(mqMod, "Broker"),
@@ -2367,9 +2376,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_receipt_rule_set":             {Tok: awsResource(sesMod, "ReceiptRuleSet")},
 			"aws_ses_event_destination":            {Tok: awsResource(sesMod, "EventDestination")},
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
+
 			// Shield
-			"aws_shield_protection":       {Tok: awsResource(shieldMod, "Protection")},
-			"aws_shield_protection_group": {Tok: awsResource(shieldMod, "ProtectionGroup")},
+			"aws_shield_protection":                          {Tok: awsResource(shieldMod, "Protection")},
+			"aws_shield_protection_group":                    {Tok: awsResource(shieldMod, "ProtectionGroup")},
+			"aws_shield_protection_health_check_association": {Tok: awsResource(shieldMod, "ProtectionHealthCheckAssociation")},
+
 			// S3
 			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
 			"aws_s3_bucket": {
@@ -3976,10 +3988,13 @@ func Provider() tfbridge.ProviderInfo {
 			// CodeCommit
 			"aws_codecommit_repository":             {Tok: awsDataSource(codecommitMod, "getRepository")},
 			"aws_codecommit_approval_rule_template": {Tok: awsDataSource(codecommitMod, "getApprovalRuleTemplate")},
+
 			// Cognito
 			"aws_cognito_user_pools":                    {Tok: awsDataSource(cognitoMod, "getUserPools")},
 			"aws_cognito_user_pool_clients":             {Tok: awsDataSource(cognitoMod, "getUserPoolClients")},
 			"aws_cognito_user_pool_signing_certificate": {Tok: awsDataSource(cognitoMod, "getUserPoolSigningCertificate")},
+			"aws_cognito_user_pool_client":              {Tok: awsDataSource(cognitoMod, "getUserPoolClient")},
+
 			// Connect
 			"aws_connect_contact_flow":                {Tok: awsDataSource(connectMod, "getContactFlow")},
 			"aws_connect_instance":                    {Tok: awsDataSource(connectMod, "getInstance")},

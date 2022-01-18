@@ -299,6 +299,10 @@ namespace Pulumi.Aws.Ebs
         public readonly string KmsKeyId;
         public readonly bool? MostRecent;
         /// <summary>
+        /// The ARN of the Outpost on which the snapshot is stored.
+        /// </summary>
+        public readonly string OutpostArn;
+        /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
         public readonly string OwnerAlias;
@@ -317,6 +321,10 @@ namespace Pulumi.Aws.Ebs
         /// The snapshot state.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// The storage tier in which the snapshot is stored.
+        /// </summary>
+        public readonly string StorageTier;
         /// <summary>
         /// A map of tags for the resource.
         /// </summary>
@@ -348,6 +356,8 @@ namespace Pulumi.Aws.Ebs
 
             bool? mostRecent,
 
+            string outpostArn,
+
             string ownerAlias,
 
             string ownerId,
@@ -361,6 +371,8 @@ namespace Pulumi.Aws.Ebs
             ImmutableArray<string> snapshotIds,
 
             string state,
+
+            string storageTier,
 
             ImmutableDictionary<string, string> tags,
 
@@ -376,6 +388,7 @@ namespace Pulumi.Aws.Ebs
             Id = id;
             KmsKeyId = kmsKeyId;
             MostRecent = mostRecent;
+            OutpostArn = outpostArn;
             OwnerAlias = ownerAlias;
             OwnerId = ownerId;
             Owners = owners;
@@ -383,6 +396,7 @@ namespace Pulumi.Aws.Ebs
             SnapshotId = snapshotId;
             SnapshotIds = snapshotIds;
             State = state;
+            StorageTier = storageTier;
             Tags = tags;
             VolumeId = volumeId;
             VolumeSize = volumeSize;

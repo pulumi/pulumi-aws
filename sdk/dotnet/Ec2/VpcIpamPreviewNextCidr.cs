@@ -50,6 +50,10 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             IpamPoolId = exampleVpcIpamPool.Id,
     ///             NetmaskLength = 28,
+    ///             DisallowedCidrs = 
+    ///             {
+    ///                 "172.2.0.0/32",
+    ///             },
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
@@ -70,6 +74,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        [Output("disallowedCidrs")]
+        public Output<ImmutableArray<string>> DisallowedCidrs { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
@@ -129,6 +139,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamPreviewNextCidrArgs : Pulumi.ResourceArgs
     {
+        [Input("disallowedCidrs")]
+        private InputList<string>? _disallowedCidrs;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        public InputList<string> DisallowedCidrs
+        {
+            get => _disallowedCidrs ?? (_disallowedCidrs = new InputList<string>());
+            set => _disallowedCidrs = value;
+        }
+
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
@@ -153,6 +175,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
+
+        [Input("disallowedCidrs")]
+        private InputList<string>? _disallowedCidrs;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        public InputList<string> DisallowedCidrs
+        {
+            get => _disallowedCidrs ?? (_disallowedCidrs = new InputList<string>());
+            set => _disallowedCidrs = value;
+        }
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.

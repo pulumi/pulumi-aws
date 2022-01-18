@@ -324,6 +324,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      * Configuration block for runtimePlatform that containers in your task may use.
      */
     public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Key-value map of resource tags.
      */
@@ -370,6 +371,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
             inputs["revision"] = state ? state.revision : undefined;
             inputs["runtimePlatform"] = state ? state.runtimePlatform : undefined;
+            inputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
@@ -396,6 +398,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
             inputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
             inputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
+            inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
@@ -478,6 +481,7 @@ export interface TaskDefinitionState {
      * Configuration block for runtimePlatform that containers in your task may use.
      */
     runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags.
      */
@@ -556,6 +560,7 @@ export interface TaskDefinitionArgs {
      * Configuration block for runtimePlatform that containers in your task may use.
      */
     runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags.
      */

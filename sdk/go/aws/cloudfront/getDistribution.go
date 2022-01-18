@@ -52,6 +52,8 @@ type LookupDistributionArgs struct {
 
 // A collection of values returned by getDistribution.
 type LookupDistributionResult struct {
+	// A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+	Aliases []string `pulumi:"aliases"`
 	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 	Arn string `pulumi:"arn"`
 	// The domain name corresponding to the distribution. For
@@ -112,6 +114,11 @@ func (o LookupDistributionResultOutput) ToLookupDistributionResultOutput() Looku
 
 func (o LookupDistributionResultOutput) ToLookupDistributionResultOutputWithContext(ctx context.Context) LookupDistributionResultOutput {
 	return o
+}
+
+// A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+func (o LookupDistributionResultOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDistributionResult) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
 // The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:devicefarm/devicePool:DevicePool":
 		r = &DevicePool{}
+	case "aws:devicefarm/instanceProfile:InstanceProfile":
+		r = &InstanceProfile{}
 	case "aws:devicefarm/networkProfile:NetworkProfile":
 		r = &NetworkProfile{}
 	case "aws:devicefarm/project:Project":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"devicefarm/devicePool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"devicefarm/instanceProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

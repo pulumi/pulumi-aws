@@ -75,17 +75,21 @@ export interface GetCustomerGatewayResult {
      */
     readonly arn: string;
     /**
-     * (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: number;
     /**
-     * (Optional) A name for the customer gateway device.
+     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     */
+    readonly certificateArn: string;
+    /**
+     * A name for the customer gateway device.
      */
     readonly deviceName: string;
     readonly filters?: outputs.ec2.GetCustomerGatewayFilter[];
     readonly id: string;
     /**
-     * (Optional) The IP address of the gateway's Internet-routable external interface.
+     * The IP address of the gateway's Internet-routable external interface.
      */
     readonly ipAddress: string;
     /**
@@ -93,7 +97,7 @@ export interface GetCustomerGatewayResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+     * The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
      */
     readonly type: string;
 }

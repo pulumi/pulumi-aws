@@ -10,7 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
+    /// Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+    /// Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
     /// 
     /// &gt; **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
     /// [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
@@ -140,6 +141,9 @@ namespace Pulumi.Aws.Ec2
         [Output("remoteIpv6NetworkCidr")]
         public Output<string> RemoteIpv6NetworkCidr { get; private set; } = null!;
 
+        /// <summary>
+        /// The static routes associated with the VPN connection. Detailed below.
+        /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.VpnConnectionRoute>> Routes { get; private set; } = null!;
 
@@ -461,6 +465,9 @@ namespace Pulumi.Aws.Ec2
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Telemetry for the VPN tunnels. Detailed below.
+        /// </summary>
         [Output("vgwTelemetries")]
         public Output<ImmutableArray<Outputs.VpnConnectionVgwTelemetry>> VgwTelemetries { get; private set; } = null!;
 
@@ -951,6 +958,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("routes")]
         private InputList<Inputs.VpnConnectionRouteGetArgs>? _routes;
+
+        /// <summary>
+        /// The static routes associated with the VPN connection. Detailed below.
+        /// </summary>
         public InputList<Inputs.VpnConnectionRouteGetArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.VpnConnectionRouteGetArgs>());
@@ -1373,6 +1384,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("vgwTelemetries")]
         private InputList<Inputs.VpnConnectionVgwTelemetryGetArgs>? _vgwTelemetries;
+
+        /// <summary>
+        /// Telemetry for the VPN tunnels. Detailed below.
+        /// </summary>
         public InputList<Inputs.VpnConnectionVgwTelemetryGetArgs> VgwTelemetries
         {
             get => _vgwTelemetries ?? (_vgwTelemetries = new InputList<Inputs.VpnConnectionVgwTelemetryGetArgs>());

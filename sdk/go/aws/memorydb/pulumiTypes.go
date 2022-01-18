@@ -579,6 +579,211 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 	}).(ParameterGroupParameterOutput)
 }
 
+type SnapshotClusterConfiguration struct {
+	// Description for the cluster.
+	Description *string `pulumi:"description"`
+	// Version number of the Redis engine used by the cluster.
+	EngineVersion *string `pulumi:"engineVersion"`
+	// The weekly time range during which maintenance on the cluster is performed.
+	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
+	// Name of the cluster.
+	Name *string `pulumi:"name"`
+	// Compute and memory capacity of the nodes in the cluster.
+	NodeType *string `pulumi:"nodeType"`
+	// Number of shards in the cluster.
+	NumShards *int `pulumi:"numShards"`
+	// Name of the parameter group associated with the cluster.
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
+	// Port number on which the cluster accepts connections.
+	Port *int `pulumi:"port"`
+	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
+	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
+	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+	SnapshotWindow *string `pulumi:"snapshotWindow"`
+	// Name of the subnet group used by the cluster.
+	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	// ARN of the SNS topic to which cluster notifications are sent.
+	TopicArn *string `pulumi:"topicArn"`
+	// The VPC in which the cluster exists.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// SnapshotClusterConfigurationInput is an input type that accepts SnapshotClusterConfigurationArgs and SnapshotClusterConfigurationOutput values.
+// You can construct a concrete instance of `SnapshotClusterConfigurationInput` via:
+//
+//          SnapshotClusterConfigurationArgs{...}
+type SnapshotClusterConfigurationInput interface {
+	pulumi.Input
+
+	ToSnapshotClusterConfigurationOutput() SnapshotClusterConfigurationOutput
+	ToSnapshotClusterConfigurationOutputWithContext(context.Context) SnapshotClusterConfigurationOutput
+}
+
+type SnapshotClusterConfigurationArgs struct {
+	// Description for the cluster.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Version number of the Redis engine used by the cluster.
+	EngineVersion pulumi.StringPtrInput `pulumi:"engineVersion"`
+	// The weekly time range during which maintenance on the cluster is performed.
+	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
+	// Name of the cluster.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Compute and memory capacity of the nodes in the cluster.
+	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
+	// Number of shards in the cluster.
+	NumShards pulumi.IntPtrInput `pulumi:"numShards"`
+	// Name of the parameter group associated with the cluster.
+	ParameterGroupName pulumi.StringPtrInput `pulumi:"parameterGroupName"`
+	// Port number on which the cluster accepts connections.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
+	SnapshotRetentionLimit pulumi.IntPtrInput `pulumi:"snapshotRetentionLimit"`
+	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+	SnapshotWindow pulumi.StringPtrInput `pulumi:"snapshotWindow"`
+	// Name of the subnet group used by the cluster.
+	SubnetGroupName pulumi.StringPtrInput `pulumi:"subnetGroupName"`
+	// ARN of the SNS topic to which cluster notifications are sent.
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+	// The VPC in which the cluster exists.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (SnapshotClusterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (i SnapshotClusterConfigurationArgs) ToSnapshotClusterConfigurationOutput() SnapshotClusterConfigurationOutput {
+	return i.ToSnapshotClusterConfigurationOutputWithContext(context.Background())
+}
+
+func (i SnapshotClusterConfigurationArgs) ToSnapshotClusterConfigurationOutputWithContext(ctx context.Context) SnapshotClusterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotClusterConfigurationOutput)
+}
+
+// SnapshotClusterConfigurationArrayInput is an input type that accepts SnapshotClusterConfigurationArray and SnapshotClusterConfigurationArrayOutput values.
+// You can construct a concrete instance of `SnapshotClusterConfigurationArrayInput` via:
+//
+//          SnapshotClusterConfigurationArray{ SnapshotClusterConfigurationArgs{...} }
+type SnapshotClusterConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToSnapshotClusterConfigurationArrayOutput() SnapshotClusterConfigurationArrayOutput
+	ToSnapshotClusterConfigurationArrayOutputWithContext(context.Context) SnapshotClusterConfigurationArrayOutput
+}
+
+type SnapshotClusterConfigurationArray []SnapshotClusterConfigurationInput
+
+func (SnapshotClusterConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (i SnapshotClusterConfigurationArray) ToSnapshotClusterConfigurationArrayOutput() SnapshotClusterConfigurationArrayOutput {
+	return i.ToSnapshotClusterConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i SnapshotClusterConfigurationArray) ToSnapshotClusterConfigurationArrayOutputWithContext(ctx context.Context) SnapshotClusterConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotClusterConfigurationArrayOutput)
+}
+
+type SnapshotClusterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SnapshotClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (o SnapshotClusterConfigurationOutput) ToSnapshotClusterConfigurationOutput() SnapshotClusterConfigurationOutput {
+	return o
+}
+
+func (o SnapshotClusterConfigurationOutput) ToSnapshotClusterConfigurationOutputWithContext(ctx context.Context) SnapshotClusterConfigurationOutput {
+	return o
+}
+
+// Description for the cluster.
+func (o SnapshotClusterConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Version number of the Redis engine used by the cluster.
+func (o SnapshotClusterConfigurationOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// The weekly time range during which maintenance on the cluster is performed.
+func (o SnapshotClusterConfigurationOutput) MaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+// Name of the cluster.
+func (o SnapshotClusterConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Compute and memory capacity of the nodes in the cluster.
+func (o SnapshotClusterConfigurationOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.NodeType }).(pulumi.StringPtrOutput)
+}
+
+// Number of shards in the cluster.
+func (o SnapshotClusterConfigurationOutput) NumShards() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *int { return v.NumShards }).(pulumi.IntPtrOutput)
+}
+
+// Name of the parameter group associated with the cluster.
+func (o SnapshotClusterConfigurationOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Port number on which the cluster accepts connections.
+func (o SnapshotClusterConfigurationOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Number of days for which MemoryDB retains automatic snapshots before deleting them.
+func (o SnapshotClusterConfigurationOutput) SnapshotRetentionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *int { return v.SnapshotRetentionLimit }).(pulumi.IntPtrOutput)
+}
+
+// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+func (o SnapshotClusterConfigurationOutput) SnapshotWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
+}
+
+// Name of the subnet group used by the cluster.
+func (o SnapshotClusterConfigurationOutput) SubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the SNS topic to which cluster notifications are sent.
+func (o SnapshotClusterConfigurationOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+// The VPC in which the cluster exists.
+func (o SnapshotClusterConfigurationOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type SnapshotClusterConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (SnapshotClusterConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (o SnapshotClusterConfigurationArrayOutput) ToSnapshotClusterConfigurationArrayOutput() SnapshotClusterConfigurationArrayOutput {
+	return o
+}
+
+func (o SnapshotClusterConfigurationArrayOutput) ToSnapshotClusterConfigurationArrayOutputWithContext(ctx context.Context) SnapshotClusterConfigurationArrayOutput {
+	return o
+}
+
+func (o SnapshotClusterConfigurationArrayOutput) Index(i pulumi.IntInput) SnapshotClusterConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotClusterConfiguration {
+		return vs[0].([]SnapshotClusterConfiguration)[vs[1].(int)]
+	}).(SnapshotClusterConfigurationOutput)
+}
+
 type UserAuthenticationMode struct {
 	// The number of passwords belonging to the user.
 	PasswordCount *int `pulumi:"passwordCount"`
@@ -765,6 +970,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterShardNodeEndpointArrayInput)(nil)).Elem(), ClusterShardNodeEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotClusterConfigurationInput)(nil)).Elem(), SnapshotClusterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotClusterConfigurationArrayInput)(nil)).Elem(), SnapshotClusterConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModeInput)(nil)).Elem(), UserAuthenticationModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePtrInput)(nil)).Elem(), UserAuthenticationModeArgs{})
 	pulumi.RegisterOutputType(ClusterClusterEndpointOutput{})
@@ -777,6 +984,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterShardNodeEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(SnapshotClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(SnapshotClusterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePtrOutput{})
 }

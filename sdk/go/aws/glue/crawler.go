@@ -239,7 +239,8 @@ type Crawler struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
 	// The name of the Glue database to be synchronized.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	DatabaseName pulumi.StringOutput           `pulumi:"databaseName"`
+	DeltaTargets CrawlerDeltaTargetArrayOutput `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
@@ -315,7 +316,8 @@ type crawlerState struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// The name of the Glue database to be synchronized.
-	DatabaseName *string `pulumi:"databaseName"`
+	DatabaseName *string              `pulumi:"databaseName"`
+	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
@@ -358,6 +360,7 @@ type CrawlerState struct {
 	Configuration pulumi.StringPtrInput
 	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringPtrInput
+	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
@@ -401,7 +404,8 @@ type crawlerArgs struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// The name of the Glue database to be synchronized.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName string               `pulumi:"databaseName"`
+	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
@@ -441,6 +445,7 @@ type CrawlerArgs struct {
 	Configuration pulumi.StringPtrInput
 	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringInput
+	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.

@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  *   "Version": "2012-10-17",
  *   "Statement": [
  * 	{
- * 	  "Sid": "EnableAllPermissions",
+ * 	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
  * 	  "Effect": "Allow",
  * 	  "Principal": {
- * 		"AWS": "*"
+ * 		"AWS": "arn:aws:iam::123456789012:root"
  * 	  },
  * 	  "Action": "secretsmanager:GetSecretValue",
  * 	  "Resource": "*"

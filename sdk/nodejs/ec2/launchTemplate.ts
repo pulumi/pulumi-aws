@@ -58,6 +58,7 @@ import * as utilities from "../utilities";
  *         httpEndpoint: "enabled",
  *         httpTokens: "required",
  *         httpPutResponseHopLimit: 1,
+ *         instanceMetadataTags: "enabled",
  *     },
  *     monitoring: {
  *         enabled: true,

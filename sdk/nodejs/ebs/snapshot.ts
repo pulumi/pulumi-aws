@@ -85,6 +85,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     */
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
     public /*out*/ readonly ownerAlias!: pulumi.Output<string>;
@@ -93,6 +97,14 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    public readonly permanentRestore!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+     */
+    public readonly storageTier!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -100,6 +112,10 @@ export class Snapshot extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    public readonly temporaryRestoreDays!: pulumi.Output<number | undefined>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -127,10 +143,14 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["permanentRestore"] = state ? state.permanentRestore : undefined;
+            inputs["storageTier"] = state ? state.storageTier : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            inputs["temporaryRestoreDays"] = state ? state.temporaryRestoreDays : undefined;
             inputs["volumeId"] = state ? state.volumeId : undefined;
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
@@ -139,7 +159,11 @@ export class Snapshot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumeId'");
             }
             inputs["description"] = args ? args.description : undefined;
+            inputs["outpostArn"] = args ? args.outpostArn : undefined;
+            inputs["permanentRestore"] = args ? args.permanentRestore : undefined;
+            inputs["storageTier"] = args ? args.storageTier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["temporaryRestoreDays"] = args ? args.temporaryRestoreDays : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
@@ -182,6 +206,10 @@ export interface SnapshotState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     */
+    outpostArn?: pulumi.Input<string>;
+    /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
     ownerAlias?: pulumi.Input<string>;
@@ -190,6 +218,14 @@ export interface SnapshotState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    permanentRestore?: pulumi.Input<boolean>;
+    /**
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+     */
+    storageTier?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -197,6 +233,10 @@ export interface SnapshotState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    temporaryRestoreDays?: pulumi.Input<number>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -216,9 +256,25 @@ export interface SnapshotArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     */
+    outpostArn?: pulumi.Input<string>;
+    /**
+     * Indicates whether to permanently restore an archived snapshot.
+     */
+    permanentRestore?: pulumi.Input<boolean>;
+    /**
+     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+     */
+    storageTier?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+     */
+    temporaryRestoreDays?: pulumi.Input<number>;
     /**
      * The Volume ID of which to make a snapshot.
      */

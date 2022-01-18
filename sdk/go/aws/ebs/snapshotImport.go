@@ -61,16 +61,24 @@ type SnapshotImport struct {
 	// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	KmsKeyId   pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	OutpostArn pulumi.StringOutput    `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays pulumi.IntPtrOutput `pulumi:"temporaryRestoreDays"`
+	VolumeId             pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
 }
@@ -120,16 +128,24 @@ type snapshotImportState struct {
 	// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
 	Encrypted *bool `pulumi:"encrypted"`
 	// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
+	KmsKeyId   *string `pulumi:"kmsKeyId"`
+	OutpostArn *string `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore *bool `pulumi:"permanentRestore"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName *string `pulumi:"roleName"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier *string `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays *int    `pulumi:"temporaryRestoreDays"`
+	VolumeId             *string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize *int `pulumi:"volumeSize"`
 }
@@ -148,16 +164,24 @@ type SnapshotImportState struct {
 	// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
 	Encrypted pulumi.BoolPtrInput
 	// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-	KmsKeyId pulumi.StringPtrInput
+	KmsKeyId   pulumi.StringPtrInput
+	OutpostArn pulumi.StringPtrInput
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrInput
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrInput
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays pulumi.IntPtrInput
+	VolumeId             pulumi.StringPtrInput
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntPtrInput
 }
@@ -177,10 +201,16 @@ type snapshotImportArgs struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore *bool `pulumi:"permanentRestore"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName *string `pulumi:"roleName"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier *string `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays *int `pulumi:"temporaryRestoreDays"`
 }
 
 // The set of arguments for constructing a SnapshotImport resource.
@@ -195,10 +225,16 @@ type SnapshotImportArgs struct {
 	Encrypted pulumi.BoolPtrInput
 	// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
 	KmsKeyId pulumi.StringPtrInput
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrInput
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrInput
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot.
 	Tags pulumi.StringMapInput
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays pulumi.IntPtrInput
 }
 
 func (SnapshotImportArgs) ElementType() reflect.Type {

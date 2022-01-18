@@ -4574,8 +4574,9 @@ export namespace appstream {
 
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
+        deltaSyncConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfigDeltaSyncConfig>;
         /**
-         * AWS region of Elasticsearch domain. Defaults to current region.
+         * AWS Region for RDS HTTP endpoint. Defaults to current region.
          */
         region?: pulumi.Input<string>;
         /**
@@ -4586,6 +4587,13 @@ export namespace appsync {
          * Set to `true` to use Amazon Cognito credentials with this data source.
          */
         useCallerCredentials?: pulumi.Input<boolean>;
+        versioned?: pulumi.Input<boolean>;
+    }
+
+    export interface DataSourceDynamodbConfigDeltaSyncConfig {
+        baseTableTtl?: pulumi.Input<number>;
+        deltaSyncTableName: pulumi.Input<string>;
+        deltaSyncTableTtl?: pulumi.Input<number>;
     }
 
     export interface DataSourceElasticsearchConfig {
@@ -4594,16 +4602,42 @@ export namespace appsync {
          */
         endpoint: pulumi.Input<string>;
         /**
-         * AWS region of Elasticsearch domain. Defaults to current region.
+         * AWS Region for RDS HTTP endpoint. Defaults to current region.
          */
         region?: pulumi.Input<string>;
     }
 
     export interface DataSourceHttpConfig {
         /**
+         * The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+         */
+        authorizationConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigAuthorizationConfig>;
+        /**
          * HTTP URL.
          */
         endpoint: pulumi.Input<string>;
+    }
+
+    export interface DataSourceHttpConfigAuthorizationConfig {
+        /**
+         * The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+         */
+        authorizationType?: pulumi.Input<string>;
+        /**
+         * The Identity and Access Management (IAM) settings. See AWS IAM Config.
+         */
+        awsIamConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigAuthorizationConfigAwsIamConfig>;
+    }
+
+    export interface DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
+        /**
+         * The signing Amazon Web Services Region for IAM authorization.
+         */
+        signingRegion?: pulumi.Input<string>;
+        /**
+         * The signing service name for IAM authorization.
+         */
+        signingServiceName?: pulumi.Input<string>;
     }
 
     export interface DataSourceLambdaConfig {
@@ -4611,6 +4645,62 @@ export namespace appsync {
          * The ARN for the Lambda function.
          */
         functionArn: pulumi.Input<string>;
+    }
+
+    export interface DataSourceRelationalDatabaseConfig {
+        /**
+         * The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+         */
+        httpEndpointConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfigHttpEndpointConfig>;
+        /**
+         * Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
+         */
+        sourceType?: pulumi.Input<string>;
+    }
+
+    export interface DataSourceRelationalDatabaseConfigHttpEndpointConfig {
+        /**
+         * AWS secret store ARN for database credentials.
+         */
+        awsSecretStoreArn: pulumi.Input<string>;
+        /**
+         * Logical database name.
+         */
+        databaseName?: pulumi.Input<string>;
+        /**
+         * Amazon RDS cluster identifier.
+         */
+        dbClusterIdentifier: pulumi.Input<string>;
+        /**
+         * AWS Region for RDS HTTP endpoint. Defaults to current region.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * Logical schema name.
+         */
+        schema?: pulumi.Input<string>;
+    }
+
+    export interface FunctionSyncConfig {
+        /**
+         * The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+         */
+        conflictDetection?: pulumi.Input<string>;
+        /**
+         * The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+         */
+        conflictHandler?: pulumi.Input<string>;
+        /**
+         * The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+         */
+        lambdaConflictHandlerConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfigLambdaConflictHandlerConfig>;
+    }
+
+    export interface FunctionSyncConfigLambdaConflictHandlerConfig {
+        /**
+         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         */
+        lambdaConflictHandlerArn?: pulumi.Input<string>;
     }
 
     export interface GraphQLApiAdditionalAuthenticationProvider {
@@ -4765,6 +4855,28 @@ export namespace appsync {
          * The list of Function ID.
          */
         functions?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResolverSyncConfig {
+        /**
+         * The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+         */
+        conflictDetection?: pulumi.Input<string>;
+        /**
+         * The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+         */
+        conflictHandler?: pulumi.Input<string>;
+        /**
+         * The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+         */
+        lambdaConflictHandlerConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfigLambdaConflictHandlerConfig>;
+    }
+
+    export interface ResolverSyncConfigLambdaConflictHandlerConfig {
+        /**
+         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         */
+        lambdaConflictHandlerArn?: pulumi.Input<string>;
     }
 }
 
@@ -5501,6 +5613,57 @@ export namespace backup {
          * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: pulumi.Input<number>;
+    }
+
+    export interface SelectionCondition {
+        stringEquals?: pulumi.Input<pulumi.Input<inputs.backup.SelectionConditionStringEqual>[]>;
+        stringLikes?: pulumi.Input<pulumi.Input<inputs.backup.SelectionConditionStringLike>[]>;
+        stringNotEquals?: pulumi.Input<pulumi.Input<inputs.backup.SelectionConditionStringNotEqual>[]>;
+        stringNotLikes?: pulumi.Input<pulumi.Input<inputs.backup.SelectionConditionStringNotLike>[]>;
+    }
+
+    export interface SelectionConditionStringEqual {
+        /**
+         * The key in a key-value pair.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface SelectionConditionStringLike {
+        /**
+         * The key in a key-value pair.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface SelectionConditionStringNotEqual {
+        /**
+         * The key in a key-value pair.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface SelectionConditionStringNotLike {
+        /**
+         * The key in a key-value pair.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface SelectionSelectionTag {
@@ -9068,17 +9231,6 @@ export namespace connect {
         name: pulumi.Input<string>;
     }
 
-    export interface GetBotAssociationLexBotArgs {
-        /**
-         * The Region that the Amazon Lex (V1) bot was created in.
-         */
-        lexRegion?: pulumi.Input<string>;
-        /**
-         * The name of the Amazon Lex (V1) bot.
-         */
-        name: pulumi.Input<string>;
-    }
-
     export interface GetBotAssociationLexBot {
         /**
          * The Region that the Amazon Lex (V1) bot was created in.
@@ -9088,6 +9240,17 @@ export namespace connect {
          * The name of the Amazon Lex (V1) bot.
          */
         name: string;
+    }
+
+    export interface GetBotAssociationLexBotArgs {
+        /**
+         * The Region that the Amazon Lex (V1) bot was created in.
+         */
+        lexRegion?: pulumi.Input<string>;
+        /**
+         * The name of the Amazon Lex (V1) bot.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface HoursOfOperationConfig {
@@ -9126,6 +9289,55 @@ export namespace connect {
          */
         minutes: pulumi.Input<number>;
     }
+
+    export interface QuickConnectQuickConnectConfig {
+        /**
+         * Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
+         */
+        phoneConfigs?: pulumi.Input<pulumi.Input<inputs.connect.QuickConnectQuickConnectConfigPhoneConfig>[]>;
+        /**
+         * Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
+         */
+        queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.QuickConnectQuickConnectConfigQueueConfig>[]>;
+        /**
+         * Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+         */
+        quickConnectType: pulumi.Input<string>;
+        /**
+         * Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
+         */
+        userConfigs?: pulumi.Input<pulumi.Input<inputs.connect.QuickConnectQuickConnectConfigUserConfig>[]>;
+    }
+
+    export interface QuickConnectQuickConnectConfigPhoneConfig {
+        /**
+         * Specifies the phone number in in E.164 format.
+         */
+        phoneNumber: pulumi.Input<string>;
+    }
+
+    export interface QuickConnectQuickConnectConfigQueueConfig {
+        /**
+         * Specifies the identifier of the contact flow.
+         */
+        contactFlowId: pulumi.Input<string>;
+        /**
+         * Specifies the identifier for the queue.
+         */
+        queueId: pulumi.Input<string>;
+    }
+
+    export interface QuickConnectQuickConnectConfigUserConfig {
+        /**
+         * Specifies the identifier of the contact flow.
+         */
+        contactFlowId: pulumi.Input<string>;
+        /**
+         * Specifies the identifier for the user.
+         */
+        userId: pulumi.Input<string>;
+    }
+
 }
 
 export namespace datasync {
@@ -11627,6 +11839,10 @@ export namespace ec2 {
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens?: pulumi.Input<string>;
+        /**
+         * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+         */
+        instanceMetadataTags?: pulumi.Input<string>;
     }
 
     export interface InstanceNetworkInterface {
@@ -11923,6 +12139,10 @@ export namespace ec2 {
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
          */
         httpTokens?: pulumi.Input<string>;
+        /**
+         * Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+         */
+        instanceMetadataTags?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateMonitoring {
@@ -12573,6 +12793,10 @@ export namespace ec2 {
          * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
          */
         httpTokens?: pulumi.Input<string>;
+        /**
+         * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+         */
+        instanceMetadataTags?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestNetworkInterface {
@@ -12777,16 +13001,44 @@ export namespace ec2 {
     }
 
     export interface VpnConnectionRoute {
+        /**
+         * The CIDR block associated with the local subnet of the customer data center.
+         */
         destinationCidrBlock?: pulumi.Input<string>;
+        /**
+         * Indicates how the routes were provided.
+         */
         source?: pulumi.Input<string>;
+        /**
+         * The current state of the static route.
+         */
         state?: pulumi.Input<string>;
     }
 
     export interface VpnConnectionVgwTelemetry {
+        /**
+         * The number of accepted routes.
+         */
         acceptedRouteCount?: pulumi.Input<number>;
+        /**
+         * The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+         */
+        certificateArn?: pulumi.Input<string>;
+        /**
+         * The date and time of the last change in status.
+         */
         lastStatusChange?: pulumi.Input<string>;
+        /**
+         * The Internet-routable IP address of the virtual private gateway's outside interface.
+         */
         outsideIpAddress?: pulumi.Input<string>;
+        /**
+         * The status of the VPN tunnel.
+         */
         status?: pulumi.Input<string>;
+        /**
+         * If an error occurs, a description of the error.
+         */
         statusMessage?: pulumi.Input<string>;
     }
 }
@@ -13656,6 +13908,10 @@ export namespace eks {
     }
 
     export interface ClusterKubernetesNetworkConfig {
+        /**
+         * The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+         */
+        ipFamily?: pulumi.Input<string>;
         /**
          * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
          */
@@ -16594,6 +16850,21 @@ export namespace glue {
         tables: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface CrawlerDeltaTarget {
+        /**
+         * The name of the connection to use to connect to the Delta table target.
+         */
+        connectionName: pulumi.Input<string>;
+        /**
+         * A list of the Amazon S3 paths to the Delta tables.
+         */
+        deltaTables: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies whether to write the manifest files to the Delta table path.
+         */
+        writeManifest: pulumi.Input<boolean>;
+    }
+
     export interface CrawlerDynamodbTarget {
         /**
          * The path of the Amazon DocumentDB or MongoDB target (database/collection).
@@ -16611,7 +16882,7 @@ export namespace glue {
 
     export interface CrawlerJdbcTarget {
         /**
-         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * The name of the connection to use to connect to the Delta table target.
          */
         connectionName: pulumi.Input<string>;
         /**
@@ -16633,7 +16904,7 @@ export namespace glue {
 
     export interface CrawlerMongodbTarget {
         /**
-         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * The name of the connection to use to connect to the Delta table target.
          */
         connectionName: pulumi.Input<string>;
         /**
@@ -16655,7 +16926,7 @@ export namespace glue {
 
     export interface CrawlerS3Target {
         /**
-         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * The name of the connection to use to connect to the Delta table target.
          */
         connectionName?: pulumi.Input<string>;
         /**
@@ -16792,21 +17063,6 @@ export namespace glue {
         nodeType: pulumi.Input<string>;
     }
 
-    export interface GetScriptDagNodeArg {
-        /**
-         * The name of the argument or property.
-         */
-        name: string;
-        /**
-         * Boolean if the value is used as a parameter. Defaults to `false`.
-         */
-        param?: boolean;
-        /**
-         * The value of the argument or property.
-         */
-        value: string;
-    }
-
     export interface GetScriptDagNodeArgArgs {
         /**
          * The name of the argument or property.
@@ -16820,6 +17076,21 @@ export namespace glue {
          * The value of the argument or property.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface GetScriptDagNodeArg {
+        /**
+         * The name of the argument or property.
+         */
+        name: string;
+        /**
+         * Boolean if the value is used as a parameter. Defaults to `false`.
+         */
+        param?: boolean;
+        /**
+         * The value of the argument or property.
+         */
+        value: string;
     }
 
     export interface JobCommand {
@@ -17150,7 +17421,6 @@ export namespace glue {
          */
         uri: pulumi.Input<string>;
     }
-
 }
 
 export namespace guardduty {
@@ -21824,6 +22094,61 @@ export namespace memorydb {
          * The value of the parameter.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface SnapshotClusterConfiguration {
+        /**
+         * Description for the cluster.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Version number of the Redis engine used by the cluster.
+         */
+        engineVersion?: pulumi.Input<string>;
+        /**
+         * The weekly time range during which maintenance on the cluster is performed.
+         */
+        maintenanceWindow?: pulumi.Input<string>;
+        /**
+         * Name of the cluster.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Compute and memory capacity of the nodes in the cluster.
+         */
+        nodeType?: pulumi.Input<string>;
+        /**
+         * Number of shards in the cluster.
+         */
+        numShards?: pulumi.Input<number>;
+        /**
+         * Name of the parameter group associated with the cluster.
+         */
+        parameterGroupName?: pulumi.Input<string>;
+        /**
+         * Port number on which the cluster accepts connections.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * Number of days for which MemoryDB retains automatic snapshots before deleting them.
+         */
+        snapshotRetentionLimit?: pulumi.Input<number>;
+        /**
+         * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+         */
+        snapshotWindow?: pulumi.Input<string>;
+        /**
+         * Name of the subnet group used by the cluster.
+         */
+        subnetGroupName?: pulumi.Input<string>;
+        /**
+         * ARN of the SNS topic to which cluster notifications are sent.
+         */
+        topicArn?: pulumi.Input<string>;
+        /**
+         * The VPC in which the cluster exists.
+         */
+        vpcId?: pulumi.Input<string>;
     }
 
     export interface UserAuthenticationMode {
