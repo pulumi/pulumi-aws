@@ -40,6 +40,7 @@ from .get_instance_type_offerings import *
 from .get_instance_types import *
 from .get_instances import *
 from .get_internet_gateway import *
+from .get_ipam_preview_next_cidr import *
 from .get_key_pair import *
 from .get_launch_configuration import *
 from .get_launch_template import *

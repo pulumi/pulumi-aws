@@ -39,6 +39,7 @@ export * from "./getInstanceTypeOfferings";
 export * from "./getInstanceTypes";
 export * from "./getInstances";
 export * from "./getInternetGateway";
+export * from "./getIpamPreviewNextCidr";
 export * from "./getKeyPair";
 export * from "./getLaunchConfiguration";
 export * from "./getLaunchTemplate";

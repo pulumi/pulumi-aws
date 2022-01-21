@@ -5,15 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./apiCache";
 export * from "./apiKey";
 export * from "./dataSource";
+export * from "./domainName";
+export * from "./domainNameApiAssociation";
 export * from "./function";
 export * from "./graphQLApi";
 export * from "./resolver";
 
 // Import resources to register:
+import { ApiCache } from "./apiCache";
 import { ApiKey } from "./apiKey";
 import { DataSource } from "./dataSource";
+import { DomainName } from "./domainName";
+import { DomainNameApiAssociation } from "./domainNameApiAssociation";
 import { Function } from "./function";
 import { GraphQLApi } from "./graphQLApi";
 import { Resolver } from "./resolver";
@@ -22,10 +28,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:appsync/apiCache:ApiCache":
+                return new ApiCache(name, <any>undefined, { urn })
             case "aws:appsync/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "aws:appsync/dataSource:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws:appsync/domainName:DomainName":
+                return new DomainName(name, <any>undefined, { urn })
+            case "aws:appsync/domainNameApiAssociation:DomainNameApiAssociation":
+                return new DomainNameApiAssociation(name, <any>undefined, { urn })
             case "aws:appsync/function:Function":
                 return new Function(name, <any>undefined, { urn })
             case "aws:appsync/graphQLApi:GraphQLApi":
@@ -37,8 +49,11 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "appsync/apiCache", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/apiKey", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/dataSource", _module)
+pulumi.runtime.registerResourceModule("aws", "appsync/domainName", _module)
+pulumi.runtime.registerResourceModule("aws", "appsync/domainNameApiAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/function", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/graphQLApi", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/resolver", _module)

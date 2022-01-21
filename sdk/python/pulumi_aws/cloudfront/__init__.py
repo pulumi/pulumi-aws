@@ -13,6 +13,7 @@ from .function import *
 from .get_cache_policy import *
 from .get_distribution import *
 from .get_log_delivery_canonical_user_id import *
+from .get_origin_access_identity import *
 from .get_origin_request_policy import *
 from .get_response_headers_policy import *
 from .key_group import *

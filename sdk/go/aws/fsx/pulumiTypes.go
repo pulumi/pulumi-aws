@@ -10,6 +10,440 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DataRepositoryAssociationS3 struct {
+	// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+	AutoExportPolicy *DataRepositoryAssociationS3AutoExportPolicy `pulumi:"autoExportPolicy"`
+	// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+	AutoImportPolicy *DataRepositoryAssociationS3AutoImportPolicy `pulumi:"autoImportPolicy"`
+}
+
+// DataRepositoryAssociationS3Input is an input type that accepts DataRepositoryAssociationS3Args and DataRepositoryAssociationS3Output values.
+// You can construct a concrete instance of `DataRepositoryAssociationS3Input` via:
+//
+//          DataRepositoryAssociationS3Args{...}
+type DataRepositoryAssociationS3Input interface {
+	pulumi.Input
+
+	ToDataRepositoryAssociationS3Output() DataRepositoryAssociationS3Output
+	ToDataRepositoryAssociationS3OutputWithContext(context.Context) DataRepositoryAssociationS3Output
+}
+
+type DataRepositoryAssociationS3Args struct {
+	// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+	AutoExportPolicy DataRepositoryAssociationS3AutoExportPolicyPtrInput `pulumi:"autoExportPolicy"`
+	// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+	AutoImportPolicy DataRepositoryAssociationS3AutoImportPolicyPtrInput `pulumi:"autoImportPolicy"`
+}
+
+func (DataRepositoryAssociationS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataRepositoryAssociationS3)(nil)).Elem()
+}
+
+func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3Output() DataRepositoryAssociationS3Output {
+	return i.ToDataRepositoryAssociationS3OutputWithContext(context.Background())
+}
+
+func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3OutputWithContext(ctx context.Context) DataRepositoryAssociationS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3Output)
+}
+
+func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3PtrOutput() DataRepositoryAssociationS3PtrOutput {
+	return i.ToDataRepositoryAssociationS3PtrOutputWithContext(context.Background())
+}
+
+func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3PtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3Output).ToDataRepositoryAssociationS3PtrOutputWithContext(ctx)
+}
+
+// DataRepositoryAssociationS3PtrInput is an input type that accepts DataRepositoryAssociationS3Args, DataRepositoryAssociationS3Ptr and DataRepositoryAssociationS3PtrOutput values.
+// You can construct a concrete instance of `DataRepositoryAssociationS3PtrInput` via:
+//
+//          DataRepositoryAssociationS3Args{...}
+//
+//  or:
+//
+//          nil
+type DataRepositoryAssociationS3PtrInput interface {
+	pulumi.Input
+
+	ToDataRepositoryAssociationS3PtrOutput() DataRepositoryAssociationS3PtrOutput
+	ToDataRepositoryAssociationS3PtrOutputWithContext(context.Context) DataRepositoryAssociationS3PtrOutput
+}
+
+type dataRepositoryAssociationS3PtrType DataRepositoryAssociationS3Args
+
+func DataRepositoryAssociationS3Ptr(v *DataRepositoryAssociationS3Args) DataRepositoryAssociationS3PtrInput {
+	return (*dataRepositoryAssociationS3PtrType)(v)
+}
+
+func (*dataRepositoryAssociationS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataRepositoryAssociationS3)(nil)).Elem()
+}
+
+func (i *dataRepositoryAssociationS3PtrType) ToDataRepositoryAssociationS3PtrOutput() DataRepositoryAssociationS3PtrOutput {
+	return i.ToDataRepositoryAssociationS3PtrOutputWithContext(context.Background())
+}
+
+func (i *dataRepositoryAssociationS3PtrType) ToDataRepositoryAssociationS3PtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3PtrOutput)
+}
+
+type DataRepositoryAssociationS3Output struct{ *pulumi.OutputState }
+
+func (DataRepositoryAssociationS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataRepositoryAssociationS3)(nil)).Elem()
+}
+
+func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3Output() DataRepositoryAssociationS3Output {
+	return o
+}
+
+func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3OutputWithContext(ctx context.Context) DataRepositoryAssociationS3Output {
+	return o
+}
+
+func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3PtrOutput() DataRepositoryAssociationS3PtrOutput {
+	return o.ToDataRepositoryAssociationS3PtrOutputWithContext(context.Background())
+}
+
+func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3PtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataRepositoryAssociationS3) *DataRepositoryAssociationS3 {
+		return &v
+	}).(DataRepositoryAssociationS3PtrOutput)
+}
+
+// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+func (o DataRepositoryAssociationS3Output) AutoExportPolicy() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoExportPolicy {
+		return v.AutoExportPolicy
+	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
+}
+
+// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+func (o DataRepositoryAssociationS3Output) AutoImportPolicy() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoImportPolicy {
+		return v.AutoImportPolicy
+	}).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
+}
+
+type DataRepositoryAssociationS3PtrOutput struct{ *pulumi.OutputState }
+
+func (DataRepositoryAssociationS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataRepositoryAssociationS3)(nil)).Elem()
+}
+
+func (o DataRepositoryAssociationS3PtrOutput) ToDataRepositoryAssociationS3PtrOutput() DataRepositoryAssociationS3PtrOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3PtrOutput) ToDataRepositoryAssociationS3PtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3PtrOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3PtrOutput) Elem() DataRepositoryAssociationS3Output {
+	return o.ApplyT(func(v *DataRepositoryAssociationS3) DataRepositoryAssociationS3 {
+		if v != nil {
+			return *v
+		}
+		var ret DataRepositoryAssociationS3
+		return ret
+	}).(DataRepositoryAssociationS3Output)
+}
+
+// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoExportPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.AutoExportPolicy
+	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
+}
+
+// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoImportPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.AutoImportPolicy
+	}).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
+}
+
+type DataRepositoryAssociationS3AutoExportPolicy struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	Events []string `pulumi:"events"`
+}
+
+// DataRepositoryAssociationS3AutoExportPolicyInput is an input type that accepts DataRepositoryAssociationS3AutoExportPolicyArgs and DataRepositoryAssociationS3AutoExportPolicyOutput values.
+// You can construct a concrete instance of `DataRepositoryAssociationS3AutoExportPolicyInput` via:
+//
+//          DataRepositoryAssociationS3AutoExportPolicyArgs{...}
+type DataRepositoryAssociationS3AutoExportPolicyInput interface {
+	pulumi.Input
+
+	ToDataRepositoryAssociationS3AutoExportPolicyOutput() DataRepositoryAssociationS3AutoExportPolicyOutput
+	ToDataRepositoryAssociationS3AutoExportPolicyOutputWithContext(context.Context) DataRepositoryAssociationS3AutoExportPolicyOutput
+}
+
+type DataRepositoryAssociationS3AutoExportPolicyArgs struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+}
+
+func (DataRepositoryAssociationS3AutoExportPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataRepositoryAssociationS3AutoExportPolicy)(nil)).Elem()
+}
+
+func (i DataRepositoryAssociationS3AutoExportPolicyArgs) ToDataRepositoryAssociationS3AutoExportPolicyOutput() DataRepositoryAssociationS3AutoExportPolicyOutput {
+	return i.ToDataRepositoryAssociationS3AutoExportPolicyOutputWithContext(context.Background())
+}
+
+func (i DataRepositoryAssociationS3AutoExportPolicyArgs) ToDataRepositoryAssociationS3AutoExportPolicyOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoExportPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoExportPolicyOutput)
+}
+
+func (i DataRepositoryAssociationS3AutoExportPolicyArgs) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutput() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return i.ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DataRepositoryAssociationS3AutoExportPolicyArgs) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoExportPolicyOutput).ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(ctx)
+}
+
+// DataRepositoryAssociationS3AutoExportPolicyPtrInput is an input type that accepts DataRepositoryAssociationS3AutoExportPolicyArgs, DataRepositoryAssociationS3AutoExportPolicyPtr and DataRepositoryAssociationS3AutoExportPolicyPtrOutput values.
+// You can construct a concrete instance of `DataRepositoryAssociationS3AutoExportPolicyPtrInput` via:
+//
+//          DataRepositoryAssociationS3AutoExportPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type DataRepositoryAssociationS3AutoExportPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDataRepositoryAssociationS3AutoExportPolicyPtrOutput() DataRepositoryAssociationS3AutoExportPolicyPtrOutput
+	ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(context.Context) DataRepositoryAssociationS3AutoExportPolicyPtrOutput
+}
+
+type dataRepositoryAssociationS3AutoExportPolicyPtrType DataRepositoryAssociationS3AutoExportPolicyArgs
+
+func DataRepositoryAssociationS3AutoExportPolicyPtr(v *DataRepositoryAssociationS3AutoExportPolicyArgs) DataRepositoryAssociationS3AutoExportPolicyPtrInput {
+	return (*dataRepositoryAssociationS3AutoExportPolicyPtrType)(v)
+}
+
+func (*dataRepositoryAssociationS3AutoExportPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataRepositoryAssociationS3AutoExportPolicy)(nil)).Elem()
+}
+
+func (i *dataRepositoryAssociationS3AutoExportPolicyPtrType) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutput() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return i.ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *dataRepositoryAssociationS3AutoExportPolicyPtrType) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
+}
+
+type DataRepositoryAssociationS3AutoExportPolicyOutput struct{ *pulumi.OutputState }
+
+func (DataRepositoryAssociationS3AutoExportPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataRepositoryAssociationS3AutoExportPolicy)(nil)).Elem()
+}
+
+func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToDataRepositoryAssociationS3AutoExportPolicyOutput() DataRepositoryAssociationS3AutoExportPolicyOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToDataRepositoryAssociationS3AutoExportPolicyOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoExportPolicyOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutput() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return o.ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataRepositoryAssociationS3AutoExportPolicy) *DataRepositoryAssociationS3AutoExportPolicy {
+		return &v
+	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
+}
+
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+func (o DataRepositoryAssociationS3AutoExportPolicyOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataRepositoryAssociationS3AutoExportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+type DataRepositoryAssociationS3AutoExportPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DataRepositoryAssociationS3AutoExportPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataRepositoryAssociationS3AutoExportPolicy)(nil)).Elem()
+}
+
+func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutput() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Elem() DataRepositoryAssociationS3AutoExportPolicyOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoExportPolicy) DataRepositoryAssociationS3AutoExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DataRepositoryAssociationS3AutoExportPolicy
+		return ret
+	}).(DataRepositoryAssociationS3AutoExportPolicyOutput)
+}
+
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoExportPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataRepositoryAssociationS3AutoImportPolicy struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	Events []string `pulumi:"events"`
+}
+
+// DataRepositoryAssociationS3AutoImportPolicyInput is an input type that accepts DataRepositoryAssociationS3AutoImportPolicyArgs and DataRepositoryAssociationS3AutoImportPolicyOutput values.
+// You can construct a concrete instance of `DataRepositoryAssociationS3AutoImportPolicyInput` via:
+//
+//          DataRepositoryAssociationS3AutoImportPolicyArgs{...}
+type DataRepositoryAssociationS3AutoImportPolicyInput interface {
+	pulumi.Input
+
+	ToDataRepositoryAssociationS3AutoImportPolicyOutput() DataRepositoryAssociationS3AutoImportPolicyOutput
+	ToDataRepositoryAssociationS3AutoImportPolicyOutputWithContext(context.Context) DataRepositoryAssociationS3AutoImportPolicyOutput
+}
+
+type DataRepositoryAssociationS3AutoImportPolicyArgs struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+}
+
+func (DataRepositoryAssociationS3AutoImportPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicy)(nil)).Elem()
+}
+
+func (i DataRepositoryAssociationS3AutoImportPolicyArgs) ToDataRepositoryAssociationS3AutoImportPolicyOutput() DataRepositoryAssociationS3AutoImportPolicyOutput {
+	return i.ToDataRepositoryAssociationS3AutoImportPolicyOutputWithContext(context.Background())
+}
+
+func (i DataRepositoryAssociationS3AutoImportPolicyArgs) ToDataRepositoryAssociationS3AutoImportPolicyOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoImportPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoImportPolicyOutput)
+}
+
+func (i DataRepositoryAssociationS3AutoImportPolicyArgs) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutput() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return i.ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DataRepositoryAssociationS3AutoImportPolicyArgs) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoImportPolicyOutput).ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(ctx)
+}
+
+// DataRepositoryAssociationS3AutoImportPolicyPtrInput is an input type that accepts DataRepositoryAssociationS3AutoImportPolicyArgs, DataRepositoryAssociationS3AutoImportPolicyPtr and DataRepositoryAssociationS3AutoImportPolicyPtrOutput values.
+// You can construct a concrete instance of `DataRepositoryAssociationS3AutoImportPolicyPtrInput` via:
+//
+//          DataRepositoryAssociationS3AutoImportPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type DataRepositoryAssociationS3AutoImportPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDataRepositoryAssociationS3AutoImportPolicyPtrOutput() DataRepositoryAssociationS3AutoImportPolicyPtrOutput
+	ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(context.Context) DataRepositoryAssociationS3AutoImportPolicyPtrOutput
+}
+
+type dataRepositoryAssociationS3AutoImportPolicyPtrType DataRepositoryAssociationS3AutoImportPolicyArgs
+
+func DataRepositoryAssociationS3AutoImportPolicyPtr(v *DataRepositoryAssociationS3AutoImportPolicyArgs) DataRepositoryAssociationS3AutoImportPolicyPtrInput {
+	return (*dataRepositoryAssociationS3AutoImportPolicyPtrType)(v)
+}
+
+func (*dataRepositoryAssociationS3AutoImportPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataRepositoryAssociationS3AutoImportPolicy)(nil)).Elem()
+}
+
+func (i *dataRepositoryAssociationS3AutoImportPolicyPtrType) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutput() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return i.ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *dataRepositoryAssociationS3AutoImportPolicyPtrType) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
+}
+
+type DataRepositoryAssociationS3AutoImportPolicyOutput struct{ *pulumi.OutputState }
+
+func (DataRepositoryAssociationS3AutoImportPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicy)(nil)).Elem()
+}
+
+func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToDataRepositoryAssociationS3AutoImportPolicyOutput() DataRepositoryAssociationS3AutoImportPolicyOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToDataRepositoryAssociationS3AutoImportPolicyOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoImportPolicyOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutput() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return o.ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataRepositoryAssociationS3AutoImportPolicy) *DataRepositoryAssociationS3AutoImportPolicy {
+		return &v
+	}).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
+}
+
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+func (o DataRepositoryAssociationS3AutoImportPolicyOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataRepositoryAssociationS3AutoImportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+type DataRepositoryAssociationS3AutoImportPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DataRepositoryAssociationS3AutoImportPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataRepositoryAssociationS3AutoImportPolicy)(nil)).Elem()
+}
+
+func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutput() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
+	return o
+}
+
+func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Elem() DataRepositoryAssociationS3AutoImportPolicyOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoImportPolicy) DataRepositoryAssociationS3AutoImportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DataRepositoryAssociationS3AutoImportPolicy
+		return ret
+	}).(DataRepositoryAssociationS3AutoImportPolicyOutput)
+}
+
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoImportPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
 type OntapFileSystemDiskIopsConfiguration struct {
 	// - The total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
@@ -3254,6 +3688,12 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3Input)(nil)).Elem(), DataRepositoryAssociationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3PtrInput)(nil)).Elem(), DataRepositoryAssociationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoExportPolicyInput)(nil)).Elem(), DataRepositoryAssociationS3AutoExportPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoExportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationS3AutoExportPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicyInput)(nil)).Elem(), DataRepositoryAssociationS3AutoImportPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationS3AutoImportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointInput)(nil)).Elem(), OntapFileSystemEndpointArgs{})
@@ -3300,6 +3740,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryPtrInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
+	pulumi.RegisterOutputType(DataRepositoryAssociationS3Output{})
+	pulumi.RegisterOutputType(DataRepositoryAssociationS3PtrOutput{})
+	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoExportPolicyOutput{})
+	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoExportPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoImportPolicyOutput{})
+	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoImportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemEndpointOutput{})

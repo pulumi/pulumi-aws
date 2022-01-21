@@ -21,10 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:appsync/apiCache:ApiCache":
+		r = &ApiCache{}
 	case "aws:appsync/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "aws:appsync/dataSource:DataSource":
 		r = &DataSource{}
+	case "aws:appsync/domainName:DomainName":
+		r = &DomainName{}
+	case "aws:appsync/domainNameApiAssociation:DomainNameApiAssociation":
+		r = &DomainNameApiAssociation{}
 	case "aws:appsync/function:Function":
 		r = &Function{}
 	case "aws:appsync/graphQLApi:GraphQLApi":
@@ -46,12 +52,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"appsync/apiCache",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"appsync/apiKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appsync/dataSource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appsync/domainName",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appsync/domainNameApiAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

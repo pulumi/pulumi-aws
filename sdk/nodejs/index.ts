@@ -61,6 +61,7 @@ import * as cloudcontrol from "./cloudcontrol";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudhsmv2 from "./cloudhsmv2";
+import * as cloudsearch from "./cloudsearch";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
@@ -214,6 +215,7 @@ export {
     cloudformation,
     cloudfront,
     cloudhsmv2,
+    cloudsearch,
     cloudtrail,
     cloudwatch,
     codeartifact,

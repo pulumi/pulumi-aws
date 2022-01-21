@@ -86,6 +86,8 @@ if typing.TYPE_CHECKING:
     cloudfront = __cloudfront
     import pulumi_aws.cloudhsmv2 as __cloudhsmv2
     cloudhsmv2 = __cloudhsmv2
+    import pulumi_aws.cloudsearch as __cloudsearch
+    cloudsearch = __cloudsearch
     import pulumi_aws.cloudtrail as __cloudtrail
     cloudtrail = __cloudtrail
     import pulumi_aws.cloudwatch as __cloudwatch
@@ -356,6 +358,7 @@ else:
     cloudformation = _utilities.lazy_import('pulumi_aws.cloudformation')
     cloudfront = _utilities.lazy_import('pulumi_aws.cloudfront')
     cloudhsmv2 = _utilities.lazy_import('pulumi_aws.cloudhsmv2')
+    cloudsearch = _utilities.lazy_import('pulumi_aws.cloudsearch')
     cloudtrail = _utilities.lazy_import('pulumi_aws.cloudtrail')
     cloudwatch = _utilities.lazy_import('pulumi_aws.cloudwatch')
     codeartifact = _utilities.lazy_import('pulumi_aws.codeartifact')
@@ -1202,6 +1205,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appsync/apiCache",
+  "fqn": "pulumi_aws.appsync",
+  "classes": {
+   "aws:appsync/apiCache:ApiCache": "ApiCache"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appsync/apiKey",
   "fqn": "pulumi_aws.appsync",
   "classes": {
@@ -1214,6 +1225,22 @@ _utilities.register(
   "fqn": "pulumi_aws.appsync",
   "classes": {
    "aws:appsync/dataSource:DataSource": "DataSource"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appsync/domainName",
+  "fqn": "pulumi_aws.appsync",
+  "classes": {
+   "aws:appsync/domainName:DomainName": "DomainName"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appsync/domainNameApiAssociation",
+  "fqn": "pulumi_aws.appsync",
+  "classes": {
+   "aws:appsync/domainNameApiAssociation:DomainNameApiAssociation": "DomainNameApiAssociation"
   }
  },
  {
@@ -1750,6 +1777,22 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudhsmv2",
   "classes": {
    "aws:cloudhsmv2/hsm:Hsm": "Hsm"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudsearch/domain",
+  "fqn": "pulumi_aws.cloudsearch",
+  "classes": {
+   "aws:cloudsearch/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudsearch/domainServiceAccessPolicy",
+  "fqn": "pulumi_aws.cloudsearch",
+  "classes": {
+   "aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy": "DomainServiceAccessPolicy"
   }
  },
  {
@@ -2342,6 +2385,22 @@ _utilities.register(
   "fqn": "pulumi_aws.detective",
   "classes": {
    "aws:detective/graph:Graph": "Graph"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "detective/invitationAccepter",
+  "fqn": "pulumi_aws.detective",
+  "classes": {
+   "aws:detective/invitationAccepter:InvitationAccepter": "InvitationAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "detective/member",
+  "fqn": "pulumi_aws.detective",
+  "classes": {
+   "aws:detective/member:Member": "Member"
   }
  },
  {
@@ -4114,6 +4173,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "fsx/dataRepositoryAssociation",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation": "DataRepositoryAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fsx/lustreFileSystem",
   "fqn": "pulumi_aws.fsx",
   "classes": {
@@ -4982,6 +5049,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig": "FunctionEventInvokeConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambda/invocation",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/invocation:Invocation": "Invocation"
   }
  },
  {

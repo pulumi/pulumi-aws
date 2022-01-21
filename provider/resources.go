@@ -67,6 +67,7 @@ const (
 	cloudformationMod           = "CloudFormation"           // Cloud Formation
 	cloudhsmv2Mod               = "CloudHsmV2"               // Cloud HSM
 	cloudfrontMod               = "CloudFront"               // Cloud Front
+	cloudsearchMod              = "CloudSearch"              // Cloud Search
 	cloudtrailMod               = "CloudTrail"               // Cloud Trail
 	cloudwatchMod               = "CloudWatch"               // Cloud Watch
 	codeartifactMod             = "CodeArtifact"             // CodeArtifact
@@ -390,7 +391,18 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_appsync_resolver": {Tok: awsResource(appsyncMod, "Resolver")},
+			"aws_appsync_resolver":  {Tok: awsResource(appsyncMod, "Resolver")},
+			"aws_appsync_api_cache": {Tok: awsResource(appsyncMod, "ApiCache")},
+			"aws_appsync_domain_name": {
+				Tok: awsResource(appsyncMod, "DomainName"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"domain_name": {
+						CSharpName: "Name",
+					},
+				},
+			},
+			"aws_appsync_domain_name_api_association": {Tok: awsResource(appsyncMod, "DomainNameApiAssociation")},
+
 			// AppMesh
 			"aws_appmesh_mesh":            {Tok: awsResource(appmeshMod, "Mesh")},
 			"aws_appmesh_route":           {Tok: awsResource(appmeshMod, "Route")},
@@ -757,6 +769,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_response_headers_policy":        {Tok: awsResource(cloudfrontMod, "ResponseHeadersPolicy")},
 			"aws_cloudfront_field_level_encryption_config":  {Tok: awsResource(cloudfrontMod, "FieldLevelEncryptionConfig")},
 			"aws_cloudfront_field_level_encryption_profile": {Tok: awsResource(cloudfrontMod, "FieldLevelEncryptionProfile")},
+
+			// CloudSearch
+			"aws_cloudsearch_domain":                       {Tok: awsResource(cloudsearchMod, "Domain")},
+			"aws_cloudsearch_domain_service_access_policy": {Tok: awsResource(cloudsearchMod, "DomainServiceAccessPolicy")},
+
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -941,8 +958,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datasync_location_hdfs":                    {Tok: awsResource(datasyncMod, "LocationHdfs")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
+
 			// Detective
-			"aws_detective_graph": {Tok: awsResource(detectiveMod, "Graph")},
+			"aws_detective_graph":               {Tok: awsResource(detectiveMod, "Graph")},
+			"aws_detective_invitation_accepter": {Tok: awsResource(detectiveMod, "InvitationAccepter")},
+			"aws_detective_member":              {Tok: awsResource(detectiveMod, "Member")},
+
 			// Data Migration Service
 			"aws_dms_certificate":              {Tok: awsResource(dmsMod, "Certificate")},
 			"aws_dms_endpoint":                 {Tok: awsResource(dmsMod, "Endpoint")},
@@ -1538,6 +1559,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_instance_fleet":         {Tok: awsResource(emrMod, "InstanceFleet")},
 			"aws_emr_studio":                 {Tok: awsResource(emrMod, "Studio")},
 			"aws_emr_studio_session_mapping": {Tok: awsResource(emrMod, "StudioSessionMapping")},
+
 			// FSX
 			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
@@ -1548,6 +1570,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_fsx_openzfs_file_system":           {Tok: awsResource(fsxMod, "OpenZfsFileSystem")},
 			"aws_fsx_openzfs_snapshot":              {Tok: awsResource(fsxMod, "OpenZfsSnapshot")},
 			"aws_fsx_openzfs_volume":                {Tok: awsResource(fsxMod, "OpenZfsVolume")},
+			"aws_fsx_data_repository_association":   {Tok: awsResource(fsxMod, "DataRepositoryAssociation")},
+
 			// GameLift
 			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
 			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
@@ -1965,6 +1989,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_function_event_invoke_config":   {Tok: awsResource(lambdaMod, "FunctionEventInvokeConfig")},
 			"aws_lambda_code_signing_config":            {Tok: awsResource(lambdaMod, "CodeSigningConfig")},
 			"aws_lambda_layer_version_permission":       {Tok: awsResource(lambdaMod, "LayerVersionPermission")},
+			"aws_lambda_invocation":                     {Tok: awsResource(lambdaMod, "Invocation")},
+
 			// License Manager
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
@@ -4089,6 +4115,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
 			"aws_ec2_instance_types":               {Tok: awsDataSource(ec2Mod, "getInstanceTypes")},
 			"aws_vpc_ipam_pool":                    {Tok: awsDataSource(ec2Mod, "getVpcIamPool")},
+			"aws_vpc_ipam_preview_next_cidr":       {Tok: awsDataSource(ec2Mod, "getIpamPreviewNextCidr")},
+
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {
@@ -4335,6 +4363,7 @@ func Provider() tfbridge.ProviderInfo {
 			// SFN
 			"aws_sfn_activity":      {Tok: awsDataSource(sfnMod, "getActivity")},
 			"aws_sfn_state_machine": {Tok: awsDataSource(sfnMod, "getStateMachine")},
+
 			// Cloudfront
 			"aws_cloudfront_distribution":          {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
 			"aws_cloudfront_origin_request_policy": {Tok: awsDataSource(cloudfrontMod, "getOriginRequestPolicy")},
@@ -4343,6 +4372,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsDataSource(cloudfrontMod, "getLogDeliveryCanonicalUserId"),
 			},
 			"aws_cloudfront_response_headers_policy": {Tok: awsDataSource(cloudfrontMod, "getResponseHeadersPolicy")},
+			"aws_cloudfront_origin_access_identity":  {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentity")},
+
 			// Backup
 			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
 			"aws_backup_selection": {Tok: awsDataSource(backupMod, "getSelection")},

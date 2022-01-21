@@ -6,9 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./graph";
+export * from "./invitationAccepter";
+export * from "./member";
 
 // Import resources to register:
 import { Graph } from "./graph";
+import { InvitationAccepter } from "./invitationAccepter";
+import { Member } from "./member";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +20,15 @@ const _module = {
         switch (type) {
             case "aws:detective/graph:Graph":
                 return new Graph(name, <any>undefined, { urn })
+            case "aws:detective/invitationAccepter:InvitationAccepter":
+                return new InvitationAccepter(name, <any>undefined, { urn })
+            case "aws:detective/member:Member":
+                return new Member(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "detective/graph", _module)
+pulumi.runtime.registerResourceModule("aws", "detective/invitationAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "detective/member", _module)

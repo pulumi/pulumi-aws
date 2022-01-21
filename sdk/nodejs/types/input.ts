@@ -7264,6 +7264,73 @@ export namespace cloudhsmv2 {
 
 }
 
+export namespace cloudsearch {
+    export interface DomainEndpointOptions {
+        /**
+         * Enables or disables the requirement that all requests to the domain arrive over HTTPS.
+         */
+        enforceHttps?: pulumi.Input<boolean>;
+        /**
+         * The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
+         */
+        tlsSecurityPolicy?: pulumi.Input<string>;
+    }
+
+    export interface DomainIndexField {
+        /**
+         * The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
+         */
+        analysisScheme?: pulumi.Input<string>;
+        /**
+         * The default value for the field. This value is used when no value is specified for the field in the document data.
+         */
+        defaultValue?: pulumi.Input<string>;
+        /**
+         * You can get facet information by enabling this.
+         */
+        facet?: pulumi.Input<boolean>;
+        /**
+         * You can highlight information.
+         */
+        highlight?: pulumi.Input<boolean>;
+        /**
+         * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * You can enable returning the value of all searchable fields.
+         */
+        return?: pulumi.Input<boolean>;
+        /**
+         * You can set whether this index should be searchable or not.
+         */
+        search?: pulumi.Input<boolean>;
+        /**
+         * You can enable the property to be sortable.
+         */
+        sort?: pulumi.Input<boolean>;
+        /**
+         * The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DomainScalingParameters {
+        /**
+         * The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
+         */
+        desiredInstanceType?: pulumi.Input<string>;
+        /**
+         * The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
+         */
+        desiredPartitionCount?: pulumi.Input<number>;
+        /**
+         * The number of replicas you want to preconfigure for each index partition.
+         */
+        desiredReplicationCount?: pulumi.Input<number>;
+    }
+}
+
 export namespace cloudtrail {
     export interface TrailAdvancedEventSelector {
         /**
@@ -16090,6 +16157,31 @@ export namespace fms {
 }
 
 export namespace fsx {
+    export interface DataRepositoryAssociationS3 {
+        /**
+         * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+         */
+        autoExportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3AutoExportPolicy>;
+        /**
+         * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+         */
+        autoImportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3AutoImportPolicy>;
+    }
+
+    export interface DataRepositoryAssociationS3AutoExportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataRepositoryAssociationS3AutoImportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface OntapFileSystemDiskIopsConfiguration {
         /**
          * - The total number of SSD IOPS provisioned for the file system.
