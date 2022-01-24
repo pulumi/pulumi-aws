@@ -69,7 +69,9 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSElasticBeanstalkReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess");
         public static ManagedPolicy AWSElasticBeanstalkService { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService");
         public static ManagedPolicy AWSElasticBeanstalkWebTier { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier");
+        [Obsolete(@"This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`")]
         public static ManagedPolicy AWSElasticBeanstakWorkerTier { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier");
+        public static ManagedPolicy AWSElasticBeanstalkWorkerTier { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier");
         public static ManagedPolicy AWSGreengrassFullccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassFullAccess");
         public static ManagedPolicy AWSGreengrassResourceAccessRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy");
         public static ManagedPolicy AWSHealthFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSHealthFullAccess");

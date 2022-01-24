@@ -10,6 +10,7 @@ using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudTrail
 {
+    [Obsolete(@"aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction")]
     public static class GetFunction
     {
         /// <summary>
@@ -29,7 +30,7 @@ namespace Pulumi.Aws.CloudTrail
         ///     {
         ///         var config = new Config();
         ///         var functionName = config.Require("functionName");
-        ///         var existing = Output.Create(Aws.CloudTrail.GetFunction.InvokeAsync(new Aws.CloudTrail.GetFunctionArgs
+        ///         var existing = Output.Create(Aws.CloudFront.GetFunction.InvokeAsync(new Aws.CloudFront.GetFunctionArgs
         ///         {
         ///             Name = functionName,
         ///         }));
@@ -60,7 +61,7 @@ namespace Pulumi.Aws.CloudTrail
         ///     {
         ///         var config = new Config();
         ///         var functionName = config.Require("functionName");
-        ///         var existing = Output.Create(Aws.CloudTrail.GetFunction.InvokeAsync(new Aws.CloudTrail.GetFunctionArgs
+        ///         var existing = Output.Create(Aws.CloudFront.GetFunction.InvokeAsync(new Aws.CloudFront.GetFunctionArgs
         ///         {
         ///             Name = functionName,
         ///         }));

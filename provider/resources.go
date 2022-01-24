@@ -3534,7 +3534,15 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AWSElasticBeanstalkReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess"},
 					{Name: "AWSElasticBeanstalkService", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService"},
 					{Name: "AWSElasticBeanstalkWebTier", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"},
-					{Name: "AWSElasticBeanstakWorkerTier", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"},
+					{
+						Name:               "AWSElasticBeanstakWorkerTier",
+						Value:              "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
+						DeprecationMessage: "This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`",
+					},
+					{
+						Name:  "AWSElasticBeanstalkWorkerTier",
+						Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
+					},
 					{Name: "AWSGreengrassFullccess", Value: "arn:aws:iam::aws:policy/AWSGreengrassFullAccess"},
 					{Name: "AWSGreengrassResourceAccessRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy"},
 					{Name: "AWSHealthFullAccess", Value: "arn:aws:iam::aws:policy/AWSHealthFullAccess"},
@@ -4005,7 +4013,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
-			"aws_cloudfront_function":        {Tok: awsDataSource(cloudtrailMod, "getFunction")},
 			// CloudWatch
 			"aws_cloudwatch_log_group":        {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
 			"aws_cloudwatch_log_groups":       {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
@@ -4703,6 +4710,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		})
+
+	prov.RenameDataSource("aws_cloudfront_function", awsDataSource(cloudtrailMod, "getFunction"),
+		awsDataSource(cloudfrontMod, "getFunction"), cloudtrailMod, cloudfrontMod, nil)
 
 	// Define the tf `alb` resources.  For legacy compat we also export them from the `applicationloadbalancing` module
 	// not just the `alb` module.

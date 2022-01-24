@@ -15,12 +15,14 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const functionName = config.require("functionName");
- * const existing = aws.cloudtrail.getFunction({
+ * const existing = aws.cloudfront.getFunction({
  *     name: functionName,
  * });
  * ```
  */
+/** @deprecated aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
+    pulumi.log.warn("getFunction is deprecated: aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction")
     if (!opts) {
         opts = {}
     }
