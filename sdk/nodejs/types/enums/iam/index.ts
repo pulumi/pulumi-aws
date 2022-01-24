@@ -55,7 +55,11 @@ export const ManagedPolicy = {
     AWSElasticBeanstalkReadOnlyAccess: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess",
     AWSElasticBeanstalkService: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService",
     AWSElasticBeanstalkWebTier: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier",
+    /**
+     * @deprecated This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`
+     */
     AWSElasticBeanstakWorkerTier: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
+    AWSElasticBeanstalkWorkerTier: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
     AWSGreengrassFullccess: "arn:aws:iam::aws:policy/AWSGreengrassFullAccess",
     AWSGreengrassResourceAccessRolePolicy: "arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy",
     AWSHealthFullAccess: "arn:aws:iam::aws:policy/AWSHealthFullAccess",

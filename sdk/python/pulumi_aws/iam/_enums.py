@@ -63,6 +63,7 @@ class ManagedPolicy(str, Enum):
     AWS_ELASTIC_BEANSTALK_SERVICE = "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService"
     AWS_ELASTIC_BEANSTALK_WEB_TIER = "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"
     AWS_ELASTIC_BEANSTAK_WORKER_TIER = "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"
+    AWS_ELASTIC_BEANSTALK_WORKER_TIER = "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"
     AWS_GREENGRASS_FULLCCESS = "arn:aws:iam::aws:policy/AWSGreengrassFullAccess"
     AWS_GREENGRASS_RESOURCE_ACCESS_ROLE_POLICY = "arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy"
     AWS_HEALTH_FULL_ACCESS = "arn:aws:iam::aws:policy/AWSHealthFullAccess"

@@ -3534,7 +3534,15 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AWSElasticBeanstalkReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess"},
 					{Name: "AWSElasticBeanstalkService", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService"},
 					{Name: "AWSElasticBeanstalkWebTier", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"},
-					{Name: "AWSElasticBeanstakWorkerTier", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"},
+					{
+						Name:               "AWSElasticBeanstakWorkerTier",
+						Value:              "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
+						DeprecationMessage: "This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`",
+					},
+					{
+						Name:  "AWSElasticBeanstalkWorkerTier",
+						Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
+					},
 					{Name: "AWSGreengrassFullccess", Value: "arn:aws:iam::aws:policy/AWSGreengrassFullAccess"},
 					{Name: "AWSGreengrassResourceAccessRolePolicy", Value: "arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy"},
 					{Name: "AWSHealthFullAccess", Value: "arn:aws:iam::aws:policy/AWSHealthFullAccess"},
