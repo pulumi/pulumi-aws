@@ -15,6 +15,8 @@ __all__ = [
     'get_function_output',
 ]
 
+warnings.warn("""aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFunctionResult:
     """
@@ -159,13 +161,14 @@ def get_function(name: Optional[str] = None,
 
     config = pulumi.Config()
     function_name = config.require("functionName")
-    existing = aws.cloudtrail.get_function(name=function_name)
+    existing = aws.cloudfront.get_function(name=function_name)
     ```
 
 
     :param str name: Name of the CloudFront function.
     :param str stage: The function’s stage, either `DEVELOPMENT` or `LIVE`.
     """
+    pulumi.log.warn("""get_function is deprecated: aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction""")
     __args__ = dict()
     __args__['name'] = name
     __args__['stage'] = stage
@@ -203,11 +206,12 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
 
     config = pulumi.Config()
     function_name = config.require("functionName")
-    existing = aws.cloudtrail.get_function(name=function_name)
+    existing = aws.cloudfront.get_function(name=function_name)
     ```
 
 
     :param str name: Name of the CloudFront function.
     :param str stage: The function’s stage, either `DEVELOPMENT` or `LIVE`.
     """
+    pulumi.log.warn("""get_function is deprecated: aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction""")
     ...

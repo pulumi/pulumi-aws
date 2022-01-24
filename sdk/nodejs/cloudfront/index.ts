@@ -12,6 +12,7 @@ export * from "./fieldLevelEncryptionProfile";
 export * from "./function";
 export * from "./getCachePolicy";
 export * from "./getDistribution";
+export * from "./getFunction";
 export * from "./getLogDeliveryCanonicalUserId";
 export * from "./getOriginAccessIdentity";
 export * from "./getOriginRequestPolicy";

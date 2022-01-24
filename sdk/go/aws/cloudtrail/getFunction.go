@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudtrail"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudfront"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 // )
@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		cfg := config.New(ctx, "")
 // 		functionName := cfg.Require("functionName")
-// 		_, err := cloudtrail.GetFunction(ctx, &cloudtrail.GetFunctionArgs{
+// 		_, err := cloudfront.LookupFunction(ctx, &cloudfront.LookupFunctionArgs{
 // 			Name: functionName,
 // 		}, nil)
 // 		if err != nil {
@@ -37,6 +37,8 @@ import (
 // 	})
 // }
 // ```
+//
+// Deprecated: aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction
 func GetFunction(ctx *pulumi.Context, args *GetFunctionArgs, opts ...pulumi.InvokeOption) (*GetFunctionResult, error) {
 	var rv GetFunctionResult
 	err := ctx.Invoke("aws:cloudtrail/getFunction:getFunction", args, &rv, opts...)

@@ -4013,7 +4013,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
-			"aws_cloudfront_function":        {Tok: awsDataSource(cloudtrailMod, "getFunction")},
 			// CloudWatch
 			"aws_cloudwatch_log_group":        {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
 			"aws_cloudwatch_log_groups":       {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
@@ -4711,6 +4710,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		})
+
+	prov.RenameDataSource("aws_cloudfront_function", awsDataSource(cloudtrailMod, "getFunction"),
+		awsDataSource(cloudfrontMod, "getFunction"), cloudtrailMod, cloudfrontMod, nil)
 
 	// Define the tf `alb` resources.  For legacy compat we also export them from the `applicationloadbalancing` module
 	// not just the `alb` module.

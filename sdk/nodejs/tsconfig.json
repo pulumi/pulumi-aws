@@ -233,6 +233,7 @@
         "cloudfront/function.ts",
         "cloudfront/getCachePolicy.ts",
         "cloudfront/getDistribution.ts",
+        "cloudfront/getFunction.ts",
         "cloudfront/getLogDeliveryCanonicalUserId.ts",
         "cloudfront/getOriginAccessIdentity.ts",
         "cloudfront/getOriginRequestPolicy.ts",
