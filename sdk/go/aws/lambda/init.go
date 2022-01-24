@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Function{}
 	case "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig":
 		r = &FunctionEventInvokeConfig{}
+	case "aws:lambda/invocation:Invocation":
+		r = &Invocation{}
 	case "aws:lambda/layerVersion:LayerVersion":
 		r = &LayerVersion{}
 	case "aws:lambda/layerVersionPermission:LayerVersionPermission":
@@ -75,6 +77,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/functionEventInvokeConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/invocation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

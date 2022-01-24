@@ -7348,6 +7348,9 @@ export namespace cloudfront {
          * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
          */
         accessControlMaxAgeSec?: number;
+        /**
+         * A Boolean value that determines how CloudFront behaves for the HTTP response header.
+         */
         originOverride: boolean;
     }
 
@@ -7507,6 +7510,74 @@ export namespace cloudhsmv2 {
         clusterCsr: string;
         hsmCertificate: string;
         manufacturerHardwareCertificate: string;
+    }
+
+}
+
+export namespace cloudsearch {
+    export interface DomainEndpointOptions {
+        /**
+         * Enables or disables the requirement that all requests to the domain arrive over HTTPS.
+         */
+        enforceHttps: boolean;
+        /**
+         * The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
+         */
+        tlsSecurityPolicy: string;
+    }
+
+    export interface DomainIndexField {
+        /**
+         * The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
+         */
+        analysisScheme?: string;
+        /**
+         * The default value for the field. This value is used when no value is specified for the field in the document data.
+         */
+        defaultValue?: string;
+        /**
+         * You can get facet information by enabling this.
+         */
+        facet?: boolean;
+        /**
+         * You can highlight information.
+         */
+        highlight?: boolean;
+        /**
+         * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+         */
+        name: string;
+        /**
+         * You can enable returning the value of all searchable fields.
+         */
+        return?: boolean;
+        /**
+         * You can set whether this index should be searchable or not.
+         */
+        search?: boolean;
+        /**
+         * You can enable the property to be sortable.
+         */
+        sort?: boolean;
+        /**
+         * The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+         */
+        type: string;
+    }
+
+    export interface DomainScalingParameters {
+        /**
+         * The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
+         */
+        desiredInstanceType: string;
+        /**
+         * The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
+         */
+        desiredPartitionCount: number;
+        /**
+         * The number of replicas you want to preconfigure for each index partition.
+         */
+        desiredReplicationCount: number;
     }
 
 }
@@ -17281,6 +17352,31 @@ export namespace fms {
 }
 
 export namespace fsx {
+    export interface DataRepositoryAssociationS3 {
+        /**
+         * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+         */
+        autoExportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoExportPolicy;
+        /**
+         * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+         */
+        autoImportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoImportPolicy;
+    }
+
+    export interface DataRepositoryAssociationS3AutoExportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
+        events: string[];
+    }
+
+    export interface DataRepositoryAssociationS3AutoImportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
+        events: string[];
+    }
+
     export interface OntapFileSystemDiskIopsConfiguration {
         /**
          * - The total number of SSD IOPS provisioned for the file system.
@@ -24634,6 +24730,61 @@ export namespace opsworks {
         privateKey: string;
     }
 
+    export interface CustomLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        /**
+         * A block the specifies how an opsworks logs look like. See Log Streams.
+         */
+        logStreams?: outputs.opsworks.CustomLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface CustomLayerCloudwatchConfigurationLogStream {
+        /**
+         * Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+         */
+        batchCount?: number;
+        /**
+         * Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+         */
+        batchSize?: number;
+        /**
+         * Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+         */
+        bufferDuration?: number;
+        /**
+         * Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+         */
+        datetimeFormat?: string;
+        /**
+         * Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
+         */
+        encoding?: string;
+        /**
+         * Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+         */
+        file: string;
+        /**
+         * Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+         */
+        fileFingerprintLines?: string;
+        /**
+         * Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
+         */
+        initialPosition?: string;
+        /**
+         * Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+         */
+        logGroupName: string;
+        /**
+         * Specifies the pattern for identifying the start of a log message.
+         */
+        multilineStartPattern?: string;
+        /**
+         * Specifies the time zone of log event time stamps.
+         */
+        timeZone?: string;
+    }
+
     export interface CustomLayerEbsVolume {
         /**
          * Encrypt the volume.
@@ -24665,6 +24816,25 @@ export namespace opsworks {
         type?: string;
     }
 
+    export interface GangliaLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.GangliaLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface GangliaLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface GangliaLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24691,6 +24861,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface HaproxyLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.HaproxyLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface HaproxyLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface HaproxyLayerEbsVolume {
@@ -24742,6 +24931,25 @@ export namespace opsworks {
         volumeType: string;
     }
 
+    export interface JavaAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.JavaAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface JavaAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface JavaAppLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24768,6 +24976,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface MemcachedLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.MemcachedLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface MemcachedLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface MemcachedLayerEbsVolume {
@@ -24798,6 +25025,25 @@ export namespace opsworks {
         type?: string;
     }
 
+    export interface MysqlLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.MysqlLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface MysqlLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface MysqlLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24824,6 +25070,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface NodejsAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.NodejsAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface NodejsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface NodejsAppLayerEbsVolume {
@@ -24854,6 +25119,25 @@ export namespace opsworks {
         type?: string;
     }
 
+    export interface PhpAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.PhpAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface PhpAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
     export interface PhpAppLayerEbsVolume {
         encrypted?: boolean;
         /**
@@ -24880,6 +25164,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: string;
+    }
+
+    export interface RailsAppLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.RailsAppLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface RailsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface RailsAppLayerEbsVolume {
@@ -24935,6 +25238,25 @@ export namespace opsworks {
          * Username to use when authenticating to the source.
          */
         username?: string;
+    }
+
+    export interface StaticWebLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.StaticWebLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface StaticWebLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
     }
 
     export interface StaticWebLayerEbsVolume {

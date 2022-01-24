@@ -7,24 +7,45 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ApplicationAppSource',
     'ApplicationEnvironment',
     'ApplicationSslConfiguration',
+    'CustomLayerCloudwatchConfiguration',
+    'CustomLayerCloudwatchConfigurationLogStream',
     'CustomLayerEbsVolume',
+    'GangliaLayerCloudwatchConfiguration',
+    'GangliaLayerCloudwatchConfigurationLogStream',
     'GangliaLayerEbsVolume',
+    'HaproxyLayerCloudwatchConfiguration',
+    'HaproxyLayerCloudwatchConfigurationLogStream',
     'HaproxyLayerEbsVolume',
     'InstanceEbsBlockDevice',
     'InstanceEphemeralBlockDevice',
     'InstanceRootBlockDevice',
+    'JavaAppLayerCloudwatchConfiguration',
+    'JavaAppLayerCloudwatchConfigurationLogStream',
     'JavaAppLayerEbsVolume',
+    'MemcachedLayerCloudwatchConfiguration',
+    'MemcachedLayerCloudwatchConfigurationLogStream',
     'MemcachedLayerEbsVolume',
+    'MysqlLayerCloudwatchConfiguration',
+    'MysqlLayerCloudwatchConfigurationLogStream',
     'MysqlLayerEbsVolume',
+    'NodejsAppLayerCloudwatchConfiguration',
+    'NodejsAppLayerCloudwatchConfigurationLogStream',
     'NodejsAppLayerEbsVolume',
+    'PhpAppLayerCloudwatchConfiguration',
+    'PhpAppLayerCloudwatchConfigurationLogStream',
     'PhpAppLayerEbsVolume',
+    'RailsAppLayerCloudwatchConfiguration',
+    'RailsAppLayerCloudwatchConfigurationLogStream',
     'RailsAppLayerEbsVolume',
     'StackCustomCookbooksSource',
+    'StaticWebLayerCloudwatchConfiguration',
+    'StaticWebLayerCloudwatchConfigurationLogStream',
     'StaticWebLayerEbsVolume',
 ]
 
@@ -223,6 +244,220 @@ class ApplicationSslConfiguration(dict):
 
 
 @pulumi.output_type
+class CustomLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.CustomLayerCloudwatchConfigurationLogStream']] = None):
+        """
+        :param Sequence['CustomLayerCloudwatchConfigurationLogStreamArgs'] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.CustomLayerCloudwatchConfigurationLogStream']]:
+        """
+        A block the specifies how an opsworks logs look like. See Log Streams.
+        """
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class CustomLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        """
+        :param str file: Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+        :param str log_group_name: Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+        :param int batch_count: Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+        :param int batch_size: Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+        :param int buffer_duration: Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+        :param str datetime_format: Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+        :param str encoding: Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
+        :param str file_fingerprint_lines: Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+        :param str initial_position: Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
+        :param str multiline_start_pattern: Specifies the pattern for identifying the start of a log message.
+        :param str time_zone: Specifies the time zone of log event time stamps.
+        """
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        """
+        Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        """
+        Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        """
+        Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+        """
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        """
+        Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        """
+        Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+        """
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        """
+        Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+        """
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        """
+        Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        """
+        Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+        """
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        """
+        Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
+        """
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        """
+        Specifies the pattern for identifying the start of a log message.
+        """
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        Specifies the time zone of log event time stamps.
+        """
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
 class CustomLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -332,6 +567,168 @@ class CustomLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class GangliaLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GangliaLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GangliaLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GangliaLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.GangliaLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.GangliaLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class GangliaLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GangliaLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GangliaLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GangliaLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
 class GangliaLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -434,6 +831,168 @@ class GangliaLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class HaproxyLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HaproxyLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HaproxyLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HaproxyLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.HaproxyLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.HaproxyLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class HaproxyLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HaproxyLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HaproxyLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HaproxyLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -715,6 +1274,168 @@ class InstanceRootBlockDevice(dict):
 
 
 @pulumi.output_type
+class JavaAppLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaAppLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.JavaAppLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.JavaAppLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class JavaAppLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaAppLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
 class JavaAppLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -817,6 +1538,168 @@ class JavaAppLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MemcachedLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemcachedLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemcachedLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemcachedLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.MemcachedLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.MemcachedLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class MemcachedLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemcachedLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemcachedLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemcachedLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -925,6 +1808,168 @@ class MemcachedLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class MysqlLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MysqlLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MysqlLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MysqlLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.MysqlLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.MysqlLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class MysqlLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MysqlLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MysqlLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MysqlLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
 class MysqlLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1027,6 +2072,168 @@ class MysqlLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NodejsAppLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodejsAppLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodejsAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodejsAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.NodejsAppLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.NodejsAppLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class NodejsAppLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodejsAppLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodejsAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodejsAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -1135,6 +2342,168 @@ class NodejsAppLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class PhpAppLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhpAppLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhpAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhpAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.PhpAppLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.PhpAppLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class PhpAppLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhpAppLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhpAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhpAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
 class PhpAppLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1237,6 +2606,168 @@ class PhpAppLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RailsAppLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RailsAppLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RailsAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RailsAppLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.RailsAppLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.RailsAppLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class RailsAppLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RailsAppLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RailsAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RailsAppLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -1436,6 +2967,168 @@ class StackCustomCookbooksSource(dict):
         Username to use when authenticating to the source.
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class StaticWebLayerCloudwatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreams":
+            suggest = "log_streams"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticWebLayerCloudwatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticWebLayerCloudwatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticWebLayerCloudwatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_streams: Optional[Sequence['outputs.StaticWebLayerCloudwatchConfigurationLogStream']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[Sequence['outputs.StaticWebLayerCloudwatchConfigurationLogStream']]:
+        return pulumi.get(self, "log_streams")
+
+
+@pulumi.output_type
+class StaticWebLayerCloudwatchConfigurationLogStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "batchCount":
+            suggest = "batch_count"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "bufferDuration":
+            suggest = "buffer_duration"
+        elif key == "datetimeFormat":
+            suggest = "datetime_format"
+        elif key == "fileFingerprintLines":
+            suggest = "file_fingerprint_lines"
+        elif key == "initialPosition":
+            suggest = "initial_position"
+        elif key == "multilineStartPattern":
+            suggest = "multiline_start_pattern"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticWebLayerCloudwatchConfigurationLogStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticWebLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticWebLayerCloudwatchConfigurationLogStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 log_group_name: str,
+                 batch_count: Optional[int] = None,
+                 batch_size: Optional[int] = None,
+                 buffer_duration: Optional[int] = None,
+                 datetime_format: Optional[str] = None,
+                 encoding: Optional[str] = None,
+                 file_fingerprint_lines: Optional[str] = None,
+                 initial_position: Optional[str] = None,
+                 multiline_start_pattern: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[int]:
+        return pulumi.get(self, "batch_count")
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[int]:
+        return pulumi.get(self, "buffer_duration")
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[str]:
+        return pulumi.get(self, "datetime_format")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[str]:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[str]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[str]:
+        return pulumi.get(self, "initial_position")
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type

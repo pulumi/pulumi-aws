@@ -12,19 +12,39 @@ __all__ = [
     'ApplicationAppSourceArgs',
     'ApplicationEnvironmentArgs',
     'ApplicationSslConfigurationArgs',
+    'CustomLayerCloudwatchConfigurationArgs',
+    'CustomLayerCloudwatchConfigurationLogStreamArgs',
     'CustomLayerEbsVolumeArgs',
+    'GangliaLayerCloudwatchConfigurationArgs',
+    'GangliaLayerCloudwatchConfigurationLogStreamArgs',
     'GangliaLayerEbsVolumeArgs',
+    'HaproxyLayerCloudwatchConfigurationArgs',
+    'HaproxyLayerCloudwatchConfigurationLogStreamArgs',
     'HaproxyLayerEbsVolumeArgs',
     'InstanceEbsBlockDeviceArgs',
     'InstanceEphemeralBlockDeviceArgs',
     'InstanceRootBlockDeviceArgs',
+    'JavaAppLayerCloudwatchConfigurationArgs',
+    'JavaAppLayerCloudwatchConfigurationLogStreamArgs',
     'JavaAppLayerEbsVolumeArgs',
+    'MemcachedLayerCloudwatchConfigurationArgs',
+    'MemcachedLayerCloudwatchConfigurationLogStreamArgs',
     'MemcachedLayerEbsVolumeArgs',
+    'MysqlLayerCloudwatchConfigurationArgs',
+    'MysqlLayerCloudwatchConfigurationLogStreamArgs',
     'MysqlLayerEbsVolumeArgs',
+    'NodejsAppLayerCloudwatchConfigurationArgs',
+    'NodejsAppLayerCloudwatchConfigurationLogStreamArgs',
     'NodejsAppLayerEbsVolumeArgs',
+    'PhpAppLayerCloudwatchConfigurationArgs',
+    'PhpAppLayerCloudwatchConfigurationLogStreamArgs',
     'PhpAppLayerEbsVolumeArgs',
+    'RailsAppLayerCloudwatchConfigurationArgs',
+    'RailsAppLayerCloudwatchConfigurationLogStreamArgs',
     'RailsAppLayerEbsVolumeArgs',
     'StackCustomCookbooksSourceArgs',
+    'StaticWebLayerCloudwatchConfigurationArgs',
+    'StaticWebLayerCloudwatchConfigurationLogStreamArgs',
     'StaticWebLayerEbsVolumeArgs',
 ]
 
@@ -237,6 +257,222 @@ class ApplicationSslConfigurationArgs:
 
 
 @pulumi.input_type
+class CustomLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        """
+        A block the specifies how an opsworks logs look like. See Log Streams.
+        """
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class CustomLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file: Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+        :param pulumi.Input[str] log_group_name: Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+        :param pulumi.Input[int] batch_count: Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+        :param pulumi.Input[int] batch_size: Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+        :param pulumi.Input[int] buffer_duration: Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+        :param pulumi.Input[str] datetime_format: Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+        :param pulumi.Input[str] encoding: Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
+        :param pulumi.Input[str] file_fingerprint_lines: Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+        :param pulumi.Input[str] initial_position: Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
+        :param pulumi.Input[str] multiline_start_pattern: Specifies the pattern for identifying the start of a log message.
+        :param pulumi.Input[str] time_zone: Specifies the time zone of log event time stamps.
+        """
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        """
+        Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+        """
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+        """
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+        """
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+        """
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
+        """
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the pattern for identifying the start of a log message.
+        """
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone of log event time stamps.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class CustomLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
@@ -353,6 +589,170 @@ class CustomLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
+class GangliaLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class GangliaLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class GangliaLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
@@ -462,6 +862,170 @@ class GangliaLayerEbsVolumeArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class HaproxyLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class HaproxyLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -733,6 +1297,170 @@ class InstanceRootBlockDeviceArgs:
 
 
 @pulumi.input_type
+class JavaAppLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class JavaAppLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class JavaAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
@@ -842,6 +1570,170 @@ class JavaAppLayerEbsVolumeArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class MemcachedLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class MemcachedLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -957,6 +1849,170 @@ class MemcachedLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
+class MysqlLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class MysqlLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class MysqlLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
@@ -1066,6 +2122,170 @@ class MysqlLayerEbsVolumeArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class NodejsAppLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class NodejsAppLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -1181,6 +2401,170 @@ class NodejsAppLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
+class PhpAppLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class PhpAppLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class PhpAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
@@ -1290,6 +2674,170 @@ class PhpAppLayerEbsVolumeArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RailsAppLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class RailsAppLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -1503,6 +3051,170 @@ class StackCustomCookbooksSourceArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class StaticWebLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class StaticWebLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type

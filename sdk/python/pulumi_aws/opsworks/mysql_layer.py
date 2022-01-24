@@ -19,6 +19,7 @@ class MysqlLayerArgs:
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['MysqlLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -66,6 +67,8 @@ class MysqlLayerArgs:
             pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
             pulumi.set(__self__, "auto_healing", auto_healing)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -152,6 +155,15 @@ class MysqlLayerArgs:
     @auto_healing.setter
     def auto_healing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_healing", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['MysqlLayerCloudwatchConfigurationArgs']]:
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['MysqlLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -374,6 +386,7 @@ class _MysqlLayerState:
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['MysqlLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -426,6 +439,8 @@ class _MysqlLayerState:
             pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
             pulumi.set(__self__, "auto_healing", auto_healing)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -516,6 +531,15 @@ class _MysqlLayerState:
     @auto_healing.setter
     def auto_healing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_healing", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['MysqlLayerCloudwatchConfigurationArgs']]:
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['MysqlLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -763,6 +787,7 @@ class MysqlLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['MysqlLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -853,6 +878,7 @@ class MysqlLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['MysqlLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -888,6 +914,7 @@ class MysqlLayer(pulumi.CustomResource):
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
             __props__.__dict__["auto_healing"] = auto_healing
+            __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
             __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
             __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
             __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -926,6 +953,7 @@ class MysqlLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['MysqlLayerCloudwatchConfigurationArgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -983,6 +1011,7 @@ class MysqlLayer(pulumi.CustomResource):
         __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
         __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
         __props__.__dict__["auto_healing"] = auto_healing
+        __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
         __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
         __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
         __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -1037,6 +1066,11 @@ class MysqlLayer(pulumi.CustomResource):
         Whether to enable auto-healing for the layer.
         """
         return pulumi.get(self, "auto_healing")
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> pulumi.Output[Optional['outputs.MysqlLayerCloudwatchConfiguration']]:
+        return pulumi.get(self, "cloudwatch_configuration")
 
     @property
     @pulumi.getter(name="customConfigureRecipes")

@@ -13,8 +13,8 @@ import (
 // Use this data source to invoke custom lambda functions as data source.
 // The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
 // invocation type.
-func GetInvocation(ctx *pulumi.Context, args *GetInvocationArgs, opts ...pulumi.InvokeOption) (*GetInvocationResult, error) {
-	var rv GetInvocationResult
+func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...pulumi.InvokeOption) (*LookupInvocationResult, error) {
+	var rv LookupInvocationResult
 	err := ctx.Invoke("aws:lambda/getInvocation:getInvocation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -23,7 +23,7 @@ func GetInvocation(ctx *pulumi.Context, args *GetInvocationArgs, opts ...pulumi.
 }
 
 // A collection of arguments for invoking getInvocation.
-type GetInvocationArgs struct {
+type LookupInvocationArgs struct {
 	// The name of the lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// A string in JSON format that is passed as payload to the lambda function.
@@ -34,7 +34,7 @@ type GetInvocationArgs struct {
 }
 
 // A collection of values returned by getInvocation.
-type GetInvocationResult struct {
+type LookupInvocationResult struct {
 	FunctionName string `pulumi:"functionName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string  `pulumi:"id"`
@@ -44,17 +44,17 @@ type GetInvocationResult struct {
 	Result string `pulumi:"result"`
 }
 
-func GetInvocationOutput(ctx *pulumi.Context, args GetInvocationOutputArgs, opts ...pulumi.InvokeOption) GetInvocationResultOutput {
+func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetInvocationResult, error) {
-			args := v.(GetInvocationArgs)
-			r, err := GetInvocation(ctx, &args, opts...)
+		ApplyT(func(v interface{}) (LookupInvocationResult, error) {
+			args := v.(LookupInvocationArgs)
+			r, err := LookupInvocation(ctx, &args, opts...)
 			return *r, err
-		}).(GetInvocationResultOutput)
+		}).(LookupInvocationResultOutput)
 }
 
 // A collection of arguments for invoking getInvocation.
-type GetInvocationOutputArgs struct {
+type LookupInvocationOutputArgs struct {
 	// The name of the lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// A string in JSON format that is passed as payload to the lambda function.
@@ -64,47 +64,47 @@ type GetInvocationOutputArgs struct {
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 }
 
-func (GetInvocationOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetInvocationArgs)(nil)).Elem()
+func (LookupInvocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupInvocationArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getInvocation.
-type GetInvocationResultOutput struct{ *pulumi.OutputState }
+type LookupInvocationResultOutput struct{ *pulumi.OutputState }
 
-func (GetInvocationResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetInvocationResult)(nil)).Elem()
+func (LookupInvocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupInvocationResult)(nil)).Elem()
 }
 
-func (o GetInvocationResultOutput) ToGetInvocationResultOutput() GetInvocationResultOutput {
+func (o LookupInvocationResultOutput) ToLookupInvocationResultOutput() LookupInvocationResultOutput {
 	return o
 }
 
-func (o GetInvocationResultOutput) ToGetInvocationResultOutputWithContext(ctx context.Context) GetInvocationResultOutput {
+func (o LookupInvocationResultOutput) ToLookupInvocationResultOutputWithContext(ctx context.Context) LookupInvocationResultOutput {
 	return o
 }
 
-func (o GetInvocationResultOutput) FunctionName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInvocationResult) string { return v.FunctionName }).(pulumi.StringOutput)
+func (o LookupInvocationResultOutput) FunctionName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInvocationResult) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetInvocationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInvocationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupInvocationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInvocationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetInvocationResultOutput) Input() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInvocationResult) string { return v.Input }).(pulumi.StringOutput)
+func (o LookupInvocationResultOutput) Input() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInvocationResult) string { return v.Input }).(pulumi.StringOutput)
 }
 
-func (o GetInvocationResultOutput) Qualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetInvocationResult) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+func (o LookupInvocationResultOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInvocationResult) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
 // String result of the lambda function invocation.
-func (o GetInvocationResultOutput) Result() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInvocationResult) string { return v.Result }).(pulumi.StringOutput)
+func (o LookupInvocationResultOutput) Result() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInvocationResult) string { return v.Result }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetInvocationResultOutput{})
+	pulumi.RegisterOutputType(LookupInvocationResultOutput{})
 }

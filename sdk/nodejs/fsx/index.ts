@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./backup";
+export * from "./dataRepositoryAssociation";
 export * from "./lustreFileSystem";
 export * from "./ontapFileSystem";
 export * from "./ontapStorageVirtualMachine";
@@ -17,6 +18,7 @@ export * from "./windowsFileSystem";
 
 // Import resources to register:
 import { Backup } from "./backup";
+import { DataRepositoryAssociation } from "./dataRepositoryAssociation";
 import { LustreFileSystem } from "./lustreFileSystem";
 import { OntapFileSystem } from "./ontapFileSystem";
 import { OntapStorageVirtualMachine } from "./ontapStorageVirtualMachine";
@@ -32,6 +34,8 @@ const _module = {
         switch (type) {
             case "aws:fsx/backup:Backup":
                 return new Backup(name, <any>undefined, { urn })
+            case "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation":
+                return new DataRepositoryAssociation(name, <any>undefined, { urn })
             case "aws:fsx/lustreFileSystem:LustreFileSystem":
                 return new LustreFileSystem(name, <any>undefined, { urn })
             case "aws:fsx/ontapFileSystem:OntapFileSystem":
@@ -54,6 +58,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "fsx/backup", _module)
+pulumi.runtime.registerResourceModule("aws", "fsx/dataRepositoryAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/lustreFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/ontapFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/ontapStorageVirtualMachine", _module)

@@ -7106,6 +7106,9 @@ export namespace cloudfront {
          * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
          */
         accessControlMaxAgeSec?: pulumi.Input<number>;
+        /**
+         * A Boolean value that determines how CloudFront behaves for the HTTP response header.
+         */
         originOverride: pulumi.Input<boolean>;
     }
 
@@ -7259,6 +7262,73 @@ export namespace cloudhsmv2 {
         manufacturerHardwareCertificate?: pulumi.Input<string>;
     }
 
+}
+
+export namespace cloudsearch {
+    export interface DomainEndpointOptions {
+        /**
+         * Enables or disables the requirement that all requests to the domain arrive over HTTPS.
+         */
+        enforceHttps?: pulumi.Input<boolean>;
+        /**
+         * The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
+         */
+        tlsSecurityPolicy?: pulumi.Input<string>;
+    }
+
+    export interface DomainIndexField {
+        /**
+         * The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
+         */
+        analysisScheme?: pulumi.Input<string>;
+        /**
+         * The default value for the field. This value is used when no value is specified for the field in the document data.
+         */
+        defaultValue?: pulumi.Input<string>;
+        /**
+         * You can get facet information by enabling this.
+         */
+        facet?: pulumi.Input<boolean>;
+        /**
+         * You can highlight information.
+         */
+        highlight?: pulumi.Input<boolean>;
+        /**
+         * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * You can enable returning the value of all searchable fields.
+         */
+        return?: pulumi.Input<boolean>;
+        /**
+         * You can set whether this index should be searchable or not.
+         */
+        search?: pulumi.Input<boolean>;
+        /**
+         * You can enable the property to be sortable.
+         */
+        sort?: pulumi.Input<boolean>;
+        /**
+         * The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DomainScalingParameters {
+        /**
+         * The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
+         */
+        desiredInstanceType?: pulumi.Input<string>;
+        /**
+         * The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
+         */
+        desiredPartitionCount?: pulumi.Input<number>;
+        /**
+         * The number of replicas you want to preconfigure for each index partition.
+         */
+        desiredReplicationCount?: pulumi.Input<number>;
+    }
 }
 
 export namespace cloudtrail {
@@ -16087,6 +16157,31 @@ export namespace fms {
 }
 
 export namespace fsx {
+    export interface DataRepositoryAssociationS3 {
+        /**
+         * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+         */
+        autoExportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3AutoExportPolicy>;
+        /**
+         * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+         */
+        autoImportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3AutoImportPolicy>;
+    }
+
+    export interface DataRepositoryAssociationS3AutoExportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataRepositoryAssociationS3AutoImportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface OntapFileSystemDiskIopsConfiguration {
         /**
          * - The total number of SSD IOPS provisioned for the file system.
@@ -23143,6 +23238,61 @@ export namespace opsworks {
         privateKey: pulumi.Input<string>;
     }
 
+    export interface CustomLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * A block the specifies how an opsworks logs look like. See Log Streams.
+         */
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.CustomLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface CustomLayerCloudwatchConfigurationLogStream {
+        /**
+         * Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+         */
+        batchCount?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+         */
+        bufferDuration?: pulumi.Input<number>;
+        /**
+         * Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+         */
+        datetimeFormat?: pulumi.Input<string>;
+        /**
+         * Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
+         */
+        encoding?: pulumi.Input<string>;
+        /**
+         * Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+         */
+        file: pulumi.Input<string>;
+        /**
+         * Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+         */
+        fileFingerprintLines?: pulumi.Input<string>;
+        /**
+         * Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
+         */
+        initialPosition?: pulumi.Input<string>;
+        /**
+         * Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+         */
+        logGroupName: pulumi.Input<string>;
+        /**
+         * Specifies the pattern for identifying the start of a log message.
+         */
+        multilineStartPattern?: pulumi.Input<string>;
+        /**
+         * Specifies the time zone of log event time stamps.
+         */
+        timeZone?: pulumi.Input<string>;
+    }
+
     export interface CustomLayerEbsVolume {
         /**
          * Encrypt the volume.
@@ -23174,6 +23324,25 @@ export namespace opsworks {
         type?: pulumi.Input<string>;
     }
 
+    export interface GangliaLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.GangliaLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface GangliaLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
     export interface GangliaLayerEbsVolume {
         encrypted?: pulumi.Input<boolean>;
         /**
@@ -23200,6 +23369,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface HaproxyLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface HaproxyLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
     }
 
     export interface HaproxyLayerEbsVolume {
@@ -23251,6 +23439,25 @@ export namespace opsworks {
         volumeType?: pulumi.Input<string>;
     }
 
+    export interface JavaAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.JavaAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface JavaAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
     export interface JavaAppLayerEbsVolume {
         encrypted?: pulumi.Input<boolean>;
         /**
@@ -23277,6 +23484,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface MemcachedLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.MemcachedLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface MemcachedLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
     }
 
     export interface MemcachedLayerEbsVolume {
@@ -23307,6 +23533,25 @@ export namespace opsworks {
         type?: pulumi.Input<string>;
     }
 
+    export interface MysqlLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.MysqlLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface MysqlLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
     export interface MysqlLayerEbsVolume {
         encrypted?: pulumi.Input<boolean>;
         /**
@@ -23333,6 +23578,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface NodejsAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.NodejsAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface NodejsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
     }
 
     export interface NodejsAppLayerEbsVolume {
@@ -23363,6 +23627,25 @@ export namespace opsworks {
         type?: pulumi.Input<string>;
     }
 
+    export interface PhpAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.PhpAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface PhpAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
     export interface PhpAppLayerEbsVolume {
         encrypted?: pulumi.Input<boolean>;
         /**
@@ -23389,6 +23672,25 @@ export namespace opsworks {
          * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface RailsAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.RailsAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface RailsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
     }
 
     export interface RailsAppLayerEbsVolume {
@@ -23446,6 +23748,25 @@ export namespace opsworks {
         username?: pulumi.Input<string>;
     }
 
+    export interface StaticWebLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.StaticWebLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface StaticWebLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
     export interface StaticWebLayerEbsVolume {
         encrypted?: pulumi.Input<boolean>;
         /**
@@ -23473,6 +23794,7 @@ export namespace opsworks {
          */
         type?: pulumi.Input<string>;
     }
+
 }
 
 export namespace organizations {

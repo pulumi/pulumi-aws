@@ -67,6 +67,12 @@ namespace Pulumi.Aws.OpsWorks
         [Output("autoHealing")]
         public Output<bool?> AutoHealing { get; private set; } = null!;
 
+        /// <summary>
+        /// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        /// </summary>
+        [Output("cloudwatchConfiguration")]
+        public Output<Outputs.CustomLayerCloudwatchConfiguration?> CloudwatchConfiguration { get; private set; } = null!;
+
         [Output("customConfigureRecipes")]
         public Output<ImmutableArray<string>> CustomConfigureRecipes { get; private set; } = null!;
 
@@ -107,7 +113,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> DrainElbOnShutdown { get; private set; } = null!;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         /// </summary>
         [Output("ebsVolumes")]
         public Output<ImmutableArray<Outputs.CustomLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
@@ -236,6 +242,12 @@ namespace Pulumi.Aws.OpsWorks
         [Input("autoHealing")]
         public Input<bool>? AutoHealing { get; set; }
 
+        /// <summary>
+        /// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        /// </summary>
+        [Input("cloudwatchConfiguration")]
+        public Input<Inputs.CustomLayerCloudwatchConfigurationArgs>? CloudwatchConfiguration { get; set; }
+
         [Input("customConfigureRecipes")]
         private InputList<string>? _customConfigureRecipes;
         public InputList<string> CustomConfigureRecipes
@@ -310,7 +322,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.CustomLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         /// </summary>
         public InputList<Inputs.CustomLayerEbsVolumeArgs> EbsVolumes
         {
@@ -415,6 +427,12 @@ namespace Pulumi.Aws.OpsWorks
         [Input("autoHealing")]
         public Input<bool>? AutoHealing { get; set; }
 
+        /// <summary>
+        /// Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        /// </summary>
+        [Input("cloudwatchConfiguration")]
+        public Input<Inputs.CustomLayerCloudwatchConfigurationGetArgs>? CloudwatchConfiguration { get; set; }
+
         [Input("customConfigureRecipes")]
         private InputList<string>? _customConfigureRecipes;
         public InputList<string> CustomConfigureRecipes
@@ -489,7 +507,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.CustomLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         /// </summary>
         public InputList<Inputs.CustomLayerEbsVolumeGetArgs> EbsVolumes
         {

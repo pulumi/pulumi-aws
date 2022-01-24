@@ -93,6 +93,10 @@ export interface GetImageRecipeResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
+     */
+    readonly userDataBase64: string;
+    /**
      * Version of the image recipe.
      */
     readonly version: string;

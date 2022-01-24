@@ -50,6 +50,10 @@ export interface GetUserPoolClientsResult {
      */
     readonly clientIds: string[];
     /**
+     * List of Cognito user pool client names.
+     */
+    readonly clientNames: string[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

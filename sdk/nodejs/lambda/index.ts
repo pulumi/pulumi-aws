@@ -15,6 +15,7 @@ export * from "./getCodeSigningConfig";
 export * from "./getFunction";
 export * from "./getInvocation";
 export * from "./getLayerVersion";
+export * from "./invocation";
 export * from "./lambdaMixins";
 export * from "./layerVersion";
 export * from "./layerVersionPermission";
@@ -31,6 +32,7 @@ import { CodeSigningConfig } from "./codeSigningConfig";
 import { EventSourceMapping } from "./eventSourceMapping";
 import { Function } from "./function";
 import { FunctionEventInvokeConfig } from "./functionEventInvokeConfig";
+import { Invocation } from "./invocation";
 import { LayerVersion } from "./layerVersion";
 import { LayerVersionPermission } from "./layerVersionPermission";
 import { Permission } from "./permission";
@@ -50,6 +52,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig":
                 return new FunctionEventInvokeConfig(name, <any>undefined, { urn })
+            case "aws:lambda/invocation:Invocation":
+                return new Invocation(name, <any>undefined, { urn })
             case "aws:lambda/layerVersion:LayerVersion":
                 return new LayerVersion(name, <any>undefined, { urn })
             case "aws:lambda/layerVersionPermission:LayerVersionPermission":
@@ -68,6 +72,7 @@ pulumi.runtime.registerResourceModule("aws", "lambda/codeSigningConfig", _module
 pulumi.runtime.registerResourceModule("aws", "lambda/eventSourceMapping", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/function", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/functionEventInvokeConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/invocation", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersionPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/permission", _module)

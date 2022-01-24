@@ -53,9 +53,10 @@ type StaticWebLayer struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrOutput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrOutput     `pulumi:"autoHealing"`
-	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+	AutoHealing             pulumi.BoolPtrOutput                           `pulumi:"autoHealing"`
+	CloudwatchConfiguration StaticWebLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  pulumi.StringArrayOutput                       `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     pulumi.StringArrayOutput                       `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
 	CustomJson               pulumi.StringPtrOutput `pulumi:"customJson"`
@@ -127,9 +128,10 @@ type staticWebLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            *bool    `pulumi:"autoHealing"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	AutoHealing             *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration *StaticWebLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	CustomJson               *string `pulumi:"customJson"`
@@ -170,9 +172,10 @@ type StaticWebLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	AutoHealing             pulumi.BoolPtrInput
+	CloudwatchConfiguration StaticWebLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	CustomJson               pulumi.StringPtrInput
@@ -215,9 +218,10 @@ type staticWebLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            *bool    `pulumi:"autoHealing"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	AutoHealing             *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration *StaticWebLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	CustomJson               *string `pulumi:"customJson"`
@@ -255,9 +259,10 @@ type StaticWebLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	AutoHealing             pulumi.BoolPtrInput
+	CloudwatchConfiguration StaticWebLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	CustomJson               pulumi.StringPtrInput

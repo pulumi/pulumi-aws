@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .backup import *
+from .data_repository_association import *
 from .lustre_file_system import *
 from .ontap_file_system import *
 from .ontap_storage_virtual_machine import *

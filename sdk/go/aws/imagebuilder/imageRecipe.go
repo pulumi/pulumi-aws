@@ -82,10 +82,12 @@ type ImageRecipe struct {
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
 	// Version of the image recipe.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
@@ -148,10 +150,12 @@ type imageRecipeState struct {
 	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform *string `pulumi:"platform"`
-	// Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// Version of the image recipe.
 	Version *string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
@@ -177,10 +181,12 @@ type ImageRecipeState struct {
 	ParentImage pulumi.StringPtrInput
 	// Platform of the image recipe.
 	Platform pulumi.StringPtrInput
-	// Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
+	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+	UserDataBase64 pulumi.StringPtrInput
 	// Version of the image recipe.
 	Version pulumi.StringPtrInput
 	// The working directory to be used during build and test workflows.
@@ -202,8 +208,10 @@ type imageRecipeArgs struct {
 	Name *string `pulumi:"name"`
 	// Platform of the image recipe.
 	ParentImage string `pulumi:"parentImage"`
-	// Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// Version of the image recipe.
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
@@ -222,8 +230,10 @@ type ImageRecipeArgs struct {
 	Name pulumi.StringPtrInput
 	// Platform of the image recipe.
 	ParentImage pulumi.StringInput
-	// Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+	UserDataBase64 pulumi.StringPtrInput
 	// Version of the image recipe.
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.

@@ -21,6 +21,7 @@ class RailsAppLayerArgs:
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
                  bundler_version: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['RailsAppLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -78,6 +79,8 @@ class RailsAppLayerArgs:
             pulumi.set(__self__, "auto_healing", auto_healing)
         if bundler_version is not None:
             pulumi.set(__self__, "bundler_version", bundler_version)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -192,6 +195,15 @@ class RailsAppLayerArgs:
     @bundler_version.setter
     def bundler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bundler_version", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['RailsAppLayerCloudwatchConfigurationArgs']]:
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['RailsAppLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -440,6 +452,7 @@ class _RailsAppLayerState:
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
                  bundler_version: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['RailsAppLayerCloudwatchConfigurationArgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -502,6 +515,8 @@ class _RailsAppLayerState:
             pulumi.set(__self__, "auto_healing", auto_healing)
         if bundler_version is not None:
             pulumi.set(__self__, "bundler_version", bundler_version)
+        if cloudwatch_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
             pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
@@ -620,6 +635,15 @@ class _RailsAppLayerState:
     @bundler_version.setter
     def bundler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bundler_version", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['RailsAppLayerCloudwatchConfigurationArgs']]:
+        return pulumi.get(self, "cloudwatch_configuration")
+
+    @cloudwatch_configuration.setter
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['RailsAppLayerCloudwatchConfigurationArgs']]):
+        pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
@@ -893,6 +917,7 @@ class RailsAppLayer(pulumi.CustomResource):
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
                  bundler_version: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['RailsAppLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -991,6 +1016,7 @@ class RailsAppLayer(pulumi.CustomResource):
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
                  bundler_version: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['RailsAppLayerCloudwatchConfigurationArgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -1030,6 +1056,7 @@ class RailsAppLayer(pulumi.CustomResource):
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
             __props__.__dict__["auto_healing"] = auto_healing
             __props__.__dict__["bundler_version"] = bundler_version
+            __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
             __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
             __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
             __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -1072,6 +1099,7 @@ class RailsAppLayer(pulumi.CustomResource):
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
             bundler_version: Optional[pulumi.Input[str]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['RailsAppLayerCloudwatchConfigurationArgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -1137,6 +1165,7 @@ class RailsAppLayer(pulumi.CustomResource):
         __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
         __props__.__dict__["auto_healing"] = auto_healing
         __props__.__dict__["bundler_version"] = bundler_version
+        __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
         __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
         __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
         __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
@@ -1209,6 +1238,11 @@ class RailsAppLayer(pulumi.CustomResource):
         When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
         """
         return pulumi.get(self, "bundler_version")
+
+    @property
+    @pulumi.getter(name="cloudwatchConfiguration")
+    def cloudwatch_configuration(self) -> pulumi.Output[Optional['outputs.RailsAppLayerCloudwatchConfiguration']]:
+        return pulumi.get(self, "cloudwatch_configuration")
 
     @property
     @pulumi.getter(name="customConfigureRecipes")

@@ -23,7 +23,7 @@ class SchemaArgs:
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[str] data_format: The data format of the schema definition. Currently only `AVRO` is supported.
+        :param pulumi.Input[str] data_format: The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         :param pulumi.Input[str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
         :param pulumi.Input[str] schema_name: The Name of the schema.
         :param pulumi.Input[str] description: A description of the schema.
@@ -57,7 +57,7 @@ class SchemaArgs:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Input[str]:
         """
-        The data format of the schema definition. Currently only `AVRO` is supported.
+        The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         """
         return pulumi.get(self, "data_format")
 
@@ -146,7 +146,7 @@ class _SchemaState:
         Input properties used for looking up and filtering Schema resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the schema.
         :param pulumi.Input[str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[str] data_format: The data format of the schema definition. Currently only `AVRO` is supported.
+        :param pulumi.Input[str] data_format: The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         :param pulumi.Input[str] description: A description of the schema.
         :param pulumi.Input[int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
         :param pulumi.Input[int] next_schema_version: The next version of the schema associated with the returned schema definition.
@@ -213,7 +213,7 @@ class _SchemaState:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The data format of the schema definition. Currently only `AVRO` is supported.
+        The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         """
         return pulumi.get(self, "data_format")
 
@@ -383,7 +383,7 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[str] data_format: The data format of the schema definition. Currently only `AVRO` is supported.
+        :param pulumi.Input[str] data_format: The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         :param pulumi.Input[str] description: A description of the schema.
         :param pulumi.Input[str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
@@ -508,7 +508,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the schema.
         :param pulumi.Input[str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[str] data_format: The data format of the schema definition. Currently only `AVRO` is supported.
+        :param pulumi.Input[str] data_format: The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         :param pulumi.Input[str] description: A description of the schema.
         :param pulumi.Input[int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
         :param pulumi.Input[int] next_schema_version: The next version of the schema associated with the returned schema definition.
@@ -559,7 +559,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output[str]:
         """
-        The data format of the schema definition. Currently only `AVRO` is supported.
+        The data format of the schema definition. Valid values are `AVRO` and `JSON`.
         """
         return pulumi.get(self, "data_format")
 

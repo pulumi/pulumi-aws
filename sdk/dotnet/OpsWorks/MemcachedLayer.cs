@@ -64,6 +64,9 @@ namespace Pulumi.Aws.OpsWorks
         [Output("autoHealing")]
         public Output<bool?> AutoHealing { get; private set; } = null!;
 
+        [Output("cloudwatchConfiguration")]
+        public Output<Outputs.MemcachedLayerCloudwatchConfiguration?> CloudwatchConfiguration { get; private set; } = null!;
+
         [Output("customConfigureRecipes")]
         public Output<ImmutableArray<string>> CustomConfigureRecipes { get; private set; } = null!;
 
@@ -232,6 +235,9 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("autoHealing")]
         public Input<bool>? AutoHealing { get; set; }
+
+        [Input("cloudwatchConfiguration")]
+        public Input<Inputs.MemcachedLayerCloudwatchConfigurationArgs>? CloudwatchConfiguration { get; set; }
 
         [Input("customConfigureRecipes")]
         private InputList<string>? _customConfigureRecipes;
@@ -411,6 +417,9 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("autoHealing")]
         public Input<bool>? AutoHealing { get; set; }
+
+        [Input("cloudwatchConfiguration")]
+        public Input<Inputs.MemcachedLayerCloudwatchConfigurationGetArgs>? CloudwatchConfiguration { get; set; }
 
         [Input("customConfigureRecipes")]
         private InputList<string>? _customConfigureRecipes;

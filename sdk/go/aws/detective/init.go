@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:detective/graph:Graph":
 		r = &Graph{}
+	case "aws:detective/invitationAccepter:InvitationAccepter":
+		r = &InvitationAccepter{}
+	case "aws:detective/member:Member":
+		r = &Member{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +43,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"detective/graph",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"detective/invitationAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"detective/member",
 		&module{version},
 	)
 }

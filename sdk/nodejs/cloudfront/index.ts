@@ -13,6 +13,7 @@ export * from "./function";
 export * from "./getCachePolicy";
 export * from "./getDistribution";
 export * from "./getLogDeliveryCanonicalUserId";
+export * from "./getOriginAccessIdentity";
 export * from "./getOriginRequestPolicy";
 export * from "./getResponseHeadersPolicy";
 export * from "./keyGroup";

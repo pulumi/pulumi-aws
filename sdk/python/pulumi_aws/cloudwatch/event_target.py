@@ -754,8 +754,7 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        event_bus_invoke_remote_event_bus_role = aws.iam.get_role(name="event-bus-invoke-remote-event-bus",
-            assume_role_policy=\"\"\"{
+        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -775,7 +774,7 @@ class EventTarget(pulumi.CustomResource):
         )])
         event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
         event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
-            role=aws_iam_role["event_bus_invoke_remote_event_bus"]["name"],
+            role=event_bus_invoke_remote_event_bus_role.name,
             policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
         stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
             description="Stop instances nightly",
@@ -783,7 +782,7 @@ class EventTarget(pulumi.CustomResource):
         stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
             arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
             rule=stop_instances_event_rule.name,
-            role_arn=aws_iam_role["event_bus_invoke_remote_event_bus"]["arn"])
+            role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
 
         ## Example Input Transformer Usage - JSON Object
@@ -1025,8 +1024,7 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        event_bus_invoke_remote_event_bus_role = aws.iam.get_role(name="event-bus-invoke-remote-event-bus",
-            assume_role_policy=\"\"\"{
+        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -1046,7 +1044,7 @@ class EventTarget(pulumi.CustomResource):
         )])
         event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
         event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
-            role=aws_iam_role["event_bus_invoke_remote_event_bus"]["name"],
+            role=event_bus_invoke_remote_event_bus_role.name,
             policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
         stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
             description="Stop instances nightly",
@@ -1054,7 +1052,7 @@ class EventTarget(pulumi.CustomResource):
         stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
             arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
             rule=stop_instances_event_rule.name,
-            role_arn=aws_iam_role["event_bus_invoke_remote_event_bus"]["arn"])
+            role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
 
         ## Example Input Transformer Usage - JSON Object

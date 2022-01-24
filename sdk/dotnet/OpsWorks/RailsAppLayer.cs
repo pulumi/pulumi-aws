@@ -70,6 +70,9 @@ namespace Pulumi.Aws.OpsWorks
         [Output("bundlerVersion")]
         public Output<string?> BundlerVersion { get; private set; } = null!;
 
+        [Output("cloudwatchConfiguration")]
+        public Output<Outputs.RailsAppLayerCloudwatchConfiguration?> CloudwatchConfiguration { get; private set; } = null!;
+
         [Output("customConfigureRecipes")]
         public Output<ImmutableArray<string>> CustomConfigureRecipes { get; private set; } = null!;
 
@@ -268,6 +271,9 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("bundlerVersion")]
         public Input<string>? BundlerVersion { get; set; }
+
+        [Input("cloudwatchConfiguration")]
+        public Input<Inputs.RailsAppLayerCloudwatchConfigurationArgs>? CloudwatchConfiguration { get; set; }
 
         [Input("customConfigureRecipes")]
         private InputList<string>? _customConfigureRecipes;
@@ -477,6 +483,9 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("bundlerVersion")]
         public Input<string>? BundlerVersion { get; set; }
+
+        [Input("cloudwatchConfiguration")]
+        public Input<Inputs.RailsAppLayerCloudwatchConfigurationGetArgs>? CloudwatchConfiguration { get; set; }
 
         [Input("customConfigureRecipes")]
         private InputList<string>? _customConfigureRecipes;

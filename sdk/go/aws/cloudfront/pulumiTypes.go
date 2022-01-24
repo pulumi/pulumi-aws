@@ -8343,7 +8343,8 @@ type ResponseHeadersPolicyCorsConfig struct {
 	AccessControlExposeHeaders *ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders `pulumi:"accessControlExposeHeaders"`
 	// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
 	AccessControlMaxAgeSec *int `pulumi:"accessControlMaxAgeSec"`
-	OriginOverride         bool `pulumi:"originOverride"`
+	// A Boolean value that determines how CloudFront behaves for the HTTP response header.
+	OriginOverride bool `pulumi:"originOverride"`
 }
 
 // ResponseHeadersPolicyCorsConfigInput is an input type that accepts ResponseHeadersPolicyCorsConfigArgs and ResponseHeadersPolicyCorsConfigOutput values.
@@ -8370,7 +8371,8 @@ type ResponseHeadersPolicyCorsConfigArgs struct {
 	AccessControlExposeHeaders ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersPtrInput `pulumi:"accessControlExposeHeaders"`
 	// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
 	AccessControlMaxAgeSec pulumi.IntPtrInput `pulumi:"accessControlMaxAgeSec"`
-	OriginOverride         pulumi.BoolInput   `pulumi:"originOverride"`
+	// A Boolean value that determines how CloudFront behaves for the HTTP response header.
+	OriginOverride pulumi.BoolInput `pulumi:"originOverride"`
 }
 
 func (ResponseHeadersPolicyCorsConfigArgs) ElementType() reflect.Type {
@@ -8488,6 +8490,7 @@ func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlMaxAgeSec() pulumi.I
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) *int { return v.AccessControlMaxAgeSec }).(pulumi.IntPtrOutput)
 }
 
+// A Boolean value that determines how CloudFront behaves for the HTTP response header.
 func (o ResponseHeadersPolicyCorsConfigOutput) OriginOverride() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) bool { return v.OriginOverride }).(pulumi.BoolOutput)
 }
@@ -8576,6 +8579,7 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlMaxAgeSec() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// A Boolean value that determines how CloudFront behaves for the HTTP response header.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) OriginOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *bool {
 		if v == nil {

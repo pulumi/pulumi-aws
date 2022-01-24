@@ -180,9 +180,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const eventBusInvokeRemoteEventBusRole = aws.iam.getRole({
- *     name: "event-bus-invoke-remote-event-bus",
- *     assumeRolePolicy: `{
+ * const eventBusInvokeRemoteEventBusRole = new aws.iam.Role("eventBusInvokeRemoteEventBusRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -194,8 +192,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const eventBusInvokeRemoteEventBusPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -205,7 +202,7 @@ import * as utilities from "../utilities";
  * });
  * const eventBusInvokeRemoteEventBusPolicy = new aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", {policy: eventBusInvokeRemoteEventBusPolicyDocument.then(eventBusInvokeRemoteEventBusPolicyDocument => eventBusInvokeRemoteEventBusPolicyDocument.json)});
  * const eventBusInvokeRemoteEventBusRolePolicyAttachment = new aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", {
- *     role: aws_iam_role.event_bus_invoke_remote_event_bus.name,
+ *     role: eventBusInvokeRemoteEventBusRole.name,
  *     policyArn: eventBusInvokeRemoteEventBusPolicy.arn,
  * });
  * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstancesEventRule", {
@@ -215,7 +212,7 @@ import * as utilities from "../utilities";
  * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstancesEventTarget", {
  *     arn: "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
  *     rule: stopInstancesEventRule.name,
- *     roleArn: aws_iam_role.event_bus_invoke_remote_event_bus.arn,
+ *     roleArn: eventBusInvokeRemoteEventBusRole.arn,
  * });
  * ```
  *

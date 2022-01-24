@@ -45,9 +45,10 @@ type NodejsAppLayer struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrOutput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrOutput     `pulumi:"autoHealing"`
-	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+	AutoHealing             pulumi.BoolPtrOutput                           `pulumi:"autoHealing"`
+	CloudwatchConfiguration NodejsAppLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  pulumi.StringArrayOutput                       `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     pulumi.StringArrayOutput                       `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -122,9 +123,10 @@ type nodejsAppLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            *bool    `pulumi:"autoHealing"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	AutoHealing             *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration *NodejsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -168,9 +170,10 @@ type NodejsAppLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	AutoHealing             pulumi.BoolPtrInput
+	CloudwatchConfiguration NodejsAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
@@ -216,9 +219,10 @@ type nodejsAppLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            *bool    `pulumi:"autoHealing"`
-	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
+	AutoHealing             *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration *NodejsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
@@ -259,9 +263,10 @@ type NodejsAppLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing            pulumi.BoolPtrInput
-	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes    pulumi.StringArrayInput
+	AutoHealing             pulumi.BoolPtrInput
+	CloudwatchConfiguration NodejsAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.

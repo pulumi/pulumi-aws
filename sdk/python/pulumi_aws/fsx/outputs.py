@@ -10,6 +10,9 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DataRepositoryAssociationS3',
+    'DataRepositoryAssociationS3AutoExportPolicy',
+    'DataRepositoryAssociationS3AutoImportPolicy',
     'OntapFileSystemDiskIopsConfiguration',
     'OntapFileSystemEndpoint',
     'OntapFileSystemEndpointIntercluster',
@@ -34,6 +37,94 @@ __all__ = [
     'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
 ]
+
+@pulumi.output_type
+class DataRepositoryAssociationS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoExportPolicy":
+            suggest = "auto_export_policy"
+        elif key == "autoImportPolicy":
+            suggest = "auto_import_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataRepositoryAssociationS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataRepositoryAssociationS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataRepositoryAssociationS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_export_policy: Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy'] = None,
+                 auto_import_policy: Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy'] = None):
+        """
+        :param 'DataRepositoryAssociationS3AutoExportPolicyArgs' auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        :param 'DataRepositoryAssociationS3AutoImportPolicyArgs' auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        """
+        if auto_export_policy is not None:
+            pulumi.set(__self__, "auto_export_policy", auto_export_policy)
+        if auto_import_policy is not None:
+            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
+
+    @property
+    @pulumi.getter(name="autoExportPolicy")
+    def auto_export_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy']:
+        """
+        Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        """
+        return pulumi.get(self, "auto_export_policy")
+
+    @property
+    @pulumi.getter(name="autoImportPolicy")
+    def auto_import_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy']:
+        """
+        Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        """
+        return pulumi.get(self, "auto_import_policy")
+
+
+@pulumi.output_type
+class DataRepositoryAssociationS3AutoExportPolicy(dict):
+    def __init__(__self__, *,
+                 events: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence[str]]:
+        """
+        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
+        return pulumi.get(self, "events")
+
+
+@pulumi.output_type
+class DataRepositoryAssociationS3AutoImportPolicy(dict):
+    def __init__(__self__, *,
+                 events: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence[str]]:
+        """
+        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
+        return pulumi.get(self, "events")
+
 
 @pulumi.output_type
 class OntapFileSystemDiskIopsConfiguration(dict):

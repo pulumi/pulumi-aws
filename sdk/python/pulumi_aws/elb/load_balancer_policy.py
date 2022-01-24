@@ -403,7 +403,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyAttributes")
-    def policy_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerPolicyPolicyAttribute']]]:
+    def policy_attributes(self) -> pulumi.Output[Sequence['outputs.LoadBalancerPolicyPolicyAttribute']]:
         """
         Policy attribute to apply to the policy.
         """
