@@ -16,70 +16,72 @@
 // describe the different containers that are launched as part of a task.
 
 // See http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html
+import * as pulumi from "@pulumi/pulumi";
+
 export interface ContainerDefinition {
-    command?: string[];
-    cpu?: number;
+    command?: pulumi.Input<string[]>;
+    cpu?: pulumi.Input<number>;
     dependsOn?: ContainerDependency[];
-    disableNetworking?: boolean;
-    dnsSearchDomains?: string[];
-    dnsServers?: string[];
-    dockerLabels?: { [label: string]: string };
-    dockerSecurityOptions?: string[];
-    entryPoint?: string[];
+    disableNetworking?: pulumi.Input<boolean>;
+    dnsSearchDomains?: pulumi.Input<string[]>;
+    dnsServers?: pulumi.Input<string[]>;
+    dockerLabels?: { [label: string]: pulumi.Input<string> };
+    dockerSecurityOptions?: pulumi.Input<string[]>;
+    entryPoint?: pulumi.Input<string[]>;
     environment?: KeyValuePair[];
     environmentFiles?: EnvironmentFile[];
-    essential?: boolean;
+    essential?: pulumi.Input<boolean>;
     extraHosts?: HostEntry[];
     firelensConfiguration?: FirelensConfiguration;
     healthCheck?: HealthCheck;
-    hostname?: string;
-    image?: string;
-    interactive?: boolean;
-    links?: string[];
+    hostname?: pulumi.Input<string>;
+    image?: pulumi.Input<string>;
+    interactive?: pulumi.Input<boolean>;
+    links?: pulumi.Input<string[]>;
     linuxParameters?: LinuxParameters;
     logConfiguration?: LogConfiguration;
-    memory?: number;
-    memoryReservation?: number;
+    memory?: pulumi.Input<number>;
+    memoryReservation?: pulumi.Input<number>;
     mountPoints?: MountPoint[];
-    name: string;
+    name: pulumi.Input<string>;
     portMappings?: PortMapping[];
-    privileged?: boolean;
-    pseudoTerminal?: boolean;
-    readonlyRootFilesystem?: boolean;
+    privileged?: pulumi.Input<boolean>;
+    pseudoTerminal?: pulumi.Input<boolean>;
+    readonlyRootFilesystem?: pulumi.Input<boolean>;
     repositoryCredentials?: RepositoryCredentials;
     resourceRequirements?: ResourceRequirements[];
     secrets?: Secret[];
-    startTimeout?: number;
-    stopTimeout?: number;
+    startTimeout?: pulumi.Input<number>;
+    stopTimeout?: pulumi.Input<number>;
     systemControls?: SystemControl[];
     ulimits?: Ulimit[];
-    user?: string;
+    user?: pulumi.Input<string>;
     volumesFrom?: VolumeFrom[];
-    workingDirectory?: string;
+    workingDirectory?: pulumi.Input<string>;
 }
 
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_EnvironmentFile.html
 export interface EnvironmentFile {
     type: "s3";
-    value: string;
+    value: pulumi.Input<string>;
 }
 
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html
 export interface ContainerDependency {
-    containerName?: string;
-    condition?: string;
+    containerName?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
 }
 
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KeyValuePair.html
 export interface KeyValuePair {
-    name: string;
-    value: string;
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }
 
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FirelensConfiguration.html
 export interface FirelensConfiguration {
-    options?: { [key: string]: string};
-    type: string;
+    options?: { [key: string]: pulumi.Input<string>};
+    type: pulumi.Input<string>;
 }
 
 /**
@@ -100,19 +102,19 @@ export interface HealthCheck {
      * An exit code of 0 indicates success, and non-zero exit code indicates failure. For more
      * information, see HealthCheck in the Create a container section of the Docker Remote API.
      */
-    command?: string[];
+    command?: pulumi.Input<string[]>;
 
     /**
      * The time period in seconds between each health check execution. You may specify between 5 and
      * 300 seconds. The default value is 30 seconds.
      */
-    interval?: number;
+    interval?: pulumi.Input<number>;
 
     /**
      * The number of times to retry a failed health check before the container is considered
      * unhealthy. You may specify between 1 and 10 retries. The default value is 3.
      */
-    retries?: number;
+    retries?: pulumi.Input<number>;
 
     /**
      * The optional grace period within which to provide containers time to bootstrap before failed
@@ -123,26 +125,26 @@ export interface HealthCheck {
      * If a health check succeeds within the startPeriod, then the container is considered healthy
      * and any subsequent failures count toward the maximum number of retries.
      */
-    startPeriod?: number;
+    startPeriod?: pulumi.Input<number>;
 
     /**
      * The time period in seconds to wait for a health check to succeed before it is considered a
      * failure. You may specify between 2 and 60 seconds. The default value is 5.
      */
-    timeout?: number;
+    timeout?: pulumi.Input<number>;
 }
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HostEntry.html
 export interface HostEntry {
-    hostname: string;
-    ipAddress: string;
+    hostname: pulumi.Input<string>;
+    ipAddress: pulumi.Input<string>;
 }
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LinuxParameters.html
 export interface LinuxParameters {
     capabilities?: KernelCapabilities;
     devices?: Device[];
-    initProcessEnabled?: boolean;
+    initProcessEnabled?: pulumi.Input<boolean>;
 }
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html
@@ -161,15 +163,15 @@ export type KernelCapability = "ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Device.html
 export interface Device {
-    containerPath?: string;
-    hostPath: string;
-    permissions?: string[];
+    containerPath?: pulumi.Input<string>;
+    hostPath: pulumi.Input<string>;
+    permissions?: pulumi.Input<string[]>;
 }
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html
 export interface LogConfiguration {
     logDriver:  LogDriver;
-    options?: { [key: string]: string };
+    options?: { [key: string]: pulumi.Input<string> };
 }
 
 // See `logdriver` at http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html
@@ -177,15 +179,15 @@ export type LogDriver = "json-file" | "syslog" | "journald" | "gelf" | "fluentd"
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_MountPoint.html
 export interface MountPoint {
-    containerPath?: string;
-    readOnly?: boolean;
-    sourceVolume?: string
+    containerPath?: pulumi.Input<string>;
+    readOnly?: pulumi.Input<boolean>;
+    sourceVolume?: pulumi.Input<string>
 }
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html
 export interface PortMapping {
-    containerPort?: number;
-    hostPort?: number;
+    containerPort?: pulumi.Input<number>;
+    hostPort?: pulumi.Input<number>;
     protocol?: Protocol;
 }
 
@@ -195,8 +197,8 @@ export type Protocol = "tcp" | "udp";
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html
 export interface Ulimit {
     name: UlimitName;
-    hardLimit: number;
-    softLimit: number;
+    hardLimit: pulumi.Input<number>;
+    softLimit: pulumi.Input<number>;
 }
 
 // See http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html
@@ -205,13 +207,13 @@ export type UlimitName = "core" | "cpu" | "data" | "fsize" | "locks" | "memlock"
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_VolumeFrom.html
 export interface VolumeFrom {
-    sourceContainer?: string;
-    readOnly?: boolean
+    sourceContainer?: pulumi.Input<string>;
+    readOnly?: pulumi.Input<boolean>
 }
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RepositoryCredentials.html
 export interface RepositoryCredentials {
-    credentialsParameter: string;
+    credentialsParameter: pulumi.Input<string>;
 }
 
 /**
@@ -226,13 +228,13 @@ export interface ResourceRequirements {
     /**
      * The type of resource to assign to a container. The only supported value is GPU.
      */
-    type: string;
+    type: pulumi.Input<string>;
     /**
      * The number of physical GPUs the Amazon ECS container agent will reserve for the container.
      * The number of GPUs reserved for all containers in a task should not exceed the number of
      * available GPUs on the container instance the task is launched on.
      */
-    value: string;
+    value: pulumi.Input<string>;
 }
 
 /**
@@ -255,7 +257,7 @@ export interface Secret {
     /** 
      * The name of the secret.
      */
-    name: string;
+    name: pulumi.Input<string>;
 
     /**
      * The secret to expose to the container. The supported values are either the full ARN of the
@@ -266,7 +268,7 @@ export interface Secret {
      * task you are launching, then you can use either the full ARN or name of the parameter. If the
      * parameter exists in a different Region, then the full ARN must be specified.
      */
-    valueFrom: string;
+    valueFrom: pulumi.Input<string>;
 }
 
 /**
@@ -292,10 +294,11 @@ export interface SystemControl {
     /**
      * The namespaced kernel parameter for which to set a value.
      */
-    namespace?: string;
+    namespace?: pulumi.Input<string>;
     
     /**
      * The value for the namespaced kernel parameter specified in namespace.
      */
-    value?: string;
+    value?: pulumi.Input<string>;
 }
+
