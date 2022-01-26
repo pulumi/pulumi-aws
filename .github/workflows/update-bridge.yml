@@ -1,17 +1,5 @@
 env:
-  AWS_REGION: us-west-2
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  PROVIDER: aws
-  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-  PULUMI_API: https://api.pulumi-staging.io
-  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  TRAVIS_OS_NAME: linux
 jobs:
   update_bridge:
     name: update-bridge
@@ -19,11 +7,6 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v2
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
@@ -49,48 +32,54 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
-    - run: sudo npm install -g chg
-    - name: Update Pulumi Terraform Bridge Dependency
-      run: cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v3@${{
-        github.event.client_payload.ref }} && go mod tidy && cd ../
+    - name: Update pulumi-terraform-bridge
+      run: cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v3@v${{
+        github.event.inputs.bridge_version }} && go mod tidy
+    - name: Update Pulumi SDK (provider/go.mod)
+      run: cd provider && go mod edit -require github.com/pulumi/pulumi/sdk/v3@v${{
+        github.event.inputs.sdk_version }} && go mod tidy
+    - name: Update Pulumi SDK (sdk/go.mod)
+      run: cd sdk && go mod edit -require github.com/pulumi/pulumi/sdk/v3@v${{ github.event.inputs.sdk_version
+        }} && go mod tidy
+    - run: make tfgen
     - run: make build_sdks
-    - run: chg add "Upgrading pulumi-terraform-bridge to ${{ github.event.client_payload.ref
-        }}
-    - name: commit changes
-      uses: EndBug/add-and-commit@v7
+    - name: Create PR
+      uses: peter-evans/create-pull-request@v3.12.0
       with:
-        author_email: bot@pulumi.com
-        author_name: pulumi-bot
-        ref: update-bridge/${{ github.event.client_payload.ref }}-${{ github.run_id
+        author: pulumi-bot <bot@pulumi.com>
+        base: master
+        body: This pull request was generated automatically by the update-bridge workflow
+          in this repository.
+        branch: pulumi-bot/bridge-v${{ github.event.inputs.bridge_version }}-${{ github.run_id}}
+        commit-message: Update pulumi-terraform-bridge to v${{ github.event.inputs.bridge_version
           }}
-    - env:
-        GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
-      name: pull-request
-      uses: repo-sync/pull-request@v2
-      with:
-        author_name: pulumi-bot
-        destination_branch: master
-        github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
-        pr_allow_empty: "true"
-        pr_assignee: stack72
-        pr_body: '*Automated PR*'
-        pr_label: automation/merge
-        pr_reviewer: stack72
-        pr_title: Upgrade to ${{ github.event.client_payload.ref }} of pulumi-terraform-bridge
-        source_branch: update-bridge/${{ github.event.client_payload.ref }}-${{ github.run_id
+        committer: pulumi-bot <bot@pulumi.com>
+        labels: impact/no-changelog-required
+        reviewers: pulumi/platform-integrations
+        title: Update pulumi-terraform-bridge to v${{ github.event.inputs.bridge_version
           }}
+        token: ${{ secrets.PULUMI_BOT_TOKEN }}
     strategy:
       fail-fast: true
       matrix:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.16.x
+        - 1.17.x
         nodeversion:
         - 14.x
         pythonversion:
         - "3.7"
 "on":
-  repository_dispatch:
-    types:
-    - update-bridge
+  workflow_dispatch:
+    inputs:
+      bridge_version:
+        description: The version of pulumi/pulumi-terraform-bridge to update to. Do
+          not include the 'v' prefix. Must be major version 3.
+        required: true
+        type: string
+      sdk_version:
+        description: The version of pulumi/pulumi/sdk to update to. Do not include
+          the 'v' prefix. Must be major version 3.
+        required: true
+        type: string
