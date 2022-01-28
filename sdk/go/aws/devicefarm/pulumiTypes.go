@@ -125,9 +125,188 @@ func (o DevicePoolRuleArrayOutput) Index(i pulumi.IntInput) DevicePoolRuleOutput
 	}).(DevicePoolRuleOutput)
 }
 
+type TestGridProjectVpcConfig struct {
+	// A list of VPC security group IDs in your Amazon VPC.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of VPC subnet IDs in your Amazon VPC.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the Amazon VPC.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// TestGridProjectVpcConfigInput is an input type that accepts TestGridProjectVpcConfigArgs and TestGridProjectVpcConfigOutput values.
+// You can construct a concrete instance of `TestGridProjectVpcConfigInput` via:
+//
+//          TestGridProjectVpcConfigArgs{...}
+type TestGridProjectVpcConfigInput interface {
+	pulumi.Input
+
+	ToTestGridProjectVpcConfigOutput() TestGridProjectVpcConfigOutput
+	ToTestGridProjectVpcConfigOutputWithContext(context.Context) TestGridProjectVpcConfigOutput
+}
+
+type TestGridProjectVpcConfigArgs struct {
+	// A list of VPC security group IDs in your Amazon VPC.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of VPC subnet IDs in your Amazon VPC.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the Amazon VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (TestGridProjectVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestGridProjectVpcConfig)(nil)).Elem()
+}
+
+func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigOutput() TestGridProjectVpcConfigOutput {
+	return i.ToTestGridProjectVpcConfigOutputWithContext(context.Background())
+}
+
+func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigOutputWithContext(ctx context.Context) TestGridProjectVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectVpcConfigOutput)
+}
+
+func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigPtrOutput() TestGridProjectVpcConfigPtrOutput {
+	return i.ToTestGridProjectVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigPtrOutputWithContext(ctx context.Context) TestGridProjectVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectVpcConfigOutput).ToTestGridProjectVpcConfigPtrOutputWithContext(ctx)
+}
+
+// TestGridProjectVpcConfigPtrInput is an input type that accepts TestGridProjectVpcConfigArgs, TestGridProjectVpcConfigPtr and TestGridProjectVpcConfigPtrOutput values.
+// You can construct a concrete instance of `TestGridProjectVpcConfigPtrInput` via:
+//
+//          TestGridProjectVpcConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type TestGridProjectVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToTestGridProjectVpcConfigPtrOutput() TestGridProjectVpcConfigPtrOutput
+	ToTestGridProjectVpcConfigPtrOutputWithContext(context.Context) TestGridProjectVpcConfigPtrOutput
+}
+
+type testGridProjectVpcConfigPtrType TestGridProjectVpcConfigArgs
+
+func TestGridProjectVpcConfigPtr(v *TestGridProjectVpcConfigArgs) TestGridProjectVpcConfigPtrInput {
+	return (*testGridProjectVpcConfigPtrType)(v)
+}
+
+func (*testGridProjectVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestGridProjectVpcConfig)(nil)).Elem()
+}
+
+func (i *testGridProjectVpcConfigPtrType) ToTestGridProjectVpcConfigPtrOutput() TestGridProjectVpcConfigPtrOutput {
+	return i.ToTestGridProjectVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *testGridProjectVpcConfigPtrType) ToTestGridProjectVpcConfigPtrOutputWithContext(ctx context.Context) TestGridProjectVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectVpcConfigPtrOutput)
+}
+
+type TestGridProjectVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (TestGridProjectVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestGridProjectVpcConfig)(nil)).Elem()
+}
+
+func (o TestGridProjectVpcConfigOutput) ToTestGridProjectVpcConfigOutput() TestGridProjectVpcConfigOutput {
+	return o
+}
+
+func (o TestGridProjectVpcConfigOutput) ToTestGridProjectVpcConfigOutputWithContext(ctx context.Context) TestGridProjectVpcConfigOutput {
+	return o
+}
+
+func (o TestGridProjectVpcConfigOutput) ToTestGridProjectVpcConfigPtrOutput() TestGridProjectVpcConfigPtrOutput {
+	return o.ToTestGridProjectVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TestGridProjectVpcConfigOutput) ToTestGridProjectVpcConfigPtrOutputWithContext(ctx context.Context) TestGridProjectVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestGridProjectVpcConfig) *TestGridProjectVpcConfig {
+		return &v
+	}).(TestGridProjectVpcConfigPtrOutput)
+}
+
+// A list of VPC security group IDs in your Amazon VPC.
+func (o TestGridProjectVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TestGridProjectVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of VPC subnet IDs in your Amazon VPC.
+func (o TestGridProjectVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TestGridProjectVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Amazon VPC.
+func (o TestGridProjectVpcConfigOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v TestGridProjectVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type TestGridProjectVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TestGridProjectVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestGridProjectVpcConfig)(nil)).Elem()
+}
+
+func (o TestGridProjectVpcConfigPtrOutput) ToTestGridProjectVpcConfigPtrOutput() TestGridProjectVpcConfigPtrOutput {
+	return o
+}
+
+func (o TestGridProjectVpcConfigPtrOutput) ToTestGridProjectVpcConfigPtrOutputWithContext(ctx context.Context) TestGridProjectVpcConfigPtrOutput {
+	return o
+}
+
+func (o TestGridProjectVpcConfigPtrOutput) Elem() TestGridProjectVpcConfigOutput {
+	return o.ApplyT(func(v *TestGridProjectVpcConfig) TestGridProjectVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TestGridProjectVpcConfig
+		return ret
+	}).(TestGridProjectVpcConfigOutput)
+}
+
+// A list of VPC security group IDs in your Amazon VPC.
+func (o TestGridProjectVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TestGridProjectVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of VPC subnet IDs in your Amazon VPC.
+func (o TestGridProjectVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TestGridProjectVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Amazon VPC.
+func (o TestGridProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TestGridProjectVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleInput)(nil)).Elem(), DevicePoolRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleArrayInput)(nil)).Elem(), DevicePoolRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigPtrInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
 	pulumi.RegisterOutputType(DevicePoolRuleOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleArrayOutput{})
+	pulumi.RegisterOutputType(TestGridProjectVpcConfigOutput{})
+	pulumi.RegisterOutputType(TestGridProjectVpcConfigPtrOutput{})
 }

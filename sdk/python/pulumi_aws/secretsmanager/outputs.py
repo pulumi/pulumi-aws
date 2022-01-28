@@ -47,7 +47,7 @@ class SecretReplica(dict):
                  status_message: Optional[str] = None):
         """
         :param str region: Region for replicating the secret.
-        :param str kms_key_id: ARN, Key ID, or Alias.
+        :param str kms_key_id: ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
         :param str last_accessed_date: Date that you last accessed the secret in the Region.
         :param str status: Status can be `InProgress`, `Failed`, or `InSync`.
         :param str status_message: Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
@@ -74,7 +74,7 @@ class SecretReplica(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        ARN, Key ID, or Alias.
+        ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
         """
         return pulumi.get(self, "kms_key_id")
 

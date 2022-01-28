@@ -10,13 +10,18 @@ export * from "./contactFlow";
 export * from "./contactFlowModule";
 export * from "./getBotAssociation";
 export * from "./getContactFlow";
+export * from "./getContactFlowModule";
 export * from "./getHoursOfOperation";
 export * from "./getInstance";
 export * from "./getLambdaFunctionAssociation";
+export * from "./getPrompt";
+export * from "./getQuickConnect";
 export * from "./hoursOfOperation";
 export * from "./instance";
 export * from "./lambdaFunctionAssociation";
+export * from "./queue";
 export * from "./quickConnect";
+export * from "./securityProfile";
 
 // Import resources to register:
 import { BotAssociation } from "./botAssociation";
@@ -25,7 +30,9 @@ import { ContactFlowModule } from "./contactFlowModule";
 import { HoursOfOperation } from "./hoursOfOperation";
 import { Instance } from "./instance";
 import { LambdaFunctionAssociation } from "./lambdaFunctionAssociation";
+import { Queue } from "./queue";
 import { QuickConnect } from "./quickConnect";
+import { SecurityProfile } from "./securityProfile";
 
 const _module = {
     version: utilities.getVersion(),
@@ -43,8 +50,12 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
                 return new LambdaFunctionAssociation(name, <any>undefined, { urn })
+            case "aws:connect/queue:Queue":
+                return new Queue(name, <any>undefined, { urn })
             case "aws:connect/quickConnect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
+            case "aws:connect/securityProfile:SecurityProfile":
+                return new SecurityProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -56,4 +67,6 @@ pulumi.runtime.registerResourceModule("aws", "connect/contactFlowModule", _modul
 pulumi.runtime.registerResourceModule("aws", "connect/hoursOfOperation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/lambdaFunctionAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/queue", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/quickConnect", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/securityProfile", _module)

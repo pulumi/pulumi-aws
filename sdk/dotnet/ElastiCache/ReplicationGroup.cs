@@ -199,7 +199,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+        /// ARN of the created ElastiCache Replication Group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> AtRestEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         /// </summary>
         [Output("authToken")]
         public Output<string?> AuthToken { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool?> AutomaticFailoverEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<Outputs.ReplicationGroupClusterMode> ClusterMode { get; private set; } = null!;
 
         /// <summary>
-        /// The address of the replication group configuration endpoint when cluster mode is enabled.
+        /// Address of the replication group configuration endpoint when cluster mode is enabled.
         /// </summary>
         [Output("configurationEndpointAddress")]
         public Output<string> ConfigurationEndpointAddress { get; private set; } = null!;
@@ -259,19 +259,19 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> DataTieringEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        /// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        /// Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The running version of the cache engine.
+        /// Running version of the cache engine.
         /// </summary>
         [Output("engineVersionActual")]
         public Output<string> EngineVersionActual { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The identifiers of all the nodes that are part of this replication group.
+        /// Identifiers of all the nodes that are part of this replication group.
         /// </summary>
         [Output("memberClusters")]
         public Output<ImmutableArray<string>> MemberClusters { get; private set; } = null!;
@@ -313,55 +313,55 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool?> MultiAzEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        /// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        /// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Output("notificationTopicArn")]
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         /// </summary>
         [Output("numberCacheClusters")]
         public Output<int> NumberCacheClusters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+        /// Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
+        /// (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         /// </summary>
         [Output("primaryEndpointAddress")]
         public Output<string> PrimaryEndpointAddress { get; private set; } = null!;
 
         /// <summary>
-        /// (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+        /// (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
         /// </summary>
         [Output("readerEndpointAddress")]
         public Output<string> ReaderEndpointAddress { get; private set; } = null!;
 
         /// <summary>
-        /// A user-created description for the replication group.
+        /// User-created description for the replication group.
         /// </summary>
         [Output("replicationGroupDescription")]
         public Output<string> ReplicationGroupDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The replication group identifier. This parameter is stored as a lowercase string.
+        /// Replication group identifier. This parameter is stored as a lowercase string.
         /// </summary>
         [Output("replicationGroupId")]
         public Output<string> ReplicationGroupId { get; private set; } = null!;
@@ -373,50 +373,44 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// A list of cache security group names to associate with this replication group.
+        /// List of cache security group names to associate with this replication group.
         /// </summary>
         [Output("securityGroupNames")]
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        /// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         /// </summary>
         [Output("snapshotArns")]
         public Output<ImmutableArray<string>> SnapshotArns { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         /// </summary>
         [Output("snapshotName")]
         public Output<string?> SnapshotName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Output("snapshotRetentionLimit")]
         public Output<int?> SnapshotRetentionLimit { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        /// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         /// </summary>
         [Output("snapshotWindow")]
         public Output<string> SnapshotWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the cache subnet group to be used for the replication group.
+        /// Name of the cache subnet group to be used for the replication group.
         /// </summary>
         [Output("subnetGroupName")]
         public Output<string> SubnetGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -425,6 +419,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("transitEncryptionEnabled")]
         public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
+        /// </summary>
+        [Output("userGroupIds")]
+        public Output<ImmutableArray<string>> UserGroupIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -485,7 +485,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AtRestEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         /// </summary>
         [Input("authToken")]
         public Input<string>? AuthToken { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -527,13 +527,13 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? DataTieringEnabled { get; set; }
 
         /// <summary>
-        /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        /// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        /// Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -569,43 +569,43 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        /// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        /// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         /// </summary>
         [Input("numberCacheClusters")]
         public Input<int>? NumberCacheClusters { get; set; }
 
         /// <summary>
-        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+        /// Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// A user-created description for the replication group.
+        /// User-created description for the replication group.
         /// </summary>
         [Input("replicationGroupDescription", required: true)]
         public Input<string> ReplicationGroupDescription { get; set; } = null!;
 
         /// <summary>
-        /// The replication group identifier. This parameter is stored as a lowercase string.
+        /// Replication group identifier. This parameter is stored as a lowercase string.
         /// </summary>
         [Input("replicationGroupId")]
         public Input<string>? ReplicationGroupId { get; set; }
@@ -626,7 +626,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// A list of cache security group names to associate with this replication group.
+        /// List of cache security group names to associate with this replication group.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -638,7 +638,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArns;
 
         /// <summary>
-        /// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        /// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         /// </summary>
         public InputList<string> SnapshotArns
         {
@@ -647,35 +647,31 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
 
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        /// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         /// </summary>
         [Input("snapshotWindow")]
         public Input<string>? SnapshotWindow { get; set; }
 
         /// <summary>
-        /// The name of the cache subnet group to be used for the replication group.
+        /// Name of the cache subnet group to be used for the replication group.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -687,6 +683,18 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
+
+        [Input("userGroupIds")]
+        private InputList<string>? _userGroupIds;
+
+        /// <summary>
+        /// User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
+        /// </summary>
+        public InputList<string> UserGroupIds
+        {
+            get => _userGroupIds ?? (_userGroupIds = new InputList<string>());
+            set => _userGroupIds = value;
+        }
 
         public ReplicationGroupArgs()
         {
@@ -702,7 +710,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+        /// ARN of the created ElastiCache Replication Group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -714,7 +722,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AtRestEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         /// </summary>
         [Input("authToken")]
         public Input<string>? AuthToken { get; set; }
@@ -735,7 +743,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -756,7 +764,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.ReplicationGroupClusterModeGetArgs>? ClusterMode { get; set; }
 
         /// <summary>
-        /// The address of the replication group configuration endpoint when cluster mode is enabled.
+        /// Address of the replication group configuration endpoint when cluster mode is enabled.
         /// </summary>
         [Input("configurationEndpointAddress")]
         public Input<string>? ConfigurationEndpointAddress { get; set; }
@@ -768,19 +776,19 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? DataTieringEnabled { get; set; }
 
         /// <summary>
-        /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        /// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        /// Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The running version of the cache engine.
+        /// Running version of the cache engine.
         /// </summary>
         [Input("engineVersionActual")]
         public Input<string>? EngineVersionActual { get; set; }
@@ -813,7 +821,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _memberClusters;
 
         /// <summary>
-        /// The identifiers of all the nodes that are part of this replication group.
+        /// Identifiers of all the nodes that are part of this replication group.
         /// </summary>
         public InputList<string> MemberClusters
         {
@@ -828,55 +836,55 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? MultiAzEnabled { get; set; }
 
         /// <summary>
-        /// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        /// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        /// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         /// </summary>
         [Input("numberCacheClusters")]
         public Input<int>? NumberCacheClusters { get; set; }
 
         /// <summary>
-        /// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+        /// Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
+        /// (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         /// </summary>
         [Input("primaryEndpointAddress")]
         public Input<string>? PrimaryEndpointAddress { get; set; }
 
         /// <summary>
-        /// (Redis only) The address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+        /// (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
         /// </summary>
         [Input("readerEndpointAddress")]
         public Input<string>? ReaderEndpointAddress { get; set; }
 
         /// <summary>
-        /// A user-created description for the replication group.
+        /// User-created description for the replication group.
         /// </summary>
         [Input("replicationGroupDescription")]
         public Input<string>? ReplicationGroupDescription { get; set; }
 
         /// <summary>
-        /// The replication group identifier. This parameter is stored as a lowercase string.
+        /// Replication group identifier. This parameter is stored as a lowercase string.
         /// </summary>
         [Input("replicationGroupId")]
         public Input<string>? ReplicationGroupId { get; set; }
@@ -897,7 +905,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// A list of cache security group names to associate with this replication group.
+        /// List of cache security group names to associate with this replication group.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -909,7 +917,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArns;
 
         /// <summary>
-        /// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        /// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         /// </summary>
         public InputList<string> SnapshotArns
         {
@@ -918,35 +926,31 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+        /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
 
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        /// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         /// </summary>
         [Input("snapshotWindow")]
         public Input<string>? SnapshotWindow { get; set; }
 
         /// <summary>
-        /// The name of the cache subnet group to be used for the replication group.
+        /// Name of the cache subnet group to be used for the replication group.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -955,10 +959,6 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -970,6 +970,18 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
+
+        [Input("userGroupIds")]
+        private InputList<string>? _userGroupIds;
+
+        /// <summary>
+        /// User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
+        /// </summary>
+        public InputList<string> UserGroupIds
+        {
+            get => _userGroupIds ?? (_userGroupIds = new InputList<string>());
+            set => _userGroupIds = value;
+        }
 
         public ReplicationGroupState()
         {

@@ -9,6 +9,7 @@ export * from "./devicePool";
 export * from "./instanceProfile";
 export * from "./networkProfile";
 export * from "./project";
+export * from "./testGridProject";
 export * from "./upload";
 
 // Import resources to register:
@@ -16,6 +17,7 @@ import { DevicePool } from "./devicePool";
 import { InstanceProfile } from "./instanceProfile";
 import { NetworkProfile } from "./networkProfile";
 import { Project } from "./project";
+import { TestGridProject } from "./testGridProject";
 import { Upload } from "./upload";
 
 const _module = {
@@ -30,6 +32,8 @@ const _module = {
                 return new NetworkProfile(name, <any>undefined, { urn })
             case "aws:devicefarm/project:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws:devicefarm/testGridProject:TestGridProject":
+                return new TestGridProject(name, <any>undefined, { urn })
             case "aws:devicefarm/upload:Upload":
                 return new Upload(name, <any>undefined, { urn })
             default:
@@ -41,4 +45,5 @@ pulumi.runtime.registerResourceModule("aws", "devicefarm/devicePool", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/instanceProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/networkProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/project", _module)
+pulumi.runtime.registerResourceModule("aws", "devicefarm/testGridProject", _module)
 pulumi.runtime.registerResourceModule("aws", "devicefarm/upload", _module)

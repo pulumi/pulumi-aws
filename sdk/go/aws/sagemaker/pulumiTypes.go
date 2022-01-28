@@ -8518,6 +8518,308 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type ProjectServiceCatalogProvisioningDetails struct {
+	// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+	PathId *string `pulumi:"pathId"`
+	// The ID of the product to provision.
+	ProductId string `pulumi:"productId"`
+	// The ID of the provisioning artifact.
+	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
+	// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+	ProvisioningParameters []ProjectServiceCatalogProvisioningDetailsProvisioningParameter `pulumi:"provisioningParameters"`
+}
+
+// ProjectServiceCatalogProvisioningDetailsInput is an input type that accepts ProjectServiceCatalogProvisioningDetailsArgs and ProjectServiceCatalogProvisioningDetailsOutput values.
+// You can construct a concrete instance of `ProjectServiceCatalogProvisioningDetailsInput` via:
+//
+//          ProjectServiceCatalogProvisioningDetailsArgs{...}
+type ProjectServiceCatalogProvisioningDetailsInput interface {
+	pulumi.Input
+
+	ToProjectServiceCatalogProvisioningDetailsOutput() ProjectServiceCatalogProvisioningDetailsOutput
+	ToProjectServiceCatalogProvisioningDetailsOutputWithContext(context.Context) ProjectServiceCatalogProvisioningDetailsOutput
+}
+
+type ProjectServiceCatalogProvisioningDetailsArgs struct {
+	// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+	PathId pulumi.StringPtrInput `pulumi:"pathId"`
+	// The ID of the product to provision.
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// The ID of the provisioning artifact.
+	ProvisioningArtifactId pulumi.StringPtrInput `pulumi:"provisioningArtifactId"`
+	// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+	ProvisioningParameters ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput `pulumi:"provisioningParameters"`
+}
+
+func (ProjectServiceCatalogProvisioningDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectServiceCatalogProvisioningDetails)(nil)).Elem()
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsArgs) ToProjectServiceCatalogProvisioningDetailsOutput() ProjectServiceCatalogProvisioningDetailsOutput {
+	return i.ToProjectServiceCatalogProvisioningDetailsOutputWithContext(context.Background())
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsArgs) ToProjectServiceCatalogProvisioningDetailsOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectServiceCatalogProvisioningDetailsOutput)
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsArgs) ToProjectServiceCatalogProvisioningDetailsPtrOutput() ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return i.ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsArgs) ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectServiceCatalogProvisioningDetailsOutput).ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(ctx)
+}
+
+// ProjectServiceCatalogProvisioningDetailsPtrInput is an input type that accepts ProjectServiceCatalogProvisioningDetailsArgs, ProjectServiceCatalogProvisioningDetailsPtr and ProjectServiceCatalogProvisioningDetailsPtrOutput values.
+// You can construct a concrete instance of `ProjectServiceCatalogProvisioningDetailsPtrInput` via:
+//
+//          ProjectServiceCatalogProvisioningDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectServiceCatalogProvisioningDetailsPtrInput interface {
+	pulumi.Input
+
+	ToProjectServiceCatalogProvisioningDetailsPtrOutput() ProjectServiceCatalogProvisioningDetailsPtrOutput
+	ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(context.Context) ProjectServiceCatalogProvisioningDetailsPtrOutput
+}
+
+type projectServiceCatalogProvisioningDetailsPtrType ProjectServiceCatalogProvisioningDetailsArgs
+
+func ProjectServiceCatalogProvisioningDetailsPtr(v *ProjectServiceCatalogProvisioningDetailsArgs) ProjectServiceCatalogProvisioningDetailsPtrInput {
+	return (*projectServiceCatalogProvisioningDetailsPtrType)(v)
+}
+
+func (*projectServiceCatalogProvisioningDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectServiceCatalogProvisioningDetails)(nil)).Elem()
+}
+
+func (i *projectServiceCatalogProvisioningDetailsPtrType) ToProjectServiceCatalogProvisioningDetailsPtrOutput() ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return i.ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *projectServiceCatalogProvisioningDetailsPtrType) ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectServiceCatalogProvisioningDetailsPtrOutput)
+}
+
+type ProjectServiceCatalogProvisioningDetailsOutput struct{ *pulumi.OutputState }
+
+func (ProjectServiceCatalogProvisioningDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectServiceCatalogProvisioningDetails)(nil)).Elem()
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsOutput) ToProjectServiceCatalogProvisioningDetailsOutput() ProjectServiceCatalogProvisioningDetailsOutput {
+	return o
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsOutput) ToProjectServiceCatalogProvisioningDetailsOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsOutput {
+	return o
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsOutput) ToProjectServiceCatalogProvisioningDetailsPtrOutput() ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return o.ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsOutput) ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectServiceCatalogProvisioningDetails) *ProjectServiceCatalogProvisioningDetails {
+		return &v
+	}).(ProjectServiceCatalogProvisioningDetailsPtrOutput)
+}
+
+// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+func (o ProjectServiceCatalogProvisioningDetailsOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) *string { return v.PathId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the product to provision.
+func (o ProjectServiceCatalogProvisioningDetailsOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// The ID of the provisioning artifact.
+func (o ProjectServiceCatalogProvisioningDetailsOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) *string { return v.ProvisioningArtifactId }).(pulumi.StringPtrOutput)
+}
+
+// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+func (o ProjectServiceCatalogProvisioningDetailsOutput) ProvisioningParameters() ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
+	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) []ProjectServiceCatalogProvisioningDetailsProvisioningParameter {
+		return v.ProvisioningParameters
+	}).(ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput)
+}
+
+type ProjectServiceCatalogProvisioningDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectServiceCatalogProvisioningDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectServiceCatalogProvisioningDetails)(nil)).Elem()
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ToProjectServiceCatalogProvisioningDetailsPtrOutput() ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return o
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ToProjectServiceCatalogProvisioningDetailsPtrOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsPtrOutput {
+	return o
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) Elem() ProjectServiceCatalogProvisioningDetailsOutput {
+	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) ProjectServiceCatalogProvisioningDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectServiceCatalogProvisioningDetails
+		return ret
+	}).(ProjectServiceCatalogProvisioningDetailsOutput)
+}
+
+// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the product to provision.
+func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProductId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the provisioning artifact.
+func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningArtifactId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProvisioningParameters() ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
+	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) []ProjectServiceCatalogProvisioningDetailsProvisioningParameter {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningParameters
+	}).(ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput)
+}
+
+type ProjectServiceCatalogProvisioningDetailsProvisioningParameter struct {
+	// The key that identifies a provisioning parameter.
+	Key string `pulumi:"key"`
+	// The value of the provisioning parameter.
+	Value *string `pulumi:"value"`
+}
+
+// ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput is an input type that accepts ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs and ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput values.
+// You can construct a concrete instance of `ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput` via:
+//
+//          ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs{...}
+type ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput interface {
+	pulumi.Input
+
+	ToProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput() ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput
+	ToProjectServiceCatalogProvisioningDetailsProvisioningParameterOutputWithContext(context.Context) ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput
+}
+
+type ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs struct {
+	// The key that identifies a provisioning parameter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the provisioning parameter.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameter)(nil)).Elem()
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput() ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput {
+	return i.ToProjectServiceCatalogProvisioningDetailsProvisioningParameterOutputWithContext(context.Background())
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput)
+}
+
+// ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput is an input type that accepts ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray and ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput values.
+// You can construct a concrete instance of `ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput` via:
+//
+//          ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray{ ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs{...} }
+type ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput interface {
+	pulumi.Input
+
+	ToProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput() ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput
+	ToProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutputWithContext(context.Context) ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput
+}
+
+type ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray []ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput
+
+func (ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectServiceCatalogProvisioningDetailsProvisioningParameter)(nil)).Elem()
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput() ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
+	return i.ToProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput)
+}
+
+type ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput struct{ *pulumi.OutputState }
+
+func (ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameter)(nil)).Elem()
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput() ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput {
+	return o
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput {
+	return o
+}
+
+// The key that identifies a provisioning parameter.
+func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetailsProvisioningParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the provisioning parameter.
+func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetailsProvisioningParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectServiceCatalogProvisioningDetailsProvisioningParameter)(nil)).Elem()
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput() ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
+	return o
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput) ToProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutputWithContext(ctx context.Context) ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
+	return o
+}
+
+func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput) Index(i pulumi.IntInput) ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectServiceCatalogProvisioningDetailsProvisioningParameter {
+		return vs[0].([]ProjectServiceCatalogProvisioningDetailsProvisioningParameter)[vs[1].(int)]
+	}).(ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput)
+}
+
 type UserProfileUserSettings struct {
 	// The execution role ARN for the user.
 	ExecutionRole string `pulumi:"executionRole"`
@@ -11355,6 +11657,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigInput)(nil)).Elem(), ModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigPtrInput)(nil)).Elem(), ModelVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsPtrInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
@@ -11491,6 +11797,10 @@ func init() {
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsOutput{})
+	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput{})
+	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsOutput{})

@@ -13,6 +13,8 @@ import (
 type DistributionConfigurationDistribution struct {
 	// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
 	AmiDistributionConfiguration *DistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfiguration"`
+	// Configuration block with container distribution settings. Detailed below.
+	ContainerDistributionConfiguration *DistributionConfigurationDistributionContainerDistributionConfiguration `pulumi:"containerDistributionConfiguration"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// AWS Region for the distribution.
@@ -33,6 +35,8 @@ type DistributionConfigurationDistributionInput interface {
 type DistributionConfigurationDistributionArgs struct {
 	// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
 	AmiDistributionConfiguration DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput `pulumi:"amiDistributionConfiguration"`
+	// Configuration block with container distribution settings. Detailed below.
+	ContainerDistributionConfiguration DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput `pulumi:"containerDistributionConfiguration"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// AWS Region for the distribution.
@@ -97,6 +101,13 @@ func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguratio
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput)
 }
 
+// Configuration block with container distribution settings. Detailed below.
+func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfiguration() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionContainerDistributionConfiguration {
+		return v.ContainerDistributionConfiguration
+	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
+}
+
 // Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
@@ -130,7 +141,7 @@ func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInpu
 type DistributionConfigurationDistributionAmiDistributionConfiguration struct {
 	// Key-value map of tags to apply to the distributed AMI.
 	AmiTags map[string]string `pulumi:"amiTags"`
-	// Description to apply to the distributed AMI.
+	// Description of the container distribution configuration.
 	Description *string `pulumi:"description"`
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -156,7 +167,7 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationInput inte
 type DistributionConfigurationDistributionAmiDistributionConfigurationArgs struct {
 	// Key-value map of tags to apply to the distributed AMI.
 	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
-	// Description to apply to the distributed AMI.
+	// Description of the container distribution configuration.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -252,7 +263,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 	}).(pulumi.StringMapOutput)
 }
 
-// Description to apply to the distributed AMI.
+// Description of the container distribution configuration.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		return v.Description
@@ -317,7 +328,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// Description to apply to the distributed AMI.
+// Description of the container distribution configuration.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		if v == nil {
@@ -525,6 +536,347 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 		}
 		return v.UserIds
 	}).(pulumi.StringArrayOutput)
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfiguration struct {
+	// Set of tags that are attached to the container distribution configuration.
+	ContainerTags []string `pulumi:"containerTags"`
+	// Description of the container distribution configuration.
+	Description *string `pulumi:"description"`
+	// Configuration block with the destination repository for the container distribution configuration.
+	TargetRepository DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository `pulumi:"targetRepository"`
+}
+
+// DistributionConfigurationDistributionContainerDistributionConfigurationInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationArgs and DistributionConfigurationDistributionContainerDistributionConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationInput` via:
+//
+//          DistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
+type DistributionConfigurationDistributionContainerDistributionConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationOutput() DistributionConfigurationDistributionContainerDistributionConfigurationOutput
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationOutputWithContext(context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationOutput
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfigurationArgs struct {
+	// Set of tags that are attached to the container distribution configuration.
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// Description of the container distribution configuration.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Configuration block with the destination repository for the container distribution configuration.
+	TargetRepository DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput `pulumi:"targetRepository"`
+}
+
+func (DistributionConfigurationDistributionContainerDistributionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationOutput() DistributionConfigurationDistributionContainerDistributionConfigurationOutput {
+	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationOutput)
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationOutput).ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationArgs, DistributionConfigurationDistributionContainerDistributionConfigurationPtr and DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput` via:
+//
+//          DistributionConfigurationDistributionContainerDistributionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput
+}
+
+type distributionConfigurationDistributionContainerDistributionConfigurationPtrType DistributionConfigurationDistributionContainerDistributionConfigurationArgs
+
+func DistributionConfigurationDistributionContainerDistributionConfigurationPtr(v *DistributionConfigurationDistributionContainerDistributionConfigurationArgs) DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput {
+	return (*distributionConfigurationDistributionContainerDistributionConfigurationPtrType)(v)
+}
+
+func (*distributionConfigurationDistributionContainerDistributionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (i *distributionConfigurationDistributionContainerDistributionConfigurationPtrType) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationDistributionContainerDistributionConfigurationPtrType) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationOutput() DistributionConfigurationDistributionContainerDistributionConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return o.ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionContainerDistributionConfiguration) *DistributionConfigurationDistributionContainerDistributionConfiguration {
+		return &v
+	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
+}
+
+// Set of tags that are attached to the container distribution configuration.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfiguration) []string {
+		return v.ContainerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// Description of the container distribution configuration.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfiguration) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block with the destination repository for the container distribution configuration.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) TargetRepository() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfiguration) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
+		return v.TargetRepository
+	}).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput)
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionContainerDistributionConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) Elem() DistributionConfigurationDistributionContainerDistributionConfigurationOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfiguration) DistributionConfigurationDistributionContainerDistributionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationDistributionContainerDistributionConfiguration
+		return ret
+	}).(DistributionConfigurationDistributionContainerDistributionConfigurationOutput)
+}
+
+// Set of tags that are attached to the container distribution configuration.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// Description of the container distribution configuration.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block with the destination repository for the container distribution configuration.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) TargetRepository() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfiguration) *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetRepository
+	}).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput)
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+	RepositoryName string `pulumi:"repositoryName"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service string `pulumi:"service"`
+}
+
+// DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs and DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput` via:
+//
+//          DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
+type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutputWithContext(context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
+	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput)
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput).ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(ctx)
+}
+
+// DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs, DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtr and DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput` via:
+//
+//          DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput
+	ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput
+}
+
+type distributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrType DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs
+
+func DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtr(v *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput {
+	return (*distributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrType)(v)
+}
+
+func (*distributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository)(nil)).Elem()
+}
+
+func (i *distributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrType) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrType) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput)
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return o.ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
+		return &v
+	}).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput)
+}
+
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) string {
+		return v.RepositoryName
+	}).(pulumi.StringOutput)
+}
+
+// The service in which this image is registered. Valid values: `ECR`.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) string {
+		return v.Service
+	}).(pulumi.StringOutput)
+}
+
+type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) Elem() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository
+		return ret
+	}).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput)
+}
+
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The service in which this image is registered. Valid values: `ECR`.
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
 }
 
 type ImageImageTestsConfiguration struct {
@@ -1990,6 +2342,112 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) S3KeyPrefix() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetComponentsFilter struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetComponentsFilterInput is an input type that accepts GetComponentsFilterArgs and GetComponentsFilterOutput values.
+// You can construct a concrete instance of `GetComponentsFilterInput` via:
+//
+//          GetComponentsFilterArgs{...}
+type GetComponentsFilterInput interface {
+	pulumi.Input
+
+	ToGetComponentsFilterOutput() GetComponentsFilterOutput
+	ToGetComponentsFilterOutputWithContext(context.Context) GetComponentsFilterOutput
+}
+
+type GetComponentsFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetComponentsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetComponentsFilter)(nil)).Elem()
+}
+
+func (i GetComponentsFilterArgs) ToGetComponentsFilterOutput() GetComponentsFilterOutput {
+	return i.ToGetComponentsFilterOutputWithContext(context.Background())
+}
+
+func (i GetComponentsFilterArgs) ToGetComponentsFilterOutputWithContext(ctx context.Context) GetComponentsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetComponentsFilterOutput)
+}
+
+// GetComponentsFilterArrayInput is an input type that accepts GetComponentsFilterArray and GetComponentsFilterArrayOutput values.
+// You can construct a concrete instance of `GetComponentsFilterArrayInput` via:
+//
+//          GetComponentsFilterArray{ GetComponentsFilterArgs{...} }
+type GetComponentsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetComponentsFilterArrayOutput() GetComponentsFilterArrayOutput
+	ToGetComponentsFilterArrayOutputWithContext(context.Context) GetComponentsFilterArrayOutput
+}
+
+type GetComponentsFilterArray []GetComponentsFilterInput
+
+func (GetComponentsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetComponentsFilter)(nil)).Elem()
+}
+
+func (i GetComponentsFilterArray) ToGetComponentsFilterArrayOutput() GetComponentsFilterArrayOutput {
+	return i.ToGetComponentsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetComponentsFilterArray) ToGetComponentsFilterArrayOutputWithContext(ctx context.Context) GetComponentsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetComponentsFilterArrayOutput)
+}
+
+type GetComponentsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetComponentsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetComponentsFilter)(nil)).Elem()
+}
+
+func (o GetComponentsFilterOutput) ToGetComponentsFilterOutput() GetComponentsFilterOutput {
+	return o
+}
+
+func (o GetComponentsFilterOutput) ToGetComponentsFilterOutputWithContext(ctx context.Context) GetComponentsFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+func (o GetComponentsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetComponentsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetComponentsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetComponentsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetComponentsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetComponentsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetComponentsFilter)(nil)).Elem()
+}
+
+func (o GetComponentsFilterArrayOutput) ToGetComponentsFilterArrayOutput() GetComponentsFilterArrayOutput {
+	return o
+}
+
+func (o GetComponentsFilterArrayOutput) ToGetComponentsFilterArrayOutputWithContext(ctx context.Context) GetComponentsFilterArrayOutput {
+	return o
+}
+
+func (o GetComponentsFilterArrayOutput) Index(i pulumi.IntInput) GetComponentsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComponentsFilter {
+		return vs[0].([]GetComponentsFilter)[vs[1].(int)]
+	}).(GetComponentsFilterOutput)
+}
+
 type GetDistributionConfigurationDistribution struct {
 	// Nested list of AMI distribution configuration.
 	AmiDistributionConfigurations []GetDistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfigurations"`
@@ -2365,6 +2823,112 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
 		return vs[0].([]GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission)[vs[1].(int)]
 	}).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
+}
+
+type GetDistributionConfigurationsFilter struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetDistributionConfigurationsFilterInput is an input type that accepts GetDistributionConfigurationsFilterArgs and GetDistributionConfigurationsFilterOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationsFilterInput` via:
+//
+//          GetDistributionConfigurationsFilterArgs{...}
+type GetDistributionConfigurationsFilterInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationsFilterOutput() GetDistributionConfigurationsFilterOutput
+	ToGetDistributionConfigurationsFilterOutputWithContext(context.Context) GetDistributionConfigurationsFilterOutput
+}
+
+type GetDistributionConfigurationsFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetDistributionConfigurationsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationsFilter)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationsFilterArgs) ToGetDistributionConfigurationsFilterOutput() GetDistributionConfigurationsFilterOutput {
+	return i.ToGetDistributionConfigurationsFilterOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationsFilterArgs) ToGetDistributionConfigurationsFilterOutputWithContext(ctx context.Context) GetDistributionConfigurationsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationsFilterOutput)
+}
+
+// GetDistributionConfigurationsFilterArrayInput is an input type that accepts GetDistributionConfigurationsFilterArray and GetDistributionConfigurationsFilterArrayOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationsFilterArrayInput` via:
+//
+//          GetDistributionConfigurationsFilterArray{ GetDistributionConfigurationsFilterArgs{...} }
+type GetDistributionConfigurationsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationsFilterArrayOutput() GetDistributionConfigurationsFilterArrayOutput
+	ToGetDistributionConfigurationsFilterArrayOutputWithContext(context.Context) GetDistributionConfigurationsFilterArrayOutput
+}
+
+type GetDistributionConfigurationsFilterArray []GetDistributionConfigurationsFilterInput
+
+func (GetDistributionConfigurationsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationsFilter)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationsFilterArray) ToGetDistributionConfigurationsFilterArrayOutput() GetDistributionConfigurationsFilterArrayOutput {
+	return i.ToGetDistributionConfigurationsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationsFilterArray) ToGetDistributionConfigurationsFilterArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationsFilterArrayOutput)
+}
+
+type GetDistributionConfigurationsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationsFilter)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationsFilterOutput) ToGetDistributionConfigurationsFilterOutput() GetDistributionConfigurationsFilterOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationsFilterOutput) ToGetDistributionConfigurationsFilterOutputWithContext(ctx context.Context) GetDistributionConfigurationsFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+func (o GetDistributionConfigurationsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetDistributionConfigurationsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetDistributionConfigurationsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationsFilter)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationsFilterArrayOutput) ToGetDistributionConfigurationsFilterArrayOutput() GetDistributionConfigurationsFilterArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationsFilterArrayOutput) ToGetDistributionConfigurationsFilterArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationsFilterArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationsFilterArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationsFilter {
+		return vs[0].([]GetDistributionConfigurationsFilter)[vs[1].(int)]
+	}).(GetDistributionConfigurationsFilterOutput)
 }
 
 type GetImageImageTestsConfiguration struct {
@@ -3598,6 +4162,112 @@ func (o GetInfrastructureConfigurationLoggingS3LogArrayOutput) Index(i pulumi.In
 	}).(GetInfrastructureConfigurationLoggingS3LogOutput)
 }
 
+type GetInfrastructureConfigurationsFilter struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetInfrastructureConfigurationsFilterInput is an input type that accepts GetInfrastructureConfigurationsFilterArgs and GetInfrastructureConfigurationsFilterOutput values.
+// You can construct a concrete instance of `GetInfrastructureConfigurationsFilterInput` via:
+//
+//          GetInfrastructureConfigurationsFilterArgs{...}
+type GetInfrastructureConfigurationsFilterInput interface {
+	pulumi.Input
+
+	ToGetInfrastructureConfigurationsFilterOutput() GetInfrastructureConfigurationsFilterOutput
+	ToGetInfrastructureConfigurationsFilterOutputWithContext(context.Context) GetInfrastructureConfigurationsFilterOutput
+}
+
+type GetInfrastructureConfigurationsFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetInfrastructureConfigurationsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInfrastructureConfigurationsFilter)(nil)).Elem()
+}
+
+func (i GetInfrastructureConfigurationsFilterArgs) ToGetInfrastructureConfigurationsFilterOutput() GetInfrastructureConfigurationsFilterOutput {
+	return i.ToGetInfrastructureConfigurationsFilterOutputWithContext(context.Background())
+}
+
+func (i GetInfrastructureConfigurationsFilterArgs) ToGetInfrastructureConfigurationsFilterOutputWithContext(ctx context.Context) GetInfrastructureConfigurationsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationsFilterOutput)
+}
+
+// GetInfrastructureConfigurationsFilterArrayInput is an input type that accepts GetInfrastructureConfigurationsFilterArray and GetInfrastructureConfigurationsFilterArrayOutput values.
+// You can construct a concrete instance of `GetInfrastructureConfigurationsFilterArrayInput` via:
+//
+//          GetInfrastructureConfigurationsFilterArray{ GetInfrastructureConfigurationsFilterArgs{...} }
+type GetInfrastructureConfigurationsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetInfrastructureConfigurationsFilterArrayOutput() GetInfrastructureConfigurationsFilterArrayOutput
+	ToGetInfrastructureConfigurationsFilterArrayOutputWithContext(context.Context) GetInfrastructureConfigurationsFilterArrayOutput
+}
+
+type GetInfrastructureConfigurationsFilterArray []GetInfrastructureConfigurationsFilterInput
+
+func (GetInfrastructureConfigurationsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInfrastructureConfigurationsFilter)(nil)).Elem()
+}
+
+func (i GetInfrastructureConfigurationsFilterArray) ToGetInfrastructureConfigurationsFilterArrayOutput() GetInfrastructureConfigurationsFilterArrayOutput {
+	return i.ToGetInfrastructureConfigurationsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetInfrastructureConfigurationsFilterArray) ToGetInfrastructureConfigurationsFilterArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationsFilterArrayOutput)
+}
+
+type GetInfrastructureConfigurationsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetInfrastructureConfigurationsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInfrastructureConfigurationsFilter)(nil)).Elem()
+}
+
+func (o GetInfrastructureConfigurationsFilterOutput) ToGetInfrastructureConfigurationsFilterOutput() GetInfrastructureConfigurationsFilterOutput {
+	return o
+}
+
+func (o GetInfrastructureConfigurationsFilterOutput) ToGetInfrastructureConfigurationsFilterOutputWithContext(ctx context.Context) GetInfrastructureConfigurationsFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+func (o GetInfrastructureConfigurationsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInfrastructureConfigurationsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetInfrastructureConfigurationsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInfrastructureConfigurationsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetInfrastructureConfigurationsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInfrastructureConfigurationsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInfrastructureConfigurationsFilter)(nil)).Elem()
+}
+
+func (o GetInfrastructureConfigurationsFilterArrayOutput) ToGetInfrastructureConfigurationsFilterArrayOutput() GetInfrastructureConfigurationsFilterArrayOutput {
+	return o
+}
+
+func (o GetInfrastructureConfigurationsFilterArrayOutput) ToGetInfrastructureConfigurationsFilterArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationsFilterArrayOutput {
+	return o
+}
+
+func (o GetInfrastructureConfigurationsFilterArrayOutput) Index(i pulumi.IntInput) GetInfrastructureConfigurationsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInfrastructureConfigurationsFilter {
+		return vs[0].([]GetInfrastructureConfigurationsFilter)[vs[1].(int)]
+	}).(GetInfrastructureConfigurationsFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionInput)(nil)).Elem(), DistributionConfigurationDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionArrayInput)(nil)).Elem(), DistributionConfigurationDistributionArray{})
@@ -3605,6 +4275,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageTestsConfigurationInput)(nil)).Elem(), ImageImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageTestsConfigurationPtrInput)(nil)).Elem(), ImageImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceInput)(nil)).Elem(), ImageOutputResourceArgs{})
@@ -3625,12 +4299,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingS3LogsInput)(nil)).Elem(), InfrastructureConfigurationLoggingS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingS3LogsPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsFilterInput)(nil)).Elem(), GetComponentsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsFilterArrayInput)(nil)).Elem(), GetComponentsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionInput)(nil)).Elem(), GetDistributionConfigurationDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationsFilterInput)(nil)).Elem(), GetDistributionConfigurationsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationsFilterArrayInput)(nil)).Elem(), GetDistributionConfigurationsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImageTestsConfigurationInput)(nil)).Elem(), GetImageImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImageTestsConfigurationArrayInput)(nil)).Elem(), GetImageImageTestsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceInput)(nil)).Elem(), GetImageOutputResourceArgs{})
@@ -3653,12 +4331,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingArrayInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3LogInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingS3LogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3LogArrayInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingS3LogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationsFilterInput)(nil)).Elem(), GetInfrastructureConfigurationsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationsFilterArrayInput)(nil)).Elem(), GetInfrastructureConfigurationsFilterArray{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(ImageImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceOutput{})
@@ -3679,12 +4363,16 @@ func init() {
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingS3LogsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingS3LogsPtrOutput{})
+	pulumi.RegisterOutputType(GetComponentsFilterOutput{})
+	pulumi.RegisterOutputType(GetComponentsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationsFilterOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetImageImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetImageImageTestsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOutputResourceOutput{})
@@ -3707,4 +4395,6 @@ func init() {
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingArrayOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingS3LogOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingS3LogArrayOutput{})
+	pulumi.RegisterOutputType(GetInfrastructureConfigurationsFilterOutput{})
+	pulumi.RegisterOutputType(GetInfrastructureConfigurationsFilterArrayOutput{})
 }

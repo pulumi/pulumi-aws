@@ -81,6 +81,7 @@ const (
 	connectMod                  = "Connect"                  // Connect
 	curMod                      = "Cur"                      // Cost and Usage Report
 	cfgMod                      = "Cfg"                      // Resource Config
+	dataexchangeMod             = "DataExchange"             // Data exchange
 	datapipelineMod             = "DataPipeline"             // Data Pipeline
 	datasyncMod                 = "DataSync"                 // DataSync
 	daxMod                      = "Dax"                      // DynamoDB Accelerator
@@ -912,7 +913,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_connect_lambda_function_association": {Tok: awsResource(connectMod, "LambdaFunctionAssociation")},
 			"aws_connect_contact_flow_module":         {Tok: awsResource(connectMod, "ContactFlowModule")},
 			"aws_connect_quick_connect":               {Tok: awsResource(connectMod, "QuickConnect")},
-
+			"aws_connect_queue":                       {Tok: awsResource(connectMod, "Queue")},
+			"aws_connect_security_profile":            {Tok: awsResource(connectMod, "SecurityProfile")},
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
 			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
@@ -928,6 +930,12 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Cost and Usage Report
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
+
+			// DataExchange
+			"aws_dataexchange_data_set": {Tok: awsResource(dataexchangeMod, "DataSet")},
+
+			// Datapipeline
+			"aws_datapipeline_pipeline_definition": {Tok: awsResource(datapipelineMod, "PipelineDefinition")},
 
 			// DataSync
 			"aws_datasync_agent": {Tok: awsResource(datasyncMod, "Agent")},
@@ -977,11 +985,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dax_subnet_group":    {Tok: awsResource(daxMod, "SubnetGroup")},
 
 			// DeviceFarm
-			"aws_devicefarm_project":          {Tok: awsResource(devicefarmMod, "Project")},
-			"aws_devicefarm_device_pool":      {Tok: awsResource(devicefarmMod, "DevicePool")},
-			"aws_devicefarm_network_profile":  {Tok: awsResource(devicefarmMod, "NetworkProfile")},
-			"aws_devicefarm_upload":           {Tok: awsResource(devicefarmMod, "Upload")},
-			"aws_devicefarm_instance_profile": {Tok: awsResource(devicefarmMod, "InstanceProfile")},
+			"aws_devicefarm_project":           {Tok: awsResource(devicefarmMod, "Project")},
+			"aws_devicefarm_device_pool":       {Tok: awsResource(devicefarmMod, "DevicePool")},
+			"aws_devicefarm_network_profile":   {Tok: awsResource(devicefarmMod, "NetworkProfile")},
+			"aws_devicefarm_upload":            {Tok: awsResource(devicefarmMod, "Upload")},
+			"aws_devicefarm_instance_profile":  {Tok: awsResource(devicefarmMod, "InstanceProfile")},
+			"aws_devicefarm_test_grid_project": {Tok: awsResource(devicefarmMod, "TestGridProject")},
 
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
@@ -1451,11 +1460,12 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_ecs_task_definition":         {Tok: awsResource(ecsMod, "TaskDefinition")},
-			"aws_ecs_capacity_provider":       {Tok: awsResource(ecsMod, "CapacityProvider")},
-			"aws_ecs_tag":                     {Tok: awsResource(ecsMod, "Tag")},
-			"aws_ecs_account_setting_default": {Tok: awsResource(ecsMod, "AccountSettingDefault")},
-			"aws_ecs_task_set":                {Tok: awsResource(ecsMod, "TaskSet")},
+			"aws_ecs_task_definition":            {Tok: awsResource(ecsMod, "TaskDefinition")},
+			"aws_ecs_capacity_provider":          {Tok: awsResource(ecsMod, "CapacityProvider")},
+			"aws_ecs_tag":                        {Tok: awsResource(ecsMod, "Tag")},
+			"aws_ecs_account_setting_default":    {Tok: awsResource(ecsMod, "AccountSettingDefault")},
+			"aws_ecs_task_set":                   {Tok: awsResource(ecsMod, "TaskSet")},
+			"aws_ecs_cluster_capacity_providers": {Tok: awsResource(ecsMod, "ClusterCapacityProviders")},
 			// Elastic File System
 			"aws_efs_file_system": {
 				Tok: awsResource(efsMod, "FileSystem"),
@@ -2339,6 +2349,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_sagemaker_project": {Tok: awsResource(sagemakerMod, "Project")},
 			// Schemas
 			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
 			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},
@@ -2714,8 +2725,7 @@ func Provider() tfbridge.ProviderInfo {
 			// MSKConnect
 			"aws_mskconnect_custom_plugin":        {Tok: awsResource(mskConnectMod, "CustomPlugin")},
 			"aws_mskconnect_worker_configuration": {Tok: awsResource(mskConnectMod, "WorkerConfiguration")},
-			// Datapipeline
-			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
+
 			// Quicksight
 			"aws_quicksight_group":            {Tok: awsResource(quicksightMod, "Group")},
 			"aws_quicksight_user":             {Tok: awsResource(quicksightMod, "User")},
@@ -3990,6 +4000,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_rest_api":    {Tok: awsDataSource(apigatewayMod, "getRestApi")},
 			"aws_api_gateway_vpc_link":    {Tok: awsDataSource(apigatewayMod, "getVpcLink")},
 			"aws_api_gateway_domain_name": {Tok: awsDataSource(apigatewayMod, "getDomainName")},
+			"aws_api_gateway_export":      {Tok: awsDataSource(apigatewayMod, "getExport")},
+			"aws_api_gateway_sdk":         {Tok: awsDataSource(apigatewayMod, "getSdk")},
+
+			// API Gateway v2
+			"aws_apigatewayv2_export": {Tok: awsDataSource(apigatewayv2Mod, "getExport")},
+
 			// Autoscaling
 			"aws_autoscaling_group": {Tok: awsDataSource(autoscalingMod, "getGroup")},
 			// Batch
@@ -4034,6 +4050,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_connect_bot_association":             {Tok: awsDataSource(connectMod, "getBotAssociation")},
 			"aws_connect_hours_of_operation":          {Tok: awsDataSource(connectMod, "getHoursOfOperation")},
 			"aws_connect_lambda_function_association": {Tok: awsDataSource(connectMod, "getLambdaFunctionAssociation")},
+			"aws_connect_contact_flow_module":         {Tok: awsDataSource(connectMod, "getContactFlowModule")},
+			"aws_connect_prompt":                      {Tok: awsDataSource(connectMod, "getPrompt")},
+			"aws_connect_quick_connect":               {Tok: awsDataSource(connectMod, "getQuickConnect")},
+
+			// Datapipeline
+			"aws_datapipeline_pipeline":            {Tok: awsDataSource(datapipelineMod, "getPipeline")},
+			"aws_datapipeline_pipeline_definition": {Tok: awsDataSource(datapipelineMod, "getPipelineDefinition")},
+
 			// DynamoDB
 			"aws_dynamodb_table": {
 				Tok: awsDataSource(dynamodbMod, "getTable"),
@@ -4415,10 +4439,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_imagebuilder_infrastructure_configuration": {
 				Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfiguration"),
 			},
-			"aws_imagebuilder_image_pipeline": {Tok: awsDataSource(imageBuilderMod, "getImagePipeline")},
-			"aws_imagebuilder_image_recipe":   {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
-			"aws_imagebuilder_image":          {Tok: awsDataSource(imageBuilderMod, "getImage")},
-			"aws_imagebuilder_image_recipes":  {Tok: awsDataSource(imageBuilderMod, "getImageRecipes")},
+			"aws_imagebuilder_image_pipeline":                {Tok: awsDataSource(imageBuilderMod, "getImagePipeline")},
+			"aws_imagebuilder_image_recipe":                  {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
+			"aws_imagebuilder_image":                         {Tok: awsDataSource(imageBuilderMod, "getImage")},
+			"aws_imagebuilder_image_recipes":                 {Tok: awsDataSource(imageBuilderMod, "getImageRecipes")},
+			"aws_imagebuilder_components":                    {Tok: awsDataSource(imageBuilderMod, "getComponents")},
+			"aws_imagebuilder_distribution_configurations":   {Tok: awsDataSource(imageBuilderMod, "getDistributionConfigurations")},
+			"aws_imagebuilder_infrastructure_configurations": {Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfigurations")},
+
 			//ses
 			"aws_ses_active_receipt_rule_set": {Tok: awsDataSource(sesMod, "getActiveReceiptRuleSet")},
 			"aws_ses_domain_identity":         {Tok: awsDataSource(sesMod, "getDomainIdentity")},

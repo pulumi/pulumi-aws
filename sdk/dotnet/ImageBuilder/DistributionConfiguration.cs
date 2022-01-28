@@ -82,7 +82,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> DateUpdated { get; private set; } = null!;
 
         /// <summary>
-        /// Description to apply to the distributed AMI.
+        /// Description of the container distribution configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class DistributionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description to apply to the distributed AMI.
+        /// Description of the container distribution configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? DateUpdated { get; set; }
 
         /// <summary>
-        /// Description to apply to the distributed AMI.
+        /// Description of the container distribution configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

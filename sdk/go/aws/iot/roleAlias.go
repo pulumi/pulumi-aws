@@ -60,7 +60,7 @@ type RoleAlias struct {
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// The ARN assigned by AWS to this role alias.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrOutput `pulumi:"credentialDuration"`
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -105,7 +105,7 @@ type roleAliasState struct {
 	Alias *string `pulumi:"alias"`
 	// The ARN assigned by AWS to this role alias.
 	Arn *string `pulumi:"arn"`
-	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration *int `pulumi:"credentialDuration"`
 	// The identity of the role to which the alias refers.
 	RoleArn *string `pulumi:"roleArn"`
@@ -116,7 +116,7 @@ type RoleAliasState struct {
 	Alias pulumi.StringPtrInput
 	// The ARN assigned by AWS to this role alias.
 	Arn pulumi.StringPtrInput
-	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrInput
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (RoleAliasState) ElementType() reflect.Type {
 type roleAliasArgs struct {
 	// The name of the role alias.
 	Alias string `pulumi:"alias"`
-	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration *int `pulumi:"credentialDuration"`
 	// The identity of the role to which the alias refers.
 	RoleArn string `pulumi:"roleArn"`
@@ -139,7 +139,7 @@ type roleAliasArgs struct {
 type RoleAliasArgs struct {
 	// The name of the role alias.
 	Alias pulumi.StringInput
-	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrInput
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringInput

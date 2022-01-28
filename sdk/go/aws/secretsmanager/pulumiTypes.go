@@ -11,7 +11,7 @@ import (
 )
 
 type SecretReplica struct {
-	// ARN, Key ID, or Alias.
+	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Date that you last accessed the secret in the Region.
 	LastAccessedDate *string `pulumi:"lastAccessedDate"`
@@ -35,7 +35,7 @@ type SecretReplicaInput interface {
 }
 
 type SecretReplicaArgs struct {
-	// ARN, Key ID, or Alias.
+	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Date that you last accessed the secret in the Region.
 	LastAccessedDate pulumi.StringPtrInput `pulumi:"lastAccessedDate"`
@@ -98,7 +98,7 @@ func (o SecretReplicaOutput) ToSecretReplicaOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ARN, Key ID, or Alias.
+// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
 func (o SecretReplicaOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretReplica) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }

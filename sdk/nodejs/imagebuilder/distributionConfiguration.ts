@@ -79,7 +79,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
     /**
-     * Description to apply to the distributed AMI.
+     * Description of the container distribution configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface DistributionConfigurationState {
      */
     dateUpdated?: pulumi.Input<string>;
     /**
-     * Description to apply to the distributed AMI.
+     * Description of the container distribution configuration.
      */
     description?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface DistributionConfigurationState {
  */
 export interface DistributionConfigurationArgs {
     /**
-     * Description to apply to the distributed AMI.
+     * Description of the container distribution configuration.
      */
     description?: pulumi.Input<string>;
     /**

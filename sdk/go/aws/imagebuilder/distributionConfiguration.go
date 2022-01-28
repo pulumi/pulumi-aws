@@ -67,7 +67,7 @@ type DistributionConfiguration struct {
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Date the distribution configuration was updated.
 	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
-	// Description to apply to the distributed AMI.
+	// Description of the container distribution configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions DistributionConfigurationDistributionArrayOutput `pulumi:"distributions"`
@@ -117,7 +117,7 @@ type distributionConfigurationState struct {
 	DateCreated *string `pulumi:"dateCreated"`
 	// Date the distribution configuration was updated.
 	DateUpdated *string `pulumi:"dateUpdated"`
-	// Description to apply to the distributed AMI.
+	// Description of the container distribution configuration.
 	Description *string `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
@@ -136,7 +136,7 @@ type DistributionConfigurationState struct {
 	DateCreated pulumi.StringPtrInput
 	// Date the distribution configuration was updated.
 	DateUpdated pulumi.StringPtrInput
-	// Description to apply to the distributed AMI.
+	// Description of the container distribution configuration.
 	Description pulumi.StringPtrInput
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions DistributionConfigurationDistributionArrayInput
@@ -153,7 +153,7 @@ func (DistributionConfigurationState) ElementType() reflect.Type {
 }
 
 type distributionConfigurationArgs struct {
-	// Description to apply to the distributed AMI.
+	// Description of the container distribution configuration.
 	Description *string `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
@@ -165,7 +165,7 @@ type distributionConfigurationArgs struct {
 
 // The set of arguments for constructing a DistributionConfiguration resource.
 type DistributionConfigurationArgs struct {
-	// Description to apply to the distributed AMI.
+	// Description of the container distribution configuration.
 	Description pulumi.StringPtrInput
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions DistributionConfigurationDistributionArrayInput

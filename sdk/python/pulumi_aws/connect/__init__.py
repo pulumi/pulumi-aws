@@ -10,12 +10,17 @@ from .contact_flow import *
 from .contact_flow_module import *
 from .get_bot_association import *
 from .get_contact_flow import *
+from .get_contact_flow_module import *
 from .get_hours_of_operation import *
 from .get_instance import *
 from .get_lambda_function_association import *
+from .get_prompt import *
+from .get_quick_connect import *
 from .hours_of_operation import *
 from .instance import *
 from .lambda_function_association import *
+from .queue import *
 from .quick_connect import *
+from .security_profile import *
 from ._inputs import *
 from . import outputs

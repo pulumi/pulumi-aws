@@ -118,6 +118,14 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
             subnet_id=aws_subnet["sn"]["id"])
         ```
 
+        ## Import
+
+        VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
@@ -149,6 +157,14 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("snEc2",
             vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
             subnet_id=aws_subnet["sn"]["id"])
+        ```
+
+        ## Import
+
+        VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
         ```
 
         :param str resource_name: The name of the resource.

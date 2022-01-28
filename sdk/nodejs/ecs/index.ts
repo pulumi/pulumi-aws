@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./accountSettingDefault";
 export * from "./capacityProvider";
 export * from "./cluster";
+export * from "./clusterCapacityProviders";
 export * from "./container";
 export * from "./getCluster";
 export * from "./getContainerDefinition";
@@ -22,6 +23,7 @@ export * from "./taskSet";
 import { AccountSettingDefault } from "./accountSettingDefault";
 import { CapacityProvider } from "./capacityProvider";
 import { Cluster } from "./cluster";
+import { ClusterCapacityProviders } from "./clusterCapacityProviders";
 import { Service } from "./service";
 import { Tag } from "./tag";
 import { TaskDefinition } from "./taskDefinition";
@@ -37,6 +39,8 @@ const _module = {
                 return new CapacityProvider(name, <any>undefined, { urn })
             case "aws:ecs/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders":
+                return new ClusterCapacityProviders(name, <any>undefined, { urn })
             case "aws:ecs/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "aws:ecs/tag:Tag":
@@ -53,6 +57,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "ecs/accountSettingDefault", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/capacityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "ecs/clusterCapacityProviders", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/service", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/tag", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/taskDefinition", _module)

@@ -14,23 +14,23 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketNotificationTopic
     {
         /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        /// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         /// </summary>
         public readonly ImmutableArray<string> Events;
         /// <summary>
-        /// Specifies object key name prefix.
+        /// Object key name prefix.
         /// </summary>
         public readonly string? FilterPrefix;
         /// <summary>
-        /// Specifies object key name suffix.
+        /// Object key name suffix.
         /// </summary>
         public readonly string? FilterSuffix;
         /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
+        /// Unique identifier for each of the notification configurations.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies Amazon SNS topic ARN.
+        /// SNS topic ARN.
         /// </summary>
         public readonly string TopicArn;
 

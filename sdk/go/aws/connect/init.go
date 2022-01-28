@@ -33,8 +33,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Instance{}
 	case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
 		r = &LambdaFunctionAssociation{}
+	case "aws:connect/queue:Queue":
+		r = &Queue{}
 	case "aws:connect/quickConnect:QuickConnect":
 		r = &QuickConnect{}
+	case "aws:connect/securityProfile:SecurityProfile":
+		r = &SecurityProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -80,7 +84,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"connect/queue",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"connect/quickConnect",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"connect/securityProfile",
 		&module{version},
 	)
 }

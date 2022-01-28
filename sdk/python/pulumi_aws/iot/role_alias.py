@@ -20,7 +20,7 @@ class RoleAliasArgs:
         The set of arguments for constructing a RoleAlias resource.
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
-        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -55,7 +55,7 @@ class RoleAliasArgs:
     @pulumi.getter(name="credentialDuration")
     def credential_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         """
         return pulumi.get(self, "credential_duration")
 
@@ -75,7 +75,7 @@ class _RoleAliasState:
         Input properties used for looking up and filtering RoleAlias resources.
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this role alias.
-        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         """
         if alias is not None:
@@ -115,7 +115,7 @@ class _RoleAliasState:
     @pulumi.getter(name="credentialDuration")
     def credential_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         """
         return pulumi.get(self, "credential_duration")
 
@@ -181,7 +181,7 @@ class RoleAlias(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The name of the role alias.
-        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         """
         ...
@@ -284,7 +284,7 @@ class RoleAlias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this role alias.
-        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -317,7 +317,7 @@ class RoleAlias(pulumi.CustomResource):
     @pulumi.getter(name="credentialDuration")
     def credential_duration(self) -> pulumi.Output[Optional[int]]:
         """
-        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         """
         return pulumi.get(self, "credential_duration")
 

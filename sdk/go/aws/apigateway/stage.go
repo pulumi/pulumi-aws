@@ -191,10 +191,12 @@ type Stage struct {
 	StageName pulumi.StringOutput `pulumi:"stageName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A map that defines the stage variables
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
+	// The ARN of the WebAcl associated with the Stage.
+	WebAclArn pulumi.StringOutput `pulumi:"webAclArn"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrOutput `pulumi:"xrayTracingEnabled"`
 }
@@ -266,10 +268,12 @@ type stageState struct {
 	StageName *string `pulumi:"stageName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A map that defines the stage variables
 	Variables map[string]string `pulumi:"variables"`
+	// The ARN of the WebAcl associated with the Stage.
+	WebAclArn *string `pulumi:"webAclArn"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled *bool `pulumi:"xrayTracingEnabled"`
 }
@@ -304,10 +308,12 @@ type StageState struct {
 	StageName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
 	// A map that defines the stage variables
 	Variables pulumi.StringMapInput
+	// The ARN of the WebAcl associated with the Stage.
+	WebAclArn pulumi.StringPtrInput
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrInput
 }

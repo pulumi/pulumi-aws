@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'CapacityProviderAutoScalingGroupProvider',
     'CapacityProviderAutoScalingGroupProviderManagedScaling',
+    'ClusterCapacityProvidersDefaultCapacityProviderStrategy',
     'ClusterConfiguration',
     'ClusterConfigurationExecuteCommandConfiguration',
     'ClusterConfigurationExecuteCommandConfigurationLogConfiguration',
@@ -195,6 +196,65 @@ class CapacityProviderAutoScalingGroupProviderManagedScaling(dict):
         Target utilization for the capacity provider. A number between 1 and 100.
         """
         return pulumi.get(self, "target_capacity")
+
+
+@pulumi.output_type
+class ClusterCapacityProvidersDefaultCapacityProviderStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProvider":
+            suggest = "capacity_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCapacityProvidersDefaultCapacityProviderStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCapacityProvidersDefaultCapacityProviderStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCapacityProvidersDefaultCapacityProviderStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_provider: str,
+                 base: Optional[int] = None,
+                 weight: Optional[int] = None):
+        """
+        :param str capacity_provider: Name of the capacity provider.
+        :param int base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+        :param int weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+        """
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> str:
+        """
+        Name of the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[int]:
+        """
+        The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+        """
+        return pulumi.get(self, "base")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

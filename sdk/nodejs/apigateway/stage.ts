@@ -171,13 +171,17 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A map that defines the stage variables
      */
     public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ARN of the WebAcl associated with the Stage.
+     */
+    public /*out*/ readonly webAclArn!: pulumi.Output<string>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
@@ -211,6 +215,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["variables"] = state ? state.variables : undefined;
+            inputs["webAclArn"] = state ? state.webAclArn : undefined;
             inputs["xrayTracingEnabled"] = state ? state.xrayTracingEnabled : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
@@ -239,6 +244,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
+            inputs["webAclArn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -307,13 +313,17 @@ export interface StageState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map that defines the stage variables
      */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of the WebAcl associated with the Stage.
+     */
+    webAclArn?: pulumi.Input<string>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */

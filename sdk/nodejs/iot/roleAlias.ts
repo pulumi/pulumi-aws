@@ -75,7 +75,7 @@ export class RoleAlias extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
      */
     public readonly credentialDuration!: pulumi.Output<number | undefined>;
     /**
@@ -133,7 +133,7 @@ export interface RoleAliasState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
      */
     credentialDuration?: pulumi.Input<number>;
     /**
@@ -151,7 +151,7 @@ export interface RoleAliasArgs {
      */
     alias: pulumi.Input<string>;
     /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
      */
     credentialDuration?: pulumi.Input<number>;
     /**

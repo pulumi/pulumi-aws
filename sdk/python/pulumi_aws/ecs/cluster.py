@@ -261,42 +261,6 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an ECS cluster.
-
-        ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
-            name="containerInsights",
-            value="enabled",
-        )])
-        ```
-        ### Example W/Log Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_key = aws.kms.Key("exampleKey",
-            description="example",
-            deletion_window_in_days=7)
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
-                kms_key_id=example_key.arn,
-                logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
-                    cloud_watch_encryption_enabled=True,
-                    cloud_watch_log_group_name=example_log_group.name,
-                ),
-            ),
-        ))
-        ```
-
         ## Import
 
         ECS clusters can be imported using the `name`, e.g.,
@@ -321,42 +285,6 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ECS cluster.
-
-        ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
-            name="containerInsights",
-            value="enabled",
-        )])
-        ```
-        ### Example W/Log Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_key = aws.kms.Key("exampleKey",
-            description="example",
-            deletion_window_in_days=7)
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
-                kms_key_id=example_key.arn,
-                logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
-                    cloud_watch_encryption_enabled=True,
-                    cloud_watch_log_group_name=example_log_group.name,
-                ),
-            ),
-        ))
-        ```
-
         ## Import
 
         ECS clusters can be imported using the `name`, e.g.,
@@ -463,7 +391,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def capacity_providers(self) -> pulumi.Output[Sequence[str]]:
         """
         List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
@@ -479,7 +407,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
-    def default_capacity_provider_strategies(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterDefaultCapacityProviderStrategy']]]:
+    def default_capacity_provider_strategies(self) -> pulumi.Output[Sequence['outputs.ClusterDefaultCapacityProviderStrategy']]:
         """
         Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         """

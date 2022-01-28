@@ -26,6 +26,14 @@ import * as utilities from "../utilities";
  *     subnetId: aws_subnet.sn.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
+ * ```
  */
 export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
     /**

@@ -81,9 +81,12 @@ export class Secret extends pulumi.CustomResource {
      * Description of the secret.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+     */
     public readonly forceOverwriteReplicaSecret!: pulumi.Output<boolean | undefined>;
     /**
-     * ARN, Key ID, or Alias.
+     * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -196,9 +199,12 @@ export interface SecretState {
      * Description of the secret.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+     */
     forceOverwriteReplicaSecret?: pulumi.Input<boolean>;
     /**
-     * ARN, Key ID, or Alias.
+     * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -257,9 +263,12 @@ export interface SecretArgs {
      * Description of the secret.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+     */
     forceOverwriteReplicaSecret?: pulumi.Input<boolean>;
     /**
-     * ARN, Key ID, or Alias.
+     * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**

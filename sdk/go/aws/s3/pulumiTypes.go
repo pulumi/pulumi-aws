@@ -2647,15 +2647,15 @@ func (o BucketMetricFilterPtrOutput) Tags() pulumi.StringMapOutput {
 }
 
 type BucketNotificationLambdaFunction struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events []string `pulumi:"events"`
-	// Specifies object key name prefix.
+	// Object key name prefix.
 	FilterPrefix *string `pulumi:"filterPrefix"`
-	// Specifies object key name suffix.
+	// Object key name suffix.
 	FilterSuffix *string `pulumi:"filterSuffix"`
-	// Specifies unique identifier for each of the notification configurations.
+	// Unique identifier for each of the notification configurations.
 	Id *string `pulumi:"id"`
-	// Specifies Amazon Lambda function ARN.
+	// Lambda function ARN.
 	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
 }
 
@@ -2671,15 +2671,15 @@ type BucketNotificationLambdaFunctionInput interface {
 }
 
 type BucketNotificationLambdaFunctionArgs struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events pulumi.StringArrayInput `pulumi:"events"`
-	// Specifies object key name prefix.
+	// Object key name prefix.
 	FilterPrefix pulumi.StringPtrInput `pulumi:"filterPrefix"`
-	// Specifies object key name suffix.
+	// Object key name suffix.
 	FilterSuffix pulumi.StringPtrInput `pulumi:"filterSuffix"`
-	// Specifies unique identifier for each of the notification configurations.
+	// Unique identifier for each of the notification configurations.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies Amazon Lambda function ARN.
+	// Lambda function ARN.
 	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
 }
 
@@ -2734,27 +2734,27 @@ func (o BucketNotificationLambdaFunctionOutput) ToBucketNotificationLambdaFuncti
 	return o
 }
 
-// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 func (o BucketNotificationLambdaFunctionOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketNotificationLambdaFunction) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-// Specifies object key name prefix.
+// Object key name prefix.
 func (o BucketNotificationLambdaFunctionOutput) FilterPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationLambdaFunction) *string { return v.FilterPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies object key name suffix.
+// Object key name suffix.
 func (o BucketNotificationLambdaFunctionOutput) FilterSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationLambdaFunction) *string { return v.FilterSuffix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies unique identifier for each of the notification configurations.
+// Unique identifier for each of the notification configurations.
 func (o BucketNotificationLambdaFunctionOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationLambdaFunction) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies Amazon Lambda function ARN.
+// Lambda function ARN.
 func (o BucketNotificationLambdaFunctionOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationLambdaFunction) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
 }
@@ -2780,15 +2780,15 @@ func (o BucketNotificationLambdaFunctionArrayOutput) Index(i pulumi.IntInput) Bu
 }
 
 type BucketNotificationQueue struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events []string `pulumi:"events"`
-	// Specifies object key name prefix.
+	// Object key name prefix.
 	FilterPrefix *string `pulumi:"filterPrefix"`
-	// Specifies object key name suffix.
+	// Object key name suffix.
 	FilterSuffix *string `pulumi:"filterSuffix"`
-	// Specifies unique identifier for each of the notification configurations.
+	// Unique identifier for each of the notification configurations.
 	Id *string `pulumi:"id"`
-	// Specifies Amazon SQS queue ARN.
+	// SQS queue ARN.
 	QueueArn string `pulumi:"queueArn"`
 }
 
@@ -2804,15 +2804,15 @@ type BucketNotificationQueueInput interface {
 }
 
 type BucketNotificationQueueArgs struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events pulumi.StringArrayInput `pulumi:"events"`
-	// Specifies object key name prefix.
+	// Object key name prefix.
 	FilterPrefix pulumi.StringPtrInput `pulumi:"filterPrefix"`
-	// Specifies object key name suffix.
+	// Object key name suffix.
 	FilterSuffix pulumi.StringPtrInput `pulumi:"filterSuffix"`
-	// Specifies unique identifier for each of the notification configurations.
+	// Unique identifier for each of the notification configurations.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies Amazon SQS queue ARN.
+	// SQS queue ARN.
 	QueueArn pulumi.StringInput `pulumi:"queueArn"`
 }
 
@@ -2867,27 +2867,27 @@ func (o BucketNotificationQueueOutput) ToBucketNotificationQueueOutputWithContex
 	return o
 }
 
-// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 func (o BucketNotificationQueueOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketNotificationQueue) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-// Specifies object key name prefix.
+// Object key name prefix.
 func (o BucketNotificationQueueOutput) FilterPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationQueue) *string { return v.FilterPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies object key name suffix.
+// Object key name suffix.
 func (o BucketNotificationQueueOutput) FilterSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationQueue) *string { return v.FilterSuffix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies unique identifier for each of the notification configurations.
+// Unique identifier for each of the notification configurations.
 func (o BucketNotificationQueueOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationQueue) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies Amazon SQS queue ARN.
+// SQS queue ARN.
 func (o BucketNotificationQueueOutput) QueueArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketNotificationQueue) string { return v.QueueArn }).(pulumi.StringOutput)
 }
@@ -2913,15 +2913,15 @@ func (o BucketNotificationQueueArrayOutput) Index(i pulumi.IntInput) BucketNotif
 }
 
 type BucketNotificationTopic struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events []string `pulumi:"events"`
-	// Specifies object key name prefix.
+	// Object key name prefix.
 	FilterPrefix *string `pulumi:"filterPrefix"`
-	// Specifies object key name suffix.
+	// Object key name suffix.
 	FilterSuffix *string `pulumi:"filterSuffix"`
-	// Specifies unique identifier for each of the notification configurations.
+	// Unique identifier for each of the notification configurations.
 	Id *string `pulumi:"id"`
-	// Specifies Amazon SNS topic ARN.
+	// SNS topic ARN.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -2937,15 +2937,15 @@ type BucketNotificationTopicInput interface {
 }
 
 type BucketNotificationTopicArgs struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events pulumi.StringArrayInput `pulumi:"events"`
-	// Specifies object key name prefix.
+	// Object key name prefix.
 	FilterPrefix pulumi.StringPtrInput `pulumi:"filterPrefix"`
-	// Specifies object key name suffix.
+	// Object key name suffix.
 	FilterSuffix pulumi.StringPtrInput `pulumi:"filterSuffix"`
-	// Specifies unique identifier for each of the notification configurations.
+	// Unique identifier for each of the notification configurations.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies Amazon SNS topic ARN.
+	// SNS topic ARN.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -3000,27 +3000,27 @@ func (o BucketNotificationTopicOutput) ToBucketNotificationTopicOutputWithContex
 	return o
 }
 
-// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 func (o BucketNotificationTopicOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketNotificationTopic) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-// Specifies object key name prefix.
+// Object key name prefix.
 func (o BucketNotificationTopicOutput) FilterPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationTopic) *string { return v.FilterPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies object key name suffix.
+// Object key name suffix.
 func (o BucketNotificationTopicOutput) FilterSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationTopic) *string { return v.FilterSuffix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies unique identifier for each of the notification configurations.
+// Unique identifier for each of the notification configurations.
 func (o BucketNotificationTopicOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketNotificationTopic) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies Amazon SNS topic ARN.
+// SNS topic ARN.
 func (o BucketNotificationTopicOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketNotificationTopic) string { return v.TopicArn }).(pulumi.StringOutput)
 }

@@ -400,6 +400,121 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetC
 	}).(pulumi.IntPtrOutput)
 }
 
+type ClusterCapacityProvidersDefaultCapacityProviderStrategy struct {
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	Base *int `pulumi:"base"`
+	// Name of the capacity provider.
+	CapacityProvider string `pulumi:"capacityProvider"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	Weight *int `pulumi:"weight"`
+}
+
+// ClusterCapacityProvidersDefaultCapacityProviderStrategyInput is an input type that accepts ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs and ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `ClusterCapacityProvidersDefaultCapacityProviderStrategyInput` via:
+//
+//          ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{...}
+type ClusterCapacityProvidersDefaultCapacityProviderStrategyInput interface {
+	pulumi.Input
+
+	ToClusterCapacityProvidersDefaultCapacityProviderStrategyOutput() ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput
+	ToClusterCapacityProvidersDefaultCapacityProviderStrategyOutputWithContext(context.Context) ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput
+}
+
+type ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs struct {
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// Name of the capacity provider.
+	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityProvidersDefaultCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs) ToClusterCapacityProvidersDefaultCapacityProviderStrategyOutput() ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput {
+	return i.ToClusterCapacityProvidersDefaultCapacityProviderStrategyOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs) ToClusterCapacityProvidersDefaultCapacityProviderStrategyOutputWithContext(ctx context.Context) ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput)
+}
+
+// ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput is an input type that accepts ClusterCapacityProvidersDefaultCapacityProviderStrategyArray and ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput` via:
+//
+//          ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{ ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{...} }
+type ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput interface {
+	pulumi.Input
+
+	ToClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput() ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput
+	ToClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutputWithContext(context.Context) ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput
+}
+
+type ClusterCapacityProvidersDefaultCapacityProviderStrategyArray []ClusterCapacityProvidersDefaultCapacityProviderStrategyInput
+
+func (ClusterCapacityProvidersDefaultCapacityProviderStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCapacityProvidersDefaultCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i ClusterCapacityProvidersDefaultCapacityProviderStrategyArray) ToClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput() ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
+	return i.ToClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacityProvidersDefaultCapacityProviderStrategyArray) ToClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput)
+}
+
+type ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityProvidersDefaultCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) ToClusterCapacityProvidersDefaultCapacityProviderStrategyOutput() ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput {
+	return o
+}
+
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) ToClusterCapacityProvidersDefaultCapacityProviderStrategyOutputWithContext(ctx context.Context) ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput {
+	return o
+}
+
+// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCapacityProvidersDefaultCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
+}
+
+// Name of the capacity provider.
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCapacityProvidersDefaultCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
+}
+
+// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCapacityProvidersDefaultCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCapacityProvidersDefaultCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput) ToClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput() ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput) ToClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCapacityProvidersDefaultCapacityProviderStrategy {
+		return vs[0].([]ClusterCapacityProvidersDefaultCapacityProviderStrategy)[vs[1].(int)]
+	}).(ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput)
+}
+
 type ClusterConfiguration struct {
 	// The details of the execute command configuration. Detailed below.
 	ExecuteCommandConfiguration *ClusterConfigurationExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
@@ -4890,6 +5005,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersDefaultCapacityProviderStrategyInput)(nil)).Elem(), ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput)(nil)).Elem(), ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationInput)(nil)).Elem(), ClusterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationPtrInput)(nil)).Elem(), ClusterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationExecuteCommandConfigurationInput)(nil)).Elem(), ClusterConfigurationExecuteCommandConfigurationArgs{})
@@ -4954,6 +5071,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationOutput{})

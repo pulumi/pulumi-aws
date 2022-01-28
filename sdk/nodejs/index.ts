@@ -75,6 +75,7 @@ import * as cognito from "./cognito";
 import * as config from "./config";
 import * as connect from "./connect";
 import * as cur from "./cur";
+import * as dataexchange from "./dataexchange";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
 import * as dax from "./dax";
@@ -229,6 +230,7 @@ export {
     config,
     connect,
     cur,
+    dataexchange,
     datapipeline,
     datasync,
     dax,
