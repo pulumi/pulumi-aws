@@ -55,7 +55,7 @@ jobs:
           }}
         committer: pulumi-bot <bot@pulumi.com>
         labels: impact/no-changelog-required
-        reviewers: pulumi/platform-integrations
+        team-reviewers: platform-integrations
         title: Update pulumi-terraform-bridge to v${{ github.event.inputs.bridge_version
           }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
