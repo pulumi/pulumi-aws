@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:datapipeline/pipeline:Pipeline":
+		r = &Pipeline{}
 	case "aws:datapipeline/pipelineDefinition:PipelineDefinition":
 		r = &PipelineDefinition{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datapipeline/pipeline",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"datapipeline/pipelineDefinition",

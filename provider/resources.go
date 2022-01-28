@@ -2725,7 +2725,8 @@ func Provider() tfbridge.ProviderInfo {
 			// MSKConnect
 			"aws_mskconnect_custom_plugin":        {Tok: awsResource(mskConnectMod, "CustomPlugin")},
 			"aws_mskconnect_worker_configuration": {Tok: awsResource(mskConnectMod, "WorkerConfiguration")},
-
+			// Datapipeline
+			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 			// Quicksight
 			"aws_quicksight_group":            {Tok: awsResource(quicksightMod, "Group")},
 			"aws_quicksight_user":             {Tok: awsResource(quicksightMod, "User")},

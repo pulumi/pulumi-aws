@@ -7,15 +7,19 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getPipeline";
 export * from "./getPipelineDefinition";
+export * from "./pipeline";
 export * from "./pipelineDefinition";
 
 // Import resources to register:
+import { Pipeline } from "./pipeline";
 import { PipelineDefinition } from "./pipelineDefinition";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:datapipeline/pipeline:Pipeline":
+                return new Pipeline(name, <any>undefined, { urn })
             case "aws:datapipeline/pipelineDefinition:PipelineDefinition":
                 return new PipelineDefinition(name, <any>undefined, { urn })
             default:
@@ -23,4 +27,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "datapipeline/pipeline", _module)
 pulumi.runtime.registerResourceModule("aws", "datapipeline/pipelineDefinition", _module)

@@ -167,6 +167,71 @@ class PipelineDefinition(pulumi.CustomResource):
         """
         Provides a DataPipeline Pipeline Definition resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.datapipeline.Pipeline("default")
+        example = aws.datapipeline.PipelineDefinition("example",
+            pipeline_id=default.id,
+            pipeline_objects=[
+                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
+                    id="Default",
+                    name="Default",
+                    fields=[aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                        key="workerGroup",
+                        string_value="workerGroup",
+                    )],
+                ),
+                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
+                    id="Schedule",
+                    name="Schedule",
+                    fields=[
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="startDateTime",
+                            string_value="2012-12-12T00:00:00",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="type",
+                            string_value="Schedule",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="period",
+                            string_value="1 hour",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="endDateTime",
+                            string_value="2012-12-21T18:00:00",
+                        ),
+                    ],
+                ),
+                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
+                    id="SayHello",
+                    name="SayHello",
+                    fields=[
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="type",
+                            string_value="ShellCommandActivity",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="command",
+                            string_value="echo hello",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="parent",
+                            string_value="Default",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="schedule",
+                            string_value="Schedule",
+                        ),
+                    ],
+                ),
+            ])
+        ```
+
         ## Import
 
         `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
@@ -190,6 +255,71 @@ class PipelineDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DataPipeline Pipeline Definition resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.datapipeline.Pipeline("default")
+        example = aws.datapipeline.PipelineDefinition("example",
+            pipeline_id=default.id,
+            pipeline_objects=[
+                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
+                    id="Default",
+                    name="Default",
+                    fields=[aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                        key="workerGroup",
+                        string_value="workerGroup",
+                    )],
+                ),
+                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
+                    id="Schedule",
+                    name="Schedule",
+                    fields=[
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="startDateTime",
+                            string_value="2012-12-12T00:00:00",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="type",
+                            string_value="Schedule",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="period",
+                            string_value="1 hour",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="endDateTime",
+                            string_value="2012-12-21T18:00:00",
+                        ),
+                    ],
+                ),
+                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
+                    id="SayHello",
+                    name="SayHello",
+                    fields=[
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="type",
+                            string_value="ShellCommandActivity",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="command",
+                            string_value="echo hello",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="parent",
+                            string_value="Default",
+                        ),
+                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
+                            key="schedule",
+                            string_value="Schedule",
+                        ),
+                    ],
+                ),
+            ])
+        ```
 
         ## Import
 

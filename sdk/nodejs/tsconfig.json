@@ -365,6 +365,7 @@
         "datapipeline/getPipeline.ts",
         "datapipeline/getPipelineDefinition.ts",
         "datapipeline/index.ts",
+        "datapipeline/pipeline.ts",
         "datapipeline/pipelineDefinition.ts",
         "datasync/agent.ts",
         "datasync/efsLocation.ts",

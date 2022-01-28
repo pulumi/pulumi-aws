@@ -12,6 +12,100 @@ namespace Pulumi.Aws.DataPipeline
     /// <summary>
     /// Provides a DataPipeline Pipeline Definition resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.DataPipeline.Pipeline("default", new Aws.DataPipeline.PipelineArgs
+    ///         {
+    ///         });
+    ///         var example = new Aws.DataPipeline.PipelineDefinition("example", new Aws.DataPipeline.PipelineDefinitionArgs
+    ///         {
+    ///             PipelineId = @default.Id,
+    ///             PipelineObjects = 
+    ///             {
+    ///                 new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///                 {
+    ///                     Id = "Default",
+    ///                     Name = "Default",
+    ///                     Fields = 
+    ///                     {
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "workerGroup",
+    ///                             StringValue = "workerGroup",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///                 {
+    ///                     Id = "Schedule",
+    ///                     Name = "Schedule",
+    ///                     Fields = 
+    ///                     {
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "startDateTime",
+    ///                             StringValue = "2012-12-12T00:00:00",
+    ///                         },
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "type",
+    ///                             StringValue = "Schedule",
+    ///                         },
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "period",
+    ///                             StringValue = "1 hour",
+    ///                         },
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "endDateTime",
+    ///                             StringValue = "2012-12-21T18:00:00",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///                 {
+    ///                     Id = "SayHello",
+    ///                     Name = "SayHello",
+    ///                     Fields = 
+    ///                     {
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "type",
+    ///                             StringValue = "ShellCommandActivity",
+    ///                         },
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "command",
+    ///                             StringValue = "echo hello",
+    ///                         },
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "parent",
+    ///                             StringValue = "Default",
+    ///                         },
+    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                         {
+    ///                             Key = "schedule",
+    ///                             StringValue = "Schedule",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.

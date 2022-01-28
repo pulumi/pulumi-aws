@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .get_pipeline import *
 from .get_pipeline_definition import *
+from .pipeline import *
 from .pipeline_definition import *
 from ._inputs import *
 from . import outputs

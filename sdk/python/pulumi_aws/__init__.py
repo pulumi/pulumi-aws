@@ -2304,6 +2304,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datapipeline/pipeline",
+  "fqn": "pulumi_aws.datapipeline",
+  "classes": {
+   "aws:datapipeline/pipeline:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datapipeline/pipelineDefinition",
   "fqn": "pulumi_aws.datapipeline",
   "classes": {

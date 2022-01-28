@@ -8,6 +8,72 @@ import * as utilities from "../utilities";
 /**
  * Provides a DataPipeline Pipeline Definition resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _default = new aws.datapipeline.Pipeline("default", {});
+ * const example = new aws.datapipeline.PipelineDefinition("example", {
+ *     pipelineId: _default.id,
+ *     pipelineObjects: [
+ *         {
+ *             id: "Default",
+ *             name: "Default",
+ *             fields: [{
+ *                 key: "workerGroup",
+ *                 stringValue: "workerGroup",
+ *             }],
+ *         },
+ *         {
+ *             id: "Schedule",
+ *             name: "Schedule",
+ *             fields: [
+ *                 {
+ *                     key: "startDateTime",
+ *                     stringValue: "2012-12-12T00:00:00",
+ *                 },
+ *                 {
+ *                     key: "type",
+ *                     stringValue: "Schedule",
+ *                 },
+ *                 {
+ *                     key: "period",
+ *                     stringValue: "1 hour",
+ *                 },
+ *                 {
+ *                     key: "endDateTime",
+ *                     stringValue: "2012-12-21T18:00:00",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             id: "SayHello",
+ *             name: "SayHello",
+ *             fields: [
+ *                 {
+ *                     key: "type",
+ *                     stringValue: "ShellCommandActivity",
+ *                 },
+ *                 {
+ *                     key: "command",
+ *                     stringValue: "echo hello",
+ *                 },
+ *                 {
+ *                     key: "parent",
+ *                     stringValue: "Default",
+ *                 },
+ *                 {
+ *                     key: "schedule",
+ *                     stringValue: "Schedule",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
