@@ -17,6 +17,26 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var client = Output.Create(Aws.Cognito.GetUserPoolClient.InvokeAsync(new Aws.Cognito.GetUserPoolClientArgs
+        ///         {
+        ///             ClientId = "38fjsnc484p94kpqsnet7mpld0",
+        ///             UserPoolId = "us-west-2_aaaaaaaaa",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserPoolClientResult> InvokeAsync(GetUserPoolClientArgs args, InvokeOptions? options = null)
@@ -27,6 +47,26 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var client = Output.Create(Aws.Cognito.GetUserPoolClient.InvokeAsync(new Aws.Cognito.GetUserPoolClientArgs
+        ///         {
+        ///             ClientId = "38fjsnc484p94kpqsnet7mpld0",
+        ///             UserPoolId = "us-west-2_aaaaaaaaa",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserPoolClientResult> Invoke(GetUserPoolClientInvokeArgs args, InvokeOptions? options = null)

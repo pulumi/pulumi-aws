@@ -61,6 +61,8 @@ __all__ = [
     'ModelPrimaryContainerArgs',
     'ModelPrimaryContainerImageConfigArgs',
     'ModelVpcConfigArgs',
+    'ProjectServiceCatalogProvisioningDetailsArgs',
+    'ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs',
     'UserProfileUserSettingsArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs',
@@ -2616,6 +2618,114 @@ class ModelVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class ProjectServiceCatalogProvisioningDetailsArgs:
+    def __init__(__self__, *,
+                 product_id: pulumi.Input[str],
+                 path_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] product_id: The ID of the product to provision.
+        :param pulumi.Input[str] path_id: The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+        :param pulumi.Input[str] provisioning_artifact_id: The ID of the provisioning artifact.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs']]] provisioning_parameters: A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+        """
+        pulumi.set(__self__, "product_id", product_id)
+        if path_id is not None:
+            pulumi.set(__self__, "path_id", path_id)
+        if provisioning_artifact_id is not None:
+            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
+        if provisioning_parameters is not None:
+            pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the product to provision.
+        """
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product_id", value)
+
+    @property
+    @pulumi.getter(name="pathId")
+    def path_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+        """
+        return pulumi.get(self, "path_id")
+
+    @path_id.setter
+    def path_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningArtifactId")
+    def provisioning_artifact_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the provisioning artifact.
+        """
+        return pulumi.get(self, "provisioning_artifact_id")
+
+    @provisioning_artifact_id.setter
+    def provisioning_artifact_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_artifact_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningParameters")
+    def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs']]]]:
+        """
+        A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+        """
+        return pulumi.get(self, "provisioning_parameters")
+
+    @provisioning_parameters.setter
+    def provisioning_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs']]]]):
+        pulumi.set(self, "provisioning_parameters", value)
+
+
+@pulumi.input_type
+class ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The key that identifies a provisioning parameter.
+        :param pulumi.Input[str] value: The value of the provisioning parameter.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key that identifies a provisioning parameter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the provisioning parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

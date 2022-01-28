@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SecretsManager.Outputs
     public sealed class SecretReplica
     {
         /// <summary>
-        /// ARN, Key ID, or Alias.
+        /// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataPipeline
 {
     /// <summary>
-    /// Provides a Data Pipeline resource.
+    /// Provides a DataPipeline Pipeline resource.
     /// 
     /// ## Example Usage
     /// 

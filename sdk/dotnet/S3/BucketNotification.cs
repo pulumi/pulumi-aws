@@ -354,25 +354,31 @@ namespace Pulumi.Aws.S3
     public partial class BucketNotification : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket to put notification configuration.
+        /// Name of the bucket for notification configuration.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Used to configure notifications to a Lambda Function (documented below).
+        /// Whether to enable Amazon EventBridge notifications.
+        /// </summary>
+        [Output("eventbridge")]
+        public Output<bool?> Eventbridge { get; private set; } = null!;
+
+        /// <summary>
+        /// Used to configure notifications to a Lambda Function. See below.
         /// </summary>
         [Output("lambdaFunctions")]
         public Output<ImmutableArray<Outputs.BucketNotificationLambdaFunction>> LambdaFunctions { get; private set; } = null!;
 
         /// <summary>
-        /// The notification configuration to SQS Queue (documented below).
+        /// Notification configuration to SQS Queue. See below.
         /// </summary>
         [Output("queues")]
         public Output<ImmutableArray<Outputs.BucketNotificationQueue>> Queues { get; private set; } = null!;
 
         /// <summary>
-        /// The notification configuration to SNS Topic (documented below).
+        /// Notification configuration to SNS Topic. See below.
         /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<Outputs.BucketNotificationTopic>> Topics { get; private set; } = null!;
@@ -424,16 +430,22 @@ namespace Pulumi.Aws.S3
     public sealed class BucketNotificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket to put notification configuration.
+        /// Name of the bucket for notification configuration.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to enable Amazon EventBridge notifications.
+        /// </summary>
+        [Input("eventbridge")]
+        public Input<bool>? Eventbridge { get; set; }
 
         [Input("lambdaFunctions")]
         private InputList<Inputs.BucketNotificationLambdaFunctionArgs>? _lambdaFunctions;
 
         /// <summary>
-        /// Used to configure notifications to a Lambda Function (documented below).
+        /// Used to configure notifications to a Lambda Function. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationLambdaFunctionArgs> LambdaFunctions
         {
@@ -445,7 +457,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketNotificationQueueArgs>? _queues;
 
         /// <summary>
-        /// The notification configuration to SQS Queue (documented below).
+        /// Notification configuration to SQS Queue. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationQueueArgs> Queues
         {
@@ -457,7 +469,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketNotificationTopicArgs>? _topics;
 
         /// <summary>
-        /// The notification configuration to SNS Topic (documented below).
+        /// Notification configuration to SNS Topic. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationTopicArgs> Topics
         {
@@ -473,16 +485,22 @@ namespace Pulumi.Aws.S3
     public sealed class BucketNotificationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket to put notification configuration.
+        /// Name of the bucket for notification configuration.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
+
+        /// <summary>
+        /// Whether to enable Amazon EventBridge notifications.
+        /// </summary>
+        [Input("eventbridge")]
+        public Input<bool>? Eventbridge { get; set; }
 
         [Input("lambdaFunctions")]
         private InputList<Inputs.BucketNotificationLambdaFunctionGetArgs>? _lambdaFunctions;
 
         /// <summary>
-        /// Used to configure notifications to a Lambda Function (documented below).
+        /// Used to configure notifications to a Lambda Function. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationLambdaFunctionGetArgs> LambdaFunctions
         {
@@ -494,7 +512,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketNotificationQueueGetArgs>? _queues;
 
         /// <summary>
-        /// The notification configuration to SQS Queue (documented below).
+        /// Notification configuration to SQS Queue. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationQueueGetArgs> Queues
         {
@@ -506,7 +524,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketNotificationTopicGetArgs>? _topics;
 
         /// <summary>
-        /// The notification configuration to SNS Topic (documented below).
+        /// Notification configuration to SNS Topic. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationTopicGetArgs> Topics
         {

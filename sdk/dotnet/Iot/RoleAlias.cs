@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         /// </summary>
         [Output("credentialDuration")]
         public Output<int?> CredentialDuration { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
-        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         /// </summary>
         [Input("credentialDuration")]
         public Input<int>? CredentialDuration { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         /// </summary>
         [Input("credentialDuration")]
         public Input<int>? CredentialDuration { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SecretsManager.Inputs
     public sealed class SecretReplicaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN, Key ID, or Alias.
+        /// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _events;
 
         /// <summary>
-        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        /// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         /// </summary>
         public InputList<string> Events
         {
@@ -25,25 +25,25 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Specifies object key name prefix.
+        /// Object key name prefix.
         /// </summary>
         [Input("filterPrefix")]
         public Input<string>? FilterPrefix { get; set; }
 
         /// <summary>
-        /// Specifies object key name suffix.
+        /// Object key name suffix.
         /// </summary>
         [Input("filterSuffix")]
         public Input<string>? FilterSuffix { get; set; }
 
         /// <summary>
-        /// Specifies unique identifier for each of the notification configurations.
+        /// Unique identifier for each of the notification configurations.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies Amazon Lambda function ARN.
+        /// Lambda function ARN.
         /// </summary>
         [Input("lambdaFunctionArn")]
         public Input<string>? LambdaFunctionArn { get; set; }

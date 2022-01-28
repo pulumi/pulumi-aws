@@ -22,7 +22,7 @@ class DistributionConfigurationArgs:
         """
         The set of arguments for constructing a DistributionConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
-        :param pulumi.Input[str] description: Description to apply to the distributed AMI.
+        :param pulumi.Input[str] description: Description of the container distribution configuration.
         :param pulumi.Input[str] name: Name to apply to the distributed AMI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -50,7 +50,7 @@ class DistributionConfigurationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description to apply to the distributed AMI.
+        Description of the container distribution configuration.
         """
         return pulumi.get(self, "description")
 
@@ -99,7 +99,7 @@ class _DistributionConfigurationState:
         :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
-        :param pulumi.Input[str] description: Description to apply to the distributed AMI.
+        :param pulumi.Input[str] description: Description of the container distribution configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
         :param pulumi.Input[str] name: Name to apply to the distributed AMI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,7 +162,7 @@ class _DistributionConfigurationState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description to apply to the distributed AMI.
+        Description of the container distribution configuration.
         """
         return pulumi.get(self, "description")
 
@@ -262,7 +262,7 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description to apply to the distributed AMI.
+        :param pulumi.Input[str] description: Description of the container distribution configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
         :param pulumi.Input[str] name: Name to apply to the distributed AMI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -373,7 +373,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
-        :param pulumi.Input[str] description: Description to apply to the distributed AMI.
+        :param pulumi.Input[str] description: Description of the container distribution configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
         :param pulumi.Input[str] name: Name to apply to the distributed AMI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -421,7 +421,7 @@ class DistributionConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description to apply to the distributed AMI.
+        Description of the container distribution configuration.
         """
         return pulumi.get(self, "description")
 

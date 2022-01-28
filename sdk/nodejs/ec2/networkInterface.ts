@@ -24,6 +24,22 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Example of Managing Multiple IPs on a Network Interface
+ *
+ * By default, private IPs are managed through the `privateIps` and `privateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
+ *
+ * In order to manage the private IPs as a sequentially ordered list, configure `privateIpListEnabled` to `true` and use `privateIpList` to manage the IPs. This will disable the `privateIps` and `privateIpsCount` settings, which must be removed from the config file but are still exported. Note that changing the first address of `privateIpList`, which is the primary, always requires a new interface.
+ *
+ * If you are managing a specific set or list of IPs, instead of just using `privateIpsCount`, this is a potential workflow for also leveraging `privateIpsCount` to have AWS automatically assign additional IP addresses:
+ *
+ * 1. Comment out `privateIps`, `privateIpList`, `privateIpListEnabled` in your configuration
+ * 2. Set the desired `privateIpsCount` (count of the number of secondaries, the primary is not included)
+ * 3. Apply to assign the extra IPs
+ * 4. Remove `privateIpsCount` and restore your settings from the first step
+ * 5. Add the new IPs to your current settings
+ * 6. Apply again to update the stored state
+ *
+ * This process can also be used to remove IP addresses in addition to the option of manually removing them. Adding IP addresses in a manually is more difficult because it requires knowledge of which addresses are available.
  *
  * ## Import
  *
@@ -62,23 +78,23 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the network interface.
+     * ARN of the network interface.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Block to define the attachment of the ENI. Documented below.
+     * Configuration block to define the attachment of the ENI. See below.
      */
     public readonly attachments!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachment[]>;
     /**
-     * A description for the network interface.
+     * Description for the network interface.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
     public readonly interfaceType!: pulumi.Output<string>;
     /**
-     * The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+     * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      */
     public readonly ipv4PrefixCount!: pulumi.Output<number>;
     /**
@@ -86,15 +102,20 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly ipv4Prefixes!: pulumi.Output<string[]>;
     /**
-     * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
     public readonly ipv6AddressCount!: pulumi.Output<number>;
+    public readonly ipv6AddressListEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+     * List of private IPs to assign to the ENI in sequential order.
+     */
+    public readonly ipv6AddressLists!: pulumi.Output<string[]>;
+    /**
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6AddressCount`.
      */
     public readonly ipv6Addresses!: pulumi.Output<string[]>;
     /**
-     * The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+     * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      */
     public readonly ipv6PrefixCount!: pulumi.Output<number>;
     /**
@@ -102,25 +123,30 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly ipv6Prefixes!: pulumi.Output<string[]>;
     /**
-     * The MAC address of the network interface.
+     * MAC address of the network interface.
      */
     public /*out*/ readonly macAddress!: pulumi.Output<string>;
     public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
-     * The AWS account ID of the owner of the network interface.
+     * AWS account ID of the owner of the network interface.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * The private DNS name of the network interface (IPv4).
+     * Private DNS name of the network interface (IPv4).
      */
     public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
     public readonly privateIp!: pulumi.Output<string>;
+    public readonly privateIpListEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of private IPs to assign to the ENI.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+     */
+    public readonly privateIpLists!: pulumi.Output<string[]>;
+    /**
+     * List of private IPs to assign to the ENI without regard to order.
      */
     public readonly privateIps!: pulumi.Output<string[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      */
     public readonly privateIpsCount!: pulumi.Output<number>;
     /**
@@ -136,11 +162,11 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -164,6 +190,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["ipv4PrefixCount"] = state ? state.ipv4PrefixCount : undefined;
             inputs["ipv4Prefixes"] = state ? state.ipv4Prefixes : undefined;
             inputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
+            inputs["ipv6AddressListEnabled"] = state ? state.ipv6AddressListEnabled : undefined;
+            inputs["ipv6AddressLists"] = state ? state.ipv6AddressLists : undefined;
             inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             inputs["ipv6PrefixCount"] = state ? state.ipv6PrefixCount : undefined;
             inputs["ipv6Prefixes"] = state ? state.ipv6Prefixes : undefined;
@@ -172,6 +200,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
+            inputs["privateIpListEnabled"] = state ? state.privateIpListEnabled : undefined;
+            inputs["privateIpLists"] = state ? state.privateIpLists : undefined;
             inputs["privateIps"] = state ? state.privateIps : undefined;
             inputs["privateIpsCount"] = state ? state.privateIpsCount : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
@@ -190,10 +220,14 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["ipv4PrefixCount"] = args ? args.ipv4PrefixCount : undefined;
             inputs["ipv4Prefixes"] = args ? args.ipv4Prefixes : undefined;
             inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
+            inputs["ipv6AddressListEnabled"] = args ? args.ipv6AddressListEnabled : undefined;
+            inputs["ipv6AddressLists"] = args ? args.ipv6AddressLists : undefined;
             inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
             inputs["ipv6PrefixCount"] = args ? args.ipv6PrefixCount : undefined;
             inputs["ipv6Prefixes"] = args ? args.ipv6Prefixes : undefined;
             inputs["privateIp"] = args ? args.privateIp : undefined;
+            inputs["privateIpListEnabled"] = args ? args.privateIpListEnabled : undefined;
+            inputs["privateIpLists"] = args ? args.privateIpLists : undefined;
             inputs["privateIps"] = args ? args.privateIps : undefined;
             inputs["privateIpsCount"] = args ? args.privateIpsCount : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -219,23 +253,23 @@ export class NetworkInterface extends pulumi.CustomResource {
  */
 export interface NetworkInterfaceState {
     /**
-     * The ARN of the network interface.
+     * ARN of the network interface.
      */
     arn?: pulumi.Input<string>;
     /**
-     * Block to define the attachment of the ENI. Documented below.
+     * Configuration block to define the attachment of the ENI. See below.
      */
     attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
     /**
-     * A description for the network interface.
+     * Description for the network interface.
      */
     description?: pulumi.Input<string>;
     /**
-     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
     interfaceType?: pulumi.Input<string>;
     /**
-     * The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+     * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      */
     ipv4PrefixCount?: pulumi.Input<number>;
     /**
@@ -243,15 +277,20 @@ export interface NetworkInterfaceState {
      */
     ipv4Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
     ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressListEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+     * List of private IPs to assign to the ENI in sequential order.
+     */
+    ipv6AddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6AddressCount`.
      */
     ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+     * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      */
     ipv6PrefixCount?: pulumi.Input<number>;
     /**
@@ -259,25 +298,30 @@ export interface NetworkInterfaceState {
      */
     ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The MAC address of the network interface.
+     * MAC address of the network interface.
      */
     macAddress?: pulumi.Input<string>;
     outpostArn?: pulumi.Input<string>;
     /**
-     * The AWS account ID of the owner of the network interface.
+     * AWS account ID of the owner of the network interface.
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The private DNS name of the network interface (IPv4).
+     * Private DNS name of the network interface (IPv4).
      */
     privateDnsName?: pulumi.Input<string>;
     privateIp?: pulumi.Input<string>;
+    privateIpListEnabled?: pulumi.Input<boolean>;
     /**
-     * List of private IPs to assign to the ENI.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+     */
+    privateIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of private IPs to assign to the ENI without regard to order.
      */
     privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      */
     privateIpsCount?: pulumi.Input<number>;
     /**
@@ -293,11 +337,11 @@ export interface NetworkInterfaceState {
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -307,19 +351,19 @@ export interface NetworkInterfaceState {
  */
 export interface NetworkInterfaceArgs {
     /**
-     * Block to define the attachment of the ENI. Documented below.
+     * Configuration block to define the attachment of the ENI. See below.
      */
     attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
     /**
-     * A description for the network interface.
+     * Description for the network interface.
      */
     description?: pulumi.Input<string>;
     /**
-     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
     interfaceType?: pulumi.Input<string>;
     /**
-     * The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+     * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      */
     ipv4PrefixCount?: pulumi.Input<number>;
     /**
@@ -327,15 +371,20 @@ export interface NetworkInterfaceArgs {
      */
     ipv4Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
     ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressListEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+     * List of private IPs to assign to the ENI in sequential order.
+     */
+    ipv6AddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6AddressCount`.
      */
     ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+     * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      */
     ipv6PrefixCount?: pulumi.Input<number>;
     /**
@@ -343,12 +392,17 @@ export interface NetworkInterfaceArgs {
      */
     ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
     privateIp?: pulumi.Input<string>;
+    privateIpListEnabled?: pulumi.Input<boolean>;
     /**
-     * List of private IPs to assign to the ENI.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+     */
+    privateIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of private IPs to assign to the ENI without regard to order.
      */
     privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      */
     privateIpsCount?: pulumi.Input<number>;
     /**
@@ -364,7 +418,7 @@ export interface NetworkInterfaceArgs {
      */
     subnetId: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

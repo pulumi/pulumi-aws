@@ -174,13 +174,15 @@ import (
 type BucketNotification struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket to put notification configuration.
+	// Name of the bucket for notification configuration.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Used to configure notifications to a Lambda Function (documented below).
+	// Whether to enable Amazon EventBridge notifications.
+	Eventbridge pulumi.BoolPtrOutput `pulumi:"eventbridge"`
+	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayOutput `pulumi:"lambdaFunctions"`
-	// The notification configuration to SQS Queue (documented below).
+	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayOutput `pulumi:"queues"`
-	// The notification configuration to SNS Topic (documented below).
+	// Notification configuration to SNS Topic. See below.
 	Topics BucketNotificationTopicArrayOutput `pulumi:"topics"`
 }
 
@@ -216,24 +218,28 @@ func GetBucketNotification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketNotification resources.
 type bucketNotificationState struct {
-	// The name of the bucket to put notification configuration.
+	// Name of the bucket for notification configuration.
 	Bucket *string `pulumi:"bucket"`
-	// Used to configure notifications to a Lambda Function (documented below).
+	// Whether to enable Amazon EventBridge notifications.
+	Eventbridge *bool `pulumi:"eventbridge"`
+	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
-	// The notification configuration to SQS Queue (documented below).
+	// Notification configuration to SQS Queue. See below.
 	Queues []BucketNotificationQueue `pulumi:"queues"`
-	// The notification configuration to SNS Topic (documented below).
+	// Notification configuration to SNS Topic. See below.
 	Topics []BucketNotificationTopic `pulumi:"topics"`
 }
 
 type BucketNotificationState struct {
-	// The name of the bucket to put notification configuration.
+	// Name of the bucket for notification configuration.
 	Bucket pulumi.StringPtrInput
-	// Used to configure notifications to a Lambda Function (documented below).
+	// Whether to enable Amazon EventBridge notifications.
+	Eventbridge pulumi.BoolPtrInput
+	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
-	// The notification configuration to SQS Queue (documented below).
+	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayInput
-	// The notification configuration to SNS Topic (documented below).
+	// Notification configuration to SNS Topic. See below.
 	Topics BucketNotificationTopicArrayInput
 }
 
@@ -242,25 +248,29 @@ func (BucketNotificationState) ElementType() reflect.Type {
 }
 
 type bucketNotificationArgs struct {
-	// The name of the bucket to put notification configuration.
+	// Name of the bucket for notification configuration.
 	Bucket string `pulumi:"bucket"`
-	// Used to configure notifications to a Lambda Function (documented below).
+	// Whether to enable Amazon EventBridge notifications.
+	Eventbridge *bool `pulumi:"eventbridge"`
+	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
-	// The notification configuration to SQS Queue (documented below).
+	// Notification configuration to SQS Queue. See below.
 	Queues []BucketNotificationQueue `pulumi:"queues"`
-	// The notification configuration to SNS Topic (documented below).
+	// Notification configuration to SNS Topic. See below.
 	Topics []BucketNotificationTopic `pulumi:"topics"`
 }
 
 // The set of arguments for constructing a BucketNotification resource.
 type BucketNotificationArgs struct {
-	// The name of the bucket to put notification configuration.
+	// Name of the bucket for notification configuration.
 	Bucket pulumi.StringInput
-	// Used to configure notifications to a Lambda Function (documented below).
+	// Whether to enable Amazon EventBridge notifications.
+	Eventbridge pulumi.BoolPtrInput
+	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
-	// The notification configuration to SQS Queue (documented below).
+	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayInput
-	// The notification configuration to SNS Topic (documented below).
+	// Notification configuration to SNS Topic. See below.
 	Topics BucketNotificationTopicArrayInput
 }
 

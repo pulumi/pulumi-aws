@@ -148,7 +148,7 @@ class Pipeline(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Data Pipeline resource.
+        Provides a DataPipeline Pipeline resource.
 
         ## Example Usage
 
@@ -180,7 +180,7 @@ class Pipeline(pulumi.CustomResource):
                  args: Optional[PipelineArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Data Pipeline resource.
+        Provides a DataPipeline Pipeline resource.
 
         ## Example Usage
 

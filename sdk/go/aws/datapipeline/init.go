@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:datapipeline/pipeline:Pipeline":
 		r = &Pipeline{}
+	case "aws:datapipeline/pipelineDefinition:PipelineDefinition":
+		r = &PipelineDefinition{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"datapipeline/pipeline",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datapipeline/pipelineDefinition",
 		&module{version},
 	)
 }

@@ -13,6 +13,8 @@ __all__ = [
     'DistributionConfigurationDistribution',
     'DistributionConfigurationDistributionAmiDistributionConfiguration',
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission',
+    'DistributionConfigurationDistributionContainerDistributionConfiguration',
+    'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository',
     'ImageImageTestsConfiguration',
     'ImageOutputResource',
     'ImageOutputResourceAmi',
@@ -23,9 +25,11 @@ __all__ = [
     'ImageRecipeComponent',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationLoggingS3Logs',
+    'GetComponentsFilterResult',
     'GetDistributionConfigurationDistributionResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult',
+    'GetDistributionConfigurationsFilterResult',
     'GetImageImageTestsConfigurationResult',
     'GetImageOutputResourceResult',
     'GetImageOutputResourceAmiResult',
@@ -37,6 +41,7 @@ __all__ = [
     'GetImageRecipesFilterResult',
     'GetInfrastructureConfigurationLoggingResult',
     'GetInfrastructureConfigurationLoggingS3LogResult',
+    'GetInfrastructureConfigurationsFilterResult',
 ]
 
 @pulumi.output_type
@@ -46,6 +51,8 @@ class DistributionConfigurationDistribution(dict):
         suggest = None
         if key == "amiDistributionConfiguration":
             suggest = "ami_distribution_configuration"
+        elif key == "containerDistributionConfiguration":
+            suggest = "container_distribution_configuration"
         elif key == "licenseConfigurationArns":
             suggest = "license_configuration_arns"
 
@@ -63,15 +70,19 @@ class DistributionConfigurationDistribution(dict):
     def __init__(__self__, *,
                  region: str,
                  ami_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfiguration'] = None,
+                 container_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfiguration'] = None,
                  license_configuration_arns: Optional[Sequence[str]] = None):
         """
         :param str region: AWS Region for the distribution.
         :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
             pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
+        if container_distribution_configuration is not None:
+            pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
 
@@ -90,6 +101,14 @@ class DistributionConfigurationDistribution(dict):
         Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         """
         return pulumi.get(self, "ami_distribution_configuration")
+
+    @property
+    @pulumi.getter(name="containerDistributionConfiguration")
+    def container_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfiguration']:
+        """
+        Configuration block with container distribution settings. Detailed below.
+        """
+        return pulumi.get(self, "container_distribution_configuration")
 
     @property
     @pulumi.getter(name="licenseConfigurationArns")
@@ -134,7 +153,7 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
                  target_account_ids: Optional[Sequence[str]] = None):
         """
         :param Mapping[str, str] ami_tags: Key-value map of tags to apply to the distributed AMI.
-        :param str description: Description to apply to the distributed AMI.
+        :param str description: Description of the container distribution configuration.
         :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
         :param 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs' launch_permission: Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
         :param str name: Name to apply to the distributed AMI.
@@ -165,7 +184,7 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Description to apply to the distributed AMI.
+        Description of the container distribution configuration.
         """
         return pulumi.get(self, "description")
 
@@ -250,6 +269,113 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
         Set of AWS Account identifiers to assign.
         """
         return pulumi.get(self, "user_ids")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionContainerDistributionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetRepository":
+            suggest = "target_repository"
+        elif key == "containerTags":
+            suggest = "container_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionContainerDistributionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionContainerDistributionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionContainerDistributionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_repository: 'outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository',
+                 container_tags: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None):
+        """
+        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs' target_repository: Configuration block with the destination repository for the container distribution configuration.
+        :param Sequence[str] container_tags: Set of tags that are attached to the container distribution configuration.
+        :param str description: Description of the container distribution configuration.
+        """
+        pulumi.set(__self__, "target_repository", target_repository)
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="targetRepository")
+    def target_repository(self) -> 'outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository':
+        """
+        Configuration block with the destination repository for the container distribution configuration.
+        """
+        return pulumi.get(self, "target_repository")
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[Sequence[str]]:
+        """
+        Set of tags that are attached to the container distribution configuration.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the container distribution configuration.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryName":
+            suggest = "repository_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_name: str,
+                 service: str):
+        """
+        :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        :param str service: The service in which this image is registered. Valid values: `ECR`.
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        The service in which this image is registered. Valid values: `ECR`.
+        """
+        return pulumi.get(self, "service")
 
 
 @pulumi.output_type
@@ -816,6 +942,35 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
 
 
 @pulumi.output_type
+class GetComponentsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class GetDistributionConfigurationDistributionResult(dict):
     def __init__(__self__, *,
                  ami_distribution_configurations: Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult'],
@@ -955,6 +1110,35 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
         Set of AWS Account identifiers.
         """
         return pulumi.get(self, "user_ids")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -1351,5 +1535,34 @@ class GetInfrastructureConfigurationLoggingS3LogResult(dict):
         Key prefix for S3 Bucket logging.
         """
         return pulumi.get(self, "s3_key_prefix")
+
+
+@pulumi.output_type
+class GetInfrastructureConfigurationsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
 
 

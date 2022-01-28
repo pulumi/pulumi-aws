@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// ## Notes
     /// 
-    /// If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.
+    /// If both VPCs are not in the same AWS account and region do not enable the `auto_accept` attribute.
     /// The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
     /// or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
     /// 
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpcPeeringConnectionAccepter> Accepter { get; private set; } = null!;
 
         /// <summary>
-        /// Accept the peering (both VPCs need to be in the same AWS account).
+        /// Accept the peering (both VPCs need to be in the same AWS account and region).
         /// </summary>
         [Output("autoAccept")]
         public Output<bool?> AutoAccept { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcPeeringConnectionAccepterArgs>? Accepter { get; set; }
 
         /// <summary>
-        /// Accept the peering (both VPCs need to be in the same AWS account).
+        /// Accept the peering (both VPCs need to be in the same AWS account and region).
         /// </summary>
         [Input("autoAccept")]
         public Input<bool>? AutoAccept { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcPeeringConnectionAccepterGetArgs>? Accepter { get; set; }
 
         /// <summary>
-        /// Accept the peering (both VPCs need to be in the same AWS account).
+        /// Accept the peering (both VPCs need to be in the same AWS account and region).
         /// </summary>
         [Input("autoAccept")]
         public Input<bool>? AutoAccept { get; set; }

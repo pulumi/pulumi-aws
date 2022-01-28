@@ -161,7 +161,7 @@ import (
 // ```
 // ## Notes
 //
-// If both VPCs are not in the same AWS account do not enable the `autoAccept` attribute.
+// If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
 // The accepter can manage its side of the connection using the `ec2.VpcPeeringConnectionAccepter` resource
 // or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
 //
@@ -182,7 +182,7 @@ type VpcPeeringConnection struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter VpcPeeringConnectionAccepterTypeOutput `pulumi:"accepter"`
-	// Accept the peering (both VPCs need to be in the same AWS account).
+	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
 	// The AWS account ID of the owner of the peer VPC.
 	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
@@ -243,7 +243,7 @@ type vpcPeeringConnectionState struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter *VpcPeeringConnectionAccepterType `pulumi:"accepter"`
-	// Accept the peering (both VPCs need to be in the same AWS account).
+	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The AWS account ID of the owner of the peer VPC.
 	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
@@ -270,7 +270,7 @@ type VpcPeeringConnectionState struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter VpcPeeringConnectionAccepterTypePtrInput
-	// Accept the peering (both VPCs need to be in the same AWS account).
+	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrInput
 	// The AWS account ID of the owner of the peer VPC.
 	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
@@ -299,7 +299,7 @@ type vpcPeeringConnectionArgs struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter *VpcPeeringConnectionAccepterType `pulumi:"accepter"`
-	// Accept the peering (both VPCs need to be in the same AWS account).
+	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The AWS account ID of the owner of the peer VPC.
 	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
@@ -323,7 +323,7 @@ type VpcPeeringConnectionArgs struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter VpcPeeringConnectionAccepterTypePtrInput
-	// Accept the peering (both VPCs need to be in the same AWS account).
+	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrInput
 	// The AWS account ID of the owner of the peer VPC.
 	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.

@@ -16,17 +16,21 @@ __all__ = ['BucketNotificationArgs', 'BucketNotification']
 class BucketNotificationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
+                 eventbridge: Optional[pulumi.Input[bool]] = None,
                  lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         The set of arguments for constructing a BucketNotification resource.
-        :param pulumi.Input[str] bucket: The name of the bucket to put notification configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: The notification configuration to SQS Queue (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: The notification configuration to SNS Topic (documented below).
+        :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
         """
         pulumi.set(__self__, "bucket", bucket)
+        if eventbridge is not None:
+            pulumi.set(__self__, "eventbridge", eventbridge)
         if lambda_functions is not None:
             pulumi.set(__self__, "lambda_functions", lambda_functions)
         if queues is not None:
@@ -38,7 +42,7 @@ class BucketNotificationArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket to put notification configuration.
+        Name of the bucket for notification configuration.
         """
         return pulumi.get(self, "bucket")
 
@@ -47,10 +51,22 @@ class BucketNotificationArgs:
         pulumi.set(self, "bucket", value)
 
     @property
+    @pulumi.getter
+    def eventbridge(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Amazon EventBridge notifications.
+        """
+        return pulumi.get(self, "eventbridge")
+
+    @eventbridge.setter
+    def eventbridge(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "eventbridge", value)
+
+    @property
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
         """
-        Used to configure notifications to a Lambda Function (documented below).
+        Used to configure notifications to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 
@@ -62,7 +78,7 @@ class BucketNotificationArgs:
     @pulumi.getter
     def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
         """
-        The notification configuration to SQS Queue (documented below).
+        Notification configuration to SQS Queue. See below.
         """
         return pulumi.get(self, "queues")
 
@@ -74,7 +90,7 @@ class BucketNotificationArgs:
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
         """
-        The notification configuration to SNS Topic (documented below).
+        Notification configuration to SNS Topic. See below.
         """
         return pulumi.get(self, "topics")
 
@@ -87,18 +103,22 @@ class BucketNotificationArgs:
 class _BucketNotificationState:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
+                 eventbridge: Optional[pulumi.Input[bool]] = None,
                  lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketNotification resources.
-        :param pulumi.Input[str] bucket: The name of the bucket to put notification configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: The notification configuration to SQS Queue (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: The notification configuration to SNS Topic (documented below).
+        :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
+        if eventbridge is not None:
+            pulumi.set(__self__, "eventbridge", eventbridge)
         if lambda_functions is not None:
             pulumi.set(__self__, "lambda_functions", lambda_functions)
         if queues is not None:
@@ -110,7 +130,7 @@ class _BucketNotificationState:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket to put notification configuration.
+        Name of the bucket for notification configuration.
         """
         return pulumi.get(self, "bucket")
 
@@ -119,10 +139,22 @@ class _BucketNotificationState:
         pulumi.set(self, "bucket", value)
 
     @property
+    @pulumi.getter
+    def eventbridge(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Amazon EventBridge notifications.
+        """
+        return pulumi.get(self, "eventbridge")
+
+    @eventbridge.setter
+    def eventbridge(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "eventbridge", value)
+
+    @property
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
         """
-        Used to configure notifications to a Lambda Function (documented below).
+        Used to configure notifications to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 
@@ -134,7 +166,7 @@ class _BucketNotificationState:
     @pulumi.getter
     def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
         """
-        The notification configuration to SQS Queue (documented below).
+        Notification configuration to SQS Queue. See below.
         """
         return pulumi.get(self, "queues")
 
@@ -146,7 +178,7 @@ class _BucketNotificationState:
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
         """
-        The notification configuration to SNS Topic (documented below).
+        Notification configuration to SNS Topic. See below.
         """
         return pulumi.get(self, "topics")
 
@@ -161,6 +193,7 @@ class BucketNotification(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
+                 eventbridge: Optional[pulumi.Input[bool]] = None,
                  lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]]] = None,
@@ -379,10 +412,11 @@ class BucketNotification(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket to put notification configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]] lambda_functions: Used to configure notifications to a Lambda Function (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]] queues: The notification configuration to SQS Queue (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]] topics: The notification configuration to SNS Topic (documented below).
+        :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]] queues: Notification configuration to SQS Queue. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]] topics: Notification configuration to SNS Topic. See below.
         """
         ...
     @overload
@@ -618,6 +652,7 @@ class BucketNotification(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
+                 eventbridge: Optional[pulumi.Input[bool]] = None,
                  lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]]] = None,
@@ -636,6 +671,7 @@ class BucketNotification(pulumi.CustomResource):
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
+            __props__.__dict__["eventbridge"] = eventbridge
             __props__.__dict__["lambda_functions"] = lambda_functions
             __props__.__dict__["queues"] = queues
             __props__.__dict__["topics"] = topics
@@ -650,6 +686,7 @@ class BucketNotification(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[str]] = None,
+            eventbridge: Optional[pulumi.Input[bool]] = None,
             lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]]] = None,
             queues: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]]] = None,
             topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]]] = None) -> 'BucketNotification':
@@ -660,16 +697,18 @@ class BucketNotification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket to put notification configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]] lambda_functions: Used to configure notifications to a Lambda Function (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]] queues: The notification configuration to SQS Queue (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]] topics: The notification configuration to SNS Topic (documented below).
+        :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]] queues: Notification configuration to SQS Queue. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]] topics: Notification configuration to SNS Topic. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _BucketNotificationState.__new__(_BucketNotificationState)
 
         __props__.__dict__["bucket"] = bucket
+        __props__.__dict__["eventbridge"] = eventbridge
         __props__.__dict__["lambda_functions"] = lambda_functions
         __props__.__dict__["queues"] = queues
         __props__.__dict__["topics"] = topics
@@ -679,15 +718,23 @@ class BucketNotification(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket to put notification configuration.
+        Name of the bucket for notification configuration.
         """
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def eventbridge(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable Amazon EventBridge notifications.
+        """
+        return pulumi.get(self, "eventbridge")
 
     @property
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> pulumi.Output[Optional[Sequence['outputs.BucketNotificationLambdaFunction']]]:
         """
-        Used to configure notifications to a Lambda Function (documented below).
+        Used to configure notifications to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 
@@ -695,7 +742,7 @@ class BucketNotification(pulumi.CustomResource):
     @pulumi.getter
     def queues(self) -> pulumi.Output[Optional[Sequence['outputs.BucketNotificationQueue']]]:
         """
-        The notification configuration to SQS Queue (documented below).
+        Notification configuration to SQS Queue. See below.
         """
         return pulumi.get(self, "queues")
 
@@ -703,7 +750,7 @@ class BucketNotification(pulumi.CustomResource):
     @pulumi.getter
     def topics(self) -> pulumi.Output[Optional[Sequence['outputs.BucketNotificationTopic']]]:
         """
-        The notification configuration to SNS Topic (documented below).
+        Notification configuration to SNS Topic. See below.
         """
         return pulumi.get(self, "topics")
 

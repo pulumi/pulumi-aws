@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CapacityProvider{}
 	case "aws:ecs/cluster:Cluster":
 		r = &Cluster{}
+	case "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders":
+		r = &ClusterCapacityProviders{}
 	case "aws:ecs/service:Service":
 		r = &Service{}
 	case "aws:ecs/tag:Tag":
@@ -61,6 +63,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecs/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecs/clusterCapacityProviders",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

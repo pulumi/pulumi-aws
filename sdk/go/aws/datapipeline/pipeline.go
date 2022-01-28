@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Data Pipeline resource.
+// Provides a DataPipeline Pipeline resource.
 //
 // ## Example Usage
 //

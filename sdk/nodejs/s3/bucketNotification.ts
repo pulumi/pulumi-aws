@@ -259,19 +259,23 @@ export class BucketNotification extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket to put notification configuration.
+     * Name of the bucket for notification configuration.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * Used to configure notifications to a Lambda Function (documented below).
+     * Whether to enable Amazon EventBridge notifications.
+     */
+    public readonly eventbridge!: pulumi.Output<boolean | undefined>;
+    /**
+     * Used to configure notifications to a Lambda Function. See below.
      */
     public readonly lambdaFunctions!: pulumi.Output<outputs.s3.BucketNotificationLambdaFunction[] | undefined>;
     /**
-     * The notification configuration to SQS Queue (documented below).
+     * Notification configuration to SQS Queue. See below.
      */
     public readonly queues!: pulumi.Output<outputs.s3.BucketNotificationQueue[] | undefined>;
     /**
-     * The notification configuration to SNS Topic (documented below).
+     * Notification configuration to SNS Topic. See below.
      */
     public readonly topics!: pulumi.Output<outputs.s3.BucketNotificationTopic[] | undefined>;
 
@@ -289,6 +293,7 @@ export class BucketNotification extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BucketNotificationState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
+            inputs["eventbridge"] = state ? state.eventbridge : undefined;
             inputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
             inputs["queues"] = state ? state.queues : undefined;
             inputs["topics"] = state ? state.topics : undefined;
@@ -298,6 +303,7 @@ export class BucketNotification extends pulumi.CustomResource {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;
+            inputs["eventbridge"] = args ? args.eventbridge : undefined;
             inputs["lambdaFunctions"] = args ? args.lambdaFunctions : undefined;
             inputs["queues"] = args ? args.queues : undefined;
             inputs["topics"] = args ? args.topics : undefined;
@@ -314,19 +320,23 @@ export class BucketNotification extends pulumi.CustomResource {
  */
 export interface BucketNotificationState {
     /**
-     * The name of the bucket to put notification configuration.
+     * Name of the bucket for notification configuration.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * Used to configure notifications to a Lambda Function (documented below).
+     * Whether to enable Amazon EventBridge notifications.
+     */
+    eventbridge?: pulumi.Input<boolean>;
+    /**
+     * Used to configure notifications to a Lambda Function. See below.
      */
     lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
     /**
-     * The notification configuration to SQS Queue (documented below).
+     * Notification configuration to SQS Queue. See below.
      */
     queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
-     * The notification configuration to SNS Topic (documented below).
+     * Notification configuration to SNS Topic. See below.
      */
     topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
 }
@@ -336,19 +346,23 @@ export interface BucketNotificationState {
  */
 export interface BucketNotificationArgs {
     /**
-     * The name of the bucket to put notification configuration.
+     * Name of the bucket for notification configuration.
      */
     bucket: pulumi.Input<string>;
     /**
-     * Used to configure notifications to a Lambda Function (documented below).
+     * Whether to enable Amazon EventBridge notifications.
+     */
+    eventbridge?: pulumi.Input<boolean>;
+    /**
+     * Used to configure notifications to a Lambda Function. See below.
      */
     lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
     /**
-     * The notification configuration to SQS Queue (documented below).
+     * Notification configuration to SQS Queue. See below.
      */
     queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
-     * The notification configuration to SNS Topic (documented below).
+     * Notification configuration to SNS Topic. See below.
      */
     topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
 }

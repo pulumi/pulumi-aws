@@ -13,6 +13,7 @@ __all__ = [
     'HoursOfOperationConfigArgs',
     'HoursOfOperationConfigEndTimeArgs',
     'HoursOfOperationConfigStartTimeArgs',
+    'QueueOutboundCallerConfigArgs',
     'QuickConnectQuickConnectConfigArgs',
     'QuickConnectQuickConnectConfigPhoneConfigArgs',
     'QuickConnectQuickConnectConfigQueueConfigArgs',
@@ -182,6 +183,61 @@ class HoursOfOperationConfigStartTimeArgs:
     @minutes.setter
     def minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "minutes", value)
+
+
+@pulumi.input_type
+class QueueOutboundCallerConfigArgs:
+    def __init__(__self__, *,
+                 outbound_caller_id_name: Optional[pulumi.Input[str]] = None,
+                 outbound_caller_id_number_id: Optional[pulumi.Input[str]] = None,
+                 outbound_flow_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] outbound_caller_id_name: Specifies the caller ID name.
+        :param pulumi.Input[str] outbound_caller_id_number_id: Specifies the caller ID number.
+        :param pulumi.Input[str] outbound_flow_id: Specifies outbound whisper flow to be used during an outbound call.
+        """
+        if outbound_caller_id_name is not None:
+            pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
+        if outbound_caller_id_number_id is not None:
+            pulumi.set(__self__, "outbound_caller_id_number_id", outbound_caller_id_number_id)
+        if outbound_flow_id is not None:
+            pulumi.set(__self__, "outbound_flow_id", outbound_flow_id)
+
+    @property
+    @pulumi.getter(name="outboundCallerIdName")
+    def outbound_caller_id_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the caller ID name.
+        """
+        return pulumi.get(self, "outbound_caller_id_name")
+
+    @outbound_caller_id_name.setter
+    def outbound_caller_id_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_caller_id_name", value)
+
+    @property
+    @pulumi.getter(name="outboundCallerIdNumberId")
+    def outbound_caller_id_number_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the caller ID number.
+        """
+        return pulumi.get(self, "outbound_caller_id_number_id")
+
+    @outbound_caller_id_number_id.setter
+    def outbound_caller_id_number_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_caller_id_number_id", value)
+
+    @property
+    @pulumi.getter(name="outboundFlowId")
+    def outbound_flow_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies outbound whisper flow to be used during an outbound call.
+        """
+        return pulumi.get(self, "outbound_flow_id")
+
+    @outbound_flow_id.setter
+    def outbound_flow_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_flow_id", value)
 
 
 @pulumi.input_type

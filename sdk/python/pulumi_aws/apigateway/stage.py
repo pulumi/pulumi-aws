@@ -227,6 +227,7 @@ class _StageState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 web_acl_arn: Optional[pulumi.Input[str]] = None,
                  xray_tracing_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Stage resources.
@@ -246,8 +247,9 @@ class _StageState:
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_name: The name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines the stage variables
+        :param pulumi.Input[str] web_acl_arn: The ARN of the WebAcl associated with the Stage.
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         if access_log_settings is not None:
@@ -280,6 +282,8 @@ class _StageState:
             pulumi.set(__self__, "tags_all", tags_all)
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
+        if web_acl_arn is not None:
+            pulumi.set(__self__, "web_acl_arn", web_acl_arn)
         if xray_tracing_enabled is not None:
             pulumi.set(__self__, "xray_tracing_enabled", xray_tracing_enabled)
 
@@ -446,7 +450,7 @@ class _StageState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         return pulumi.get(self, "tags_all")
 
@@ -465,6 +469,18 @@ class _StageState:
     @variables.setter
     def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "variables", value)
+
+    @property
+    @pulumi.getter(name="webAclArn")
+    def web_acl_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the WebAcl associated with the Stage.
+        """
+        return pulumi.get(self, "web_acl_arn")
+
+    @web_acl_arn.setter
+    def web_acl_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_acl_arn", value)
 
     @property
     @pulumi.getter(name="xrayTracingEnabled")
@@ -737,6 +753,7 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["execution_arn"] = None
             __props__.__dict__["invoke_url"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["web_acl_arn"] = None
         super(Stage, __self__).__init__(
             'aws:apigateway/stage:Stage',
             resource_name,
@@ -762,6 +779,7 @@ class Stage(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            web_acl_arn: Optional[pulumi.Input[str]] = None,
             xray_tracing_enabled: Optional[pulumi.Input[bool]] = None) -> 'Stage':
         """
         Get an existing Stage resource's state with the given name, id, and optional extra
@@ -786,8 +804,9 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_name: The name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines the stage variables
+        :param pulumi.Input[str] web_acl_arn: The ARN of the WebAcl associated with the Stage.
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -809,6 +828,7 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["variables"] = variables
+        __props__.__dict__["web_acl_arn"] = web_acl_arn
         __props__.__dict__["xray_tracing_enabled"] = xray_tracing_enabled
         return Stage(resource_name, opts=opts, __props__=__props__)
 
@@ -923,7 +943,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         return pulumi.get(self, "tags_all")
 
@@ -934,6 +954,14 @@ class Stage(pulumi.CustomResource):
         A map that defines the stage variables
         """
         return pulumi.get(self, "variables")
+
+    @property
+    @pulumi.getter(name="webAclArn")
+    def web_acl_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the WebAcl associated with the Stage.
+        """
+        return pulumi.get(self, "web_acl_arn")
 
     @property
     @pulumi.getter(name="xrayTracingEnabled")

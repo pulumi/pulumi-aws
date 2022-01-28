@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkProfile{}
 	case "aws:devicefarm/project:Project":
 		r = &Project{}
+	case "aws:devicefarm/testGridProject:TestGridProject":
+		r = &TestGridProject{}
 	case "aws:devicefarm/upload:Upload":
 		r = &Upload{}
 	default:
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"devicefarm/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"devicefarm/testGridProject",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -1072,11 +1072,11 @@ class BucketNotificationLambdaFunction(dict):
                  id: Optional[str] = None,
                  lambda_function_arn: Optional[str] = None):
         """
-        :param Sequence[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        :param str filter_prefix: Specifies object key name prefix.
-        :param str filter_suffix: Specifies object key name suffix.
-        :param str id: Specifies unique identifier for each of the notification configurations.
-        :param str lambda_function_arn: Specifies Amazon Lambda function ARN.
+        :param Sequence[str] events: [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param str filter_prefix: Object key name prefix.
+        :param str filter_suffix: Object key name suffix.
+        :param str id: Unique identifier for each of the notification configurations.
+        :param str lambda_function_arn: Lambda function ARN.
         """
         pulumi.set(__self__, "events", events)
         if filter_prefix is not None:
@@ -1092,7 +1092,7 @@ class BucketNotificationLambdaFunction(dict):
     @pulumi.getter
     def events(self) -> Sequence[str]:
         """
-        Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
         return pulumi.get(self, "events")
 
@@ -1100,7 +1100,7 @@ class BucketNotificationLambdaFunction(dict):
     @pulumi.getter(name="filterPrefix")
     def filter_prefix(self) -> Optional[str]:
         """
-        Specifies object key name prefix.
+        Object key name prefix.
         """
         return pulumi.get(self, "filter_prefix")
 
@@ -1108,7 +1108,7 @@ class BucketNotificationLambdaFunction(dict):
     @pulumi.getter(name="filterSuffix")
     def filter_suffix(self) -> Optional[str]:
         """
-        Specifies object key name suffix.
+        Object key name suffix.
         """
         return pulumi.get(self, "filter_suffix")
 
@@ -1116,7 +1116,7 @@ class BucketNotificationLambdaFunction(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Specifies unique identifier for each of the notification configurations.
+        Unique identifier for each of the notification configurations.
         """
         return pulumi.get(self, "id")
 
@@ -1124,7 +1124,7 @@ class BucketNotificationLambdaFunction(dict):
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> Optional[str]:
         """
-        Specifies Amazon Lambda function ARN.
+        Lambda function ARN.
         """
         return pulumi.get(self, "lambda_function_arn")
 
@@ -1159,11 +1159,11 @@ class BucketNotificationQueue(dict):
                  filter_suffix: Optional[str] = None,
                  id: Optional[str] = None):
         """
-        :param Sequence[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        :param str queue_arn: Specifies Amazon SQS queue ARN.
-        :param str filter_prefix: Specifies object key name prefix.
-        :param str filter_suffix: Specifies object key name suffix.
-        :param str id: Specifies unique identifier for each of the notification configurations.
+        :param Sequence[str] events: [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param str queue_arn: SQS queue ARN.
+        :param str filter_prefix: Object key name prefix.
+        :param str filter_suffix: Object key name suffix.
+        :param str id: Unique identifier for each of the notification configurations.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "queue_arn", queue_arn)
@@ -1178,7 +1178,7 @@ class BucketNotificationQueue(dict):
     @pulumi.getter
     def events(self) -> Sequence[str]:
         """
-        Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
         return pulumi.get(self, "events")
 
@@ -1186,7 +1186,7 @@ class BucketNotificationQueue(dict):
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> str:
         """
-        Specifies Amazon SQS queue ARN.
+        SQS queue ARN.
         """
         return pulumi.get(self, "queue_arn")
 
@@ -1194,7 +1194,7 @@ class BucketNotificationQueue(dict):
     @pulumi.getter(name="filterPrefix")
     def filter_prefix(self) -> Optional[str]:
         """
-        Specifies object key name prefix.
+        Object key name prefix.
         """
         return pulumi.get(self, "filter_prefix")
 
@@ -1202,7 +1202,7 @@ class BucketNotificationQueue(dict):
     @pulumi.getter(name="filterSuffix")
     def filter_suffix(self) -> Optional[str]:
         """
-        Specifies object key name suffix.
+        Object key name suffix.
         """
         return pulumi.get(self, "filter_suffix")
 
@@ -1210,7 +1210,7 @@ class BucketNotificationQueue(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Specifies unique identifier for each of the notification configurations.
+        Unique identifier for each of the notification configurations.
         """
         return pulumi.get(self, "id")
 
@@ -1245,11 +1245,11 @@ class BucketNotificationTopic(dict):
                  filter_suffix: Optional[str] = None,
                  id: Optional[str] = None):
         """
-        :param Sequence[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        :param str topic_arn: Specifies Amazon SNS topic ARN.
-        :param str filter_prefix: Specifies object key name prefix.
-        :param str filter_suffix: Specifies object key name suffix.
-        :param str id: Specifies unique identifier for each of the notification configurations.
+        :param Sequence[str] events: [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param str topic_arn: SNS topic ARN.
+        :param str filter_prefix: Object key name prefix.
+        :param str filter_suffix: Object key name suffix.
+        :param str id: Unique identifier for each of the notification configurations.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "topic_arn", topic_arn)
@@ -1264,7 +1264,7 @@ class BucketNotificationTopic(dict):
     @pulumi.getter
     def events(self) -> Sequence[str]:
         """
-        Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
         return pulumi.get(self, "events")
 
@@ -1272,7 +1272,7 @@ class BucketNotificationTopic(dict):
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> str:
         """
-        Specifies Amazon SNS topic ARN.
+        SNS topic ARN.
         """
         return pulumi.get(self, "topic_arn")
 
@@ -1280,7 +1280,7 @@ class BucketNotificationTopic(dict):
     @pulumi.getter(name="filterPrefix")
     def filter_prefix(self) -> Optional[str]:
         """
-        Specifies object key name prefix.
+        Object key name prefix.
         """
         return pulumi.get(self, "filter_prefix")
 
@@ -1288,7 +1288,7 @@ class BucketNotificationTopic(dict):
     @pulumi.getter(name="filterSuffix")
     def filter_suffix(self) -> Optional[str]:
         """
-        Specifies object key name suffix.
+        Object key name suffix.
         """
         return pulumi.get(self, "filter_suffix")
 
@@ -1296,7 +1296,7 @@ class BucketNotificationTopic(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Specifies unique identifier for each of the notification configurations.
+        Unique identifier for each of the notification configurations.
         """
         return pulumi.get(self, "id")
 

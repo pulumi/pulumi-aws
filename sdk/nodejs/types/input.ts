@@ -9301,17 +9301,6 @@ export namespace connect {
         name: pulumi.Input<string>;
     }
 
-    export interface GetBotAssociationLexBot {
-        /**
-         * The Region that the Amazon Lex (V1) bot was created in.
-         */
-        lexRegion?: string;
-        /**
-         * The name of the Amazon Lex (V1) bot.
-         */
-        name: string;
-    }
-
     export interface GetBotAssociationLexBotArgs {
         /**
          * The Region that the Amazon Lex (V1) bot was created in.
@@ -9321,6 +9310,17 @@ export namespace connect {
          * The name of the Amazon Lex (V1) bot.
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface GetBotAssociationLexBot {
+        /**
+         * The Region that the Amazon Lex (V1) bot was created in.
+         */
+        lexRegion?: string;
+        /**
+         * The name of the Amazon Lex (V1) bot.
+         */
+        name: string;
     }
 
     export interface HoursOfOperationConfig {
@@ -9358,6 +9358,21 @@ export namespace connect {
          * Specifies the minute of opening.
          */
         minutes: pulumi.Input<number>;
+    }
+
+    export interface QueueOutboundCallerConfig {
+        /**
+         * Specifies the caller ID name.
+         */
+        outboundCallerIdName?: pulumi.Input<string>;
+        /**
+         * Specifies the caller ID number.
+         */
+        outboundCallerIdNumberId?: pulumi.Input<string>;
+        /**
+         * Specifies outbound whisper flow to be used during an outbound call.
+         */
+        outboundFlowId?: pulumi.Input<string>;
     }
 
     export interface QuickConnectQuickConnectConfig {
@@ -9406,6 +9421,90 @@ export namespace connect {
          * Specifies the identifier for the user.
          */
         userId: pulumi.Input<string>;
+    }
+}
+
+export namespace datapipeline {
+    export interface GetPipelineDefinitionParameterValueArgs {
+        /**
+         * ID of the object.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Field value, expressed as a String.
+         */
+        stringValue?: pulumi.Input<string>;
+    }
+
+    export interface GetPipelineDefinitionParameterValue {
+        /**
+         * ID of the object.
+         */
+        id?: string;
+        /**
+         * Field value, expressed as a String.
+         */
+        stringValue?: string;
+    }
+
+    export interface PipelineDefinitionParameterObject {
+        attributes?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObjectAttribute>[]>;
+        /**
+         * ID of the parameter value.
+         */
+        id: pulumi.Input<string>;
+    }
+
+    export interface PipelineDefinitionParameterObjectAttribute {
+        /**
+         * Field identifier.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Field value, expressed as a String.
+         */
+        stringValue: pulumi.Input<string>;
+    }
+
+    export interface PipelineDefinitionParameterValue {
+        /**
+         * ID of the parameter value.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Field value, expressed as a String.
+         */
+        stringValue: pulumi.Input<string>;
+    }
+
+    export interface PipelineDefinitionPipelineObject {
+        /**
+         * Configuration block for Key-value pairs that define the properties of the object. See below
+         */
+        fields?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObjectField>[]>;
+        /**
+         * ID of the parameter value.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * ARN of the storage connector.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface PipelineDefinitionPipelineObjectField {
+        /**
+         * Field identifier.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Field value, expressed as the identifier of another object
+         */
+        refValue?: pulumi.Input<string>;
+        /**
+         * Field value, expressed as a String.
+         */
+        stringValue?: pulumi.Input<string>;
     }
 
 }
@@ -9590,6 +9689,21 @@ export namespace devicefarm {
          * The rule's value.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface TestGridProjectVpcConfig {
+        /**
+         * A list of VPC security group IDs in your Amazon VPC.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of VPC subnet IDs in your Amazon VPC.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId: pulumi.Input<string>;
     }
 }
 
@@ -13434,6 +13548,21 @@ export namespace ecs {
          * Target utilization for the capacity provider. A number between 1 and 100.
          */
         targetCapacity?: pulumi.Input<number>;
+    }
+
+    export interface ClusterCapacityProvidersDefaultCapacityProviderStrategy {
+        /**
+         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+         */
+        base?: pulumi.Input<number>;
+        /**
+         * Name of the capacity provider.
+         */
+        capacityProvider: pulumi.Input<string>;
+        /**
+         * The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+         */
+        weight?: pulumi.Input<number>;
     }
 
     export interface ClusterConfiguration {
@@ -17801,6 +17930,10 @@ export namespace imagebuilder {
          */
         amiDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfiguration>;
         /**
+         * Configuration block with container distribution settings. Detailed below.
+         */
+        containerDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionContainerDistributionConfiguration>;
+        /**
          * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
          */
         licenseConfigurationArns?: pulumi.Input<pulumi.Input<string>[]>;
@@ -17816,7 +17949,7 @@ export namespace imagebuilder {
          */
         amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Description to apply to the distributed AMI.
+         * Description of the container distribution configuration.
          */
         description?: pulumi.Input<string>;
         /**
@@ -17848,6 +17981,76 @@ export namespace imagebuilder {
         userIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface DistributionConfigurationDistributionContainerDistributionConfiguration {
+        /**
+         * Set of tags that are attached to the container distribution configuration.
+         */
+        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Description of the container distribution configuration.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Configuration block with the destination repository for the container distribution configuration.
+         */
+        targetRepository: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository>;
+    }
+
+    export interface DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
+        /**
+         * The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+         */
+        repositoryName: pulumi.Input<string>;
+        /**
+         * The service in which this image is registered. Valid values: `ECR`.
+         */
+        service: pulumi.Input<string>;
+    }
+
+    export interface GetComponentsFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetComponentsFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetDistributionConfigurationsFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetDistributionConfigurationsFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GetImageRecipesFilterArgs {
         /**
          * The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
@@ -17868,6 +18071,28 @@ export namespace imagebuilder {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetInfrastructureConfigurationsFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetInfrastructureConfigurationsFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ImageImageTestsConfiguration {
@@ -18007,6 +18232,7 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
+
 }
 
 export namespace iot {
@@ -25252,69 +25478,69 @@ export namespace s3 {
 
     export interface BucketNotificationLambdaFunction {
         /**
-         * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+         * [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          */
         events: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies object key name prefix.
+         * Object key name prefix.
          */
         filterPrefix?: pulumi.Input<string>;
         /**
-         * Specifies object key name suffix.
+         * Object key name suffix.
          */
         filterSuffix?: pulumi.Input<string>;
         /**
-         * Specifies unique identifier for each of the notification configurations.
+         * Unique identifier for each of the notification configurations.
          */
         id?: pulumi.Input<string>;
         /**
-         * Specifies Amazon Lambda function ARN.
+         * Lambda function ARN.
          */
         lambdaFunctionArn?: pulumi.Input<string>;
     }
 
     export interface BucketNotificationQueue {
         /**
-         * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+         * [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          */
         events: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies object key name prefix.
+         * Object key name prefix.
          */
         filterPrefix?: pulumi.Input<string>;
         /**
-         * Specifies object key name suffix.
+         * Object key name suffix.
          */
         filterSuffix?: pulumi.Input<string>;
         /**
-         * Specifies unique identifier for each of the notification configurations.
+         * Unique identifier for each of the notification configurations.
          */
         id?: pulumi.Input<string>;
         /**
-         * Specifies Amazon SQS queue ARN.
+         * SQS queue ARN.
          */
         queueArn: pulumi.Input<string>;
     }
 
     export interface BucketNotificationTopic {
         /**
-         * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+         * [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          */
         events: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies object key name prefix.
+         * Object key name prefix.
          */
         filterPrefix?: pulumi.Input<string>;
         /**
-         * Specifies object key name suffix.
+         * Object key name suffix.
          */
         filterSuffix?: pulumi.Input<string>;
         /**
-         * Specifies unique identifier for each of the notification configurations.
+         * Unique identifier for each of the notification configurations.
          */
         id?: pulumi.Input<string>;
         /**
-         * Specifies Amazon SNS topic ARN.
+         * SNS topic ARN.
          */
         topicArn: pulumi.Input<string>;
     }
@@ -26721,6 +26947,36 @@ export namespace sagemaker {
         subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface ProjectServiceCatalogProvisioningDetails {
+        /**
+         * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+         */
+        pathId?: pulumi.Input<string>;
+        /**
+         * The ID of the product to provision.
+         */
+        productId: pulumi.Input<string>;
+        /**
+         * The ID of the provisioning artifact.
+         */
+        provisioningArtifactId?: pulumi.Input<string>;
+        /**
+         * A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+         */
+        provisioningParameters?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProjectServiceCatalogProvisioningDetailsProvisioningParameter>[]>;
+    }
+
+    export interface ProjectServiceCatalogProvisioningDetailsProvisioningParameter {
+        /**
+         * The key that identifies a provisioning parameter.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value of the provisioning parameter.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface UserProfileUserSettings {
         /**
          * The execution role ARN for the user.
@@ -26966,7 +27222,7 @@ export namespace sagemaker {
 export namespace secretsmanager {
     export interface SecretReplica {
         /**
-         * ARN, Key ID, or Alias.
+         * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
          */
         kmsKeyId?: pulumi.Input<string>;
         /**

@@ -8,6 +8,7 @@ import typing
 from .account_setting_default import *
 from .capacity_provider import *
 from .cluster import *
+from .cluster_capacity_providers import *
 from .get_cluster import *
 from .get_container_definition import *
 from .get_service import *

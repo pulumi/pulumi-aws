@@ -223,7 +223,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -233,6 +233,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("variables")]
         public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the WebAcl associated with the Stage.
+        /// </summary>
+        [Output("webAclArn")]
+        public Output<string> WebAclArn { get; private set; } = null!;
 
         /// <summary>
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.
@@ -468,7 +474,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -487,6 +493,12 @@ namespace Pulumi.Aws.ApiGateway
             get => _variables ?? (_variables = new InputMap<string>());
             set => _variables = value;
         }
+
+        /// <summary>
+        /// The ARN of the WebAcl associated with the Stage.
+        /// </summary>
+        [Input("webAclArn")]
+        public Input<string>? WebAclArn { get; set; }
 
         /// <summary>
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.

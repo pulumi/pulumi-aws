@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Data Pipeline resource.
+ * Provides a DataPipeline Pipeline resource.
  *
  * ## Example Usage
  *

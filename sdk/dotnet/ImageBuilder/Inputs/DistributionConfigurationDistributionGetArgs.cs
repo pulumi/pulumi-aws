@@ -18,6 +18,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         [Input("amiDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationGetArgs>? AmiDistributionConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration block with container distribution settings. Detailed below.
+        /// </summary>
+        [Input("containerDistributionConfiguration")]
+        public Input<Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs>? ContainerDistributionConfiguration { get; set; }
+
         [Input("licenseConfigurationArns")]
         private InputList<string>? _licenseConfigurationArns;
 

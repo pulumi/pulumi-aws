@@ -114,6 +114,8 @@ if typing.TYPE_CHECKING:
     connect = __connect
     import pulumi_aws.cur as __cur
     cur = __cur
+    import pulumi_aws.dataexchange as __dataexchange
+    dataexchange = __dataexchange
     import pulumi_aws.datapipeline as __datapipeline
     datapipeline = __datapipeline
     import pulumi_aws.datasync as __datasync
@@ -372,6 +374,7 @@ else:
     config = _utilities.lazy_import('pulumi_aws.config')
     connect = _utilities.lazy_import('pulumi_aws.connect')
     cur = _utilities.lazy_import('pulumi_aws.cur')
+    dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws.datasync')
     dax = _utilities.lazy_import('pulumi_aws.dax')
@@ -2261,10 +2264,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/queue",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/queue:Queue": "Queue"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/quickConnect",
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/quickConnect:QuickConnect": "QuickConnect"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/securityProfile",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/securityProfile:SecurityProfile": "SecurityProfile"
   }
  },
  {
@@ -2277,10 +2296,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dataexchange/dataSet",
+  "fqn": "pulumi_aws.dataexchange",
+  "classes": {
+   "aws:dataexchange/dataSet:DataSet": "DataSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datapipeline/pipeline",
   "fqn": "pulumi_aws.datapipeline",
   "classes": {
    "aws:datapipeline/pipeline:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datapipeline/pipelineDefinition",
+  "fqn": "pulumi_aws.datapipeline",
+  "classes": {
+   "aws:datapipeline/pipelineDefinition:PipelineDefinition": "PipelineDefinition"
   }
  },
  {
@@ -2433,6 +2468,14 @@ _utilities.register(
   "fqn": "pulumi_aws.devicefarm",
   "classes": {
    "aws:devicefarm/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devicefarm/testGridProject",
+  "fqn": "pulumi_aws.devicefarm",
+  "classes": {
+   "aws:devicefarm/testGridProject:TestGridProject": "TestGridProject"
   }
  },
  {
@@ -3665,6 +3708,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ecs",
   "classes": {
    "aws:ecs/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecs/clusterCapacityProviders",
+  "fqn": "pulumi_aws.ecs",
+  "classes": {
+   "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders": "ClusterCapacityProviders"
   }
  },
  {
@@ -6673,6 +6724,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration": "NotebookInstanceLifecycleConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/project",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/project:Project": "Project"
   }
  },
  {
