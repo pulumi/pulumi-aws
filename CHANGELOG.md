@@ -6,7 +6,7 @@ CHANGELOG
 *As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-aws/releases) for this repository*
 
 ## HEAD (Unreleased)
-* Update `ecs.ContainerDefinition` interfaces to use `pulumi.Input<T>` instead of basic types
+- _(none)_
 
 ---
 
