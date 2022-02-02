@@ -137,34 +137,32 @@ export class Webhook extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            inputs["branchFilter"] = state ? state.branchFilter : undefined;
-            inputs["buildType"] = state ? state.buildType : undefined;
-            inputs["filterGroups"] = state ? state.filterGroups : undefined;
-            inputs["payloadUrl"] = state ? state.payloadUrl : undefined;
-            inputs["projectName"] = state ? state.projectName : undefined;
-            inputs["secret"] = state ? state.secret : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["branchFilter"] = state ? state.branchFilter : undefined;
+            resourceInputs["buildType"] = state ? state.buildType : undefined;
+            resourceInputs["filterGroups"] = state ? state.filterGroups : undefined;
+            resourceInputs["payloadUrl"] = state ? state.payloadUrl : undefined;
+            resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
             if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            inputs["branchFilter"] = args ? args.branchFilter : undefined;
-            inputs["buildType"] = args ? args.buildType : undefined;
-            inputs["filterGroups"] = args ? args.filterGroups : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["payloadUrl"] = undefined /*out*/;
-            inputs["secret"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["branchFilter"] = args ? args.branchFilter : undefined;
+            resourceInputs["buildType"] = args ? args.buildType : undefined;
+            resourceInputs["filterGroups"] = args ? args.filterGroups : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["payloadUrl"] = undefined /*out*/;
+            resourceInputs["secret"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Webhook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

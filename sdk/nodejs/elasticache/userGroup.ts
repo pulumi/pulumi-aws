@@ -88,16 +88,16 @@ export class UserGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserGroupArgs | UserGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userGroupId"] = state ? state.userGroupId : undefined;
-            inputs["userIds"] = state ? state.userIds : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userGroupId"] = state ? state.userGroupId : undefined;
+            resourceInputs["userIds"] = state ? state.userIds : undefined;
         } else {
             const args = argsOrState as UserGroupArgs | undefined;
             if ((!args || args.engine === undefined) && !opts.urn) {
@@ -106,17 +106,15 @@ export class UserGroup extends pulumi.CustomResource {
             if ((!args || args.userGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userGroupId"] = args ? args.userGroupId : undefined;
-            inputs["userIds"] = args ? args.userIds : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
+            resourceInputs["userIds"] = args ? args.userIds : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

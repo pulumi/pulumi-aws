@@ -92,16 +92,16 @@ export class IntegrationResponse extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationResponseArgs | IntegrationResponseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationResponseState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["contentHandlingStrategy"] = state ? state.contentHandlingStrategy : undefined;
-            inputs["integrationId"] = state ? state.integrationId : undefined;
-            inputs["integrationResponseKey"] = state ? state.integrationResponseKey : undefined;
-            inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
-            inputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["contentHandlingStrategy"] = state ? state.contentHandlingStrategy : undefined;
+            resourceInputs["integrationId"] = state ? state.integrationId : undefined;
+            resourceInputs["integrationResponseKey"] = state ? state.integrationResponseKey : undefined;
+            resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
+            resourceInputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
         } else {
             const args = argsOrState as IntegrationResponseArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -113,17 +113,15 @@ export class IntegrationResponse extends pulumi.CustomResource {
             if ((!args || args.integrationResponseKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationResponseKey'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
-            inputs["integrationId"] = args ? args.integrationId : undefined;
-            inputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
-            inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            inputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
+            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
+            resourceInputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
+            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
+            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationResponse.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationResponse.__pulumiType, name, resourceInputs, opts);
     }
 }
 

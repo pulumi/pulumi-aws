@@ -28,9 +28,7 @@ export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.Invo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:neptune/getEngineVersion:getEngineVersion", {
         "engine": args.engine,
         "parameterGroupFamily": args.parameterGroupFamily,

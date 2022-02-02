@@ -69,12 +69,12 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnGatewayRoutePropagationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnGatewayRoutePropagationArgs | VpnGatewayRoutePropagationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayRoutePropagationState | undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnGatewayRoutePropagationArgs | undefined;
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
@@ -83,13 +83,11 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
             if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpnGatewayRoutePropagation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpnGatewayRoutePropagation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

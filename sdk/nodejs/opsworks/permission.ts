@@ -80,30 +80,28 @@ export class Permission extends pulumi.CustomResource {
      */
     constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionState | undefined;
-            inputs["allowSsh"] = state ? state.allowSsh : undefined;
-            inputs["allowSudo"] = state ? state.allowSudo : undefined;
-            inputs["level"] = state ? state.level : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["userArn"] = state ? state.userArn : undefined;
+            resourceInputs["allowSsh"] = state ? state.allowSsh : undefined;
+            resourceInputs["allowSudo"] = state ? state.allowSudo : undefined;
+            resourceInputs["level"] = state ? state.level : undefined;
+            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["userArn"] = state ? state.userArn : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
             if ((!args || args.userArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userArn'");
             }
-            inputs["allowSsh"] = args ? args.allowSsh : undefined;
-            inputs["allowSudo"] = args ? args.allowSudo : undefined;
-            inputs["level"] = args ? args.level : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["userArn"] = args ? args.userArn : undefined;
+            resourceInputs["allowSsh"] = args ? args.allowSsh : undefined;
+            resourceInputs["allowSudo"] = args ? args.allowSudo : undefined;
+            resourceInputs["level"] = args ? args.level : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["userArn"] = args ? args.userArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Permission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Permission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

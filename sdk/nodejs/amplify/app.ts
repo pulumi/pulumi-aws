@@ -142,61 +142,59 @@ export class App extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppArgs | AppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppState | undefined;
-            inputs["accessToken"] = state ? state.accessToken : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoBranchCreationConfig"] = state ? state.autoBranchCreationConfig : undefined;
-            inputs["autoBranchCreationPatterns"] = state ? state.autoBranchCreationPatterns : undefined;
-            inputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
-            inputs["buildSpec"] = state ? state.buildSpec : undefined;
-            inputs["customRules"] = state ? state.customRules : undefined;
-            inputs["defaultDomain"] = state ? state.defaultDomain : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enableAutoBranchCreation"] = state ? state.enableAutoBranchCreation : undefined;
-            inputs["enableBasicAuth"] = state ? state.enableBasicAuth : undefined;
-            inputs["enableBranchAutoBuild"] = state ? state.enableBranchAutoBuild : undefined;
-            inputs["enableBranchAutoDeletion"] = state ? state.enableBranchAutoDeletion : undefined;
-            inputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            inputs["iamServiceRoleArn"] = state ? state.iamServiceRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["oauthToken"] = state ? state.oauthToken : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["productionBranches"] = state ? state.productionBranches : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoBranchCreationConfig"] = state ? state.autoBranchCreationConfig : undefined;
+            resourceInputs["autoBranchCreationPatterns"] = state ? state.autoBranchCreationPatterns : undefined;
+            resourceInputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
+            resourceInputs["buildSpec"] = state ? state.buildSpec : undefined;
+            resourceInputs["customRules"] = state ? state.customRules : undefined;
+            resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enableAutoBranchCreation"] = state ? state.enableAutoBranchCreation : undefined;
+            resourceInputs["enableBasicAuth"] = state ? state.enableBasicAuth : undefined;
+            resourceInputs["enableBranchAutoBuild"] = state ? state.enableBranchAutoBuild : undefined;
+            resourceInputs["enableBranchAutoDeletion"] = state ? state.enableBranchAutoDeletion : undefined;
+            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
+            resourceInputs["iamServiceRoleArn"] = state ? state.iamServiceRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["oauthToken"] = state ? state.oauthToken : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["productionBranches"] = state ? state.productionBranches : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
-            inputs["accessToken"] = args ? args.accessToken : undefined;
-            inputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
-            inputs["autoBranchCreationPatterns"] = args ? args.autoBranchCreationPatterns : undefined;
-            inputs["basicAuthCredentials"] = args ? args.basicAuthCredentials : undefined;
-            inputs["buildSpec"] = args ? args.buildSpec : undefined;
-            inputs["customRules"] = args ? args.customRules : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enableAutoBranchCreation"] = args ? args.enableAutoBranchCreation : undefined;
-            inputs["enableBasicAuth"] = args ? args.enableBasicAuth : undefined;
-            inputs["enableBranchAutoBuild"] = args ? args.enableBranchAutoBuild : undefined;
-            inputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
-            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            inputs["iamServiceRoleArn"] = args ? args.iamServiceRoleArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["oauthToken"] = args ? args.oauthToken : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultDomain"] = undefined /*out*/;
-            inputs["productionBranches"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
+            resourceInputs["autoBranchCreationPatterns"] = args ? args.autoBranchCreationPatterns : undefined;
+            resourceInputs["basicAuthCredentials"] = args ? args.basicAuthCredentials : undefined;
+            resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableAutoBranchCreation"] = args ? args.enableAutoBranchCreation : undefined;
+            resourceInputs["enableBasicAuth"] = args ? args.enableBasicAuth : undefined;
+            resourceInputs["enableBranchAutoBuild"] = args ? args.enableBranchAutoBuild : undefined;
+            resourceInputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["iamServiceRoleArn"] = args ? args.iamServiceRoleArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["oauthToken"] = args ? args.oauthToken : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultDomain"] = undefined /*out*/;
+            resourceInputs["productionBranches"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(App.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,7 +50,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cfg"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -208,7 +207,7 @@ type ConfigurationAggregatorInput interface {
 }
 
 func (*ConfigurationAggregator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregator)(nil))
+	return reflect.TypeOf((**ConfigurationAggregator)(nil)).Elem()
 }
 
 func (i *ConfigurationAggregator) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {
@@ -217,35 +216,6 @@ func (i *ConfigurationAggregator) ToConfigurationAggregatorOutput() Configuratio
 
 func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOutput)
-}
-
-func (i *ConfigurationAggregator) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
-	return i.ToConfigurationAggregatorPtrOutputWithContext(context.Background())
-}
-
-func (i *ConfigurationAggregator) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorPtrOutput)
-}
-
-type ConfigurationAggregatorPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput
-	ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput
-}
-
-type configurationAggregatorPtrType ConfigurationAggregatorArgs
-
-func (*configurationAggregatorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationAggregator)(nil))
-}
-
-func (i *configurationAggregatorPtrType) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
-	return i.ToConfigurationAggregatorPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationAggregatorPtrType) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorPtrOutput)
 }
 
 // ConfigurationAggregatorArrayInput is an input type that accepts ConfigurationAggregatorArray and ConfigurationAggregatorArrayOutput values.
@@ -301,7 +271,7 @@ func (i ConfigurationAggregatorMap) ToConfigurationAggregatorMapOutputWithContex
 type ConfigurationAggregatorOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregator)(nil))
+	return reflect.TypeOf((**ConfigurationAggregator)(nil)).Elem()
 }
 
 func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {
@@ -312,44 +282,10 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContex
 	return o
 }
 
-func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
-	return o.ToConfigurationAggregatorPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAggregator) *ConfigurationAggregator {
-		return &v
-	}).(ConfigurationAggregatorPtrOutput)
-}
-
-type ConfigurationAggregatorPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationAggregatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationAggregator)(nil))
-}
-
-func (o ConfigurationAggregatorPtrOutput) ToConfigurationAggregatorPtrOutput() ConfigurationAggregatorPtrOutput {
-	return o
-}
-
-func (o ConfigurationAggregatorPtrOutput) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
-	return o
-}
-
-func (o ConfigurationAggregatorPtrOutput) Elem() ConfigurationAggregatorOutput {
-	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregator {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationAggregator
-		return ret
-	}).(ConfigurationAggregatorOutput)
-}
-
 type ConfigurationAggregatorArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationAggregator)(nil))
+	return reflect.TypeOf((*[]*ConfigurationAggregator)(nil)).Elem()
 }
 
 func (o ConfigurationAggregatorArrayOutput) ToConfigurationAggregatorArrayOutput() ConfigurationAggregatorArrayOutput {
@@ -361,15 +297,15 @@ func (o ConfigurationAggregatorArrayOutput) ToConfigurationAggregatorArrayOutput
 }
 
 func (o ConfigurationAggregatorArrayOutput) Index(i pulumi.IntInput) ConfigurationAggregatorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationAggregator {
-		return vs[0].([]ConfigurationAggregator)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationAggregator {
+		return vs[0].([]*ConfigurationAggregator)[vs[1].(int)]
 	}).(ConfigurationAggregatorOutput)
 }
 
 type ConfigurationAggregatorMapOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConfigurationAggregator)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationAggregator)(nil)).Elem()
 }
 
 func (o ConfigurationAggregatorMapOutput) ToConfigurationAggregatorMapOutput() ConfigurationAggregatorMapOutput {
@@ -381,18 +317,16 @@ func (o ConfigurationAggregatorMapOutput) ToConfigurationAggregatorMapOutputWith
 }
 
 func (o ConfigurationAggregatorMapOutput) MapIndex(k pulumi.StringInput) ConfigurationAggregatorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationAggregator {
-		return vs[0].(map[string]ConfigurationAggregator)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConfigurationAggregator {
+		return vs[0].(map[string]*ConfigurationAggregator)[vs[1].(string)]
 	}).(ConfigurationAggregatorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorInput)(nil)).Elem(), &ConfigurationAggregator{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorPtrInput)(nil)).Elem(), &ConfigurationAggregator{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorArrayInput)(nil)).Elem(), ConfigurationAggregatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorMapInput)(nil)).Elem(), ConfigurationAggregatorMap{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOutput{})
-	pulumi.RegisterOutputType(ConfigurationAggregatorPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorMapOutput{})
 }

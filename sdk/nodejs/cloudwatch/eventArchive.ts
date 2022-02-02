@@ -106,32 +106,30 @@ export class EventArchive extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventArchiveArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventArchiveArgs | EventArchiveState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventArchiveState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["eventPattern"] = state ? state.eventPattern : undefined;
-            inputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retentionDays"] = state ? state.retentionDays : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eventPattern"] = state ? state.eventPattern : undefined;
+            resourceInputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
         } else {
             const args = argsOrState as EventArchiveArgs | undefined;
             if ((!args || args.eventSourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventSourceArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventPattern"] = args ? args.eventPattern : undefined;
-            inputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
+            resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventArchive.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventArchive.__pulumiType, name, resourceInputs, opts);
     }
 }
 

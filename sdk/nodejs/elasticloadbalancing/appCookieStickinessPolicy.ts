@@ -100,14 +100,14 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
     /** @deprecated aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy */
     constructor(name: string, argsOrState?: AppCookieStickinessPolicyArgs | AppCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AppCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppCookieStickinessPolicyState | undefined;
-            inputs["cookieName"] = state ? state.cookieName : undefined;
-            inputs["lbPort"] = state ? state.lbPort : undefined;
-            inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["cookieName"] = state ? state.cookieName : undefined;
+            resourceInputs["lbPort"] = state ? state.lbPort : undefined;
+            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AppCookieStickinessPolicyArgs | undefined;
             if ((!args || args.cookieName === undefined) && !opts.urn) {
@@ -119,15 +119,13 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            inputs["cookieName"] = args ? args.cookieName : undefined;
-            inputs["lbPort"] = args ? args.lbPort : undefined;
-            inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["cookieName"] = args ? args.cookieName : undefined;
+            resourceInputs["lbPort"] = args ? args.lbPort : undefined;
+            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AppCookieStickinessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AppCookieStickinessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

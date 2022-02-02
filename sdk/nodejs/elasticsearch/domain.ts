@@ -282,59 +282,57 @@ export class Domain extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
-            inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
-            inputs["advancedSecurityOptions"] = state ? state.advancedSecurityOptions : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoTuneOptions"] = state ? state.autoTuneOptions : undefined;
-            inputs["clusterConfig"] = state ? state.clusterConfig : undefined;
-            inputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
-            inputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
-            inputs["domainId"] = state ? state.domainId : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["ebsOptions"] = state ? state.ebsOptions : undefined;
-            inputs["elasticsearchVersion"] = state ? state.elasticsearchVersion : undefined;
-            inputs["encryptAtRest"] = state ? state.encryptAtRest : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
-            inputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
-            inputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
-            inputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcOptions"] = state ? state.vpcOptions : undefined;
+            resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
+            resourceInputs["advancedOptions"] = state ? state.advancedOptions : undefined;
+            resourceInputs["advancedSecurityOptions"] = state ? state.advancedSecurityOptions : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoTuneOptions"] = state ? state.autoTuneOptions : undefined;
+            resourceInputs["clusterConfig"] = state ? state.clusterConfig : undefined;
+            resourceInputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
+            resourceInputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["ebsOptions"] = state ? state.ebsOptions : undefined;
+            resourceInputs["elasticsearchVersion"] = state ? state.elasticsearchVersion : undefined;
+            resourceInputs["encryptAtRest"] = state ? state.encryptAtRest : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
+            resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
+            resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
+            resourceInputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcOptions"] = state ? state.vpcOptions : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
-            inputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
-            inputs["autoTuneOptions"] = args ? args.autoTuneOptions : undefined;
-            inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
-            inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
-            inputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["ebsOptions"] = args ? args.ebsOptions : undefined;
-            inputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
-            inputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
-            inputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            inputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
-            inputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcOptions"] = args ? args.vpcOptions : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainId"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["kibanaEndpoint"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
+            resourceInputs["advancedOptions"] = args ? args.advancedOptions : undefined;
+            resourceInputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
+            resourceInputs["autoTuneOptions"] = args ? args.autoTuneOptions : undefined;
+            resourceInputs["clusterConfig"] = args ? args.clusterConfig : undefined;
+            resourceInputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
+            resourceInputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
+            resourceInputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
+            resourceInputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
+            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
+            resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
+            resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["kibanaEndpoint"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

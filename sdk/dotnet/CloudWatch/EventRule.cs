@@ -42,11 +42,11 @@ namespace Pulumi.Aws.CloudWatch
     ///             Rule = console.Name,
     ///             Arn = awsLogins.Arn,
     ///         });
-    ///         var snsTopicPolicy = awsLogins.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var snsTopicPolicy = awsLogins.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Effect = "Allow",
     ///                     Actions = 
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                     },
     ///                     Principals = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
     ///                             Type = "Service",
     ///                             Identifiers = 

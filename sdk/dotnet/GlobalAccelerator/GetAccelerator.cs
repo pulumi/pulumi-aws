@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.GlobalAccelerator
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAcceleratorResult> InvokeAsync(GetAcceleratorArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a Global Accelerator accelerator.
@@ -76,7 +75,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAcceleratorResult> Invoke(GetAcceleratorInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -317,7 +317,7 @@ type CachesIscsiVolumeInput interface {
 }
 
 func (*CachesIscsiVolume) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachesIscsiVolume)(nil))
+	return reflect.TypeOf((**CachesIscsiVolume)(nil)).Elem()
 }
 
 func (i *CachesIscsiVolume) ToCachesIscsiVolumeOutput() CachesIscsiVolumeOutput {
@@ -326,35 +326,6 @@ func (i *CachesIscsiVolume) ToCachesIscsiVolumeOutput() CachesIscsiVolumeOutput 
 
 func (i *CachesIscsiVolume) ToCachesIscsiVolumeOutputWithContext(ctx context.Context) CachesIscsiVolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CachesIscsiVolumeOutput)
-}
-
-func (i *CachesIscsiVolume) ToCachesIscsiVolumePtrOutput() CachesIscsiVolumePtrOutput {
-	return i.ToCachesIscsiVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *CachesIscsiVolume) ToCachesIscsiVolumePtrOutputWithContext(ctx context.Context) CachesIscsiVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachesIscsiVolumePtrOutput)
-}
-
-type CachesIscsiVolumePtrInput interface {
-	pulumi.Input
-
-	ToCachesIscsiVolumePtrOutput() CachesIscsiVolumePtrOutput
-	ToCachesIscsiVolumePtrOutputWithContext(ctx context.Context) CachesIscsiVolumePtrOutput
-}
-
-type cachesIscsiVolumePtrType CachesIscsiVolumeArgs
-
-func (*cachesIscsiVolumePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachesIscsiVolume)(nil))
-}
-
-func (i *cachesIscsiVolumePtrType) ToCachesIscsiVolumePtrOutput() CachesIscsiVolumePtrOutput {
-	return i.ToCachesIscsiVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *cachesIscsiVolumePtrType) ToCachesIscsiVolumePtrOutputWithContext(ctx context.Context) CachesIscsiVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachesIscsiVolumePtrOutput)
 }
 
 // CachesIscsiVolumeArrayInput is an input type that accepts CachesIscsiVolumeArray and CachesIscsiVolumeArrayOutput values.
@@ -410,7 +381,7 @@ func (i CachesIscsiVolumeMap) ToCachesIscsiVolumeMapOutputWithContext(ctx contex
 type CachesIscsiVolumeOutput struct{ *pulumi.OutputState }
 
 func (CachesIscsiVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachesIscsiVolume)(nil))
+	return reflect.TypeOf((**CachesIscsiVolume)(nil)).Elem()
 }
 
 func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumeOutput() CachesIscsiVolumeOutput {
@@ -421,44 +392,10 @@ func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumeOutputWithContext(ctx contex
 	return o
 }
 
-func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumePtrOutput() CachesIscsiVolumePtrOutput {
-	return o.ToCachesIscsiVolumePtrOutputWithContext(context.Background())
-}
-
-func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumePtrOutputWithContext(ctx context.Context) CachesIscsiVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachesIscsiVolume) *CachesIscsiVolume {
-		return &v
-	}).(CachesIscsiVolumePtrOutput)
-}
-
-type CachesIscsiVolumePtrOutput struct{ *pulumi.OutputState }
-
-func (CachesIscsiVolumePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachesIscsiVolume)(nil))
-}
-
-func (o CachesIscsiVolumePtrOutput) ToCachesIscsiVolumePtrOutput() CachesIscsiVolumePtrOutput {
-	return o
-}
-
-func (o CachesIscsiVolumePtrOutput) ToCachesIscsiVolumePtrOutputWithContext(ctx context.Context) CachesIscsiVolumePtrOutput {
-	return o
-}
-
-func (o CachesIscsiVolumePtrOutput) Elem() CachesIscsiVolumeOutput {
-	return o.ApplyT(func(v *CachesIscsiVolume) CachesIscsiVolume {
-		if v != nil {
-			return *v
-		}
-		var ret CachesIscsiVolume
-		return ret
-	}).(CachesIscsiVolumeOutput)
-}
-
 type CachesIscsiVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (CachesIscsiVolumeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CachesIscsiVolume)(nil))
+	return reflect.TypeOf((*[]*CachesIscsiVolume)(nil)).Elem()
 }
 
 func (o CachesIscsiVolumeArrayOutput) ToCachesIscsiVolumeArrayOutput() CachesIscsiVolumeArrayOutput {
@@ -470,15 +407,15 @@ func (o CachesIscsiVolumeArrayOutput) ToCachesIscsiVolumeArrayOutputWithContext(
 }
 
 func (o CachesIscsiVolumeArrayOutput) Index(i pulumi.IntInput) CachesIscsiVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CachesIscsiVolume {
-		return vs[0].([]CachesIscsiVolume)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CachesIscsiVolume {
+		return vs[0].([]*CachesIscsiVolume)[vs[1].(int)]
 	}).(CachesIscsiVolumeOutput)
 }
 
 type CachesIscsiVolumeMapOutput struct{ *pulumi.OutputState }
 
 func (CachesIscsiVolumeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CachesIscsiVolume)(nil))
+	return reflect.TypeOf((*map[string]*CachesIscsiVolume)(nil)).Elem()
 }
 
 func (o CachesIscsiVolumeMapOutput) ToCachesIscsiVolumeMapOutput() CachesIscsiVolumeMapOutput {
@@ -490,18 +427,16 @@ func (o CachesIscsiVolumeMapOutput) ToCachesIscsiVolumeMapOutputWithContext(ctx 
 }
 
 func (o CachesIscsiVolumeMapOutput) MapIndex(k pulumi.StringInput) CachesIscsiVolumeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CachesIscsiVolume {
-		return vs[0].(map[string]CachesIscsiVolume)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CachesIscsiVolume {
+		return vs[0].(map[string]*CachesIscsiVolume)[vs[1].(string)]
 	}).(CachesIscsiVolumeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumeInput)(nil)).Elem(), &CachesIscsiVolume{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumePtrInput)(nil)).Elem(), &CachesIscsiVolume{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumeArrayInput)(nil)).Elem(), CachesIscsiVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumeMapInput)(nil)).Elem(), CachesIscsiVolumeMap{})
 	pulumi.RegisterOutputType(CachesIscsiVolumeOutput{})
-	pulumi.RegisterOutputType(CachesIscsiVolumePtrOutput{})
 	pulumi.RegisterOutputType(CachesIscsiVolumeArrayOutput{})
 	pulumi.RegisterOutputType(CachesIscsiVolumeMapOutput{})
 }

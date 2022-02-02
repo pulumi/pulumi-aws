@@ -203,63 +203,61 @@ export class Vpc extends pulumi.CustomResource {
      */
     constructor(name: string, args?: VpcArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcArgs | VpcState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
-            inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
-            inputs["defaultSecurityGroupId"] = state ? state.defaultSecurityGroupId : undefined;
-            inputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
-            inputs["enableClassiclink"] = state ? state.enableClassiclink : undefined;
-            inputs["enableClassiclinkDnsSupport"] = state ? state.enableClassiclinkDnsSupport : undefined;
-            inputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
-            inputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
-            inputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
-            inputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
-            inputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
-            inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
-            inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            inputs["ipv6CidrBlockNetworkBorderGroup"] = state ? state.ipv6CidrBlockNetworkBorderGroup : undefined;
-            inputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
-            inputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
-            inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
+            resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
+            resourceInputs["defaultSecurityGroupId"] = state ? state.defaultSecurityGroupId : undefined;
+            resourceInputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
+            resourceInputs["enableClassiclink"] = state ? state.enableClassiclink : undefined;
+            resourceInputs["enableClassiclinkDnsSupport"] = state ? state.enableClassiclinkDnsSupport : undefined;
+            resourceInputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
+            resourceInputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
+            resourceInputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
+            resourceInputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
+            resourceInputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
+            resourceInputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
+            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = state ? state.ipv6CidrBlockNetworkBorderGroup : undefined;
+            resourceInputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
+            resourceInputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcArgs | undefined;
-            inputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["enableClassiclink"] = args ? args.enableClassiclink : undefined;
-            inputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
-            inputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
-            inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
-            inputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
-            inputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            inputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
-            inputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            inputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultNetworkAclId"] = undefined /*out*/;
-            inputs["defaultRouteTableId"] = undefined /*out*/;
-            inputs["defaultSecurityGroupId"] = undefined /*out*/;
-            inputs["dhcpOptionsId"] = undefined /*out*/;
-            inputs["ipv6AssociationId"] = undefined /*out*/;
-            inputs["mainRouteTableId"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["enableClassiclink"] = args ? args.enableClassiclink : undefined;
+            resourceInputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
+            resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
+            resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
+            resourceInputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
+            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
+            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
+            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultNetworkAclId"] = undefined /*out*/;
+            resourceInputs["defaultRouteTableId"] = undefined /*out*/;
+            resourceInputs["defaultSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["dhcpOptionsId"] = undefined /*out*/;
+            resourceInputs["ipv6AssociationId"] = undefined /*out*/;
+            resourceInputs["mainRouteTableId"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Vpc.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Vpc.__pulumiType, name, resourceInputs, opts);
     }
 }
 

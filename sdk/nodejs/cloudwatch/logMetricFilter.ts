@@ -89,14 +89,14 @@ export class LogMetricFilter extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogMetricFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogMetricFilterArgs | LogMetricFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogMetricFilterState | undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
-            inputs["metricTransformation"] = state ? state.metricTransformation : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
+            resourceInputs["metricTransformation"] = state ? state.metricTransformation : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pattern"] = state ? state.pattern : undefined;
         } else {
             const args = argsOrState as LogMetricFilterArgs | undefined;
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
@@ -108,15 +108,13 @@ export class LogMetricFilter extends pulumi.CustomResource {
             if ((!args || args.pattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["metricTransformation"] = args ? args.metricTransformation : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["metricTransformation"] = args ? args.metricTransformation : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pattern"] = args ? args.pattern : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LogMetricFilter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LogMetricFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

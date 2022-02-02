@@ -200,7 +200,7 @@ type LayerVersionPermissionInput interface {
 }
 
 func (*LayerVersionPermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersionPermission)(nil))
+	return reflect.TypeOf((**LayerVersionPermission)(nil)).Elem()
 }
 
 func (i *LayerVersionPermission) ToLayerVersionPermissionOutput() LayerVersionPermissionOutput {
@@ -209,35 +209,6 @@ func (i *LayerVersionPermission) ToLayerVersionPermissionOutput() LayerVersionPe
 
 func (i *LayerVersionPermission) ToLayerVersionPermissionOutputWithContext(ctx context.Context) LayerVersionPermissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPermissionOutput)
-}
-
-func (i *LayerVersionPermission) ToLayerVersionPermissionPtrOutput() LayerVersionPermissionPtrOutput {
-	return i.ToLayerVersionPermissionPtrOutputWithContext(context.Background())
-}
-
-func (i *LayerVersionPermission) ToLayerVersionPermissionPtrOutputWithContext(ctx context.Context) LayerVersionPermissionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPermissionPtrOutput)
-}
-
-type LayerVersionPermissionPtrInput interface {
-	pulumi.Input
-
-	ToLayerVersionPermissionPtrOutput() LayerVersionPermissionPtrOutput
-	ToLayerVersionPermissionPtrOutputWithContext(ctx context.Context) LayerVersionPermissionPtrOutput
-}
-
-type layerVersionPermissionPtrType LayerVersionPermissionArgs
-
-func (*layerVersionPermissionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LayerVersionPermission)(nil))
-}
-
-func (i *layerVersionPermissionPtrType) ToLayerVersionPermissionPtrOutput() LayerVersionPermissionPtrOutput {
-	return i.ToLayerVersionPermissionPtrOutputWithContext(context.Background())
-}
-
-func (i *layerVersionPermissionPtrType) ToLayerVersionPermissionPtrOutputWithContext(ctx context.Context) LayerVersionPermissionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPermissionPtrOutput)
 }
 
 // LayerVersionPermissionArrayInput is an input type that accepts LayerVersionPermissionArray and LayerVersionPermissionArrayOutput values.
@@ -293,7 +264,7 @@ func (i LayerVersionPermissionMap) ToLayerVersionPermissionMapOutputWithContext(
 type LayerVersionPermissionOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionPermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersionPermission)(nil))
+	return reflect.TypeOf((**LayerVersionPermission)(nil)).Elem()
 }
 
 func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutput() LayerVersionPermissionOutput {
@@ -304,44 +275,10 @@ func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(
 	return o
 }
 
-func (o LayerVersionPermissionOutput) ToLayerVersionPermissionPtrOutput() LayerVersionPermissionPtrOutput {
-	return o.ToLayerVersionPermissionPtrOutputWithContext(context.Background())
-}
-
-func (o LayerVersionPermissionOutput) ToLayerVersionPermissionPtrOutputWithContext(ctx context.Context) LayerVersionPermissionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerVersionPermission) *LayerVersionPermission {
-		return &v
-	}).(LayerVersionPermissionPtrOutput)
-}
-
-type LayerVersionPermissionPtrOutput struct{ *pulumi.OutputState }
-
-func (LayerVersionPermissionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LayerVersionPermission)(nil))
-}
-
-func (o LayerVersionPermissionPtrOutput) ToLayerVersionPermissionPtrOutput() LayerVersionPermissionPtrOutput {
-	return o
-}
-
-func (o LayerVersionPermissionPtrOutput) ToLayerVersionPermissionPtrOutputWithContext(ctx context.Context) LayerVersionPermissionPtrOutput {
-	return o
-}
-
-func (o LayerVersionPermissionPtrOutput) Elem() LayerVersionPermissionOutput {
-	return o.ApplyT(func(v *LayerVersionPermission) LayerVersionPermission {
-		if v != nil {
-			return *v
-		}
-		var ret LayerVersionPermission
-		return ret
-	}).(LayerVersionPermissionOutput)
-}
-
 type LayerVersionPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionPermissionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LayerVersionPermission)(nil))
+	return reflect.TypeOf((*[]*LayerVersionPermission)(nil)).Elem()
 }
 
 func (o LayerVersionPermissionArrayOutput) ToLayerVersionPermissionArrayOutput() LayerVersionPermissionArrayOutput {
@@ -353,15 +290,15 @@ func (o LayerVersionPermissionArrayOutput) ToLayerVersionPermissionArrayOutputWi
 }
 
 func (o LayerVersionPermissionArrayOutput) Index(i pulumi.IntInput) LayerVersionPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LayerVersionPermission {
-		return vs[0].([]LayerVersionPermission)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LayerVersionPermission {
+		return vs[0].([]*LayerVersionPermission)[vs[1].(int)]
 	}).(LayerVersionPermissionOutput)
 }
 
 type LayerVersionPermissionMapOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionPermissionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LayerVersionPermission)(nil))
+	return reflect.TypeOf((*map[string]*LayerVersionPermission)(nil)).Elem()
 }
 
 func (o LayerVersionPermissionMapOutput) ToLayerVersionPermissionMapOutput() LayerVersionPermissionMapOutput {
@@ -373,18 +310,16 @@ func (o LayerVersionPermissionMapOutput) ToLayerVersionPermissionMapOutputWithCo
 }
 
 func (o LayerVersionPermissionMapOutput) MapIndex(k pulumi.StringInput) LayerVersionPermissionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LayerVersionPermission {
-		return vs[0].(map[string]LayerVersionPermission)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LayerVersionPermission {
+		return vs[0].(map[string]*LayerVersionPermission)[vs[1].(string)]
 	}).(LayerVersionPermissionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionPermissionInput)(nil)).Elem(), &LayerVersionPermission{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionPermissionPtrInput)(nil)).Elem(), &LayerVersionPermission{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionPermissionArrayInput)(nil)).Elem(), LayerVersionPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionPermissionMapInput)(nil)).Elem(), LayerVersionPermissionMap{})
 	pulumi.RegisterOutputType(LayerVersionPermissionOutput{})
-	pulumi.RegisterOutputType(LayerVersionPermissionPtrOutput{})
 	pulumi.RegisterOutputType(LayerVersionPermissionArrayOutput{})
 	pulumi.RegisterOutputType(LayerVersionPermissionMapOutput{})
 }

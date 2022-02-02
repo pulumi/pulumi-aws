@@ -25,9 +25,7 @@ export function getDelegatedAdministrators(args?: GetDelegatedAdministratorsArgs
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", {
         "servicePrincipal": args.servicePrincipal,
     }, opts);

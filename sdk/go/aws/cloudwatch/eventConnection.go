@@ -314,7 +314,7 @@ type EventConnectionInput interface {
 }
 
 func (*EventConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventConnection)(nil))
+	return reflect.TypeOf((**EventConnection)(nil)).Elem()
 }
 
 func (i *EventConnection) ToEventConnectionOutput() EventConnectionOutput {
@@ -323,35 +323,6 @@ func (i *EventConnection) ToEventConnectionOutput() EventConnectionOutput {
 
 func (i *EventConnection) ToEventConnectionOutputWithContext(ctx context.Context) EventConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionOutput)
-}
-
-func (i *EventConnection) ToEventConnectionPtrOutput() EventConnectionPtrOutput {
-	return i.ToEventConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *EventConnection) ToEventConnectionPtrOutputWithContext(ctx context.Context) EventConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionPtrOutput)
-}
-
-type EventConnectionPtrInput interface {
-	pulumi.Input
-
-	ToEventConnectionPtrOutput() EventConnectionPtrOutput
-	ToEventConnectionPtrOutputWithContext(ctx context.Context) EventConnectionPtrOutput
-}
-
-type eventConnectionPtrType EventConnectionArgs
-
-func (*eventConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventConnection)(nil))
-}
-
-func (i *eventConnectionPtrType) ToEventConnectionPtrOutput() EventConnectionPtrOutput {
-	return i.ToEventConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *eventConnectionPtrType) ToEventConnectionPtrOutputWithContext(ctx context.Context) EventConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionPtrOutput)
 }
 
 // EventConnectionArrayInput is an input type that accepts EventConnectionArray and EventConnectionArrayOutput values.
@@ -407,7 +378,7 @@ func (i EventConnectionMap) ToEventConnectionMapOutputWithContext(ctx context.Co
 type EventConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventConnection)(nil))
+	return reflect.TypeOf((**EventConnection)(nil)).Elem()
 }
 
 func (o EventConnectionOutput) ToEventConnectionOutput() EventConnectionOutput {
@@ -418,44 +389,10 @@ func (o EventConnectionOutput) ToEventConnectionOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o EventConnectionOutput) ToEventConnectionPtrOutput() EventConnectionPtrOutput {
-	return o.ToEventConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o EventConnectionOutput) ToEventConnectionPtrOutputWithContext(ctx context.Context) EventConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnection) *EventConnection {
-		return &v
-	}).(EventConnectionPtrOutput)
-}
-
-type EventConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (EventConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventConnection)(nil))
-}
-
-func (o EventConnectionPtrOutput) ToEventConnectionPtrOutput() EventConnectionPtrOutput {
-	return o
-}
-
-func (o EventConnectionPtrOutput) ToEventConnectionPtrOutputWithContext(ctx context.Context) EventConnectionPtrOutput {
-	return o
-}
-
-func (o EventConnectionPtrOutput) Elem() EventConnectionOutput {
-	return o.ApplyT(func(v *EventConnection) EventConnection {
-		if v != nil {
-			return *v
-		}
-		var ret EventConnection
-		return ret
-	}).(EventConnectionOutput)
-}
-
 type EventConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventConnection)(nil))
+	return reflect.TypeOf((*[]*EventConnection)(nil)).Elem()
 }
 
 func (o EventConnectionArrayOutput) ToEventConnectionArrayOutput() EventConnectionArrayOutput {
@@ -467,15 +404,15 @@ func (o EventConnectionArrayOutput) ToEventConnectionArrayOutputWithContext(ctx 
 }
 
 func (o EventConnectionArrayOutput) Index(i pulumi.IntInput) EventConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventConnection {
-		return vs[0].([]EventConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventConnection {
+		return vs[0].([]*EventConnection)[vs[1].(int)]
 	}).(EventConnectionOutput)
 }
 
 type EventConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventConnection)(nil))
+	return reflect.TypeOf((*map[string]*EventConnection)(nil)).Elem()
 }
 
 func (o EventConnectionMapOutput) ToEventConnectionMapOutput() EventConnectionMapOutput {
@@ -487,18 +424,16 @@ func (o EventConnectionMapOutput) ToEventConnectionMapOutputWithContext(ctx cont
 }
 
 func (o EventConnectionMapOutput) MapIndex(k pulumi.StringInput) EventConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventConnection {
-		return vs[0].(map[string]EventConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventConnection {
+		return vs[0].(map[string]*EventConnection)[vs[1].(string)]
 	}).(EventConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionInput)(nil)).Elem(), &EventConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionPtrInput)(nil)).Elem(), &EventConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionArrayInput)(nil)).Elem(), EventConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionMapInput)(nil)).Elem(), EventConnectionMap{})
 	pulumi.RegisterOutputType(EventConnectionOutput{})
-	pulumi.RegisterOutputType(EventConnectionPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionArrayOutput{})
 	pulumi.RegisterOutputType(EventConnectionMapOutput{})
 }

@@ -161,7 +161,7 @@ type AdmChannelInput interface {
 }
 
 func (*AdmChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmChannel)(nil))
+	return reflect.TypeOf((**AdmChannel)(nil)).Elem()
 }
 
 func (i *AdmChannel) ToAdmChannelOutput() AdmChannelOutput {
@@ -170,35 +170,6 @@ func (i *AdmChannel) ToAdmChannelOutput() AdmChannelOutput {
 
 func (i *AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelOutput)
-}
-
-func (i *AdmChannel) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
-	return i.ToAdmChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *AdmChannel) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelPtrOutput)
-}
-
-type AdmChannelPtrInput interface {
-	pulumi.Input
-
-	ToAdmChannelPtrOutput() AdmChannelPtrOutput
-	ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput
-}
-
-type admChannelPtrType AdmChannelArgs
-
-func (*admChannelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdmChannel)(nil))
-}
-
-func (i *admChannelPtrType) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
-	return i.ToAdmChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *admChannelPtrType) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelPtrOutput)
 }
 
 // AdmChannelArrayInput is an input type that accepts AdmChannelArray and AdmChannelArrayOutput values.
@@ -254,7 +225,7 @@ func (i AdmChannelMap) ToAdmChannelMapOutputWithContext(ctx context.Context) Adm
 type AdmChannelOutput struct{ *pulumi.OutputState }
 
 func (AdmChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmChannel)(nil))
+	return reflect.TypeOf((**AdmChannel)(nil)).Elem()
 }
 
 func (o AdmChannelOutput) ToAdmChannelOutput() AdmChannelOutput {
@@ -265,44 +236,10 @@ func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) Adm
 	return o
 }
 
-func (o AdmChannelOutput) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
-	return o.ToAdmChannelPtrOutputWithContext(context.Background())
-}
-
-func (o AdmChannelOutput) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmChannel) *AdmChannel {
-		return &v
-	}).(AdmChannelPtrOutput)
-}
-
-type AdmChannelPtrOutput struct{ *pulumi.OutputState }
-
-func (AdmChannelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdmChannel)(nil))
-}
-
-func (o AdmChannelPtrOutput) ToAdmChannelPtrOutput() AdmChannelPtrOutput {
-	return o
-}
-
-func (o AdmChannelPtrOutput) ToAdmChannelPtrOutputWithContext(ctx context.Context) AdmChannelPtrOutput {
-	return o
-}
-
-func (o AdmChannelPtrOutput) Elem() AdmChannelOutput {
-	return o.ApplyT(func(v *AdmChannel) AdmChannel {
-		if v != nil {
-			return *v
-		}
-		var ret AdmChannel
-		return ret
-	}).(AdmChannelOutput)
-}
-
 type AdmChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (AdmChannelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdmChannel)(nil))
+	return reflect.TypeOf((*[]*AdmChannel)(nil)).Elem()
 }
 
 func (o AdmChannelArrayOutput) ToAdmChannelArrayOutput() AdmChannelArrayOutput {
@@ -314,15 +251,15 @@ func (o AdmChannelArrayOutput) ToAdmChannelArrayOutputWithContext(ctx context.Co
 }
 
 func (o AdmChannelArrayOutput) Index(i pulumi.IntInput) AdmChannelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdmChannel {
-		return vs[0].([]AdmChannel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdmChannel {
+		return vs[0].([]*AdmChannel)[vs[1].(int)]
 	}).(AdmChannelOutput)
 }
 
 type AdmChannelMapOutput struct{ *pulumi.OutputState }
 
 func (AdmChannelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AdmChannel)(nil))
+	return reflect.TypeOf((*map[string]*AdmChannel)(nil)).Elem()
 }
 
 func (o AdmChannelMapOutput) ToAdmChannelMapOutput() AdmChannelMapOutput {
@@ -334,18 +271,16 @@ func (o AdmChannelMapOutput) ToAdmChannelMapOutputWithContext(ctx context.Contex
 }
 
 func (o AdmChannelMapOutput) MapIndex(k pulumi.StringInput) AdmChannelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdmChannel {
-		return vs[0].(map[string]AdmChannel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AdmChannel {
+		return vs[0].(map[string]*AdmChannel)[vs[1].(string)]
 	}).(AdmChannelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AdmChannelInput)(nil)).Elem(), &AdmChannel{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AdmChannelPtrInput)(nil)).Elem(), &AdmChannel{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdmChannelArrayInput)(nil)).Elem(), AdmChannelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdmChannelMapInput)(nil)).Elem(), AdmChannelMap{})
 	pulumi.RegisterOutputType(AdmChannelOutput{})
-	pulumi.RegisterOutputType(AdmChannelPtrOutput{})
 	pulumi.RegisterOutputType(AdmChannelArrayOutput{})
 	pulumi.RegisterOutputType(AdmChannelMapOutput{})
 }

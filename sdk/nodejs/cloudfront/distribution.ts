@@ -404,40 +404,40 @@ export class Distribution extends pulumi.CustomResource {
      */
     constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DistributionArgs | DistributionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DistributionState | undefined;
-            inputs["aliases"] = state ? state.aliases : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["callerReference"] = state ? state.callerReference : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["customErrorResponses"] = state ? state.customErrorResponses : undefined;
-            inputs["defaultCacheBehavior"] = state ? state.defaultCacheBehavior : undefined;
-            inputs["defaultRootObject"] = state ? state.defaultRootObject : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            inputs["httpVersion"] = state ? state.httpVersion : undefined;
-            inputs["inProgressValidationBatches"] = state ? state.inProgressValidationBatches : undefined;
-            inputs["isIpv6Enabled"] = state ? state.isIpv6Enabled : undefined;
-            inputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
-            inputs["loggingConfig"] = state ? state.loggingConfig : undefined;
-            inputs["orderedCacheBehaviors"] = state ? state.orderedCacheBehaviors : undefined;
-            inputs["originGroups"] = state ? state.originGroups : undefined;
-            inputs["origins"] = state ? state.origins : undefined;
-            inputs["priceClass"] = state ? state.priceClass : undefined;
-            inputs["restrictions"] = state ? state.restrictions : undefined;
-            inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["trustedKeyGroups"] = state ? state.trustedKeyGroups : undefined;
-            inputs["trustedSigners"] = state ? state.trustedSigners : undefined;
-            inputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
-            inputs["waitForDeployment"] = state ? state.waitForDeployment : undefined;
-            inputs["webAclId"] = state ? state.webAclId : undefined;
+            resourceInputs["aliases"] = state ? state.aliases : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["callerReference"] = state ? state.callerReference : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["customErrorResponses"] = state ? state.customErrorResponses : undefined;
+            resourceInputs["defaultCacheBehavior"] = state ? state.defaultCacheBehavior : undefined;
+            resourceInputs["defaultRootObject"] = state ? state.defaultRootObject : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["httpVersion"] = state ? state.httpVersion : undefined;
+            resourceInputs["inProgressValidationBatches"] = state ? state.inProgressValidationBatches : undefined;
+            resourceInputs["isIpv6Enabled"] = state ? state.isIpv6Enabled : undefined;
+            resourceInputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
+            resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
+            resourceInputs["orderedCacheBehaviors"] = state ? state.orderedCacheBehaviors : undefined;
+            resourceInputs["originGroups"] = state ? state.originGroups : undefined;
+            resourceInputs["origins"] = state ? state.origins : undefined;
+            resourceInputs["priceClass"] = state ? state.priceClass : undefined;
+            resourceInputs["restrictions"] = state ? state.restrictions : undefined;
+            resourceInputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trustedKeyGroups"] = state ? state.trustedKeyGroups : undefined;
+            resourceInputs["trustedSigners"] = state ? state.trustedSigners : undefined;
+            resourceInputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
+            resourceInputs["waitForDeployment"] = state ? state.waitForDeployment : undefined;
+            resourceInputs["webAclId"] = state ? state.webAclId : undefined;
         } else {
             const args = argsOrState as DistributionArgs | undefined;
             if ((!args || args.defaultCacheBehavior === undefined) && !opts.urn) {
@@ -455,41 +455,39 @@ export class Distribution extends pulumi.CustomResource {
             if ((!args || args.viewerCertificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'viewerCertificate'");
             }
-            inputs["aliases"] = args ? args.aliases : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["customErrorResponses"] = args ? args.customErrorResponses : undefined;
-            inputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
-            inputs["defaultRootObject"] = args ? args.defaultRootObject : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["httpVersion"] = args ? args.httpVersion : undefined;
-            inputs["isIpv6Enabled"] = args ? args.isIpv6Enabled : undefined;
-            inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            inputs["orderedCacheBehaviors"] = args ? args.orderedCacheBehaviors : undefined;
-            inputs["originGroups"] = args ? args.originGroups : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
-            inputs["priceClass"] = args ? args.priceClass : undefined;
-            inputs["restrictions"] = args ? args.restrictions : undefined;
-            inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
-            inputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
-            inputs["webAclId"] = args ? args.webAclId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["callerReference"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
-            inputs["inProgressValidationBatches"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["trustedKeyGroups"] = undefined /*out*/;
-            inputs["trustedSigners"] = undefined /*out*/;
+            resourceInputs["aliases"] = args ? args.aliases : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["customErrorResponses"] = args ? args.customErrorResponses : undefined;
+            resourceInputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
+            resourceInputs["defaultRootObject"] = args ? args.defaultRootObject : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["httpVersion"] = args ? args.httpVersion : undefined;
+            resourceInputs["isIpv6Enabled"] = args ? args.isIpv6Enabled : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["orderedCacheBehaviors"] = args ? args.orderedCacheBehaviors : undefined;
+            resourceInputs["originGroups"] = args ? args.originGroups : undefined;
+            resourceInputs["origins"] = args ? args.origins : undefined;
+            resourceInputs["priceClass"] = args ? args.priceClass : undefined;
+            resourceInputs["restrictions"] = args ? args.restrictions : undefined;
+            resourceInputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
+            resourceInputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
+            resourceInputs["webAclId"] = args ? args.webAclId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["callerReference"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["inProgressValidationBatches"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["trustedKeyGroups"] = undefined /*out*/;
+            resourceInputs["trustedSigners"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Distribution.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Distribution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

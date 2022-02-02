@@ -55,13 +55,13 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: MainRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MainRouteTableAssociationArgs | MainRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MainRouteTableAssociationState | undefined;
-            inputs["originalRouteTableId"] = state ? state.originalRouteTableId : undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["originalRouteTableId"] = state ? state.originalRouteTableId : undefined;
+            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as MainRouteTableAssociationArgs | undefined;
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
@@ -70,14 +70,12 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["originalRouteTableId"] = undefined /*out*/;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["originalRouteTableId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MainRouteTableAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MainRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

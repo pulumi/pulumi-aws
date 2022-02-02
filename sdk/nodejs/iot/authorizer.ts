@@ -99,34 +99,32 @@ export class Authorizer extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authorizerFunctionArn"] = state ? state.authorizerFunctionArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["signingDisabled"] = state ? state.signingDisabled : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tokenKeyName"] = state ? state.tokenKeyName : undefined;
-            inputs["tokenSigningPublicKeys"] = state ? state.tokenSigningPublicKeys : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authorizerFunctionArn"] = state ? state.authorizerFunctionArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["signingDisabled"] = state ? state.signingDisabled : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tokenKeyName"] = state ? state.tokenKeyName : undefined;
+            resourceInputs["tokenSigningPublicKeys"] = state ? state.tokenSigningPublicKeys : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
             if ((!args || args.authorizerFunctionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizerFunctionArn'");
             }
-            inputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["signingDisabled"] = args ? args.signingDisabled : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
-            inputs["tokenSigningPublicKeys"] = args ? args.tokenSigningPublicKeys : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
+            resourceInputs["tokenSigningPublicKeys"] = args ? args.tokenSigningPublicKeys : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Authorizer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

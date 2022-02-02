@@ -77,22 +77,20 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationConfigurationArgs | OrganizationConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
-            inputs["autoEnable"] = state ? state.autoEnable : undefined;
+            resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
             if ((!args || args.autoEnable === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            inputs["autoEnable"] = args ? args.autoEnable : undefined;
+            resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OrganizationConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

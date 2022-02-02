@@ -216,7 +216,7 @@ type WorkforceInput interface {
 }
 
 func (*Workforce) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workforce)(nil))
+	return reflect.TypeOf((**Workforce)(nil)).Elem()
 }
 
 func (i *Workforce) ToWorkforceOutput() WorkforceOutput {
@@ -225,35 +225,6 @@ func (i *Workforce) ToWorkforceOutput() WorkforceOutput {
 
 func (i *Workforce) ToWorkforceOutputWithContext(ctx context.Context) WorkforceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkforceOutput)
-}
-
-func (i *Workforce) ToWorkforcePtrOutput() WorkforcePtrOutput {
-	return i.ToWorkforcePtrOutputWithContext(context.Background())
-}
-
-func (i *Workforce) ToWorkforcePtrOutputWithContext(ctx context.Context) WorkforcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkforcePtrOutput)
-}
-
-type WorkforcePtrInput interface {
-	pulumi.Input
-
-	ToWorkforcePtrOutput() WorkforcePtrOutput
-	ToWorkforcePtrOutputWithContext(ctx context.Context) WorkforcePtrOutput
-}
-
-type workforcePtrType WorkforceArgs
-
-func (*workforcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Workforce)(nil))
-}
-
-func (i *workforcePtrType) ToWorkforcePtrOutput() WorkforcePtrOutput {
-	return i.ToWorkforcePtrOutputWithContext(context.Background())
-}
-
-func (i *workforcePtrType) ToWorkforcePtrOutputWithContext(ctx context.Context) WorkforcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkforcePtrOutput)
 }
 
 // WorkforceArrayInput is an input type that accepts WorkforceArray and WorkforceArrayOutput values.
@@ -309,7 +280,7 @@ func (i WorkforceMap) ToWorkforceMapOutputWithContext(ctx context.Context) Workf
 type WorkforceOutput struct{ *pulumi.OutputState }
 
 func (WorkforceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workforce)(nil))
+	return reflect.TypeOf((**Workforce)(nil)).Elem()
 }
 
 func (o WorkforceOutput) ToWorkforceOutput() WorkforceOutput {
@@ -320,44 +291,10 @@ func (o WorkforceOutput) ToWorkforceOutputWithContext(ctx context.Context) Workf
 	return o
 }
 
-func (o WorkforceOutput) ToWorkforcePtrOutput() WorkforcePtrOutput {
-	return o.ToWorkforcePtrOutputWithContext(context.Background())
-}
-
-func (o WorkforceOutput) ToWorkforcePtrOutputWithContext(ctx context.Context) WorkforcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Workforce) *Workforce {
-		return &v
-	}).(WorkforcePtrOutput)
-}
-
-type WorkforcePtrOutput struct{ *pulumi.OutputState }
-
-func (WorkforcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Workforce)(nil))
-}
-
-func (o WorkforcePtrOutput) ToWorkforcePtrOutput() WorkforcePtrOutput {
-	return o
-}
-
-func (o WorkforcePtrOutput) ToWorkforcePtrOutputWithContext(ctx context.Context) WorkforcePtrOutput {
-	return o
-}
-
-func (o WorkforcePtrOutput) Elem() WorkforceOutput {
-	return o.ApplyT(func(v *Workforce) Workforce {
-		if v != nil {
-			return *v
-		}
-		var ret Workforce
-		return ret
-	}).(WorkforceOutput)
-}
-
 type WorkforceArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkforceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Workforce)(nil))
+	return reflect.TypeOf((*[]*Workforce)(nil)).Elem()
 }
 
 func (o WorkforceArrayOutput) ToWorkforceArrayOutput() WorkforceArrayOutput {
@@ -369,15 +306,15 @@ func (o WorkforceArrayOutput) ToWorkforceArrayOutputWithContext(ctx context.Cont
 }
 
 func (o WorkforceArrayOutput) Index(i pulumi.IntInput) WorkforceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Workforce {
-		return vs[0].([]Workforce)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workforce {
+		return vs[0].([]*Workforce)[vs[1].(int)]
 	}).(WorkforceOutput)
 }
 
 type WorkforceMapOutput struct{ *pulumi.OutputState }
 
 func (WorkforceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Workforce)(nil))
+	return reflect.TypeOf((*map[string]*Workforce)(nil)).Elem()
 }
 
 func (o WorkforceMapOutput) ToWorkforceMapOutput() WorkforceMapOutput {
@@ -389,18 +326,16 @@ func (o WorkforceMapOutput) ToWorkforceMapOutputWithContext(ctx context.Context)
 }
 
 func (o WorkforceMapOutput) MapIndex(k pulumi.StringInput) WorkforceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Workforce {
-		return vs[0].(map[string]Workforce)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Workforce {
+		return vs[0].(map[string]*Workforce)[vs[1].(string)]
 	}).(WorkforceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceInput)(nil)).Elem(), &Workforce{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkforcePtrInput)(nil)).Elem(), &Workforce{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceArrayInput)(nil)).Elem(), WorkforceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceMapInput)(nil)).Elem(), WorkforceMap{})
 	pulumi.RegisterOutputType(WorkforceOutput{})
-	pulumi.RegisterOutputType(WorkforcePtrOutput{})
 	pulumi.RegisterOutputType(WorkforceArrayOutput{})
 	pulumi.RegisterOutputType(WorkforceMapOutput{})
 }

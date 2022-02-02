@@ -138,7 +138,7 @@ type ConnectionAssociationInput interface {
 }
 
 func (*ConnectionAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAssociation)(nil))
+	return reflect.TypeOf((**ConnectionAssociation)(nil)).Elem()
 }
 
 func (i *ConnectionAssociation) ToConnectionAssociationOutput() ConnectionAssociationOutput {
@@ -147,35 +147,6 @@ func (i *ConnectionAssociation) ToConnectionAssociationOutput() ConnectionAssoci
 
 func (i *ConnectionAssociation) ToConnectionAssociationOutputWithContext(ctx context.Context) ConnectionAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationOutput)
-}
-
-func (i *ConnectionAssociation) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
-	return i.ToConnectionAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ConnectionAssociation) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationPtrOutput)
-}
-
-type ConnectionAssociationPtrInput interface {
-	pulumi.Input
-
-	ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput
-	ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput
-}
-
-type connectionAssociationPtrType ConnectionAssociationArgs
-
-func (*connectionAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionAssociation)(nil))
-}
-
-func (i *connectionAssociationPtrType) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
-	return i.ToConnectionAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *connectionAssociationPtrType) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationPtrOutput)
 }
 
 // ConnectionAssociationArrayInput is an input type that accepts ConnectionAssociationArray and ConnectionAssociationArrayOutput values.
@@ -231,7 +202,7 @@ func (i ConnectionAssociationMap) ToConnectionAssociationMapOutputWithContext(ct
 type ConnectionAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAssociation)(nil))
+	return reflect.TypeOf((**ConnectionAssociation)(nil)).Elem()
 }
 
 func (o ConnectionAssociationOutput) ToConnectionAssociationOutput() ConnectionAssociationOutput {
@@ -242,44 +213,10 @@ func (o ConnectionAssociationOutput) ToConnectionAssociationOutputWithContext(ct
 	return o
 }
 
-func (o ConnectionAssociationOutput) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
-	return o.ToConnectionAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionAssociationOutput) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAssociation) *ConnectionAssociation {
-		return &v
-	}).(ConnectionAssociationPtrOutput)
-}
-
-type ConnectionAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectionAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionAssociation)(nil))
-}
-
-func (o ConnectionAssociationPtrOutput) ToConnectionAssociationPtrOutput() ConnectionAssociationPtrOutput {
-	return o
-}
-
-func (o ConnectionAssociationPtrOutput) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
-	return o
-}
-
-func (o ConnectionAssociationPtrOutput) Elem() ConnectionAssociationOutput {
-	return o.ApplyT(func(v *ConnectionAssociation) ConnectionAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionAssociation
-		return ret
-	}).(ConnectionAssociationOutput)
-}
-
 type ConnectionAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionAssociation)(nil))
+	return reflect.TypeOf((*[]*ConnectionAssociation)(nil)).Elem()
 }
 
 func (o ConnectionAssociationArrayOutput) ToConnectionAssociationArrayOutput() ConnectionAssociationArrayOutput {
@@ -291,15 +228,15 @@ func (o ConnectionAssociationArrayOutput) ToConnectionAssociationArrayOutputWith
 }
 
 func (o ConnectionAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionAssociation {
-		return vs[0].([]ConnectionAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionAssociation {
+		return vs[0].([]*ConnectionAssociation)[vs[1].(int)]
 	}).(ConnectionAssociationOutput)
 }
 
 type ConnectionAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConnectionAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ConnectionAssociation)(nil)).Elem()
 }
 
 func (o ConnectionAssociationMapOutput) ToConnectionAssociationMapOutput() ConnectionAssociationMapOutput {
@@ -311,18 +248,16 @@ func (o ConnectionAssociationMapOutput) ToConnectionAssociationMapOutputWithCont
 }
 
 func (o ConnectionAssociationMapOutput) MapIndex(k pulumi.StringInput) ConnectionAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnectionAssociation {
-		return vs[0].(map[string]ConnectionAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConnectionAssociation {
+		return vs[0].(map[string]*ConnectionAssociation)[vs[1].(string)]
 	}).(ConnectionAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationInput)(nil)).Elem(), &ConnectionAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationPtrInput)(nil)).Elem(), &ConnectionAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationArrayInput)(nil)).Elem(), ConnectionAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationMapInput)(nil)).Elem(), ConnectionAssociationMap{})
 	pulumi.RegisterOutputType(ConnectionAssociationOutput{})
-	pulumi.RegisterOutputType(ConnectionAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionAssociationMapOutput{})
 }

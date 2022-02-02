@@ -155,7 +155,7 @@ type GroupMembershipInput interface {
 }
 
 func (*GroupMembership) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupMembership)(nil))
+	return reflect.TypeOf((**GroupMembership)(nil)).Elem()
 }
 
 func (i *GroupMembership) ToGroupMembershipOutput() GroupMembershipOutput {
@@ -164,35 +164,6 @@ func (i *GroupMembership) ToGroupMembershipOutput() GroupMembershipOutput {
 
 func (i *GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipOutput)
-}
-
-func (i *GroupMembership) ToGroupMembershipPtrOutput() GroupMembershipPtrOutput {
-	return i.ToGroupMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *GroupMembership) ToGroupMembershipPtrOutputWithContext(ctx context.Context) GroupMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipPtrOutput)
-}
-
-type GroupMembershipPtrInput interface {
-	pulumi.Input
-
-	ToGroupMembershipPtrOutput() GroupMembershipPtrOutput
-	ToGroupMembershipPtrOutputWithContext(ctx context.Context) GroupMembershipPtrOutput
-}
-
-type groupMembershipPtrType GroupMembershipArgs
-
-func (*groupMembershipPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupMembership)(nil))
-}
-
-func (i *groupMembershipPtrType) ToGroupMembershipPtrOutput() GroupMembershipPtrOutput {
-	return i.ToGroupMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *groupMembershipPtrType) ToGroupMembershipPtrOutputWithContext(ctx context.Context) GroupMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipPtrOutput)
 }
 
 // GroupMembershipArrayInput is an input type that accepts GroupMembershipArray and GroupMembershipArrayOutput values.
@@ -248,7 +219,7 @@ func (i GroupMembershipMap) ToGroupMembershipMapOutputWithContext(ctx context.Co
 type GroupMembershipOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupMembership)(nil))
+	return reflect.TypeOf((**GroupMembership)(nil)).Elem()
 }
 
 func (o GroupMembershipOutput) ToGroupMembershipOutput() GroupMembershipOutput {
@@ -259,44 +230,10 @@ func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GroupMembershipOutput) ToGroupMembershipPtrOutput() GroupMembershipPtrOutput {
-	return o.ToGroupMembershipPtrOutputWithContext(context.Background())
-}
-
-func (o GroupMembershipOutput) ToGroupMembershipPtrOutputWithContext(ctx context.Context) GroupMembershipPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMembership) *GroupMembership {
-		return &v
-	}).(GroupMembershipPtrOutput)
-}
-
-type GroupMembershipPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupMembershipPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupMembership)(nil))
-}
-
-func (o GroupMembershipPtrOutput) ToGroupMembershipPtrOutput() GroupMembershipPtrOutput {
-	return o
-}
-
-func (o GroupMembershipPtrOutput) ToGroupMembershipPtrOutputWithContext(ctx context.Context) GroupMembershipPtrOutput {
-	return o
-}
-
-func (o GroupMembershipPtrOutput) Elem() GroupMembershipOutput {
-	return o.ApplyT(func(v *GroupMembership) GroupMembership {
-		if v != nil {
-			return *v
-		}
-		var ret GroupMembership
-		return ret
-	}).(GroupMembershipOutput)
-}
-
 type GroupMembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupMembership)(nil))
+	return reflect.TypeOf((*[]*GroupMembership)(nil)).Elem()
 }
 
 func (o GroupMembershipArrayOutput) ToGroupMembershipArrayOutput() GroupMembershipArrayOutput {
@@ -308,15 +245,15 @@ func (o GroupMembershipArrayOutput) ToGroupMembershipArrayOutputWithContext(ctx 
 }
 
 func (o GroupMembershipArrayOutput) Index(i pulumi.IntInput) GroupMembershipOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupMembership {
-		return vs[0].([]GroupMembership)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupMembership {
+		return vs[0].([]*GroupMembership)[vs[1].(int)]
 	}).(GroupMembershipOutput)
 }
 
 type GroupMembershipMapOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GroupMembership)(nil))
+	return reflect.TypeOf((*map[string]*GroupMembership)(nil)).Elem()
 }
 
 func (o GroupMembershipMapOutput) ToGroupMembershipMapOutput() GroupMembershipMapOutput {
@@ -328,18 +265,16 @@ func (o GroupMembershipMapOutput) ToGroupMembershipMapOutputWithContext(ctx cont
 }
 
 func (o GroupMembershipMapOutput) MapIndex(k pulumi.StringInput) GroupMembershipOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GroupMembership {
-		return vs[0].(map[string]GroupMembership)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GroupMembership {
+		return vs[0].(map[string]*GroupMembership)[vs[1].(string)]
 	}).(GroupMembershipOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipInput)(nil)).Elem(), &GroupMembership{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipPtrInput)(nil)).Elem(), &GroupMembership{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipArrayInput)(nil)).Elem(), GroupMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipMapInput)(nil)).Elem(), GroupMembershipMap{})
 	pulumi.RegisterOutputType(GroupMembershipOutput{})
-	pulumi.RegisterOutputType(GroupMembershipPtrOutput{})
 	pulumi.RegisterOutputType(GroupMembershipArrayOutput{})
 	pulumi.RegisterOutputType(GroupMembershipMapOutput{})
 }

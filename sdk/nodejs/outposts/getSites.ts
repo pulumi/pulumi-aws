@@ -21,9 +21,7 @@ export function getSites(opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:outposts/getSites:getSites", {
     }, opts);
 }

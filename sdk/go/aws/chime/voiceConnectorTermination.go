@@ -189,7 +189,7 @@ type VoiceConnectorTerminationInput interface {
 }
 
 func (*VoiceConnectorTermination) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorTermination)(nil))
+	return reflect.TypeOf((**VoiceConnectorTermination)(nil)).Elem()
 }
 
 func (i *VoiceConnectorTermination) ToVoiceConnectorTerminationOutput() VoiceConnectorTerminationOutput {
@@ -198,35 +198,6 @@ func (i *VoiceConnectorTermination) ToVoiceConnectorTerminationOutput() VoiceCon
 
 func (i *VoiceConnectorTermination) ToVoiceConnectorTerminationOutputWithContext(ctx context.Context) VoiceConnectorTerminationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationOutput)
-}
-
-func (i *VoiceConnectorTermination) ToVoiceConnectorTerminationPtrOutput() VoiceConnectorTerminationPtrOutput {
-	return i.ToVoiceConnectorTerminationPtrOutputWithContext(context.Background())
-}
-
-func (i *VoiceConnectorTermination) ToVoiceConnectorTerminationPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationPtrOutput)
-}
-
-type VoiceConnectorTerminationPtrInput interface {
-	pulumi.Input
-
-	ToVoiceConnectorTerminationPtrOutput() VoiceConnectorTerminationPtrOutput
-	ToVoiceConnectorTerminationPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationPtrOutput
-}
-
-type voiceConnectorTerminationPtrType VoiceConnectorTerminationArgs
-
-func (*voiceConnectorTerminationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorTermination)(nil))
-}
-
-func (i *voiceConnectorTerminationPtrType) ToVoiceConnectorTerminationPtrOutput() VoiceConnectorTerminationPtrOutput {
-	return i.ToVoiceConnectorTerminationPtrOutputWithContext(context.Background())
-}
-
-func (i *voiceConnectorTerminationPtrType) ToVoiceConnectorTerminationPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationPtrOutput)
 }
 
 // VoiceConnectorTerminationArrayInput is an input type that accepts VoiceConnectorTerminationArray and VoiceConnectorTerminationArrayOutput values.
@@ -282,7 +253,7 @@ func (i VoiceConnectorTerminationMap) ToVoiceConnectorTerminationMapOutputWithCo
 type VoiceConnectorTerminationOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorTermination)(nil))
+	return reflect.TypeOf((**VoiceConnectorTermination)(nil)).Elem()
 }
 
 func (o VoiceConnectorTerminationOutput) ToVoiceConnectorTerminationOutput() VoiceConnectorTerminationOutput {
@@ -293,44 +264,10 @@ func (o VoiceConnectorTerminationOutput) ToVoiceConnectorTerminationOutputWithCo
 	return o
 }
 
-func (o VoiceConnectorTerminationOutput) ToVoiceConnectorTerminationPtrOutput() VoiceConnectorTerminationPtrOutput {
-	return o.ToVoiceConnectorTerminationPtrOutputWithContext(context.Background())
-}
-
-func (o VoiceConnectorTerminationOutput) ToVoiceConnectorTerminationPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VoiceConnectorTermination) *VoiceConnectorTermination {
-		return &v
-	}).(VoiceConnectorTerminationPtrOutput)
-}
-
-type VoiceConnectorTerminationPtrOutput struct{ *pulumi.OutputState }
-
-func (VoiceConnectorTerminationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorTermination)(nil))
-}
-
-func (o VoiceConnectorTerminationPtrOutput) ToVoiceConnectorTerminationPtrOutput() VoiceConnectorTerminationPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorTerminationPtrOutput) ToVoiceConnectorTerminationPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorTerminationPtrOutput) Elem() VoiceConnectorTerminationOutput {
-	return o.ApplyT(func(v *VoiceConnectorTermination) VoiceConnectorTermination {
-		if v != nil {
-			return *v
-		}
-		var ret VoiceConnectorTermination
-		return ret
-	}).(VoiceConnectorTerminationOutput)
-}
-
 type VoiceConnectorTerminationArrayOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceConnectorTermination)(nil))
+	return reflect.TypeOf((*[]*VoiceConnectorTermination)(nil)).Elem()
 }
 
 func (o VoiceConnectorTerminationArrayOutput) ToVoiceConnectorTerminationArrayOutput() VoiceConnectorTerminationArrayOutput {
@@ -342,15 +279,15 @@ func (o VoiceConnectorTerminationArrayOutput) ToVoiceConnectorTerminationArrayOu
 }
 
 func (o VoiceConnectorTerminationArrayOutput) Index(i pulumi.IntInput) VoiceConnectorTerminationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorTermination {
-		return vs[0].([]VoiceConnectorTermination)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorTermination {
+		return vs[0].([]*VoiceConnectorTermination)[vs[1].(int)]
 	}).(VoiceConnectorTerminationOutput)
 }
 
 type VoiceConnectorTerminationMapOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VoiceConnectorTermination)(nil))
+	return reflect.TypeOf((*map[string]*VoiceConnectorTermination)(nil)).Elem()
 }
 
 func (o VoiceConnectorTerminationMapOutput) ToVoiceConnectorTerminationMapOutput() VoiceConnectorTerminationMapOutput {
@@ -362,18 +299,16 @@ func (o VoiceConnectorTerminationMapOutput) ToVoiceConnectorTerminationMapOutput
 }
 
 func (o VoiceConnectorTerminationMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorTerminationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VoiceConnectorTermination {
-		return vs[0].(map[string]VoiceConnectorTermination)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VoiceConnectorTermination {
+		return vs[0].(map[string]*VoiceConnectorTermination)[vs[1].(string)]
 	}).(VoiceConnectorTerminationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationInput)(nil)).Elem(), &VoiceConnectorTermination{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationPtrInput)(nil)).Elem(), &VoiceConnectorTermination{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationArrayInput)(nil)).Elem(), VoiceConnectorTerminationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationMapInput)(nil)).Elem(), VoiceConnectorTerminationMap{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationOutput{})
-	pulumi.RegisterOutputType(VoiceConnectorTerminationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationMapOutput{})
 }

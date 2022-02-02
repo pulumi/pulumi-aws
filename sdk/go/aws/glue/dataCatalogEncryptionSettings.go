@@ -137,7 +137,7 @@ type DataCatalogEncryptionSettingsInput interface {
 }
 
 func (*DataCatalogEncryptionSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((**DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsOutput {
@@ -146,35 +146,6 @@ func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutput() 
 
 func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsOutput)
-}
-
-func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsPtrOutput)
-}
-
-type DataCatalogEncryptionSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsPtrOutput
-	ToDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsPtrOutput
-}
-
-type dataCatalogEncryptionSettingsPtrType DataCatalogEncryptionSettingsArgs
-
-func (*dataCatalogEncryptionSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettings)(nil))
-}
-
-func (i *dataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsPtrOutput)
 }
 
 // DataCatalogEncryptionSettingsArrayInput is an input type that accepts DataCatalogEncryptionSettingsArray and DataCatalogEncryptionSettingsArrayOutput values.
@@ -230,7 +201,7 @@ func (i DataCatalogEncryptionSettingsMap) ToDataCatalogEncryptionSettingsMapOutp
 type DataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((**DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsOutput {
@@ -241,44 +212,10 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 	return o
 }
 
-func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsPtrOutput {
-	return o.ToDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettings) *DataCatalogEncryptionSettings {
-		return &v
-	}).(DataCatalogEncryptionSettingsPtrOutput)
-}
-
-type DataCatalogEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogEncryptionSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettings)(nil))
-}
-
-func (o DataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsPtrOutput) Elem() DataCatalogEncryptionSettingsOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettings) DataCatalogEncryptionSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DataCatalogEncryptionSettings
-		return ret
-	}).(DataCatalogEncryptionSettingsOutput)
-}
-
 type DataCatalogEncryptionSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((*[]*DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (o DataCatalogEncryptionSettingsArrayOutput) ToDataCatalogEncryptionSettingsArrayOutput() DataCatalogEncryptionSettingsArrayOutput {
@@ -290,15 +227,15 @@ func (o DataCatalogEncryptionSettingsArrayOutput) ToDataCatalogEncryptionSetting
 }
 
 func (o DataCatalogEncryptionSettingsArrayOutput) Index(i pulumi.IntInput) DataCatalogEncryptionSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCatalogEncryptionSettings {
-		return vs[0].([]DataCatalogEncryptionSettings)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataCatalogEncryptionSettings {
+		return vs[0].([]*DataCatalogEncryptionSettings)[vs[1].(int)]
 	}).(DataCatalogEncryptionSettingsOutput)
 }
 
 type DataCatalogEncryptionSettingsMapOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((*map[string]*DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (o DataCatalogEncryptionSettingsMapOutput) ToDataCatalogEncryptionSettingsMapOutput() DataCatalogEncryptionSettingsMapOutput {
@@ -310,18 +247,16 @@ func (o DataCatalogEncryptionSettingsMapOutput) ToDataCatalogEncryptionSettingsM
 }
 
 func (o DataCatalogEncryptionSettingsMapOutput) MapIndex(k pulumi.StringInput) DataCatalogEncryptionSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataCatalogEncryptionSettings {
-		return vs[0].(map[string]DataCatalogEncryptionSettings)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataCatalogEncryptionSettings {
+		return vs[0].(map[string]*DataCatalogEncryptionSettings)[vs[1].(string)]
 	}).(DataCatalogEncryptionSettingsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsInput)(nil)).Elem(), &DataCatalogEncryptionSettings{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsPtrInput)(nil)).Elem(), &DataCatalogEncryptionSettings{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsArrayInput)(nil)).Elem(), DataCatalogEncryptionSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsMapInput)(nil)).Elem(), DataCatalogEncryptionSettingsMap{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsOutput{})
-	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsArrayOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsMapOutput{})
 }

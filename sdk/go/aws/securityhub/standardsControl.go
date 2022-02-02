@@ -151,7 +151,7 @@ type StandardsControlInput interface {
 }
 
 func (*StandardsControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardsControl)(nil))
+	return reflect.TypeOf((**StandardsControl)(nil)).Elem()
 }
 
 func (i *StandardsControl) ToStandardsControlOutput() StandardsControlOutput {
@@ -160,35 +160,6 @@ func (i *StandardsControl) ToStandardsControlOutput() StandardsControlOutput {
 
 func (i *StandardsControl) ToStandardsControlOutputWithContext(ctx context.Context) StandardsControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlOutput)
-}
-
-func (i *StandardsControl) ToStandardsControlPtrOutput() StandardsControlPtrOutput {
-	return i.ToStandardsControlPtrOutputWithContext(context.Background())
-}
-
-func (i *StandardsControl) ToStandardsControlPtrOutputWithContext(ctx context.Context) StandardsControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlPtrOutput)
-}
-
-type StandardsControlPtrInput interface {
-	pulumi.Input
-
-	ToStandardsControlPtrOutput() StandardsControlPtrOutput
-	ToStandardsControlPtrOutputWithContext(ctx context.Context) StandardsControlPtrOutput
-}
-
-type standardsControlPtrType StandardsControlArgs
-
-func (*standardsControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StandardsControl)(nil))
-}
-
-func (i *standardsControlPtrType) ToStandardsControlPtrOutput() StandardsControlPtrOutput {
-	return i.ToStandardsControlPtrOutputWithContext(context.Background())
-}
-
-func (i *standardsControlPtrType) ToStandardsControlPtrOutputWithContext(ctx context.Context) StandardsControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlPtrOutput)
 }
 
 // StandardsControlArrayInput is an input type that accepts StandardsControlArray and StandardsControlArrayOutput values.
@@ -244,7 +215,7 @@ func (i StandardsControlMap) ToStandardsControlMapOutputWithContext(ctx context.
 type StandardsControlOutput struct{ *pulumi.OutputState }
 
 func (StandardsControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardsControl)(nil))
+	return reflect.TypeOf((**StandardsControl)(nil)).Elem()
 }
 
 func (o StandardsControlOutput) ToStandardsControlOutput() StandardsControlOutput {
@@ -255,44 +226,10 @@ func (o StandardsControlOutput) ToStandardsControlOutputWithContext(ctx context.
 	return o
 }
 
-func (o StandardsControlOutput) ToStandardsControlPtrOutput() StandardsControlPtrOutput {
-	return o.ToStandardsControlPtrOutputWithContext(context.Background())
-}
-
-func (o StandardsControlOutput) ToStandardsControlPtrOutputWithContext(ctx context.Context) StandardsControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardsControl) *StandardsControl {
-		return &v
-	}).(StandardsControlPtrOutput)
-}
-
-type StandardsControlPtrOutput struct{ *pulumi.OutputState }
-
-func (StandardsControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StandardsControl)(nil))
-}
-
-func (o StandardsControlPtrOutput) ToStandardsControlPtrOutput() StandardsControlPtrOutput {
-	return o
-}
-
-func (o StandardsControlPtrOutput) ToStandardsControlPtrOutputWithContext(ctx context.Context) StandardsControlPtrOutput {
-	return o
-}
-
-func (o StandardsControlPtrOutput) Elem() StandardsControlOutput {
-	return o.ApplyT(func(v *StandardsControl) StandardsControl {
-		if v != nil {
-			return *v
-		}
-		var ret StandardsControl
-		return ret
-	}).(StandardsControlOutput)
-}
-
 type StandardsControlArrayOutput struct{ *pulumi.OutputState }
 
 func (StandardsControlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StandardsControl)(nil))
+	return reflect.TypeOf((*[]*StandardsControl)(nil)).Elem()
 }
 
 func (o StandardsControlArrayOutput) ToStandardsControlArrayOutput() StandardsControlArrayOutput {
@@ -304,15 +241,15 @@ func (o StandardsControlArrayOutput) ToStandardsControlArrayOutputWithContext(ct
 }
 
 func (o StandardsControlArrayOutput) Index(i pulumi.IntInput) StandardsControlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardsControl {
-		return vs[0].([]StandardsControl)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StandardsControl {
+		return vs[0].([]*StandardsControl)[vs[1].(int)]
 	}).(StandardsControlOutput)
 }
 
 type StandardsControlMapOutput struct{ *pulumi.OutputState }
 
 func (StandardsControlMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StandardsControl)(nil))
+	return reflect.TypeOf((*map[string]*StandardsControl)(nil)).Elem()
 }
 
 func (o StandardsControlMapOutput) ToStandardsControlMapOutput() StandardsControlMapOutput {
@@ -324,18 +261,16 @@ func (o StandardsControlMapOutput) ToStandardsControlMapOutputWithContext(ctx co
 }
 
 func (o StandardsControlMapOutput) MapIndex(k pulumi.StringInput) StandardsControlOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StandardsControl {
-		return vs[0].(map[string]StandardsControl)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StandardsControl {
+		return vs[0].(map[string]*StandardsControl)[vs[1].(string)]
 	}).(StandardsControlOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlInput)(nil)).Elem(), &StandardsControl{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlPtrInput)(nil)).Elem(), &StandardsControl{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlArrayInput)(nil)).Elem(), StandardsControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlMapInput)(nil)).Elem(), StandardsControlMap{})
 	pulumi.RegisterOutputType(StandardsControlOutput{})
-	pulumi.RegisterOutputType(StandardsControlPtrOutput{})
 	pulumi.RegisterOutputType(StandardsControlArrayOutput{})
 	pulumi.RegisterOutputType(StandardsControlMapOutput{})
 }

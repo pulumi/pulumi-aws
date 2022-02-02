@@ -226,7 +226,7 @@ type PipelineInput interface {
 }
 
 func (*Pipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pipeline)(nil))
+	return reflect.TypeOf((**Pipeline)(nil)).Elem()
 }
 
 func (i *Pipeline) ToPipelineOutput() PipelineOutput {
@@ -235,35 +235,6 @@ func (i *Pipeline) ToPipelineOutput() PipelineOutput {
 
 func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
-}
-
-func (i *Pipeline) ToPipelinePtrOutput() PipelinePtrOutput {
-	return i.ToPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *Pipeline) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelinePtrOutput)
-}
-
-type PipelinePtrInput interface {
-	pulumi.Input
-
-	ToPipelinePtrOutput() PipelinePtrOutput
-	ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput
-}
-
-type pipelinePtrType PipelineArgs
-
-func (*pipelinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Pipeline)(nil))
-}
-
-func (i *pipelinePtrType) ToPipelinePtrOutput() PipelinePtrOutput {
-	return i.ToPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *pipelinePtrType) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelinePtrOutput)
 }
 
 // PipelineArrayInput is an input type that accepts PipelineArray and PipelineArrayOutput values.
@@ -319,7 +290,7 @@ func (i PipelineMap) ToPipelineMapOutputWithContext(ctx context.Context) Pipelin
 type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pipeline)(nil))
+	return reflect.TypeOf((**Pipeline)(nil)).Elem()
 }
 
 func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
@@ -330,44 +301,10 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
-func (o PipelineOutput) ToPipelinePtrOutput() PipelinePtrOutput {
-	return o.ToPipelinePtrOutputWithContext(context.Background())
-}
-
-func (o PipelineOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Pipeline) *Pipeline {
-		return &v
-	}).(PipelinePtrOutput)
-}
-
-type PipelinePtrOutput struct{ *pulumi.OutputState }
-
-func (PipelinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Pipeline)(nil))
-}
-
-func (o PipelinePtrOutput) ToPipelinePtrOutput() PipelinePtrOutput {
-	return o
-}
-
-func (o PipelinePtrOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return o
-}
-
-func (o PipelinePtrOutput) Elem() PipelineOutput {
-	return o.ApplyT(func(v *Pipeline) Pipeline {
-		if v != nil {
-			return *v
-		}
-		var ret Pipeline
-		return ret
-	}).(PipelineOutput)
-}
-
 type PipelineArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Pipeline)(nil))
+	return reflect.TypeOf((*[]*Pipeline)(nil)).Elem()
 }
 
 func (o PipelineArrayOutput) ToPipelineArrayOutput() PipelineArrayOutput {
@@ -379,15 +316,15 @@ func (o PipelineArrayOutput) ToPipelineArrayOutputWithContext(ctx context.Contex
 }
 
 func (o PipelineArrayOutput) Index(i pulumi.IntInput) PipelineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Pipeline {
-		return vs[0].([]Pipeline)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Pipeline {
+		return vs[0].([]*Pipeline)[vs[1].(int)]
 	}).(PipelineOutput)
 }
 
 type PipelineMapOutput struct{ *pulumi.OutputState }
 
 func (PipelineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Pipeline)(nil))
+	return reflect.TypeOf((*map[string]*Pipeline)(nil)).Elem()
 }
 
 func (o PipelineMapOutput) ToPipelineMapOutput() PipelineMapOutput {
@@ -399,18 +336,16 @@ func (o PipelineMapOutput) ToPipelineMapOutputWithContext(ctx context.Context) P
 }
 
 func (o PipelineMapOutput) MapIndex(k pulumi.StringInput) PipelineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Pipeline {
-		return vs[0].(map[string]Pipeline)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Pipeline {
+		return vs[0].(map[string]*Pipeline)[vs[1].(string)]
 	}).(PipelineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineInput)(nil)).Elem(), &Pipeline{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelinePtrInput)(nil)).Elem(), &Pipeline{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArrayInput)(nil)).Elem(), PipelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineMapInput)(nil)).Elem(), PipelineMap{})
 	pulumi.RegisterOutputType(PipelineOutput{})
-	pulumi.RegisterOutputType(PipelinePtrOutput{})
 	pulumi.RegisterOutputType(PipelineArrayOutput{})
 	pulumi.RegisterOutputType(PipelineMapOutput{})
 }

@@ -38,9 +38,7 @@ export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.Invo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:route53/getResolverRules:getResolverRules", {
         "ownerId": args.ownerId,
         "resolverEndpointId": args.resolverEndpointId,

@@ -270,7 +270,7 @@ type ReplicaExternalKeyInput interface {
 }
 
 func (*ReplicaExternalKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicaExternalKey)(nil))
+	return reflect.TypeOf((**ReplicaExternalKey)(nil)).Elem()
 }
 
 func (i *ReplicaExternalKey) ToReplicaExternalKeyOutput() ReplicaExternalKeyOutput {
@@ -279,35 +279,6 @@ func (i *ReplicaExternalKey) ToReplicaExternalKeyOutput() ReplicaExternalKeyOutp
 
 func (i *ReplicaExternalKey) ToReplicaExternalKeyOutputWithContext(ctx context.Context) ReplicaExternalKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaExternalKeyOutput)
-}
-
-func (i *ReplicaExternalKey) ToReplicaExternalKeyPtrOutput() ReplicaExternalKeyPtrOutput {
-	return i.ToReplicaExternalKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *ReplicaExternalKey) ToReplicaExternalKeyPtrOutputWithContext(ctx context.Context) ReplicaExternalKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicaExternalKeyPtrOutput)
-}
-
-type ReplicaExternalKeyPtrInput interface {
-	pulumi.Input
-
-	ToReplicaExternalKeyPtrOutput() ReplicaExternalKeyPtrOutput
-	ToReplicaExternalKeyPtrOutputWithContext(ctx context.Context) ReplicaExternalKeyPtrOutput
-}
-
-type replicaExternalKeyPtrType ReplicaExternalKeyArgs
-
-func (*replicaExternalKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicaExternalKey)(nil))
-}
-
-func (i *replicaExternalKeyPtrType) ToReplicaExternalKeyPtrOutput() ReplicaExternalKeyPtrOutput {
-	return i.ToReplicaExternalKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *replicaExternalKeyPtrType) ToReplicaExternalKeyPtrOutputWithContext(ctx context.Context) ReplicaExternalKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicaExternalKeyPtrOutput)
 }
 
 // ReplicaExternalKeyArrayInput is an input type that accepts ReplicaExternalKeyArray and ReplicaExternalKeyArrayOutput values.
@@ -363,7 +334,7 @@ func (i ReplicaExternalKeyMap) ToReplicaExternalKeyMapOutputWithContext(ctx cont
 type ReplicaExternalKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicaExternalKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicaExternalKey)(nil))
+	return reflect.TypeOf((**ReplicaExternalKey)(nil)).Elem()
 }
 
 func (o ReplicaExternalKeyOutput) ToReplicaExternalKeyOutput() ReplicaExternalKeyOutput {
@@ -374,44 +345,10 @@ func (o ReplicaExternalKeyOutput) ToReplicaExternalKeyOutputWithContext(ctx cont
 	return o
 }
 
-func (o ReplicaExternalKeyOutput) ToReplicaExternalKeyPtrOutput() ReplicaExternalKeyPtrOutput {
-	return o.ToReplicaExternalKeyPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicaExternalKeyOutput) ToReplicaExternalKeyPtrOutputWithContext(ctx context.Context) ReplicaExternalKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicaExternalKey) *ReplicaExternalKey {
-		return &v
-	}).(ReplicaExternalKeyPtrOutput)
-}
-
-type ReplicaExternalKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicaExternalKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicaExternalKey)(nil))
-}
-
-func (o ReplicaExternalKeyPtrOutput) ToReplicaExternalKeyPtrOutput() ReplicaExternalKeyPtrOutput {
-	return o
-}
-
-func (o ReplicaExternalKeyPtrOutput) ToReplicaExternalKeyPtrOutputWithContext(ctx context.Context) ReplicaExternalKeyPtrOutput {
-	return o
-}
-
-func (o ReplicaExternalKeyPtrOutput) Elem() ReplicaExternalKeyOutput {
-	return o.ApplyT(func(v *ReplicaExternalKey) ReplicaExternalKey {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicaExternalKey
-		return ret
-	}).(ReplicaExternalKeyOutput)
-}
-
 type ReplicaExternalKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ReplicaExternalKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicaExternalKey)(nil))
+	return reflect.TypeOf((*[]*ReplicaExternalKey)(nil)).Elem()
 }
 
 func (o ReplicaExternalKeyArrayOutput) ToReplicaExternalKeyArrayOutput() ReplicaExternalKeyArrayOutput {
@@ -423,15 +360,15 @@ func (o ReplicaExternalKeyArrayOutput) ToReplicaExternalKeyArrayOutputWithContex
 }
 
 func (o ReplicaExternalKeyArrayOutput) Index(i pulumi.IntInput) ReplicaExternalKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicaExternalKey {
-		return vs[0].([]ReplicaExternalKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicaExternalKey {
+		return vs[0].([]*ReplicaExternalKey)[vs[1].(int)]
 	}).(ReplicaExternalKeyOutput)
 }
 
 type ReplicaExternalKeyMapOutput struct{ *pulumi.OutputState }
 
 func (ReplicaExternalKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReplicaExternalKey)(nil))
+	return reflect.TypeOf((*map[string]*ReplicaExternalKey)(nil)).Elem()
 }
 
 func (o ReplicaExternalKeyMapOutput) ToReplicaExternalKeyMapOutput() ReplicaExternalKeyMapOutput {
@@ -443,18 +380,16 @@ func (o ReplicaExternalKeyMapOutput) ToReplicaExternalKeyMapOutputWithContext(ct
 }
 
 func (o ReplicaExternalKeyMapOutput) MapIndex(k pulumi.StringInput) ReplicaExternalKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicaExternalKey {
-		return vs[0].(map[string]ReplicaExternalKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReplicaExternalKey {
+		return vs[0].(map[string]*ReplicaExternalKey)[vs[1].(string)]
 	}).(ReplicaExternalKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaExternalKeyInput)(nil)).Elem(), &ReplicaExternalKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaExternalKeyPtrInput)(nil)).Elem(), &ReplicaExternalKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaExternalKeyArrayInput)(nil)).Elem(), ReplicaExternalKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaExternalKeyMapInput)(nil)).Elem(), ReplicaExternalKeyMap{})
 	pulumi.RegisterOutputType(ReplicaExternalKeyOutput{})
-	pulumi.RegisterOutputType(ReplicaExternalKeyPtrOutput{})
 	pulumi.RegisterOutputType(ReplicaExternalKeyArrayOutput{})
 	pulumi.RegisterOutputType(ReplicaExternalKeyMapOutput{})
 }

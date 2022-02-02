@@ -172,7 +172,7 @@ type RoutingControlInput interface {
 }
 
 func (*RoutingControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingControl)(nil))
+	return reflect.TypeOf((**RoutingControl)(nil)).Elem()
 }
 
 func (i *RoutingControl) ToRoutingControlOutput() RoutingControlOutput {
@@ -181,35 +181,6 @@ func (i *RoutingControl) ToRoutingControlOutput() RoutingControlOutput {
 
 func (i *RoutingControl) ToRoutingControlOutputWithContext(ctx context.Context) RoutingControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingControlOutput)
-}
-
-func (i *RoutingControl) ToRoutingControlPtrOutput() RoutingControlPtrOutput {
-	return i.ToRoutingControlPtrOutputWithContext(context.Background())
-}
-
-func (i *RoutingControl) ToRoutingControlPtrOutputWithContext(ctx context.Context) RoutingControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoutingControlPtrOutput)
-}
-
-type RoutingControlPtrInput interface {
-	pulumi.Input
-
-	ToRoutingControlPtrOutput() RoutingControlPtrOutput
-	ToRoutingControlPtrOutputWithContext(ctx context.Context) RoutingControlPtrOutput
-}
-
-type routingControlPtrType RoutingControlArgs
-
-func (*routingControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoutingControl)(nil))
-}
-
-func (i *routingControlPtrType) ToRoutingControlPtrOutput() RoutingControlPtrOutput {
-	return i.ToRoutingControlPtrOutputWithContext(context.Background())
-}
-
-func (i *routingControlPtrType) ToRoutingControlPtrOutputWithContext(ctx context.Context) RoutingControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoutingControlPtrOutput)
 }
 
 // RoutingControlArrayInput is an input type that accepts RoutingControlArray and RoutingControlArrayOutput values.
@@ -265,7 +236,7 @@ func (i RoutingControlMap) ToRoutingControlMapOutputWithContext(ctx context.Cont
 type RoutingControlOutput struct{ *pulumi.OutputState }
 
 func (RoutingControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingControl)(nil))
+	return reflect.TypeOf((**RoutingControl)(nil)).Elem()
 }
 
 func (o RoutingControlOutput) ToRoutingControlOutput() RoutingControlOutput {
@@ -276,44 +247,10 @@ func (o RoutingControlOutput) ToRoutingControlOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RoutingControlOutput) ToRoutingControlPtrOutput() RoutingControlPtrOutput {
-	return o.ToRoutingControlPtrOutputWithContext(context.Background())
-}
-
-func (o RoutingControlOutput) ToRoutingControlPtrOutputWithContext(ctx context.Context) RoutingControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingControl) *RoutingControl {
-		return &v
-	}).(RoutingControlPtrOutput)
-}
-
-type RoutingControlPtrOutput struct{ *pulumi.OutputState }
-
-func (RoutingControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoutingControl)(nil))
-}
-
-func (o RoutingControlPtrOutput) ToRoutingControlPtrOutput() RoutingControlPtrOutput {
-	return o
-}
-
-func (o RoutingControlPtrOutput) ToRoutingControlPtrOutputWithContext(ctx context.Context) RoutingControlPtrOutput {
-	return o
-}
-
-func (o RoutingControlPtrOutput) Elem() RoutingControlOutput {
-	return o.ApplyT(func(v *RoutingControl) RoutingControl {
-		if v != nil {
-			return *v
-		}
-		var ret RoutingControl
-		return ret
-	}).(RoutingControlOutput)
-}
-
 type RoutingControlArrayOutput struct{ *pulumi.OutputState }
 
 func (RoutingControlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoutingControl)(nil))
+	return reflect.TypeOf((*[]*RoutingControl)(nil)).Elem()
 }
 
 func (o RoutingControlArrayOutput) ToRoutingControlArrayOutput() RoutingControlArrayOutput {
@@ -325,15 +262,15 @@ func (o RoutingControlArrayOutput) ToRoutingControlArrayOutputWithContext(ctx co
 }
 
 func (o RoutingControlArrayOutput) Index(i pulumi.IntInput) RoutingControlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingControl {
-		return vs[0].([]RoutingControl)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoutingControl {
+		return vs[0].([]*RoutingControl)[vs[1].(int)]
 	}).(RoutingControlOutput)
 }
 
 type RoutingControlMapOutput struct{ *pulumi.OutputState }
 
 func (RoutingControlMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RoutingControl)(nil))
+	return reflect.TypeOf((*map[string]*RoutingControl)(nil)).Elem()
 }
 
 func (o RoutingControlMapOutput) ToRoutingControlMapOutput() RoutingControlMapOutput {
@@ -345,18 +282,16 @@ func (o RoutingControlMapOutput) ToRoutingControlMapOutputWithContext(ctx contex
 }
 
 func (o RoutingControlMapOutput) MapIndex(k pulumi.StringInput) RoutingControlOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RoutingControl {
-		return vs[0].(map[string]RoutingControl)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RoutingControl {
+		return vs[0].(map[string]*RoutingControl)[vs[1].(string)]
 	}).(RoutingControlOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlInput)(nil)).Elem(), &RoutingControl{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlPtrInput)(nil)).Elem(), &RoutingControl{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlArrayInput)(nil)).Elem(), RoutingControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlMapInput)(nil)).Elem(), RoutingControlMap{})
 	pulumi.RegisterOutputType(RoutingControlOutput{})
-	pulumi.RegisterOutputType(RoutingControlPtrOutput{})
 	pulumi.RegisterOutputType(RoutingControlArrayOutput{})
 	pulumi.RegisterOutputType(RoutingControlMapOutput{})
 }

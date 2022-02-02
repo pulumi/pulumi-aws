@@ -181,21 +181,21 @@ export class ServerCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerCertificateArgs | ServerCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerCertificateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateBody"] = state ? state.certificateBody : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["expiration"] = state ? state.expiration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uploadDate"] = state ? state.uploadDate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateBody"] = state ? state.certificateBody : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["expiration"] = state ? state.expiration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uploadDate"] = state ? state.uploadDate : undefined;
         } else {
             const args = argsOrState as ServerCertificateArgs | undefined;
             if ((!args || args.certificateBody === undefined) && !opts.urn) {
@@ -204,22 +204,20 @@ export class ServerCertificate extends pulumi.CustomResource {
             if ((!args || args.privateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            inputs["certificateBody"] = args ? args.certificateBody : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["expiration"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uploadDate"] = undefined /*out*/;
+            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["expiration"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uploadDate"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServerCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServerCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

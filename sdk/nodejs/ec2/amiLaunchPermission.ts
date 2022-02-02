@@ -73,12 +73,12 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
      */
     constructor(name: string, args: AmiLaunchPermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AmiLaunchPermissionArgs | AmiLaunchPermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AmiLaunchPermissionState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["imageId"] = state ? state.imageId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["imageId"] = state ? state.imageId : undefined;
         } else {
             const args = argsOrState as AmiLaunchPermissionArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -87,13 +87,11 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
             if ((!args || args.imageId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageId'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["imageId"] = args ? args.imageId : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["imageId"] = args ? args.imageId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AmiLaunchPermission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AmiLaunchPermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

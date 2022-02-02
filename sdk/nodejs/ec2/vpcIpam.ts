@@ -129,36 +129,34 @@ export class VpcIpam extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpamArgs | VpcIpamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["operatingRegions"] = state ? state.operatingRegions : undefined;
-            inputs["privateDefaultScopeId"] = state ? state.privateDefaultScopeId : undefined;
-            inputs["publicDefaultScopeId"] = state ? state.publicDefaultScopeId : undefined;
-            inputs["scopeCount"] = state ? state.scopeCount : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["operatingRegions"] = state ? state.operatingRegions : undefined;
+            resourceInputs["privateDefaultScopeId"] = state ? state.privateDefaultScopeId : undefined;
+            resourceInputs["publicDefaultScopeId"] = state ? state.publicDefaultScopeId : undefined;
+            resourceInputs["scopeCount"] = state ? state.scopeCount : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcIpamArgs | undefined;
             if ((!args || args.operatingRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operatingRegions'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["operatingRegions"] = args ? args.operatingRegions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["privateDefaultScopeId"] = undefined /*out*/;
-            inputs["publicDefaultScopeId"] = undefined /*out*/;
-            inputs["scopeCount"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
+            resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
+            resourceInputs["scopeCount"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcIpam.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcIpam.__pulumiType, name, resourceInputs, opts);
     }
 }
 

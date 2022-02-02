@@ -272,7 +272,7 @@ type LocationHdfsInput interface {
 }
 
 func (*LocationHdfs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHdfs)(nil))
+	return reflect.TypeOf((**LocationHdfs)(nil)).Elem()
 }
 
 func (i *LocationHdfs) ToLocationHdfsOutput() LocationHdfsOutput {
@@ -281,35 +281,6 @@ func (i *LocationHdfs) ToLocationHdfsOutput() LocationHdfsOutput {
 
 func (i *LocationHdfs) ToLocationHdfsOutputWithContext(ctx context.Context) LocationHdfsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsOutput)
-}
-
-func (i *LocationHdfs) ToLocationHdfsPtrOutput() LocationHdfsPtrOutput {
-	return i.ToLocationHdfsPtrOutputWithContext(context.Background())
-}
-
-func (i *LocationHdfs) ToLocationHdfsPtrOutputWithContext(ctx context.Context) LocationHdfsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsPtrOutput)
-}
-
-type LocationHdfsPtrInput interface {
-	pulumi.Input
-
-	ToLocationHdfsPtrOutput() LocationHdfsPtrOutput
-	ToLocationHdfsPtrOutputWithContext(ctx context.Context) LocationHdfsPtrOutput
-}
-
-type locationHdfsPtrType LocationHdfsArgs
-
-func (*locationHdfsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationHdfs)(nil))
-}
-
-func (i *locationHdfsPtrType) ToLocationHdfsPtrOutput() LocationHdfsPtrOutput {
-	return i.ToLocationHdfsPtrOutputWithContext(context.Background())
-}
-
-func (i *locationHdfsPtrType) ToLocationHdfsPtrOutputWithContext(ctx context.Context) LocationHdfsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsPtrOutput)
 }
 
 // LocationHdfsArrayInput is an input type that accepts LocationHdfsArray and LocationHdfsArrayOutput values.
@@ -365,7 +336,7 @@ func (i LocationHdfsMap) ToLocationHdfsMapOutputWithContext(ctx context.Context)
 type LocationHdfsOutput struct{ *pulumi.OutputState }
 
 func (LocationHdfsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHdfs)(nil))
+	return reflect.TypeOf((**LocationHdfs)(nil)).Elem()
 }
 
 func (o LocationHdfsOutput) ToLocationHdfsOutput() LocationHdfsOutput {
@@ -376,44 +347,10 @@ func (o LocationHdfsOutput) ToLocationHdfsOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o LocationHdfsOutput) ToLocationHdfsPtrOutput() LocationHdfsPtrOutput {
-	return o.ToLocationHdfsPtrOutputWithContext(context.Background())
-}
-
-func (o LocationHdfsOutput) ToLocationHdfsPtrOutputWithContext(ctx context.Context) LocationHdfsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHdfs) *LocationHdfs {
-		return &v
-	}).(LocationHdfsPtrOutput)
-}
-
-type LocationHdfsPtrOutput struct{ *pulumi.OutputState }
-
-func (LocationHdfsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationHdfs)(nil))
-}
-
-func (o LocationHdfsPtrOutput) ToLocationHdfsPtrOutput() LocationHdfsPtrOutput {
-	return o
-}
-
-func (o LocationHdfsPtrOutput) ToLocationHdfsPtrOutputWithContext(ctx context.Context) LocationHdfsPtrOutput {
-	return o
-}
-
-func (o LocationHdfsPtrOutput) Elem() LocationHdfsOutput {
-	return o.ApplyT(func(v *LocationHdfs) LocationHdfs {
-		if v != nil {
-			return *v
-		}
-		var ret LocationHdfs
-		return ret
-	}).(LocationHdfsOutput)
-}
-
 type LocationHdfsArrayOutput struct{ *pulumi.OutputState }
 
 func (LocationHdfsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationHdfs)(nil))
+	return reflect.TypeOf((*[]*LocationHdfs)(nil)).Elem()
 }
 
 func (o LocationHdfsArrayOutput) ToLocationHdfsArrayOutput() LocationHdfsArrayOutput {
@@ -425,15 +362,15 @@ func (o LocationHdfsArrayOutput) ToLocationHdfsArrayOutputWithContext(ctx contex
 }
 
 func (o LocationHdfsArrayOutput) Index(i pulumi.IntInput) LocationHdfsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationHdfs {
-		return vs[0].([]LocationHdfs)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationHdfs {
+		return vs[0].([]*LocationHdfs)[vs[1].(int)]
 	}).(LocationHdfsOutput)
 }
 
 type LocationHdfsMapOutput struct{ *pulumi.OutputState }
 
 func (LocationHdfsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocationHdfs)(nil))
+	return reflect.TypeOf((*map[string]*LocationHdfs)(nil)).Elem()
 }
 
 func (o LocationHdfsMapOutput) ToLocationHdfsMapOutput() LocationHdfsMapOutput {
@@ -445,18 +382,16 @@ func (o LocationHdfsMapOutput) ToLocationHdfsMapOutputWithContext(ctx context.Co
 }
 
 func (o LocationHdfsMapOutput) MapIndex(k pulumi.StringInput) LocationHdfsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocationHdfs {
-		return vs[0].(map[string]LocationHdfs)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocationHdfs {
+		return vs[0].(map[string]*LocationHdfs)[vs[1].(string)]
 	}).(LocationHdfsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsInput)(nil)).Elem(), &LocationHdfs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsPtrInput)(nil)).Elem(), &LocationHdfs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsArrayInput)(nil)).Elem(), LocationHdfsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsMapInput)(nil)).Elem(), LocationHdfsMap{})
 	pulumi.RegisterOutputType(LocationHdfsOutput{})
-	pulumi.RegisterOutputType(LocationHdfsPtrOutput{})
 	pulumi.RegisterOutputType(LocationHdfsArrayOutput{})
 	pulumi.RegisterOutputType(LocationHdfsMapOutput{})
 }

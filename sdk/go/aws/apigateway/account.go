@@ -138,7 +138,7 @@ type AccountInput interface {
 }
 
 func (*Account) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (i *Account) ToAccountOutput() AccountOutput {
@@ -147,35 +147,6 @@ func (i *Account) ToAccountOutput() AccountOutput {
 
 func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
-}
-
-func (i *Account) ToAccountPtrOutput() AccountPtrOutput {
-	return i.ToAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *Account) ToAccountPtrOutputWithContext(ctx context.Context) AccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountPtrOutput)
-}
-
-type AccountPtrInput interface {
-	pulumi.Input
-
-	ToAccountPtrOutput() AccountPtrOutput
-	ToAccountPtrOutputWithContext(ctx context.Context) AccountPtrOutput
-}
-
-type accountPtrType AccountArgs
-
-func (*accountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Account)(nil))
-}
-
-func (i *accountPtrType) ToAccountPtrOutput() AccountPtrOutput {
-	return i.ToAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *accountPtrType) ToAccountPtrOutputWithContext(ctx context.Context) AccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountPtrOutput)
 }
 
 // AccountArrayInput is an input type that accepts AccountArray and AccountArrayOutput values.
@@ -231,7 +202,7 @@ func (i AccountMap) ToAccountMapOutputWithContext(ctx context.Context) AccountMa
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (o AccountOutput) ToAccountOutput() AccountOutput {
@@ -242,44 +213,10 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-func (o AccountOutput) ToAccountPtrOutput() AccountPtrOutput {
-	return o.ToAccountPtrOutputWithContext(context.Background())
-}
-
-func (o AccountOutput) ToAccountPtrOutputWithContext(ctx context.Context) AccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Account) *Account {
-		return &v
-	}).(AccountPtrOutput)
-}
-
-type AccountPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Account)(nil))
-}
-
-func (o AccountPtrOutput) ToAccountPtrOutput() AccountPtrOutput {
-	return o
-}
-
-func (o AccountPtrOutput) ToAccountPtrOutputWithContext(ctx context.Context) AccountPtrOutput {
-	return o
-}
-
-func (o AccountPtrOutput) Elem() AccountOutput {
-	return o.ApplyT(func(v *Account) Account {
-		if v != nil {
-			return *v
-		}
-		var ret Account
-		return ret
-	}).(AccountOutput)
-}
-
 type AccountArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Account)(nil))
+	return reflect.TypeOf((*[]*Account)(nil)).Elem()
 }
 
 func (o AccountArrayOutput) ToAccountArrayOutput() AccountArrayOutput {
@@ -291,15 +228,15 @@ func (o AccountArrayOutput) ToAccountArrayOutputWithContext(ctx context.Context)
 }
 
 func (o AccountArrayOutput) Index(i pulumi.IntInput) AccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Account {
-		return vs[0].([]Account)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Account {
+		return vs[0].([]*Account)[vs[1].(int)]
 	}).(AccountOutput)
 }
 
 type AccountMapOutput struct{ *pulumi.OutputState }
 
 func (AccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Account)(nil))
+	return reflect.TypeOf((*map[string]*Account)(nil)).Elem()
 }
 
 func (o AccountMapOutput) ToAccountMapOutput() AccountMapOutput {
@@ -311,18 +248,16 @@ func (o AccountMapOutput) ToAccountMapOutputWithContext(ctx context.Context) Acc
 }
 
 func (o AccountMapOutput) MapIndex(k pulumi.StringInput) AccountOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Account {
-		return vs[0].(map[string]Account)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Account {
+		return vs[0].(map[string]*Account)[vs[1].(string)]
 	}).(AccountOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountInput)(nil)).Elem(), &Account{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountPtrInput)(nil)).Elem(), &Account{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountArrayInput)(nil)).Elem(), AccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountMapInput)(nil)).Elem(), AccountMap{})
 	pulumi.RegisterOutputType(AccountOutput{})
-	pulumi.RegisterOutputType(AccountPtrOutput{})
 	pulumi.RegisterOutputType(AccountArrayOutput{})
 	pulumi.RegisterOutputType(AccountMapOutput{})
 }

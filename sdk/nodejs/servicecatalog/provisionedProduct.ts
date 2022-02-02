@@ -182,67 +182,65 @@ export class ProvisionedProduct extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ProvisionedProductArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProvisionedProductArgs | ProvisionedProductState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionedProductState | undefined;
-            inputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchDashboardNames"] = state ? state.cloudwatchDashboardNames : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["ignoreErrors"] = state ? state.ignoreErrors : undefined;
-            inputs["lastProvisioningRecordId"] = state ? state.lastProvisioningRecordId : undefined;
-            inputs["lastRecordId"] = state ? state.lastRecordId : undefined;
-            inputs["lastSuccessfulProvisioningRecordId"] = state ? state.lastSuccessfulProvisioningRecordId : undefined;
-            inputs["launchRoleArn"] = state ? state.launchRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationArns"] = state ? state.notificationArns : undefined;
-            inputs["pathId"] = state ? state.pathId : undefined;
-            inputs["pathName"] = state ? state.pathName : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["productName"] = state ? state.productName : undefined;
-            inputs["provisioningArtifactId"] = state ? state.provisioningArtifactId : undefined;
-            inputs["provisioningArtifactName"] = state ? state.provisioningArtifactName : undefined;
-            inputs["provisioningParameters"] = state ? state.provisioningParameters : undefined;
-            inputs["retainPhysicalResources"] = state ? state.retainPhysicalResources : undefined;
-            inputs["stackSetProvisioningPreferences"] = state ? state.stackSetProvisioningPreferences : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["statusMessage"] = state ? state.statusMessage : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchDashboardNames"] = state ? state.cloudwatchDashboardNames : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["ignoreErrors"] = state ? state.ignoreErrors : undefined;
+            resourceInputs["lastProvisioningRecordId"] = state ? state.lastProvisioningRecordId : undefined;
+            resourceInputs["lastRecordId"] = state ? state.lastRecordId : undefined;
+            resourceInputs["lastSuccessfulProvisioningRecordId"] = state ? state.lastSuccessfulProvisioningRecordId : undefined;
+            resourceInputs["launchRoleArn"] = state ? state.launchRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationArns"] = state ? state.notificationArns : undefined;
+            resourceInputs["pathId"] = state ? state.pathId : undefined;
+            resourceInputs["pathName"] = state ? state.pathName : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["productName"] = state ? state.productName : undefined;
+            resourceInputs["provisioningArtifactId"] = state ? state.provisioningArtifactId : undefined;
+            resourceInputs["provisioningArtifactName"] = state ? state.provisioningArtifactName : undefined;
+            resourceInputs["provisioningParameters"] = state ? state.provisioningParameters : undefined;
+            resourceInputs["retainPhysicalResources"] = state ? state.retainPhysicalResources : undefined;
+            resourceInputs["stackSetProvisioningPreferences"] = state ? state.stackSetProvisioningPreferences : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProvisionedProductArgs | undefined;
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["ignoreErrors"] = args ? args.ignoreErrors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationArns"] = args ? args.notificationArns : undefined;
-            inputs["pathId"] = args ? args.pathId : undefined;
-            inputs["pathName"] = args ? args.pathName : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["productName"] = args ? args.productName : undefined;
-            inputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
-            inputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
-            inputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
-            inputs["retainPhysicalResources"] = args ? args.retainPhysicalResources : undefined;
-            inputs["stackSetProvisioningPreferences"] = args ? args.stackSetProvisioningPreferences : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cloudwatchDashboardNames"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastProvisioningRecordId"] = undefined /*out*/;
-            inputs["lastRecordId"] = undefined /*out*/;
-            inputs["lastSuccessfulProvisioningRecordId"] = undefined /*out*/;
-            inputs["launchRoleArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["ignoreErrors"] = args ? args.ignoreErrors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
+            resourceInputs["pathId"] = args ? args.pathId : undefined;
+            resourceInputs["pathName"] = args ? args.pathName : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["productName"] = args ? args.productName : undefined;
+            resourceInputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
+            resourceInputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
+            resourceInputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
+            resourceInputs["retainPhysicalResources"] = args ? args.retainPhysicalResources : undefined;
+            resourceInputs["stackSetProvisioningPreferences"] = args ? args.stackSetProvisioningPreferences : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cloudwatchDashboardNames"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastProvisioningRecordId"] = undefined /*out*/;
+            resourceInputs["lastRecordId"] = undefined /*out*/;
+            resourceInputs["lastSuccessfulProvisioningRecordId"] = undefined /*out*/;
+            resourceInputs["launchRoleArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProvisionedProduct.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProvisionedProduct.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -191,17 +191,17 @@ export class Selection extends pulumi.CustomResource {
      */
     constructor(name: string, args: SelectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SelectionArgs | SelectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SelectionState | undefined;
-            inputs["conditions"] = state ? state.conditions : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notResources"] = state ? state.notResources : undefined;
-            inputs["planId"] = state ? state.planId : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["selectionTags"] = state ? state.selectionTags : undefined;
+            resourceInputs["conditions"] = state ? state.conditions : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notResources"] = state ? state.notResources : undefined;
+            resourceInputs["planId"] = state ? state.planId : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["selectionTags"] = state ? state.selectionTags : undefined;
         } else {
             const args = argsOrState as SelectionArgs | undefined;
             if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
@@ -210,18 +210,16 @@ export class Selection extends pulumi.CustomResource {
             if ((!args || args.planId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'planId'");
             }
-            inputs["conditions"] = args ? args.conditions : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notResources"] = args ? args.notResources : undefined;
-            inputs["planId"] = args ? args.planId : undefined;
-            inputs["resources"] = args ? args.resources : undefined;
-            inputs["selectionTags"] = args ? args.selectionTags : undefined;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notResources"] = args ? args.notResources : undefined;
+            resourceInputs["planId"] = args ? args.planId : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["selectionTags"] = args ? args.selectionTags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Selection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Selection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

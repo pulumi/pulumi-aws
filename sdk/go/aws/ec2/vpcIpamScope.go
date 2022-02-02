@@ -178,7 +178,7 @@ type VpcIpamScopeInput interface {
 }
 
 func (*VpcIpamScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamScope)(nil))
+	return reflect.TypeOf((**VpcIpamScope)(nil)).Elem()
 }
 
 func (i *VpcIpamScope) ToVpcIpamScopeOutput() VpcIpamScopeOutput {
@@ -187,35 +187,6 @@ func (i *VpcIpamScope) ToVpcIpamScopeOutput() VpcIpamScopeOutput {
 
 func (i *VpcIpamScope) ToVpcIpamScopeOutputWithContext(ctx context.Context) VpcIpamScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamScopeOutput)
-}
-
-func (i *VpcIpamScope) ToVpcIpamScopePtrOutput() VpcIpamScopePtrOutput {
-	return i.ToVpcIpamScopePtrOutputWithContext(context.Background())
-}
-
-func (i *VpcIpamScope) ToVpcIpamScopePtrOutputWithContext(ctx context.Context) VpcIpamScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamScopePtrOutput)
-}
-
-type VpcIpamScopePtrInput interface {
-	pulumi.Input
-
-	ToVpcIpamScopePtrOutput() VpcIpamScopePtrOutput
-	ToVpcIpamScopePtrOutputWithContext(ctx context.Context) VpcIpamScopePtrOutput
-}
-
-type vpcIpamScopePtrType VpcIpamScopeArgs
-
-func (*vpcIpamScopePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamScope)(nil))
-}
-
-func (i *vpcIpamScopePtrType) ToVpcIpamScopePtrOutput() VpcIpamScopePtrOutput {
-	return i.ToVpcIpamScopePtrOutputWithContext(context.Background())
-}
-
-func (i *vpcIpamScopePtrType) ToVpcIpamScopePtrOutputWithContext(ctx context.Context) VpcIpamScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamScopePtrOutput)
 }
 
 // VpcIpamScopeArrayInput is an input type that accepts VpcIpamScopeArray and VpcIpamScopeArrayOutput values.
@@ -271,7 +242,7 @@ func (i VpcIpamScopeMap) ToVpcIpamScopeMapOutputWithContext(ctx context.Context)
 type VpcIpamScopeOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamScope)(nil))
+	return reflect.TypeOf((**VpcIpamScope)(nil)).Elem()
 }
 
 func (o VpcIpamScopeOutput) ToVpcIpamScopeOutput() VpcIpamScopeOutput {
@@ -282,44 +253,10 @@ func (o VpcIpamScopeOutput) ToVpcIpamScopeOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o VpcIpamScopeOutput) ToVpcIpamScopePtrOutput() VpcIpamScopePtrOutput {
-	return o.ToVpcIpamScopePtrOutputWithContext(context.Background())
-}
-
-func (o VpcIpamScopeOutput) ToVpcIpamScopePtrOutputWithContext(ctx context.Context) VpcIpamScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpamScope) *VpcIpamScope {
-		return &v
-	}).(VpcIpamScopePtrOutput)
-}
-
-type VpcIpamScopePtrOutput struct{ *pulumi.OutputState }
-
-func (VpcIpamScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamScope)(nil))
-}
-
-func (o VpcIpamScopePtrOutput) ToVpcIpamScopePtrOutput() VpcIpamScopePtrOutput {
-	return o
-}
-
-func (o VpcIpamScopePtrOutput) ToVpcIpamScopePtrOutputWithContext(ctx context.Context) VpcIpamScopePtrOutput {
-	return o
-}
-
-func (o VpcIpamScopePtrOutput) Elem() VpcIpamScopeOutput {
-	return o.ApplyT(func(v *VpcIpamScope) VpcIpamScope {
-		if v != nil {
-			return *v
-		}
-		var ret VpcIpamScope
-		return ret
-	}).(VpcIpamScopeOutput)
-}
-
 type VpcIpamScopeArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcIpamScope)(nil))
+	return reflect.TypeOf((*[]*VpcIpamScope)(nil)).Elem()
 }
 
 func (o VpcIpamScopeArrayOutput) ToVpcIpamScopeArrayOutput() VpcIpamScopeArrayOutput {
@@ -331,15 +268,15 @@ func (o VpcIpamScopeArrayOutput) ToVpcIpamScopeArrayOutputWithContext(ctx contex
 }
 
 func (o VpcIpamScopeArrayOutput) Index(i pulumi.IntInput) VpcIpamScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamScope {
-		return vs[0].([]VpcIpamScope)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamScope {
+		return vs[0].([]*VpcIpamScope)[vs[1].(int)]
 	}).(VpcIpamScopeOutput)
 }
 
 type VpcIpamScopeMapOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcIpamScope)(nil))
+	return reflect.TypeOf((*map[string]*VpcIpamScope)(nil)).Elem()
 }
 
 func (o VpcIpamScopeMapOutput) ToVpcIpamScopeMapOutput() VpcIpamScopeMapOutput {
@@ -351,18 +288,16 @@ func (o VpcIpamScopeMapOutput) ToVpcIpamScopeMapOutputWithContext(ctx context.Co
 }
 
 func (o VpcIpamScopeMapOutput) MapIndex(k pulumi.StringInput) VpcIpamScopeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcIpamScope {
-		return vs[0].(map[string]VpcIpamScope)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcIpamScope {
+		return vs[0].(map[string]*VpcIpamScope)[vs[1].(string)]
 	}).(VpcIpamScopeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamScopeInput)(nil)).Elem(), &VpcIpamScope{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamScopePtrInput)(nil)).Elem(), &VpcIpamScope{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamScopeArrayInput)(nil)).Elem(), VpcIpamScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamScopeMapInput)(nil)).Elem(), VpcIpamScopeMap{})
 	pulumi.RegisterOutputType(VpcIpamScopeOutput{})
-	pulumi.RegisterOutputType(VpcIpamScopePtrOutput{})
 	pulumi.RegisterOutputType(VpcIpamScopeArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamScopeMapOutput{})
 }

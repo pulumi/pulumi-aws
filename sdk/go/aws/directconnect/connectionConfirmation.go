@@ -110,7 +110,7 @@ type ConnectionConfirmationInput interface {
 }
 
 func (*ConnectionConfirmation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionConfirmation)(nil))
+	return reflect.TypeOf((**ConnectionConfirmation)(nil)).Elem()
 }
 
 func (i *ConnectionConfirmation) ToConnectionConfirmationOutput() ConnectionConfirmationOutput {
@@ -119,35 +119,6 @@ func (i *ConnectionConfirmation) ToConnectionConfirmationOutput() ConnectionConf
 
 func (i *ConnectionConfirmation) ToConnectionConfirmationOutputWithContext(ctx context.Context) ConnectionConfirmationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfirmationOutput)
-}
-
-func (i *ConnectionConfirmation) ToConnectionConfirmationPtrOutput() ConnectionConfirmationPtrOutput {
-	return i.ToConnectionConfirmationPtrOutputWithContext(context.Background())
-}
-
-func (i *ConnectionConfirmation) ToConnectionConfirmationPtrOutputWithContext(ctx context.Context) ConnectionConfirmationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfirmationPtrOutput)
-}
-
-type ConnectionConfirmationPtrInput interface {
-	pulumi.Input
-
-	ToConnectionConfirmationPtrOutput() ConnectionConfirmationPtrOutput
-	ToConnectionConfirmationPtrOutputWithContext(ctx context.Context) ConnectionConfirmationPtrOutput
-}
-
-type connectionConfirmationPtrType ConnectionConfirmationArgs
-
-func (*connectionConfirmationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionConfirmation)(nil))
-}
-
-func (i *connectionConfirmationPtrType) ToConnectionConfirmationPtrOutput() ConnectionConfirmationPtrOutput {
-	return i.ToConnectionConfirmationPtrOutputWithContext(context.Background())
-}
-
-func (i *connectionConfirmationPtrType) ToConnectionConfirmationPtrOutputWithContext(ctx context.Context) ConnectionConfirmationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfirmationPtrOutput)
 }
 
 // ConnectionConfirmationArrayInput is an input type that accepts ConnectionConfirmationArray and ConnectionConfirmationArrayOutput values.
@@ -203,7 +174,7 @@ func (i ConnectionConfirmationMap) ToConnectionConfirmationMapOutputWithContext(
 type ConnectionConfirmationOutput struct{ *pulumi.OutputState }
 
 func (ConnectionConfirmationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionConfirmation)(nil))
+	return reflect.TypeOf((**ConnectionConfirmation)(nil)).Elem()
 }
 
 func (o ConnectionConfirmationOutput) ToConnectionConfirmationOutput() ConnectionConfirmationOutput {
@@ -214,44 +185,10 @@ func (o ConnectionConfirmationOutput) ToConnectionConfirmationOutputWithContext(
 	return o
 }
 
-func (o ConnectionConfirmationOutput) ToConnectionConfirmationPtrOutput() ConnectionConfirmationPtrOutput {
-	return o.ToConnectionConfirmationPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionConfirmationOutput) ToConnectionConfirmationPtrOutputWithContext(ctx context.Context) ConnectionConfirmationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionConfirmation) *ConnectionConfirmation {
-		return &v
-	}).(ConnectionConfirmationPtrOutput)
-}
-
-type ConnectionConfirmationPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectionConfirmationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionConfirmation)(nil))
-}
-
-func (o ConnectionConfirmationPtrOutput) ToConnectionConfirmationPtrOutput() ConnectionConfirmationPtrOutput {
-	return o
-}
-
-func (o ConnectionConfirmationPtrOutput) ToConnectionConfirmationPtrOutputWithContext(ctx context.Context) ConnectionConfirmationPtrOutput {
-	return o
-}
-
-func (o ConnectionConfirmationPtrOutput) Elem() ConnectionConfirmationOutput {
-	return o.ApplyT(func(v *ConnectionConfirmation) ConnectionConfirmation {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionConfirmation
-		return ret
-	}).(ConnectionConfirmationOutput)
-}
-
 type ConnectionConfirmationArrayOutput struct{ *pulumi.OutputState }
 
 func (ConnectionConfirmationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionConfirmation)(nil))
+	return reflect.TypeOf((*[]*ConnectionConfirmation)(nil)).Elem()
 }
 
 func (o ConnectionConfirmationArrayOutput) ToConnectionConfirmationArrayOutput() ConnectionConfirmationArrayOutput {
@@ -263,15 +200,15 @@ func (o ConnectionConfirmationArrayOutput) ToConnectionConfirmationArrayOutputWi
 }
 
 func (o ConnectionConfirmationArrayOutput) Index(i pulumi.IntInput) ConnectionConfirmationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionConfirmation {
-		return vs[0].([]ConnectionConfirmation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionConfirmation {
+		return vs[0].([]*ConnectionConfirmation)[vs[1].(int)]
 	}).(ConnectionConfirmationOutput)
 }
 
 type ConnectionConfirmationMapOutput struct{ *pulumi.OutputState }
 
 func (ConnectionConfirmationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConnectionConfirmation)(nil))
+	return reflect.TypeOf((*map[string]*ConnectionConfirmation)(nil)).Elem()
 }
 
 func (o ConnectionConfirmationMapOutput) ToConnectionConfirmationMapOutput() ConnectionConfirmationMapOutput {
@@ -283,18 +220,16 @@ func (o ConnectionConfirmationMapOutput) ToConnectionConfirmationMapOutputWithCo
 }
 
 func (o ConnectionConfirmationMapOutput) MapIndex(k pulumi.StringInput) ConnectionConfirmationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnectionConfirmation {
-		return vs[0].(map[string]ConnectionConfirmation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConnectionConfirmation {
+		return vs[0].(map[string]*ConnectionConfirmation)[vs[1].(string)]
 	}).(ConnectionConfirmationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationInput)(nil)).Elem(), &ConnectionConfirmation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationPtrInput)(nil)).Elem(), &ConnectionConfirmation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationArrayInput)(nil)).Elem(), ConnectionConfirmationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationMapInput)(nil)).Elem(), ConnectionConfirmationMap{})
 	pulumi.RegisterOutputType(ConnectionConfirmationOutput{})
-	pulumi.RegisterOutputType(ConnectionConfirmationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionConfirmationArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionConfirmationMapOutput{})
 }

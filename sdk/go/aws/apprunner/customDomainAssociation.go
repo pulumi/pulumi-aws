@@ -164,7 +164,7 @@ type CustomDomainAssociationInput interface {
 }
 
 func (*CustomDomainAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainAssociation)(nil))
+	return reflect.TypeOf((**CustomDomainAssociation)(nil)).Elem()
 }
 
 func (i *CustomDomainAssociation) ToCustomDomainAssociationOutput() CustomDomainAssociationOutput {
@@ -173,35 +173,6 @@ func (i *CustomDomainAssociation) ToCustomDomainAssociationOutput() CustomDomain
 
 func (i *CustomDomainAssociation) ToCustomDomainAssociationOutputWithContext(ctx context.Context) CustomDomainAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationOutput)
-}
-
-func (i *CustomDomainAssociation) ToCustomDomainAssociationPtrOutput() CustomDomainAssociationPtrOutput {
-	return i.ToCustomDomainAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *CustomDomainAssociation) ToCustomDomainAssociationPtrOutputWithContext(ctx context.Context) CustomDomainAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationPtrOutput)
-}
-
-type CustomDomainAssociationPtrInput interface {
-	pulumi.Input
-
-	ToCustomDomainAssociationPtrOutput() CustomDomainAssociationPtrOutput
-	ToCustomDomainAssociationPtrOutputWithContext(ctx context.Context) CustomDomainAssociationPtrOutput
-}
-
-type customDomainAssociationPtrType CustomDomainAssociationArgs
-
-func (*customDomainAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomainAssociation)(nil))
-}
-
-func (i *customDomainAssociationPtrType) ToCustomDomainAssociationPtrOutput() CustomDomainAssociationPtrOutput {
-	return i.ToCustomDomainAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *customDomainAssociationPtrType) ToCustomDomainAssociationPtrOutputWithContext(ctx context.Context) CustomDomainAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationPtrOutput)
 }
 
 // CustomDomainAssociationArrayInput is an input type that accepts CustomDomainAssociationArray and CustomDomainAssociationArrayOutput values.
@@ -257,7 +228,7 @@ func (i CustomDomainAssociationMap) ToCustomDomainAssociationMapOutputWithContex
 type CustomDomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainAssociation)(nil))
+	return reflect.TypeOf((**CustomDomainAssociation)(nil)).Elem()
 }
 
 func (o CustomDomainAssociationOutput) ToCustomDomainAssociationOutput() CustomDomainAssociationOutput {
@@ -268,44 +239,10 @@ func (o CustomDomainAssociationOutput) ToCustomDomainAssociationOutputWithContex
 	return o
 }
 
-func (o CustomDomainAssociationOutput) ToCustomDomainAssociationPtrOutput() CustomDomainAssociationPtrOutput {
-	return o.ToCustomDomainAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o CustomDomainAssociationOutput) ToCustomDomainAssociationPtrOutputWithContext(ctx context.Context) CustomDomainAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainAssociation) *CustomDomainAssociation {
-		return &v
-	}).(CustomDomainAssociationPtrOutput)
-}
-
-type CustomDomainAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomainAssociation)(nil))
-}
-
-func (o CustomDomainAssociationPtrOutput) ToCustomDomainAssociationPtrOutput() CustomDomainAssociationPtrOutput {
-	return o
-}
-
-func (o CustomDomainAssociationPtrOutput) ToCustomDomainAssociationPtrOutputWithContext(ctx context.Context) CustomDomainAssociationPtrOutput {
-	return o
-}
-
-func (o CustomDomainAssociationPtrOutput) Elem() CustomDomainAssociationOutput {
-	return o.ApplyT(func(v *CustomDomainAssociation) CustomDomainAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDomainAssociation
-		return ret
-	}).(CustomDomainAssociationOutput)
-}
-
 type CustomDomainAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDomainAssociation)(nil))
+	return reflect.TypeOf((*[]*CustomDomainAssociation)(nil)).Elem()
 }
 
 func (o CustomDomainAssociationArrayOutput) ToCustomDomainAssociationArrayOutput() CustomDomainAssociationArrayOutput {
@@ -317,15 +254,15 @@ func (o CustomDomainAssociationArrayOutput) ToCustomDomainAssociationArrayOutput
 }
 
 func (o CustomDomainAssociationArrayOutput) Index(i pulumi.IntInput) CustomDomainAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainAssociation {
-		return vs[0].([]CustomDomainAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDomainAssociation {
+		return vs[0].([]*CustomDomainAssociation)[vs[1].(int)]
 	}).(CustomDomainAssociationOutput)
 }
 
 type CustomDomainAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomDomainAssociation)(nil))
+	return reflect.TypeOf((*map[string]*CustomDomainAssociation)(nil)).Elem()
 }
 
 func (o CustomDomainAssociationMapOutput) ToCustomDomainAssociationMapOutput() CustomDomainAssociationMapOutput {
@@ -337,18 +274,16 @@ func (o CustomDomainAssociationMapOutput) ToCustomDomainAssociationMapOutputWith
 }
 
 func (o CustomDomainAssociationMapOutput) MapIndex(k pulumi.StringInput) CustomDomainAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomDomainAssociation {
-		return vs[0].(map[string]CustomDomainAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CustomDomainAssociation {
+		return vs[0].(map[string]*CustomDomainAssociation)[vs[1].(string)]
 	}).(CustomDomainAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationInput)(nil)).Elem(), &CustomDomainAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationPtrInput)(nil)).Elem(), &CustomDomainAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationArrayInput)(nil)).Elem(), CustomDomainAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationMapInput)(nil)).Elem(), CustomDomainAssociationMap{})
 	pulumi.RegisterOutputType(CustomDomainAssociationOutput{})
-	pulumi.RegisterOutputType(CustomDomainAssociationPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainAssociationArrayOutput{})
 	pulumi.RegisterOutputType(CustomDomainAssociationMapOutput{})
 }

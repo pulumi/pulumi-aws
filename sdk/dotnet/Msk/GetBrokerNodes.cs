@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Msk
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Msk
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBrokerNodesResult> InvokeAsync(GetBrokerNodesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an Amazon MSK Broker Nodes.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Msk
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBrokerNodesResult> Invoke(GetBrokerNodesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesInvokeArgs(), options.WithDefaults());
     }
 
 

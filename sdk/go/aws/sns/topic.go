@@ -433,7 +433,7 @@ type TopicInput interface {
 }
 
 func (*Topic) ElementType() reflect.Type {
-	return reflect.TypeOf((*Topic)(nil))
+	return reflect.TypeOf((**Topic)(nil)).Elem()
 }
 
 func (i *Topic) ToTopicOutput() TopicOutput {
@@ -442,35 +442,6 @@ func (i *Topic) ToTopicOutput() TopicOutput {
 
 func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
-}
-
-func (i *Topic) ToTopicPtrOutput() TopicPtrOutput {
-	return i.ToTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *Topic) ToTopicPtrOutputWithContext(ctx context.Context) TopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicPtrOutput)
-}
-
-type TopicPtrInput interface {
-	pulumi.Input
-
-	ToTopicPtrOutput() TopicPtrOutput
-	ToTopicPtrOutputWithContext(ctx context.Context) TopicPtrOutput
-}
-
-type topicPtrType TopicArgs
-
-func (*topicPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Topic)(nil))
-}
-
-func (i *topicPtrType) ToTopicPtrOutput() TopicPtrOutput {
-	return i.ToTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *topicPtrType) ToTopicPtrOutputWithContext(ctx context.Context) TopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicPtrOutput)
 }
 
 // TopicArrayInput is an input type that accepts TopicArray and TopicArrayOutput values.
@@ -526,7 +497,7 @@ func (i TopicMap) ToTopicMapOutputWithContext(ctx context.Context) TopicMapOutpu
 type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Topic)(nil))
+	return reflect.TypeOf((**Topic)(nil)).Elem()
 }
 
 func (o TopicOutput) ToTopicOutput() TopicOutput {
@@ -537,44 +508,10 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
-func (o TopicOutput) ToTopicPtrOutput() TopicPtrOutput {
-	return o.ToTopicPtrOutputWithContext(context.Background())
-}
-
-func (o TopicOutput) ToTopicPtrOutputWithContext(ctx context.Context) TopicPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Topic) *Topic {
-		return &v
-	}).(TopicPtrOutput)
-}
-
-type TopicPtrOutput struct{ *pulumi.OutputState }
-
-func (TopicPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Topic)(nil))
-}
-
-func (o TopicPtrOutput) ToTopicPtrOutput() TopicPtrOutput {
-	return o
-}
-
-func (o TopicPtrOutput) ToTopicPtrOutputWithContext(ctx context.Context) TopicPtrOutput {
-	return o
-}
-
-func (o TopicPtrOutput) Elem() TopicOutput {
-	return o.ApplyT(func(v *Topic) Topic {
-		if v != nil {
-			return *v
-		}
-		var ret Topic
-		return ret
-	}).(TopicOutput)
-}
-
 type TopicArrayOutput struct{ *pulumi.OutputState }
 
 func (TopicArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Topic)(nil))
+	return reflect.TypeOf((*[]*Topic)(nil)).Elem()
 }
 
 func (o TopicArrayOutput) ToTopicArrayOutput() TopicArrayOutput {
@@ -586,15 +523,15 @@ func (o TopicArrayOutput) ToTopicArrayOutputWithContext(ctx context.Context) Top
 }
 
 func (o TopicArrayOutput) Index(i pulumi.IntInput) TopicOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Topic {
-		return vs[0].([]Topic)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Topic {
+		return vs[0].([]*Topic)[vs[1].(int)]
 	}).(TopicOutput)
 }
 
 type TopicMapOutput struct{ *pulumi.OutputState }
 
 func (TopicMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Topic)(nil))
+	return reflect.TypeOf((*map[string]*Topic)(nil)).Elem()
 }
 
 func (o TopicMapOutput) ToTopicMapOutput() TopicMapOutput {
@@ -606,18 +543,16 @@ func (o TopicMapOutput) ToTopicMapOutputWithContext(ctx context.Context) TopicMa
 }
 
 func (o TopicMapOutput) MapIndex(k pulumi.StringInput) TopicOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Topic {
-		return vs[0].(map[string]Topic)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Topic {
+		return vs[0].(map[string]*Topic)[vs[1].(string)]
 	}).(TopicOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicInput)(nil)).Elem(), &Topic{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicPtrInput)(nil)).Elem(), &Topic{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicArrayInput)(nil)).Elem(), TopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicMapInput)(nil)).Elem(), TopicMap{})
 	pulumi.RegisterOutputType(TopicOutput{})
-	pulumi.RegisterOutputType(TopicPtrOutput{})
 	pulumi.RegisterOutputType(TopicArrayOutput{})
 	pulumi.RegisterOutputType(TopicMapOutput{})
 }

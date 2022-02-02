@@ -175,7 +175,7 @@ type HsmInput interface {
 }
 
 func (*Hsm) ElementType() reflect.Type {
-	return reflect.TypeOf((*Hsm)(nil))
+	return reflect.TypeOf((**Hsm)(nil)).Elem()
 }
 
 func (i *Hsm) ToHsmOutput() HsmOutput {
@@ -184,35 +184,6 @@ func (i *Hsm) ToHsmOutput() HsmOutput {
 
 func (i *Hsm) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmOutput)
-}
-
-func (i *Hsm) ToHsmPtrOutput() HsmPtrOutput {
-	return i.ToHsmPtrOutputWithContext(context.Background())
-}
-
-func (i *Hsm) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HsmPtrOutput)
-}
-
-type HsmPtrInput interface {
-	pulumi.Input
-
-	ToHsmPtrOutput() HsmPtrOutput
-	ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput
-}
-
-type hsmPtrType HsmArgs
-
-func (*hsmPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Hsm)(nil))
-}
-
-func (i *hsmPtrType) ToHsmPtrOutput() HsmPtrOutput {
-	return i.ToHsmPtrOutputWithContext(context.Background())
-}
-
-func (i *hsmPtrType) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HsmPtrOutput)
 }
 
 // HsmArrayInput is an input type that accepts HsmArray and HsmArrayOutput values.
@@ -268,7 +239,7 @@ func (i HsmMap) ToHsmMapOutputWithContext(ctx context.Context) HsmMapOutput {
 type HsmOutput struct{ *pulumi.OutputState }
 
 func (HsmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Hsm)(nil))
+	return reflect.TypeOf((**Hsm)(nil)).Elem()
 }
 
 func (o HsmOutput) ToHsmOutput() HsmOutput {
@@ -279,44 +250,10 @@ func (o HsmOutput) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 	return o
 }
 
-func (o HsmOutput) ToHsmPtrOutput() HsmPtrOutput {
-	return o.ToHsmPtrOutputWithContext(context.Background())
-}
-
-func (o HsmOutput) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hsm) *Hsm {
-		return &v
-	}).(HsmPtrOutput)
-}
-
-type HsmPtrOutput struct{ *pulumi.OutputState }
-
-func (HsmPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Hsm)(nil))
-}
-
-func (o HsmPtrOutput) ToHsmPtrOutput() HsmPtrOutput {
-	return o
-}
-
-func (o HsmPtrOutput) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
-	return o
-}
-
-func (o HsmPtrOutput) Elem() HsmOutput {
-	return o.ApplyT(func(v *Hsm) Hsm {
-		if v != nil {
-			return *v
-		}
-		var ret Hsm
-		return ret
-	}).(HsmOutput)
-}
-
 type HsmArrayOutput struct{ *pulumi.OutputState }
 
 func (HsmArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Hsm)(nil))
+	return reflect.TypeOf((*[]*Hsm)(nil)).Elem()
 }
 
 func (o HsmArrayOutput) ToHsmArrayOutput() HsmArrayOutput {
@@ -328,15 +265,15 @@ func (o HsmArrayOutput) ToHsmArrayOutputWithContext(ctx context.Context) HsmArra
 }
 
 func (o HsmArrayOutput) Index(i pulumi.IntInput) HsmOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Hsm {
-		return vs[0].([]Hsm)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Hsm {
+		return vs[0].([]*Hsm)[vs[1].(int)]
 	}).(HsmOutput)
 }
 
 type HsmMapOutput struct{ *pulumi.OutputState }
 
 func (HsmMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Hsm)(nil))
+	return reflect.TypeOf((*map[string]*Hsm)(nil)).Elem()
 }
 
 func (o HsmMapOutput) ToHsmMapOutput() HsmMapOutput {
@@ -348,18 +285,16 @@ func (o HsmMapOutput) ToHsmMapOutputWithContext(ctx context.Context) HsmMapOutpu
 }
 
 func (o HsmMapOutput) MapIndex(k pulumi.StringInput) HsmOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Hsm {
-		return vs[0].(map[string]Hsm)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Hsm {
+		return vs[0].(map[string]*Hsm)[vs[1].(string)]
 	}).(HsmOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HsmInput)(nil)).Elem(), &Hsm{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HsmPtrInput)(nil)).Elem(), &Hsm{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HsmArrayInput)(nil)).Elem(), HsmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HsmMapInput)(nil)).Elem(), HsmMap{})
 	pulumi.RegisterOutputType(HsmOutput{})
-	pulumi.RegisterOutputType(HsmPtrOutput{})
 	pulumi.RegisterOutputType(HsmArrayOutput{})
 	pulumi.RegisterOutputType(HsmMapOutput{})
 }

@@ -146,7 +146,7 @@ type TagOptionInput interface {
 }
 
 func (*TagOption) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOption)(nil))
+	return reflect.TypeOf((**TagOption)(nil)).Elem()
 }
 
 func (i *TagOption) ToTagOptionOutput() TagOptionOutput {
@@ -155,35 +155,6 @@ func (i *TagOption) ToTagOptionOutput() TagOptionOutput {
 
 func (i *TagOption) ToTagOptionOutputWithContext(ctx context.Context) TagOptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionOutput)
-}
-
-func (i *TagOption) ToTagOptionPtrOutput() TagOptionPtrOutput {
-	return i.ToTagOptionPtrOutputWithContext(context.Background())
-}
-
-func (i *TagOption) ToTagOptionPtrOutputWithContext(ctx context.Context) TagOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagOptionPtrOutput)
-}
-
-type TagOptionPtrInput interface {
-	pulumi.Input
-
-	ToTagOptionPtrOutput() TagOptionPtrOutput
-	ToTagOptionPtrOutputWithContext(ctx context.Context) TagOptionPtrOutput
-}
-
-type tagOptionPtrType TagOptionArgs
-
-func (*tagOptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagOption)(nil))
-}
-
-func (i *tagOptionPtrType) ToTagOptionPtrOutput() TagOptionPtrOutput {
-	return i.ToTagOptionPtrOutputWithContext(context.Background())
-}
-
-func (i *tagOptionPtrType) ToTagOptionPtrOutputWithContext(ctx context.Context) TagOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagOptionPtrOutput)
 }
 
 // TagOptionArrayInput is an input type that accepts TagOptionArray and TagOptionArrayOutput values.
@@ -239,7 +210,7 @@ func (i TagOptionMap) ToTagOptionMapOutputWithContext(ctx context.Context) TagOp
 type TagOptionOutput struct{ *pulumi.OutputState }
 
 func (TagOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOption)(nil))
+	return reflect.TypeOf((**TagOption)(nil)).Elem()
 }
 
 func (o TagOptionOutput) ToTagOptionOutput() TagOptionOutput {
@@ -250,44 +221,10 @@ func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOp
 	return o
 }
 
-func (o TagOptionOutput) ToTagOptionPtrOutput() TagOptionPtrOutput {
-	return o.ToTagOptionPtrOutputWithContext(context.Background())
-}
-
-func (o TagOptionOutput) ToTagOptionPtrOutputWithContext(ctx context.Context) TagOptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagOption) *TagOption {
-		return &v
-	}).(TagOptionPtrOutput)
-}
-
-type TagOptionPtrOutput struct{ *pulumi.OutputState }
-
-func (TagOptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagOption)(nil))
-}
-
-func (o TagOptionPtrOutput) ToTagOptionPtrOutput() TagOptionPtrOutput {
-	return o
-}
-
-func (o TagOptionPtrOutput) ToTagOptionPtrOutputWithContext(ctx context.Context) TagOptionPtrOutput {
-	return o
-}
-
-func (o TagOptionPtrOutput) Elem() TagOptionOutput {
-	return o.ApplyT(func(v *TagOption) TagOption {
-		if v != nil {
-			return *v
-		}
-		var ret TagOption
-		return ret
-	}).(TagOptionOutput)
-}
-
 type TagOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (TagOptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagOption)(nil))
+	return reflect.TypeOf((*[]*TagOption)(nil)).Elem()
 }
 
 func (o TagOptionArrayOutput) ToTagOptionArrayOutput() TagOptionArrayOutput {
@@ -299,15 +236,15 @@ func (o TagOptionArrayOutput) ToTagOptionArrayOutputWithContext(ctx context.Cont
 }
 
 func (o TagOptionArrayOutput) Index(i pulumi.IntInput) TagOptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagOption {
-		return vs[0].([]TagOption)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagOption {
+		return vs[0].([]*TagOption)[vs[1].(int)]
 	}).(TagOptionOutput)
 }
 
 type TagOptionMapOutput struct{ *pulumi.OutputState }
 
 func (TagOptionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TagOption)(nil))
+	return reflect.TypeOf((*map[string]*TagOption)(nil)).Elem()
 }
 
 func (o TagOptionMapOutput) ToTagOptionMapOutput() TagOptionMapOutput {
@@ -319,18 +256,16 @@ func (o TagOptionMapOutput) ToTagOptionMapOutputWithContext(ctx context.Context)
 }
 
 func (o TagOptionMapOutput) MapIndex(k pulumi.StringInput) TagOptionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TagOption {
-		return vs[0].(map[string]TagOption)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TagOption {
+		return vs[0].(map[string]*TagOption)[vs[1].(string)]
 	}).(TagOptionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionInput)(nil)).Elem(), &TagOption{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionPtrInput)(nil)).Elem(), &TagOption{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionArrayInput)(nil)).Elem(), TagOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionMapInput)(nil)).Elem(), TagOptionMap{})
 	pulumi.RegisterOutputType(TagOptionOutput{})
-	pulumi.RegisterOutputType(TagOptionPtrOutput{})
 	pulumi.RegisterOutputType(TagOptionArrayOutput{})
 	pulumi.RegisterOutputType(TagOptionMapOutput{})
 }

@@ -137,27 +137,27 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImagePipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImagePipelineArgs | ImagePipelineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImagePipelineState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dateCreated"] = state ? state.dateCreated : undefined;
-            inputs["dateLastRun"] = state ? state.dateLastRun : undefined;
-            inputs["dateNextRun"] = state ? state.dateNextRun : undefined;
-            inputs["dateUpdated"] = state ? state.dateUpdated : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
-            inputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
-            inputs["imageRecipeArn"] = state ? state.imageRecipeArn : undefined;
-            inputs["imageTestsConfiguration"] = state ? state.imageTestsConfiguration : undefined;
-            inputs["infrastructureConfigurationArn"] = state ? state.infrastructureConfigurationArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["dateLastRun"] = state ? state.dateLastRun : undefined;
+            resourceInputs["dateNextRun"] = state ? state.dateNextRun : undefined;
+            resourceInputs["dateUpdated"] = state ? state.dateUpdated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["imageRecipeArn"] = state ? state.imageRecipeArn : undefined;
+            resourceInputs["imageTestsConfiguration"] = state ? state.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = state ? state.infrastructureConfigurationArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ImagePipelineArgs | undefined;
             if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
@@ -166,28 +166,26 @@ export class ImagePipeline extends pulumi.CustomResource {
             if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
-            inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
-            inputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
-            inputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
-            inputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dateCreated"] = undefined /*out*/;
-            inputs["dateLastRun"] = undefined /*out*/;
-            inputs["dateNextRun"] = undefined /*out*/;
-            inputs["dateUpdated"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dateCreated"] = undefined /*out*/;
+            resourceInputs["dateLastRun"] = undefined /*out*/;
+            resourceInputs["dateNextRun"] = undefined /*out*/;
+            resourceInputs["dateUpdated"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ImagePipeline.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ImagePipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

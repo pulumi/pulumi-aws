@@ -75,26 +75,24 @@ export class LogStream extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogStreamArgs | LogStreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogStreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogStreamArgs | undefined;
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LogStream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LogStream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

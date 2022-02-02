@@ -23,9 +23,7 @@ export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccount
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);
 }

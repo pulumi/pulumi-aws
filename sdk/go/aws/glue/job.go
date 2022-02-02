@@ -365,7 +365,7 @@ type JobInput interface {
 }
 
 func (*Job) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (i *Job) ToJobOutput() JobOutput {
@@ -374,35 +374,6 @@ func (i *Job) ToJobOutput() JobOutput {
 
 func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
-}
-
-func (i *Job) ToJobPtrOutput() JobPtrOutput {
-	return i.ToJobPtrOutputWithContext(context.Background())
-}
-
-func (i *Job) ToJobPtrOutputWithContext(ctx context.Context) JobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobPtrOutput)
-}
-
-type JobPtrInput interface {
-	pulumi.Input
-
-	ToJobPtrOutput() JobPtrOutput
-	ToJobPtrOutputWithContext(ctx context.Context) JobPtrOutput
-}
-
-type jobPtrType JobArgs
-
-func (*jobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Job)(nil))
-}
-
-func (i *jobPtrType) ToJobPtrOutput() JobPtrOutput {
-	return i.ToJobPtrOutputWithContext(context.Background())
-}
-
-func (i *jobPtrType) ToJobPtrOutputWithContext(ctx context.Context) JobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobPtrOutput)
 }
 
 // JobArrayInput is an input type that accepts JobArray and JobArrayOutput values.
@@ -458,7 +429,7 @@ func (i JobMap) ToJobMapOutputWithContext(ctx context.Context) JobMapOutput {
 type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (o JobOutput) ToJobOutput() JobOutput {
@@ -469,44 +440,10 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
-func (o JobOutput) ToJobPtrOutput() JobPtrOutput {
-	return o.ToJobPtrOutputWithContext(context.Background())
-}
-
-func (o JobOutput) ToJobPtrOutputWithContext(ctx context.Context) JobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Job) *Job {
-		return &v
-	}).(JobPtrOutput)
-}
-
-type JobPtrOutput struct{ *pulumi.OutputState }
-
-func (JobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Job)(nil))
-}
-
-func (o JobPtrOutput) ToJobPtrOutput() JobPtrOutput {
-	return o
-}
-
-func (o JobPtrOutput) ToJobPtrOutputWithContext(ctx context.Context) JobPtrOutput {
-	return o
-}
-
-func (o JobPtrOutput) Elem() JobOutput {
-	return o.ApplyT(func(v *Job) Job {
-		if v != nil {
-			return *v
-		}
-		var ret Job
-		return ret
-	}).(JobOutput)
-}
-
 type JobArrayOutput struct{ *pulumi.OutputState }
 
 func (JobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Job)(nil))
+	return reflect.TypeOf((*[]*Job)(nil)).Elem()
 }
 
 func (o JobArrayOutput) ToJobArrayOutput() JobArrayOutput {
@@ -518,15 +455,15 @@ func (o JobArrayOutput) ToJobArrayOutputWithContext(ctx context.Context) JobArra
 }
 
 func (o JobArrayOutput) Index(i pulumi.IntInput) JobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Job {
-		return vs[0].([]Job)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Job {
+		return vs[0].([]*Job)[vs[1].(int)]
 	}).(JobOutput)
 }
 
 type JobMapOutput struct{ *pulumi.OutputState }
 
 func (JobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Job)(nil))
+	return reflect.TypeOf((*map[string]*Job)(nil)).Elem()
 }
 
 func (o JobMapOutput) ToJobMapOutput() JobMapOutput {
@@ -538,18 +475,16 @@ func (o JobMapOutput) ToJobMapOutputWithContext(ctx context.Context) JobMapOutpu
 }
 
 func (o JobMapOutput) MapIndex(k pulumi.StringInput) JobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Job {
-		return vs[0].(map[string]Job)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Job {
+		return vs[0].(map[string]*Job)[vs[1].(string)]
 	}).(JobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobInput)(nil)).Elem(), &Job{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobPtrInput)(nil)).Elem(), &Job{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobArrayInput)(nil)).Elem(), JobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobMapInput)(nil)).Elem(), JobMap{})
 	pulumi.RegisterOutputType(JobOutput{})
-	pulumi.RegisterOutputType(JobPtrOutput{})
 	pulumi.RegisterOutputType(JobArrayOutput{})
 	pulumi.RegisterOutputType(JobMapOutput{})
 }

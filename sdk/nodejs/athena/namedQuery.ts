@@ -103,15 +103,15 @@ export class NamedQuery extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamedQueryState | undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["workgroup"] = state ? state.workgroup : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as NamedQueryArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -120,16 +120,14 @@ export class NamedQuery extends pulumi.CustomResource {
             if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            inputs["database"] = args ? args.database : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["workgroup"] = args ? args.workgroup : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NamedQuery.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NamedQuery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -98,12 +98,12 @@ export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProtectionHealthCheckAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectionHealthCheckAssociationArgs | ProtectionHealthCheckAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionHealthCheckAssociationState | undefined;
-            inputs["healthCheckArn"] = state ? state.healthCheckArn : undefined;
-            inputs["shieldProtectionId"] = state ? state.shieldProtectionId : undefined;
+            resourceInputs["healthCheckArn"] = state ? state.healthCheckArn : undefined;
+            resourceInputs["shieldProtectionId"] = state ? state.shieldProtectionId : undefined;
         } else {
             const args = argsOrState as ProtectionHealthCheckAssociationArgs | undefined;
             if ((!args || args.healthCheckArn === undefined) && !opts.urn) {
@@ -112,13 +112,11 @@ export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
             if ((!args || args.shieldProtectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shieldProtectionId'");
             }
-            inputs["healthCheckArn"] = args ? args.healthCheckArn : undefined;
-            inputs["shieldProtectionId"] = args ? args.shieldProtectionId : undefined;
+            resourceInputs["healthCheckArn"] = args ? args.healthCheckArn : undefined;
+            resourceInputs["shieldProtectionId"] = args ? args.shieldProtectionId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProtectionHealthCheckAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProtectionHealthCheckAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

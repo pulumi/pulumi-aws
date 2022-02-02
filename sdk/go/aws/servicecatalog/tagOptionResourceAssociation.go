@@ -159,7 +159,7 @@ type TagOptionResourceAssociationInput interface {
 }
 
 func (*TagOptionResourceAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOptionResourceAssociation)(nil))
+	return reflect.TypeOf((**TagOptionResourceAssociation)(nil)).Elem()
 }
 
 func (i *TagOptionResourceAssociation) ToTagOptionResourceAssociationOutput() TagOptionResourceAssociationOutput {
@@ -168,35 +168,6 @@ func (i *TagOptionResourceAssociation) ToTagOptionResourceAssociationOutput() Ta
 
 func (i *TagOptionResourceAssociation) ToTagOptionResourceAssociationOutputWithContext(ctx context.Context) TagOptionResourceAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionResourceAssociationOutput)
-}
-
-func (i *TagOptionResourceAssociation) ToTagOptionResourceAssociationPtrOutput() TagOptionResourceAssociationPtrOutput {
-	return i.ToTagOptionResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *TagOptionResourceAssociation) ToTagOptionResourceAssociationPtrOutputWithContext(ctx context.Context) TagOptionResourceAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagOptionResourceAssociationPtrOutput)
-}
-
-type TagOptionResourceAssociationPtrInput interface {
-	pulumi.Input
-
-	ToTagOptionResourceAssociationPtrOutput() TagOptionResourceAssociationPtrOutput
-	ToTagOptionResourceAssociationPtrOutputWithContext(ctx context.Context) TagOptionResourceAssociationPtrOutput
-}
-
-type tagOptionResourceAssociationPtrType TagOptionResourceAssociationArgs
-
-func (*tagOptionResourceAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagOptionResourceAssociation)(nil))
-}
-
-func (i *tagOptionResourceAssociationPtrType) ToTagOptionResourceAssociationPtrOutput() TagOptionResourceAssociationPtrOutput {
-	return i.ToTagOptionResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *tagOptionResourceAssociationPtrType) ToTagOptionResourceAssociationPtrOutputWithContext(ctx context.Context) TagOptionResourceAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagOptionResourceAssociationPtrOutput)
 }
 
 // TagOptionResourceAssociationArrayInput is an input type that accepts TagOptionResourceAssociationArray and TagOptionResourceAssociationArrayOutput values.
@@ -252,7 +223,7 @@ func (i TagOptionResourceAssociationMap) ToTagOptionResourceAssociationMapOutput
 type TagOptionResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (TagOptionResourceAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOptionResourceAssociation)(nil))
+	return reflect.TypeOf((**TagOptionResourceAssociation)(nil)).Elem()
 }
 
 func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutput() TagOptionResourceAssociationOutput {
@@ -263,44 +234,10 @@ func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutput
 	return o
 }
 
-func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationPtrOutput() TagOptionResourceAssociationPtrOutput {
-	return o.ToTagOptionResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationPtrOutputWithContext(ctx context.Context) TagOptionResourceAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagOptionResourceAssociation) *TagOptionResourceAssociation {
-		return &v
-	}).(TagOptionResourceAssociationPtrOutput)
-}
-
-type TagOptionResourceAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (TagOptionResourceAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagOptionResourceAssociation)(nil))
-}
-
-func (o TagOptionResourceAssociationPtrOutput) ToTagOptionResourceAssociationPtrOutput() TagOptionResourceAssociationPtrOutput {
-	return o
-}
-
-func (o TagOptionResourceAssociationPtrOutput) ToTagOptionResourceAssociationPtrOutputWithContext(ctx context.Context) TagOptionResourceAssociationPtrOutput {
-	return o
-}
-
-func (o TagOptionResourceAssociationPtrOutput) Elem() TagOptionResourceAssociationOutput {
-	return o.ApplyT(func(v *TagOptionResourceAssociation) TagOptionResourceAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret TagOptionResourceAssociation
-		return ret
-	}).(TagOptionResourceAssociationOutput)
-}
-
 type TagOptionResourceAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (TagOptionResourceAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagOptionResourceAssociation)(nil))
+	return reflect.TypeOf((*[]*TagOptionResourceAssociation)(nil)).Elem()
 }
 
 func (o TagOptionResourceAssociationArrayOutput) ToTagOptionResourceAssociationArrayOutput() TagOptionResourceAssociationArrayOutput {
@@ -312,15 +249,15 @@ func (o TagOptionResourceAssociationArrayOutput) ToTagOptionResourceAssociationA
 }
 
 func (o TagOptionResourceAssociationArrayOutput) Index(i pulumi.IntInput) TagOptionResourceAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagOptionResourceAssociation {
-		return vs[0].([]TagOptionResourceAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagOptionResourceAssociation {
+		return vs[0].([]*TagOptionResourceAssociation)[vs[1].(int)]
 	}).(TagOptionResourceAssociationOutput)
 }
 
 type TagOptionResourceAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (TagOptionResourceAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TagOptionResourceAssociation)(nil))
+	return reflect.TypeOf((*map[string]*TagOptionResourceAssociation)(nil)).Elem()
 }
 
 func (o TagOptionResourceAssociationMapOutput) ToTagOptionResourceAssociationMapOutput() TagOptionResourceAssociationMapOutput {
@@ -332,18 +269,16 @@ func (o TagOptionResourceAssociationMapOutput) ToTagOptionResourceAssociationMap
 }
 
 func (o TagOptionResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) TagOptionResourceAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TagOptionResourceAssociation {
-		return vs[0].(map[string]TagOptionResourceAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TagOptionResourceAssociation {
+		return vs[0].(map[string]*TagOptionResourceAssociation)[vs[1].(string)]
 	}).(TagOptionResourceAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationInput)(nil)).Elem(), &TagOptionResourceAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationPtrInput)(nil)).Elem(), &TagOptionResourceAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationArrayInput)(nil)).Elem(), TagOptionResourceAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationMapInput)(nil)).Elem(), TagOptionResourceAssociationMap{})
 	pulumi.RegisterOutputType(TagOptionResourceAssociationOutput{})
-	pulumi.RegisterOutputType(TagOptionResourceAssociationPtrOutput{})
 	pulumi.RegisterOutputType(TagOptionResourceAssociationArrayOutput{})
 	pulumi.RegisterOutputType(TagOptionResourceAssociationMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Qldb
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Qldb
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to fetch information about a Quantum Ledger Database.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Qldb
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
     }
 
 

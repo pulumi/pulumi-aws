@@ -87,15 +87,15 @@ export class StudioSessionMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: StudioSessionMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StudioSessionMappingArgs | StudioSessionMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StudioSessionMappingState | undefined;
-            inputs["identityId"] = state ? state.identityId : undefined;
-            inputs["identityName"] = state ? state.identityName : undefined;
-            inputs["identityType"] = state ? state.identityType : undefined;
-            inputs["sessionPolicyArn"] = state ? state.sessionPolicyArn : undefined;
-            inputs["studioId"] = state ? state.studioId : undefined;
+            resourceInputs["identityId"] = state ? state.identityId : undefined;
+            resourceInputs["identityName"] = state ? state.identityName : undefined;
+            resourceInputs["identityType"] = state ? state.identityType : undefined;
+            resourceInputs["sessionPolicyArn"] = state ? state.sessionPolicyArn : undefined;
+            resourceInputs["studioId"] = state ? state.studioId : undefined;
         } else {
             const args = argsOrState as StudioSessionMappingArgs | undefined;
             if ((!args || args.identityType === undefined) && !opts.urn) {
@@ -107,16 +107,14 @@ export class StudioSessionMapping extends pulumi.CustomResource {
             if ((!args || args.studioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            inputs["identityId"] = args ? args.identityId : undefined;
-            inputs["identityName"] = args ? args.identityName : undefined;
-            inputs["identityType"] = args ? args.identityType : undefined;
-            inputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
-            inputs["studioId"] = args ? args.studioId : undefined;
+            resourceInputs["identityId"] = args ? args.identityId : undefined;
+            resourceInputs["identityName"] = args ? args.identityName : undefined;
+            resourceInputs["identityType"] = args ? args.identityType : undefined;
+            resourceInputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
+            resourceInputs["studioId"] = args ? args.studioId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StudioSessionMapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StudioSessionMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

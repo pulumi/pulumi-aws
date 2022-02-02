@@ -133,23 +133,23 @@ export class Proxy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProxyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProxyArgs | ProxyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["auths"] = state ? state.auths : undefined;
-            inputs["debugLogging"] = state ? state.debugLogging : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["engineFamily"] = state ? state.engineFamily : undefined;
-            inputs["idleClientTimeout"] = state ? state.idleClientTimeout : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["requireTls"] = state ? state.requireTls : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
-            inputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auths"] = state ? state.auths : undefined;
+            resourceInputs["debugLogging"] = state ? state.debugLogging : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["engineFamily"] = state ? state.engineFamily : undefined;
+            resourceInputs["idleClientTimeout"] = state ? state.idleClientTimeout : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["requireTls"] = state ? state.requireTls : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
         } else {
             const args = argsOrState as ProxyArgs | undefined;
             if ((!args || args.auths === undefined) && !opts.urn) {
@@ -164,24 +164,22 @@ export class Proxy extends pulumi.CustomResource {
             if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            inputs["auths"] = args ? args.auths : undefined;
-            inputs["debugLogging"] = args ? args.debugLogging : undefined;
-            inputs["engineFamily"] = args ? args.engineFamily : undefined;
-            inputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["requireTls"] = args ? args.requireTls : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["auths"] = args ? args.auths : undefined;
+            resourceInputs["debugLogging"] = args ? args.debugLogging : undefined;
+            resourceInputs["engineFamily"] = args ? args.engineFamily : undefined;
+            resourceInputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["requireTls"] = args ? args.requireTls : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Proxy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Proxy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

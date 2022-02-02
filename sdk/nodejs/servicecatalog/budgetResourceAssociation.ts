@@ -76,12 +76,12 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: BudgetResourceAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BudgetResourceAssociationArgs | BudgetResourceAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BudgetResourceAssociationState | undefined;
-            inputs["budgetName"] = state ? state.budgetName : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["budgetName"] = state ? state.budgetName : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as BudgetResourceAssociationArgs | undefined;
             if ((!args || args.budgetName === undefined) && !opts.urn) {
@@ -90,13 +90,11 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["budgetName"] = args ? args.budgetName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BudgetResourceAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BudgetResourceAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

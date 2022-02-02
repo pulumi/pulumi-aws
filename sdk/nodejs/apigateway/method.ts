@@ -155,21 +155,21 @@ export class Method extends pulumi.CustomResource {
      */
     constructor(name: string, args: MethodArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MethodArgs | MethodState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MethodState | undefined;
-            inputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
-            inputs["authorizerId"] = state ? state.authorizerId : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["operationName"] = state ? state.operationName : undefined;
-            inputs["requestModels"] = state ? state.requestModels : undefined;
-            inputs["requestParameters"] = state ? state.requestParameters : undefined;
-            inputs["requestValidatorId"] = state ? state.requestValidatorId : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
+            resourceInputs["authorizerId"] = state ? state.authorizerId : undefined;
+            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["operationName"] = state ? state.operationName : undefined;
+            resourceInputs["requestModels"] = state ? state.requestModels : undefined;
+            resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
+            resourceInputs["requestValidatorId"] = state ? state.requestValidatorId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
         } else {
             const args = argsOrState as MethodArgs | undefined;
             if ((!args || args.authorization === undefined) && !opts.urn) {
@@ -184,22 +184,20 @@ export class Method extends pulumi.CustomResource {
             if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
-            inputs["authorizerId"] = args ? args.authorizerId : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["operationName"] = args ? args.operationName : undefined;
-            inputs["requestModels"] = args ? args.requestModels : undefined;
-            inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
+            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
+            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["operationName"] = args ? args.operationName : undefined;
+            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
+            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
+            resourceInputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Method.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Method.__pulumiType, name, resourceInputs, opts);
     }
 }
 

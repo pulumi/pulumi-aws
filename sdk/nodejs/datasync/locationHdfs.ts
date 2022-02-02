@@ -134,26 +134,26 @@ export class LocationHdfs extends pulumi.CustomResource {
      */
     constructor(name: string, args: LocationHdfsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocationHdfsArgs | LocationHdfsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationHdfsState | undefined;
-            inputs["agentArns"] = state ? state.agentArns : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authenticationType"] = state ? state.authenticationType : undefined;
-            inputs["blockSize"] = state ? state.blockSize : undefined;
-            inputs["kerberosKeytab"] = state ? state.kerberosKeytab : undefined;
-            inputs["kerberosKrb5Conf"] = state ? state.kerberosKrb5Conf : undefined;
-            inputs["kerberosPrincipal"] = state ? state.kerberosPrincipal : undefined;
-            inputs["kmsKeyProviderUri"] = state ? state.kmsKeyProviderUri : undefined;
-            inputs["nameNodes"] = state ? state.nameNodes : undefined;
-            inputs["qopConfiguration"] = state ? state.qopConfiguration : undefined;
-            inputs["replicationFactor"] = state ? state.replicationFactor : undefined;
-            inputs["simpleUser"] = state ? state.simpleUser : undefined;
-            inputs["subdirectory"] = state ? state.subdirectory : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["agentArns"] = state ? state.agentArns : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["blockSize"] = state ? state.blockSize : undefined;
+            resourceInputs["kerberosKeytab"] = state ? state.kerberosKeytab : undefined;
+            resourceInputs["kerberosKrb5Conf"] = state ? state.kerberosKrb5Conf : undefined;
+            resourceInputs["kerberosPrincipal"] = state ? state.kerberosPrincipal : undefined;
+            resourceInputs["kmsKeyProviderUri"] = state ? state.kmsKeyProviderUri : undefined;
+            resourceInputs["nameNodes"] = state ? state.nameNodes : undefined;
+            resourceInputs["qopConfiguration"] = state ? state.qopConfiguration : undefined;
+            resourceInputs["replicationFactor"] = state ? state.replicationFactor : undefined;
+            resourceInputs["simpleUser"] = state ? state.simpleUser : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as LocationHdfsArgs | undefined;
             if ((!args || args.agentArns === undefined) && !opts.urn) {
@@ -162,27 +162,25 @@ export class LocationHdfs extends pulumi.CustomResource {
             if ((!args || args.nameNodes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nameNodes'");
             }
-            inputs["agentArns"] = args ? args.agentArns : undefined;
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["blockSize"] = args ? args.blockSize : undefined;
-            inputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
-            inputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
-            inputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
-            inputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
-            inputs["nameNodes"] = args ? args.nameNodes : undefined;
-            inputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
-            inputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            inputs["simpleUser"] = args ? args.simpleUser : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["blockSize"] = args ? args.blockSize : undefined;
+            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
+            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
+            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
+            resourceInputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
+            resourceInputs["nameNodes"] = args ? args.nameNodes : undefined;
+            resourceInputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
+            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
+            resourceInputs["simpleUser"] = args ? args.simpleUser : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationHdfs.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationHdfs.__pulumiType, name, resourceInputs, opts);
     }
 }
 

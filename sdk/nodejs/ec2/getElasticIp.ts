@@ -61,9 +61,7 @@ export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOption
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getElasticIp:getElasticIp", {
         "filters": args.filters,
         "id": args.id,

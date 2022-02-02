@@ -37,9 +37,7 @@ export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOption
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:workspaces/getWorkspace:getWorkspace", {
         "directoryId": args.directoryId,
         "tags": args.tags,

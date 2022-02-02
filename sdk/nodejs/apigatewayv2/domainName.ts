@@ -128,17 +128,17 @@ export class DomainName extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameState | undefined;
-            inputs["apiMappingSelectionExpression"] = state ? state.apiMappingSelectionExpression : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["domainNameConfiguration"] = state ? state.domainNameConfiguration : undefined;
-            inputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["apiMappingSelectionExpression"] = state ? state.apiMappingSelectionExpression : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainNameConfiguration"] = state ? state.domainNameConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -147,18 +147,16 @@ export class DomainName extends pulumi.CustomResource {
             if ((!args || args.domainNameConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainNameConfiguration'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainNameConfiguration"] = args ? args.domainNameConfiguration : undefined;
-            inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["apiMappingSelectionExpression"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainNameConfiguration"] = args ? args.domainNameConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiMappingSelectionExpression"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainName.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

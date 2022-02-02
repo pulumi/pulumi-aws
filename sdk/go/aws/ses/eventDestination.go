@@ -261,7 +261,7 @@ type EventDestinationInput interface {
 }
 
 func (*EventDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventDestination)(nil))
+	return reflect.TypeOf((**EventDestination)(nil)).Elem()
 }
 
 func (i *EventDestination) ToEventDestinationOutput() EventDestinationOutput {
@@ -270,35 +270,6 @@ func (i *EventDestination) ToEventDestinationOutput() EventDestinationOutput {
 
 func (i *EventDestination) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationOutput)
-}
-
-func (i *EventDestination) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
-	return i.ToEventDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *EventDestination) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationPtrOutput)
-}
-
-type EventDestinationPtrInput interface {
-	pulumi.Input
-
-	ToEventDestinationPtrOutput() EventDestinationPtrOutput
-	ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput
-}
-
-type eventDestinationPtrType EventDestinationArgs
-
-func (*eventDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventDestination)(nil))
-}
-
-func (i *eventDestinationPtrType) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
-	return i.ToEventDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *eventDestinationPtrType) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationPtrOutput)
 }
 
 // EventDestinationArrayInput is an input type that accepts EventDestinationArray and EventDestinationArrayOutput values.
@@ -354,7 +325,7 @@ func (i EventDestinationMap) ToEventDestinationMapOutputWithContext(ctx context.
 type EventDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventDestination)(nil))
+	return reflect.TypeOf((**EventDestination)(nil)).Elem()
 }
 
 func (o EventDestinationOutput) ToEventDestinationOutput() EventDestinationOutput {
@@ -365,44 +336,10 @@ func (o EventDestinationOutput) ToEventDestinationOutputWithContext(ctx context.
 	return o
 }
 
-func (o EventDestinationOutput) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
-	return o.ToEventDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o EventDestinationOutput) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventDestination) *EventDestination {
-		return &v
-	}).(EventDestinationPtrOutput)
-}
-
-type EventDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (EventDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventDestination)(nil))
-}
-
-func (o EventDestinationPtrOutput) ToEventDestinationPtrOutput() EventDestinationPtrOutput {
-	return o
-}
-
-func (o EventDestinationPtrOutput) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
-	return o
-}
-
-func (o EventDestinationPtrOutput) Elem() EventDestinationOutput {
-	return o.ApplyT(func(v *EventDestination) EventDestination {
-		if v != nil {
-			return *v
-		}
-		var ret EventDestination
-		return ret
-	}).(EventDestinationOutput)
-}
-
 type EventDestinationArrayOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventDestination)(nil))
+	return reflect.TypeOf((*[]*EventDestination)(nil)).Elem()
 }
 
 func (o EventDestinationArrayOutput) ToEventDestinationArrayOutput() EventDestinationArrayOutput {
@@ -414,15 +351,15 @@ func (o EventDestinationArrayOutput) ToEventDestinationArrayOutputWithContext(ct
 }
 
 func (o EventDestinationArrayOutput) Index(i pulumi.IntInput) EventDestinationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDestination {
-		return vs[0].([]EventDestination)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventDestination {
+		return vs[0].([]*EventDestination)[vs[1].(int)]
 	}).(EventDestinationOutput)
 }
 
 type EventDestinationMapOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventDestination)(nil))
+	return reflect.TypeOf((*map[string]*EventDestination)(nil)).Elem()
 }
 
 func (o EventDestinationMapOutput) ToEventDestinationMapOutput() EventDestinationMapOutput {
@@ -434,18 +371,16 @@ func (o EventDestinationMapOutput) ToEventDestinationMapOutputWithContext(ctx co
 }
 
 func (o EventDestinationMapOutput) MapIndex(k pulumi.StringInput) EventDestinationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventDestination {
-		return vs[0].(map[string]EventDestination)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventDestination {
+		return vs[0].(map[string]*EventDestination)[vs[1].(string)]
 	}).(EventDestinationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDestinationInput)(nil)).Elem(), &EventDestination{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventDestinationPtrInput)(nil)).Elem(), &EventDestination{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDestinationArrayInput)(nil)).Elem(), EventDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDestinationMapInput)(nil)).Elem(), EventDestinationMap{})
 	pulumi.RegisterOutputType(EventDestinationOutput{})
-	pulumi.RegisterOutputType(EventDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventDestinationArrayOutput{})
 	pulumi.RegisterOutputType(EventDestinationMapOutput{})
 }

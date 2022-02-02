@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -18,7 +17,7 @@ namespace Pulumi.Aws.Ec2
         /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
         /// </summary>
         public static Task<GetVpcsResult> InvokeAsync(GetVpcsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a list of VPC Ids for a region.
@@ -26,7 +25,7 @@ namespace Pulumi.Aws.Ec2
         /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
         /// </summary>
         public static Output<GetVpcsResult> Invoke(GetVpcsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.StorageGateway
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.StorageGateway
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocalDiskResult> InvokeAsync(GetLocalDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? new GetLocalDiskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? new GetLocalDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.StorageGateway
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLocalDiskResult> Invoke(GetLocalDiskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? new GetLocalDiskInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? new GetLocalDiskInvokeArgs(), options.WithDefaults());
     }
 
 

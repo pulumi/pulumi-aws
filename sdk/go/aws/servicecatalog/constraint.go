@@ -202,7 +202,7 @@ type ConstraintInput interface {
 }
 
 func (*Constraint) ElementType() reflect.Type {
-	return reflect.TypeOf((*Constraint)(nil))
+	return reflect.TypeOf((**Constraint)(nil)).Elem()
 }
 
 func (i *Constraint) ToConstraintOutput() ConstraintOutput {
@@ -211,35 +211,6 @@ func (i *Constraint) ToConstraintOutput() ConstraintOutput {
 
 func (i *Constraint) ToConstraintOutputWithContext(ctx context.Context) ConstraintOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConstraintOutput)
-}
-
-func (i *Constraint) ToConstraintPtrOutput() ConstraintPtrOutput {
-	return i.ToConstraintPtrOutputWithContext(context.Background())
-}
-
-func (i *Constraint) ToConstraintPtrOutputWithContext(ctx context.Context) ConstraintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConstraintPtrOutput)
-}
-
-type ConstraintPtrInput interface {
-	pulumi.Input
-
-	ToConstraintPtrOutput() ConstraintPtrOutput
-	ToConstraintPtrOutputWithContext(ctx context.Context) ConstraintPtrOutput
-}
-
-type constraintPtrType ConstraintArgs
-
-func (*constraintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Constraint)(nil))
-}
-
-func (i *constraintPtrType) ToConstraintPtrOutput() ConstraintPtrOutput {
-	return i.ToConstraintPtrOutputWithContext(context.Background())
-}
-
-func (i *constraintPtrType) ToConstraintPtrOutputWithContext(ctx context.Context) ConstraintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConstraintPtrOutput)
 }
 
 // ConstraintArrayInput is an input type that accepts ConstraintArray and ConstraintArrayOutput values.
@@ -295,7 +266,7 @@ func (i ConstraintMap) ToConstraintMapOutputWithContext(ctx context.Context) Con
 type ConstraintOutput struct{ *pulumi.OutputState }
 
 func (ConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Constraint)(nil))
+	return reflect.TypeOf((**Constraint)(nil)).Elem()
 }
 
 func (o ConstraintOutput) ToConstraintOutput() ConstraintOutput {
@@ -306,44 +277,10 @@ func (o ConstraintOutput) ToConstraintOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-func (o ConstraintOutput) ToConstraintPtrOutput() ConstraintPtrOutput {
-	return o.ToConstraintPtrOutputWithContext(context.Background())
-}
-
-func (o ConstraintOutput) ToConstraintPtrOutputWithContext(ctx context.Context) ConstraintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Constraint) *Constraint {
-		return &v
-	}).(ConstraintPtrOutput)
-}
-
-type ConstraintPtrOutput struct{ *pulumi.OutputState }
-
-func (ConstraintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Constraint)(nil))
-}
-
-func (o ConstraintPtrOutput) ToConstraintPtrOutput() ConstraintPtrOutput {
-	return o
-}
-
-func (o ConstraintPtrOutput) ToConstraintPtrOutputWithContext(ctx context.Context) ConstraintPtrOutput {
-	return o
-}
-
-func (o ConstraintPtrOutput) Elem() ConstraintOutput {
-	return o.ApplyT(func(v *Constraint) Constraint {
-		if v != nil {
-			return *v
-		}
-		var ret Constraint
-		return ret
-	}).(ConstraintOutput)
-}
-
 type ConstraintArrayOutput struct{ *pulumi.OutputState }
 
 func (ConstraintArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Constraint)(nil))
+	return reflect.TypeOf((*[]*Constraint)(nil)).Elem()
 }
 
 func (o ConstraintArrayOutput) ToConstraintArrayOutput() ConstraintArrayOutput {
@@ -355,15 +292,15 @@ func (o ConstraintArrayOutput) ToConstraintArrayOutputWithContext(ctx context.Co
 }
 
 func (o ConstraintArrayOutput) Index(i pulumi.IntInput) ConstraintOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Constraint {
-		return vs[0].([]Constraint)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Constraint {
+		return vs[0].([]*Constraint)[vs[1].(int)]
 	}).(ConstraintOutput)
 }
 
 type ConstraintMapOutput struct{ *pulumi.OutputState }
 
 func (ConstraintMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Constraint)(nil))
+	return reflect.TypeOf((*map[string]*Constraint)(nil)).Elem()
 }
 
 func (o ConstraintMapOutput) ToConstraintMapOutput() ConstraintMapOutput {
@@ -375,18 +312,16 @@ func (o ConstraintMapOutput) ToConstraintMapOutputWithContext(ctx context.Contex
 }
 
 func (o ConstraintMapOutput) MapIndex(k pulumi.StringInput) ConstraintOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Constraint {
-		return vs[0].(map[string]Constraint)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Constraint {
+		return vs[0].(map[string]*Constraint)[vs[1].(string)]
 	}).(ConstraintOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintInput)(nil)).Elem(), &Constraint{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintPtrInput)(nil)).Elem(), &Constraint{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintArrayInput)(nil)).Elem(), ConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintMapInput)(nil)).Elem(), ConstraintMap{})
 	pulumi.RegisterOutputType(ConstraintOutput{})
-	pulumi.RegisterOutputType(ConstraintPtrOutput{})
 	pulumi.RegisterOutputType(ConstraintArrayOutput{})
 	pulumi.RegisterOutputType(ConstraintMapOutput{})
 }

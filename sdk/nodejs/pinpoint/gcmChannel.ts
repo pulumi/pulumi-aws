@@ -78,13 +78,13 @@ export class GcmChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: GcmChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GcmChannelArgs | GcmChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GcmChannelState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as GcmChannelArgs | undefined;
             if ((!args || args.apiKey === undefined) && !opts.urn) {
@@ -93,14 +93,12 @@ export class GcmChannel extends pulumi.CustomResource {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GcmChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GcmChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

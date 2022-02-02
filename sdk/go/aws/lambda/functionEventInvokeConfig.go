@@ -282,7 +282,7 @@ type FunctionEventInvokeConfigInput interface {
 }
 
 func (*FunctionEventInvokeConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionEventInvokeConfig)(nil))
+	return reflect.TypeOf((**FunctionEventInvokeConfig)(nil)).Elem()
 }
 
 func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput {
@@ -291,35 +291,6 @@ func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutput() Function
 
 func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigOutput)
-}
-
-func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigPtrOutput() FunctionEventInvokeConfigPtrOutput {
-	return i.ToFunctionEventInvokeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigPtrOutput)
-}
-
-type FunctionEventInvokeConfigPtrInput interface {
-	pulumi.Input
-
-	ToFunctionEventInvokeConfigPtrOutput() FunctionEventInvokeConfigPtrOutput
-	ToFunctionEventInvokeConfigPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigPtrOutput
-}
-
-type functionEventInvokeConfigPtrType FunctionEventInvokeConfigArgs
-
-func (*functionEventInvokeConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionEventInvokeConfig)(nil))
-}
-
-func (i *functionEventInvokeConfigPtrType) ToFunctionEventInvokeConfigPtrOutput() FunctionEventInvokeConfigPtrOutput {
-	return i.ToFunctionEventInvokeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *functionEventInvokeConfigPtrType) ToFunctionEventInvokeConfigPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigPtrOutput)
 }
 
 // FunctionEventInvokeConfigArrayInput is an input type that accepts FunctionEventInvokeConfigArray and FunctionEventInvokeConfigArrayOutput values.
@@ -375,7 +346,7 @@ func (i FunctionEventInvokeConfigMap) ToFunctionEventInvokeConfigMapOutputWithCo
 type FunctionEventInvokeConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionEventInvokeConfig)(nil))
+	return reflect.TypeOf((**FunctionEventInvokeConfig)(nil)).Elem()
 }
 
 func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutput() FunctionEventInvokeConfigOutput {
@@ -386,44 +357,10 @@ func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutputWithCo
 	return o
 }
 
-func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigPtrOutput() FunctionEventInvokeConfigPtrOutput {
-	return o.ToFunctionEventInvokeConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEventInvokeConfig) *FunctionEventInvokeConfig {
-		return &v
-	}).(FunctionEventInvokeConfigPtrOutput)
-}
-
-type FunctionEventInvokeConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FunctionEventInvokeConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionEventInvokeConfig)(nil))
-}
-
-func (o FunctionEventInvokeConfigPtrOutput) ToFunctionEventInvokeConfigPtrOutput() FunctionEventInvokeConfigPtrOutput {
-	return o
-}
-
-func (o FunctionEventInvokeConfigPtrOutput) ToFunctionEventInvokeConfigPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigPtrOutput {
-	return o
-}
-
-func (o FunctionEventInvokeConfigPtrOutput) Elem() FunctionEventInvokeConfigOutput {
-	return o.ApplyT(func(v *FunctionEventInvokeConfig) FunctionEventInvokeConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionEventInvokeConfig
-		return ret
-	}).(FunctionEventInvokeConfigOutput)
-}
-
 type FunctionEventInvokeConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionEventInvokeConfig)(nil))
+	return reflect.TypeOf((*[]*FunctionEventInvokeConfig)(nil)).Elem()
 }
 
 func (o FunctionEventInvokeConfigArrayOutput) ToFunctionEventInvokeConfigArrayOutput() FunctionEventInvokeConfigArrayOutput {
@@ -435,15 +372,15 @@ func (o FunctionEventInvokeConfigArrayOutput) ToFunctionEventInvokeConfigArrayOu
 }
 
 func (o FunctionEventInvokeConfigArrayOutput) Index(i pulumi.IntInput) FunctionEventInvokeConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionEventInvokeConfig {
-		return vs[0].([]FunctionEventInvokeConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionEventInvokeConfig {
+		return vs[0].([]*FunctionEventInvokeConfig)[vs[1].(int)]
 	}).(FunctionEventInvokeConfigOutput)
 }
 
 type FunctionEventInvokeConfigMapOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FunctionEventInvokeConfig)(nil))
+	return reflect.TypeOf((*map[string]*FunctionEventInvokeConfig)(nil)).Elem()
 }
 
 func (o FunctionEventInvokeConfigMapOutput) ToFunctionEventInvokeConfigMapOutput() FunctionEventInvokeConfigMapOutput {
@@ -455,18 +392,16 @@ func (o FunctionEventInvokeConfigMapOutput) ToFunctionEventInvokeConfigMapOutput
 }
 
 func (o FunctionEventInvokeConfigMapOutput) MapIndex(k pulumi.StringInput) FunctionEventInvokeConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FunctionEventInvokeConfig {
-		return vs[0].(map[string]FunctionEventInvokeConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FunctionEventInvokeConfig {
+		return vs[0].(map[string]*FunctionEventInvokeConfig)[vs[1].(string)]
 	}).(FunctionEventInvokeConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigInput)(nil)).Elem(), &FunctionEventInvokeConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigPtrInput)(nil)).Elem(), &FunctionEventInvokeConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigArrayInput)(nil)).Elem(), FunctionEventInvokeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigMapInput)(nil)).Elem(), FunctionEventInvokeConfigMap{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigOutput{})
-	pulumi.RegisterOutputType(FunctionEventInvokeConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigMapOutput{})
 }

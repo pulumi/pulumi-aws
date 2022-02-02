@@ -79,12 +79,12 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertManagerDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertManagerDefinitionArgs | AlertManagerDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertManagerDefinitionState | undefined;
-            inputs["definition"] = state ? state.definition : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as AlertManagerDefinitionArgs | undefined;
             if ((!args || args.definition === undefined) && !opts.urn) {
@@ -93,13 +93,11 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertManagerDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertManagerDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

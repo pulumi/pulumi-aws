@@ -246,7 +246,7 @@ type AddonInput interface {
 }
 
 func (*Addon) ElementType() reflect.Type {
-	return reflect.TypeOf((*Addon)(nil))
+	return reflect.TypeOf((**Addon)(nil)).Elem()
 }
 
 func (i *Addon) ToAddonOutput() AddonOutput {
@@ -255,35 +255,6 @@ func (i *Addon) ToAddonOutput() AddonOutput {
 
 func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
-}
-
-func (i *Addon) ToAddonPtrOutput() AddonPtrOutput {
-	return i.ToAddonPtrOutputWithContext(context.Background())
-}
-
-func (i *Addon) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonPtrOutput)
-}
-
-type AddonPtrInput interface {
-	pulumi.Input
-
-	ToAddonPtrOutput() AddonPtrOutput
-	ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput
-}
-
-type addonPtrType AddonArgs
-
-func (*addonPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Addon)(nil))
-}
-
-func (i *addonPtrType) ToAddonPtrOutput() AddonPtrOutput {
-	return i.ToAddonPtrOutputWithContext(context.Background())
-}
-
-func (i *addonPtrType) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonPtrOutput)
 }
 
 // AddonArrayInput is an input type that accepts AddonArray and AddonArrayOutput values.
@@ -339,7 +310,7 @@ func (i AddonMap) ToAddonMapOutputWithContext(ctx context.Context) AddonMapOutpu
 type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Addon)(nil))
+	return reflect.TypeOf((**Addon)(nil)).Elem()
 }
 
 func (o AddonOutput) ToAddonOutput() AddonOutput {
@@ -350,44 +321,10 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
 }
 
-func (o AddonOutput) ToAddonPtrOutput() AddonPtrOutput {
-	return o.ToAddonPtrOutputWithContext(context.Background())
-}
-
-func (o AddonOutput) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Addon) *Addon {
-		return &v
-	}).(AddonPtrOutput)
-}
-
-type AddonPtrOutput struct{ *pulumi.OutputState }
-
-func (AddonPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Addon)(nil))
-}
-
-func (o AddonPtrOutput) ToAddonPtrOutput() AddonPtrOutput {
-	return o
-}
-
-func (o AddonPtrOutput) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
-	return o
-}
-
-func (o AddonPtrOutput) Elem() AddonOutput {
-	return o.ApplyT(func(v *Addon) Addon {
-		if v != nil {
-			return *v
-		}
-		var ret Addon
-		return ret
-	}).(AddonOutput)
-}
-
 type AddonArrayOutput struct{ *pulumi.OutputState }
 
 func (AddonArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Addon)(nil))
+	return reflect.TypeOf((*[]*Addon)(nil)).Elem()
 }
 
 func (o AddonArrayOutput) ToAddonArrayOutput() AddonArrayOutput {
@@ -399,15 +336,15 @@ func (o AddonArrayOutput) ToAddonArrayOutputWithContext(ctx context.Context) Add
 }
 
 func (o AddonArrayOutput) Index(i pulumi.IntInput) AddonOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Addon {
-		return vs[0].([]Addon)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Addon {
+		return vs[0].([]*Addon)[vs[1].(int)]
 	}).(AddonOutput)
 }
 
 type AddonMapOutput struct{ *pulumi.OutputState }
 
 func (AddonMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Addon)(nil))
+	return reflect.TypeOf((*map[string]*Addon)(nil)).Elem()
 }
 
 func (o AddonMapOutput) ToAddonMapOutput() AddonMapOutput {
@@ -419,18 +356,16 @@ func (o AddonMapOutput) ToAddonMapOutputWithContext(ctx context.Context) AddonMa
 }
 
 func (o AddonMapOutput) MapIndex(k pulumi.StringInput) AddonOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Addon {
-		return vs[0].(map[string]Addon)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Addon {
+		return vs[0].(map[string]*Addon)[vs[1].(string)]
 	}).(AddonOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonInput)(nil)).Elem(), &Addon{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AddonPtrInput)(nil)).Elem(), &Addon{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonArrayInput)(nil)).Elem(), AddonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonMapInput)(nil)).Elem(), AddonMap{})
 	pulumi.RegisterOutputType(AddonOutput{})
-	pulumi.RegisterOutputType(AddonPtrOutput{})
 	pulumi.RegisterOutputType(AddonArrayOutput{})
 	pulumi.RegisterOutputType(AddonMapOutput{})
 }

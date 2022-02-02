@@ -114,24 +114,22 @@ export class RecorderStatus extends pulumi.CustomResource {
      */
     constructor(name: string, args: RecorderStatusArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RecorderStatusArgs | RecorderStatusState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecorderStatusState | undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as RecorderStatusArgs | undefined;
             if ((!args || args.isEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'isEnabled'");
             }
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RecorderStatus.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RecorderStatus.__pulumiType, name, resourceInputs, opts);
     }
 }
 

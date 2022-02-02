@@ -91,28 +91,26 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpamPreviewNextCidrArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpamPreviewNextCidrArgs | VpcIpamPreviewNextCidrState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamPreviewNextCidrState | undefined;
-            inputs["cidr"] = state ? state.cidr : undefined;
-            inputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
-            inputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
-            inputs["netmaskLength"] = state ? state.netmaskLength : undefined;
+            resourceInputs["cidr"] = state ? state.cidr : undefined;
+            resourceInputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
+            resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
+            resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
         } else {
             const args = argsOrState as VpcIpamPreviewNextCidrArgs | undefined;
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            inputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
-            inputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            inputs["netmaskLength"] = args ? args.netmaskLength : undefined;
-            inputs["cidr"] = undefined /*out*/;
+            resourceInputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
+            resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["cidr"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcIpamPreviewNextCidr.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcIpamPreviewNextCidr.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -12,9 +12,7 @@ export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ssoadmin/getPermissionSet:getPermissionSet", {
         "arn": args.arn,
         "instanceArn": args.instanceArn,

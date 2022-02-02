@@ -311,7 +311,7 @@ type InsightInput interface {
 }
 
 func (*Insight) ElementType() reflect.Type {
-	return reflect.TypeOf((*Insight)(nil))
+	return reflect.TypeOf((**Insight)(nil)).Elem()
 }
 
 func (i *Insight) ToInsightOutput() InsightOutput {
@@ -320,35 +320,6 @@ func (i *Insight) ToInsightOutput() InsightOutput {
 
 func (i *Insight) ToInsightOutputWithContext(ctx context.Context) InsightOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InsightOutput)
-}
-
-func (i *Insight) ToInsightPtrOutput() InsightPtrOutput {
-	return i.ToInsightPtrOutputWithContext(context.Background())
-}
-
-func (i *Insight) ToInsightPtrOutputWithContext(ctx context.Context) InsightPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InsightPtrOutput)
-}
-
-type InsightPtrInput interface {
-	pulumi.Input
-
-	ToInsightPtrOutput() InsightPtrOutput
-	ToInsightPtrOutputWithContext(ctx context.Context) InsightPtrOutput
-}
-
-type insightPtrType InsightArgs
-
-func (*insightPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Insight)(nil))
-}
-
-func (i *insightPtrType) ToInsightPtrOutput() InsightPtrOutput {
-	return i.ToInsightPtrOutputWithContext(context.Background())
-}
-
-func (i *insightPtrType) ToInsightPtrOutputWithContext(ctx context.Context) InsightPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InsightPtrOutput)
 }
 
 // InsightArrayInput is an input type that accepts InsightArray and InsightArrayOutput values.
@@ -404,7 +375,7 @@ func (i InsightMap) ToInsightMapOutputWithContext(ctx context.Context) InsightMa
 type InsightOutput struct{ *pulumi.OutputState }
 
 func (InsightOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Insight)(nil))
+	return reflect.TypeOf((**Insight)(nil)).Elem()
 }
 
 func (o InsightOutput) ToInsightOutput() InsightOutput {
@@ -415,44 +386,10 @@ func (o InsightOutput) ToInsightOutputWithContext(ctx context.Context) InsightOu
 	return o
 }
 
-func (o InsightOutput) ToInsightPtrOutput() InsightPtrOutput {
-	return o.ToInsightPtrOutputWithContext(context.Background())
-}
-
-func (o InsightOutput) ToInsightPtrOutputWithContext(ctx context.Context) InsightPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Insight) *Insight {
-		return &v
-	}).(InsightPtrOutput)
-}
-
-type InsightPtrOutput struct{ *pulumi.OutputState }
-
-func (InsightPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Insight)(nil))
-}
-
-func (o InsightPtrOutput) ToInsightPtrOutput() InsightPtrOutput {
-	return o
-}
-
-func (o InsightPtrOutput) ToInsightPtrOutputWithContext(ctx context.Context) InsightPtrOutput {
-	return o
-}
-
-func (o InsightPtrOutput) Elem() InsightOutput {
-	return o.ApplyT(func(v *Insight) Insight {
-		if v != nil {
-			return *v
-		}
-		var ret Insight
-		return ret
-	}).(InsightOutput)
-}
-
 type InsightArrayOutput struct{ *pulumi.OutputState }
 
 func (InsightArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Insight)(nil))
+	return reflect.TypeOf((*[]*Insight)(nil)).Elem()
 }
 
 func (o InsightArrayOutput) ToInsightArrayOutput() InsightArrayOutput {
@@ -464,15 +401,15 @@ func (o InsightArrayOutput) ToInsightArrayOutputWithContext(ctx context.Context)
 }
 
 func (o InsightArrayOutput) Index(i pulumi.IntInput) InsightOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Insight {
-		return vs[0].([]Insight)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Insight {
+		return vs[0].([]*Insight)[vs[1].(int)]
 	}).(InsightOutput)
 }
 
 type InsightMapOutput struct{ *pulumi.OutputState }
 
 func (InsightMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Insight)(nil))
+	return reflect.TypeOf((*map[string]*Insight)(nil)).Elem()
 }
 
 func (o InsightMapOutput) ToInsightMapOutput() InsightMapOutput {
@@ -484,18 +421,16 @@ func (o InsightMapOutput) ToInsightMapOutputWithContext(ctx context.Context) Ins
 }
 
 func (o InsightMapOutput) MapIndex(k pulumi.StringInput) InsightOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Insight {
-		return vs[0].(map[string]Insight)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Insight {
+		return vs[0].(map[string]*Insight)[vs[1].(string)]
 	}).(InsightOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightInput)(nil)).Elem(), &Insight{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InsightPtrInput)(nil)).Elem(), &Insight{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightArrayInput)(nil)).Elem(), InsightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapInput)(nil)).Elem(), InsightMap{})
 	pulumi.RegisterOutputType(InsightOutput{})
-	pulumi.RegisterOutputType(InsightPtrOutput{})
 	pulumi.RegisterOutputType(InsightArrayOutput{})
 	pulumi.RegisterOutputType(InsightMapOutput{})
 }

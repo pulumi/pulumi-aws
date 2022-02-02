@@ -102,15 +102,15 @@ export class SourceCredential extends pulumi.CustomResource {
      */
     constructor(name: string, args: SourceCredentialArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SourceCredentialArgs | SourceCredentialState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceCredentialState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authType"] = state ? state.authType : undefined;
-            inputs["serverType"] = state ? state.serverType : undefined;
-            inputs["token"] = state ? state.token : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authType"] = state ? state.authType : undefined;
+            resourceInputs["serverType"] = state ? state.serverType : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SourceCredentialArgs | undefined;
             if ((!args || args.authType === undefined) && !opts.urn) {
@@ -122,16 +122,14 @@ export class SourceCredential extends pulumi.CustomResource {
             if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            inputs["authType"] = args ? args.authType : undefined;
-            inputs["serverType"] = args ? args.serverType : undefined;
-            inputs["token"] = args ? args.token : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["serverType"] = args ? args.serverType : undefined;
+            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SourceCredential.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SourceCredential.__pulumiType, name, resourceInputs, opts);
     }
 }
 

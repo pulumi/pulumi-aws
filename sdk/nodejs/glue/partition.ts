@@ -100,19 +100,19 @@ export class Partition extends pulumi.CustomResource {
      */
     constructor(name: string, args: PartitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PartitionArgs | PartitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PartitionState | undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["creationTime"] = state ? state.creationTime : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["lastAccessedTime"] = state ? state.lastAccessedTime : undefined;
-            inputs["lastAnalyzedTime"] = state ? state.lastAnalyzedTime : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["partitionValues"] = state ? state.partitionValues : undefined;
-            inputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["lastAccessedTime"] = state ? state.lastAccessedTime : undefined;
+            resourceInputs["lastAnalyzedTime"] = state ? state.lastAnalyzedTime : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["partitionValues"] = state ? state.partitionValues : undefined;
+            resourceInputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as PartitionArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -124,20 +124,18 @@ export class Partition extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["partitionValues"] = args ? args.partitionValues : undefined;
-            inputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["lastAccessedTime"] = undefined /*out*/;
-            inputs["lastAnalyzedTime"] = undefined /*out*/;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["partitionValues"] = args ? args.partitionValues : undefined;
+            resourceInputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastAccessedTime"] = undefined /*out*/;
+            resourceInputs["lastAnalyzedTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Partition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Partition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

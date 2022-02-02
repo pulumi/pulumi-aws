@@ -59,12 +59,12 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainServiceAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainServiceAccessPolicyArgs | DomainServiceAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainServiceAccessPolicyState | undefined;
-            inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
         } else {
             const args = argsOrState as DomainServiceAccessPolicyArgs | undefined;
             if ((!args || args.accessPolicy === undefined) && !opts.urn) {
@@ -73,13 +73,11 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainServiceAccessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainServiceAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -149,7 +149,7 @@ type FileSystemPolicyInput interface {
 }
 
 func (*FileSystemPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemPolicy)(nil))
+	return reflect.TypeOf((**FileSystemPolicy)(nil)).Elem()
 }
 
 func (i *FileSystemPolicy) ToFileSystemPolicyOutput() FileSystemPolicyOutput {
@@ -158,35 +158,6 @@ func (i *FileSystemPolicy) ToFileSystemPolicyOutput() FileSystemPolicyOutput {
 
 func (i *FileSystemPolicy) ToFileSystemPolicyOutputWithContext(ctx context.Context) FileSystemPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyOutput)
-}
-
-func (i *FileSystemPolicy) ToFileSystemPolicyPtrOutput() FileSystemPolicyPtrOutput {
-	return i.ToFileSystemPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *FileSystemPolicy) ToFileSystemPolicyPtrOutputWithContext(ctx context.Context) FileSystemPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyPtrOutput)
-}
-
-type FileSystemPolicyPtrInput interface {
-	pulumi.Input
-
-	ToFileSystemPolicyPtrOutput() FileSystemPolicyPtrOutput
-	ToFileSystemPolicyPtrOutputWithContext(ctx context.Context) FileSystemPolicyPtrOutput
-}
-
-type fileSystemPolicyPtrType FileSystemPolicyArgs
-
-func (*fileSystemPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemPolicy)(nil))
-}
-
-func (i *fileSystemPolicyPtrType) ToFileSystemPolicyPtrOutput() FileSystemPolicyPtrOutput {
-	return i.ToFileSystemPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *fileSystemPolicyPtrType) ToFileSystemPolicyPtrOutputWithContext(ctx context.Context) FileSystemPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyPtrOutput)
 }
 
 // FileSystemPolicyArrayInput is an input type that accepts FileSystemPolicyArray and FileSystemPolicyArrayOutput values.
@@ -242,7 +213,7 @@ func (i FileSystemPolicyMap) ToFileSystemPolicyMapOutputWithContext(ctx context.
 type FileSystemPolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemPolicy)(nil))
+	return reflect.TypeOf((**FileSystemPolicy)(nil)).Elem()
 }
 
 func (o FileSystemPolicyOutput) ToFileSystemPolicyOutput() FileSystemPolicyOutput {
@@ -253,44 +224,10 @@ func (o FileSystemPolicyOutput) ToFileSystemPolicyOutputWithContext(ctx context.
 	return o
 }
 
-func (o FileSystemPolicyOutput) ToFileSystemPolicyPtrOutput() FileSystemPolicyPtrOutput {
-	return o.ToFileSystemPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o FileSystemPolicyOutput) ToFileSystemPolicyPtrOutputWithContext(ctx context.Context) FileSystemPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemPolicy) *FileSystemPolicy {
-		return &v
-	}).(FileSystemPolicyPtrOutput)
-}
-
-type FileSystemPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (FileSystemPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemPolicy)(nil))
-}
-
-func (o FileSystemPolicyPtrOutput) ToFileSystemPolicyPtrOutput() FileSystemPolicyPtrOutput {
-	return o
-}
-
-func (o FileSystemPolicyPtrOutput) ToFileSystemPolicyPtrOutputWithContext(ctx context.Context) FileSystemPolicyPtrOutput {
-	return o
-}
-
-func (o FileSystemPolicyPtrOutput) Elem() FileSystemPolicyOutput {
-	return o.ApplyT(func(v *FileSystemPolicy) FileSystemPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemPolicy
-		return ret
-	}).(FileSystemPolicyOutput)
-}
-
 type FileSystemPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileSystemPolicy)(nil))
+	return reflect.TypeOf((*[]*FileSystemPolicy)(nil)).Elem()
 }
 
 func (o FileSystemPolicyArrayOutput) ToFileSystemPolicyArrayOutput() FileSystemPolicyArrayOutput {
@@ -302,15 +239,15 @@ func (o FileSystemPolicyArrayOutput) ToFileSystemPolicyArrayOutputWithContext(ct
 }
 
 func (o FileSystemPolicyArrayOutput) Index(i pulumi.IntInput) FileSystemPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemPolicy {
-		return vs[0].([]FileSystemPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileSystemPolicy {
+		return vs[0].([]*FileSystemPolicy)[vs[1].(int)]
 	}).(FileSystemPolicyOutput)
 }
 
 type FileSystemPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FileSystemPolicy)(nil))
+	return reflect.TypeOf((*map[string]*FileSystemPolicy)(nil)).Elem()
 }
 
 func (o FileSystemPolicyMapOutput) ToFileSystemPolicyMapOutput() FileSystemPolicyMapOutput {
@@ -322,18 +259,16 @@ func (o FileSystemPolicyMapOutput) ToFileSystemPolicyMapOutputWithContext(ctx co
 }
 
 func (o FileSystemPolicyMapOutput) MapIndex(k pulumi.StringInput) FileSystemPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FileSystemPolicy {
-		return vs[0].(map[string]FileSystemPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FileSystemPolicy {
+		return vs[0].(map[string]*FileSystemPolicy)[vs[1].(string)]
 	}).(FileSystemPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyInput)(nil)).Elem(), &FileSystemPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyPtrInput)(nil)).Elem(), &FileSystemPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyArrayInput)(nil)).Elem(), FileSystemPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyMapInput)(nil)).Elem(), FileSystemPolicyMap{})
 	pulumi.RegisterOutputType(FileSystemPolicyOutput{})
-	pulumi.RegisterOutputType(FileSystemPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemPolicyArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemPolicyMapOutput{})
 }

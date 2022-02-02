@@ -125,44 +125,42 @@ export class SigningProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: SigningProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SigningProfileArgs | SigningProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SigningProfileState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["platformDisplayName"] = state ? state.platformDisplayName : undefined;
-            inputs["platformId"] = state ? state.platformId : undefined;
-            inputs["revocationRecords"] = state ? state.revocationRecords : undefined;
-            inputs["signatureValidityPeriod"] = state ? state.signatureValidityPeriod : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["versionArn"] = state ? state.versionArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["platformDisplayName"] = state ? state.platformDisplayName : undefined;
+            resourceInputs["platformId"] = state ? state.platformId : undefined;
+            resourceInputs["revocationRecords"] = state ? state.revocationRecords : undefined;
+            resourceInputs["signatureValidityPeriod"] = state ? state.signatureValidityPeriod : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["versionArn"] = state ? state.versionArn : undefined;
         } else {
             const args = argsOrState as SigningProfileArgs | undefined;
             if ((!args || args.platformId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["platformId"] = args ? args.platformId : undefined;
-            inputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["platformDisplayName"] = undefined /*out*/;
-            inputs["revocationRecords"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionArn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["platformId"] = args ? args.platformId : undefined;
+            resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["platformDisplayName"] = undefined /*out*/;
+            resourceInputs["revocationRecords"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SigningProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SigningProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

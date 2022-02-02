@@ -131,7 +131,7 @@ type ScalingPlanInput interface {
 }
 
 func (*ScalingPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPlan)(nil))
+	return reflect.TypeOf((**ScalingPlan)(nil)).Elem()
 }
 
 func (i *ScalingPlan) ToScalingPlanOutput() ScalingPlanOutput {
@@ -140,35 +140,6 @@ func (i *ScalingPlan) ToScalingPlanOutput() ScalingPlanOutput {
 
 func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
-}
-
-func (i *ScalingPlan) ToScalingPlanPtrOutput() ScalingPlanPtrOutput {
-	return i.ToScalingPlanPtrOutputWithContext(context.Background())
-}
-
-func (i *ScalingPlan) ToScalingPlanPtrOutputWithContext(ctx context.Context) ScalingPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanPtrOutput)
-}
-
-type ScalingPlanPtrInput interface {
-	pulumi.Input
-
-	ToScalingPlanPtrOutput() ScalingPlanPtrOutput
-	ToScalingPlanPtrOutputWithContext(ctx context.Context) ScalingPlanPtrOutput
-}
-
-type scalingPlanPtrType ScalingPlanArgs
-
-func (*scalingPlanPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalingPlan)(nil))
-}
-
-func (i *scalingPlanPtrType) ToScalingPlanPtrOutput() ScalingPlanPtrOutput {
-	return i.ToScalingPlanPtrOutputWithContext(context.Background())
-}
-
-func (i *scalingPlanPtrType) ToScalingPlanPtrOutputWithContext(ctx context.Context) ScalingPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanPtrOutput)
 }
 
 // ScalingPlanArrayInput is an input type that accepts ScalingPlanArray and ScalingPlanArrayOutput values.
@@ -224,7 +195,7 @@ func (i ScalingPlanMap) ToScalingPlanMapOutputWithContext(ctx context.Context) S
 type ScalingPlanOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPlan)(nil))
+	return reflect.TypeOf((**ScalingPlan)(nil)).Elem()
 }
 
 func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {
@@ -235,44 +206,10 @@ func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o ScalingPlanOutput) ToScalingPlanPtrOutput() ScalingPlanPtrOutput {
-	return o.ToScalingPlanPtrOutputWithContext(context.Background())
-}
-
-func (o ScalingPlanOutput) ToScalingPlanPtrOutputWithContext(ctx context.Context) ScalingPlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPlan) *ScalingPlan {
-		return &v
-	}).(ScalingPlanPtrOutput)
-}
-
-type ScalingPlanPtrOutput struct{ *pulumi.OutputState }
-
-func (ScalingPlanPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalingPlan)(nil))
-}
-
-func (o ScalingPlanPtrOutput) ToScalingPlanPtrOutput() ScalingPlanPtrOutput {
-	return o
-}
-
-func (o ScalingPlanPtrOutput) ToScalingPlanPtrOutputWithContext(ctx context.Context) ScalingPlanPtrOutput {
-	return o
-}
-
-func (o ScalingPlanPtrOutput) Elem() ScalingPlanOutput {
-	return o.ApplyT(func(v *ScalingPlan) ScalingPlan {
-		if v != nil {
-			return *v
-		}
-		var ret ScalingPlan
-		return ret
-	}).(ScalingPlanOutput)
-}
-
 type ScalingPlanArrayOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScalingPlan)(nil))
+	return reflect.TypeOf((*[]*ScalingPlan)(nil)).Elem()
 }
 
 func (o ScalingPlanArrayOutput) ToScalingPlanArrayOutput() ScalingPlanArrayOutput {
@@ -284,15 +221,15 @@ func (o ScalingPlanArrayOutput) ToScalingPlanArrayOutputWithContext(ctx context.
 }
 
 func (o ScalingPlanArrayOutput) Index(i pulumi.IntInput) ScalingPlanOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPlan {
-		return vs[0].([]ScalingPlan)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScalingPlan {
+		return vs[0].([]*ScalingPlan)[vs[1].(int)]
 	}).(ScalingPlanOutput)
 }
 
 type ScalingPlanMapOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ScalingPlan)(nil))
+	return reflect.TypeOf((*map[string]*ScalingPlan)(nil)).Elem()
 }
 
 func (o ScalingPlanMapOutput) ToScalingPlanMapOutput() ScalingPlanMapOutput {
@@ -304,18 +241,16 @@ func (o ScalingPlanMapOutput) ToScalingPlanMapOutputWithContext(ctx context.Cont
 }
 
 func (o ScalingPlanMapOutput) MapIndex(k pulumi.StringInput) ScalingPlanOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScalingPlan {
-		return vs[0].(map[string]ScalingPlan)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ScalingPlan {
+		return vs[0].(map[string]*ScalingPlan)[vs[1].(string)]
 	}).(ScalingPlanOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanInput)(nil)).Elem(), &ScalingPlan{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanPtrInput)(nil)).Elem(), &ScalingPlan{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanArrayInput)(nil)).Elem(), ScalingPlanArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanMapInput)(nil)).Elem(), ScalingPlanMap{})
 	pulumi.RegisterOutputType(ScalingPlanOutput{})
-	pulumi.RegisterOutputType(ScalingPlanPtrOutput{})
 	pulumi.RegisterOutputType(ScalingPlanArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPlanMapOutput{})
 }

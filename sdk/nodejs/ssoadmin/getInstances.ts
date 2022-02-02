@@ -12,9 +12,7 @@ export function getInstances(opts?: pulumi.InvokeOptions): Promise<GetInstancesR
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ssoadmin/getInstances:getInstances", {
     }, opts);
 }

@@ -93,13 +93,13 @@ export class SecretPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecretPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretPolicyArgs | SecretPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretPolicyState | undefined;
-            inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["secretArn"] = state ? state.secretArn : undefined;
+            resourceInputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as SecretPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -108,14 +108,12 @@ export class SecretPolicy extends pulumi.CustomResource {
             if ((!args || args.secretArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretArn'");
             }
-            inputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["secretArn"] = args ? args.secretArn : undefined;
+            resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["secretArn"] = args ? args.secretArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecretPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecretPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

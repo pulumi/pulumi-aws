@@ -103,15 +103,15 @@ export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: FieldLevelEncryptionConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FieldLevelEncryptionConfigArgs | FieldLevelEncryptionConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FieldLevelEncryptionConfigState | undefined;
-            inputs["callerReference"] = state ? state.callerReference : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["contentTypeProfileConfig"] = state ? state.contentTypeProfileConfig : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["queryArgProfileConfig"] = state ? state.queryArgProfileConfig : undefined;
+            resourceInputs["callerReference"] = state ? state.callerReference : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["contentTypeProfileConfig"] = state ? state.contentTypeProfileConfig : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["queryArgProfileConfig"] = state ? state.queryArgProfileConfig : undefined;
         } else {
             const args = argsOrState as FieldLevelEncryptionConfigArgs | undefined;
             if ((!args || args.contentTypeProfileConfig === undefined) && !opts.urn) {
@@ -120,16 +120,14 @@ export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
             if ((!args || args.queryArgProfileConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryArgProfileConfig'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["contentTypeProfileConfig"] = args ? args.contentTypeProfileConfig : undefined;
-            inputs["queryArgProfileConfig"] = args ? args.queryArgProfileConfig : undefined;
-            inputs["callerReference"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["contentTypeProfileConfig"] = args ? args.contentTypeProfileConfig : undefined;
+            resourceInputs["queryArgProfileConfig"] = args ? args.queryArgProfileConfig : undefined;
+            resourceInputs["callerReference"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FieldLevelEncryptionConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FieldLevelEncryptionConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

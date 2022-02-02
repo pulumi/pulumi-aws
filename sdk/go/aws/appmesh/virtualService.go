@@ -230,7 +230,7 @@ type VirtualServiceInput interface {
 }
 
 func (*VirtualService) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualService)(nil))
+	return reflect.TypeOf((**VirtualService)(nil)).Elem()
 }
 
 func (i *VirtualService) ToVirtualServiceOutput() VirtualServiceOutput {
@@ -239,35 +239,6 @@ func (i *VirtualService) ToVirtualServiceOutput() VirtualServiceOutput {
 
 func (i *VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceOutput)
-}
-
-func (i *VirtualService) ToVirtualServicePtrOutput() VirtualServicePtrOutput {
-	return i.ToVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualService) ToVirtualServicePtrOutputWithContext(ctx context.Context) VirtualServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServicePtrOutput)
-}
-
-type VirtualServicePtrInput interface {
-	pulumi.Input
-
-	ToVirtualServicePtrOutput() VirtualServicePtrOutput
-	ToVirtualServicePtrOutputWithContext(ctx context.Context) VirtualServicePtrOutput
-}
-
-type virtualServicePtrType VirtualServiceArgs
-
-func (*virtualServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualService)(nil))
-}
-
-func (i *virtualServicePtrType) ToVirtualServicePtrOutput() VirtualServicePtrOutput {
-	return i.ToVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualServicePtrType) ToVirtualServicePtrOutputWithContext(ctx context.Context) VirtualServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServicePtrOutput)
 }
 
 // VirtualServiceArrayInput is an input type that accepts VirtualServiceArray and VirtualServiceArrayOutput values.
@@ -323,7 +294,7 @@ func (i VirtualServiceMap) ToVirtualServiceMapOutputWithContext(ctx context.Cont
 type VirtualServiceOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualService)(nil))
+	return reflect.TypeOf((**VirtualService)(nil)).Elem()
 }
 
 func (o VirtualServiceOutput) ToVirtualServiceOutput() VirtualServiceOutput {
@@ -334,44 +305,10 @@ func (o VirtualServiceOutput) ToVirtualServiceOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o VirtualServiceOutput) ToVirtualServicePtrOutput() VirtualServicePtrOutput {
-	return o.ToVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualServiceOutput) ToVirtualServicePtrOutputWithContext(ctx context.Context) VirtualServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualService) *VirtualService {
-		return &v
-	}).(VirtualServicePtrOutput)
-}
-
-type VirtualServicePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualService)(nil))
-}
-
-func (o VirtualServicePtrOutput) ToVirtualServicePtrOutput() VirtualServicePtrOutput {
-	return o
-}
-
-func (o VirtualServicePtrOutput) ToVirtualServicePtrOutputWithContext(ctx context.Context) VirtualServicePtrOutput {
-	return o
-}
-
-func (o VirtualServicePtrOutput) Elem() VirtualServiceOutput {
-	return o.ApplyT(func(v *VirtualService) VirtualService {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualService
-		return ret
-	}).(VirtualServiceOutput)
-}
-
 type VirtualServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualService)(nil))
+	return reflect.TypeOf((*[]*VirtualService)(nil)).Elem()
 }
 
 func (o VirtualServiceArrayOutput) ToVirtualServiceArrayOutput() VirtualServiceArrayOutput {
@@ -383,15 +320,15 @@ func (o VirtualServiceArrayOutput) ToVirtualServiceArrayOutputWithContext(ctx co
 }
 
 func (o VirtualServiceArrayOutput) Index(i pulumi.IntInput) VirtualServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualService {
-		return vs[0].([]VirtualService)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualService {
+		return vs[0].([]*VirtualService)[vs[1].(int)]
 	}).(VirtualServiceOutput)
 }
 
 type VirtualServiceMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualService)(nil))
+	return reflect.TypeOf((*map[string]*VirtualService)(nil)).Elem()
 }
 
 func (o VirtualServiceMapOutput) ToVirtualServiceMapOutput() VirtualServiceMapOutput {
@@ -403,18 +340,16 @@ func (o VirtualServiceMapOutput) ToVirtualServiceMapOutputWithContext(ctx contex
 }
 
 func (o VirtualServiceMapOutput) MapIndex(k pulumi.StringInput) VirtualServiceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualService {
-		return vs[0].(map[string]VirtualService)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualService {
+		return vs[0].(map[string]*VirtualService)[vs[1].(string)]
 	}).(VirtualServiceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceInput)(nil)).Elem(), &VirtualService{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServicePtrInput)(nil)).Elem(), &VirtualService{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceArrayInput)(nil)).Elem(), VirtualServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceMapInput)(nil)).Elem(), VirtualServiceMap{})
 	pulumi.RegisterOutputType(VirtualServiceOutput{})
-	pulumi.RegisterOutputType(VirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceArrayOutput{})
 	pulumi.RegisterOutputType(VirtualServiceMapOutput{})
 }

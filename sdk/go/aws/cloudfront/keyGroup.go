@@ -164,7 +164,7 @@ type KeyGroupInput interface {
 }
 
 func (*KeyGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyGroup)(nil))
+	return reflect.TypeOf((**KeyGroup)(nil)).Elem()
 }
 
 func (i *KeyGroup) ToKeyGroupOutput() KeyGroupOutput {
@@ -173,35 +173,6 @@ func (i *KeyGroup) ToKeyGroupOutput() KeyGroupOutput {
 
 func (i *KeyGroup) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupOutput)
-}
-
-func (i *KeyGroup) ToKeyGroupPtrOutput() KeyGroupPtrOutput {
-	return i.ToKeyGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *KeyGroup) ToKeyGroupPtrOutputWithContext(ctx context.Context) KeyGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupPtrOutput)
-}
-
-type KeyGroupPtrInput interface {
-	pulumi.Input
-
-	ToKeyGroupPtrOutput() KeyGroupPtrOutput
-	ToKeyGroupPtrOutputWithContext(ctx context.Context) KeyGroupPtrOutput
-}
-
-type keyGroupPtrType KeyGroupArgs
-
-func (*keyGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyGroup)(nil))
-}
-
-func (i *keyGroupPtrType) ToKeyGroupPtrOutput() KeyGroupPtrOutput {
-	return i.ToKeyGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *keyGroupPtrType) ToKeyGroupPtrOutputWithContext(ctx context.Context) KeyGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupPtrOutput)
 }
 
 // KeyGroupArrayInput is an input type that accepts KeyGroupArray and KeyGroupArrayOutput values.
@@ -257,7 +228,7 @@ func (i KeyGroupMap) ToKeyGroupMapOutputWithContext(ctx context.Context) KeyGrou
 type KeyGroupOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyGroup)(nil))
+	return reflect.TypeOf((**KeyGroup)(nil)).Elem()
 }
 
 func (o KeyGroupOutput) ToKeyGroupOutput() KeyGroupOutput {
@@ -268,44 +239,10 @@ func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGrou
 	return o
 }
 
-func (o KeyGroupOutput) ToKeyGroupPtrOutput() KeyGroupPtrOutput {
-	return o.ToKeyGroupPtrOutputWithContext(context.Background())
-}
-
-func (o KeyGroupOutput) ToKeyGroupPtrOutputWithContext(ctx context.Context) KeyGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyGroup) *KeyGroup {
-		return &v
-	}).(KeyGroupPtrOutput)
-}
-
-type KeyGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyGroup)(nil))
-}
-
-func (o KeyGroupPtrOutput) ToKeyGroupPtrOutput() KeyGroupPtrOutput {
-	return o
-}
-
-func (o KeyGroupPtrOutput) ToKeyGroupPtrOutputWithContext(ctx context.Context) KeyGroupPtrOutput {
-	return o
-}
-
-func (o KeyGroupPtrOutput) Elem() KeyGroupOutput {
-	return o.ApplyT(func(v *KeyGroup) KeyGroup {
-		if v != nil {
-			return *v
-		}
-		var ret KeyGroup
-		return ret
-	}).(KeyGroupOutput)
-}
-
 type KeyGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyGroup)(nil))
+	return reflect.TypeOf((*[]*KeyGroup)(nil)).Elem()
 }
 
 func (o KeyGroupArrayOutput) ToKeyGroupArrayOutput() KeyGroupArrayOutput {
@@ -317,15 +254,15 @@ func (o KeyGroupArrayOutput) ToKeyGroupArrayOutputWithContext(ctx context.Contex
 }
 
 func (o KeyGroupArrayOutput) Index(i pulumi.IntInput) KeyGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyGroup {
-		return vs[0].([]KeyGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeyGroup {
+		return vs[0].([]*KeyGroup)[vs[1].(int)]
 	}).(KeyGroupOutput)
 }
 
 type KeyGroupMapOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]KeyGroup)(nil))
+	return reflect.TypeOf((*map[string]*KeyGroup)(nil)).Elem()
 }
 
 func (o KeyGroupMapOutput) ToKeyGroupMapOutput() KeyGroupMapOutput {
@@ -337,18 +274,16 @@ func (o KeyGroupMapOutput) ToKeyGroupMapOutputWithContext(ctx context.Context) K
 }
 
 func (o KeyGroupMapOutput) MapIndex(k pulumi.StringInput) KeyGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KeyGroup {
-		return vs[0].(map[string]KeyGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *KeyGroup {
+		return vs[0].(map[string]*KeyGroup)[vs[1].(string)]
 	}).(KeyGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupInput)(nil)).Elem(), &KeyGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupPtrInput)(nil)).Elem(), &KeyGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupArrayInput)(nil)).Elem(), KeyGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupMapInput)(nil)).Elem(), KeyGroupMap{})
 	pulumi.RegisterOutputType(KeyGroupOutput{})
-	pulumi.RegisterOutputType(KeyGroupPtrOutput{})
 	pulumi.RegisterOutputType(KeyGroupArrayOutput{})
 	pulumi.RegisterOutputType(KeyGroupMapOutput{})
 }

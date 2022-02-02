@@ -59,6 +59,16 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_ = ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
+// 			Filters: ec2.GetInstanceFilterArray{
+// 				&ec2.GetInstanceFilterArgs{
+// 					Name: pulumi.String("tag:aws:cloud9:environment"),
+// 					Values: pulumi.StringArray{
+// 						example.ID(),
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
 // 			return fmt.Sprintf("%v%v%v%v", "https://", _var.Region, ".console.aws.amazon.com/cloud9/ide/", id), nil
 // 		}).(pulumi.StringOutput))
@@ -86,6 +96,16 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		cloud9Instance := ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
+// 			Filters: ec2.GetInstanceFilterArray{
+// 				&ec2.GetInstanceFilterArgs{
+// 					Name: pulumi.String("tag:aws:cloud9:environment"),
+// 					Values: pulumi.StringArray{
+// 						example.ID(),
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
 // 			Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (string, error) {
 // 				return cloud9Instance.Id, nil
@@ -253,7 +273,7 @@ type EnvironmentEC2Input interface {
 }
 
 func (*EnvironmentEC2) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2)(nil))
+	return reflect.TypeOf((**EnvironmentEC2)(nil)).Elem()
 }
 
 func (i *EnvironmentEC2) ToEnvironmentEC2Output() EnvironmentEC2Output {
@@ -262,35 +282,6 @@ func (i *EnvironmentEC2) ToEnvironmentEC2Output() EnvironmentEC2Output {
 
 func (i *EnvironmentEC2) ToEnvironmentEC2OutputWithContext(ctx context.Context) EnvironmentEC2Output {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2Output)
-}
-
-func (i *EnvironmentEC2) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
-	return i.ToEnvironmentEC2PtrOutputWithContext(context.Background())
-}
-
-func (i *EnvironmentEC2) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2PtrOutput)
-}
-
-type EnvironmentEC2PtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput
-	ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput
-}
-
-type environmentEC2PtrType EnvironmentEC2Args
-
-func (*environmentEC2PtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentEC2)(nil))
-}
-
-func (i *environmentEC2PtrType) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
-	return i.ToEnvironmentEC2PtrOutputWithContext(context.Background())
-}
-
-func (i *environmentEC2PtrType) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2PtrOutput)
 }
 
 // EnvironmentEC2ArrayInput is an input type that accepts EnvironmentEC2Array and EnvironmentEC2ArrayOutput values.
@@ -346,7 +337,7 @@ func (i EnvironmentEC2Map) ToEnvironmentEC2MapOutputWithContext(ctx context.Cont
 type EnvironmentEC2Output struct{ *pulumi.OutputState }
 
 func (EnvironmentEC2Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2)(nil))
+	return reflect.TypeOf((**EnvironmentEC2)(nil)).Elem()
 }
 
 func (o EnvironmentEC2Output) ToEnvironmentEC2Output() EnvironmentEC2Output {
@@ -357,44 +348,10 @@ func (o EnvironmentEC2Output) ToEnvironmentEC2OutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o EnvironmentEC2Output) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
-	return o.ToEnvironmentEC2PtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentEC2Output) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentEC2) *EnvironmentEC2 {
-		return &v
-	}).(EnvironmentEC2PtrOutput)
-}
-
-type EnvironmentEC2PtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentEC2PtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentEC2)(nil))
-}
-
-func (o EnvironmentEC2PtrOutput) ToEnvironmentEC2PtrOutput() EnvironmentEC2PtrOutput {
-	return o
-}
-
-func (o EnvironmentEC2PtrOutput) ToEnvironmentEC2PtrOutputWithContext(ctx context.Context) EnvironmentEC2PtrOutput {
-	return o
-}
-
-func (o EnvironmentEC2PtrOutput) Elem() EnvironmentEC2Output {
-	return o.ApplyT(func(v *EnvironmentEC2) EnvironmentEC2 {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentEC2
-		return ret
-	}).(EnvironmentEC2Output)
-}
-
 type EnvironmentEC2ArrayOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentEC2ArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentEC2)(nil))
+	return reflect.TypeOf((*[]*EnvironmentEC2)(nil)).Elem()
 }
 
 func (o EnvironmentEC2ArrayOutput) ToEnvironmentEC2ArrayOutput() EnvironmentEC2ArrayOutput {
@@ -406,15 +363,15 @@ func (o EnvironmentEC2ArrayOutput) ToEnvironmentEC2ArrayOutputWithContext(ctx co
 }
 
 func (o EnvironmentEC2ArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2Output {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentEC2 {
-		return vs[0].([]EnvironmentEC2)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentEC2 {
+		return vs[0].([]*EnvironmentEC2)[vs[1].(int)]
 	}).(EnvironmentEC2Output)
 }
 
 type EnvironmentEC2MapOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentEC2MapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EnvironmentEC2)(nil))
+	return reflect.TypeOf((*map[string]*EnvironmentEC2)(nil)).Elem()
 }
 
 func (o EnvironmentEC2MapOutput) ToEnvironmentEC2MapOutput() EnvironmentEC2MapOutput {
@@ -426,18 +383,16 @@ func (o EnvironmentEC2MapOutput) ToEnvironmentEC2MapOutputWithContext(ctx contex
 }
 
 func (o EnvironmentEC2MapOutput) MapIndex(k pulumi.StringInput) EnvironmentEC2Output {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EnvironmentEC2 {
-		return vs[0].(map[string]EnvironmentEC2)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EnvironmentEC2 {
+		return vs[0].(map[string]*EnvironmentEC2)[vs[1].(string)]
 	}).(EnvironmentEC2Output)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2Input)(nil)).Elem(), &EnvironmentEC2{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2PtrInput)(nil)).Elem(), &EnvironmentEC2{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2ArrayInput)(nil)).Elem(), EnvironmentEC2Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2MapInput)(nil)).Elem(), EnvironmentEC2Map{})
 	pulumi.RegisterOutputType(EnvironmentEC2Output{})
-	pulumi.RegisterOutputType(EnvironmentEC2PtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentEC2ArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentEC2MapOutput{})
 }

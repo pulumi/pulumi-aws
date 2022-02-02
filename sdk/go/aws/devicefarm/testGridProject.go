@@ -139,7 +139,7 @@ type TestGridProjectInput interface {
 }
 
 func (*TestGridProject) ElementType() reflect.Type {
-	return reflect.TypeOf((*TestGridProject)(nil))
+	return reflect.TypeOf((**TestGridProject)(nil)).Elem()
 }
 
 func (i *TestGridProject) ToTestGridProjectOutput() TestGridProjectOutput {
@@ -148,35 +148,6 @@ func (i *TestGridProject) ToTestGridProjectOutput() TestGridProjectOutput {
 
 func (i *TestGridProject) ToTestGridProjectOutputWithContext(ctx context.Context) TestGridProjectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectOutput)
-}
-
-func (i *TestGridProject) ToTestGridProjectPtrOutput() TestGridProjectPtrOutput {
-	return i.ToTestGridProjectPtrOutputWithContext(context.Background())
-}
-
-func (i *TestGridProject) ToTestGridProjectPtrOutputWithContext(ctx context.Context) TestGridProjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectPtrOutput)
-}
-
-type TestGridProjectPtrInput interface {
-	pulumi.Input
-
-	ToTestGridProjectPtrOutput() TestGridProjectPtrOutput
-	ToTestGridProjectPtrOutputWithContext(ctx context.Context) TestGridProjectPtrOutput
-}
-
-type testGridProjectPtrType TestGridProjectArgs
-
-func (*testGridProjectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TestGridProject)(nil))
-}
-
-func (i *testGridProjectPtrType) ToTestGridProjectPtrOutput() TestGridProjectPtrOutput {
-	return i.ToTestGridProjectPtrOutputWithContext(context.Background())
-}
-
-func (i *testGridProjectPtrType) ToTestGridProjectPtrOutputWithContext(ctx context.Context) TestGridProjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectPtrOutput)
 }
 
 // TestGridProjectArrayInput is an input type that accepts TestGridProjectArray and TestGridProjectArrayOutput values.
@@ -232,7 +203,7 @@ func (i TestGridProjectMap) ToTestGridProjectMapOutputWithContext(ctx context.Co
 type TestGridProjectOutput struct{ *pulumi.OutputState }
 
 func (TestGridProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TestGridProject)(nil))
+	return reflect.TypeOf((**TestGridProject)(nil)).Elem()
 }
 
 func (o TestGridProjectOutput) ToTestGridProjectOutput() TestGridProjectOutput {
@@ -243,44 +214,10 @@ func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o TestGridProjectOutput) ToTestGridProjectPtrOutput() TestGridProjectPtrOutput {
-	return o.ToTestGridProjectPtrOutputWithContext(context.Background())
-}
-
-func (o TestGridProjectOutput) ToTestGridProjectPtrOutputWithContext(ctx context.Context) TestGridProjectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestGridProject) *TestGridProject {
-		return &v
-	}).(TestGridProjectPtrOutput)
-}
-
-type TestGridProjectPtrOutput struct{ *pulumi.OutputState }
-
-func (TestGridProjectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TestGridProject)(nil))
-}
-
-func (o TestGridProjectPtrOutput) ToTestGridProjectPtrOutput() TestGridProjectPtrOutput {
-	return o
-}
-
-func (o TestGridProjectPtrOutput) ToTestGridProjectPtrOutputWithContext(ctx context.Context) TestGridProjectPtrOutput {
-	return o
-}
-
-func (o TestGridProjectPtrOutput) Elem() TestGridProjectOutput {
-	return o.ApplyT(func(v *TestGridProject) TestGridProject {
-		if v != nil {
-			return *v
-		}
-		var ret TestGridProject
-		return ret
-	}).(TestGridProjectOutput)
-}
-
 type TestGridProjectArrayOutput struct{ *pulumi.OutputState }
 
 func (TestGridProjectArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TestGridProject)(nil))
+	return reflect.TypeOf((*[]*TestGridProject)(nil)).Elem()
 }
 
 func (o TestGridProjectArrayOutput) ToTestGridProjectArrayOutput() TestGridProjectArrayOutput {
@@ -292,15 +229,15 @@ func (o TestGridProjectArrayOutput) ToTestGridProjectArrayOutputWithContext(ctx 
 }
 
 func (o TestGridProjectArrayOutput) Index(i pulumi.IntInput) TestGridProjectOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TestGridProject {
-		return vs[0].([]TestGridProject)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TestGridProject {
+		return vs[0].([]*TestGridProject)[vs[1].(int)]
 	}).(TestGridProjectOutput)
 }
 
 type TestGridProjectMapOutput struct{ *pulumi.OutputState }
 
 func (TestGridProjectMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TestGridProject)(nil))
+	return reflect.TypeOf((*map[string]*TestGridProject)(nil)).Elem()
 }
 
 func (o TestGridProjectMapOutput) ToTestGridProjectMapOutput() TestGridProjectMapOutput {
@@ -312,18 +249,16 @@ func (o TestGridProjectMapOutput) ToTestGridProjectMapOutputWithContext(ctx cont
 }
 
 func (o TestGridProjectMapOutput) MapIndex(k pulumi.StringInput) TestGridProjectOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TestGridProject {
-		return vs[0].(map[string]TestGridProject)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TestGridProject {
+		return vs[0].(map[string]*TestGridProject)[vs[1].(string)]
 	}).(TestGridProjectOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectInput)(nil)).Elem(), &TestGridProject{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectPtrInput)(nil)).Elem(), &TestGridProject{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectArrayInput)(nil)).Elem(), TestGridProjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectMapInput)(nil)).Elem(), TestGridProjectMap{})
 	pulumi.RegisterOutputType(TestGridProjectOutput{})
-	pulumi.RegisterOutputType(TestGridProjectPtrOutput{})
 	pulumi.RegisterOutputType(TestGridProjectArrayOutput{})
 	pulumi.RegisterOutputType(TestGridProjectMapOutput{})
 }

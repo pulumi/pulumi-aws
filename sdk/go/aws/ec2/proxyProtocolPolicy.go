@@ -160,7 +160,7 @@ type ProxyProtocolPolicyInput interface {
 }
 
 func (*ProxyProtocolPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProxyProtocolPolicy)(nil))
+	return reflect.TypeOf((**ProxyProtocolPolicy)(nil)).Elem()
 }
 
 func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput {
@@ -169,35 +169,6 @@ func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyO
 
 func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyOutput)
-}
-
-func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyPtrOutput() ProxyProtocolPolicyPtrOutput {
-	return i.ToProxyProtocolPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyPtrOutputWithContext(ctx context.Context) ProxyProtocolPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyPtrOutput)
-}
-
-type ProxyProtocolPolicyPtrInput interface {
-	pulumi.Input
-
-	ToProxyProtocolPolicyPtrOutput() ProxyProtocolPolicyPtrOutput
-	ToProxyProtocolPolicyPtrOutputWithContext(ctx context.Context) ProxyProtocolPolicyPtrOutput
-}
-
-type proxyProtocolPolicyPtrType ProxyProtocolPolicyArgs
-
-func (*proxyProtocolPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProxyProtocolPolicy)(nil))
-}
-
-func (i *proxyProtocolPolicyPtrType) ToProxyProtocolPolicyPtrOutput() ProxyProtocolPolicyPtrOutput {
-	return i.ToProxyProtocolPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *proxyProtocolPolicyPtrType) ToProxyProtocolPolicyPtrOutputWithContext(ctx context.Context) ProxyProtocolPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyPtrOutput)
 }
 
 // ProxyProtocolPolicyArrayInput is an input type that accepts ProxyProtocolPolicyArray and ProxyProtocolPolicyArrayOutput values.
@@ -253,7 +224,7 @@ func (i ProxyProtocolPolicyMap) ToProxyProtocolPolicyMapOutputWithContext(ctx co
 type ProxyProtocolPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProxyProtocolPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProxyProtocolPolicy)(nil))
+	return reflect.TypeOf((**ProxyProtocolPolicy)(nil)).Elem()
 }
 
 func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutput() ProxyProtocolPolicyOutput {
@@ -264,44 +235,10 @@ func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutputWithContext(ctx co
 	return o
 }
 
-func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyPtrOutput() ProxyProtocolPolicyPtrOutput {
-	return o.ToProxyProtocolPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyPtrOutputWithContext(ctx context.Context) ProxyProtocolPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyProtocolPolicy) *ProxyProtocolPolicy {
-		return &v
-	}).(ProxyProtocolPolicyPtrOutput)
-}
-
-type ProxyProtocolPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ProxyProtocolPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProxyProtocolPolicy)(nil))
-}
-
-func (o ProxyProtocolPolicyPtrOutput) ToProxyProtocolPolicyPtrOutput() ProxyProtocolPolicyPtrOutput {
-	return o
-}
-
-func (o ProxyProtocolPolicyPtrOutput) ToProxyProtocolPolicyPtrOutputWithContext(ctx context.Context) ProxyProtocolPolicyPtrOutput {
-	return o
-}
-
-func (o ProxyProtocolPolicyPtrOutput) Elem() ProxyProtocolPolicyOutput {
-	return o.ApplyT(func(v *ProxyProtocolPolicy) ProxyProtocolPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ProxyProtocolPolicy
-		return ret
-	}).(ProxyProtocolPolicyOutput)
-}
-
 type ProxyProtocolPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ProxyProtocolPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProxyProtocolPolicy)(nil))
+	return reflect.TypeOf((*[]*ProxyProtocolPolicy)(nil)).Elem()
 }
 
 func (o ProxyProtocolPolicyArrayOutput) ToProxyProtocolPolicyArrayOutput() ProxyProtocolPolicyArrayOutput {
@@ -313,15 +250,15 @@ func (o ProxyProtocolPolicyArrayOutput) ToProxyProtocolPolicyArrayOutputWithCont
 }
 
 func (o ProxyProtocolPolicyArrayOutput) Index(i pulumi.IntInput) ProxyProtocolPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProxyProtocolPolicy {
-		return vs[0].([]ProxyProtocolPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProxyProtocolPolicy {
+		return vs[0].([]*ProxyProtocolPolicy)[vs[1].(int)]
 	}).(ProxyProtocolPolicyOutput)
 }
 
 type ProxyProtocolPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ProxyProtocolPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProxyProtocolPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ProxyProtocolPolicy)(nil)).Elem()
 }
 
 func (o ProxyProtocolPolicyMapOutput) ToProxyProtocolPolicyMapOutput() ProxyProtocolPolicyMapOutput {
@@ -333,18 +270,16 @@ func (o ProxyProtocolPolicyMapOutput) ToProxyProtocolPolicyMapOutputWithContext(
 }
 
 func (o ProxyProtocolPolicyMapOutput) MapIndex(k pulumi.StringInput) ProxyProtocolPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProxyProtocolPolicy {
-		return vs[0].(map[string]ProxyProtocolPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProxyProtocolPolicy {
+		return vs[0].(map[string]*ProxyProtocolPolicy)[vs[1].(string)]
 	}).(ProxyProtocolPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyInput)(nil)).Elem(), &ProxyProtocolPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyPtrInput)(nil)).Elem(), &ProxyProtocolPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyArrayInput)(nil)).Elem(), ProxyProtocolPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyMapInput)(nil)).Elem(), ProxyProtocolPolicyMap{})
 	pulumi.RegisterOutputType(ProxyProtocolPolicyOutput{})
-	pulumi.RegisterOutputType(ProxyProtocolPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ProxyProtocolPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ProxyProtocolPolicyMapOutput{})
 }

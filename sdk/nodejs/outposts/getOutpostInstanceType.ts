@@ -12,9 +12,7 @@ export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", {
         "arn": args.arn,
         "instanceType": args.instanceType,

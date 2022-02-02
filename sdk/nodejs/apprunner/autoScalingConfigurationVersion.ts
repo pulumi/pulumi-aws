@@ -110,40 +110,38 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: AutoScalingConfigurationVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AutoScalingConfigurationVersionArgs | AutoScalingConfigurationVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutoScalingConfigurationVersionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoScalingConfigurationName"] = state ? state.autoScalingConfigurationName : undefined;
-            inputs["autoScalingConfigurationRevision"] = state ? state.autoScalingConfigurationRevision : undefined;
-            inputs["latest"] = state ? state.latest : undefined;
-            inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            inputs["maxSize"] = state ? state.maxSize : undefined;
-            inputs["minSize"] = state ? state.minSize : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoScalingConfigurationName"] = state ? state.autoScalingConfigurationName : undefined;
+            resourceInputs["autoScalingConfigurationRevision"] = state ? state.autoScalingConfigurationRevision : undefined;
+            resourceInputs["latest"] = state ? state.latest : undefined;
+            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
+            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
+            resourceInputs["minSize"] = state ? state.minSize : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AutoScalingConfigurationVersionArgs | undefined;
             if ((!args || args.autoScalingConfigurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingConfigurationName'");
             }
-            inputs["autoScalingConfigurationName"] = args ? args.autoScalingConfigurationName : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoScalingConfigurationRevision"] = undefined /*out*/;
-            inputs["latest"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["autoScalingConfigurationName"] = args ? args.autoScalingConfigurationName : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoScalingConfigurationRevision"] = undefined /*out*/;
+            resourceInputs["latest"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AutoScalingConfigurationVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AutoScalingConfigurationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

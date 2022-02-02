@@ -278,24 +278,24 @@ export class TopicSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: TopicSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicSubscriptionArgs | TopicSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicSubscriptionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["confirmationTimeoutInMinutes"] = state ? state.confirmationTimeoutInMinutes : undefined;
-            inputs["confirmationWasAuthenticated"] = state ? state.confirmationWasAuthenticated : undefined;
-            inputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["endpointAutoConfirms"] = state ? state.endpointAutoConfirms : undefined;
-            inputs["filterPolicy"] = state ? state.filterPolicy : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["pendingConfirmation"] = state ? state.pendingConfirmation : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["rawMessageDelivery"] = state ? state.rawMessageDelivery : undefined;
-            inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
-            inputs["subscriptionRoleArn"] = state ? state.subscriptionRoleArn : undefined;
-            inputs["topic"] = state ? state.topic : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["confirmationTimeoutInMinutes"] = state ? state.confirmationTimeoutInMinutes : undefined;
+            resourceInputs["confirmationWasAuthenticated"] = state ? state.confirmationWasAuthenticated : undefined;
+            resourceInputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["endpointAutoConfirms"] = state ? state.endpointAutoConfirms : undefined;
+            resourceInputs["filterPolicy"] = state ? state.filterPolicy : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["pendingConfirmation"] = state ? state.pendingConfirmation : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["rawMessageDelivery"] = state ? state.rawMessageDelivery : undefined;
+            resourceInputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
+            resourceInputs["subscriptionRoleArn"] = state ? state.subscriptionRoleArn : undefined;
+            resourceInputs["topic"] = state ? state.topic : undefined;
         } else {
             const args = argsOrState as TopicSubscriptionArgs | undefined;
             if ((!args || args.endpoint === undefined) && !opts.urn) {
@@ -307,25 +307,23 @@ export class TopicSubscription extends pulumi.CustomResource {
             if ((!args || args.topic === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topic'");
             }
-            inputs["confirmationTimeoutInMinutes"] = args ? args.confirmationTimeoutInMinutes : undefined;
-            inputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["endpointAutoConfirms"] = args ? args.endpointAutoConfirms : undefined;
-            inputs["filterPolicy"] = args ? args.filterPolicy : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
-            inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            inputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
-            inputs["topic"] = args ? args.topic : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["confirmationWasAuthenticated"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["pendingConfirmation"] = undefined /*out*/;
+            resourceInputs["confirmationTimeoutInMinutes"] = args ? args.confirmationTimeoutInMinutes : undefined;
+            resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["endpointAutoConfirms"] = args ? args.endpointAutoConfirms : undefined;
+            resourceInputs["filterPolicy"] = args ? args.filterPolicy : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
+            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
+            resourceInputs["topic"] = args ? args.topic : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["confirmationWasAuthenticated"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["pendingConfirmation"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TopicSubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TopicSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

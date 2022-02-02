@@ -355,7 +355,7 @@ type MLTransformInput interface {
 }
 
 func (*MLTransform) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransform)(nil))
+	return reflect.TypeOf((**MLTransform)(nil)).Elem()
 }
 
 func (i *MLTransform) ToMLTransformOutput() MLTransformOutput {
@@ -364,35 +364,6 @@ func (i *MLTransform) ToMLTransformOutput() MLTransformOutput {
 
 func (i *MLTransform) ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MLTransformOutput)
-}
-
-func (i *MLTransform) ToMLTransformPtrOutput() MLTransformPtrOutput {
-	return i.ToMLTransformPtrOutputWithContext(context.Background())
-}
-
-func (i *MLTransform) ToMLTransformPtrOutputWithContext(ctx context.Context) MLTransformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformPtrOutput)
-}
-
-type MLTransformPtrInput interface {
-	pulumi.Input
-
-	ToMLTransformPtrOutput() MLTransformPtrOutput
-	ToMLTransformPtrOutputWithContext(ctx context.Context) MLTransformPtrOutput
-}
-
-type mltransformPtrType MLTransformArgs
-
-func (*mltransformPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransform)(nil))
-}
-
-func (i *mltransformPtrType) ToMLTransformPtrOutput() MLTransformPtrOutput {
-	return i.ToMLTransformPtrOutputWithContext(context.Background())
-}
-
-func (i *mltransformPtrType) ToMLTransformPtrOutputWithContext(ctx context.Context) MLTransformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformPtrOutput)
 }
 
 // MLTransformArrayInput is an input type that accepts MLTransformArray and MLTransformArrayOutput values.
@@ -448,7 +419,7 @@ func (i MLTransformMap) ToMLTransformMapOutputWithContext(ctx context.Context) M
 type MLTransformOutput struct{ *pulumi.OutputState }
 
 func (MLTransformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransform)(nil))
+	return reflect.TypeOf((**MLTransform)(nil)).Elem()
 }
 
 func (o MLTransformOutput) ToMLTransformOutput() MLTransformOutput {
@@ -459,44 +430,10 @@ func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) M
 	return o
 }
 
-func (o MLTransformOutput) ToMLTransformPtrOutput() MLTransformPtrOutput {
-	return o.ToMLTransformPtrOutputWithContext(context.Background())
-}
-
-func (o MLTransformOutput) ToMLTransformPtrOutputWithContext(ctx context.Context) MLTransformPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransform) *MLTransform {
-		return &v
-	}).(MLTransformPtrOutput)
-}
-
-type MLTransformPtrOutput struct{ *pulumi.OutputState }
-
-func (MLTransformPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransform)(nil))
-}
-
-func (o MLTransformPtrOutput) ToMLTransformPtrOutput() MLTransformPtrOutput {
-	return o
-}
-
-func (o MLTransformPtrOutput) ToMLTransformPtrOutputWithContext(ctx context.Context) MLTransformPtrOutput {
-	return o
-}
-
-func (o MLTransformPtrOutput) Elem() MLTransformOutput {
-	return o.ApplyT(func(v *MLTransform) MLTransform {
-		if v != nil {
-			return *v
-		}
-		var ret MLTransform
-		return ret
-	}).(MLTransformOutput)
-}
-
 type MLTransformArrayOutput struct{ *pulumi.OutputState }
 
 func (MLTransformArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MLTransform)(nil))
+	return reflect.TypeOf((*[]*MLTransform)(nil)).Elem()
 }
 
 func (o MLTransformArrayOutput) ToMLTransformArrayOutput() MLTransformArrayOutput {
@@ -508,15 +445,15 @@ func (o MLTransformArrayOutput) ToMLTransformArrayOutputWithContext(ctx context.
 }
 
 func (o MLTransformArrayOutput) Index(i pulumi.IntInput) MLTransformOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MLTransform {
-		return vs[0].([]MLTransform)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MLTransform {
+		return vs[0].([]*MLTransform)[vs[1].(int)]
 	}).(MLTransformOutput)
 }
 
 type MLTransformMapOutput struct{ *pulumi.OutputState }
 
 func (MLTransformMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MLTransform)(nil))
+	return reflect.TypeOf((*map[string]*MLTransform)(nil)).Elem()
 }
 
 func (o MLTransformMapOutput) ToMLTransformMapOutput() MLTransformMapOutput {
@@ -528,18 +465,16 @@ func (o MLTransformMapOutput) ToMLTransformMapOutputWithContext(ctx context.Cont
 }
 
 func (o MLTransformMapOutput) MapIndex(k pulumi.StringInput) MLTransformOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MLTransform {
-		return vs[0].(map[string]MLTransform)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MLTransform {
+		return vs[0].(map[string]*MLTransform)[vs[1].(string)]
 	}).(MLTransformOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInput)(nil)).Elem(), &MLTransform{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformPtrInput)(nil)).Elem(), &MLTransform{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformArrayInput)(nil)).Elem(), MLTransformArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformMapInput)(nil)).Elem(), MLTransformMap{})
 	pulumi.RegisterOutputType(MLTransformOutput{})
-	pulumi.RegisterOutputType(MLTransformPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformArrayOutput{})
 	pulumi.RegisterOutputType(MLTransformMapOutput{})
 }

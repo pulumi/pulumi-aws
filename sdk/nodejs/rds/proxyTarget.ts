@@ -141,20 +141,20 @@ export class ProxyTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProxyTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProxyTargetArgs | ProxyTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyTargetState | undefined;
-            inputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
-            inputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
-            inputs["dbProxyName"] = state ? state.dbProxyName : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["rdsResourceId"] = state ? state.rdsResourceId : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
-            inputs["targetGroupName"] = state ? state.targetGroupName : undefined;
-            inputs["trackedClusterId"] = state ? state.trackedClusterId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
+            resourceInputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
+            resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["rdsResourceId"] = state ? state.rdsResourceId : undefined;
+            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
+            resourceInputs["targetGroupName"] = state ? state.targetGroupName : undefined;
+            resourceInputs["trackedClusterId"] = state ? state.trackedClusterId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProxyTargetArgs | undefined;
             if ((!args || args.dbProxyName === undefined) && !opts.urn) {
@@ -163,21 +163,19 @@ export class ProxyTarget extends pulumi.CustomResource {
             if ((!args || args.targetGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
-            inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
-            inputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            inputs["targetGroupName"] = args ? args.targetGroupName : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["rdsResourceId"] = undefined /*out*/;
-            inputs["targetArn"] = undefined /*out*/;
-            inputs["trackedClusterId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
+            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["rdsResourceId"] = undefined /*out*/;
+            resourceInputs["targetArn"] = undefined /*out*/;
+            resourceInputs["trackedClusterId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProxyTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProxyTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

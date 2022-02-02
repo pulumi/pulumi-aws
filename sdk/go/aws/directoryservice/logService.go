@@ -35,7 +35,31 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad_log_policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// 		ad_log_policyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// 			Statements: iam.GetPolicyDocumentStatementArray{
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("logs:CreateLogStream"),
+// 						pulumi.String("logs:PutLogEvents"),
+// 					},
+// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
+// 							Identifiers: pulumi.StringArray{
+// 								pulumi.String("ds.amazonaws.com"),
+// 							},
+// 							Type: pulumi.String("Service"),
+// 						},
+// 					},
+// 					Resources: pulumi.StringArray{
+// 						exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+// 							return fmt.Sprintf("%v%v", arn, ":*"), nil
+// 						}).(pulumi.StringOutput),
+// 					},
+// 					Effect: pulumi.String("Allow"),
+// 				},
+// 			},
+// 		}, nil)
+// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad-log-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
 // 			PolicyDocument: ad_log_policyPolicyDocument.ApplyT(func(ad_log_policyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
 // 				return ad_log_policyPolicyDocument.Json, nil
 // 			}).(pulumi.StringOutput),
@@ -151,7 +175,7 @@ type LogServiceInput interface {
 }
 
 func (*LogService) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogService)(nil))
+	return reflect.TypeOf((**LogService)(nil)).Elem()
 }
 
 func (i *LogService) ToLogServiceOutput() LogServiceOutput {
@@ -160,35 +184,6 @@ func (i *LogService) ToLogServiceOutput() LogServiceOutput {
 
 func (i *LogService) ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogServiceOutput)
-}
-
-func (i *LogService) ToLogServicePtrOutput() LogServicePtrOutput {
-	return i.ToLogServicePtrOutputWithContext(context.Background())
-}
-
-func (i *LogService) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogServicePtrOutput)
-}
-
-type LogServicePtrInput interface {
-	pulumi.Input
-
-	ToLogServicePtrOutput() LogServicePtrOutput
-	ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput
-}
-
-type logServicePtrType LogServiceArgs
-
-func (*logServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogService)(nil))
-}
-
-func (i *logServicePtrType) ToLogServicePtrOutput() LogServicePtrOutput {
-	return i.ToLogServicePtrOutputWithContext(context.Background())
-}
-
-func (i *logServicePtrType) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogServicePtrOutput)
 }
 
 // LogServiceArrayInput is an input type that accepts LogServiceArray and LogServiceArrayOutput values.
@@ -244,7 +239,7 @@ func (i LogServiceMap) ToLogServiceMapOutputWithContext(ctx context.Context) Log
 type LogServiceOutput struct{ *pulumi.OutputState }
 
 func (LogServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogService)(nil))
+	return reflect.TypeOf((**LogService)(nil)).Elem()
 }
 
 func (o LogServiceOutput) ToLogServiceOutput() LogServiceOutput {
@@ -255,44 +250,10 @@ func (o LogServiceOutput) ToLogServiceOutputWithContext(ctx context.Context) Log
 	return o
 }
 
-func (o LogServiceOutput) ToLogServicePtrOutput() LogServicePtrOutput {
-	return o.ToLogServicePtrOutputWithContext(context.Background())
-}
-
-func (o LogServiceOutput) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogService) *LogService {
-		return &v
-	}).(LogServicePtrOutput)
-}
-
-type LogServicePtrOutput struct{ *pulumi.OutputState }
-
-func (LogServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogService)(nil))
-}
-
-func (o LogServicePtrOutput) ToLogServicePtrOutput() LogServicePtrOutput {
-	return o
-}
-
-func (o LogServicePtrOutput) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
-	return o
-}
-
-func (o LogServicePtrOutput) Elem() LogServiceOutput {
-	return o.ApplyT(func(v *LogService) LogService {
-		if v != nil {
-			return *v
-		}
-		var ret LogService
-		return ret
-	}).(LogServiceOutput)
-}
-
 type LogServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (LogServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogService)(nil))
+	return reflect.TypeOf((*[]*LogService)(nil)).Elem()
 }
 
 func (o LogServiceArrayOutput) ToLogServiceArrayOutput() LogServiceArrayOutput {
@@ -304,15 +265,15 @@ func (o LogServiceArrayOutput) ToLogServiceArrayOutputWithContext(ctx context.Co
 }
 
 func (o LogServiceArrayOutput) Index(i pulumi.IntInput) LogServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogService {
-		return vs[0].([]LogService)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogService {
+		return vs[0].([]*LogService)[vs[1].(int)]
 	}).(LogServiceOutput)
 }
 
 type LogServiceMapOutput struct{ *pulumi.OutputState }
 
 func (LogServiceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogService)(nil))
+	return reflect.TypeOf((*map[string]*LogService)(nil)).Elem()
 }
 
 func (o LogServiceMapOutput) ToLogServiceMapOutput() LogServiceMapOutput {
@@ -324,18 +285,16 @@ func (o LogServiceMapOutput) ToLogServiceMapOutputWithContext(ctx context.Contex
 }
 
 func (o LogServiceMapOutput) MapIndex(k pulumi.StringInput) LogServiceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogService {
-		return vs[0].(map[string]LogService)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogService {
+		return vs[0].(map[string]*LogService)[vs[1].(string)]
 	}).(LogServiceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogServiceInput)(nil)).Elem(), &LogService{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogServicePtrInput)(nil)).Elem(), &LogService{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogServiceArrayInput)(nil)).Elem(), LogServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogServiceMapInput)(nil)).Elem(), LogServiceMap{})
 	pulumi.RegisterOutputType(LogServiceOutput{})
-	pulumi.RegisterOutputType(LogServicePtrOutput{})
 	pulumi.RegisterOutputType(LogServiceArrayOutput{})
 	pulumi.RegisterOutputType(LogServiceMapOutput{})
 }

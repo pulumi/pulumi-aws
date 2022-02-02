@@ -94,16 +94,16 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogSubscriptionFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogSubscriptionFilterArgs | LogSubscriptionFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogSubscriptionFilterState | undefined;
-            inputs["destinationArn"] = state ? state.destinationArn : undefined;
-            inputs["distribution"] = state ? state.distribution : undefined;
-            inputs["filterPattern"] = state ? state.filterPattern : undefined;
-            inputs["logGroup"] = state ? state.logGroup : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
+            resourceInputs["distribution"] = state ? state.distribution : undefined;
+            resourceInputs["filterPattern"] = state ? state.filterPattern : undefined;
+            resourceInputs["logGroup"] = state ? state.logGroup : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LogSubscriptionFilterArgs | undefined;
             if ((!args || args.destinationArn === undefined) && !opts.urn) {
@@ -115,17 +115,15 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             if ((!args || args.logGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroup'");
             }
-            inputs["destinationArn"] = args ? args.destinationArn : undefined;
-            inputs["distribution"] = args ? args.distribution : undefined;
-            inputs["filterPattern"] = args ? args.filterPattern : undefined;
-            inputs["logGroup"] = args ? args.logGroup : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
+            resourceInputs["distribution"] = args ? args.distribution : undefined;
+            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
+            resourceInputs["logGroup"] = args ? args.logGroup : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LogSubscriptionFilter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LogSubscriptionFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -167,21 +167,21 @@ import (
 // 						},
 // 					},
 // 					Outputs: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray{
-// 						&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{
+// 						kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{
 // 							Name: pulumi.String("OUTPUT_1"),
 // 							DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
 // 								RecordFormatType: pulumi.String("JSON"),
 // 							},
-// 							LambdaOutput: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{
+// 							LambdaOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{
 // 								ResourceArn: pulumi.Any(aws_lambda_function.Example.Arn),
 // 							},
 // 						},
-// 						&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{
+// 						kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{
 // 							Name: pulumi.String("OUTPUT_2"),
 // 							DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
 // 								RecordFormatType: pulumi.String("CSV"),
 // 							},
-// 							KinesisFirehoseOutput: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{
+// 							KinesisFirehoseOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{
 // 								ResourceArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
 // 							},
 // 						},
@@ -480,7 +480,7 @@ type ApplicationInput interface {
 }
 
 func (*Application) ElementType() reflect.Type {
-	return reflect.TypeOf((*Application)(nil))
+	return reflect.TypeOf((**Application)(nil)).Elem()
 }
 
 func (i *Application) ToApplicationOutput() ApplicationOutput {
@@ -489,35 +489,6 @@ func (i *Application) ToApplicationOutput() ApplicationOutput {
 
 func (i *Application) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
-}
-
-func (i *Application) ToApplicationPtrOutput() ApplicationPtrOutput {
-	return i.ToApplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *Application) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPtrOutput)
-}
-
-type ApplicationPtrInput interface {
-	pulumi.Input
-
-	ToApplicationPtrOutput() ApplicationPtrOutput
-	ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput
-}
-
-type applicationPtrType ApplicationArgs
-
-func (*applicationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Application)(nil))
-}
-
-func (i *applicationPtrType) ToApplicationPtrOutput() ApplicationPtrOutput {
-	return i.ToApplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationPtrType) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPtrOutput)
 }
 
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
@@ -573,7 +544,7 @@ func (i ApplicationMap) ToApplicationMapOutputWithContext(ctx context.Context) A
 type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Application)(nil))
+	return reflect.TypeOf((**Application)(nil)).Elem()
 }
 
 func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
@@ -584,44 +555,10 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o ApplicationOutput) ToApplicationPtrOutput() ApplicationPtrOutput {
-	return o.ToApplicationPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationOutput) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Application) *Application {
-		return &v
-	}).(ApplicationPtrOutput)
-}
-
-type ApplicationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Application)(nil))
-}
-
-func (o ApplicationPtrOutput) ToApplicationPtrOutput() ApplicationPtrOutput {
-	return o
-}
-
-func (o ApplicationPtrOutput) ToApplicationPtrOutputWithContext(ctx context.Context) ApplicationPtrOutput {
-	return o
-}
-
-func (o ApplicationPtrOutput) Elem() ApplicationOutput {
-	return o.ApplyT(func(v *Application) Application {
-		if v != nil {
-			return *v
-		}
-		var ret Application
-		return ret
-	}).(ApplicationOutput)
-}
-
 type ApplicationArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Application)(nil))
+	return reflect.TypeOf((*[]*Application)(nil)).Elem()
 }
 
 func (o ApplicationArrayOutput) ToApplicationArrayOutput() ApplicationArrayOutput {
@@ -633,15 +570,15 @@ func (o ApplicationArrayOutput) ToApplicationArrayOutputWithContext(ctx context.
 }
 
 func (o ApplicationArrayOutput) Index(i pulumi.IntInput) ApplicationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Application {
-		return vs[0].([]Application)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Application {
+		return vs[0].([]*Application)[vs[1].(int)]
 	}).(ApplicationOutput)
 }
 
 type ApplicationMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Application)(nil))
+	return reflect.TypeOf((*map[string]*Application)(nil)).Elem()
 }
 
 func (o ApplicationMapOutput) ToApplicationMapOutput() ApplicationMapOutput {
@@ -653,18 +590,16 @@ func (o ApplicationMapOutput) ToApplicationMapOutputWithContext(ctx context.Cont
 }
 
 func (o ApplicationMapOutput) MapIndex(k pulumi.StringInput) ApplicationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Application {
-		return vs[0].(map[string]Application)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Application {
+		return vs[0].(map[string]*Application)[vs[1].(string)]
 	}).(ApplicationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInput)(nil)).Elem(), &Application{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPtrInput)(nil)).Elem(), &Application{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationArrayInput)(nil)).Elem(), ApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMapInput)(nil)).Elem(), ApplicationMap{})
 	pulumi.RegisterOutputType(ApplicationOutput{})
-	pulumi.RegisterOutputType(ApplicationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationMapOutput{})
 }

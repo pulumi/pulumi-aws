@@ -37,9 +37,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getInstance:getInstance", {
         "instanceAlias": args.instanceAlias,
         "instanceId": args.instanceId,

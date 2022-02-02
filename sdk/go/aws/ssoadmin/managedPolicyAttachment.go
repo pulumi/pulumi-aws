@@ -129,7 +129,7 @@ type ManagedPolicyAttachmentInput interface {
 }
 
 func (*ManagedPolicyAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPolicyAttachment)(nil))
+	return reflect.TypeOf((**ManagedPolicyAttachment)(nil)).Elem()
 }
 
 func (i *ManagedPolicyAttachment) ToManagedPolicyAttachmentOutput() ManagedPolicyAttachmentOutput {
@@ -138,35 +138,6 @@ func (i *ManagedPolicyAttachment) ToManagedPolicyAttachmentOutput() ManagedPolic
 
 func (i *ManagedPolicyAttachment) ToManagedPolicyAttachmentOutputWithContext(ctx context.Context) ManagedPolicyAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyAttachmentOutput)
-}
-
-func (i *ManagedPolicyAttachment) ToManagedPolicyAttachmentPtrOutput() ManagedPolicyAttachmentPtrOutput {
-	return i.ToManagedPolicyAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedPolicyAttachment) ToManagedPolicyAttachmentPtrOutputWithContext(ctx context.Context) ManagedPolicyAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyAttachmentPtrOutput)
-}
-
-type ManagedPolicyAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToManagedPolicyAttachmentPtrOutput() ManagedPolicyAttachmentPtrOutput
-	ToManagedPolicyAttachmentPtrOutputWithContext(ctx context.Context) ManagedPolicyAttachmentPtrOutput
-}
-
-type managedPolicyAttachmentPtrType ManagedPolicyAttachmentArgs
-
-func (*managedPolicyAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedPolicyAttachment)(nil))
-}
-
-func (i *managedPolicyAttachmentPtrType) ToManagedPolicyAttachmentPtrOutput() ManagedPolicyAttachmentPtrOutput {
-	return i.ToManagedPolicyAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *managedPolicyAttachmentPtrType) ToManagedPolicyAttachmentPtrOutputWithContext(ctx context.Context) ManagedPolicyAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyAttachmentPtrOutput)
 }
 
 // ManagedPolicyAttachmentArrayInput is an input type that accepts ManagedPolicyAttachmentArray and ManagedPolicyAttachmentArrayOutput values.
@@ -222,7 +193,7 @@ func (i ManagedPolicyAttachmentMap) ToManagedPolicyAttachmentMapOutputWithContex
 type ManagedPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPolicyAttachment)(nil))
+	return reflect.TypeOf((**ManagedPolicyAttachment)(nil)).Elem()
 }
 
 func (o ManagedPolicyAttachmentOutput) ToManagedPolicyAttachmentOutput() ManagedPolicyAttachmentOutput {
@@ -233,44 +204,10 @@ func (o ManagedPolicyAttachmentOutput) ToManagedPolicyAttachmentOutputWithContex
 	return o
 }
 
-func (o ManagedPolicyAttachmentOutput) ToManagedPolicyAttachmentPtrOutput() ManagedPolicyAttachmentPtrOutput {
-	return o.ToManagedPolicyAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedPolicyAttachmentOutput) ToManagedPolicyAttachmentPtrOutputWithContext(ctx context.Context) ManagedPolicyAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedPolicyAttachment) *ManagedPolicyAttachment {
-		return &v
-	}).(ManagedPolicyAttachmentPtrOutput)
-}
-
-type ManagedPolicyAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedPolicyAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedPolicyAttachment)(nil))
-}
-
-func (o ManagedPolicyAttachmentPtrOutput) ToManagedPolicyAttachmentPtrOutput() ManagedPolicyAttachmentPtrOutput {
-	return o
-}
-
-func (o ManagedPolicyAttachmentPtrOutput) ToManagedPolicyAttachmentPtrOutputWithContext(ctx context.Context) ManagedPolicyAttachmentPtrOutput {
-	return o
-}
-
-func (o ManagedPolicyAttachmentPtrOutput) Elem() ManagedPolicyAttachmentOutput {
-	return o.ApplyT(func(v *ManagedPolicyAttachment) ManagedPolicyAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedPolicyAttachment
-		return ret
-	}).(ManagedPolicyAttachmentOutput)
-}
-
 type ManagedPolicyAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedPolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*ManagedPolicyAttachment)(nil)).Elem()
 }
 
 func (o ManagedPolicyAttachmentArrayOutput) ToManagedPolicyAttachmentArrayOutput() ManagedPolicyAttachmentArrayOutput {
@@ -282,15 +219,15 @@ func (o ManagedPolicyAttachmentArrayOutput) ToManagedPolicyAttachmentArrayOutput
 }
 
 func (o ManagedPolicyAttachmentArrayOutput) Index(i pulumi.IntInput) ManagedPolicyAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedPolicyAttachment {
-		return vs[0].([]ManagedPolicyAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedPolicyAttachment {
+		return vs[0].([]*ManagedPolicyAttachment)[vs[1].(int)]
 	}).(ManagedPolicyAttachmentOutput)
 }
 
 type ManagedPolicyAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedPolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*ManagedPolicyAttachment)(nil)).Elem()
 }
 
 func (o ManagedPolicyAttachmentMapOutput) ToManagedPolicyAttachmentMapOutput() ManagedPolicyAttachmentMapOutput {
@@ -302,18 +239,16 @@ func (o ManagedPolicyAttachmentMapOutput) ToManagedPolicyAttachmentMapOutputWith
 }
 
 func (o ManagedPolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) ManagedPolicyAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedPolicyAttachment {
-		return vs[0].(map[string]ManagedPolicyAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedPolicyAttachment {
+		return vs[0].(map[string]*ManagedPolicyAttachment)[vs[1].(string)]
 	}).(ManagedPolicyAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyAttachmentInput)(nil)).Elem(), &ManagedPolicyAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyAttachmentPtrInput)(nil)).Elem(), &ManagedPolicyAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyAttachmentArrayInput)(nil)).Elem(), ManagedPolicyAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyAttachmentMapInput)(nil)).Elem(), ManagedPolicyAttachmentMap{})
 	pulumi.RegisterOutputType(ManagedPolicyAttachmentOutput{})
-	pulumi.RegisterOutputType(ManagedPolicyAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(ManagedPolicyAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(ManagedPolicyAttachmentMapOutput{})
 }

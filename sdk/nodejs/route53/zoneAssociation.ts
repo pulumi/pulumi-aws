@@ -104,14 +104,14 @@ export class ZoneAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ZoneAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneAssociationArgs | ZoneAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneAssociationState | undefined;
-            inputs["owningAccount"] = state ? state.owningAccount : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpcRegion"] = state ? state.vpcRegion : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["owningAccount"] = state ? state.owningAccount : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcRegion"] = state ? state.vpcRegion : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as ZoneAssociationArgs | undefined;
             if ((!args || args.vpcId === undefined) && !opts.urn) {
@@ -120,15 +120,13 @@ export class ZoneAssociation extends pulumi.CustomResource {
             if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
-            inputs["zoneId"] = args ? args.zoneId : undefined;
-            inputs["owningAccount"] = undefined /*out*/;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["vpcRegion"] = args ? args.vpcRegion : undefined;
+            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["owningAccount"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ZoneAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ZoneAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

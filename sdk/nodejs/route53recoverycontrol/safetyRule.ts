@@ -125,19 +125,19 @@ export class SafetyRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: SafetyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SafetyRuleArgs | SafetyRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SafetyRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["assertedControls"] = state ? state.assertedControls : undefined;
-            inputs["controlPanelArn"] = state ? state.controlPanelArn : undefined;
-            inputs["gatingControls"] = state ? state.gatingControls : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ruleConfig"] = state ? state.ruleConfig : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["targetControls"] = state ? state.targetControls : undefined;
-            inputs["waitPeriodMs"] = state ? state.waitPeriodMs : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assertedControls"] = state ? state.assertedControls : undefined;
+            resourceInputs["controlPanelArn"] = state ? state.controlPanelArn : undefined;
+            resourceInputs["gatingControls"] = state ? state.gatingControls : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ruleConfig"] = state ? state.ruleConfig : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["targetControls"] = state ? state.targetControls : undefined;
+            resourceInputs["waitPeriodMs"] = state ? state.waitPeriodMs : undefined;
         } else {
             const args = argsOrState as SafetyRuleArgs | undefined;
             if ((!args || args.controlPanelArn === undefined) && !opts.urn) {
@@ -149,20 +149,18 @@ export class SafetyRule extends pulumi.CustomResource {
             if ((!args || args.waitPeriodMs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'waitPeriodMs'");
             }
-            inputs["assertedControls"] = args ? args.assertedControls : undefined;
-            inputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            inputs["gatingControls"] = args ? args.gatingControls : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ruleConfig"] = args ? args.ruleConfig : undefined;
-            inputs["targetControls"] = args ? args.targetControls : undefined;
-            inputs["waitPeriodMs"] = args ? args.waitPeriodMs : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["assertedControls"] = args ? args.assertedControls : undefined;
+            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
+            resourceInputs["gatingControls"] = args ? args.gatingControls : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ruleConfig"] = args ? args.ruleConfig : undefined;
+            resourceInputs["targetControls"] = args ? args.targetControls : undefined;
+            resourceInputs["waitPeriodMs"] = args ? args.waitPeriodMs : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SafetyRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SafetyRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

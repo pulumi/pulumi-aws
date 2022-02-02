@@ -60,12 +60,12 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModelPackageGroupPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModelPackageGroupPolicyArgs | ModelPackageGroupPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelPackageGroupPolicyState | undefined;
-            inputs["modelPackageGroupName"] = state ? state.modelPackageGroupName : undefined;
-            inputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
+            resourceInputs["modelPackageGroupName"] = state ? state.modelPackageGroupName : undefined;
+            resourceInputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
         } else {
             const args = argsOrState as ModelPackageGroupPolicyArgs | undefined;
             if ((!args || args.modelPackageGroupName === undefined) && !opts.urn) {
@@ -74,13 +74,11 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
             if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            inputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
-            inputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
+            resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
+            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ModelPackageGroupPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ModelPackageGroupPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

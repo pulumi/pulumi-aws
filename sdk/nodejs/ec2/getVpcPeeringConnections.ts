@@ -15,9 +15,7 @@ export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, op
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", {
         "filters": args.filters,
         "tags": args.tags,

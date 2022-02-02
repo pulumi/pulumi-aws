@@ -52,7 +52,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewInstance(ctx, "_default", &rds.InstanceArgs{
+// 		_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
 // 			AllocatedStorage:   pulumi.Int(10),
 // 			StorageType:        pulumi.String("gp2"),
 // 			Engine:             pulumi.String("mysql"),
@@ -285,7 +285,7 @@ type ParameterInput interface {
 }
 
 func (*Parameter) ElementType() reflect.Type {
-	return reflect.TypeOf((*Parameter)(nil))
+	return reflect.TypeOf((**Parameter)(nil)).Elem()
 }
 
 func (i *Parameter) ToParameterOutput() ParameterOutput {
@@ -294,35 +294,6 @@ func (i *Parameter) ToParameterOutput() ParameterOutput {
 
 func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterOutput)
-}
-
-func (i *Parameter) ToParameterPtrOutput() ParameterPtrOutput {
-	return i.ToParameterPtrOutputWithContext(context.Background())
-}
-
-func (i *Parameter) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterPtrOutput)
-}
-
-type ParameterPtrInput interface {
-	pulumi.Input
-
-	ToParameterPtrOutput() ParameterPtrOutput
-	ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput
-}
-
-type parameterPtrType ParameterArgs
-
-func (*parameterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Parameter)(nil))
-}
-
-func (i *parameterPtrType) ToParameterPtrOutput() ParameterPtrOutput {
-	return i.ToParameterPtrOutputWithContext(context.Background())
-}
-
-func (i *parameterPtrType) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterPtrOutput)
 }
 
 // ParameterArrayInput is an input type that accepts ParameterArray and ParameterArrayOutput values.
@@ -378,7 +349,7 @@ func (i ParameterMap) ToParameterMapOutputWithContext(ctx context.Context) Param
 type ParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Parameter)(nil))
+	return reflect.TypeOf((**Parameter)(nil)).Elem()
 }
 
 func (o ParameterOutput) ToParameterOutput() ParameterOutput {
@@ -389,44 +360,10 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 	return o
 }
 
-func (o ParameterOutput) ToParameterPtrOutput() ParameterPtrOutput {
-	return o.ToParameterPtrOutputWithContext(context.Background())
-}
-
-func (o ParameterOutput) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Parameter) *Parameter {
-		return &v
-	}).(ParameterPtrOutput)
-}
-
-type ParameterPtrOutput struct{ *pulumi.OutputState }
-
-func (ParameterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Parameter)(nil))
-}
-
-func (o ParameterPtrOutput) ToParameterPtrOutput() ParameterPtrOutput {
-	return o
-}
-
-func (o ParameterPtrOutput) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
-	return o
-}
-
-func (o ParameterPtrOutput) Elem() ParameterOutput {
-	return o.ApplyT(func(v *Parameter) Parameter {
-		if v != nil {
-			return *v
-		}
-		var ret Parameter
-		return ret
-	}).(ParameterOutput)
-}
-
 type ParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Parameter)(nil))
+	return reflect.TypeOf((*[]*Parameter)(nil)).Elem()
 }
 
 func (o ParameterArrayOutput) ToParameterArrayOutput() ParameterArrayOutput {
@@ -438,15 +375,15 @@ func (o ParameterArrayOutput) ToParameterArrayOutputWithContext(ctx context.Cont
 }
 
 func (o ParameterArrayOutput) Index(i pulumi.IntInput) ParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Parameter {
-		return vs[0].([]Parameter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Parameter {
+		return vs[0].([]*Parameter)[vs[1].(int)]
 	}).(ParameterOutput)
 }
 
 type ParameterMapOutput struct{ *pulumi.OutputState }
 
 func (ParameterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Parameter)(nil))
+	return reflect.TypeOf((*map[string]*Parameter)(nil)).Elem()
 }
 
 func (o ParameterMapOutput) ToParameterMapOutput() ParameterMapOutput {
@@ -458,18 +395,16 @@ func (o ParameterMapOutput) ToParameterMapOutputWithContext(ctx context.Context)
 }
 
 func (o ParameterMapOutput) MapIndex(k pulumi.StringInput) ParameterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Parameter {
-		return vs[0].(map[string]Parameter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Parameter {
+		return vs[0].(map[string]*Parameter)[vs[1].(string)]
 	}).(ParameterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterInput)(nil)).Elem(), &Parameter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ParameterPtrInput)(nil)).Elem(), &Parameter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterArrayInput)(nil)).Elem(), ParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterMapInput)(nil)).Elem(), ParameterMap{})
 	pulumi.RegisterOutputType(ParameterOutput{})
-	pulumi.RegisterOutputType(ParameterPtrOutput{})
 	pulumi.RegisterOutputType(ParameterArrayOutput{})
 	pulumi.RegisterOutputType(ParameterMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ResourceGroupsTaggingApi
 {
@@ -91,7 +90,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourcesResult> InvokeAsync(GetResourcesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about resource tagging.
@@ -172,7 +171,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

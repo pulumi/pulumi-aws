@@ -37,7 +37,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ecs.NewTaskDefinition(ctx, "mongoEcs_taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
+// 		_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
 // 			Family:               pulumi.String("mongodb"),
 // 			ContainerDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "[\n", "  {\n", "    \"cpu\": 128,\n", "    \"environment\": [{\n", "      \"name\": \"SECRET\",\n", "      \"value\": \"KEY\"\n", "    }],\n", "    \"essential\": true,\n", "    \"image\": \"mongo:latest\",\n", "    \"memory\": 128,\n", "    \"memoryReservation\": 64,\n", "    \"name\": \"mongodb\"\n", "  }\n", "]\n")),
 // 		})

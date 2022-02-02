@@ -48,7 +48,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = sns.NewTopicPolicy(ctx, "_default", &sns.TopicPolicyArgs{
+// 		_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // 			Arn: awsLogins.Arn,
 // 			Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (string, error) {
 // 				return snsTopicPolicy.Json, nil
@@ -233,7 +233,7 @@ type EventRuleInput interface {
 }
 
 func (*EventRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventRule)(nil))
+	return reflect.TypeOf((**EventRule)(nil)).Elem()
 }
 
 func (i *EventRule) ToEventRuleOutput() EventRuleOutput {
@@ -242,35 +242,6 @@ func (i *EventRule) ToEventRuleOutput() EventRuleOutput {
 
 func (i *EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleOutput)
-}
-
-func (i *EventRule) ToEventRulePtrOutput() EventRulePtrOutput {
-	return i.ToEventRulePtrOutputWithContext(context.Background())
-}
-
-func (i *EventRule) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventRulePtrOutput)
-}
-
-type EventRulePtrInput interface {
-	pulumi.Input
-
-	ToEventRulePtrOutput() EventRulePtrOutput
-	ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput
-}
-
-type eventRulePtrType EventRuleArgs
-
-func (*eventRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventRule)(nil))
-}
-
-func (i *eventRulePtrType) ToEventRulePtrOutput() EventRulePtrOutput {
-	return i.ToEventRulePtrOutputWithContext(context.Background())
-}
-
-func (i *eventRulePtrType) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventRulePtrOutput)
 }
 
 // EventRuleArrayInput is an input type that accepts EventRuleArray and EventRuleArrayOutput values.
@@ -326,7 +297,7 @@ func (i EventRuleMap) ToEventRuleMapOutputWithContext(ctx context.Context) Event
 type EventRuleOutput struct{ *pulumi.OutputState }
 
 func (EventRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventRule)(nil))
+	return reflect.TypeOf((**EventRule)(nil)).Elem()
 }
 
 func (o EventRuleOutput) ToEventRuleOutput() EventRuleOutput {
@@ -337,44 +308,10 @@ func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) Event
 	return o
 }
 
-func (o EventRuleOutput) ToEventRulePtrOutput() EventRulePtrOutput {
-	return o.ToEventRulePtrOutputWithContext(context.Background())
-}
-
-func (o EventRuleOutput) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventRule) *EventRule {
-		return &v
-	}).(EventRulePtrOutput)
-}
-
-type EventRulePtrOutput struct{ *pulumi.OutputState }
-
-func (EventRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventRule)(nil))
-}
-
-func (o EventRulePtrOutput) ToEventRulePtrOutput() EventRulePtrOutput {
-	return o
-}
-
-func (o EventRulePtrOutput) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
-	return o
-}
-
-func (o EventRulePtrOutput) Elem() EventRuleOutput {
-	return o.ApplyT(func(v *EventRule) EventRule {
-		if v != nil {
-			return *v
-		}
-		var ret EventRule
-		return ret
-	}).(EventRuleOutput)
-}
-
 type EventRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (EventRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventRule)(nil))
+	return reflect.TypeOf((*[]*EventRule)(nil)).Elem()
 }
 
 func (o EventRuleArrayOutput) ToEventRuleArrayOutput() EventRuleArrayOutput {
@@ -386,15 +323,15 @@ func (o EventRuleArrayOutput) ToEventRuleArrayOutputWithContext(ctx context.Cont
 }
 
 func (o EventRuleArrayOutput) Index(i pulumi.IntInput) EventRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventRule {
-		return vs[0].([]EventRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventRule {
+		return vs[0].([]*EventRule)[vs[1].(int)]
 	}).(EventRuleOutput)
 }
 
 type EventRuleMapOutput struct{ *pulumi.OutputState }
 
 func (EventRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventRule)(nil))
+	return reflect.TypeOf((*map[string]*EventRule)(nil)).Elem()
 }
 
 func (o EventRuleMapOutput) ToEventRuleMapOutput() EventRuleMapOutput {
@@ -406,18 +343,16 @@ func (o EventRuleMapOutput) ToEventRuleMapOutputWithContext(ctx context.Context)
 }
 
 func (o EventRuleMapOutput) MapIndex(k pulumi.StringInput) EventRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventRule {
-		return vs[0].(map[string]EventRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventRule {
+		return vs[0].(map[string]*EventRule)[vs[1].(string)]
 	}).(EventRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventRuleInput)(nil)).Elem(), &EventRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventRulePtrInput)(nil)).Elem(), &EventRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventRuleArrayInput)(nil)).Elem(), EventRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventRuleMapInput)(nil)).Elem(), EventRuleMap{})
 	pulumi.RegisterOutputType(EventRuleOutput{})
-	pulumi.RegisterOutputType(EventRulePtrOutput{})
 	pulumi.RegisterOutputType(EventRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventRuleMapOutput{})
 }

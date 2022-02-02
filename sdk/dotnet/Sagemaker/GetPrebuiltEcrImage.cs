@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Sagemaker
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Aws.Sagemaker
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrebuiltEcrImageResult> InvokeAsync(GetPrebuiltEcrImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about prebuilt Amazon SageMaker Docker images.
@@ -78,7 +77,7 @@ namespace Pulumi.Aws.Sagemaker
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrebuiltEcrImageResult> Invoke(GetPrebuiltEcrImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageInvokeArgs(), options.WithDefaults());
     }
 
 

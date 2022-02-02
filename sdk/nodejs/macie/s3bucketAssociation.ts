@@ -81,28 +81,26 @@ export class S3BucketAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: S3BucketAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: S3BucketAssociationArgs | S3BucketAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as S3BucketAssociationState | undefined;
-            inputs["bucketName"] = state ? state.bucketName : undefined;
-            inputs["classificationType"] = state ? state.classificationType : undefined;
-            inputs["memberAccountId"] = state ? state.memberAccountId : undefined;
-            inputs["prefix"] = state ? state.prefix : undefined;
+            resourceInputs["bucketName"] = state ? state.bucketName : undefined;
+            resourceInputs["classificationType"] = state ? state.classificationType : undefined;
+            resourceInputs["memberAccountId"] = state ? state.memberAccountId : undefined;
+            resourceInputs["prefix"] = state ? state.prefix : undefined;
         } else {
             const args = argsOrState as S3BucketAssociationArgs | undefined;
             if ((!args || args.bucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucketName'");
             }
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["classificationType"] = args ? args.classificationType : undefined;
-            inputs["memberAccountId"] = args ? args.memberAccountId : undefined;
-            inputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["classificationType"] = args ? args.classificationType : undefined;
+            resourceInputs["memberAccountId"] = args ? args.memberAccountId : undefined;
+            resourceInputs["prefix"] = args ? args.prefix : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(S3BucketAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(S3BucketAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -151,7 +151,7 @@ type ListenerCertificateInput interface {
 }
 
 func (*ListenerCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerCertificate)(nil))
+	return reflect.TypeOf((**ListenerCertificate)(nil)).Elem()
 }
 
 func (i *ListenerCertificate) ToListenerCertificateOutput() ListenerCertificateOutput {
@@ -160,35 +160,6 @@ func (i *ListenerCertificate) ToListenerCertificateOutput() ListenerCertificateO
 
 func (i *ListenerCertificate) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateOutput)
-}
-
-func (i *ListenerCertificate) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
-	return i.ToListenerCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *ListenerCertificate) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificatePtrOutput)
-}
-
-type ListenerCertificatePtrInput interface {
-	pulumi.Input
-
-	ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput
-	ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput
-}
-
-type listenerCertificatePtrType ListenerCertificateArgs
-
-func (*listenerCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ListenerCertificate)(nil))
-}
-
-func (i *listenerCertificatePtrType) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
-	return i.ToListenerCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *listenerCertificatePtrType) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificatePtrOutput)
 }
 
 // ListenerCertificateArrayInput is an input type that accepts ListenerCertificateArray and ListenerCertificateArrayOutput values.
@@ -244,7 +215,7 @@ func (i ListenerCertificateMap) ToListenerCertificateMapOutputWithContext(ctx co
 type ListenerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerCertificate)(nil))
+	return reflect.TypeOf((**ListenerCertificate)(nil)).Elem()
 }
 
 func (o ListenerCertificateOutput) ToListenerCertificateOutput() ListenerCertificateOutput {
@@ -255,44 +226,10 @@ func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx co
 	return o
 }
 
-func (o ListenerCertificateOutput) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
-	return o.ToListenerCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o ListenerCertificateOutput) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerCertificate) *ListenerCertificate {
-		return &v
-	}).(ListenerCertificatePtrOutput)
-}
-
-type ListenerCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (ListenerCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ListenerCertificate)(nil))
-}
-
-func (o ListenerCertificatePtrOutput) ToListenerCertificatePtrOutput() ListenerCertificatePtrOutput {
-	return o
-}
-
-func (o ListenerCertificatePtrOutput) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
-	return o
-}
-
-func (o ListenerCertificatePtrOutput) Elem() ListenerCertificateOutput {
-	return o.ApplyT(func(v *ListenerCertificate) ListenerCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret ListenerCertificate
-		return ret
-	}).(ListenerCertificateOutput)
-}
-
 type ListenerCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ListenerCertificate)(nil))
+	return reflect.TypeOf((*[]*ListenerCertificate)(nil)).Elem()
 }
 
 func (o ListenerCertificateArrayOutput) ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput {
@@ -304,15 +241,15 @@ func (o ListenerCertificateArrayOutput) ToListenerCertificateArrayOutputWithCont
 }
 
 func (o ListenerCertificateArrayOutput) Index(i pulumi.IntInput) ListenerCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerCertificate {
-		return vs[0].([]ListenerCertificate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ListenerCertificate {
+		return vs[0].([]*ListenerCertificate)[vs[1].(int)]
 	}).(ListenerCertificateOutput)
 }
 
 type ListenerCertificateMapOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ListenerCertificate)(nil))
+	return reflect.TypeOf((*map[string]*ListenerCertificate)(nil)).Elem()
 }
 
 func (o ListenerCertificateMapOutput) ToListenerCertificateMapOutput() ListenerCertificateMapOutput {
@@ -324,18 +261,16 @@ func (o ListenerCertificateMapOutput) ToListenerCertificateMapOutputWithContext(
 }
 
 func (o ListenerCertificateMapOutput) MapIndex(k pulumi.StringInput) ListenerCertificateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ListenerCertificate {
-		return vs[0].(map[string]ListenerCertificate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ListenerCertificate {
+		return vs[0].(map[string]*ListenerCertificate)[vs[1].(string)]
 	}).(ListenerCertificateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateInput)(nil)).Elem(), &ListenerCertificate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificatePtrInput)(nil)).Elem(), &ListenerCertificate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateArrayInput)(nil)).Elem(), ListenerCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateMapInput)(nil)).Elem(), ListenerCertificateMap{})
 	pulumi.RegisterOutputType(ListenerCertificateOutput{})
-	pulumi.RegisterOutputType(ListenerCertificatePtrOutput{})
 	pulumi.RegisterOutputType(ListenerCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ListenerCertificateMapOutput{})
 }

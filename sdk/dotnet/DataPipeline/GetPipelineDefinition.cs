@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.DataPipeline
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.DataPipeline
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPipelineDefinitionResult> InvokeAsync(GetPipelineDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific DataPipeline Pipeline Definition.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.DataPipeline
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPipelineDefinitionResult> Invoke(GetPipelineDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

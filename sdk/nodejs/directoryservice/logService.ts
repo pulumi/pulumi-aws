@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
- * const ad-log-policyPolicyDocument = exampleLogGroup.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const ad-log-policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
@@ -24,10 +24,10 @@ import * as utilities from "../utilities";
  *             identifiers: ["ds.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: [`${arn}:*`],
+ *         resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
  *         effect: "Allow",
  *     }],
- * }));
+ * });
  * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", {
  *     policyDocument: ad_log_policyPolicyDocument.apply(ad_log_policyPolicyDocument => ad_log_policyPolicyDocument.json),
  *     policyName: "ad-log-policy",
@@ -92,12 +92,12 @@ export class LogService extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogServiceArgs | LogServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogServiceState | undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
         } else {
             const args = argsOrState as LogServiceArgs | undefined;
             if ((!args || args.directoryId === undefined) && !opts.urn) {
@@ -106,13 +106,11 @@ export class LogService extends pulumi.CustomResource {
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LogService.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LogService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

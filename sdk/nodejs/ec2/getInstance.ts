@@ -36,9 +36,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
         "filters": args.filters,
         "getPasswordData": args.getPasswordData,

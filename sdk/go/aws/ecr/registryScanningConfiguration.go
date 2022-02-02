@@ -188,7 +188,7 @@ type RegistryScanningConfigurationInput interface {
 }
 
 func (*RegistryScanningConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryScanningConfiguration)(nil))
+	return reflect.TypeOf((**RegistryScanningConfiguration)(nil)).Elem()
 }
 
 func (i *RegistryScanningConfiguration) ToRegistryScanningConfigurationOutput() RegistryScanningConfigurationOutput {
@@ -197,35 +197,6 @@ func (i *RegistryScanningConfiguration) ToRegistryScanningConfigurationOutput() 
 
 func (i *RegistryScanningConfiguration) ToRegistryScanningConfigurationOutputWithContext(ctx context.Context) RegistryScanningConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationOutput)
-}
-
-func (i *RegistryScanningConfiguration) ToRegistryScanningConfigurationPtrOutput() RegistryScanningConfigurationPtrOutput {
-	return i.ToRegistryScanningConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *RegistryScanningConfiguration) ToRegistryScanningConfigurationPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationPtrOutput)
-}
-
-type RegistryScanningConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToRegistryScanningConfigurationPtrOutput() RegistryScanningConfigurationPtrOutput
-	ToRegistryScanningConfigurationPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationPtrOutput
-}
-
-type registryScanningConfigurationPtrType RegistryScanningConfigurationArgs
-
-func (*registryScanningConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryScanningConfiguration)(nil))
-}
-
-func (i *registryScanningConfigurationPtrType) ToRegistryScanningConfigurationPtrOutput() RegistryScanningConfigurationPtrOutput {
-	return i.ToRegistryScanningConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *registryScanningConfigurationPtrType) ToRegistryScanningConfigurationPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationPtrOutput)
 }
 
 // RegistryScanningConfigurationArrayInput is an input type that accepts RegistryScanningConfigurationArray and RegistryScanningConfigurationArrayOutput values.
@@ -281,7 +252,7 @@ func (i RegistryScanningConfigurationMap) ToRegistryScanningConfigurationMapOutp
 type RegistryScanningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryScanningConfiguration)(nil))
+	return reflect.TypeOf((**RegistryScanningConfiguration)(nil)).Elem()
 }
 
 func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutput() RegistryScanningConfigurationOutput {
@@ -292,44 +263,10 @@ func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutp
 	return o
 }
 
-func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationPtrOutput() RegistryScanningConfigurationPtrOutput {
-	return o.ToRegistryScanningConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryScanningConfiguration) *RegistryScanningConfiguration {
-		return &v
-	}).(RegistryScanningConfigurationPtrOutput)
-}
-
-type RegistryScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryScanningConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryScanningConfiguration)(nil))
-}
-
-func (o RegistryScanningConfigurationPtrOutput) ToRegistryScanningConfigurationPtrOutput() RegistryScanningConfigurationPtrOutput {
-	return o
-}
-
-func (o RegistryScanningConfigurationPtrOutput) ToRegistryScanningConfigurationPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationPtrOutput {
-	return o
-}
-
-func (o RegistryScanningConfigurationPtrOutput) Elem() RegistryScanningConfigurationOutput {
-	return o.ApplyT(func(v *RegistryScanningConfiguration) RegistryScanningConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret RegistryScanningConfiguration
-		return ret
-	}).(RegistryScanningConfigurationOutput)
-}
-
 type RegistryScanningConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryScanningConfiguration)(nil))
+	return reflect.TypeOf((*[]*RegistryScanningConfiguration)(nil)).Elem()
 }
 
 func (o RegistryScanningConfigurationArrayOutput) ToRegistryScanningConfigurationArrayOutput() RegistryScanningConfigurationArrayOutput {
@@ -341,15 +278,15 @@ func (o RegistryScanningConfigurationArrayOutput) ToRegistryScanningConfiguratio
 }
 
 func (o RegistryScanningConfigurationArrayOutput) Index(i pulumi.IntInput) RegistryScanningConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryScanningConfiguration {
-		return vs[0].([]RegistryScanningConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryScanningConfiguration {
+		return vs[0].([]*RegistryScanningConfiguration)[vs[1].(int)]
 	}).(RegistryScanningConfigurationOutput)
 }
 
 type RegistryScanningConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RegistryScanningConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*RegistryScanningConfiguration)(nil)).Elem()
 }
 
 func (o RegistryScanningConfigurationMapOutput) ToRegistryScanningConfigurationMapOutput() RegistryScanningConfigurationMapOutput {
@@ -361,18 +298,16 @@ func (o RegistryScanningConfigurationMapOutput) ToRegistryScanningConfigurationM
 }
 
 func (o RegistryScanningConfigurationMapOutput) MapIndex(k pulumi.StringInput) RegistryScanningConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegistryScanningConfiguration {
-		return vs[0].(map[string]RegistryScanningConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RegistryScanningConfiguration {
+		return vs[0].(map[string]*RegistryScanningConfiguration)[vs[1].(string)]
 	}).(RegistryScanningConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationInput)(nil)).Elem(), &RegistryScanningConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationPtrInput)(nil)).Elem(), &RegistryScanningConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationArrayInput)(nil)).Elem(), RegistryScanningConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationMapInput)(nil)).Elem(), RegistryScanningConfigurationMap{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationOutput{})
-	pulumi.RegisterOutputType(RegistryScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationMapOutput{})
 }

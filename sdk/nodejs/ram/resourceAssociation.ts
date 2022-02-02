@@ -75,12 +75,12 @@ export class ResourceAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceAssociationArgs | ResourceAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceAssociationState | undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
-            inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {
             const args = argsOrState as ResourceAssociationArgs | undefined;
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
@@ -89,13 +89,11 @@ export class ResourceAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceShareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceShareArn'");
             }
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

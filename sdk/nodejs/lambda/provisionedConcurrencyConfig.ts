@@ -91,13 +91,13 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProvisionedConcurrencyConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProvisionedConcurrencyConfigArgs | ProvisionedConcurrencyConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionedConcurrencyConfigState | undefined;
-            inputs["functionName"] = state ? state.functionName : undefined;
-            inputs["provisionedConcurrentExecutions"] = state ? state.provisionedConcurrentExecutions : undefined;
-            inputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["functionName"] = state ? state.functionName : undefined;
+            resourceInputs["provisionedConcurrentExecutions"] = state ? state.provisionedConcurrentExecutions : undefined;
+            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
         } else {
             const args = argsOrState as ProvisionedConcurrencyConfigArgs | undefined;
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -109,14 +109,12 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
             if ((!args || args.qualifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'qualifier'");
             }
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["provisionedConcurrentExecutions"] = args ? args.provisionedConcurrentExecutions : undefined;
-            inputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["provisionedConcurrentExecutions"] = args ? args.provisionedConcurrentExecutions : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProvisionedConcurrencyConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProvisionedConcurrencyConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

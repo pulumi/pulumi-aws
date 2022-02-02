@@ -39,9 +39,7 @@ export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pul
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", {
         "filters": args.filters,
         "id": args.id,

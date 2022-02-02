@@ -133,27 +133,27 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      */
     constructor(name: string, args: TransitVirtualInterfaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TransitVirtualInterfaceArgs | TransitVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitVirtualInterfaceState | undefined;
-            inputs["addressFamily"] = state ? state.addressFamily : undefined;
-            inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
-            inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsDevice"] = state ? state.awsDevice : undefined;
-            inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["customerAddress"] = state ? state.customerAddress : undefined;
-            inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
-            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
-            inputs["mtu"] = state ? state.mtu : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sitelinkEnabled"] = state ? state.sitelinkEnabled : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vlan"] = state ? state.vlan : undefined;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = state ? state.amazonAddress : undefined;
+            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
+            resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
+            resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            resourceInputs["mtu"] = state ? state.mtu : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sitelinkEnabled"] = state ? state.sitelinkEnabled : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as TransitVirtualInterfaceArgs | undefined;
             if ((!args || args.addressFamily === undefined) && !opts.urn) {
@@ -171,28 +171,26 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            inputs["addressFamily"] = args ? args.addressFamily : undefined;
-            inputs["amazonAddress"] = args ? args.amazonAddress : undefined;
-            inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["customerAddress"] = args ? args.customerAddress : undefined;
-            inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
-            inputs["mtu"] = args ? args.mtu : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sitelinkEnabled"] = args ? args.sitelinkEnabled : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vlan"] = args ? args.vlan : undefined;
-            inputs["amazonSideAsn"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsDevice"] = undefined /*out*/;
-            inputs["jumboFrameCapable"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = args ? args.amazonAddress : undefined;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
+            resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
+            resourceInputs["mtu"] = args ? args.mtu : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sitelinkEnabled"] = args ? args.sitelinkEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["amazonSideAsn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsDevice"] = undefined /*out*/;
+            resourceInputs["jumboFrameCapable"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitVirtualInterface.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitVirtualInterface.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -212,33 +212,33 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: NodeGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NodeGroupArgs | NodeGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NodeGroupState | undefined;
-            inputs["amiType"] = state ? state.amiType : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["capacityType"] = state ? state.capacityType : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["diskSize"] = state ? state.diskSize : undefined;
-            inputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
-            inputs["instanceTypes"] = state ? state.instanceTypes : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
-            inputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
-            inputs["nodeGroupNamePrefix"] = state ? state.nodeGroupNamePrefix : undefined;
-            inputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
-            inputs["releaseVersion"] = state ? state.releaseVersion : undefined;
-            inputs["remoteAccess"] = state ? state.remoteAccess : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["scalingConfig"] = state ? state.scalingConfig : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["taints"] = state ? state.taints : undefined;
-            inputs["updateConfig"] = state ? state.updateConfig : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["amiType"] = state ? state.amiType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["capacityType"] = state ? state.capacityType : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["diskSize"] = state ? state.diskSize : undefined;
+            resourceInputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
+            resourceInputs["instanceTypes"] = state ? state.instanceTypes : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
+            resourceInputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
+            resourceInputs["nodeGroupNamePrefix"] = state ? state.nodeGroupNamePrefix : undefined;
+            resourceInputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
+            resourceInputs["releaseVersion"] = state ? state.releaseVersion : undefined;
+            resourceInputs["remoteAccess"] = state ? state.remoteAccess : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["scalingConfig"] = state ? state.scalingConfig : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["taints"] = state ? state.taints : undefined;
+            resourceInputs["updateConfig"] = state ? state.updateConfig : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -253,34 +253,32 @@ export class NodeGroup extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["amiType"] = args ? args.amiType : undefined;
-            inputs["capacityType"] = args ? args.capacityType : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["diskSize"] = args ? args.diskSize : undefined;
-            inputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
-            inputs["instanceTypes"] = args ? args.instanceTypes : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            inputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
-            inputs["nodeGroupNamePrefix"] = args ? args.nodeGroupNamePrefix : undefined;
-            inputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
-            inputs["releaseVersion"] = args ? args.releaseVersion : undefined;
-            inputs["remoteAccess"] = args ? args.remoteAccess : undefined;
-            inputs["scalingConfig"] = args ? args.scalingConfig : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taints"] = args ? args.taints : undefined;
-            inputs["updateConfig"] = args ? args.updateConfig : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["resources"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["amiType"] = args ? args.amiType : undefined;
+            resourceInputs["capacityType"] = args ? args.capacityType : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["diskSize"] = args ? args.diskSize : undefined;
+            resourceInputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
+            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
+            resourceInputs["nodeGroupNamePrefix"] = args ? args.nodeGroupNamePrefix : undefined;
+            resourceInputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
+            resourceInputs["releaseVersion"] = args ? args.releaseVersion : undefined;
+            resourceInputs["remoteAccess"] = args ? args.remoteAccess : undefined;
+            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taints"] = args ? args.taints : undefined;
+            resourceInputs["updateConfig"] = args ? args.updateConfig : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NodeGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NodeGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

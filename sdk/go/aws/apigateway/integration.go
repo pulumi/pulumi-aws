@@ -74,6 +74,93 @@ import (
 // 	})
 // }
 // ```
+// ## Lambda integration
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		myregion := cfg.RequireObject("myregion")
+// 		accountId := cfg.RequireObject("accountId")
+// 		api, err := apigateway.NewRestApi(ctx, "api", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		resource, err := apigateway.NewResource(ctx, "resource", &apigateway.ResourceArgs{
+// 			PathPart: pulumi.String("resource"),
+// 			ParentId: api.RootResourceId,
+// 			RestApi:  api.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		method, err := apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
+// 			RestApi:       api.ID(),
+// 			ResourceId:    resource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		lambda, err := lambda.NewFunction(ctx, "lambda", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("lambda.zip"),
+// 			Role:    role.Arn,
+// 			Handler: pulumi.String("lambda.lambda_handler"),
+// 			Runtime: pulumi.String("python3.6"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewIntegration(ctx, "integration", &apigateway.IntegrationArgs{
+// 			RestApi:               api.ID(),
+// 			ResourceId:            resource.ID(),
+// 			HttpMethod:            method.HttpMethod,
+// 			IntegrationHttpMethod: pulumi.String("POST"),
+// 			Type:                  pulumi.String("AWS_PROXY"),
+// 			Uri:                   lambda.InvokeArn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewPermission(ctx, "apigwLambda", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  lambda.Name,
+// 			Principal: pulumi.String("apigateway.amazonaws.com"),
+// 			SourceArn: pulumi.All(api.ID(), method.HttpMethod, resource.Path).ApplyT(func(_args []interface{}) (string, error) {
+// 				id := _args[0].(string)
+// 				httpMethod := _args[1].(string)
+// 				path := _args[2].(string)
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "arn:aws:execute-api:", myregion, ":", accountId, ":", id, "/*/", httpMethod, path), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## VPC Link
 //
 // ```go
@@ -454,7 +541,7 @@ type IntegrationInput interface {
 }
 
 func (*Integration) ElementType() reflect.Type {
-	return reflect.TypeOf((*Integration)(nil))
+	return reflect.TypeOf((**Integration)(nil)).Elem()
 }
 
 func (i *Integration) ToIntegrationOutput() IntegrationOutput {
@@ -463,35 +550,6 @@ func (i *Integration) ToIntegrationOutput() IntegrationOutput {
 
 func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOutput)
-}
-
-func (i *Integration) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return i.ToIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *Integration) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationPtrOutput)
-}
-
-type IntegrationPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationPtrOutput() IntegrationPtrOutput
-	ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput
-}
-
-type integrationPtrType IntegrationArgs
-
-func (*integrationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Integration)(nil))
-}
-
-func (i *integrationPtrType) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return i.ToIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationPtrType) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationPtrOutput)
 }
 
 // IntegrationArrayInput is an input type that accepts IntegrationArray and IntegrationArrayOutput values.
@@ -547,7 +605,7 @@ func (i IntegrationMap) ToIntegrationMapOutputWithContext(ctx context.Context) I
 type IntegrationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Integration)(nil))
+	return reflect.TypeOf((**Integration)(nil)).Elem()
 }
 
 func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
@@ -558,44 +616,10 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
-func (o IntegrationOutput) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return o.ToIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationOutput) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Integration) *Integration {
-		return &v
-	}).(IntegrationPtrOutput)
-}
-
-type IntegrationPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Integration)(nil))
-}
-
-func (o IntegrationPtrOutput) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return o
-}
-
-func (o IntegrationPtrOutput) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return o
-}
-
-func (o IntegrationPtrOutput) Elem() IntegrationOutput {
-	return o.ApplyT(func(v *Integration) Integration {
-		if v != nil {
-			return *v
-		}
-		var ret Integration
-		return ret
-	}).(IntegrationOutput)
-}
-
 type IntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Integration)(nil))
+	return reflect.TypeOf((*[]*Integration)(nil)).Elem()
 }
 
 func (o IntegrationArrayOutput) ToIntegrationArrayOutput() IntegrationArrayOutput {
@@ -607,15 +631,15 @@ func (o IntegrationArrayOutput) ToIntegrationArrayOutputWithContext(ctx context.
 }
 
 func (o IntegrationArrayOutput) Index(i pulumi.IntInput) IntegrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Integration {
-		return vs[0].([]Integration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Integration {
+		return vs[0].([]*Integration)[vs[1].(int)]
 	}).(IntegrationOutput)
 }
 
 type IntegrationMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Integration)(nil))
+	return reflect.TypeOf((*map[string]*Integration)(nil)).Elem()
 }
 
 func (o IntegrationMapOutput) ToIntegrationMapOutput() IntegrationMapOutput {
@@ -627,18 +651,16 @@ func (o IntegrationMapOutput) ToIntegrationMapOutputWithContext(ctx context.Cont
 }
 
 func (o IntegrationMapOutput) MapIndex(k pulumi.StringInput) IntegrationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Integration {
-		return vs[0].(map[string]Integration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Integration {
+		return vs[0].(map[string]*Integration)[vs[1].(string)]
 	}).(IntegrationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationInput)(nil)).Elem(), &Integration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationPtrInput)(nil)).Elem(), &Integration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationArrayInput)(nil)).Elem(), IntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMapInput)(nil)).Elem(), IntegrationMap{})
 	pulumi.RegisterOutputType(IntegrationOutput{})
-	pulumi.RegisterOutputType(IntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationMapOutput{})
 }

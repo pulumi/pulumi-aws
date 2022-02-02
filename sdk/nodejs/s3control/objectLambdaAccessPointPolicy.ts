@@ -98,28 +98,26 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ObjectLambdaAccessPointPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ObjectLambdaAccessPointPolicyArgs | ObjectLambdaAccessPointPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObjectLambdaAccessPointPolicyState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as ObjectLambdaAccessPointPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["hasPublicAccessPolicy"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ObjectLambdaAccessPointPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ObjectLambdaAccessPointPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

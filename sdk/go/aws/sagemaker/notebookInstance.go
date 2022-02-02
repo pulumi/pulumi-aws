@@ -321,7 +321,7 @@ type NotebookInstanceInput interface {
 }
 
 func (*NotebookInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstance)(nil))
+	return reflect.TypeOf((**NotebookInstance)(nil)).Elem()
 }
 
 func (i *NotebookInstance) ToNotebookInstanceOutput() NotebookInstanceOutput {
@@ -330,35 +330,6 @@ func (i *NotebookInstance) ToNotebookInstanceOutput() NotebookInstanceOutput {
 
 func (i *NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceOutput)
-}
-
-func (i *NotebookInstance) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
-	return i.ToNotebookInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *NotebookInstance) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstancePtrOutput)
-}
-
-type NotebookInstancePtrInput interface {
-	pulumi.Input
-
-	ToNotebookInstancePtrOutput() NotebookInstancePtrOutput
-	ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput
-}
-
-type notebookInstancePtrType NotebookInstanceArgs
-
-func (*notebookInstancePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotebookInstance)(nil))
-}
-
-func (i *notebookInstancePtrType) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
-	return i.ToNotebookInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *notebookInstancePtrType) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstancePtrOutput)
 }
 
 // NotebookInstanceArrayInput is an input type that accepts NotebookInstanceArray and NotebookInstanceArrayOutput values.
@@ -414,7 +385,7 @@ func (i NotebookInstanceMap) ToNotebookInstanceMapOutputWithContext(ctx context.
 type NotebookInstanceOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstance)(nil))
+	return reflect.TypeOf((**NotebookInstance)(nil)).Elem()
 }
 
 func (o NotebookInstanceOutput) ToNotebookInstanceOutput() NotebookInstanceOutput {
@@ -425,44 +396,10 @@ func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.
 	return o
 }
 
-func (o NotebookInstanceOutput) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
-	return o.ToNotebookInstancePtrOutputWithContext(context.Background())
-}
-
-func (o NotebookInstanceOutput) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookInstance) *NotebookInstance {
-		return &v
-	}).(NotebookInstancePtrOutput)
-}
-
-type NotebookInstancePtrOutput struct{ *pulumi.OutputState }
-
-func (NotebookInstancePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotebookInstance)(nil))
-}
-
-func (o NotebookInstancePtrOutput) ToNotebookInstancePtrOutput() NotebookInstancePtrOutput {
-	return o
-}
-
-func (o NotebookInstancePtrOutput) ToNotebookInstancePtrOutputWithContext(ctx context.Context) NotebookInstancePtrOutput {
-	return o
-}
-
-func (o NotebookInstancePtrOutput) Elem() NotebookInstanceOutput {
-	return o.ApplyT(func(v *NotebookInstance) NotebookInstance {
-		if v != nil {
-			return *v
-		}
-		var ret NotebookInstance
-		return ret
-	}).(NotebookInstanceOutput)
-}
-
 type NotebookInstanceArrayOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotebookInstance)(nil))
+	return reflect.TypeOf((*[]*NotebookInstance)(nil)).Elem()
 }
 
 func (o NotebookInstanceArrayOutput) ToNotebookInstanceArrayOutput() NotebookInstanceArrayOutput {
@@ -474,15 +411,15 @@ func (o NotebookInstanceArrayOutput) ToNotebookInstanceArrayOutputWithContext(ct
 }
 
 func (o NotebookInstanceArrayOutput) Index(i pulumi.IntInput) NotebookInstanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotebookInstance {
-		return vs[0].([]NotebookInstance)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotebookInstance {
+		return vs[0].([]*NotebookInstance)[vs[1].(int)]
 	}).(NotebookInstanceOutput)
 }
 
 type NotebookInstanceMapOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NotebookInstance)(nil))
+	return reflect.TypeOf((*map[string]*NotebookInstance)(nil)).Elem()
 }
 
 func (o NotebookInstanceMapOutput) ToNotebookInstanceMapOutput() NotebookInstanceMapOutput {
@@ -494,18 +431,16 @@ func (o NotebookInstanceMapOutput) ToNotebookInstanceMapOutputWithContext(ctx co
 }
 
 func (o NotebookInstanceMapOutput) MapIndex(k pulumi.StringInput) NotebookInstanceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotebookInstance {
-		return vs[0].(map[string]NotebookInstance)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NotebookInstance {
+		return vs[0].(map[string]*NotebookInstance)[vs[1].(string)]
 	}).(NotebookInstanceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInput)(nil)).Elem(), &NotebookInstance{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstancePtrInput)(nil)).Elem(), &NotebookInstance{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceArrayInput)(nil)).Elem(), NotebookInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceMapInput)(nil)).Elem(), NotebookInstanceMap{})
 	pulumi.RegisterOutputType(NotebookInstanceOutput{})
-	pulumi.RegisterOutputType(NotebookInstancePtrOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceArrayOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceMapOutput{})
 }

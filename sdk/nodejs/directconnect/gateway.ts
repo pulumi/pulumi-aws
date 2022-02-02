@@ -76,26 +76,24 @@ export class Gateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
-            inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
             if ((!args || args.amazonSideAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'amazonSideAsn'");
             }
-            inputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerAccountId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Gateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

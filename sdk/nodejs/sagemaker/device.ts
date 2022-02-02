@@ -82,14 +82,14 @@ export class Device extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeviceArgs | DeviceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceState | undefined;
-            inputs["agentVersion"] = state ? state.agentVersion : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["device"] = state ? state.device : undefined;
-            inputs["deviceFleetName"] = state ? state.deviceFleetName : undefined;
+            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["device"] = state ? state.device : undefined;
+            resourceInputs["deviceFleetName"] = state ? state.deviceFleetName : undefined;
         } else {
             const args = argsOrState as DeviceArgs | undefined;
             if ((!args || args.device === undefined) && !opts.urn) {
@@ -98,15 +98,13 @@ export class Device extends pulumi.CustomResource {
             if ((!args || args.deviceFleetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceFleetName'");
             }
-            inputs["device"] = args ? args.device : undefined;
-            inputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["device"] = args ? args.device : undefined;
+            resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Device.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Device.__pulumiType, name, resourceInputs, opts);
     }
 }
 

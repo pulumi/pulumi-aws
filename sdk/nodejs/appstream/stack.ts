@@ -143,45 +143,43 @@ export class Stack extends pulumi.CustomResource {
      */
     constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackState | undefined;
-            inputs["accessEndpoints"] = state ? state.accessEndpoints : undefined;
-            inputs["applicationSettings"] = state ? state.applicationSettings : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["embedHostDomains"] = state ? state.embedHostDomains : undefined;
-            inputs["feedbackUrl"] = state ? state.feedbackUrl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["redirectUrl"] = state ? state.redirectUrl : undefined;
-            inputs["storageConnectors"] = state ? state.storageConnectors : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userSettings"] = state ? state.userSettings : undefined;
+            resourceInputs["accessEndpoints"] = state ? state.accessEndpoints : undefined;
+            resourceInputs["applicationSettings"] = state ? state.applicationSettings : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["embedHostDomains"] = state ? state.embedHostDomains : undefined;
+            resourceInputs["feedbackUrl"] = state ? state.feedbackUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
+            resourceInputs["storageConnectors"] = state ? state.storageConnectors : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userSettings"] = state ? state.userSettings : undefined;
         } else {
             const args = argsOrState as StackArgs | undefined;
-            inputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            inputs["applicationSettings"] = args ? args.applicationSettings : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["embedHostDomains"] = args ? args.embedHostDomains : undefined;
-            inputs["feedbackUrl"] = args ? args.feedbackUrl : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redirectUrl"] = args ? args.redirectUrl : undefined;
-            inputs["storageConnectors"] = args ? args.storageConnectors : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userSettings"] = args ? args.userSettings : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
+            resourceInputs["applicationSettings"] = args ? args.applicationSettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["embedHostDomains"] = args ? args.embedHostDomains : undefined;
+            resourceInputs["feedbackUrl"] = args ? args.feedbackUrl : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
+            resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userSettings"] = args ? args.userSettings : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stack.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

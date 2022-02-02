@@ -208,17 +208,17 @@ export class Pipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["artifactStore"] = state ? state.artifactStore : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["stages"] = state ? state.stages : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["artifactStore"] = state ? state.artifactStore : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["stages"] = state ? state.stages : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
             if ((!args || args.artifactStore === undefined) && !opts.urn) {
@@ -230,18 +230,16 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.stages === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            inputs["artifactStore"] = args ? args.artifactStore : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["stages"] = args ? args.stages : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["artifactStore"] = args ? args.artifactStore : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stages"] = args ? args.stages : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

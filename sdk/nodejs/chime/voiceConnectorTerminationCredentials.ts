@@ -92,12 +92,12 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
      */
     constructor(name: string, args: VoiceConnectorTerminationCredentialsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VoiceConnectorTerminationCredentialsArgs | VoiceConnectorTerminationCredentialsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorTerminationCredentialsState | undefined;
-            inputs["credentials"] = state ? state.credentials : undefined;
-            inputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorTerminationCredentialsArgs | undefined;
             if ((!args || args.credentials === undefined) && !opts.urn) {
@@ -106,13 +106,11 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
             if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VoiceConnectorTerminationCredentials.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VoiceConnectorTerminationCredentials.__pulumiType, name, resourceInputs, opts);
     }
 }
 

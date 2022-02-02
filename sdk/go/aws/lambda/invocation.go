@@ -175,7 +175,7 @@ type InvocationInput interface {
 }
 
 func (*Invocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Invocation)(nil))
+	return reflect.TypeOf((**Invocation)(nil)).Elem()
 }
 
 func (i *Invocation) ToInvocationOutput() InvocationOutput {
@@ -184,35 +184,6 @@ func (i *Invocation) ToInvocationOutput() InvocationOutput {
 
 func (i *Invocation) ToInvocationOutputWithContext(ctx context.Context) InvocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InvocationOutput)
-}
-
-func (i *Invocation) ToInvocationPtrOutput() InvocationPtrOutput {
-	return i.ToInvocationPtrOutputWithContext(context.Background())
-}
-
-func (i *Invocation) ToInvocationPtrOutputWithContext(ctx context.Context) InvocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InvocationPtrOutput)
-}
-
-type InvocationPtrInput interface {
-	pulumi.Input
-
-	ToInvocationPtrOutput() InvocationPtrOutput
-	ToInvocationPtrOutputWithContext(ctx context.Context) InvocationPtrOutput
-}
-
-type invocationPtrType InvocationArgs
-
-func (*invocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Invocation)(nil))
-}
-
-func (i *invocationPtrType) ToInvocationPtrOutput() InvocationPtrOutput {
-	return i.ToInvocationPtrOutputWithContext(context.Background())
-}
-
-func (i *invocationPtrType) ToInvocationPtrOutputWithContext(ctx context.Context) InvocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InvocationPtrOutput)
 }
 
 // InvocationArrayInput is an input type that accepts InvocationArray and InvocationArrayOutput values.
@@ -268,7 +239,7 @@ func (i InvocationMap) ToInvocationMapOutputWithContext(ctx context.Context) Inv
 type InvocationOutput struct{ *pulumi.OutputState }
 
 func (InvocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Invocation)(nil))
+	return reflect.TypeOf((**Invocation)(nil)).Elem()
 }
 
 func (o InvocationOutput) ToInvocationOutput() InvocationOutput {
@@ -279,44 +250,10 @@ func (o InvocationOutput) ToInvocationOutputWithContext(ctx context.Context) Inv
 	return o
 }
 
-func (o InvocationOutput) ToInvocationPtrOutput() InvocationPtrOutput {
-	return o.ToInvocationPtrOutputWithContext(context.Background())
-}
-
-func (o InvocationOutput) ToInvocationPtrOutputWithContext(ctx context.Context) InvocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Invocation) *Invocation {
-		return &v
-	}).(InvocationPtrOutput)
-}
-
-type InvocationPtrOutput struct{ *pulumi.OutputState }
-
-func (InvocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Invocation)(nil))
-}
-
-func (o InvocationPtrOutput) ToInvocationPtrOutput() InvocationPtrOutput {
-	return o
-}
-
-func (o InvocationPtrOutput) ToInvocationPtrOutputWithContext(ctx context.Context) InvocationPtrOutput {
-	return o
-}
-
-func (o InvocationPtrOutput) Elem() InvocationOutput {
-	return o.ApplyT(func(v *Invocation) Invocation {
-		if v != nil {
-			return *v
-		}
-		var ret Invocation
-		return ret
-	}).(InvocationOutput)
-}
-
 type InvocationArrayOutput struct{ *pulumi.OutputState }
 
 func (InvocationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Invocation)(nil))
+	return reflect.TypeOf((*[]*Invocation)(nil)).Elem()
 }
 
 func (o InvocationArrayOutput) ToInvocationArrayOutput() InvocationArrayOutput {
@@ -328,15 +265,15 @@ func (o InvocationArrayOutput) ToInvocationArrayOutputWithContext(ctx context.Co
 }
 
 func (o InvocationArrayOutput) Index(i pulumi.IntInput) InvocationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Invocation {
-		return vs[0].([]Invocation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Invocation {
+		return vs[0].([]*Invocation)[vs[1].(int)]
 	}).(InvocationOutput)
 }
 
 type InvocationMapOutput struct{ *pulumi.OutputState }
 
 func (InvocationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Invocation)(nil))
+	return reflect.TypeOf((*map[string]*Invocation)(nil)).Elem()
 }
 
 func (o InvocationMapOutput) ToInvocationMapOutput() InvocationMapOutput {
@@ -348,18 +285,16 @@ func (o InvocationMapOutput) ToInvocationMapOutputWithContext(ctx context.Contex
 }
 
 func (o InvocationMapOutput) MapIndex(k pulumi.StringInput) InvocationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Invocation {
-		return vs[0].(map[string]Invocation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Invocation {
+		return vs[0].(map[string]*Invocation)[vs[1].(string)]
 	}).(InvocationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationInput)(nil)).Elem(), &Invocation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InvocationPtrInput)(nil)).Elem(), &Invocation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationArrayInput)(nil)).Elem(), InvocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationMapInput)(nil)).Elem(), InvocationMap{})
 	pulumi.RegisterOutputType(InvocationOutput{})
-	pulumi.RegisterOutputType(InvocationPtrOutput{})
 	pulumi.RegisterOutputType(InvocationArrayOutput{})
 	pulumi.RegisterOutputType(InvocationMapOutput{})
 }

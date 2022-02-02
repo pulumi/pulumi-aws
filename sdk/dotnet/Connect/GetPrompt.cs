@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Connect
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPromptResult> InvokeAsync(GetPromptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Prompt.
@@ -74,7 +73,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPromptResult> Invoke(GetPromptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptInvokeArgs(), options.WithDefaults());
     }
 
 

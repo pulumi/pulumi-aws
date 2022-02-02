@@ -146,7 +146,7 @@ type VaultPolicyInput interface {
 }
 
 func (*VaultPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPolicy)(nil))
+	return reflect.TypeOf((**VaultPolicy)(nil)).Elem()
 }
 
 func (i *VaultPolicy) ToVaultPolicyOutput() VaultPolicyOutput {
@@ -155,35 +155,6 @@ func (i *VaultPolicy) ToVaultPolicyOutput() VaultPolicyOutput {
 
 func (i *VaultPolicy) ToVaultPolicyOutputWithContext(ctx context.Context) VaultPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyOutput)
-}
-
-func (i *VaultPolicy) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
-	return i.ToVaultPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *VaultPolicy) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyPtrOutput)
-}
-
-type VaultPolicyPtrInput interface {
-	pulumi.Input
-
-	ToVaultPolicyPtrOutput() VaultPolicyPtrOutput
-	ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput
-}
-
-type vaultPolicyPtrType VaultPolicyArgs
-
-func (*vaultPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VaultPolicy)(nil))
-}
-
-func (i *vaultPolicyPtrType) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
-	return i.ToVaultPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *vaultPolicyPtrType) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyPtrOutput)
 }
 
 // VaultPolicyArrayInput is an input type that accepts VaultPolicyArray and VaultPolicyArrayOutput values.
@@ -239,7 +210,7 @@ func (i VaultPolicyMap) ToVaultPolicyMapOutputWithContext(ctx context.Context) V
 type VaultPolicyOutput struct{ *pulumi.OutputState }
 
 func (VaultPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPolicy)(nil))
+	return reflect.TypeOf((**VaultPolicy)(nil)).Elem()
 }
 
 func (o VaultPolicyOutput) ToVaultPolicyOutput() VaultPolicyOutput {
@@ -250,44 +221,10 @@ func (o VaultPolicyOutput) ToVaultPolicyOutputWithContext(ctx context.Context) V
 	return o
 }
 
-func (o VaultPolicyOutput) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
-	return o.ToVaultPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o VaultPolicyOutput) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPolicy) *VaultPolicy {
-		return &v
-	}).(VaultPolicyPtrOutput)
-}
-
-type VaultPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (VaultPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VaultPolicy)(nil))
-}
-
-func (o VaultPolicyPtrOutput) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
-	return o
-}
-
-func (o VaultPolicyPtrOutput) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
-	return o
-}
-
-func (o VaultPolicyPtrOutput) Elem() VaultPolicyOutput {
-	return o.ApplyT(func(v *VaultPolicy) VaultPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret VaultPolicy
-		return ret
-	}).(VaultPolicyOutput)
-}
-
 type VaultPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (VaultPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VaultPolicy)(nil))
+	return reflect.TypeOf((*[]*VaultPolicy)(nil)).Elem()
 }
 
 func (o VaultPolicyArrayOutput) ToVaultPolicyArrayOutput() VaultPolicyArrayOutput {
@@ -299,15 +236,15 @@ func (o VaultPolicyArrayOutput) ToVaultPolicyArrayOutputWithContext(ctx context.
 }
 
 func (o VaultPolicyArrayOutput) Index(i pulumi.IntInput) VaultPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultPolicy {
-		return vs[0].([]VaultPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultPolicy {
+		return vs[0].([]*VaultPolicy)[vs[1].(int)]
 	}).(VaultPolicyOutput)
 }
 
 type VaultPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (VaultPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VaultPolicy)(nil))
+	return reflect.TypeOf((*map[string]*VaultPolicy)(nil)).Elem()
 }
 
 func (o VaultPolicyMapOutput) ToVaultPolicyMapOutput() VaultPolicyMapOutput {
@@ -319,18 +256,16 @@ func (o VaultPolicyMapOutput) ToVaultPolicyMapOutputWithContext(ctx context.Cont
 }
 
 func (o VaultPolicyMapOutput) MapIndex(k pulumi.StringInput) VaultPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VaultPolicy {
-		return vs[0].(map[string]VaultPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VaultPolicy {
+		return vs[0].(map[string]*VaultPolicy)[vs[1].(string)]
 	}).(VaultPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultPolicyInput)(nil)).Elem(), &VaultPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultPolicyPtrInput)(nil)).Elem(), &VaultPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultPolicyArrayInput)(nil)).Elem(), VaultPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultPolicyMapInput)(nil)).Elem(), VaultPolicyMap{})
 	pulumi.RegisterOutputType(VaultPolicyOutput{})
-	pulumi.RegisterOutputType(VaultPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VaultPolicyArrayOutput{})
 	pulumi.RegisterOutputType(VaultPolicyMapOutput{})
 }

@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datapipeline.NewPipeline(ctx, "_default", nil)
+// 		_, err := datapipeline.NewPipeline(ctx, "default", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -211,7 +211,7 @@ type PipelineDefinitionInput interface {
 }
 
 func (*PipelineDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineDefinition)(nil))
+	return reflect.TypeOf((**PipelineDefinition)(nil)).Elem()
 }
 
 func (i *PipelineDefinition) ToPipelineDefinitionOutput() PipelineDefinitionOutput {
@@ -220,35 +220,6 @@ func (i *PipelineDefinition) ToPipelineDefinitionOutput() PipelineDefinitionOutp
 
 func (i *PipelineDefinition) ToPipelineDefinitionOutputWithContext(ctx context.Context) PipelineDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionOutput)
-}
-
-func (i *PipelineDefinition) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
-	return i.ToPipelineDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *PipelineDefinition) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionPtrOutput)
-}
-
-type PipelineDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput
-	ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput
-}
-
-type pipelineDefinitionPtrType PipelineDefinitionArgs
-
-func (*pipelineDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipelineDefinition)(nil))
-}
-
-func (i *pipelineDefinitionPtrType) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
-	return i.ToPipelineDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *pipelineDefinitionPtrType) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionPtrOutput)
 }
 
 // PipelineDefinitionArrayInput is an input type that accepts PipelineDefinitionArray and PipelineDefinitionArrayOutput values.
@@ -304,7 +275,7 @@ func (i PipelineDefinitionMap) ToPipelineDefinitionMapOutputWithContext(ctx cont
 type PipelineDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PipelineDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineDefinition)(nil))
+	return reflect.TypeOf((**PipelineDefinition)(nil)).Elem()
 }
 
 func (o PipelineDefinitionOutput) ToPipelineDefinitionOutput() PipelineDefinitionOutput {
@@ -315,44 +286,10 @@ func (o PipelineDefinitionOutput) ToPipelineDefinitionOutputWithContext(ctx cont
 	return o
 }
 
-func (o PipelineDefinitionOutput) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
-	return o.ToPipelineDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PipelineDefinitionOutput) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineDefinition) *PipelineDefinition {
-		return &v
-	}).(PipelineDefinitionPtrOutput)
-}
-
-type PipelineDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PipelineDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipelineDefinition)(nil))
-}
-
-func (o PipelineDefinitionPtrOutput) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
-	return o
-}
-
-func (o PipelineDefinitionPtrOutput) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
-	return o
-}
-
-func (o PipelineDefinitionPtrOutput) Elem() PipelineDefinitionOutput {
-	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineDefinition
-		return ret
-	}).(PipelineDefinitionOutput)
-}
-
 type PipelineDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineDefinition)(nil))
+	return reflect.TypeOf((*[]*PipelineDefinition)(nil)).Elem()
 }
 
 func (o PipelineDefinitionArrayOutput) ToPipelineDefinitionArrayOutput() PipelineDefinitionArrayOutput {
@@ -364,15 +301,15 @@ func (o PipelineDefinitionArrayOutput) ToPipelineDefinitionArrayOutputWithContex
 }
 
 func (o PipelineDefinitionArrayOutput) Index(i pulumi.IntInput) PipelineDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineDefinition {
-		return vs[0].([]PipelineDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PipelineDefinition {
+		return vs[0].([]*PipelineDefinition)[vs[1].(int)]
 	}).(PipelineDefinitionOutput)
 }
 
 type PipelineDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (PipelineDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PipelineDefinition)(nil))
+	return reflect.TypeOf((*map[string]*PipelineDefinition)(nil)).Elem()
 }
 
 func (o PipelineDefinitionMapOutput) ToPipelineDefinitionMapOutput() PipelineDefinitionMapOutput {
@@ -384,18 +321,16 @@ func (o PipelineDefinitionMapOutput) ToPipelineDefinitionMapOutputWithContext(ct
 }
 
 func (o PipelineDefinitionMapOutput) MapIndex(k pulumi.StringInput) PipelineDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PipelineDefinition {
-		return vs[0].(map[string]PipelineDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PipelineDefinition {
+		return vs[0].(map[string]*PipelineDefinition)[vs[1].(string)]
 	}).(PipelineDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinitionInput)(nil)).Elem(), &PipelineDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinitionPtrInput)(nil)).Elem(), &PipelineDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinitionArrayInput)(nil)).Elem(), PipelineDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinitionMapInput)(nil)).Elem(), PipelineDefinitionMap{})
 	pulumi.RegisterOutputType(PipelineDefinitionOutput{})
-	pulumi.RegisterOutputType(PipelineDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PipelineDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(PipelineDefinitionMapOutput{})
 }

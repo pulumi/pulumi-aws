@@ -127,17 +127,17 @@ export class EmailChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: EmailChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailChannelArgs | EmailChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailChannelState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["configurationSet"] = state ? state.configurationSet : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["fromAddress"] = state ? state.fromAddress : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["messagesPerSecond"] = state ? state.messagesPerSecond : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["configurationSet"] = state ? state.configurationSet : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fromAddress"] = state ? state.fromAddress : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["messagesPerSecond"] = state ? state.messagesPerSecond : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as EmailChannelArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -149,18 +149,16 @@ export class EmailChannel extends pulumi.CustomResource {
             if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["configurationSet"] = args ? args.configurationSet : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["fromAddress"] = args ? args.fromAddress : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["messagesPerSecond"] = undefined /*out*/;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["configurationSet"] = args ? args.configurationSet : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["messagesPerSecond"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EmailChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EmailChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

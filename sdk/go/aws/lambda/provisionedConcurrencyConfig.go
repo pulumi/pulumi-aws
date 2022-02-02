@@ -171,7 +171,7 @@ type ProvisionedConcurrencyConfigInput interface {
 }
 
 func (*ProvisionedConcurrencyConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisionedConcurrencyConfig)(nil))
+	return reflect.TypeOf((**ProvisionedConcurrencyConfig)(nil)).Elem()
 }
 
 func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutput() ProvisionedConcurrencyConfigOutput {
@@ -180,35 +180,6 @@ func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutput() Pr
 
 func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigOutput)
-}
-
-func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
-	return i.ToProvisionedConcurrencyConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigPtrOutput)
-}
-
-type ProvisionedConcurrencyConfigPtrInput interface {
-	pulumi.Input
-
-	ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput
-	ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput
-}
-
-type provisionedConcurrencyConfigPtrType ProvisionedConcurrencyConfigArgs
-
-func (*provisionedConcurrencyConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProvisionedConcurrencyConfig)(nil))
-}
-
-func (i *provisionedConcurrencyConfigPtrType) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
-	return i.ToProvisionedConcurrencyConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *provisionedConcurrencyConfigPtrType) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigPtrOutput)
 }
 
 // ProvisionedConcurrencyConfigArrayInput is an input type that accepts ProvisionedConcurrencyConfigArray and ProvisionedConcurrencyConfigArrayOutput values.
@@ -264,7 +235,7 @@ func (i ProvisionedConcurrencyConfigMap) ToProvisionedConcurrencyConfigMapOutput
 type ProvisionedConcurrencyConfigOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedConcurrencyConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisionedConcurrencyConfig)(nil))
+	return reflect.TypeOf((**ProvisionedConcurrencyConfig)(nil)).Elem()
 }
 
 func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput() ProvisionedConcurrencyConfigOutput {
@@ -275,44 +246,10 @@ func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput
 	return o
 }
 
-func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
-	return o.ToProvisionedConcurrencyConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedConcurrencyConfig) *ProvisionedConcurrencyConfig {
-		return &v
-	}).(ProvisionedConcurrencyConfigPtrOutput)
-}
-
-type ProvisionedConcurrencyConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ProvisionedConcurrencyConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProvisionedConcurrencyConfig)(nil))
-}
-
-func (o ProvisionedConcurrencyConfigPtrOutput) ToProvisionedConcurrencyConfigPtrOutput() ProvisionedConcurrencyConfigPtrOutput {
-	return o
-}
-
-func (o ProvisionedConcurrencyConfigPtrOutput) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
-	return o
-}
-
-func (o ProvisionedConcurrencyConfigPtrOutput) Elem() ProvisionedConcurrencyConfigOutput {
-	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) ProvisionedConcurrencyConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ProvisionedConcurrencyConfig
-		return ret
-	}).(ProvisionedConcurrencyConfigOutput)
-}
-
 type ProvisionedConcurrencyConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedConcurrencyConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProvisionedConcurrencyConfig)(nil))
+	return reflect.TypeOf((*[]*ProvisionedConcurrencyConfig)(nil)).Elem()
 }
 
 func (o ProvisionedConcurrencyConfigArrayOutput) ToProvisionedConcurrencyConfigArrayOutput() ProvisionedConcurrencyConfigArrayOutput {
@@ -324,15 +261,15 @@ func (o ProvisionedConcurrencyConfigArrayOutput) ToProvisionedConcurrencyConfigA
 }
 
 func (o ProvisionedConcurrencyConfigArrayOutput) Index(i pulumi.IntInput) ProvisionedConcurrencyConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProvisionedConcurrencyConfig {
-		return vs[0].([]ProvisionedConcurrencyConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProvisionedConcurrencyConfig {
+		return vs[0].([]*ProvisionedConcurrencyConfig)[vs[1].(int)]
 	}).(ProvisionedConcurrencyConfigOutput)
 }
 
 type ProvisionedConcurrencyConfigMapOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedConcurrencyConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProvisionedConcurrencyConfig)(nil))
+	return reflect.TypeOf((*map[string]*ProvisionedConcurrencyConfig)(nil)).Elem()
 }
 
 func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMapOutput() ProvisionedConcurrencyConfigMapOutput {
@@ -344,18 +281,16 @@ func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMap
 }
 
 func (o ProvisionedConcurrencyConfigMapOutput) MapIndex(k pulumi.StringInput) ProvisionedConcurrencyConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProvisionedConcurrencyConfig {
-		return vs[0].(map[string]ProvisionedConcurrencyConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProvisionedConcurrencyConfig {
+		return vs[0].(map[string]*ProvisionedConcurrencyConfig)[vs[1].(string)]
 	}).(ProvisionedConcurrencyConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigInput)(nil)).Elem(), &ProvisionedConcurrencyConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigPtrInput)(nil)).Elem(), &ProvisionedConcurrencyConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigArrayInput)(nil)).Elem(), ProvisionedConcurrencyConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigMapInput)(nil)).Elem(), ProvisionedConcurrencyConfigMap{})
 	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigOutput{})
-	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigArrayOutput{})
 	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigMapOutput{})
 }

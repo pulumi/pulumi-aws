@@ -406,7 +406,7 @@ type RestApiInput interface {
 }
 
 func (*RestApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApi)(nil))
+	return reflect.TypeOf((**RestApi)(nil)).Elem()
 }
 
 func (i *RestApi) ToRestApiOutput() RestApiOutput {
@@ -415,35 +415,6 @@ func (i *RestApi) ToRestApiOutput() RestApiOutput {
 
 func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
-}
-
-func (i *RestApi) ToRestApiPtrOutput() RestApiPtrOutput {
-	return i.ToRestApiPtrOutputWithContext(context.Background())
-}
-
-func (i *RestApi) ToRestApiPtrOutputWithContext(ctx context.Context) RestApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestApiPtrOutput)
-}
-
-type RestApiPtrInput interface {
-	pulumi.Input
-
-	ToRestApiPtrOutput() RestApiPtrOutput
-	ToRestApiPtrOutputWithContext(ctx context.Context) RestApiPtrOutput
-}
-
-type restApiPtrType RestApiArgs
-
-func (*restApiPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RestApi)(nil))
-}
-
-func (i *restApiPtrType) ToRestApiPtrOutput() RestApiPtrOutput {
-	return i.ToRestApiPtrOutputWithContext(context.Background())
-}
-
-func (i *restApiPtrType) ToRestApiPtrOutputWithContext(ctx context.Context) RestApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestApiPtrOutput)
 }
 
 // RestApiArrayInput is an input type that accepts RestApiArray and RestApiArrayOutput values.
@@ -499,7 +470,7 @@ func (i RestApiMap) ToRestApiMapOutputWithContext(ctx context.Context) RestApiMa
 type RestApiOutput struct{ *pulumi.OutputState }
 
 func (RestApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApi)(nil))
+	return reflect.TypeOf((**RestApi)(nil)).Elem()
 }
 
 func (o RestApiOutput) ToRestApiOutput() RestApiOutput {
@@ -510,44 +481,10 @@ func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOu
 	return o
 }
 
-func (o RestApiOutput) ToRestApiPtrOutput() RestApiPtrOutput {
-	return o.ToRestApiPtrOutputWithContext(context.Background())
-}
-
-func (o RestApiOutput) ToRestApiPtrOutputWithContext(ctx context.Context) RestApiPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApi) *RestApi {
-		return &v
-	}).(RestApiPtrOutput)
-}
-
-type RestApiPtrOutput struct{ *pulumi.OutputState }
-
-func (RestApiPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RestApi)(nil))
-}
-
-func (o RestApiPtrOutput) ToRestApiPtrOutput() RestApiPtrOutput {
-	return o
-}
-
-func (o RestApiPtrOutput) ToRestApiPtrOutputWithContext(ctx context.Context) RestApiPtrOutput {
-	return o
-}
-
-func (o RestApiPtrOutput) Elem() RestApiOutput {
-	return o.ApplyT(func(v *RestApi) RestApi {
-		if v != nil {
-			return *v
-		}
-		var ret RestApi
-		return ret
-	}).(RestApiOutput)
-}
-
 type RestApiArrayOutput struct{ *pulumi.OutputState }
 
 func (RestApiArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RestApi)(nil))
+	return reflect.TypeOf((*[]*RestApi)(nil)).Elem()
 }
 
 func (o RestApiArrayOutput) ToRestApiArrayOutput() RestApiArrayOutput {
@@ -559,15 +496,15 @@ func (o RestApiArrayOutput) ToRestApiArrayOutputWithContext(ctx context.Context)
 }
 
 func (o RestApiArrayOutput) Index(i pulumi.IntInput) RestApiOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestApi {
-		return vs[0].([]RestApi)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RestApi {
+		return vs[0].([]*RestApi)[vs[1].(int)]
 	}).(RestApiOutput)
 }
 
 type RestApiMapOutput struct{ *pulumi.OutputState }
 
 func (RestApiMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RestApi)(nil))
+	return reflect.TypeOf((*map[string]*RestApi)(nil)).Elem()
 }
 
 func (o RestApiMapOutput) ToRestApiMapOutput() RestApiMapOutput {
@@ -579,18 +516,16 @@ func (o RestApiMapOutput) ToRestApiMapOutputWithContext(ctx context.Context) Res
 }
 
 func (o RestApiMapOutput) MapIndex(k pulumi.StringInput) RestApiOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RestApi {
-		return vs[0].(map[string]RestApi)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RestApi {
+		return vs[0].(map[string]*RestApi)[vs[1].(string)]
 	}).(RestApiOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiInput)(nil)).Elem(), &RestApi{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RestApiPtrInput)(nil)).Elem(), &RestApi{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiArrayInput)(nil)).Elem(), RestApiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiMapInput)(nil)).Elem(), RestApiMap{})
 	pulumi.RegisterOutputType(RestApiOutput{})
-	pulumi.RegisterOutputType(RestApiPtrOutput{})
 	pulumi.RegisterOutputType(RestApiArrayOutput{})
 	pulumi.RegisterOutputType(RestApiMapOutput{})
 }

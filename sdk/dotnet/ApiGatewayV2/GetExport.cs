@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// Exports a definition of an API in a particular output format and specification.
@@ -72,7 +71,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

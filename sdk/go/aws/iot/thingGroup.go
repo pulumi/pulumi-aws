@@ -178,7 +178,7 @@ type ThingGroupInput interface {
 }
 
 func (*ThingGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingGroup)(nil))
+	return reflect.TypeOf((**ThingGroup)(nil)).Elem()
 }
 
 func (i *ThingGroup) ToThingGroupOutput() ThingGroupOutput {
@@ -187,35 +187,6 @@ func (i *ThingGroup) ToThingGroupOutput() ThingGroupOutput {
 
 func (i *ThingGroup) ToThingGroupOutputWithContext(ctx context.Context) ThingGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupOutput)
-}
-
-func (i *ThingGroup) ToThingGroupPtrOutput() ThingGroupPtrOutput {
-	return i.ToThingGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ThingGroup) ToThingGroupPtrOutputWithContext(ctx context.Context) ThingGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPtrOutput)
-}
-
-type ThingGroupPtrInput interface {
-	pulumi.Input
-
-	ToThingGroupPtrOutput() ThingGroupPtrOutput
-	ToThingGroupPtrOutputWithContext(ctx context.Context) ThingGroupPtrOutput
-}
-
-type thingGroupPtrType ThingGroupArgs
-
-func (*thingGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingGroup)(nil))
-}
-
-func (i *thingGroupPtrType) ToThingGroupPtrOutput() ThingGroupPtrOutput {
-	return i.ToThingGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *thingGroupPtrType) ToThingGroupPtrOutputWithContext(ctx context.Context) ThingGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPtrOutput)
 }
 
 // ThingGroupArrayInput is an input type that accepts ThingGroupArray and ThingGroupArrayOutput values.
@@ -271,7 +242,7 @@ func (i ThingGroupMap) ToThingGroupMapOutputWithContext(ctx context.Context) Thi
 type ThingGroupOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingGroup)(nil))
+	return reflect.TypeOf((**ThingGroup)(nil)).Elem()
 }
 
 func (o ThingGroupOutput) ToThingGroupOutput() ThingGroupOutput {
@@ -282,44 +253,10 @@ func (o ThingGroupOutput) ToThingGroupOutputWithContext(ctx context.Context) Thi
 	return o
 }
 
-func (o ThingGroupOutput) ToThingGroupPtrOutput() ThingGroupPtrOutput {
-	return o.ToThingGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ThingGroupOutput) ToThingGroupPtrOutputWithContext(ctx context.Context) ThingGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingGroup) *ThingGroup {
-		return &v
-	}).(ThingGroupPtrOutput)
-}
-
-type ThingGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ThingGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingGroup)(nil))
-}
-
-func (o ThingGroupPtrOutput) ToThingGroupPtrOutput() ThingGroupPtrOutput {
-	return o
-}
-
-func (o ThingGroupPtrOutput) ToThingGroupPtrOutputWithContext(ctx context.Context) ThingGroupPtrOutput {
-	return o
-}
-
-func (o ThingGroupPtrOutput) Elem() ThingGroupOutput {
-	return o.ApplyT(func(v *ThingGroup) ThingGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ThingGroup
-		return ret
-	}).(ThingGroupOutput)
-}
-
 type ThingGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThingGroup)(nil))
+	return reflect.TypeOf((*[]*ThingGroup)(nil)).Elem()
 }
 
 func (o ThingGroupArrayOutput) ToThingGroupArrayOutput() ThingGroupArrayOutput {
@@ -331,15 +268,15 @@ func (o ThingGroupArrayOutput) ToThingGroupArrayOutputWithContext(ctx context.Co
 }
 
 func (o ThingGroupArrayOutput) Index(i pulumi.IntInput) ThingGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingGroup {
-		return vs[0].([]ThingGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingGroup {
+		return vs[0].([]*ThingGroup)[vs[1].(int)]
 	}).(ThingGroupOutput)
 }
 
 type ThingGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ThingGroup)(nil))
+	return reflect.TypeOf((*map[string]*ThingGroup)(nil)).Elem()
 }
 
 func (o ThingGroupMapOutput) ToThingGroupMapOutput() ThingGroupMapOutput {
@@ -351,18 +288,16 @@ func (o ThingGroupMapOutput) ToThingGroupMapOutputWithContext(ctx context.Contex
 }
 
 func (o ThingGroupMapOutput) MapIndex(k pulumi.StringInput) ThingGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThingGroup {
-		return vs[0].(map[string]ThingGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ThingGroup {
+		return vs[0].(map[string]*ThingGroup)[vs[1].(string)]
 	}).(ThingGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupInput)(nil)).Elem(), &ThingGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPtrInput)(nil)).Elem(), &ThingGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupArrayInput)(nil)).Elem(), ThingGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMapInput)(nil)).Elem(), ThingGroupMap{})
 	pulumi.RegisterOutputType(ThingGroupOutput{})
-	pulumi.RegisterOutputType(ThingGroupPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupArrayOutput{})
 	pulumi.RegisterOutputType(ThingGroupMapOutput{})
 }

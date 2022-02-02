@@ -160,56 +160,54 @@ export class Api extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiArgs | ApiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiState | undefined;
-            inputs["apiEndpoint"] = state ? state.apiEndpoint : undefined;
-            inputs["apiKeySelectionExpression"] = state ? state.apiKeySelectionExpression : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
-            inputs["credentialsArn"] = state ? state.credentialsArn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["protocolType"] = state ? state.protocolType : undefined;
-            inputs["routeKey"] = state ? state.routeKey : undefined;
-            inputs["routeSelectionExpression"] = state ? state.routeSelectionExpression : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["target"] = state ? state.target : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["apiEndpoint"] = state ? state.apiEndpoint : undefined;
+            resourceInputs["apiKeySelectionExpression"] = state ? state.apiKeySelectionExpression : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
+            resourceInputs["credentialsArn"] = state ? state.credentialsArn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
+            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
+            resourceInputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protocolType"] = state ? state.protocolType : undefined;
+            resourceInputs["routeKey"] = state ? state.routeKey : undefined;
+            resourceInputs["routeSelectionExpression"] = state ? state.routeSelectionExpression : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["target"] = state ? state.target : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ApiArgs | undefined;
             if ((!args || args.protocolType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocolType'");
             }
-            inputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            inputs["credentialsArn"] = args ? args.credentialsArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            inputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protocolType"] = args ? args.protocolType : undefined;
-            inputs["routeKey"] = args ? args.routeKey : undefined;
-            inputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["target"] = args ? args.target : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["apiEndpoint"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
+            resourceInputs["credentialsArn"] = args ? args.credentialsArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
+            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
+            resourceInputs["routeKey"] = args ? args.routeKey : undefined;
+            resourceInputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["apiEndpoint"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["executionArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Api.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Api.__pulumiType, name, resourceInputs, opts);
     }
 }
 

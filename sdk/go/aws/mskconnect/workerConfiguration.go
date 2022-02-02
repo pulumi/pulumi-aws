@@ -153,7 +153,7 @@ type WorkerConfigurationInput interface {
 }
 
 func (*WorkerConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerConfiguration)(nil))
+	return reflect.TypeOf((**WorkerConfiguration)(nil)).Elem()
 }
 
 func (i *WorkerConfiguration) ToWorkerConfigurationOutput() WorkerConfigurationOutput {
@@ -162,35 +162,6 @@ func (i *WorkerConfiguration) ToWorkerConfigurationOutput() WorkerConfigurationO
 
 func (i *WorkerConfiguration) ToWorkerConfigurationOutputWithContext(ctx context.Context) WorkerConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationOutput)
-}
-
-func (i *WorkerConfiguration) ToWorkerConfigurationPtrOutput() WorkerConfigurationPtrOutput {
-	return i.ToWorkerConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkerConfiguration) ToWorkerConfigurationPtrOutputWithContext(ctx context.Context) WorkerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationPtrOutput)
-}
-
-type WorkerConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToWorkerConfigurationPtrOutput() WorkerConfigurationPtrOutput
-	ToWorkerConfigurationPtrOutputWithContext(ctx context.Context) WorkerConfigurationPtrOutput
-}
-
-type workerConfigurationPtrType WorkerConfigurationArgs
-
-func (*workerConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkerConfiguration)(nil))
-}
-
-func (i *workerConfigurationPtrType) ToWorkerConfigurationPtrOutput() WorkerConfigurationPtrOutput {
-	return i.ToWorkerConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *workerConfigurationPtrType) ToWorkerConfigurationPtrOutputWithContext(ctx context.Context) WorkerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationPtrOutput)
 }
 
 // WorkerConfigurationArrayInput is an input type that accepts WorkerConfigurationArray and WorkerConfigurationArrayOutput values.
@@ -246,7 +217,7 @@ func (i WorkerConfigurationMap) ToWorkerConfigurationMapOutputWithContext(ctx co
 type WorkerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerConfiguration)(nil))
+	return reflect.TypeOf((**WorkerConfiguration)(nil)).Elem()
 }
 
 func (o WorkerConfigurationOutput) ToWorkerConfigurationOutput() WorkerConfigurationOutput {
@@ -257,44 +228,10 @@ func (o WorkerConfigurationOutput) ToWorkerConfigurationOutputWithContext(ctx co
 	return o
 }
 
-func (o WorkerConfigurationOutput) ToWorkerConfigurationPtrOutput() WorkerConfigurationPtrOutput {
-	return o.ToWorkerConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o WorkerConfigurationOutput) ToWorkerConfigurationPtrOutputWithContext(ctx context.Context) WorkerConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkerConfiguration) *WorkerConfiguration {
-		return &v
-	}).(WorkerConfigurationPtrOutput)
-}
-
-type WorkerConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkerConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkerConfiguration)(nil))
-}
-
-func (o WorkerConfigurationPtrOutput) ToWorkerConfigurationPtrOutput() WorkerConfigurationPtrOutput {
-	return o
-}
-
-func (o WorkerConfigurationPtrOutput) ToWorkerConfigurationPtrOutputWithContext(ctx context.Context) WorkerConfigurationPtrOutput {
-	return o
-}
-
-func (o WorkerConfigurationPtrOutput) Elem() WorkerConfigurationOutput {
-	return o.ApplyT(func(v *WorkerConfiguration) WorkerConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret WorkerConfiguration
-		return ret
-	}).(WorkerConfigurationOutput)
-}
-
 type WorkerConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkerConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkerConfiguration)(nil))
+	return reflect.TypeOf((*[]*WorkerConfiguration)(nil)).Elem()
 }
 
 func (o WorkerConfigurationArrayOutput) ToWorkerConfigurationArrayOutput() WorkerConfigurationArrayOutput {
@@ -306,15 +243,15 @@ func (o WorkerConfigurationArrayOutput) ToWorkerConfigurationArrayOutputWithCont
 }
 
 func (o WorkerConfigurationArrayOutput) Index(i pulumi.IntInput) WorkerConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkerConfiguration {
-		return vs[0].([]WorkerConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkerConfiguration {
+		return vs[0].([]*WorkerConfiguration)[vs[1].(int)]
 	}).(WorkerConfigurationOutput)
 }
 
 type WorkerConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (WorkerConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkerConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*WorkerConfiguration)(nil)).Elem()
 }
 
 func (o WorkerConfigurationMapOutput) ToWorkerConfigurationMapOutput() WorkerConfigurationMapOutput {
@@ -326,18 +263,16 @@ func (o WorkerConfigurationMapOutput) ToWorkerConfigurationMapOutputWithContext(
 }
 
 func (o WorkerConfigurationMapOutput) MapIndex(k pulumi.StringInput) WorkerConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkerConfiguration {
-		return vs[0].(map[string]WorkerConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkerConfiguration {
+		return vs[0].(map[string]*WorkerConfiguration)[vs[1].(string)]
 	}).(WorkerConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkerConfigurationInput)(nil)).Elem(), &WorkerConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkerConfigurationPtrInput)(nil)).Elem(), &WorkerConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkerConfigurationArrayInput)(nil)).Elem(), WorkerConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkerConfigurationMapInput)(nil)).Elem(), WorkerConfigurationMap{})
 	pulumi.RegisterOutputType(WorkerConfigurationOutput{})
-	pulumi.RegisterOutputType(WorkerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkerConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(WorkerConfigurationMapOutput{})
 }

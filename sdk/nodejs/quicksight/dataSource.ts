@@ -122,22 +122,22 @@ export class DataSource extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataSourceArgs | DataSourceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            inputs["credentials"] = state ? state.credentials : undefined;
-            inputs["dataSourceId"] = state ? state.dataSourceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["sslProperties"] = state ? state.sslProperties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["vpcConnectionProperties"] = state ? state.vpcConnectionProperties : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["dataSourceId"] = state ? state.dataSourceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["sslProperties"] = state ? state.sslProperties : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vpcConnectionProperties"] = state ? state.vpcConnectionProperties : undefined;
         } else {
             const args = argsOrState as DataSourceArgs | undefined;
             if ((!args || args.dataSourceId === undefined) && !opts.urn) {
@@ -149,23 +149,21 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["sslProperties"] = args ? args.sslProperties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataSource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

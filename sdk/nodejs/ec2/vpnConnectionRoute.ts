@@ -78,12 +78,12 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnConnectionRouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnConnectionRouteArgs | VpnConnectionRouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnConnectionRouteState | undefined;
-            inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            inputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
+            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
+            resourceInputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
         } else {
             const args = argsOrState as VpnConnectionRouteArgs | undefined;
             if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
@@ -92,13 +92,11 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
             if ((!args || args.vpnConnectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpnConnectionRoute.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpnConnectionRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

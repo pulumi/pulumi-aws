@@ -173,7 +173,7 @@ type TrafficMirrorTargetInput interface {
 }
 
 func (*TrafficMirrorTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorTarget)(nil))
+	return reflect.TypeOf((**TrafficMirrorTarget)(nil)).Elem()
 }
 
 func (i *TrafficMirrorTarget) ToTrafficMirrorTargetOutput() TrafficMirrorTargetOutput {
@@ -182,35 +182,6 @@ func (i *TrafficMirrorTarget) ToTrafficMirrorTargetOutput() TrafficMirrorTargetO
 
 func (i *TrafficMirrorTarget) ToTrafficMirrorTargetOutputWithContext(ctx context.Context) TrafficMirrorTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorTargetOutput)
-}
-
-func (i *TrafficMirrorTarget) ToTrafficMirrorTargetPtrOutput() TrafficMirrorTargetPtrOutput {
-	return i.ToTrafficMirrorTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *TrafficMirrorTarget) ToTrafficMirrorTargetPtrOutputWithContext(ctx context.Context) TrafficMirrorTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorTargetPtrOutput)
-}
-
-type TrafficMirrorTargetPtrInput interface {
-	pulumi.Input
-
-	ToTrafficMirrorTargetPtrOutput() TrafficMirrorTargetPtrOutput
-	ToTrafficMirrorTargetPtrOutputWithContext(ctx context.Context) TrafficMirrorTargetPtrOutput
-}
-
-type trafficMirrorTargetPtrType TrafficMirrorTargetArgs
-
-func (*trafficMirrorTargetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrafficMirrorTarget)(nil))
-}
-
-func (i *trafficMirrorTargetPtrType) ToTrafficMirrorTargetPtrOutput() TrafficMirrorTargetPtrOutput {
-	return i.ToTrafficMirrorTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *trafficMirrorTargetPtrType) ToTrafficMirrorTargetPtrOutputWithContext(ctx context.Context) TrafficMirrorTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorTargetPtrOutput)
 }
 
 // TrafficMirrorTargetArrayInput is an input type that accepts TrafficMirrorTargetArray and TrafficMirrorTargetArrayOutput values.
@@ -266,7 +237,7 @@ func (i TrafficMirrorTargetMap) ToTrafficMirrorTargetMapOutputWithContext(ctx co
 type TrafficMirrorTargetOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorTarget)(nil))
+	return reflect.TypeOf((**TrafficMirrorTarget)(nil)).Elem()
 }
 
 func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetOutput() TrafficMirrorTargetOutput {
@@ -277,44 +248,10 @@ func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetOutputWithContext(ctx co
 	return o
 }
 
-func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetPtrOutput() TrafficMirrorTargetPtrOutput {
-	return o.ToTrafficMirrorTargetPtrOutputWithContext(context.Background())
-}
-
-func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetPtrOutputWithContext(ctx context.Context) TrafficMirrorTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorTarget) *TrafficMirrorTarget {
-		return &v
-	}).(TrafficMirrorTargetPtrOutput)
-}
-
-type TrafficMirrorTargetPtrOutput struct{ *pulumi.OutputState }
-
-func (TrafficMirrorTargetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrafficMirrorTarget)(nil))
-}
-
-func (o TrafficMirrorTargetPtrOutput) ToTrafficMirrorTargetPtrOutput() TrafficMirrorTargetPtrOutput {
-	return o
-}
-
-func (o TrafficMirrorTargetPtrOutput) ToTrafficMirrorTargetPtrOutputWithContext(ctx context.Context) TrafficMirrorTargetPtrOutput {
-	return o
-}
-
-func (o TrafficMirrorTargetPtrOutput) Elem() TrafficMirrorTargetOutput {
-	return o.ApplyT(func(v *TrafficMirrorTarget) TrafficMirrorTarget {
-		if v != nil {
-			return *v
-		}
-		var ret TrafficMirrorTarget
-		return ret
-	}).(TrafficMirrorTargetOutput)
-}
-
 type TrafficMirrorTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrafficMirrorTarget)(nil))
+	return reflect.TypeOf((*[]*TrafficMirrorTarget)(nil)).Elem()
 }
 
 func (o TrafficMirrorTargetArrayOutput) ToTrafficMirrorTargetArrayOutput() TrafficMirrorTargetArrayOutput {
@@ -326,15 +263,15 @@ func (o TrafficMirrorTargetArrayOutput) ToTrafficMirrorTargetArrayOutputWithCont
 }
 
 func (o TrafficMirrorTargetArrayOutput) Index(i pulumi.IntInput) TrafficMirrorTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficMirrorTarget {
-		return vs[0].([]TrafficMirrorTarget)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficMirrorTarget {
+		return vs[0].([]*TrafficMirrorTarget)[vs[1].(int)]
 	}).(TrafficMirrorTargetOutput)
 }
 
 type TrafficMirrorTargetMapOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorTargetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TrafficMirrorTarget)(nil))
+	return reflect.TypeOf((*map[string]*TrafficMirrorTarget)(nil)).Elem()
 }
 
 func (o TrafficMirrorTargetMapOutput) ToTrafficMirrorTargetMapOutput() TrafficMirrorTargetMapOutput {
@@ -346,18 +283,16 @@ func (o TrafficMirrorTargetMapOutput) ToTrafficMirrorTargetMapOutputWithContext(
 }
 
 func (o TrafficMirrorTargetMapOutput) MapIndex(k pulumi.StringInput) TrafficMirrorTargetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TrafficMirrorTarget {
-		return vs[0].(map[string]TrafficMirrorTarget)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TrafficMirrorTarget {
+		return vs[0].(map[string]*TrafficMirrorTarget)[vs[1].(string)]
 	}).(TrafficMirrorTargetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorTargetInput)(nil)).Elem(), &TrafficMirrorTarget{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorTargetPtrInput)(nil)).Elem(), &TrafficMirrorTarget{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorTargetArrayInput)(nil)).Elem(), TrafficMirrorTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorTargetMapInput)(nil)).Elem(), TrafficMirrorTargetMap{})
 	pulumi.RegisterOutputType(TrafficMirrorTargetOutput{})
-	pulumi.RegisterOutputType(TrafficMirrorTargetPtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorTargetArrayOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorTargetMapOutput{})
 }

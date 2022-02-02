@@ -96,32 +96,30 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationTemplateArgs | ConfigurationTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationTemplateState | undefined;
-            inputs["application"] = state ? state.application : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["environmentId"] = state ? state.environmentId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["solutionStackName"] = state ? state.solutionStackName : undefined;
+            resourceInputs["application"] = state ? state.application : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["solutionStackName"] = state ? state.solutionStackName : undefined;
         } else {
             const args = argsOrState as ConfigurationTemplateArgs | undefined;
             if ((!args || args.application === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            inputs["application"] = args ? args.application : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentId"] = args ? args.environmentId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
+            resourceInputs["application"] = args ? args.application : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

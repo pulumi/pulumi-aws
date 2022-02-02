@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.MskConnect
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.MskConnect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkerConfigurationResult> InvokeAsync(GetWorkerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an Amazon MSK Connect Worker Configuration.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.MskConnect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

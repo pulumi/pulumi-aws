@@ -27,12 +27,12 @@ namespace Pulumi.Aws.Sns
     ///         var test = new Aws.Sns.Topic("test", new Aws.Sns.TopicArgs
     ///         {
     ///         });
-    ///         var snsTopicPolicy = test.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var snsTopicPolicy = test.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             PolicyId = "__default_policy_ID",
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Actions = 
     ///                     {
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Sns
     ///                     },
     ///                     Conditions = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                         {
     ///                             Test = "StringEquals",
     ///                             Variable = "AWS:SourceOwner",
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Sns
     ///                     Effect = "Allow",
     ///                     Principals = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
     ///                             Type = "AWS",
     ///                             Identifiers = 

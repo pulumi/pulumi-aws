@@ -106,7 +106,7 @@ type DomainServiceAccessPolicyInput interface {
 }
 
 func (*DomainServiceAccessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainServiceAccessPolicy)(nil))
+	return reflect.TypeOf((**DomainServiceAccessPolicy)(nil)).Elem()
 }
 
 func (i *DomainServiceAccessPolicy) ToDomainServiceAccessPolicyOutput() DomainServiceAccessPolicyOutput {
@@ -115,35 +115,6 @@ func (i *DomainServiceAccessPolicy) ToDomainServiceAccessPolicyOutput() DomainSe
 
 func (i *DomainServiceAccessPolicy) ToDomainServiceAccessPolicyOutputWithContext(ctx context.Context) DomainServiceAccessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceAccessPolicyOutput)
-}
-
-func (i *DomainServiceAccessPolicy) ToDomainServiceAccessPolicyPtrOutput() DomainServiceAccessPolicyPtrOutput {
-	return i.ToDomainServiceAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainServiceAccessPolicy) ToDomainServiceAccessPolicyPtrOutputWithContext(ctx context.Context) DomainServiceAccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceAccessPolicyPtrOutput)
-}
-
-type DomainServiceAccessPolicyPtrInput interface {
-	pulumi.Input
-
-	ToDomainServiceAccessPolicyPtrOutput() DomainServiceAccessPolicyPtrOutput
-	ToDomainServiceAccessPolicyPtrOutputWithContext(ctx context.Context) DomainServiceAccessPolicyPtrOutput
-}
-
-type domainServiceAccessPolicyPtrType DomainServiceAccessPolicyArgs
-
-func (*domainServiceAccessPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainServiceAccessPolicy)(nil))
-}
-
-func (i *domainServiceAccessPolicyPtrType) ToDomainServiceAccessPolicyPtrOutput() DomainServiceAccessPolicyPtrOutput {
-	return i.ToDomainServiceAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *domainServiceAccessPolicyPtrType) ToDomainServiceAccessPolicyPtrOutputWithContext(ctx context.Context) DomainServiceAccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceAccessPolicyPtrOutput)
 }
 
 // DomainServiceAccessPolicyArrayInput is an input type that accepts DomainServiceAccessPolicyArray and DomainServiceAccessPolicyArrayOutput values.
@@ -199,7 +170,7 @@ func (i DomainServiceAccessPolicyMap) ToDomainServiceAccessPolicyMapOutputWithCo
 type DomainServiceAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceAccessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainServiceAccessPolicy)(nil))
+	return reflect.TypeOf((**DomainServiceAccessPolicy)(nil)).Elem()
 }
 
 func (o DomainServiceAccessPolicyOutput) ToDomainServiceAccessPolicyOutput() DomainServiceAccessPolicyOutput {
@@ -210,44 +181,10 @@ func (o DomainServiceAccessPolicyOutput) ToDomainServiceAccessPolicyOutputWithCo
 	return o
 }
 
-func (o DomainServiceAccessPolicyOutput) ToDomainServiceAccessPolicyPtrOutput() DomainServiceAccessPolicyPtrOutput {
-	return o.ToDomainServiceAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o DomainServiceAccessPolicyOutput) ToDomainServiceAccessPolicyPtrOutputWithContext(ctx context.Context) DomainServiceAccessPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainServiceAccessPolicy) *DomainServiceAccessPolicy {
-		return &v
-	}).(DomainServiceAccessPolicyPtrOutput)
-}
-
-type DomainServiceAccessPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainServiceAccessPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainServiceAccessPolicy)(nil))
-}
-
-func (o DomainServiceAccessPolicyPtrOutput) ToDomainServiceAccessPolicyPtrOutput() DomainServiceAccessPolicyPtrOutput {
-	return o
-}
-
-func (o DomainServiceAccessPolicyPtrOutput) ToDomainServiceAccessPolicyPtrOutputWithContext(ctx context.Context) DomainServiceAccessPolicyPtrOutput {
-	return o
-}
-
-func (o DomainServiceAccessPolicyPtrOutput) Elem() DomainServiceAccessPolicyOutput {
-	return o.ApplyT(func(v *DomainServiceAccessPolicy) DomainServiceAccessPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret DomainServiceAccessPolicy
-		return ret
-	}).(DomainServiceAccessPolicyOutput)
-}
-
 type DomainServiceAccessPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceAccessPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainServiceAccessPolicy)(nil))
+	return reflect.TypeOf((*[]*DomainServiceAccessPolicy)(nil)).Elem()
 }
 
 func (o DomainServiceAccessPolicyArrayOutput) ToDomainServiceAccessPolicyArrayOutput() DomainServiceAccessPolicyArrayOutput {
@@ -259,15 +196,15 @@ func (o DomainServiceAccessPolicyArrayOutput) ToDomainServiceAccessPolicyArrayOu
 }
 
 func (o DomainServiceAccessPolicyArrayOutput) Index(i pulumi.IntInput) DomainServiceAccessPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainServiceAccessPolicy {
-		return vs[0].([]DomainServiceAccessPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainServiceAccessPolicy {
+		return vs[0].([]*DomainServiceAccessPolicy)[vs[1].(int)]
 	}).(DomainServiceAccessPolicyOutput)
 }
 
 type DomainServiceAccessPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceAccessPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainServiceAccessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*DomainServiceAccessPolicy)(nil)).Elem()
 }
 
 func (o DomainServiceAccessPolicyMapOutput) ToDomainServiceAccessPolicyMapOutput() DomainServiceAccessPolicyMapOutput {
@@ -279,18 +216,16 @@ func (o DomainServiceAccessPolicyMapOutput) ToDomainServiceAccessPolicyMapOutput
 }
 
 func (o DomainServiceAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) DomainServiceAccessPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainServiceAccessPolicy {
-		return vs[0].(map[string]DomainServiceAccessPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainServiceAccessPolicy {
+		return vs[0].(map[string]*DomainServiceAccessPolicy)[vs[1].(string)]
 	}).(DomainServiceAccessPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainServiceAccessPolicyInput)(nil)).Elem(), &DomainServiceAccessPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainServiceAccessPolicyPtrInput)(nil)).Elem(), &DomainServiceAccessPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainServiceAccessPolicyArrayInput)(nil)).Elem(), DomainServiceAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainServiceAccessPolicyMapInput)(nil)).Elem(), DomainServiceAccessPolicyMap{})
 	pulumi.RegisterOutputType(DomainServiceAccessPolicyOutput{})
-	pulumi.RegisterOutputType(DomainServiceAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DomainServiceAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(DomainServiceAccessPolicyMapOutput{})
 }

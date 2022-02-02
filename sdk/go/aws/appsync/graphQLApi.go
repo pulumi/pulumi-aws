@@ -205,7 +205,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -497,7 +496,7 @@ type GraphQLApiInput interface {
 }
 
 func (*GraphQLApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApi)(nil))
+	return reflect.TypeOf((**GraphQLApi)(nil)).Elem()
 }
 
 func (i *GraphQLApi) ToGraphQLApiOutput() GraphQLApiOutput {
@@ -506,35 +505,6 @@ func (i *GraphQLApi) ToGraphQLApiOutput() GraphQLApiOutput {
 
 func (i *GraphQLApi) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiOutput)
-}
-
-func (i *GraphQLApi) ToGraphQLApiPtrOutput() GraphQLApiPtrOutput {
-	return i.ToGraphQLApiPtrOutputWithContext(context.Background())
-}
-
-func (i *GraphQLApi) ToGraphQLApiPtrOutputWithContext(ctx context.Context) GraphQLApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiPtrOutput)
-}
-
-type GraphQLApiPtrInput interface {
-	pulumi.Input
-
-	ToGraphQLApiPtrOutput() GraphQLApiPtrOutput
-	ToGraphQLApiPtrOutputWithContext(ctx context.Context) GraphQLApiPtrOutput
-}
-
-type graphQLApiPtrType GraphQLApiArgs
-
-func (*graphQLApiPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GraphQLApi)(nil))
-}
-
-func (i *graphQLApiPtrType) ToGraphQLApiPtrOutput() GraphQLApiPtrOutput {
-	return i.ToGraphQLApiPtrOutputWithContext(context.Background())
-}
-
-func (i *graphQLApiPtrType) ToGraphQLApiPtrOutputWithContext(ctx context.Context) GraphQLApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiPtrOutput)
 }
 
 // GraphQLApiArrayInput is an input type that accepts GraphQLApiArray and GraphQLApiArrayOutput values.
@@ -590,7 +560,7 @@ func (i GraphQLApiMap) ToGraphQLApiMapOutputWithContext(ctx context.Context) Gra
 type GraphQLApiOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApi)(nil))
+	return reflect.TypeOf((**GraphQLApi)(nil)).Elem()
 }
 
 func (o GraphQLApiOutput) ToGraphQLApiOutput() GraphQLApiOutput {
@@ -601,44 +571,10 @@ func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
-func (o GraphQLApiOutput) ToGraphQLApiPtrOutput() GraphQLApiPtrOutput {
-	return o.ToGraphQLApiPtrOutputWithContext(context.Background())
-}
-
-func (o GraphQLApiOutput) ToGraphQLApiPtrOutputWithContext(ctx context.Context) GraphQLApiPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApi) *GraphQLApi {
-		return &v
-	}).(GraphQLApiPtrOutput)
-}
-
-type GraphQLApiPtrOutput struct{ *pulumi.OutputState }
-
-func (GraphQLApiPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GraphQLApi)(nil))
-}
-
-func (o GraphQLApiPtrOutput) ToGraphQLApiPtrOutput() GraphQLApiPtrOutput {
-	return o
-}
-
-func (o GraphQLApiPtrOutput) ToGraphQLApiPtrOutputWithContext(ctx context.Context) GraphQLApiPtrOutput {
-	return o
-}
-
-func (o GraphQLApiPtrOutput) Elem() GraphQLApiOutput {
-	return o.ApplyT(func(v *GraphQLApi) GraphQLApi {
-		if v != nil {
-			return *v
-		}
-		var ret GraphQLApi
-		return ret
-	}).(GraphQLApiOutput)
-}
-
 type GraphQLApiArrayOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GraphQLApi)(nil))
+	return reflect.TypeOf((*[]*GraphQLApi)(nil)).Elem()
 }
 
 func (o GraphQLApiArrayOutput) ToGraphQLApiArrayOutput() GraphQLApiArrayOutput {
@@ -650,15 +586,15 @@ func (o GraphQLApiArrayOutput) ToGraphQLApiArrayOutputWithContext(ctx context.Co
 }
 
 func (o GraphQLApiArrayOutput) Index(i pulumi.IntInput) GraphQLApiOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphQLApi {
-		return vs[0].([]GraphQLApi)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GraphQLApi {
+		return vs[0].([]*GraphQLApi)[vs[1].(int)]
 	}).(GraphQLApiOutput)
 }
 
 type GraphQLApiMapOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GraphQLApi)(nil))
+	return reflect.TypeOf((*map[string]*GraphQLApi)(nil)).Elem()
 }
 
 func (o GraphQLApiMapOutput) ToGraphQLApiMapOutput() GraphQLApiMapOutput {
@@ -670,18 +606,16 @@ func (o GraphQLApiMapOutput) ToGraphQLApiMapOutputWithContext(ctx context.Contex
 }
 
 func (o GraphQLApiMapOutput) MapIndex(k pulumi.StringInput) GraphQLApiOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphQLApi {
-		return vs[0].(map[string]GraphQLApi)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GraphQLApi {
+		return vs[0].(map[string]*GraphQLApi)[vs[1].(string)]
 	}).(GraphQLApiOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiInput)(nil)).Elem(), &GraphQLApi{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiPtrInput)(nil)).Elem(), &GraphQLApi{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiArrayInput)(nil)).Elem(), GraphQLApiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiMapInput)(nil)).Elem(), GraphQLApiMap{})
 	pulumi.RegisterOutputType(GraphQLApiOutput{})
-	pulumi.RegisterOutputType(GraphQLApiPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiArrayOutput{})
 	pulumi.RegisterOutputType(GraphQLApiMapOutput{})
 }

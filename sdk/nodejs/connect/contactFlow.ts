@@ -145,42 +145,40 @@ export class ContactFlow extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContactFlowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContactFlowArgs | ContactFlowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactFlowState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["contactFlowId"] = state ? state.contactFlowId : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["contentHash"] = state ? state.contentHash : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["filename"] = state ? state.filename : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contactFlowId"] = state ? state.contactFlowId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentHash"] = state ? state.contentHash : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["filename"] = state ? state.filename : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ContactFlowArgs | undefined;
             if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentHash"] = args ? args.contentHash : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["filename"] = args ? args.filename : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["contactFlowId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentHash"] = args ? args.contentHash : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["filename"] = args ? args.filename : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["contactFlowId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ContactFlow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ContactFlow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

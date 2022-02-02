@@ -32,6 +32,27 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// 			Statements: iam.GetPolicyDocumentStatementArray{
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("SES:SendEmail"),
+// 						pulumi.String("SES:SendRawEmail"),
+// 					},
+// 					Resources: pulumi.StringArray{
+// 						exampleDomainIdentity.Arn,
+// 					},
+// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
+// 							Identifiers: pulumi.StringArray{
+// 								pulumi.String("*"),
+// 							},
+// 							Type: pulumi.String("AWS"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		_, err = ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
 // 			Identity: exampleDomainIdentity.Arn,
 // 			Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (string, error) {
@@ -151,7 +172,7 @@ type IdentityPolicyInput interface {
 }
 
 func (*IdentityPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPolicy)(nil))
+	return reflect.TypeOf((**IdentityPolicy)(nil)).Elem()
 }
 
 func (i *IdentityPolicy) ToIdentityPolicyOutput() IdentityPolicyOutput {
@@ -160,35 +181,6 @@ func (i *IdentityPolicy) ToIdentityPolicyOutput() IdentityPolicyOutput {
 
 func (i *IdentityPolicy) ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyOutput)
-}
-
-func (i *IdentityPolicy) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
-	return i.ToIdentityPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *IdentityPolicy) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyPtrOutput)
-}
-
-type IdentityPolicyPtrInput interface {
-	pulumi.Input
-
-	ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput
-	ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput
-}
-
-type identityPolicyPtrType IdentityPolicyArgs
-
-func (*identityPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPolicy)(nil))
-}
-
-func (i *identityPolicyPtrType) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
-	return i.ToIdentityPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *identityPolicyPtrType) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyPtrOutput)
 }
 
 // IdentityPolicyArrayInput is an input type that accepts IdentityPolicyArray and IdentityPolicyArrayOutput values.
@@ -244,7 +236,7 @@ func (i IdentityPolicyMap) ToIdentityPolicyMapOutputWithContext(ctx context.Cont
 type IdentityPolicyOutput struct{ *pulumi.OutputState }
 
 func (IdentityPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPolicy)(nil))
+	return reflect.TypeOf((**IdentityPolicy)(nil)).Elem()
 }
 
 func (o IdentityPolicyOutput) ToIdentityPolicyOutput() IdentityPolicyOutput {
@@ -255,44 +247,10 @@ func (o IdentityPolicyOutput) ToIdentityPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o IdentityPolicyOutput) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
-	return o.ToIdentityPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityPolicyOutput) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPolicy) *IdentityPolicy {
-		return &v
-	}).(IdentityPolicyPtrOutput)
-}
-
-type IdentityPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPolicy)(nil))
-}
-
-func (o IdentityPolicyPtrOutput) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutput {
-	return o
-}
-
-func (o IdentityPolicyPtrOutput) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
-	return o
-}
-
-func (o IdentityPolicyPtrOutput) Elem() IdentityPolicyOutput {
-	return o.ApplyT(func(v *IdentityPolicy) IdentityPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityPolicy
-		return ret
-	}).(IdentityPolicyOutput)
-}
-
 type IdentityPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (IdentityPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityPolicy)(nil))
+	return reflect.TypeOf((*[]*IdentityPolicy)(nil)).Elem()
 }
 
 func (o IdentityPolicyArrayOutput) ToIdentityPolicyArrayOutput() IdentityPolicyArrayOutput {
@@ -304,15 +262,15 @@ func (o IdentityPolicyArrayOutput) ToIdentityPolicyArrayOutputWithContext(ctx co
 }
 
 func (o IdentityPolicyArrayOutput) Index(i pulumi.IntInput) IdentityPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPolicy {
-		return vs[0].([]IdentityPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPolicy {
+		return vs[0].([]*IdentityPolicy)[vs[1].(int)]
 	}).(IdentityPolicyOutput)
 }
 
 type IdentityPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (IdentityPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityPolicy)(nil))
+	return reflect.TypeOf((*map[string]*IdentityPolicy)(nil)).Elem()
 }
 
 func (o IdentityPolicyMapOutput) ToIdentityPolicyMapOutput() IdentityPolicyMapOutput {
@@ -324,18 +282,16 @@ func (o IdentityPolicyMapOutput) ToIdentityPolicyMapOutputWithContext(ctx contex
 }
 
 func (o IdentityPolicyMapOutput) MapIndex(k pulumi.StringInput) IdentityPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPolicy {
-		return vs[0].(map[string]IdentityPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IdentityPolicy {
+		return vs[0].(map[string]*IdentityPolicy)[vs[1].(string)]
 	}).(IdentityPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPolicyInput)(nil)).Elem(), &IdentityPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPolicyPtrInput)(nil)).Elem(), &IdentityPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPolicyArrayInput)(nil)).Elem(), IdentityPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPolicyMapInput)(nil)).Elem(), IdentityPolicyMap{})
 	pulumi.RegisterOutputType(IdentityPolicyOutput{})
-	pulumi.RegisterOutputType(IdentityPolicyPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPolicyArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPolicyMapOutput{})
 }

@@ -15,9 +15,7 @@ export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getSubnetIds:getSubnetIds", {
         "filters": args.filters,
         "tags": args.tags,

@@ -182,7 +182,7 @@ type LocationFsxLustreInput interface {
 }
 
 func (*LocationFsxLustre) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFsxLustre)(nil))
+	return reflect.TypeOf((**LocationFsxLustre)(nil)).Elem()
 }
 
 func (i *LocationFsxLustre) ToLocationFsxLustreOutput() LocationFsxLustreOutput {
@@ -191,35 +191,6 @@ func (i *LocationFsxLustre) ToLocationFsxLustreOutput() LocationFsxLustreOutput 
 
 func (i *LocationFsxLustre) ToLocationFsxLustreOutputWithContext(ctx context.Context) LocationFsxLustreOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxLustreOutput)
-}
-
-func (i *LocationFsxLustre) ToLocationFsxLustrePtrOutput() LocationFsxLustrePtrOutput {
-	return i.ToLocationFsxLustrePtrOutputWithContext(context.Background())
-}
-
-func (i *LocationFsxLustre) ToLocationFsxLustrePtrOutputWithContext(ctx context.Context) LocationFsxLustrePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxLustrePtrOutput)
-}
-
-type LocationFsxLustrePtrInput interface {
-	pulumi.Input
-
-	ToLocationFsxLustrePtrOutput() LocationFsxLustrePtrOutput
-	ToLocationFsxLustrePtrOutputWithContext(ctx context.Context) LocationFsxLustrePtrOutput
-}
-
-type locationFsxLustrePtrType LocationFsxLustreArgs
-
-func (*locationFsxLustrePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationFsxLustre)(nil))
-}
-
-func (i *locationFsxLustrePtrType) ToLocationFsxLustrePtrOutput() LocationFsxLustrePtrOutput {
-	return i.ToLocationFsxLustrePtrOutputWithContext(context.Background())
-}
-
-func (i *locationFsxLustrePtrType) ToLocationFsxLustrePtrOutputWithContext(ctx context.Context) LocationFsxLustrePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxLustrePtrOutput)
 }
 
 // LocationFsxLustreArrayInput is an input type that accepts LocationFsxLustreArray and LocationFsxLustreArrayOutput values.
@@ -275,7 +246,7 @@ func (i LocationFsxLustreMap) ToLocationFsxLustreMapOutputWithContext(ctx contex
 type LocationFsxLustreOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxLustreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFsxLustre)(nil))
+	return reflect.TypeOf((**LocationFsxLustre)(nil)).Elem()
 }
 
 func (o LocationFsxLustreOutput) ToLocationFsxLustreOutput() LocationFsxLustreOutput {
@@ -286,44 +257,10 @@ func (o LocationFsxLustreOutput) ToLocationFsxLustreOutputWithContext(ctx contex
 	return o
 }
 
-func (o LocationFsxLustreOutput) ToLocationFsxLustrePtrOutput() LocationFsxLustrePtrOutput {
-	return o.ToLocationFsxLustrePtrOutputWithContext(context.Background())
-}
-
-func (o LocationFsxLustreOutput) ToLocationFsxLustrePtrOutputWithContext(ctx context.Context) LocationFsxLustrePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFsxLustre) *LocationFsxLustre {
-		return &v
-	}).(LocationFsxLustrePtrOutput)
-}
-
-type LocationFsxLustrePtrOutput struct{ *pulumi.OutputState }
-
-func (LocationFsxLustrePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationFsxLustre)(nil))
-}
-
-func (o LocationFsxLustrePtrOutput) ToLocationFsxLustrePtrOutput() LocationFsxLustrePtrOutput {
-	return o
-}
-
-func (o LocationFsxLustrePtrOutput) ToLocationFsxLustrePtrOutputWithContext(ctx context.Context) LocationFsxLustrePtrOutput {
-	return o
-}
-
-func (o LocationFsxLustrePtrOutput) Elem() LocationFsxLustreOutput {
-	return o.ApplyT(func(v *LocationFsxLustre) LocationFsxLustre {
-		if v != nil {
-			return *v
-		}
-		var ret LocationFsxLustre
-		return ret
-	}).(LocationFsxLustreOutput)
-}
-
 type LocationFsxLustreArrayOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxLustreArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFsxLustre)(nil))
+	return reflect.TypeOf((*[]*LocationFsxLustre)(nil)).Elem()
 }
 
 func (o LocationFsxLustreArrayOutput) ToLocationFsxLustreArrayOutput() LocationFsxLustreArrayOutput {
@@ -335,15 +272,15 @@ func (o LocationFsxLustreArrayOutput) ToLocationFsxLustreArrayOutputWithContext(
 }
 
 func (o LocationFsxLustreArrayOutput) Index(i pulumi.IntInput) LocationFsxLustreOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFsxLustre {
-		return vs[0].([]LocationFsxLustre)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationFsxLustre {
+		return vs[0].([]*LocationFsxLustre)[vs[1].(int)]
 	}).(LocationFsxLustreOutput)
 }
 
 type LocationFsxLustreMapOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxLustreMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocationFsxLustre)(nil))
+	return reflect.TypeOf((*map[string]*LocationFsxLustre)(nil)).Elem()
 }
 
 func (o LocationFsxLustreMapOutput) ToLocationFsxLustreMapOutput() LocationFsxLustreMapOutput {
@@ -355,18 +292,16 @@ func (o LocationFsxLustreMapOutput) ToLocationFsxLustreMapOutputWithContext(ctx 
 }
 
 func (o LocationFsxLustreMapOutput) MapIndex(k pulumi.StringInput) LocationFsxLustreOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocationFsxLustre {
-		return vs[0].(map[string]LocationFsxLustre)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocationFsxLustre {
+		return vs[0].(map[string]*LocationFsxLustre)[vs[1].(string)]
 	}).(LocationFsxLustreOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxLustreInput)(nil)).Elem(), &LocationFsxLustre{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxLustrePtrInput)(nil)).Elem(), &LocationFsxLustre{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxLustreArrayInput)(nil)).Elem(), LocationFsxLustreArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxLustreMapInput)(nil)).Elem(), LocationFsxLustreMap{})
 	pulumi.RegisterOutputType(LocationFsxLustreOutput{})
-	pulumi.RegisterOutputType(LocationFsxLustrePtrOutput{})
 	pulumi.RegisterOutputType(LocationFsxLustreArrayOutput{})
 	pulumi.RegisterOutputType(LocationFsxLustreMapOutput{})
 }

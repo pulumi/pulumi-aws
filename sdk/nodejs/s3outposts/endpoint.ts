@@ -95,17 +95,17 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["creationTime"] = state ? state.creationTime : undefined;
-            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["outpostId"] = state ? state.outpostId : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
+            resourceInputs["outpostId"] = state ? state.outpostId : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if ((!args || args.outpostId === undefined) && !opts.urn) {
@@ -117,18 +117,16 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["outpostId"] = args ? args.outpostId : undefined;
-            inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

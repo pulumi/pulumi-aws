@@ -263,7 +263,7 @@ type TaskSetInput interface {
 }
 
 func (*TaskSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskSet)(nil))
+	return reflect.TypeOf((**TaskSet)(nil)).Elem()
 }
 
 func (i *TaskSet) ToTaskSetOutput() TaskSetOutput {
@@ -272,35 +272,6 @@ func (i *TaskSet) ToTaskSetOutput() TaskSetOutput {
 
 func (i *TaskSet) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetOutput)
-}
-
-func (i *TaskSet) ToTaskSetPtrOutput() TaskSetPtrOutput {
-	return i.ToTaskSetPtrOutputWithContext(context.Background())
-}
-
-func (i *TaskSet) ToTaskSetPtrOutputWithContext(ctx context.Context) TaskSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskSetPtrOutput)
-}
-
-type TaskSetPtrInput interface {
-	pulumi.Input
-
-	ToTaskSetPtrOutput() TaskSetPtrOutput
-	ToTaskSetPtrOutputWithContext(ctx context.Context) TaskSetPtrOutput
-}
-
-type taskSetPtrType TaskSetArgs
-
-func (*taskSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskSet)(nil))
-}
-
-func (i *taskSetPtrType) ToTaskSetPtrOutput() TaskSetPtrOutput {
-	return i.ToTaskSetPtrOutputWithContext(context.Background())
-}
-
-func (i *taskSetPtrType) ToTaskSetPtrOutputWithContext(ctx context.Context) TaskSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskSetPtrOutput)
 }
 
 // TaskSetArrayInput is an input type that accepts TaskSetArray and TaskSetArrayOutput values.
@@ -356,7 +327,7 @@ func (i TaskSetMap) ToTaskSetMapOutputWithContext(ctx context.Context) TaskSetMa
 type TaskSetOutput struct{ *pulumi.OutputState }
 
 func (TaskSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskSet)(nil))
+	return reflect.TypeOf((**TaskSet)(nil)).Elem()
 }
 
 func (o TaskSetOutput) ToTaskSetOutput() TaskSetOutput {
@@ -367,44 +338,10 @@ func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOu
 	return o
 }
 
-func (o TaskSetOutput) ToTaskSetPtrOutput() TaskSetPtrOutput {
-	return o.ToTaskSetPtrOutputWithContext(context.Background())
-}
-
-func (o TaskSetOutput) ToTaskSetPtrOutputWithContext(ctx context.Context) TaskSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSet) *TaskSet {
-		return &v
-	}).(TaskSetPtrOutput)
-}
-
-type TaskSetPtrOutput struct{ *pulumi.OutputState }
-
-func (TaskSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskSet)(nil))
-}
-
-func (o TaskSetPtrOutput) ToTaskSetPtrOutput() TaskSetPtrOutput {
-	return o
-}
-
-func (o TaskSetPtrOutput) ToTaskSetPtrOutputWithContext(ctx context.Context) TaskSetPtrOutput {
-	return o
-}
-
-func (o TaskSetPtrOutput) Elem() TaskSetOutput {
-	return o.ApplyT(func(v *TaskSet) TaskSet {
-		if v != nil {
-			return *v
-		}
-		var ret TaskSet
-		return ret
-	}).(TaskSetOutput)
-}
-
 type TaskSetArrayOutput struct{ *pulumi.OutputState }
 
 func (TaskSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskSet)(nil))
+	return reflect.TypeOf((*[]*TaskSet)(nil)).Elem()
 }
 
 func (o TaskSetArrayOutput) ToTaskSetArrayOutput() TaskSetArrayOutput {
@@ -416,15 +353,15 @@ func (o TaskSetArrayOutput) ToTaskSetArrayOutputWithContext(ctx context.Context)
 }
 
 func (o TaskSetArrayOutput) Index(i pulumi.IntInput) TaskSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskSet {
-		return vs[0].([]TaskSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TaskSet {
+		return vs[0].([]*TaskSet)[vs[1].(int)]
 	}).(TaskSetOutput)
 }
 
 type TaskSetMapOutput struct{ *pulumi.OutputState }
 
 func (TaskSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TaskSet)(nil))
+	return reflect.TypeOf((*map[string]*TaskSet)(nil)).Elem()
 }
 
 func (o TaskSetMapOutput) ToTaskSetMapOutput() TaskSetMapOutput {
@@ -436,18 +373,16 @@ func (o TaskSetMapOutput) ToTaskSetMapOutputWithContext(ctx context.Context) Tas
 }
 
 func (o TaskSetMapOutput) MapIndex(k pulumi.StringInput) TaskSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TaskSet {
-		return vs[0].(map[string]TaskSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TaskSet {
+		return vs[0].(map[string]*TaskSet)[vs[1].(string)]
 	}).(TaskSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetInput)(nil)).Elem(), &TaskSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetPtrInput)(nil)).Elem(), &TaskSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetArrayInput)(nil)).Elem(), TaskSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetMapInput)(nil)).Elem(), TaskSetMap{})
 	pulumi.RegisterOutputType(TaskSetOutput{})
-	pulumi.RegisterOutputType(TaskSetPtrOutput{})
 	pulumi.RegisterOutputType(TaskSetArrayOutput{})
 	pulumi.RegisterOutputType(TaskSetMapOutput{})
 }

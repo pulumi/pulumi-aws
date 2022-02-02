@@ -202,7 +202,7 @@ type NatGatewayInput interface {
 }
 
 func (*NatGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatGateway)(nil))
+	return reflect.TypeOf((**NatGateway)(nil)).Elem()
 }
 
 func (i *NatGateway) ToNatGatewayOutput() NatGatewayOutput {
@@ -211,35 +211,6 @@ func (i *NatGateway) ToNatGatewayOutput() NatGatewayOutput {
 
 func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
-}
-
-func (i *NatGateway) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
-	return i.ToNatGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *NatGateway) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPtrOutput)
-}
-
-type NatGatewayPtrInput interface {
-	pulumi.Input
-
-	ToNatGatewayPtrOutput() NatGatewayPtrOutput
-	ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput
-}
-
-type natGatewayPtrType NatGatewayArgs
-
-func (*natGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NatGateway)(nil))
-}
-
-func (i *natGatewayPtrType) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
-	return i.ToNatGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *natGatewayPtrType) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPtrOutput)
 }
 
 // NatGatewayArrayInput is an input type that accepts NatGatewayArray and NatGatewayArrayOutput values.
@@ -295,7 +266,7 @@ func (i NatGatewayMap) ToNatGatewayMapOutputWithContext(ctx context.Context) Nat
 type NatGatewayOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatGateway)(nil))
+	return reflect.TypeOf((**NatGateway)(nil)).Elem()
 }
 
 func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {
@@ -306,44 +277,10 @@ func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) Nat
 	return o
 }
 
-func (o NatGatewayOutput) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
-	return o.ToNatGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o NatGatewayOutput) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NatGateway) *NatGateway {
-		return &v
-	}).(NatGatewayPtrOutput)
-}
-
-type NatGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (NatGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NatGateway)(nil))
-}
-
-func (o NatGatewayPtrOutput) ToNatGatewayPtrOutput() NatGatewayPtrOutput {
-	return o
-}
-
-func (o NatGatewayPtrOutput) ToNatGatewayPtrOutputWithContext(ctx context.Context) NatGatewayPtrOutput {
-	return o
-}
-
-func (o NatGatewayPtrOutput) Elem() NatGatewayOutput {
-	return o.ApplyT(func(v *NatGateway) NatGateway {
-		if v != nil {
-			return *v
-		}
-		var ret NatGateway
-		return ret
-	}).(NatGatewayOutput)
-}
-
 type NatGatewayArrayOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NatGateway)(nil))
+	return reflect.TypeOf((*[]*NatGateway)(nil)).Elem()
 }
 
 func (o NatGatewayArrayOutput) ToNatGatewayArrayOutput() NatGatewayArrayOutput {
@@ -355,15 +292,15 @@ func (o NatGatewayArrayOutput) ToNatGatewayArrayOutputWithContext(ctx context.Co
 }
 
 func (o NatGatewayArrayOutput) Index(i pulumi.IntInput) NatGatewayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatGateway {
-		return vs[0].([]NatGateway)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatGateway {
+		return vs[0].([]*NatGateway)[vs[1].(int)]
 	}).(NatGatewayOutput)
 }
 
 type NatGatewayMapOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NatGateway)(nil))
+	return reflect.TypeOf((*map[string]*NatGateway)(nil)).Elem()
 }
 
 func (o NatGatewayMapOutput) ToNatGatewayMapOutput() NatGatewayMapOutput {
@@ -375,18 +312,16 @@ func (o NatGatewayMapOutput) ToNatGatewayMapOutputWithContext(ctx context.Contex
 }
 
 func (o NatGatewayMapOutput) MapIndex(k pulumi.StringInput) NatGatewayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NatGateway {
-		return vs[0].(map[string]NatGateway)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NatGateway {
+		return vs[0].(map[string]*NatGateway)[vs[1].(string)]
 	}).(NatGatewayOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayInput)(nil)).Elem(), &NatGateway{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPtrInput)(nil)).Elem(), &NatGateway{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayArrayInput)(nil)).Elem(), NatGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayMapInput)(nil)).Elem(), NatGatewayMap{})
 	pulumi.RegisterOutputType(NatGatewayOutput{})
-	pulumi.RegisterOutputType(NatGatewayPtrOutput{})
 	pulumi.RegisterOutputType(NatGatewayArrayOutput{})
 	pulumi.RegisterOutputType(NatGatewayMapOutput{})
 }

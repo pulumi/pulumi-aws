@@ -390,7 +390,7 @@ type GlobalClusterInput interface {
 }
 
 func (*GlobalCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalCluster)(nil))
+	return reflect.TypeOf((**GlobalCluster)(nil)).Elem()
 }
 
 func (i *GlobalCluster) ToGlobalClusterOutput() GlobalClusterOutput {
@@ -399,35 +399,6 @@ func (i *GlobalCluster) ToGlobalClusterOutput() GlobalClusterOutput {
 
 func (i *GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterOutput)
-}
-
-func (i *GlobalCluster) ToGlobalClusterPtrOutput() GlobalClusterPtrOutput {
-	return i.ToGlobalClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *GlobalCluster) ToGlobalClusterPtrOutputWithContext(ctx context.Context) GlobalClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterPtrOutput)
-}
-
-type GlobalClusterPtrInput interface {
-	pulumi.Input
-
-	ToGlobalClusterPtrOutput() GlobalClusterPtrOutput
-	ToGlobalClusterPtrOutputWithContext(ctx context.Context) GlobalClusterPtrOutput
-}
-
-type globalClusterPtrType GlobalClusterArgs
-
-func (*globalClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalCluster)(nil))
-}
-
-func (i *globalClusterPtrType) ToGlobalClusterPtrOutput() GlobalClusterPtrOutput {
-	return i.ToGlobalClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *globalClusterPtrType) ToGlobalClusterPtrOutputWithContext(ctx context.Context) GlobalClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterPtrOutput)
 }
 
 // GlobalClusterArrayInput is an input type that accepts GlobalClusterArray and GlobalClusterArrayOutput values.
@@ -483,7 +454,7 @@ func (i GlobalClusterMap) ToGlobalClusterMapOutputWithContext(ctx context.Contex
 type GlobalClusterOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalCluster)(nil))
+	return reflect.TypeOf((**GlobalCluster)(nil)).Elem()
 }
 
 func (o GlobalClusterOutput) ToGlobalClusterOutput() GlobalClusterOutput {
@@ -494,44 +465,10 @@ func (o GlobalClusterOutput) ToGlobalClusterOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o GlobalClusterOutput) ToGlobalClusterPtrOutput() GlobalClusterPtrOutput {
-	return o.ToGlobalClusterPtrOutputWithContext(context.Background())
-}
-
-func (o GlobalClusterOutput) ToGlobalClusterPtrOutputWithContext(ctx context.Context) GlobalClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalCluster) *GlobalCluster {
-		return &v
-	}).(GlobalClusterPtrOutput)
-}
-
-type GlobalClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (GlobalClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalCluster)(nil))
-}
-
-func (o GlobalClusterPtrOutput) ToGlobalClusterPtrOutput() GlobalClusterPtrOutput {
-	return o
-}
-
-func (o GlobalClusterPtrOutput) ToGlobalClusterPtrOutputWithContext(ctx context.Context) GlobalClusterPtrOutput {
-	return o
-}
-
-func (o GlobalClusterPtrOutput) Elem() GlobalClusterOutput {
-	return o.ApplyT(func(v *GlobalCluster) GlobalCluster {
-		if v != nil {
-			return *v
-		}
-		var ret GlobalCluster
-		return ret
-	}).(GlobalClusterOutput)
-}
-
 type GlobalClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalCluster)(nil))
+	return reflect.TypeOf((*[]*GlobalCluster)(nil)).Elem()
 }
 
 func (o GlobalClusterArrayOutput) ToGlobalClusterArrayOutput() GlobalClusterArrayOutput {
@@ -543,15 +480,15 @@ func (o GlobalClusterArrayOutput) ToGlobalClusterArrayOutputWithContext(ctx cont
 }
 
 func (o GlobalClusterArrayOutput) Index(i pulumi.IntInput) GlobalClusterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalCluster {
-		return vs[0].([]GlobalCluster)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalCluster {
+		return vs[0].([]*GlobalCluster)[vs[1].(int)]
 	}).(GlobalClusterOutput)
 }
 
 type GlobalClusterMapOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GlobalCluster)(nil))
+	return reflect.TypeOf((*map[string]*GlobalCluster)(nil)).Elem()
 }
 
 func (o GlobalClusterMapOutput) ToGlobalClusterMapOutput() GlobalClusterMapOutput {
@@ -563,18 +500,16 @@ func (o GlobalClusterMapOutput) ToGlobalClusterMapOutputWithContext(ctx context.
 }
 
 func (o GlobalClusterMapOutput) MapIndex(k pulumi.StringInput) GlobalClusterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GlobalCluster {
-		return vs[0].(map[string]GlobalCluster)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GlobalCluster {
+		return vs[0].(map[string]*GlobalCluster)[vs[1].(string)]
 	}).(GlobalClusterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterInput)(nil)).Elem(), &GlobalCluster{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterPtrInput)(nil)).Elem(), &GlobalCluster{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterArrayInput)(nil)).Elem(), GlobalClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterMapInput)(nil)).Elem(), GlobalClusterMap{})
 	pulumi.RegisterOutputType(GlobalClusterOutput{})
-	pulumi.RegisterOutputType(GlobalClusterPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterArrayOutput{})
 	pulumi.RegisterOutputType(GlobalClusterMapOutput{})
 }

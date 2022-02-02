@@ -229,7 +229,7 @@ type GlobalReplicationGroupInput interface {
 }
 
 func (*GlobalReplicationGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((**GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (i *GlobalReplicationGroup) ToGlobalReplicationGroupOutput() GlobalReplicationGroupOutput {
@@ -238,35 +238,6 @@ func (i *GlobalReplicationGroup) ToGlobalReplicationGroupOutput() GlobalReplicat
 
 func (i *GlobalReplicationGroup) ToGlobalReplicationGroupOutputWithContext(ctx context.Context) GlobalReplicationGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupOutput)
-}
-
-func (i *GlobalReplicationGroup) ToGlobalReplicationGroupPtrOutput() GlobalReplicationGroupPtrOutput {
-	return i.ToGlobalReplicationGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *GlobalReplicationGroup) ToGlobalReplicationGroupPtrOutputWithContext(ctx context.Context) GlobalReplicationGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupPtrOutput)
-}
-
-type GlobalReplicationGroupPtrInput interface {
-	pulumi.Input
-
-	ToGlobalReplicationGroupPtrOutput() GlobalReplicationGroupPtrOutput
-	ToGlobalReplicationGroupPtrOutputWithContext(ctx context.Context) GlobalReplicationGroupPtrOutput
-}
-
-type globalReplicationGroupPtrType GlobalReplicationGroupArgs
-
-func (*globalReplicationGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalReplicationGroup)(nil))
-}
-
-func (i *globalReplicationGroupPtrType) ToGlobalReplicationGroupPtrOutput() GlobalReplicationGroupPtrOutput {
-	return i.ToGlobalReplicationGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *globalReplicationGroupPtrType) ToGlobalReplicationGroupPtrOutputWithContext(ctx context.Context) GlobalReplicationGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupPtrOutput)
 }
 
 // GlobalReplicationGroupArrayInput is an input type that accepts GlobalReplicationGroupArray and GlobalReplicationGroupArrayOutput values.
@@ -322,7 +293,7 @@ func (i GlobalReplicationGroupMap) ToGlobalReplicationGroupMapOutputWithContext(
 type GlobalReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((**GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutput() GlobalReplicationGroupOutput {
@@ -333,44 +304,10 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutputWithContext(
 	return o
 }
 
-func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupPtrOutput() GlobalReplicationGroupPtrOutput {
-	return o.ToGlobalReplicationGroupPtrOutputWithContext(context.Background())
-}
-
-func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupPtrOutputWithContext(ctx context.Context) GlobalReplicationGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalReplicationGroup) *GlobalReplicationGroup {
-		return &v
-	}).(GlobalReplicationGroupPtrOutput)
-}
-
-type GlobalReplicationGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (GlobalReplicationGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalReplicationGroup)(nil))
-}
-
-func (o GlobalReplicationGroupPtrOutput) ToGlobalReplicationGroupPtrOutput() GlobalReplicationGroupPtrOutput {
-	return o
-}
-
-func (o GlobalReplicationGroupPtrOutput) ToGlobalReplicationGroupPtrOutputWithContext(ctx context.Context) GlobalReplicationGroupPtrOutput {
-	return o
-}
-
-func (o GlobalReplicationGroupPtrOutput) Elem() GlobalReplicationGroupOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroup) GlobalReplicationGroup {
-		if v != nil {
-			return *v
-		}
-		var ret GlobalReplicationGroup
-		return ret
-	}).(GlobalReplicationGroupOutput)
-}
-
 type GlobalReplicationGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((*[]*GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (o GlobalReplicationGroupArrayOutput) ToGlobalReplicationGroupArrayOutput() GlobalReplicationGroupArrayOutput {
@@ -382,15 +319,15 @@ func (o GlobalReplicationGroupArrayOutput) ToGlobalReplicationGroupArrayOutputWi
 }
 
 func (o GlobalReplicationGroupArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalReplicationGroup {
-		return vs[0].([]GlobalReplicationGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalReplicationGroup {
+		return vs[0].([]*GlobalReplicationGroup)[vs[1].(int)]
 	}).(GlobalReplicationGroupOutput)
 }
 
 type GlobalReplicationGroupMapOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((*map[string]*GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (o GlobalReplicationGroupMapOutput) ToGlobalReplicationGroupMapOutput() GlobalReplicationGroupMapOutput {
@@ -402,18 +339,16 @@ func (o GlobalReplicationGroupMapOutput) ToGlobalReplicationGroupMapOutputWithCo
 }
 
 func (o GlobalReplicationGroupMapOutput) MapIndex(k pulumi.StringInput) GlobalReplicationGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GlobalReplicationGroup {
-		return vs[0].(map[string]GlobalReplicationGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GlobalReplicationGroup {
+		return vs[0].(map[string]*GlobalReplicationGroup)[vs[1].(string)]
 	}).(GlobalReplicationGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupInput)(nil)).Elem(), &GlobalReplicationGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupPtrInput)(nil)).Elem(), &GlobalReplicationGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupArrayInput)(nil)).Elem(), GlobalReplicationGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMapInput)(nil)).Elem(), GlobalReplicationGroupMap{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupOutput{})
-	pulumi.RegisterOutputType(GlobalReplicationGroupPtrOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMapOutput{})
 }

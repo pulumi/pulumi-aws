@@ -152,7 +152,7 @@ type StreamConsumerInput interface {
 }
 
 func (*StreamConsumer) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamConsumer)(nil))
+	return reflect.TypeOf((**StreamConsumer)(nil)).Elem()
 }
 
 func (i *StreamConsumer) ToStreamConsumerOutput() StreamConsumerOutput {
@@ -161,35 +161,6 @@ func (i *StreamConsumer) ToStreamConsumerOutput() StreamConsumerOutput {
 
 func (i *StreamConsumer) ToStreamConsumerOutputWithContext(ctx context.Context) StreamConsumerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerOutput)
-}
-
-func (i *StreamConsumer) ToStreamConsumerPtrOutput() StreamConsumerPtrOutput {
-	return i.ToStreamConsumerPtrOutputWithContext(context.Background())
-}
-
-func (i *StreamConsumer) ToStreamConsumerPtrOutputWithContext(ctx context.Context) StreamConsumerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerPtrOutput)
-}
-
-type StreamConsumerPtrInput interface {
-	pulumi.Input
-
-	ToStreamConsumerPtrOutput() StreamConsumerPtrOutput
-	ToStreamConsumerPtrOutputWithContext(ctx context.Context) StreamConsumerPtrOutput
-}
-
-type streamConsumerPtrType StreamConsumerArgs
-
-func (*streamConsumerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamConsumer)(nil))
-}
-
-func (i *streamConsumerPtrType) ToStreamConsumerPtrOutput() StreamConsumerPtrOutput {
-	return i.ToStreamConsumerPtrOutputWithContext(context.Background())
-}
-
-func (i *streamConsumerPtrType) ToStreamConsumerPtrOutputWithContext(ctx context.Context) StreamConsumerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerPtrOutput)
 }
 
 // StreamConsumerArrayInput is an input type that accepts StreamConsumerArray and StreamConsumerArrayOutput values.
@@ -245,7 +216,7 @@ func (i StreamConsumerMap) ToStreamConsumerMapOutputWithContext(ctx context.Cont
 type StreamConsumerOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamConsumer)(nil))
+	return reflect.TypeOf((**StreamConsumer)(nil)).Elem()
 }
 
 func (o StreamConsumerOutput) ToStreamConsumerOutput() StreamConsumerOutput {
@@ -256,44 +227,10 @@ func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o StreamConsumerOutput) ToStreamConsumerPtrOutput() StreamConsumerPtrOutput {
-	return o.ToStreamConsumerPtrOutputWithContext(context.Background())
-}
-
-func (o StreamConsumerOutput) ToStreamConsumerPtrOutputWithContext(ctx context.Context) StreamConsumerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamConsumer) *StreamConsumer {
-		return &v
-	}).(StreamConsumerPtrOutput)
-}
-
-type StreamConsumerPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamConsumerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamConsumer)(nil))
-}
-
-func (o StreamConsumerPtrOutput) ToStreamConsumerPtrOutput() StreamConsumerPtrOutput {
-	return o
-}
-
-func (o StreamConsumerPtrOutput) ToStreamConsumerPtrOutputWithContext(ctx context.Context) StreamConsumerPtrOutput {
-	return o
-}
-
-func (o StreamConsumerPtrOutput) Elem() StreamConsumerOutput {
-	return o.ApplyT(func(v *StreamConsumer) StreamConsumer {
-		if v != nil {
-			return *v
-		}
-		var ret StreamConsumer
-		return ret
-	}).(StreamConsumerOutput)
-}
-
 type StreamConsumerArrayOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamConsumer)(nil))
+	return reflect.TypeOf((*[]*StreamConsumer)(nil)).Elem()
 }
 
 func (o StreamConsumerArrayOutput) ToStreamConsumerArrayOutput() StreamConsumerArrayOutput {
@@ -305,15 +242,15 @@ func (o StreamConsumerArrayOutput) ToStreamConsumerArrayOutputWithContext(ctx co
 }
 
 func (o StreamConsumerArrayOutput) Index(i pulumi.IntInput) StreamConsumerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamConsumer {
-		return vs[0].([]StreamConsumer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamConsumer {
+		return vs[0].([]*StreamConsumer)[vs[1].(int)]
 	}).(StreamConsumerOutput)
 }
 
 type StreamConsumerMapOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StreamConsumer)(nil))
+	return reflect.TypeOf((*map[string]*StreamConsumer)(nil)).Elem()
 }
 
 func (o StreamConsumerMapOutput) ToStreamConsumerMapOutput() StreamConsumerMapOutput {
@@ -325,18 +262,16 @@ func (o StreamConsumerMapOutput) ToStreamConsumerMapOutputWithContext(ctx contex
 }
 
 func (o StreamConsumerMapOutput) MapIndex(k pulumi.StringInput) StreamConsumerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StreamConsumer {
-		return vs[0].(map[string]StreamConsumer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StreamConsumer {
+		return vs[0].(map[string]*StreamConsumer)[vs[1].(string)]
 	}).(StreamConsumerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerInput)(nil)).Elem(), &StreamConsumer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerPtrInput)(nil)).Elem(), &StreamConsumer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerArrayInput)(nil)).Elem(), StreamConsumerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerMapInput)(nil)).Elem(), StreamConsumerMap{})
 	pulumi.RegisterOutputType(StreamConsumerOutput{})
-	pulumi.RegisterOutputType(StreamConsumerPtrOutput{})
 	pulumi.RegisterOutputType(StreamConsumerArrayOutput{})
 	pulumi.RegisterOutputType(StreamConsumerMapOutput{})
 }

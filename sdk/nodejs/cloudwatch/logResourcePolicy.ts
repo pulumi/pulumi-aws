@@ -112,12 +112,12 @@ export class LogResourcePolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogResourcePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogResourcePolicyArgs | LogResourcePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogResourcePolicyState | undefined;
-            inputs["policyDocument"] = state ? state.policyDocument : undefined;
-            inputs["policyName"] = state ? state.policyName : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["policyName"] = state ? state.policyName : undefined;
         } else {
             const args = argsOrState as LogResourcePolicyArgs | undefined;
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
@@ -126,13 +126,11 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             if ((!args || args.policyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LogResourcePolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LogResourcePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

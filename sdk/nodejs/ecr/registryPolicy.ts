@@ -81,24 +81,22 @@ export class RegistryPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryPolicyArgs | RegistryPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryPolicyState | undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
         } else {
             const args = argsOrState as RegistryPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["registryId"] = undefined /*out*/;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["registryId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegistryPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegistryPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

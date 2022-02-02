@@ -276,46 +276,44 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     constructor(name: string, args: GraphQLApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GraphQLApiArgs | GraphQLApiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GraphQLApiState | undefined;
-            inputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authenticationType"] = state ? state.authenticationType : undefined;
-            inputs["lambdaAuthorizerConfig"] = state ? state.lambdaAuthorizerConfig : undefined;
-            inputs["logConfig"] = state ? state.logConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uris"] = state ? state.uris : undefined;
-            inputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
-            inputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
+            resourceInputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["lambdaAuthorizerConfig"] = state ? state.lambdaAuthorizerConfig : undefined;
+            resourceInputs["logConfig"] = state ? state.logConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uris"] = state ? state.uris : undefined;
+            resourceInputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
+            resourceInputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
         } else {
             const args = argsOrState as GraphQLApiArgs | undefined;
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
-            inputs["logConfig"] = args ? args.logConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
-            inputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uris"] = undefined /*out*/;
+            resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
+            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
+            resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uris"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GraphQLApi.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GraphQLApi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

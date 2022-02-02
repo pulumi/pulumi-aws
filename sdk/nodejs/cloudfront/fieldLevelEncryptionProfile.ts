@@ -99,30 +99,28 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: FieldLevelEncryptionProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FieldLevelEncryptionProfileArgs | FieldLevelEncryptionProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FieldLevelEncryptionProfileState | undefined;
-            inputs["callerReference"] = state ? state.callerReference : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["encryptionEntities"] = state ? state.encryptionEntities : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["callerReference"] = state ? state.callerReference : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["encryptionEntities"] = state ? state.encryptionEntities : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as FieldLevelEncryptionProfileArgs | undefined;
             if ((!args || args.encryptionEntities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encryptionEntities'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["encryptionEntities"] = args ? args.encryptionEntities : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["callerReference"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["encryptionEntities"] = args ? args.encryptionEntities : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["callerReference"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FieldLevelEncryptionProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FieldLevelEncryptionProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -53,9 +53,7 @@ export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getOrderableDbInstance:getOrderableDbInstance", {
         "availabilityZoneGroup": args.availabilityZoneGroup,
         "engine": args.engine,

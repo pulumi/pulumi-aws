@@ -123,20 +123,20 @@ export class Schedule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["maxSize"] = state ? state.maxSize : undefined;
-            inputs["minSize"] = state ? state.minSize : undefined;
-            inputs["recurrence"] = state ? state.recurrence : undefined;
-            inputs["scheduledActionName"] = state ? state.scheduledActionName : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
-            inputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
+            resourceInputs["minSize"] = state ? state.minSize : undefined;
+            resourceInputs["recurrence"] = state ? state.recurrence : undefined;
+            resourceInputs["scheduledActionName"] = state ? state.scheduledActionName : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
             if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
@@ -145,21 +145,19 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.scheduledActionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduledActionName'");
             }
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["recurrence"] = args ? args.recurrence : undefined;
-            inputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
+            resourceInputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Schedule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

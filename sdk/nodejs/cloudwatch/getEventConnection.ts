@@ -25,9 +25,7 @@ export function getEventConnection(args: GetEventConnectionArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudwatch/getEventConnection:getEventConnection", {
         "name": args.name,
     }, opts);

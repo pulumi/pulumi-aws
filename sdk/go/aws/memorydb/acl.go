@@ -166,7 +166,7 @@ type AclInput interface {
 }
 
 func (*Acl) ElementType() reflect.Type {
-	return reflect.TypeOf((*Acl)(nil))
+	return reflect.TypeOf((**Acl)(nil)).Elem()
 }
 
 func (i *Acl) ToAclOutput() AclOutput {
@@ -175,35 +175,6 @@ func (i *Acl) ToAclOutput() AclOutput {
 
 func (i *Acl) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AclOutput)
-}
-
-func (i *Acl) ToAclPtrOutput() AclPtrOutput {
-	return i.ToAclPtrOutputWithContext(context.Background())
-}
-
-func (i *Acl) ToAclPtrOutputWithContext(ctx context.Context) AclPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AclPtrOutput)
-}
-
-type AclPtrInput interface {
-	pulumi.Input
-
-	ToAclPtrOutput() AclPtrOutput
-	ToAclPtrOutputWithContext(ctx context.Context) AclPtrOutput
-}
-
-type aclPtrType AclArgs
-
-func (*aclPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Acl)(nil))
-}
-
-func (i *aclPtrType) ToAclPtrOutput() AclPtrOutput {
-	return i.ToAclPtrOutputWithContext(context.Background())
-}
-
-func (i *aclPtrType) ToAclPtrOutputWithContext(ctx context.Context) AclPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AclPtrOutput)
 }
 
 // AclArrayInput is an input type that accepts AclArray and AclArrayOutput values.
@@ -259,7 +230,7 @@ func (i AclMap) ToAclMapOutputWithContext(ctx context.Context) AclMapOutput {
 type AclOutput struct{ *pulumi.OutputState }
 
 func (AclOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Acl)(nil))
+	return reflect.TypeOf((**Acl)(nil)).Elem()
 }
 
 func (o AclOutput) ToAclOutput() AclOutput {
@@ -270,44 +241,10 @@ func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return o
 }
 
-func (o AclOutput) ToAclPtrOutput() AclPtrOutput {
-	return o.ToAclPtrOutputWithContext(context.Background())
-}
-
-func (o AclOutput) ToAclPtrOutputWithContext(ctx context.Context) AclPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Acl) *Acl {
-		return &v
-	}).(AclPtrOutput)
-}
-
-type AclPtrOutput struct{ *pulumi.OutputState }
-
-func (AclPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Acl)(nil))
-}
-
-func (o AclPtrOutput) ToAclPtrOutput() AclPtrOutput {
-	return o
-}
-
-func (o AclPtrOutput) ToAclPtrOutputWithContext(ctx context.Context) AclPtrOutput {
-	return o
-}
-
-func (o AclPtrOutput) Elem() AclOutput {
-	return o.ApplyT(func(v *Acl) Acl {
-		if v != nil {
-			return *v
-		}
-		var ret Acl
-		return ret
-	}).(AclOutput)
-}
-
 type AclArrayOutput struct{ *pulumi.OutputState }
 
 func (AclArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Acl)(nil))
+	return reflect.TypeOf((*[]*Acl)(nil)).Elem()
 }
 
 func (o AclArrayOutput) ToAclArrayOutput() AclArrayOutput {
@@ -319,15 +256,15 @@ func (o AclArrayOutput) ToAclArrayOutputWithContext(ctx context.Context) AclArra
 }
 
 func (o AclArrayOutput) Index(i pulumi.IntInput) AclOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Acl {
-		return vs[0].([]Acl)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Acl {
+		return vs[0].([]*Acl)[vs[1].(int)]
 	}).(AclOutput)
 }
 
 type AclMapOutput struct{ *pulumi.OutputState }
 
 func (AclMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Acl)(nil))
+	return reflect.TypeOf((*map[string]*Acl)(nil)).Elem()
 }
 
 func (o AclMapOutput) ToAclMapOutput() AclMapOutput {
@@ -339,18 +276,16 @@ func (o AclMapOutput) ToAclMapOutputWithContext(ctx context.Context) AclMapOutpu
 }
 
 func (o AclMapOutput) MapIndex(k pulumi.StringInput) AclOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Acl {
-		return vs[0].(map[string]Acl)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Acl {
+		return vs[0].(map[string]*Acl)[vs[1].(string)]
 	}).(AclOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AclInput)(nil)).Elem(), &Acl{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AclPtrInput)(nil)).Elem(), &Acl{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AclArrayInput)(nil)).Elem(), AclArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AclMapInput)(nil)).Elem(), AclMap{})
 	pulumi.RegisterOutputType(AclOutput{})
-	pulumi.RegisterOutputType(AclPtrOutput{})
 	pulumi.RegisterOutputType(AclArrayOutput{})
 	pulumi.RegisterOutputType(AclMapOutput{})
 }

@@ -29,9 +29,7 @@ export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.Invo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getDedicatedHost:getDedicatedHost", {
         "filters": args.filters,
         "hostId": args.hostId,

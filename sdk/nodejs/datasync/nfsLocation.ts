@@ -100,18 +100,18 @@ export class NfsLocation extends pulumi.CustomResource {
      */
     constructor(name: string, args: NfsLocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NfsLocationArgs | NfsLocationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NfsLocationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["mountOptions"] = state ? state.mountOptions : undefined;
-            inputs["onPremConfig"] = state ? state.onPremConfig : undefined;
-            inputs["serverHostname"] = state ? state.serverHostname : undefined;
-            inputs["subdirectory"] = state ? state.subdirectory : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["mountOptions"] = state ? state.mountOptions : undefined;
+            resourceInputs["onPremConfig"] = state ? state.onPremConfig : undefined;
+            resourceInputs["serverHostname"] = state ? state.serverHostname : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as NfsLocationArgs | undefined;
             if ((!args || args.onPremConfig === undefined) && !opts.urn) {
@@ -123,19 +123,17 @@ export class NfsLocation extends pulumi.CustomResource {
             if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
-            inputs["mountOptions"] = args ? args.mountOptions : undefined;
-            inputs["onPremConfig"] = args ? args.onPremConfig : undefined;
-            inputs["serverHostname"] = args ? args.serverHostname : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
+            resourceInputs["onPremConfig"] = args ? args.onPremConfig : undefined;
+            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NfsLocation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NfsLocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

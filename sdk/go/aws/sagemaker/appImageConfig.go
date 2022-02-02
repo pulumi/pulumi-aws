@@ -184,7 +184,7 @@ type AppImageConfigInput interface {
 }
 
 func (*AppImageConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppImageConfig)(nil))
+	return reflect.TypeOf((**AppImageConfig)(nil)).Elem()
 }
 
 func (i *AppImageConfig) ToAppImageConfigOutput() AppImageConfigOutput {
@@ -193,35 +193,6 @@ func (i *AppImageConfig) ToAppImageConfigOutput() AppImageConfigOutput {
 
 func (i *AppImageConfig) ToAppImageConfigOutputWithContext(ctx context.Context) AppImageConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigOutput)
-}
-
-func (i *AppImageConfig) ToAppImageConfigPtrOutput() AppImageConfigPtrOutput {
-	return i.ToAppImageConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *AppImageConfig) ToAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigPtrOutput)
-}
-
-type AppImageConfigPtrInput interface {
-	pulumi.Input
-
-	ToAppImageConfigPtrOutput() AppImageConfigPtrOutput
-	ToAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigPtrOutput
-}
-
-type appImageConfigPtrType AppImageConfigArgs
-
-func (*appImageConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppImageConfig)(nil))
-}
-
-func (i *appImageConfigPtrType) ToAppImageConfigPtrOutput() AppImageConfigPtrOutput {
-	return i.ToAppImageConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *appImageConfigPtrType) ToAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigPtrOutput)
 }
 
 // AppImageConfigArrayInput is an input type that accepts AppImageConfigArray and AppImageConfigArrayOutput values.
@@ -277,7 +248,7 @@ func (i AppImageConfigMap) ToAppImageConfigMapOutputWithContext(ctx context.Cont
 type AppImageConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppImageConfig)(nil))
+	return reflect.TypeOf((**AppImageConfig)(nil)).Elem()
 }
 
 func (o AppImageConfigOutput) ToAppImageConfigOutput() AppImageConfigOutput {
@@ -288,44 +259,10 @@ func (o AppImageConfigOutput) ToAppImageConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o AppImageConfigOutput) ToAppImageConfigPtrOutput() AppImageConfigPtrOutput {
-	return o.ToAppImageConfigPtrOutputWithContext(context.Background())
-}
-
-func (o AppImageConfigOutput) ToAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfig) *AppImageConfig {
-		return &v
-	}).(AppImageConfigPtrOutput)
-}
-
-type AppImageConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (AppImageConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppImageConfig)(nil))
-}
-
-func (o AppImageConfigPtrOutput) ToAppImageConfigPtrOutput() AppImageConfigPtrOutput {
-	return o
-}
-
-func (o AppImageConfigPtrOutput) ToAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigPtrOutput {
-	return o
-}
-
-func (o AppImageConfigPtrOutput) Elem() AppImageConfigOutput {
-	return o.ApplyT(func(v *AppImageConfig) AppImageConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AppImageConfig
-		return ret
-	}).(AppImageConfigOutput)
-}
-
 type AppImageConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppImageConfig)(nil))
+	return reflect.TypeOf((*[]*AppImageConfig)(nil)).Elem()
 }
 
 func (o AppImageConfigArrayOutput) ToAppImageConfigArrayOutput() AppImageConfigArrayOutput {
@@ -337,15 +274,15 @@ func (o AppImageConfigArrayOutput) ToAppImageConfigArrayOutputWithContext(ctx co
 }
 
 func (o AppImageConfigArrayOutput) Index(i pulumi.IntInput) AppImageConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppImageConfig {
-		return vs[0].([]AppImageConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppImageConfig {
+		return vs[0].([]*AppImageConfig)[vs[1].(int)]
 	}).(AppImageConfigOutput)
 }
 
 type AppImageConfigMapOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppImageConfig)(nil))
+	return reflect.TypeOf((*map[string]*AppImageConfig)(nil)).Elem()
 }
 
 func (o AppImageConfigMapOutput) ToAppImageConfigMapOutput() AppImageConfigMapOutput {
@@ -357,18 +294,16 @@ func (o AppImageConfigMapOutput) ToAppImageConfigMapOutputWithContext(ctx contex
 }
 
 func (o AppImageConfigMapOutput) MapIndex(k pulumi.StringInput) AppImageConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppImageConfig {
-		return vs[0].(map[string]AppImageConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppImageConfig {
+		return vs[0].(map[string]*AppImageConfig)[vs[1].(string)]
 	}).(AppImageConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigInput)(nil)).Elem(), &AppImageConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigPtrInput)(nil)).Elem(), &AppImageConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigArrayInput)(nil)).Elem(), AppImageConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigMapInput)(nil)).Elem(), AppImageConfigMap{})
 	pulumi.RegisterOutputType(AppImageConfigOutput{})
-	pulumi.RegisterOutputType(AppImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigArrayOutput{})
 	pulumi.RegisterOutputType(AppImageConfigMapOutput{})
 }

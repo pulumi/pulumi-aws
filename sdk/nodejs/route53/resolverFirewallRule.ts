@@ -112,19 +112,19 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResolverFirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverFirewallRuleArgs | ResolverFirewallRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverFirewallRuleState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["blockOverrideDnsType"] = state ? state.blockOverrideDnsType : undefined;
-            inputs["blockOverrideDomain"] = state ? state.blockOverrideDomain : undefined;
-            inputs["blockOverrideTtl"] = state ? state.blockOverrideTtl : undefined;
-            inputs["blockResponse"] = state ? state.blockResponse : undefined;
-            inputs["firewallDomainListId"] = state ? state.firewallDomainListId : undefined;
-            inputs["firewallRuleGroupId"] = state ? state.firewallRuleGroupId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["blockOverrideDnsType"] = state ? state.blockOverrideDnsType : undefined;
+            resourceInputs["blockOverrideDomain"] = state ? state.blockOverrideDomain : undefined;
+            resourceInputs["blockOverrideTtl"] = state ? state.blockOverrideTtl : undefined;
+            resourceInputs["blockResponse"] = state ? state.blockResponse : undefined;
+            resourceInputs["firewallDomainListId"] = state ? state.firewallDomainListId : undefined;
+            resourceInputs["firewallRuleGroupId"] = state ? state.firewallRuleGroupId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
         } else {
             const args = argsOrState as ResolverFirewallRuleArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -139,20 +139,18 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["blockOverrideDnsType"] = args ? args.blockOverrideDnsType : undefined;
-            inputs["blockOverrideDomain"] = args ? args.blockOverrideDomain : undefined;
-            inputs["blockOverrideTtl"] = args ? args.blockOverrideTtl : undefined;
-            inputs["blockResponse"] = args ? args.blockResponse : undefined;
-            inputs["firewallDomainListId"] = args ? args.firewallDomainListId : undefined;
-            inputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["blockOverrideDnsType"] = args ? args.blockOverrideDnsType : undefined;
+            resourceInputs["blockOverrideDomain"] = args ? args.blockOverrideDomain : undefined;
+            resourceInputs["blockOverrideTtl"] = args ? args.blockOverrideTtl : undefined;
+            resourceInputs["blockResponse"] = args ? args.blockResponse : undefined;
+            resourceInputs["firewallDomainListId"] = args ? args.firewallDomainListId : undefined;
+            resourceInputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverFirewallRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverFirewallRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

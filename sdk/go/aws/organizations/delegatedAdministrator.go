@@ -174,7 +174,7 @@ type DelegatedAdministratorInput interface {
 }
 
 func (*DelegatedAdministrator) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegatedAdministrator)(nil))
+	return reflect.TypeOf((**DelegatedAdministrator)(nil)).Elem()
 }
 
 func (i *DelegatedAdministrator) ToDelegatedAdministratorOutput() DelegatedAdministratorOutput {
@@ -183,35 +183,6 @@ func (i *DelegatedAdministrator) ToDelegatedAdministratorOutput() DelegatedAdmin
 
 func (i *DelegatedAdministrator) ToDelegatedAdministratorOutputWithContext(ctx context.Context) DelegatedAdministratorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdministratorOutput)
-}
-
-func (i *DelegatedAdministrator) ToDelegatedAdministratorPtrOutput() DelegatedAdministratorPtrOutput {
-	return i.ToDelegatedAdministratorPtrOutputWithContext(context.Background())
-}
-
-func (i *DelegatedAdministrator) ToDelegatedAdministratorPtrOutputWithContext(ctx context.Context) DelegatedAdministratorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdministratorPtrOutput)
-}
-
-type DelegatedAdministratorPtrInput interface {
-	pulumi.Input
-
-	ToDelegatedAdministratorPtrOutput() DelegatedAdministratorPtrOutput
-	ToDelegatedAdministratorPtrOutputWithContext(ctx context.Context) DelegatedAdministratorPtrOutput
-}
-
-type delegatedAdministratorPtrType DelegatedAdministratorArgs
-
-func (*delegatedAdministratorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DelegatedAdministrator)(nil))
-}
-
-func (i *delegatedAdministratorPtrType) ToDelegatedAdministratorPtrOutput() DelegatedAdministratorPtrOutput {
-	return i.ToDelegatedAdministratorPtrOutputWithContext(context.Background())
-}
-
-func (i *delegatedAdministratorPtrType) ToDelegatedAdministratorPtrOutputWithContext(ctx context.Context) DelegatedAdministratorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdministratorPtrOutput)
 }
 
 // DelegatedAdministratorArrayInput is an input type that accepts DelegatedAdministratorArray and DelegatedAdministratorArrayOutput values.
@@ -267,7 +238,7 @@ func (i DelegatedAdministratorMap) ToDelegatedAdministratorMapOutputWithContext(
 type DelegatedAdministratorOutput struct{ *pulumi.OutputState }
 
 func (DelegatedAdministratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegatedAdministrator)(nil))
+	return reflect.TypeOf((**DelegatedAdministrator)(nil)).Elem()
 }
 
 func (o DelegatedAdministratorOutput) ToDelegatedAdministratorOutput() DelegatedAdministratorOutput {
@@ -278,44 +249,10 @@ func (o DelegatedAdministratorOutput) ToDelegatedAdministratorOutputWithContext(
 	return o
 }
 
-func (o DelegatedAdministratorOutput) ToDelegatedAdministratorPtrOutput() DelegatedAdministratorPtrOutput {
-	return o.ToDelegatedAdministratorPtrOutputWithContext(context.Background())
-}
-
-func (o DelegatedAdministratorOutput) ToDelegatedAdministratorPtrOutputWithContext(ctx context.Context) DelegatedAdministratorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DelegatedAdministrator) *DelegatedAdministrator {
-		return &v
-	}).(DelegatedAdministratorPtrOutput)
-}
-
-type DelegatedAdministratorPtrOutput struct{ *pulumi.OutputState }
-
-func (DelegatedAdministratorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DelegatedAdministrator)(nil))
-}
-
-func (o DelegatedAdministratorPtrOutput) ToDelegatedAdministratorPtrOutput() DelegatedAdministratorPtrOutput {
-	return o
-}
-
-func (o DelegatedAdministratorPtrOutput) ToDelegatedAdministratorPtrOutputWithContext(ctx context.Context) DelegatedAdministratorPtrOutput {
-	return o
-}
-
-func (o DelegatedAdministratorPtrOutput) Elem() DelegatedAdministratorOutput {
-	return o.ApplyT(func(v *DelegatedAdministrator) DelegatedAdministrator {
-		if v != nil {
-			return *v
-		}
-		var ret DelegatedAdministrator
-		return ret
-	}).(DelegatedAdministratorOutput)
-}
-
 type DelegatedAdministratorArrayOutput struct{ *pulumi.OutputState }
 
 func (DelegatedAdministratorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DelegatedAdministrator)(nil))
+	return reflect.TypeOf((*[]*DelegatedAdministrator)(nil)).Elem()
 }
 
 func (o DelegatedAdministratorArrayOutput) ToDelegatedAdministratorArrayOutput() DelegatedAdministratorArrayOutput {
@@ -327,15 +264,15 @@ func (o DelegatedAdministratorArrayOutput) ToDelegatedAdministratorArrayOutputWi
 }
 
 func (o DelegatedAdministratorArrayOutput) Index(i pulumi.IntInput) DelegatedAdministratorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DelegatedAdministrator {
-		return vs[0].([]DelegatedAdministrator)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DelegatedAdministrator {
+		return vs[0].([]*DelegatedAdministrator)[vs[1].(int)]
 	}).(DelegatedAdministratorOutput)
 }
 
 type DelegatedAdministratorMapOutput struct{ *pulumi.OutputState }
 
 func (DelegatedAdministratorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DelegatedAdministrator)(nil))
+	return reflect.TypeOf((*map[string]*DelegatedAdministrator)(nil)).Elem()
 }
 
 func (o DelegatedAdministratorMapOutput) ToDelegatedAdministratorMapOutput() DelegatedAdministratorMapOutput {
@@ -347,18 +284,16 @@ func (o DelegatedAdministratorMapOutput) ToDelegatedAdministratorMapOutputWithCo
 }
 
 func (o DelegatedAdministratorMapOutput) MapIndex(k pulumi.StringInput) DelegatedAdministratorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DelegatedAdministrator {
-		return vs[0].(map[string]DelegatedAdministrator)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DelegatedAdministrator {
+		return vs[0].(map[string]*DelegatedAdministrator)[vs[1].(string)]
 	}).(DelegatedAdministratorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorInput)(nil)).Elem(), &DelegatedAdministrator{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorPtrInput)(nil)).Elem(), &DelegatedAdministrator{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorArrayInput)(nil)).Elem(), DelegatedAdministratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorMapInput)(nil)).Elem(), DelegatedAdministratorMap{})
 	pulumi.RegisterOutputType(DelegatedAdministratorOutput{})
-	pulumi.RegisterOutputType(DelegatedAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(DelegatedAdministratorArrayOutput{})
 	pulumi.RegisterOutputType(DelegatedAdministratorMapOutput{})
 }

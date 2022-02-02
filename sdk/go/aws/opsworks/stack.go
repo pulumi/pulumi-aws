@@ -389,7 +389,7 @@ type StackInput interface {
 }
 
 func (*Stack) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stack)(nil))
+	return reflect.TypeOf((**Stack)(nil)).Elem()
 }
 
 func (i *Stack) ToStackOutput() StackOutput {
@@ -398,35 +398,6 @@ func (i *Stack) ToStackOutput() StackOutput {
 
 func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackOutput)
-}
-
-func (i *Stack) ToStackPtrOutput() StackPtrOutput {
-	return i.ToStackPtrOutputWithContext(context.Background())
-}
-
-func (i *Stack) ToStackPtrOutputWithContext(ctx context.Context) StackPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackPtrOutput)
-}
-
-type StackPtrInput interface {
-	pulumi.Input
-
-	ToStackPtrOutput() StackPtrOutput
-	ToStackPtrOutputWithContext(ctx context.Context) StackPtrOutput
-}
-
-type stackPtrType StackArgs
-
-func (*stackPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Stack)(nil))
-}
-
-func (i *stackPtrType) ToStackPtrOutput() StackPtrOutput {
-	return i.ToStackPtrOutputWithContext(context.Background())
-}
-
-func (i *stackPtrType) ToStackPtrOutputWithContext(ctx context.Context) StackPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackPtrOutput)
 }
 
 // StackArrayInput is an input type that accepts StackArray and StackArrayOutput values.
@@ -482,7 +453,7 @@ func (i StackMap) ToStackMapOutputWithContext(ctx context.Context) StackMapOutpu
 type StackOutput struct{ *pulumi.OutputState }
 
 func (StackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stack)(nil))
+	return reflect.TypeOf((**Stack)(nil)).Elem()
 }
 
 func (o StackOutput) ToStackOutput() StackOutput {
@@ -493,44 +464,10 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
-func (o StackOutput) ToStackPtrOutput() StackPtrOutput {
-	return o.ToStackPtrOutputWithContext(context.Background())
-}
-
-func (o StackOutput) ToStackPtrOutputWithContext(ctx context.Context) StackPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Stack) *Stack {
-		return &v
-	}).(StackPtrOutput)
-}
-
-type StackPtrOutput struct{ *pulumi.OutputState }
-
-func (StackPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Stack)(nil))
-}
-
-func (o StackPtrOutput) ToStackPtrOutput() StackPtrOutput {
-	return o
-}
-
-func (o StackPtrOutput) ToStackPtrOutputWithContext(ctx context.Context) StackPtrOutput {
-	return o
-}
-
-func (o StackPtrOutput) Elem() StackOutput {
-	return o.ApplyT(func(v *Stack) Stack {
-		if v != nil {
-			return *v
-		}
-		var ret Stack
-		return ret
-	}).(StackOutput)
-}
-
 type StackArrayOutput struct{ *pulumi.OutputState }
 
 func (StackArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Stack)(nil))
+	return reflect.TypeOf((*[]*Stack)(nil)).Elem()
 }
 
 func (o StackArrayOutput) ToStackArrayOutput() StackArrayOutput {
@@ -542,15 +479,15 @@ func (o StackArrayOutput) ToStackArrayOutputWithContext(ctx context.Context) Sta
 }
 
 func (o StackArrayOutput) Index(i pulumi.IntInput) StackOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Stack {
-		return vs[0].([]Stack)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stack {
+		return vs[0].([]*Stack)[vs[1].(int)]
 	}).(StackOutput)
 }
 
 type StackMapOutput struct{ *pulumi.OutputState }
 
 func (StackMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Stack)(nil))
+	return reflect.TypeOf((*map[string]*Stack)(nil)).Elem()
 }
 
 func (o StackMapOutput) ToStackMapOutput() StackMapOutput {
@@ -562,18 +499,16 @@ func (o StackMapOutput) ToStackMapOutputWithContext(ctx context.Context) StackMa
 }
 
 func (o StackMapOutput) MapIndex(k pulumi.StringInput) StackOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Stack {
-		return vs[0].(map[string]Stack)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Stack {
+		return vs[0].(map[string]*Stack)[vs[1].(string)]
 	}).(StackOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackInput)(nil)).Elem(), &Stack{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackPtrInput)(nil)).Elem(), &Stack{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackArrayInput)(nil)).Elem(), StackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackMapInput)(nil)).Elem(), StackMap{})
 	pulumi.RegisterOutputType(StackOutput{})
-	pulumi.RegisterOutputType(StackPtrOutput{})
 	pulumi.RegisterOutputType(StackArrayOutput{})
 	pulumi.RegisterOutputType(StackMapOutput{})
 }

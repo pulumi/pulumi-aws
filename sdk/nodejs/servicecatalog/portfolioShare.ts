@@ -103,17 +103,17 @@ export class PortfolioShare extends pulumi.CustomResource {
      */
     constructor(name: string, args: PortfolioShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PortfolioShareArgs | PortfolioShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PortfolioShareState | undefined;
-            inputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            inputs["accepted"] = state ? state.accepted : undefined;
-            inputs["portfolioId"] = state ? state.portfolioId : undefined;
-            inputs["principalId"] = state ? state.principalId : undefined;
-            inputs["shareTagOptions"] = state ? state.shareTagOptions : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["waitForAcceptance"] = state ? state.waitForAcceptance : undefined;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["accepted"] = state ? state.accepted : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["shareTagOptions"] = state ? state.shareTagOptions : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["waitForAcceptance"] = state ? state.waitForAcceptance : undefined;
         } else {
             const args = argsOrState as PortfolioShareArgs | undefined;
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
@@ -125,18 +125,16 @@ export class PortfolioShare extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["waitForAcceptance"] = args ? args.waitForAcceptance : undefined;
-            inputs["accepted"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["waitForAcceptance"] = args ? args.waitForAcceptance : undefined;
+            resourceInputs["accepted"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PortfolioShare.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PortfolioShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -37,9 +37,7 @@ export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:appmesh/getVirtualService:getVirtualService", {
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,

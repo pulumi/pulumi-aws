@@ -23,9 +23,7 @@ export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ses/getDomainIdentity:getDomainIdentity", {
         "domain": args.domain,
     }, opts);

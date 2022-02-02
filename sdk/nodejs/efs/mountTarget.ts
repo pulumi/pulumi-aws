@@ -117,21 +117,21 @@ export class MountTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: MountTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MountTargetArgs | MountTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MountTargetState | undefined;
-            inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
-            inputs["availabilityZoneName"] = state ? state.availabilityZoneName : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
-            inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["mountTargetDnsName"] = state ? state.mountTargetDnsName : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
+            resourceInputs["availabilityZoneName"] = state ? state.availabilityZoneName : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["mountTargetDnsName"] = state ? state.mountTargetDnsName : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as MountTargetArgs | undefined;
             if ((!args || args.fileSystemId === undefined) && !opts.urn) {
@@ -140,22 +140,20 @@ export class MountTarget extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["availabilityZoneId"] = undefined /*out*/;
-            inputs["availabilityZoneName"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["fileSystemArn"] = undefined /*out*/;
-            inputs["mountTargetDnsName"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["availabilityZoneId"] = undefined /*out*/;
+            resourceInputs["availabilityZoneName"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["fileSystemArn"] = undefined /*out*/;
+            resourceInputs["mountTargetDnsName"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MountTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MountTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

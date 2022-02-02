@@ -26,9 +26,7 @@ export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaul
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
     }, opts);
 }

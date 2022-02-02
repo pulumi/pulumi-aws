@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ImageBuilder
 {
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetImageRecipesResult> InvokeAsync(GetImageRecipesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageRecipesResult>("aws:imagebuilder/getImageRecipes:getImageRecipes", args ?? new GetImageRecipesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageRecipesResult>("aws:imagebuilder/getImageRecipes:getImageRecipes", args ?? new GetImageRecipesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
@@ -90,7 +89,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetImageRecipesResult> Invoke(GetImageRecipesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImageRecipesResult>("aws:imagebuilder/getImageRecipes:getImageRecipes", args ?? new GetImageRecipesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetImageRecipesResult>("aws:imagebuilder/getImageRecipes:getImageRecipes", args ?? new GetImageRecipesInvokeArgs(), options.WithDefaults());
     }
 
 

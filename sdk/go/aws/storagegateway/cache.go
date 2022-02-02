@@ -134,7 +134,7 @@ type CacheInput interface {
 }
 
 func (*Cache) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cache)(nil))
+	return reflect.TypeOf((**Cache)(nil)).Elem()
 }
 
 func (i *Cache) ToCacheOutput() CacheOutput {
@@ -143,35 +143,6 @@ func (i *Cache) ToCacheOutput() CacheOutput {
 
 func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
-}
-
-func (i *Cache) ToCachePtrOutput() CachePtrOutput {
-	return i.ToCachePtrOutputWithContext(context.Background())
-}
-
-func (i *Cache) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePtrOutput)
-}
-
-type CachePtrInput interface {
-	pulumi.Input
-
-	ToCachePtrOutput() CachePtrOutput
-	ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput
-}
-
-type cachePtrType CacheArgs
-
-func (*cachePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Cache)(nil))
-}
-
-func (i *cachePtrType) ToCachePtrOutput() CachePtrOutput {
-	return i.ToCachePtrOutputWithContext(context.Background())
-}
-
-func (i *cachePtrType) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePtrOutput)
 }
 
 // CacheArrayInput is an input type that accepts CacheArray and CacheArrayOutput values.
@@ -227,7 +198,7 @@ func (i CacheMap) ToCacheMapOutputWithContext(ctx context.Context) CacheMapOutpu
 type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cache)(nil))
+	return reflect.TypeOf((**Cache)(nil)).Elem()
 }
 
 func (o CacheOutput) ToCacheOutput() CacheOutput {
@@ -238,44 +209,10 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
-func (o CacheOutput) ToCachePtrOutput() CachePtrOutput {
-	return o.ToCachePtrOutputWithContext(context.Background())
-}
-
-func (o CacheOutput) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Cache) *Cache {
-		return &v
-	}).(CachePtrOutput)
-}
-
-type CachePtrOutput struct{ *pulumi.OutputState }
-
-func (CachePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Cache)(nil))
-}
-
-func (o CachePtrOutput) ToCachePtrOutput() CachePtrOutput {
-	return o
-}
-
-func (o CachePtrOutput) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
-	return o
-}
-
-func (o CachePtrOutput) Elem() CacheOutput {
-	return o.ApplyT(func(v *Cache) Cache {
-		if v != nil {
-			return *v
-		}
-		var ret Cache
-		return ret
-	}).(CacheOutput)
-}
-
 type CacheArrayOutput struct{ *pulumi.OutputState }
 
 func (CacheArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Cache)(nil))
+	return reflect.TypeOf((*[]*Cache)(nil)).Elem()
 }
 
 func (o CacheArrayOutput) ToCacheArrayOutput() CacheArrayOutput {
@@ -287,15 +224,15 @@ func (o CacheArrayOutput) ToCacheArrayOutputWithContext(ctx context.Context) Cac
 }
 
 func (o CacheArrayOutput) Index(i pulumi.IntInput) CacheOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Cache {
-		return vs[0].([]Cache)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cache {
+		return vs[0].([]*Cache)[vs[1].(int)]
 	}).(CacheOutput)
 }
 
 type CacheMapOutput struct{ *pulumi.OutputState }
 
 func (CacheMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Cache)(nil))
+	return reflect.TypeOf((*map[string]*Cache)(nil)).Elem()
 }
 
 func (o CacheMapOutput) ToCacheMapOutput() CacheMapOutput {
@@ -307,18 +244,16 @@ func (o CacheMapOutput) ToCacheMapOutputWithContext(ctx context.Context) CacheMa
 }
 
 func (o CacheMapOutput) MapIndex(k pulumi.StringInput) CacheOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Cache {
-		return vs[0].(map[string]Cache)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Cache {
+		return vs[0].(map[string]*Cache)[vs[1].(string)]
 	}).(CacheOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheInput)(nil)).Elem(), &Cache{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CachePtrInput)(nil)).Elem(), &Cache{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheArrayInput)(nil)).Elem(), CacheArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheMapInput)(nil)).Elem(), CacheMap{})
 	pulumi.RegisterOutputType(CacheOutput{})
-	pulumi.RegisterOutputType(CachePtrOutput{})
 	pulumi.RegisterOutputType(CacheArrayOutput{})
 	pulumi.RegisterOutputType(CacheMapOutput{})
 }

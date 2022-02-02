@@ -141,42 +141,40 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["customerAwsId"] = state ? state.customerAwsId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["eventCategories"] = state ? state.eventCategories : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
-            inputs["sourceIds"] = state ? state.sourceIds : undefined;
-            inputs["sourceType"] = state ? state.sourceType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["customerAwsId"] = state ? state.customerAwsId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["eventCategories"] = state ? state.eventCategories : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+            resourceInputs["sourceIds"] = state ? state.sourceIds : undefined;
+            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
             if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventCategories"] = args ? args.eventCategories : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            inputs["sourceIds"] = args ? args.sourceIds : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["customerAwsId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["customerAwsId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventSubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

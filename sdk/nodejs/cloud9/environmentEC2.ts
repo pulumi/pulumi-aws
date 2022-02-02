@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloud9.EnvironmentEC2("example", {instanceType: "t2.micro"});
- * const cloud9Instance = example.id.apply(id => aws.ec2.getInstance({
+ * const cloud9Instance = aws.ec2.getInstanceOutput({
  *     filters: [{
  *         name: "tag:aws:cloud9:environment",
- *         values: [id],
+ *         values: [example.id],
  *     }],
- * }));
+ * });
  * export const cloud9Url = pulumi.interpolate`https://${_var.region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
  * ```
  *
@@ -43,12 +43,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloud9.EnvironmentEC2("example", {instanceType: "t2.micro"});
- * const cloud9Instance = example.id.apply(id => aws.ec2.getInstance({
+ * const cloud9Instance = aws.ec2.getInstanceOutput({
  *     filters: [{
  *         name: "tag:aws:cloud9:environment",
- *         values: [id],
+ *         values: [example.id],
  *     }],
- * }));
+ * });
  * const cloud9Eip = new aws.ec2.Eip("cloud9Eip", {
  *     instance: cloud9Instance.apply(cloud9Instance => cloud9Instance.id),
  *     vpc: true,
@@ -134,40 +134,38 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentEC2State | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerArn"] = state ? state.ownerArn : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerArn"] = state ? state.ownerArn : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EnvironmentEC2Args | undefined;
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerArn"] = args ? args.ownerArn : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerArn"] = args ? args.ownerArn : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EnvironmentEC2.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EnvironmentEC2.__pulumiType, name, resourceInputs, opts);
     }
 }
 

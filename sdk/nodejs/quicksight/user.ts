@@ -100,19 +100,19 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["iamArn"] = state ? state.iamArn : undefined;
-            inputs["identityType"] = state ? state.identityType : undefined;
-            inputs["namespace"] = state ? state.namespace : undefined;
-            inputs["sessionName"] = state ? state.sessionName : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
-            inputs["userRole"] = state ? state.userRole : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["iamArn"] = state ? state.iamArn : undefined;
+            resourceInputs["identityType"] = state ? state.identityType : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["sessionName"] = state ? state.sessionName : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["userRole"] = state ? state.userRole : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
@@ -124,20 +124,18 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userRole'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["iamArn"] = args ? args.iamArn : undefined;
-            inputs["identityType"] = args ? args.identityType : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["sessionName"] = args ? args.sessionName : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["userRole"] = args ? args.userRole : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["iamArn"] = args ? args.iamArn : undefined;
+            resourceInputs["identityType"] = args ? args.identityType : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["sessionName"] = args ? args.sessionName : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["userRole"] = args ? args.userRole : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

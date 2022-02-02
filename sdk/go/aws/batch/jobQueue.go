@@ -250,7 +250,7 @@ type JobQueueInput interface {
 }
 
 func (*JobQueue) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobQueue)(nil))
+	return reflect.TypeOf((**JobQueue)(nil)).Elem()
 }
 
 func (i *JobQueue) ToJobQueueOutput() JobQueueOutput {
@@ -259,35 +259,6 @@ func (i *JobQueue) ToJobQueueOutput() JobQueueOutput {
 
 func (i *JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueOutput)
-}
-
-func (i *JobQueue) ToJobQueuePtrOutput() JobQueuePtrOutput {
-	return i.ToJobQueuePtrOutputWithContext(context.Background())
-}
-
-func (i *JobQueue) ToJobQueuePtrOutputWithContext(ctx context.Context) JobQueuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobQueuePtrOutput)
-}
-
-type JobQueuePtrInput interface {
-	pulumi.Input
-
-	ToJobQueuePtrOutput() JobQueuePtrOutput
-	ToJobQueuePtrOutputWithContext(ctx context.Context) JobQueuePtrOutput
-}
-
-type jobQueuePtrType JobQueueArgs
-
-func (*jobQueuePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobQueue)(nil))
-}
-
-func (i *jobQueuePtrType) ToJobQueuePtrOutput() JobQueuePtrOutput {
-	return i.ToJobQueuePtrOutputWithContext(context.Background())
-}
-
-func (i *jobQueuePtrType) ToJobQueuePtrOutputWithContext(ctx context.Context) JobQueuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobQueuePtrOutput)
 }
 
 // JobQueueArrayInput is an input type that accepts JobQueueArray and JobQueueArrayOutput values.
@@ -343,7 +314,7 @@ func (i JobQueueMap) ToJobQueueMapOutputWithContext(ctx context.Context) JobQueu
 type JobQueueOutput struct{ *pulumi.OutputState }
 
 func (JobQueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobQueue)(nil))
+	return reflect.TypeOf((**JobQueue)(nil)).Elem()
 }
 
 func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {
@@ -354,44 +325,10 @@ func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueu
 	return o
 }
 
-func (o JobQueueOutput) ToJobQueuePtrOutput() JobQueuePtrOutput {
-	return o.ToJobQueuePtrOutputWithContext(context.Background())
-}
-
-func (o JobQueueOutput) ToJobQueuePtrOutputWithContext(ctx context.Context) JobQueuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobQueue) *JobQueue {
-		return &v
-	}).(JobQueuePtrOutput)
-}
-
-type JobQueuePtrOutput struct{ *pulumi.OutputState }
-
-func (JobQueuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobQueue)(nil))
-}
-
-func (o JobQueuePtrOutput) ToJobQueuePtrOutput() JobQueuePtrOutput {
-	return o
-}
-
-func (o JobQueuePtrOutput) ToJobQueuePtrOutputWithContext(ctx context.Context) JobQueuePtrOutput {
-	return o
-}
-
-func (o JobQueuePtrOutput) Elem() JobQueueOutput {
-	return o.ApplyT(func(v *JobQueue) JobQueue {
-		if v != nil {
-			return *v
-		}
-		var ret JobQueue
-		return ret
-	}).(JobQueueOutput)
-}
-
 type JobQueueArrayOutput struct{ *pulumi.OutputState }
 
 func (JobQueueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobQueue)(nil))
+	return reflect.TypeOf((*[]*JobQueue)(nil)).Elem()
 }
 
 func (o JobQueueArrayOutput) ToJobQueueArrayOutput() JobQueueArrayOutput {
@@ -403,15 +340,15 @@ func (o JobQueueArrayOutput) ToJobQueueArrayOutputWithContext(ctx context.Contex
 }
 
 func (o JobQueueArrayOutput) Index(i pulumi.IntInput) JobQueueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobQueue {
-		return vs[0].([]JobQueue)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobQueue {
+		return vs[0].([]*JobQueue)[vs[1].(int)]
 	}).(JobQueueOutput)
 }
 
 type JobQueueMapOutput struct{ *pulumi.OutputState }
 
 func (JobQueueMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]JobQueue)(nil))
+	return reflect.TypeOf((*map[string]*JobQueue)(nil)).Elem()
 }
 
 func (o JobQueueMapOutput) ToJobQueueMapOutput() JobQueueMapOutput {
@@ -423,18 +360,16 @@ func (o JobQueueMapOutput) ToJobQueueMapOutputWithContext(ctx context.Context) J
 }
 
 func (o JobQueueMapOutput) MapIndex(k pulumi.StringInput) JobQueueOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JobQueue {
-		return vs[0].(map[string]JobQueue)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *JobQueue {
+		return vs[0].(map[string]*JobQueue)[vs[1].(string)]
 	}).(JobQueueOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueInput)(nil)).Elem(), &JobQueue{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobQueuePtrInput)(nil)).Elem(), &JobQueue{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueArrayInput)(nil)).Elem(), JobQueueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueMapInput)(nil)).Elem(), JobQueueMap{})
 	pulumi.RegisterOutputType(JobQueueOutput{})
-	pulumi.RegisterOutputType(JobQueuePtrOutput{})
 	pulumi.RegisterOutputType(JobQueueArrayOutput{})
 	pulumi.RegisterOutputType(JobQueueMapOutput{})
 }

@@ -105,38 +105,36 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DedicatedHostArgs | DedicatedHostState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoPlacement"] = state ? state.autoPlacement : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["hostRecovery"] = state ? state.hostRecovery : undefined;
-            inputs["instanceFamily"] = state ? state.instanceFamily : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoPlacement"] = state ? state.autoPlacement : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["hostRecovery"] = state ? state.hostRecovery : undefined;
+            resourceInputs["instanceFamily"] = state ? state.instanceFamily : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            inputs["autoPlacement"] = args ? args.autoPlacement : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["hostRecovery"] = args ? args.hostRecovery : undefined;
-            inputs["instanceFamily"] = args ? args.instanceFamily : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
+            resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DedicatedHost.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DedicatedHost.__pulumiType, name, resourceInputs, opts);
     }
 }
 

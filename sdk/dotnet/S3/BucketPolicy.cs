@@ -26,40 +26,35 @@ namespace Pulumi.Aws.S3
     ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
     ///         {
     ///         });
-    ///         var allowAccessFromAnotherAccountPolicyDocument = Output.Tuple(example.Arn, example.Arn).Apply(values =&gt;
+    ///         var allowAccessFromAnotherAccountPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
-    ///             var exampleArn = values.Item1;
-    ///             var exampleArn1 = values.Item2;
-    ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             Statements = 
     ///             {
-    ///                 Statements = 
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     Principals = 
     ///                     {
-    ///                         Principals = 
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
-    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             Type = "AWS",
+    ///                             Identifiers = 
     ///                             {
-    ///                                 Type = "AWS",
-    ///                                 Identifiers = 
-    ///                                 {
-    ///                                     "123456789012",
-    ///                                 },
+    ///                                 "123456789012",
     ///                             },
     ///                         },
-    ///                         Actions = 
-    ///                         {
-    ///                             "s3:GetObject",
-    ///                             "s3:ListBucket",
-    ///                         },
-    ///                         Resources = 
-    ///                         {
-    ///                             exampleArn,
-    ///                             $"{exampleArn1}/*",
-    ///                         },
+    ///                     },
+    ///                     Actions = 
+    ///                     {
+    ///                         "s3:GetObject",
+    ///                         "s3:ListBucket",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         example.Arn,
+    ///                         example.Arn.Apply(arn =&gt; $"{arn}/*"),
     ///                     },
     ///                 },
-    ///             });
+    ///             },
     ///         });
     ///         var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {

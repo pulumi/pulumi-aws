@@ -221,68 +221,66 @@ export class Environment extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
-            inputs["allSettings"] = state ? state.allSettings : undefined;
-            inputs["application"] = state ? state.application : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoscalingGroups"] = state ? state.autoscalingGroups : undefined;
-            inputs["cname"] = state ? state.cname : undefined;
-            inputs["cnamePrefix"] = state ? state.cnamePrefix : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["endpointUrl"] = state ? state.endpointUrl : undefined;
-            inputs["instances"] = state ? state.instances : undefined;
-            inputs["launchConfigurations"] = state ? state.launchConfigurations : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platformArn"] = state ? state.platformArn : undefined;
-            inputs["pollInterval"] = state ? state.pollInterval : undefined;
-            inputs["queues"] = state ? state.queues : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["solutionStackName"] = state ? state.solutionStackName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["templateName"] = state ? state.templateName : undefined;
-            inputs["tier"] = state ? state.tier : undefined;
-            inputs["triggers"] = state ? state.triggers : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["waitForReadyTimeout"] = state ? state.waitForReadyTimeout : undefined;
+            resourceInputs["allSettings"] = state ? state.allSettings : undefined;
+            resourceInputs["application"] = state ? state.application : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoscalingGroups"] = state ? state.autoscalingGroups : undefined;
+            resourceInputs["cname"] = state ? state.cname : undefined;
+            resourceInputs["cnamePrefix"] = state ? state.cnamePrefix : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["endpointUrl"] = state ? state.endpointUrl : undefined;
+            resourceInputs["instances"] = state ? state.instances : undefined;
+            resourceInputs["launchConfigurations"] = state ? state.launchConfigurations : undefined;
+            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platformArn"] = state ? state.platformArn : undefined;
+            resourceInputs["pollInterval"] = state ? state.pollInterval : undefined;
+            resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["solutionStackName"] = state ? state.solutionStackName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["templateName"] = state ? state.templateName : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["waitForReadyTimeout"] = state ? state.waitForReadyTimeout : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
             if ((!args || args.application === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            inputs["application"] = args ? args.application : undefined;
-            inputs["cnamePrefix"] = args ? args.cnamePrefix : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platformArn"] = args ? args.platformArn : undefined;
-            inputs["pollInterval"] = args ? args.pollInterval : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["waitForReadyTimeout"] = args ? args.waitForReadyTimeout : undefined;
-            inputs["allSettings"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoscalingGroups"] = undefined /*out*/;
-            inputs["cname"] = undefined /*out*/;
-            inputs["endpointUrl"] = undefined /*out*/;
-            inputs["instances"] = undefined /*out*/;
-            inputs["launchConfigurations"] = undefined /*out*/;
-            inputs["loadBalancers"] = undefined /*out*/;
-            inputs["queues"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["triggers"] = undefined /*out*/;
+            resourceInputs["application"] = args ? args.application : undefined;
+            resourceInputs["cnamePrefix"] = args ? args.cnamePrefix : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platformArn"] = args ? args.platformArn : undefined;
+            resourceInputs["pollInterval"] = args ? args.pollInterval : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["waitForReadyTimeout"] = args ? args.waitForReadyTimeout : undefined;
+            resourceInputs["allSettings"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoscalingGroups"] = undefined /*out*/;
+            resourceInputs["cname"] = undefined /*out*/;
+            resourceInputs["endpointUrl"] = undefined /*out*/;
+            resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["launchConfigurations"] = undefined /*out*/;
+            resourceInputs["loadBalancers"] = undefined /*out*/;
+            resourceInputs["queues"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["triggers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Environment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

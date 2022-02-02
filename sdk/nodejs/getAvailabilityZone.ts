@@ -24,9 +24,7 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulum
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
         "allAvailabilityZones": args.allAvailabilityZones,
         "filters": args.filters,

@@ -204,44 +204,42 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ComputeEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ComputeEnvironmentArgs | ComputeEnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComputeEnvironmentState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
-            inputs["computeEnvironmentNamePrefix"] = state ? state.computeEnvironmentNamePrefix : undefined;
-            inputs["computeResources"] = state ? state.computeResources : undefined;
-            inputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["statusReason"] = state ? state.statusReason : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
+            resourceInputs["computeEnvironmentNamePrefix"] = state ? state.computeEnvironmentNamePrefix : undefined;
+            resourceInputs["computeResources"] = state ? state.computeResources : undefined;
+            resourceInputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
-            inputs["computeEnvironmentNamePrefix"] = args ? args.computeEnvironmentNamePrefix : undefined;
-            inputs["computeResources"] = args ? args.computeResources : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ecsClusterArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusReason"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
+            resourceInputs["computeEnvironmentNamePrefix"] = args ? args.computeEnvironmentNamePrefix : undefined;
+            resourceInputs["computeResources"] = args ? args.computeResources : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ecsClusterArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ComputeEnvironment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

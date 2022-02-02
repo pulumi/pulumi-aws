@@ -87,26 +87,24 @@ export class DomainIdentity extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainIdentityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainIdentityArgs | DomainIdentityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainIdentityState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["verificationToken"] = state ? state.verificationToken : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["verificationToken"] = state ? state.verificationToken : undefined;
         } else {
             const args = argsOrState as DomainIdentityArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["verificationToken"] = undefined /*out*/;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["verificationToken"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainIdentity.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainIdentity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

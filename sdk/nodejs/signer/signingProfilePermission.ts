@@ -115,16 +115,16 @@ export class SigningProfilePermission extends pulumi.CustomResource {
      */
     constructor(name: string, args: SigningProfilePermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SigningProfilePermissionArgs | SigningProfilePermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SigningProfilePermissionState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["profileName"] = state ? state.profileName : undefined;
-            inputs["profileVersion"] = state ? state.profileVersion : undefined;
-            inputs["statementId"] = state ? state.statementId : undefined;
-            inputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["profileName"] = state ? state.profileName : undefined;
+            resourceInputs["profileVersion"] = state ? state.profileVersion : undefined;
+            resourceInputs["statementId"] = state ? state.statementId : undefined;
+            resourceInputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
         } else {
             const args = argsOrState as SigningProfilePermissionArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -136,17 +136,15 @@ export class SigningProfilePermission extends pulumi.CustomResource {
             if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["profileVersion"] = args ? args.profileVersion : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
-            inputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["profileVersion"] = args ? args.profileVersion : undefined;
+            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SigningProfilePermission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SigningProfilePermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

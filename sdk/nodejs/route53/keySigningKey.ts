@@ -171,24 +171,24 @@ export class KeySigningKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeySigningKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeySigningKeyArgs | KeySigningKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeySigningKeyState | undefined;
-            inputs["digestAlgorithmMnemonic"] = state ? state.digestAlgorithmMnemonic : undefined;
-            inputs["digestAlgorithmType"] = state ? state.digestAlgorithmType : undefined;
-            inputs["digestValue"] = state ? state.digestValue : undefined;
-            inputs["dnskeyRecord"] = state ? state.dnskeyRecord : undefined;
-            inputs["dsRecord"] = state ? state.dsRecord : undefined;
-            inputs["flag"] = state ? state.flag : undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            inputs["keyManagementServiceArn"] = state ? state.keyManagementServiceArn : undefined;
-            inputs["keyTag"] = state ? state.keyTag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
-            inputs["signingAlgorithmMnemonic"] = state ? state.signingAlgorithmMnemonic : undefined;
-            inputs["signingAlgorithmType"] = state ? state.signingAlgorithmType : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["digestAlgorithmMnemonic"] = state ? state.digestAlgorithmMnemonic : undefined;
+            resourceInputs["digestAlgorithmType"] = state ? state.digestAlgorithmType : undefined;
+            resourceInputs["digestValue"] = state ? state.digestValue : undefined;
+            resourceInputs["dnskeyRecord"] = state ? state.dnskeyRecord : undefined;
+            resourceInputs["dsRecord"] = state ? state.dsRecord : undefined;
+            resourceInputs["flag"] = state ? state.flag : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["keyManagementServiceArn"] = state ? state.keyManagementServiceArn : undefined;
+            resourceInputs["keyTag"] = state ? state.keyTag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["signingAlgorithmMnemonic"] = state ? state.signingAlgorithmMnemonic : undefined;
+            resourceInputs["signingAlgorithmType"] = state ? state.signingAlgorithmType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as KeySigningKeyArgs | undefined;
             if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
@@ -197,25 +197,23 @@ export class KeySigningKey extends pulumi.CustomResource {
             if ((!args || args.keyManagementServiceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyManagementServiceArn'");
             }
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            inputs["keyManagementServiceArn"] = args ? args.keyManagementServiceArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["digestAlgorithmMnemonic"] = undefined /*out*/;
-            inputs["digestAlgorithmType"] = undefined /*out*/;
-            inputs["digestValue"] = undefined /*out*/;
-            inputs["dnskeyRecord"] = undefined /*out*/;
-            inputs["dsRecord"] = undefined /*out*/;
-            inputs["flag"] = undefined /*out*/;
-            inputs["keyTag"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
-            inputs["signingAlgorithmMnemonic"] = undefined /*out*/;
-            inputs["signingAlgorithmType"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["keyManagementServiceArn"] = args ? args.keyManagementServiceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["digestAlgorithmMnemonic"] = undefined /*out*/;
+            resourceInputs["digestAlgorithmType"] = undefined /*out*/;
+            resourceInputs["digestValue"] = undefined /*out*/;
+            resourceInputs["dnskeyRecord"] = undefined /*out*/;
+            resourceInputs["dsRecord"] = undefined /*out*/;
+            resourceInputs["flag"] = undefined /*out*/;
+            resourceInputs["keyTag"] = undefined /*out*/;
+            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["signingAlgorithmMnemonic"] = undefined /*out*/;
+            resourceInputs["signingAlgorithmType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(KeySigningKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(KeySigningKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

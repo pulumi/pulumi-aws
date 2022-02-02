@@ -24,9 +24,7 @@ export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:wafv2/getIpSet:getIpSet", {
         "name": args.name,
         "scope": args.scope,

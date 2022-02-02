@@ -162,7 +162,7 @@ type SubnetCidrReservationInput interface {
 }
 
 func (*SubnetCidrReservation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetCidrReservation)(nil))
+	return reflect.TypeOf((**SubnetCidrReservation)(nil)).Elem()
 }
 
 func (i *SubnetCidrReservation) ToSubnetCidrReservationOutput() SubnetCidrReservationOutput {
@@ -171,35 +171,6 @@ func (i *SubnetCidrReservation) ToSubnetCidrReservationOutput() SubnetCidrReserv
 
 func (i *SubnetCidrReservation) ToSubnetCidrReservationOutputWithContext(ctx context.Context) SubnetCidrReservationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrReservationOutput)
-}
-
-func (i *SubnetCidrReservation) ToSubnetCidrReservationPtrOutput() SubnetCidrReservationPtrOutput {
-	return i.ToSubnetCidrReservationPtrOutputWithContext(context.Background())
-}
-
-func (i *SubnetCidrReservation) ToSubnetCidrReservationPtrOutputWithContext(ctx context.Context) SubnetCidrReservationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrReservationPtrOutput)
-}
-
-type SubnetCidrReservationPtrInput interface {
-	pulumi.Input
-
-	ToSubnetCidrReservationPtrOutput() SubnetCidrReservationPtrOutput
-	ToSubnetCidrReservationPtrOutputWithContext(ctx context.Context) SubnetCidrReservationPtrOutput
-}
-
-type subnetCidrReservationPtrType SubnetCidrReservationArgs
-
-func (*subnetCidrReservationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetCidrReservation)(nil))
-}
-
-func (i *subnetCidrReservationPtrType) ToSubnetCidrReservationPtrOutput() SubnetCidrReservationPtrOutput {
-	return i.ToSubnetCidrReservationPtrOutputWithContext(context.Background())
-}
-
-func (i *subnetCidrReservationPtrType) ToSubnetCidrReservationPtrOutputWithContext(ctx context.Context) SubnetCidrReservationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrReservationPtrOutput)
 }
 
 // SubnetCidrReservationArrayInput is an input type that accepts SubnetCidrReservationArray and SubnetCidrReservationArrayOutput values.
@@ -255,7 +226,7 @@ func (i SubnetCidrReservationMap) ToSubnetCidrReservationMapOutputWithContext(ct
 type SubnetCidrReservationOutput struct{ *pulumi.OutputState }
 
 func (SubnetCidrReservationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetCidrReservation)(nil))
+	return reflect.TypeOf((**SubnetCidrReservation)(nil)).Elem()
 }
 
 func (o SubnetCidrReservationOutput) ToSubnetCidrReservationOutput() SubnetCidrReservationOutput {
@@ -266,44 +237,10 @@ func (o SubnetCidrReservationOutput) ToSubnetCidrReservationOutputWithContext(ct
 	return o
 }
 
-func (o SubnetCidrReservationOutput) ToSubnetCidrReservationPtrOutput() SubnetCidrReservationPtrOutput {
-	return o.ToSubnetCidrReservationPtrOutputWithContext(context.Background())
-}
-
-func (o SubnetCidrReservationOutput) ToSubnetCidrReservationPtrOutputWithContext(ctx context.Context) SubnetCidrReservationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetCidrReservation) *SubnetCidrReservation {
-		return &v
-	}).(SubnetCidrReservationPtrOutput)
-}
-
-type SubnetCidrReservationPtrOutput struct{ *pulumi.OutputState }
-
-func (SubnetCidrReservationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetCidrReservation)(nil))
-}
-
-func (o SubnetCidrReservationPtrOutput) ToSubnetCidrReservationPtrOutput() SubnetCidrReservationPtrOutput {
-	return o
-}
-
-func (o SubnetCidrReservationPtrOutput) ToSubnetCidrReservationPtrOutputWithContext(ctx context.Context) SubnetCidrReservationPtrOutput {
-	return o
-}
-
-func (o SubnetCidrReservationPtrOutput) Elem() SubnetCidrReservationOutput {
-	return o.ApplyT(func(v *SubnetCidrReservation) SubnetCidrReservation {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetCidrReservation
-		return ret
-	}).(SubnetCidrReservationOutput)
-}
-
 type SubnetCidrReservationArrayOutput struct{ *pulumi.OutputState }
 
 func (SubnetCidrReservationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubnetCidrReservation)(nil))
+	return reflect.TypeOf((*[]*SubnetCidrReservation)(nil)).Elem()
 }
 
 func (o SubnetCidrReservationArrayOutput) ToSubnetCidrReservationArrayOutput() SubnetCidrReservationArrayOutput {
@@ -315,15 +252,15 @@ func (o SubnetCidrReservationArrayOutput) ToSubnetCidrReservationArrayOutputWith
 }
 
 func (o SubnetCidrReservationArrayOutput) Index(i pulumi.IntInput) SubnetCidrReservationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetCidrReservation {
-		return vs[0].([]SubnetCidrReservation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetCidrReservation {
+		return vs[0].([]*SubnetCidrReservation)[vs[1].(int)]
 	}).(SubnetCidrReservationOutput)
 }
 
 type SubnetCidrReservationMapOutput struct{ *pulumi.OutputState }
 
 func (SubnetCidrReservationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SubnetCidrReservation)(nil))
+	return reflect.TypeOf((*map[string]*SubnetCidrReservation)(nil)).Elem()
 }
 
 func (o SubnetCidrReservationMapOutput) ToSubnetCidrReservationMapOutput() SubnetCidrReservationMapOutput {
@@ -335,18 +272,16 @@ func (o SubnetCidrReservationMapOutput) ToSubnetCidrReservationMapOutputWithCont
 }
 
 func (o SubnetCidrReservationMapOutput) MapIndex(k pulumi.StringInput) SubnetCidrReservationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SubnetCidrReservation {
-		return vs[0].(map[string]SubnetCidrReservation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SubnetCidrReservation {
+		return vs[0].(map[string]*SubnetCidrReservation)[vs[1].(string)]
 	}).(SubnetCidrReservationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrReservationInput)(nil)).Elem(), &SubnetCidrReservation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrReservationPtrInput)(nil)).Elem(), &SubnetCidrReservation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrReservationArrayInput)(nil)).Elem(), SubnetCidrReservationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrReservationMapInput)(nil)).Elem(), SubnetCidrReservationMap{})
 	pulumi.RegisterOutputType(SubnetCidrReservationOutput{})
-	pulumi.RegisterOutputType(SubnetCidrReservationPtrOutput{})
 	pulumi.RegisterOutputType(SubnetCidrReservationArrayOutput{})
 	pulumi.RegisterOutputType(SubnetCidrReservationMapOutput{})
 }

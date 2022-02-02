@@ -112,24 +112,22 @@ export class CertificateValidation extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateValidationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateValidationArgs | CertificateValidationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateValidationState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["validationRecordFqdns"] = state ? state.validationRecordFqdns : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["validationRecordFqdns"] = state ? state.validationRecordFqdns : undefined;
         } else {
             const args = argsOrState as CertificateValidationArgs | undefined;
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CertificateValidation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CertificateValidation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

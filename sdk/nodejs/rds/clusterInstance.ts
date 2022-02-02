@@ -237,42 +237,42 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterInstanceState | undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
-            inputs["dbParameterGroupName"] = state ? state.dbParameterGroupName : undefined;
-            inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
-            inputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
-            inputs["identifier"] = state ? state.identifier : undefined;
-            inputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
-            inputs["instanceClass"] = state ? state.instanceClass : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
-            inputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
-            inputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
-            inputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
-            inputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            inputs["promotionTier"] = state ? state.promotionTier : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["writer"] = state ? state.writer : undefined;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
+            resourceInputs["dbParameterGroupName"] = state ? state.dbParameterGroupName : undefined;
+            resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            resourceInputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
+            resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
+            resourceInputs["instanceClass"] = state ? state.instanceClass : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
+            resourceInputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
+            resourceInputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["promotionTier"] = state ? state.promotionTier : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["writer"] = state ? state.writer : undefined;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
             if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
@@ -281,43 +281,41 @@ export class ClusterInstance extends pulumi.CustomResource {
             if ((!args || args.instanceClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceClass'");
             }
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
-            inputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
-            inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["identifier"] = args ? args.identifier : undefined;
-            inputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
-            inputs["instanceClass"] = args ? args.instanceClass : undefined;
-            inputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
-            inputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
-            inputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
-            inputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
-            inputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
-            inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["promotionTier"] = args ? args.promotionTier : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dbiResourceId"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["engineVersionActual"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["storageEncrypted"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["writer"] = undefined /*out*/;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
+            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
+            resourceInputs["instanceClass"] = args ? args.instanceClass : undefined;
+            resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
+            resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
+            resourceInputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
+            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dbiResourceId"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["engineVersionActual"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["writer"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClusterInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClusterInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

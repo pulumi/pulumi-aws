@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
- * const acmpcaBucketAccess = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocument({
+ * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
  *             "s3:GetBucketAcl",
@@ -44,15 +44,15 @@ import * as utilities from "../utilities";
  *             "s3:PutObjectAcl",
  *         ],
  *         resources: [
- *             exampleBucketArn,
- *             `${exampleBucketArn1}/*`,
+ *             exampleBucket.arn,
+ *             pulumi.interpolate`${exampleBucket.arn}/*`,
  *         ],
  *         principals: [{
  *             identifiers: ["acm-pca.amazonaws.com"],
  *             type: "Service",
  *         }],
  *     }],
- * }));
+ * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
  *     bucket: exampleBucket.id,
  *     policy: acmpcaBucketAccess.apply(acmpcaBucketAccess => acmpcaBucketAccess.json),
@@ -184,50 +184,48 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateAuthorityArgs | CertificateAuthorityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateAuthorityState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateAuthorityConfiguration"] = state ? state.certificateAuthorityConfiguration : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["certificateSigningRequest"] = state ? state.certificateSigningRequest : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["notAfter"] = state ? state.notAfter : undefined;
-            inputs["notBefore"] = state ? state.notBefore : undefined;
-            inputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
-            inputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
-            inputs["serial"] = state ? state.serial : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateAuthorityConfiguration"] = state ? state.certificateAuthorityConfiguration : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["certificateSigningRequest"] = state ? state.certificateSigningRequest : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["notAfter"] = state ? state.notAfter : undefined;
+            resourceInputs["notBefore"] = state ? state.notBefore : undefined;
+            resourceInputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
+            resourceInputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
+            resourceInputs["serial"] = state ? state.serial : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CertificateAuthorityArgs | undefined;
             if ((!args || args.certificateAuthorityConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityConfiguration'");
             }
-            inputs["certificateAuthorityConfiguration"] = args ? args.certificateAuthorityConfiguration : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
-            inputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["certificateChain"] = undefined /*out*/;
-            inputs["certificateSigningRequest"] = undefined /*out*/;
-            inputs["notAfter"] = undefined /*out*/;
-            inputs["notBefore"] = undefined /*out*/;
-            inputs["serial"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityConfiguration"] = args ? args.certificateAuthorityConfiguration : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
+            resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["certificateChain"] = undefined /*out*/;
+            resourceInputs["certificateSigningRequest"] = undefined /*out*/;
+            resourceInputs["notAfter"] = undefined /*out*/;
+            resourceInputs["notBefore"] = undefined /*out*/;
+            resourceInputs["serial"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CertificateAuthority.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CertificateAuthority.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -25,9 +25,7 @@ export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulum
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", {
         "catalogId": args.catalogId,
     }, opts);

@@ -154,7 +154,7 @@ type ReadinessCheckInput interface {
 }
 
 func (*ReadinessCheck) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadinessCheck)(nil))
+	return reflect.TypeOf((**ReadinessCheck)(nil)).Elem()
 }
 
 func (i *ReadinessCheck) ToReadinessCheckOutput() ReadinessCheckOutput {
@@ -163,35 +163,6 @@ func (i *ReadinessCheck) ToReadinessCheckOutput() ReadinessCheckOutput {
 
 func (i *ReadinessCheck) ToReadinessCheckOutputWithContext(ctx context.Context) ReadinessCheckOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckOutput)
-}
-
-func (i *ReadinessCheck) ToReadinessCheckPtrOutput() ReadinessCheckPtrOutput {
-	return i.ToReadinessCheckPtrOutputWithContext(context.Background())
-}
-
-func (i *ReadinessCheck) ToReadinessCheckPtrOutputWithContext(ctx context.Context) ReadinessCheckPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckPtrOutput)
-}
-
-type ReadinessCheckPtrInput interface {
-	pulumi.Input
-
-	ToReadinessCheckPtrOutput() ReadinessCheckPtrOutput
-	ToReadinessCheckPtrOutputWithContext(ctx context.Context) ReadinessCheckPtrOutput
-}
-
-type readinessCheckPtrType ReadinessCheckArgs
-
-func (*readinessCheckPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReadinessCheck)(nil))
-}
-
-func (i *readinessCheckPtrType) ToReadinessCheckPtrOutput() ReadinessCheckPtrOutput {
-	return i.ToReadinessCheckPtrOutputWithContext(context.Background())
-}
-
-func (i *readinessCheckPtrType) ToReadinessCheckPtrOutputWithContext(ctx context.Context) ReadinessCheckPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckPtrOutput)
 }
 
 // ReadinessCheckArrayInput is an input type that accepts ReadinessCheckArray and ReadinessCheckArrayOutput values.
@@ -247,7 +218,7 @@ func (i ReadinessCheckMap) ToReadinessCheckMapOutputWithContext(ctx context.Cont
 type ReadinessCheckOutput struct{ *pulumi.OutputState }
 
 func (ReadinessCheckOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadinessCheck)(nil))
+	return reflect.TypeOf((**ReadinessCheck)(nil)).Elem()
 }
 
 func (o ReadinessCheckOutput) ToReadinessCheckOutput() ReadinessCheckOutput {
@@ -258,44 +229,10 @@ func (o ReadinessCheckOutput) ToReadinessCheckOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ReadinessCheckOutput) ToReadinessCheckPtrOutput() ReadinessCheckPtrOutput {
-	return o.ToReadinessCheckPtrOutputWithContext(context.Background())
-}
-
-func (o ReadinessCheckOutput) ToReadinessCheckPtrOutputWithContext(ctx context.Context) ReadinessCheckPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReadinessCheck) *ReadinessCheck {
-		return &v
-	}).(ReadinessCheckPtrOutput)
-}
-
-type ReadinessCheckPtrOutput struct{ *pulumi.OutputState }
-
-func (ReadinessCheckPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReadinessCheck)(nil))
-}
-
-func (o ReadinessCheckPtrOutput) ToReadinessCheckPtrOutput() ReadinessCheckPtrOutput {
-	return o
-}
-
-func (o ReadinessCheckPtrOutput) ToReadinessCheckPtrOutputWithContext(ctx context.Context) ReadinessCheckPtrOutput {
-	return o
-}
-
-func (o ReadinessCheckPtrOutput) Elem() ReadinessCheckOutput {
-	return o.ApplyT(func(v *ReadinessCheck) ReadinessCheck {
-		if v != nil {
-			return *v
-		}
-		var ret ReadinessCheck
-		return ret
-	}).(ReadinessCheckOutput)
-}
-
 type ReadinessCheckArrayOutput struct{ *pulumi.OutputState }
 
 func (ReadinessCheckArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReadinessCheck)(nil))
+	return reflect.TypeOf((*[]*ReadinessCheck)(nil)).Elem()
 }
 
 func (o ReadinessCheckArrayOutput) ToReadinessCheckArrayOutput() ReadinessCheckArrayOutput {
@@ -307,15 +244,15 @@ func (o ReadinessCheckArrayOutput) ToReadinessCheckArrayOutputWithContext(ctx co
 }
 
 func (o ReadinessCheckArrayOutput) Index(i pulumi.IntInput) ReadinessCheckOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReadinessCheck {
-		return vs[0].([]ReadinessCheck)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReadinessCheck {
+		return vs[0].([]*ReadinessCheck)[vs[1].(int)]
 	}).(ReadinessCheckOutput)
 }
 
 type ReadinessCheckMapOutput struct{ *pulumi.OutputState }
 
 func (ReadinessCheckMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReadinessCheck)(nil))
+	return reflect.TypeOf((*map[string]*ReadinessCheck)(nil)).Elem()
 }
 
 func (o ReadinessCheckMapOutput) ToReadinessCheckMapOutput() ReadinessCheckMapOutput {
@@ -327,18 +264,16 @@ func (o ReadinessCheckMapOutput) ToReadinessCheckMapOutputWithContext(ctx contex
 }
 
 func (o ReadinessCheckMapOutput) MapIndex(k pulumi.StringInput) ReadinessCheckOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReadinessCheck {
-		return vs[0].(map[string]ReadinessCheck)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReadinessCheck {
+		return vs[0].(map[string]*ReadinessCheck)[vs[1].(string)]
 	}).(ReadinessCheckOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckInput)(nil)).Elem(), &ReadinessCheck{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckPtrInput)(nil)).Elem(), &ReadinessCheck{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckArrayInput)(nil)).Elem(), ReadinessCheckArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckMapInput)(nil)).Elem(), ReadinessCheckMap{})
 	pulumi.RegisterOutputType(ReadinessCheckOutput{})
-	pulumi.RegisterOutputType(ReadinessCheckPtrOutput{})
 	pulumi.RegisterOutputType(ReadinessCheckArrayOutput{})
 	pulumi.RegisterOutputType(ReadinessCheckMapOutput{})
 }

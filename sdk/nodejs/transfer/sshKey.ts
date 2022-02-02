@@ -122,13 +122,13 @@ export class SshKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SshKeyState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
             if ((!args || args.body === undefined) && !opts.urn) {
@@ -140,14 +140,12 @@ export class SshKey extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SshKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SshKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

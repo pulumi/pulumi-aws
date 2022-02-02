@@ -51,9 +51,7 @@ export function getRegions(args?: GetRegionsArgs, opts?: pulumi.InvokeOptions): 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getRegions:getRegions", {
         "allRegions": args.allRegions,
         "filters": args.filters,

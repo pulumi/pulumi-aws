@@ -264,7 +264,7 @@ type VpcPeeringConnectionAccepterInput interface {
 }
 
 func (*VpcPeeringConnectionAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil))
+	return reflect.TypeOf((**VpcPeeringConnectionAccepter)(nil)).Elem()
 }
 
 func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
@@ -273,35 +273,6 @@ func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutput() Vp
 
 func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterOutput)
-}
-
-func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
-	return i.ToVpcPeeringConnectionAccepterPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterPtrOutput)
-}
-
-type VpcPeeringConnectionAccepterPtrInput interface {
-	pulumi.Input
-
-	ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput
-	ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput
-}
-
-type vpcPeeringConnectionAccepterPtrType VpcPeeringConnectionAccepterArgs
-
-func (*vpcPeeringConnectionAccepterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcPeeringConnectionAccepter)(nil))
-}
-
-func (i *vpcPeeringConnectionAccepterPtrType) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
-	return i.ToVpcPeeringConnectionAccepterPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcPeeringConnectionAccepterPtrType) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterPtrOutput)
 }
 
 // VpcPeeringConnectionAccepterArrayInput is an input type that accepts VpcPeeringConnectionAccepterArray and VpcPeeringConnectionAccepterArrayOutput values.
@@ -357,7 +328,7 @@ func (i VpcPeeringConnectionAccepterMap) ToVpcPeeringConnectionAccepterMapOutput
 type VpcPeeringConnectionAccepterOutput struct{ *pulumi.OutputState }
 
 func (VpcPeeringConnectionAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil))
+	return reflect.TypeOf((**VpcPeeringConnectionAccepter)(nil)).Elem()
 }
 
 func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
@@ -368,44 +339,10 @@ func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutput
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
-	return o.ToVpcPeeringConnectionAccepterPtrOutputWithContext(context.Background())
-}
-
-func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionAccepter) *VpcPeeringConnectionAccepter {
-		return &v
-	}).(VpcPeeringConnectionAccepterPtrOutput)
-}
-
-type VpcPeeringConnectionAccepterPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcPeeringConnectionAccepterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcPeeringConnectionAccepter)(nil))
-}
-
-func (o VpcPeeringConnectionAccepterPtrOutput) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
-	return o
-}
-
-func (o VpcPeeringConnectionAccepterPtrOutput) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
-	return o
-}
-
-func (o VpcPeeringConnectionAccepterPtrOutput) Elem() VpcPeeringConnectionAccepterOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) VpcPeeringConnectionAccepter {
-		if v != nil {
-			return *v
-		}
-		var ret VpcPeeringConnectionAccepter
-		return ret
-	}).(VpcPeeringConnectionAccepterOutput)
-}
-
 type VpcPeeringConnectionAccepterArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcPeeringConnectionAccepterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcPeeringConnectionAccepter)(nil))
+	return reflect.TypeOf((*[]*VpcPeeringConnectionAccepter)(nil)).Elem()
 }
 
 func (o VpcPeeringConnectionAccepterArrayOutput) ToVpcPeeringConnectionAccepterArrayOutput() VpcPeeringConnectionAccepterArrayOutput {
@@ -417,15 +354,15 @@ func (o VpcPeeringConnectionAccepterArrayOutput) ToVpcPeeringConnectionAccepterA
 }
 
 func (o VpcPeeringConnectionAccepterArrayOutput) Index(i pulumi.IntInput) VpcPeeringConnectionAccepterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcPeeringConnectionAccepter {
-		return vs[0].([]VpcPeeringConnectionAccepter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcPeeringConnectionAccepter {
+		return vs[0].([]*VpcPeeringConnectionAccepter)[vs[1].(int)]
 	}).(VpcPeeringConnectionAccepterOutput)
 }
 
 type VpcPeeringConnectionAccepterMapOutput struct{ *pulumi.OutputState }
 
 func (VpcPeeringConnectionAccepterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcPeeringConnectionAccepter)(nil))
+	return reflect.TypeOf((*map[string]*VpcPeeringConnectionAccepter)(nil)).Elem()
 }
 
 func (o VpcPeeringConnectionAccepterMapOutput) ToVpcPeeringConnectionAccepterMapOutput() VpcPeeringConnectionAccepterMapOutput {
@@ -437,18 +374,16 @@ func (o VpcPeeringConnectionAccepterMapOutput) ToVpcPeeringConnectionAccepterMap
 }
 
 func (o VpcPeeringConnectionAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcPeeringConnectionAccepterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcPeeringConnectionAccepter {
-		return vs[0].(map[string]VpcPeeringConnectionAccepter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcPeeringConnectionAccepter {
+		return vs[0].(map[string]*VpcPeeringConnectionAccepter)[vs[1].(string)]
 	}).(VpcPeeringConnectionAccepterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterInput)(nil)).Elem(), &VpcPeeringConnectionAccepter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterPtrInput)(nil)).Elem(), &VpcPeeringConnectionAccepter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterArrayInput)(nil)).Elem(), VpcPeeringConnectionAccepterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterMapInput)(nil)).Elem(), VpcPeeringConnectionAccepterMap{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterOutput{})
-	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterPtrOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterArrayOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterMapOutput{})
 }

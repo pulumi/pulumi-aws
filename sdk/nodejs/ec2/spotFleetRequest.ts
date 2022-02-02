@@ -169,35 +169,35 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpotFleetRequestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpotFleetRequestArgs | SpotFleetRequestState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpotFleetRequestState | undefined;
-            inputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
-            inputs["clientToken"] = state ? state.clientToken : undefined;
-            inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
-            inputs["fleetType"] = state ? state.fleetType : undefined;
-            inputs["iamFleetRole"] = state ? state.iamFleetRole : undefined;
-            inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
-            inputs["instancePoolsToUseCount"] = state ? state.instancePoolsToUseCount : undefined;
-            inputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
-            inputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["onDemandAllocationStrategy"] = state ? state.onDemandAllocationStrategy : undefined;
-            inputs["onDemandMaxTotalPrice"] = state ? state.onDemandMaxTotalPrice : undefined;
-            inputs["onDemandTargetCapacity"] = state ? state.onDemandTargetCapacity : undefined;
-            inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
-            inputs["spotMaintenanceStrategies"] = state ? state.spotMaintenanceStrategies : undefined;
-            inputs["spotPrice"] = state ? state.spotPrice : undefined;
-            inputs["spotRequestState"] = state ? state.spotRequestState : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetCapacity"] = state ? state.targetCapacity : undefined;
-            inputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
-            inputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
-            inputs["validFrom"] = state ? state.validFrom : undefined;
-            inputs["validUntil"] = state ? state.validUntil : undefined;
-            inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
+            resourceInputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
+            resourceInputs["clientToken"] = state ? state.clientToken : undefined;
+            resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetType"] = state ? state.fleetType : undefined;
+            resourceInputs["iamFleetRole"] = state ? state.iamFleetRole : undefined;
+            resourceInputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
+            resourceInputs["instancePoolsToUseCount"] = state ? state.instancePoolsToUseCount : undefined;
+            resourceInputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
+            resourceInputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
+            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            resourceInputs["onDemandAllocationStrategy"] = state ? state.onDemandAllocationStrategy : undefined;
+            resourceInputs["onDemandMaxTotalPrice"] = state ? state.onDemandMaxTotalPrice : undefined;
+            resourceInputs["onDemandTargetCapacity"] = state ? state.onDemandTargetCapacity : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotMaintenanceStrategies"] = state ? state.spotMaintenanceStrategies : undefined;
+            resourceInputs["spotPrice"] = state ? state.spotPrice : undefined;
+            resourceInputs["spotRequestState"] = state ? state.spotRequestState : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetCapacity"] = state ? state.targetCapacity : undefined;
+            resourceInputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
+            resourceInputs["validFrom"] = state ? state.validFrom : undefined;
+            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
+            resourceInputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
         } else {
             const args = argsOrState as SpotFleetRequestArgs | undefined;
             if ((!args || args.iamFleetRole === undefined) && !opts.urn) {
@@ -206,36 +206,34 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             if ((!args || args.targetCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacity'");
             }
-            inputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
-            inputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
-            inputs["fleetType"] = args ? args.fleetType : undefined;
-            inputs["iamFleetRole"] = args ? args.iamFleetRole : undefined;
-            inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
-            inputs["instancePoolsToUseCount"] = args ? args.instancePoolsToUseCount : undefined;
-            inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
-            inputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["onDemandAllocationStrategy"] = args ? args.onDemandAllocationStrategy : undefined;
-            inputs["onDemandMaxTotalPrice"] = args ? args.onDemandMaxTotalPrice : undefined;
-            inputs["onDemandTargetCapacity"] = args ? args.onDemandTargetCapacity : undefined;
-            inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
-            inputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
-            inputs["spotPrice"] = args ? args.spotPrice : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetCapacity"] = args ? args.targetCapacity : undefined;
-            inputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
-            inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
-            inputs["validFrom"] = args ? args.validFrom : undefined;
-            inputs["validUntil"] = args ? args.validUntil : undefined;
-            inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
-            inputs["clientToken"] = undefined /*out*/;
-            inputs["spotRequestState"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
+            resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
+            resourceInputs["iamFleetRole"] = args ? args.iamFleetRole : undefined;
+            resourceInputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
+            resourceInputs["instancePoolsToUseCount"] = args ? args.instancePoolsToUseCount : undefined;
+            resourceInputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
+            resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["onDemandAllocationStrategy"] = args ? args.onDemandAllocationStrategy : undefined;
+            resourceInputs["onDemandMaxTotalPrice"] = args ? args.onDemandMaxTotalPrice : undefined;
+            resourceInputs["onDemandTargetCapacity"] = args ? args.onDemandTargetCapacity : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
+            resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetCapacity"] = args ? args.targetCapacity : undefined;
+            resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
+            resourceInputs["validFrom"] = args ? args.validFrom : undefined;
+            resourceInputs["validUntil"] = args ? args.validUntil : undefined;
+            resourceInputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
+            resourceInputs["clientToken"] = undefined /*out*/;
+            resourceInputs["spotRequestState"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpotFleetRequest.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpotFleetRequest.__pulumiType, name, resourceInputs, opts);
     }
 }
 

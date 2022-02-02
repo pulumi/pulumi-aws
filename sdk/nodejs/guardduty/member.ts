@@ -100,17 +100,17 @@ export class Member extends pulumi.CustomResource {
      */
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MemberArgs | MemberState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
-            inputs["disableEmailNotification"] = state ? state.disableEmailNotification : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["invitationMessage"] = state ? state.invitationMessage : undefined;
-            inputs["invite"] = state ? state.invite : undefined;
-            inputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["disableEmailNotification"] = state ? state.disableEmailNotification : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["invitationMessage"] = state ? state.invitationMessage : undefined;
+            resourceInputs["invite"] = state ? state.invite : undefined;
+            resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -122,18 +122,16 @@ export class Member extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["invitationMessage"] = args ? args.invitationMessage : undefined;
-            inputs["invite"] = args ? args.invite : undefined;
-            inputs["relationshipStatus"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["invitationMessage"] = args ? args.invitationMessage : undefined;
+            resourceInputs["invite"] = args ? args.invite : undefined;
+            resourceInputs["relationshipStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Member.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }
 

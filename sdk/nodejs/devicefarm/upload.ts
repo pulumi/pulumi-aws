@@ -100,18 +100,18 @@ export class Upload extends pulumi.CustomResource {
      */
     constructor(name: string, args: UploadArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UploadArgs | UploadState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UploadState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["category"] = state ? state.category : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["projectArn"] = state ? state.projectArn : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["category"] = state ? state.category : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectArn"] = state ? state.projectArn : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as UploadArgs | undefined;
             if ((!args || args.projectArn === undefined) && !opts.urn) {
@@ -120,19 +120,17 @@ export class Upload extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["projectArn"] = args ? args.projectArn : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["category"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Upload.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Upload.__pulumiType, name, resourceInputs, opts);
     }
 }
 

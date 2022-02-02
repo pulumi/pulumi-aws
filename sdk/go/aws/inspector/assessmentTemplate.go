@@ -183,7 +183,7 @@ type AssessmentTemplateInput interface {
 }
 
 func (*AssessmentTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTemplate)(nil))
+	return reflect.TypeOf((**AssessmentTemplate)(nil)).Elem()
 }
 
 func (i *AssessmentTemplate) ToAssessmentTemplateOutput() AssessmentTemplateOutput {
@@ -192,35 +192,6 @@ func (i *AssessmentTemplate) ToAssessmentTemplateOutput() AssessmentTemplateOutp
 
 func (i *AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateOutput)
-}
-
-func (i *AssessmentTemplate) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
-	return i.ToAssessmentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *AssessmentTemplate) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplatePtrOutput)
-}
-
-type AssessmentTemplatePtrInput interface {
-	pulumi.Input
-
-	ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput
-	ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput
-}
-
-type assessmentTemplatePtrType AssessmentTemplateArgs
-
-func (*assessmentTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentTemplate)(nil))
-}
-
-func (i *assessmentTemplatePtrType) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
-	return i.ToAssessmentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentTemplatePtrType) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplatePtrOutput)
 }
 
 // AssessmentTemplateArrayInput is an input type that accepts AssessmentTemplateArray and AssessmentTemplateArrayOutput values.
@@ -276,7 +247,7 @@ func (i AssessmentTemplateMap) ToAssessmentTemplateMapOutputWithContext(ctx cont
 type AssessmentTemplateOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTemplate)(nil))
+	return reflect.TypeOf((**AssessmentTemplate)(nil)).Elem()
 }
 
 func (o AssessmentTemplateOutput) ToAssessmentTemplateOutput() AssessmentTemplateOutput {
@@ -287,44 +258,10 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx cont
 	return o
 }
 
-func (o AssessmentTemplateOutput) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
-	return o.ToAssessmentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentTemplateOutput) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentTemplate) *AssessmentTemplate {
-		return &v
-	}).(AssessmentTemplatePtrOutput)
-}
-
-type AssessmentTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentTemplate)(nil))
-}
-
-func (o AssessmentTemplatePtrOutput) ToAssessmentTemplatePtrOutput() AssessmentTemplatePtrOutput {
-	return o
-}
-
-func (o AssessmentTemplatePtrOutput) ToAssessmentTemplatePtrOutputWithContext(ctx context.Context) AssessmentTemplatePtrOutput {
-	return o
-}
-
-func (o AssessmentTemplatePtrOutput) Elem() AssessmentTemplateOutput {
-	return o.ApplyT(func(v *AssessmentTemplate) AssessmentTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentTemplate
-		return ret
-	}).(AssessmentTemplateOutput)
-}
-
 type AssessmentTemplateArrayOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTemplateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentTemplate)(nil))
+	return reflect.TypeOf((*[]*AssessmentTemplate)(nil)).Elem()
 }
 
 func (o AssessmentTemplateArrayOutput) ToAssessmentTemplateArrayOutput() AssessmentTemplateArrayOutput {
@@ -336,15 +273,15 @@ func (o AssessmentTemplateArrayOutput) ToAssessmentTemplateArrayOutputWithContex
 }
 
 func (o AssessmentTemplateArrayOutput) Index(i pulumi.IntInput) AssessmentTemplateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentTemplate {
-		return vs[0].([]AssessmentTemplate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssessmentTemplate {
+		return vs[0].([]*AssessmentTemplate)[vs[1].(int)]
 	}).(AssessmentTemplateOutput)
 }
 
 type AssessmentTemplateMapOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTemplateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AssessmentTemplate)(nil))
+	return reflect.TypeOf((*map[string]*AssessmentTemplate)(nil)).Elem()
 }
 
 func (o AssessmentTemplateMapOutput) ToAssessmentTemplateMapOutput() AssessmentTemplateMapOutput {
@@ -356,18 +293,16 @@ func (o AssessmentTemplateMapOutput) ToAssessmentTemplateMapOutputWithContext(ct
 }
 
 func (o AssessmentTemplateMapOutput) MapIndex(k pulumi.StringInput) AssessmentTemplateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssessmentTemplate {
-		return vs[0].(map[string]AssessmentTemplate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AssessmentTemplate {
+		return vs[0].(map[string]*AssessmentTemplate)[vs[1].(string)]
 	}).(AssessmentTemplateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplateInput)(nil)).Elem(), &AssessmentTemplate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplatePtrInput)(nil)).Elem(), &AssessmentTemplate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplateArrayInput)(nil)).Elem(), AssessmentTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplateMapInput)(nil)).Elem(), AssessmentTemplateMap{})
 	pulumi.RegisterOutputType(AssessmentTemplateOutput{})
-	pulumi.RegisterOutputType(AssessmentTemplatePtrOutput{})
 	pulumi.RegisterOutputType(AssessmentTemplateArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentTemplateMapOutput{})
 }

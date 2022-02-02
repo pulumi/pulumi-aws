@@ -55,42 +55,37 @@ namespace Pulumi.Aws.Acmpca
     ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
     ///         {
     ///         });
-    ///         var acmpcaBucketAccess = Output.Tuple(exampleBucket.Arn, exampleBucket.Arn).Apply(values =&gt;
+    ///         var acmpcaBucketAccess = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
-    ///             var exampleBucketArn = values.Item1;
-    ///             var exampleBucketArn1 = values.Item2;
-    ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             Statements = 
     ///             {
-    ///                 Statements = 
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     Actions = 
     ///                     {
-    ///                         Actions = 
+    ///                         "s3:GetBucketAcl",
+    ///                         "s3:GetBucketLocation",
+    ///                         "s3:PutObject",
+    ///                         "s3:PutObjectAcl",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         exampleBucket.Arn,
+    ///                         exampleBucket.Arn.Apply(arn =&gt; $"{arn}/*"),
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
-    ///                             "s3:GetBucketAcl",
-    ///                             "s3:GetBucketLocation",
-    ///                             "s3:PutObject",
-    ///                             "s3:PutObjectAcl",
-    ///                         },
-    ///                         Resources = 
-    ///                         {
-    ///                             exampleBucketArn,
-    ///                             $"{exampleBucketArn1}/*",
-    ///                         },
-    ///                         Principals = 
-    ///                         {
-    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             Identifiers = 
     ///                             {
-    ///                                 Identifiers = 
-    ///                                 {
-    ///                                     "acm-pca.amazonaws.com",
-    ///                                 },
-    ///                                 Type = "Service",
+    ///                                 "acm-pca.amazonaws.com",
     ///                             },
+    ///                             Type = "Service",
     ///                         },
     ///                     },
     ///                 },
-    ///             });
+    ///             },
     ///         });
     ///         var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {

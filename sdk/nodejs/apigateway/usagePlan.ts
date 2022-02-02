@@ -157,35 +157,33 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     constructor(name: string, args?: UsagePlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UsagePlanArgs | UsagePlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UsagePlanState | undefined;
-            inputs["apiStages"] = state ? state.apiStages : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["productCode"] = state ? state.productCode : undefined;
-            inputs["quotaSettings"] = state ? state.quotaSettings : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["throttleSettings"] = state ? state.throttleSettings : undefined;
+            resourceInputs["apiStages"] = state ? state.apiStages : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["productCode"] = state ? state.productCode : undefined;
+            resourceInputs["quotaSettings"] = state ? state.quotaSettings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as UsagePlanArgs | undefined;
-            inputs["apiStages"] = args ? args.apiStages : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["productCode"] = args ? args.productCode : undefined;
-            inputs["quotaSettings"] = args ? args.quotaSettings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throttleSettings"] = args ? args.throttleSettings : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["apiStages"] = args ? args.apiStages : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["productCode"] = args ? args.productCode : undefined;
+            resourceInputs["quotaSettings"] = args ? args.quotaSettings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throttleSettings"] = args ? args.throttleSettings : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UsagePlan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UsagePlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

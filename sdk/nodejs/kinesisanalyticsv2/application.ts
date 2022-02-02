@@ -317,25 +317,25 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            inputs["applicationConfiguration"] = state ? state.applicationConfiguration : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
-            inputs["createTimestamp"] = state ? state.createTimestamp : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceStop"] = state ? state.forceStop : undefined;
-            inputs["lastUpdateTimestamp"] = state ? state.lastUpdateTimestamp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["runtimeEnvironment"] = state ? state.runtimeEnvironment : undefined;
-            inputs["serviceExecutionRole"] = state ? state.serviceExecutionRole : undefined;
-            inputs["startApplication"] = state ? state.startApplication : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["applicationConfiguration"] = state ? state.applicationConfiguration : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
+            resourceInputs["createTimestamp"] = state ? state.createTimestamp : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceStop"] = state ? state.forceStop : undefined;
+            resourceInputs["lastUpdateTimestamp"] = state ? state.lastUpdateTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["runtimeEnvironment"] = state ? state.runtimeEnvironment : undefined;
+            resourceInputs["serviceExecutionRole"] = state ? state.serviceExecutionRole : undefined;
+            resourceInputs["startApplication"] = state ? state.startApplication : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
@@ -344,26 +344,24 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.serviceExecutionRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
-            inputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
-            inputs["cloudwatchLoggingOptions"] = args ? args.cloudwatchLoggingOptions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceStop"] = args ? args.forceStop : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
-            inputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
-            inputs["startApplication"] = args ? args.startApplication : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTimestamp"] = undefined /*out*/;
-            inputs["lastUpdateTimestamp"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
+            resourceInputs["cloudwatchLoggingOptions"] = args ? args.cloudwatchLoggingOptions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceStop"] = args ? args.forceStop : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
+            resourceInputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
+            resourceInputs["startApplication"] = args ? args.startApplication : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTimestamp"] = undefined /*out*/;
+            resourceInputs["lastUpdateTimestamp"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

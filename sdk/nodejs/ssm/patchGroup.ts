@@ -66,12 +66,12 @@ export class PatchGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: PatchGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PatchGroupArgs | PatchGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PatchGroupState | undefined;
-            inputs["baselineId"] = state ? state.baselineId : undefined;
-            inputs["patchGroup"] = state ? state.patchGroup : undefined;
+            resourceInputs["baselineId"] = state ? state.baselineId : undefined;
+            resourceInputs["patchGroup"] = state ? state.patchGroup : undefined;
         } else {
             const args = argsOrState as PatchGroupArgs | undefined;
             if ((!args || args.baselineId === undefined) && !opts.urn) {
@@ -80,13 +80,11 @@ export class PatchGroup extends pulumi.CustomResource {
             if ((!args || args.patchGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'patchGroup'");
             }
-            inputs["baselineId"] = args ? args.baselineId : undefined;
-            inputs["patchGroup"] = args ? args.patchGroup : undefined;
+            resourceInputs["baselineId"] = args ? args.baselineId : undefined;
+            resourceInputs["patchGroup"] = args ? args.patchGroup : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PatchGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PatchGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

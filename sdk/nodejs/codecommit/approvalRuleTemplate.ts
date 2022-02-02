@@ -106,36 +106,34 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApprovalRuleTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApprovalRuleTemplateArgs | ApprovalRuleTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApprovalRuleTemplateState | undefined;
-            inputs["approvalRuleTemplateId"] = state ? state.approvalRuleTemplateId : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
-            inputs["lastModifiedUser"] = state ? state.lastModifiedUser : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ruleContentSha256"] = state ? state.ruleContentSha256 : undefined;
+            resourceInputs["approvalRuleTemplateId"] = state ? state.approvalRuleTemplateId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
+            resourceInputs["lastModifiedUser"] = state ? state.lastModifiedUser : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ruleContentSha256"] = state ? state.ruleContentSha256 : undefined;
         } else {
             const args = argsOrState as ApprovalRuleTemplateArgs | undefined;
             if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["approvalRuleTemplateId"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
-            inputs["lastModifiedUser"] = undefined /*out*/;
-            inputs["ruleContentSha256"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["approvalRuleTemplateId"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["lastModifiedDate"] = undefined /*out*/;
+            resourceInputs["lastModifiedUser"] = undefined /*out*/;
+            resourceInputs["ruleContentSha256"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApprovalRuleTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApprovalRuleTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

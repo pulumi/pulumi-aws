@@ -112,13 +112,13 @@ export class Dashboard extends pulumi.CustomResource {
      */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardState | undefined;
-            inputs["dashboardArn"] = state ? state.dashboardArn : undefined;
-            inputs["dashboardBody"] = state ? state.dashboardBody : undefined;
-            inputs["dashboardName"] = state ? state.dashboardName : undefined;
+            resourceInputs["dashboardArn"] = state ? state.dashboardArn : undefined;
+            resourceInputs["dashboardBody"] = state ? state.dashboardBody : undefined;
+            resourceInputs["dashboardName"] = state ? state.dashboardName : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
             if ((!args || args.dashboardBody === undefined) && !opts.urn) {
@@ -127,14 +127,12 @@ export class Dashboard extends pulumi.CustomResource {
             if ((!args || args.dashboardName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardName'");
             }
-            inputs["dashboardBody"] = args ? args.dashboardBody : undefined;
-            inputs["dashboardName"] = args ? args.dashboardName : undefined;
-            inputs["dashboardArn"] = undefined /*out*/;
+            resourceInputs["dashboardBody"] = args ? args.dashboardBody : undefined;
+            resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
+            resourceInputs["dashboardArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dashboard.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }
 

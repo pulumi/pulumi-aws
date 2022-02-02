@@ -123,24 +123,24 @@ export class Image extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageArgs | ImageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dateCreated"] = state ? state.dateCreated : undefined;
-            inputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
-            inputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
-            inputs["imageRecipeArn"] = state ? state.imageRecipeArn : undefined;
-            inputs["imageTestsConfiguration"] = state ? state.imageTestsConfiguration : undefined;
-            inputs["infrastructureConfigurationArn"] = state ? state.infrastructureConfigurationArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["osVersion"] = state ? state.osVersion : undefined;
-            inputs["outputResources"] = state ? state.outputResources : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["imageRecipeArn"] = state ? state.imageRecipeArn : undefined;
+            resourceInputs["imageTestsConfiguration"] = state ? state.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = state ? state.infrastructureConfigurationArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["osVersion"] = state ? state.osVersion : undefined;
+            resourceInputs["outputResources"] = state ? state.outputResources : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
             if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
@@ -149,25 +149,23 @@ export class Image extends pulumi.CustomResource {
             if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
-            inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
-            inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
-            inputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
-            inputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
-            inputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dateCreated"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osVersion"] = undefined /*out*/;
-            inputs["outputResources"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dateCreated"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osVersion"] = undefined /*out*/;
+            resourceInputs["outputResources"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Image.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Image.__pulumiType, name, resourceInputs, opts);
     }
 }
 

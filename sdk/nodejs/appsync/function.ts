@@ -155,21 +155,21 @@ export class Function extends pulumi.CustomResource {
      */
     constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dataSource"] = state ? state.dataSource : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["functionId"] = state ? state.functionId : undefined;
-            inputs["functionVersion"] = state ? state.functionVersion : undefined;
-            inputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["requestMappingTemplate"] = state ? state.requestMappingTemplate : undefined;
-            inputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
-            inputs["syncConfig"] = state ? state.syncConfig : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dataSource"] = state ? state.dataSource : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["functionId"] = state ? state.functionId : undefined;
+            resourceInputs["functionVersion"] = state ? state.functionVersion : undefined;
+            resourceInputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["requestMappingTemplate"] = state ? state.requestMappingTemplate : undefined;
+            resourceInputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
+            resourceInputs["syncConfig"] = state ? state.syncConfig : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -184,22 +184,20 @@ export class Function extends pulumi.CustomResource {
             if ((!args || args.responseMappingTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'responseMappingTemplate'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["dataSource"] = args ? args.dataSource : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["functionVersion"] = args ? args.functionVersion : undefined;
-            inputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
-            inputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
-            inputs["syncConfig"] = args ? args.syncConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["functionId"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
+            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
+            resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
+            resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["functionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Function.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Function.__pulumiType, name, resourceInputs, opts);
     }
 }
 

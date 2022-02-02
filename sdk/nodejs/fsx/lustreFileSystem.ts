@@ -190,74 +190,72 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     constructor(name: string, args: LustreFileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LustreFileSystemArgs | LustreFileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LustreFileSystemState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoImportPolicy"] = state ? state.autoImportPolicy : undefined;
-            inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            inputs["backupId"] = state ? state.backupId : undefined;
-            inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            inputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
-            inputs["deploymentType"] = state ? state.deploymentType : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["driveCacheType"] = state ? state.driveCacheType : undefined;
-            inputs["exportPath"] = state ? state.exportPath : undefined;
-            inputs["fileSystemTypeVersion"] = state ? state.fileSystemTypeVersion : undefined;
-            inputs["importPath"] = state ? state.importPath : undefined;
-            inputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["mountName"] = state ? state.mountName : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["perUnitStorageThroughput"] = state ? state.perUnitStorageThroughput : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoImportPolicy"] = state ? state.autoImportPolicy : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = state ? state.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
+            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["driveCacheType"] = state ? state.driveCacheType : undefined;
+            resourceInputs["exportPath"] = state ? state.exportPath : undefined;
+            resourceInputs["fileSystemTypeVersion"] = state ? state.fileSystemTypeVersion : undefined;
+            resourceInputs["importPath"] = state ? state.importPath : undefined;
+            resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["mountName"] = state ? state.mountName : undefined;
+            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["perUnitStorageThroughput"] = state ? state.perUnitStorageThroughput : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as LustreFileSystemArgs | undefined;
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["autoImportPolicy"] = args ? args.autoImportPolicy : undefined;
-            inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            inputs["backupId"] = args ? args.backupId : undefined;
-            inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            inputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
-            inputs["deploymentType"] = args ? args.deploymentType : undefined;
-            inputs["driveCacheType"] = args ? args.driveCacheType : undefined;
-            inputs["exportPath"] = args ? args.exportPath : undefined;
-            inputs["fileSystemTypeVersion"] = args ? args.fileSystemTypeVersion : undefined;
-            inputs["importPath"] = args ? args.importPath : undefined;
-            inputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["mountName"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["autoImportPolicy"] = args ? args.autoImportPolicy : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = args ? args.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
+            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
+            resourceInputs["driveCacheType"] = args ? args.driveCacheType : undefined;
+            resourceInputs["exportPath"] = args ? args.exportPath : undefined;
+            resourceInputs["fileSystemTypeVersion"] = args ? args.fileSystemTypeVersion : undefined;
+            resourceInputs["importPath"] = args ? args.importPath : undefined;
+            resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["mountName"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LustreFileSystem.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LustreFileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

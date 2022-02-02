@@ -23,9 +23,7 @@ export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,
     }, opts);

@@ -161,7 +161,7 @@ type SchedulingPolicyInput interface {
 }
 
 func (*SchedulingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchedulingPolicy)(nil))
+	return reflect.TypeOf((**SchedulingPolicy)(nil)).Elem()
 }
 
 func (i *SchedulingPolicy) ToSchedulingPolicyOutput() SchedulingPolicyOutput {
@@ -170,35 +170,6 @@ func (i *SchedulingPolicy) ToSchedulingPolicyOutput() SchedulingPolicyOutput {
 
 func (i *SchedulingPolicy) ToSchedulingPolicyOutputWithContext(ctx context.Context) SchedulingPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyOutput)
-}
-
-func (i *SchedulingPolicy) ToSchedulingPolicyPtrOutput() SchedulingPolicyPtrOutput {
-	return i.ToSchedulingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *SchedulingPolicy) ToSchedulingPolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyPtrOutput)
-}
-
-type SchedulingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToSchedulingPolicyPtrOutput() SchedulingPolicyPtrOutput
-	ToSchedulingPolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyPtrOutput
-}
-
-type schedulingPolicyPtrType SchedulingPolicyArgs
-
-func (*schedulingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchedulingPolicy)(nil))
-}
-
-func (i *schedulingPolicyPtrType) ToSchedulingPolicyPtrOutput() SchedulingPolicyPtrOutput {
-	return i.ToSchedulingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *schedulingPolicyPtrType) ToSchedulingPolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyPtrOutput)
 }
 
 // SchedulingPolicyArrayInput is an input type that accepts SchedulingPolicyArray and SchedulingPolicyArrayOutput values.
@@ -254,7 +225,7 @@ func (i SchedulingPolicyMap) ToSchedulingPolicyMapOutputWithContext(ctx context.
 type SchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchedulingPolicy)(nil))
+	return reflect.TypeOf((**SchedulingPolicy)(nil)).Elem()
 }
 
 func (o SchedulingPolicyOutput) ToSchedulingPolicyOutput() SchedulingPolicyOutput {
@@ -265,44 +236,10 @@ func (o SchedulingPolicyOutput) ToSchedulingPolicyOutputWithContext(ctx context.
 	return o
 }
 
-func (o SchedulingPolicyOutput) ToSchedulingPolicyPtrOutput() SchedulingPolicyPtrOutput {
-	return o.ToSchedulingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SchedulingPolicyOutput) ToSchedulingPolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulingPolicy) *SchedulingPolicy {
-		return &v
-	}).(SchedulingPolicyPtrOutput)
-}
-
-type SchedulingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SchedulingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchedulingPolicy)(nil))
-}
-
-func (o SchedulingPolicyPtrOutput) ToSchedulingPolicyPtrOutput() SchedulingPolicyPtrOutput {
-	return o
-}
-
-func (o SchedulingPolicyPtrOutput) ToSchedulingPolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyPtrOutput {
-	return o
-}
-
-func (o SchedulingPolicyPtrOutput) Elem() SchedulingPolicyOutput {
-	return o.ApplyT(func(v *SchedulingPolicy) SchedulingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret SchedulingPolicy
-		return ret
-	}).(SchedulingPolicyOutput)
-}
-
 type SchedulingPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchedulingPolicy)(nil))
+	return reflect.TypeOf((*[]*SchedulingPolicy)(nil)).Elem()
 }
 
 func (o SchedulingPolicyArrayOutput) ToSchedulingPolicyArrayOutput() SchedulingPolicyArrayOutput {
@@ -314,15 +251,15 @@ func (o SchedulingPolicyArrayOutput) ToSchedulingPolicyArrayOutputWithContext(ct
 }
 
 func (o SchedulingPolicyArrayOutput) Index(i pulumi.IntInput) SchedulingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchedulingPolicy {
-		return vs[0].([]SchedulingPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchedulingPolicy {
+		return vs[0].([]*SchedulingPolicy)[vs[1].(int)]
 	}).(SchedulingPolicyOutput)
 }
 
 type SchedulingPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SchedulingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*SchedulingPolicy)(nil)).Elem()
 }
 
 func (o SchedulingPolicyMapOutput) ToSchedulingPolicyMapOutput() SchedulingPolicyMapOutput {
@@ -334,18 +271,16 @@ func (o SchedulingPolicyMapOutput) ToSchedulingPolicyMapOutputWithContext(ctx co
 }
 
 func (o SchedulingPolicyMapOutput) MapIndex(k pulumi.StringInput) SchedulingPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SchedulingPolicy {
-		return vs[0].(map[string]SchedulingPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SchedulingPolicy {
+		return vs[0].(map[string]*SchedulingPolicy)[vs[1].(string)]
 	}).(SchedulingPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyInput)(nil)).Elem(), &SchedulingPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyPtrInput)(nil)).Elem(), &SchedulingPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyArrayInput)(nil)).Elem(), SchedulingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyMapInput)(nil)).Elem(), SchedulingPolicyMap{})
 	pulumi.RegisterOutputType(SchedulingPolicyOutput{})
-	pulumi.RegisterOutputType(SchedulingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyMapOutput{})
 }

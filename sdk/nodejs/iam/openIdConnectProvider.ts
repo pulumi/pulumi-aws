@@ -90,16 +90,16 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenIdConnectProviderState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clientIdLists"] = state ? state.clientIdLists : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["thumbprintLists"] = state ? state.thumbprintLists : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clientIdLists"] = state ? state.clientIdLists : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["thumbprintLists"] = state ? state.thumbprintLists : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as OpenIdConnectProviderArgs | undefined;
             if ((!args || args.clientIdLists === undefined) && !opts.urn) {
@@ -111,17 +111,15 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["clientIdLists"] = args ? args.clientIdLists : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["thumbprintLists"] = args ? args.thumbprintLists : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["clientIdLists"] = args ? args.clientIdLists : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["thumbprintLists"] = args ? args.thumbprintLists : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

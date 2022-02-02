@@ -208,7 +208,7 @@ type SslNegotiationPolicyInput interface {
 }
 
 func (*SslNegotiationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslNegotiationPolicy)(nil))
+	return reflect.TypeOf((**SslNegotiationPolicy)(nil)).Elem()
 }
 
 func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutput() SslNegotiationPolicyOutput {
@@ -217,35 +217,6 @@ func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutput() SslNegotiationPoli
 
 func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutputWithContext(ctx context.Context) SslNegotiationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyOutput)
-}
-
-func (i *SslNegotiationPolicy) ToSslNegotiationPolicyPtrOutput() SslNegotiationPolicyPtrOutput {
-	return i.ToSslNegotiationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *SslNegotiationPolicy) ToSslNegotiationPolicyPtrOutputWithContext(ctx context.Context) SslNegotiationPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyPtrOutput)
-}
-
-type SslNegotiationPolicyPtrInput interface {
-	pulumi.Input
-
-	ToSslNegotiationPolicyPtrOutput() SslNegotiationPolicyPtrOutput
-	ToSslNegotiationPolicyPtrOutputWithContext(ctx context.Context) SslNegotiationPolicyPtrOutput
-}
-
-type sslNegotiationPolicyPtrType SslNegotiationPolicyArgs
-
-func (*sslNegotiationPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SslNegotiationPolicy)(nil))
-}
-
-func (i *sslNegotiationPolicyPtrType) ToSslNegotiationPolicyPtrOutput() SslNegotiationPolicyPtrOutput {
-	return i.ToSslNegotiationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *sslNegotiationPolicyPtrType) ToSslNegotiationPolicyPtrOutputWithContext(ctx context.Context) SslNegotiationPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyPtrOutput)
 }
 
 // SslNegotiationPolicyArrayInput is an input type that accepts SslNegotiationPolicyArray and SslNegotiationPolicyArrayOutput values.
@@ -301,7 +272,7 @@ func (i SslNegotiationPolicyMap) ToSslNegotiationPolicyMapOutputWithContext(ctx 
 type SslNegotiationPolicyOutput struct{ *pulumi.OutputState }
 
 func (SslNegotiationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslNegotiationPolicy)(nil))
+	return reflect.TypeOf((**SslNegotiationPolicy)(nil)).Elem()
 }
 
 func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutput() SslNegotiationPolicyOutput {
@@ -312,44 +283,10 @@ func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutputWithContext(ctx 
 	return o
 }
 
-func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyPtrOutput() SslNegotiationPolicyPtrOutput {
-	return o.ToSslNegotiationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyPtrOutputWithContext(ctx context.Context) SslNegotiationPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslNegotiationPolicy) *SslNegotiationPolicy {
-		return &v
-	}).(SslNegotiationPolicyPtrOutput)
-}
-
-type SslNegotiationPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SslNegotiationPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SslNegotiationPolicy)(nil))
-}
-
-func (o SslNegotiationPolicyPtrOutput) ToSslNegotiationPolicyPtrOutput() SslNegotiationPolicyPtrOutput {
-	return o
-}
-
-func (o SslNegotiationPolicyPtrOutput) ToSslNegotiationPolicyPtrOutputWithContext(ctx context.Context) SslNegotiationPolicyPtrOutput {
-	return o
-}
-
-func (o SslNegotiationPolicyPtrOutput) Elem() SslNegotiationPolicyOutput {
-	return o.ApplyT(func(v *SslNegotiationPolicy) SslNegotiationPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret SslNegotiationPolicy
-		return ret
-	}).(SslNegotiationPolicyOutput)
-}
-
 type SslNegotiationPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (SslNegotiationPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SslNegotiationPolicy)(nil))
+	return reflect.TypeOf((*[]*SslNegotiationPolicy)(nil)).Elem()
 }
 
 func (o SslNegotiationPolicyArrayOutput) ToSslNegotiationPolicyArrayOutput() SslNegotiationPolicyArrayOutput {
@@ -361,15 +298,15 @@ func (o SslNegotiationPolicyArrayOutput) ToSslNegotiationPolicyArrayOutputWithCo
 }
 
 func (o SslNegotiationPolicyArrayOutput) Index(i pulumi.IntInput) SslNegotiationPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SslNegotiationPolicy {
-		return vs[0].([]SslNegotiationPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SslNegotiationPolicy {
+		return vs[0].([]*SslNegotiationPolicy)[vs[1].(int)]
 	}).(SslNegotiationPolicyOutput)
 }
 
 type SslNegotiationPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (SslNegotiationPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SslNegotiationPolicy)(nil))
+	return reflect.TypeOf((*map[string]*SslNegotiationPolicy)(nil)).Elem()
 }
 
 func (o SslNegotiationPolicyMapOutput) ToSslNegotiationPolicyMapOutput() SslNegotiationPolicyMapOutput {
@@ -381,18 +318,16 @@ func (o SslNegotiationPolicyMapOutput) ToSslNegotiationPolicyMapOutputWithContex
 }
 
 func (o SslNegotiationPolicyMapOutput) MapIndex(k pulumi.StringInput) SslNegotiationPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SslNegotiationPolicy {
-		return vs[0].(map[string]SslNegotiationPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SslNegotiationPolicy {
+		return vs[0].(map[string]*SslNegotiationPolicy)[vs[1].(string)]
 	}).(SslNegotiationPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyInput)(nil)).Elem(), &SslNegotiationPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyPtrInput)(nil)).Elem(), &SslNegotiationPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyArrayInput)(nil)).Elem(), SslNegotiationPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyMapInput)(nil)).Elem(), SslNegotiationPolicyMap{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyOutput{})
-	pulumi.RegisterOutputType(SslNegotiationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyArrayOutput{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyMapOutput{})
 }

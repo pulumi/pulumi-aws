@@ -167,7 +167,7 @@ type CodeSigningConfigInput interface {
 }
 
 func (*CodeSigningConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeSigningConfig)(nil))
+	return reflect.TypeOf((**CodeSigningConfig)(nil)).Elem()
 }
 
 func (i *CodeSigningConfig) ToCodeSigningConfigOutput() CodeSigningConfigOutput {
@@ -176,35 +176,6 @@ func (i *CodeSigningConfig) ToCodeSigningConfigOutput() CodeSigningConfigOutput 
 
 func (i *CodeSigningConfig) ToCodeSigningConfigOutputWithContext(ctx context.Context) CodeSigningConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigOutput)
-}
-
-func (i *CodeSigningConfig) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
-	return i.ToCodeSigningConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *CodeSigningConfig) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPtrOutput)
-}
-
-type CodeSigningConfigPtrInput interface {
-	pulumi.Input
-
-	ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput
-	ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput
-}
-
-type codeSigningConfigPtrType CodeSigningConfigArgs
-
-func (*codeSigningConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeSigningConfig)(nil))
-}
-
-func (i *codeSigningConfigPtrType) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
-	return i.ToCodeSigningConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *codeSigningConfigPtrType) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPtrOutput)
 }
 
 // CodeSigningConfigArrayInput is an input type that accepts CodeSigningConfigArray and CodeSigningConfigArrayOutput values.
@@ -260,7 +231,7 @@ func (i CodeSigningConfigMap) ToCodeSigningConfigMapOutputWithContext(ctx contex
 type CodeSigningConfigOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeSigningConfig)(nil))
+	return reflect.TypeOf((**CodeSigningConfig)(nil)).Elem()
 }
 
 func (o CodeSigningConfigOutput) ToCodeSigningConfigOutput() CodeSigningConfigOutput {
@@ -271,44 +242,10 @@ func (o CodeSigningConfigOutput) ToCodeSigningConfigOutputWithContext(ctx contex
 	return o
 }
 
-func (o CodeSigningConfigOutput) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
-	return o.ToCodeSigningConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CodeSigningConfigOutput) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSigningConfig) *CodeSigningConfig {
-		return &v
-	}).(CodeSigningConfigPtrOutput)
-}
-
-type CodeSigningConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CodeSigningConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeSigningConfig)(nil))
-}
-
-func (o CodeSigningConfigPtrOutput) ToCodeSigningConfigPtrOutput() CodeSigningConfigPtrOutput {
-	return o
-}
-
-func (o CodeSigningConfigPtrOutput) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
-	return o
-}
-
-func (o CodeSigningConfigPtrOutput) Elem() CodeSigningConfigOutput {
-	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CodeSigningConfig
-		return ret
-	}).(CodeSigningConfigOutput)
-}
-
 type CodeSigningConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CodeSigningConfig)(nil))
+	return reflect.TypeOf((*[]*CodeSigningConfig)(nil)).Elem()
 }
 
 func (o CodeSigningConfigArrayOutput) ToCodeSigningConfigArrayOutput() CodeSigningConfigArrayOutput {
@@ -320,15 +257,15 @@ func (o CodeSigningConfigArrayOutput) ToCodeSigningConfigArrayOutputWithContext(
 }
 
 func (o CodeSigningConfigArrayOutput) Index(i pulumi.IntInput) CodeSigningConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeSigningConfig {
-		return vs[0].([]CodeSigningConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CodeSigningConfig {
+		return vs[0].([]*CodeSigningConfig)[vs[1].(int)]
 	}).(CodeSigningConfigOutput)
 }
 
 type CodeSigningConfigMapOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CodeSigningConfig)(nil))
+	return reflect.TypeOf((*map[string]*CodeSigningConfig)(nil)).Elem()
 }
 
 func (o CodeSigningConfigMapOutput) ToCodeSigningConfigMapOutput() CodeSigningConfigMapOutput {
@@ -340,18 +277,16 @@ func (o CodeSigningConfigMapOutput) ToCodeSigningConfigMapOutputWithContext(ctx 
 }
 
 func (o CodeSigningConfigMapOutput) MapIndex(k pulumi.StringInput) CodeSigningConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CodeSigningConfig {
-		return vs[0].(map[string]CodeSigningConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CodeSigningConfig {
+		return vs[0].(map[string]*CodeSigningConfig)[vs[1].(string)]
 	}).(CodeSigningConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigInput)(nil)).Elem(), &CodeSigningConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPtrInput)(nil)).Elem(), &CodeSigningConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigArrayInput)(nil)).Elem(), CodeSigningConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigMapInput)(nil)).Elem(), CodeSigningConfigMap{})
 	pulumi.RegisterOutputType(CodeSigningConfigOutput{})
-	pulumi.RegisterOutputType(CodeSigningConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigArrayOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigMapOutput{})
 }

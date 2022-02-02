@@ -110,18 +110,18 @@ export class RateBasedRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: RateBasedRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RateBasedRuleArgs | RateBasedRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RateBasedRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["metricName"] = state ? state.metricName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["predicates"] = state ? state.predicates : undefined;
-            inputs["rateKey"] = state ? state.rateKey : undefined;
-            inputs["rateLimit"] = state ? state.rateLimit : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["metricName"] = state ? state.metricName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["predicates"] = state ? state.predicates : undefined;
+            resourceInputs["rateKey"] = state ? state.rateKey : undefined;
+            resourceInputs["rateLimit"] = state ? state.rateLimit : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RateBasedRuleArgs | undefined;
             if ((!args || args.metricName === undefined) && !opts.urn) {
@@ -133,19 +133,17 @@ export class RateBasedRule extends pulumi.CustomResource {
             if ((!args || args.rateLimit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rateLimit'");
             }
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["predicates"] = args ? args.predicates : undefined;
-            inputs["rateKey"] = args ? args.rateKey : undefined;
-            inputs["rateLimit"] = args ? args.rateLimit : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["predicates"] = args ? args.predicates : undefined;
+            resourceInputs["rateKey"] = args ? args.rateKey : undefined;
+            resourceInputs["rateLimit"] = args ? args.rateLimit : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RateBasedRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RateBasedRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

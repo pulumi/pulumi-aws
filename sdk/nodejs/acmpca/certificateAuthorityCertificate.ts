@@ -133,13 +133,13 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateAuthorityCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateAuthorityCertificateArgs | CertificateAuthorityCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateAuthorityCertificateState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
         } else {
             const args = argsOrState as CertificateAuthorityCertificateArgs | undefined;
             if ((!args || args.certificate === undefined) && !opts.urn) {
@@ -148,14 +148,12 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
             if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CertificateAuthorityCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CertificateAuthorityCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

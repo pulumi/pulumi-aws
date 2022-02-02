@@ -25,9 +25,7 @@ export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", {
         "domain": args.domain,
         "domainOwner": args.domainOwner,

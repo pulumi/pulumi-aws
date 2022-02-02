@@ -21,7 +21,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -213,7 +212,7 @@ type ActivationInput interface {
 }
 
 func (*Activation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activation)(nil))
+	return reflect.TypeOf((**Activation)(nil)).Elem()
 }
 
 func (i *Activation) ToActivationOutput() ActivationOutput {
@@ -222,35 +221,6 @@ func (i *Activation) ToActivationOutput() ActivationOutput {
 
 func (i *Activation) ToActivationOutputWithContext(ctx context.Context) ActivationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationOutput)
-}
-
-func (i *Activation) ToActivationPtrOutput() ActivationPtrOutput {
-	return i.ToActivationPtrOutputWithContext(context.Background())
-}
-
-func (i *Activation) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivationPtrOutput)
-}
-
-type ActivationPtrInput interface {
-	pulumi.Input
-
-	ToActivationPtrOutput() ActivationPtrOutput
-	ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput
-}
-
-type activationPtrType ActivationArgs
-
-func (*activationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Activation)(nil))
-}
-
-func (i *activationPtrType) ToActivationPtrOutput() ActivationPtrOutput {
-	return i.ToActivationPtrOutputWithContext(context.Background())
-}
-
-func (i *activationPtrType) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivationPtrOutput)
 }
 
 // ActivationArrayInput is an input type that accepts ActivationArray and ActivationArrayOutput values.
@@ -306,7 +276,7 @@ func (i ActivationMap) ToActivationMapOutputWithContext(ctx context.Context) Act
 type ActivationOutput struct{ *pulumi.OutputState }
 
 func (ActivationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activation)(nil))
+	return reflect.TypeOf((**Activation)(nil)).Elem()
 }
 
 func (o ActivationOutput) ToActivationOutput() ActivationOutput {
@@ -317,44 +287,10 @@ func (o ActivationOutput) ToActivationOutputWithContext(ctx context.Context) Act
 	return o
 }
 
-func (o ActivationOutput) ToActivationPtrOutput() ActivationPtrOutput {
-	return o.ToActivationPtrOutputWithContext(context.Background())
-}
-
-func (o ActivationOutput) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Activation) *Activation {
-		return &v
-	}).(ActivationPtrOutput)
-}
-
-type ActivationPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Activation)(nil))
-}
-
-func (o ActivationPtrOutput) ToActivationPtrOutput() ActivationPtrOutput {
-	return o
-}
-
-func (o ActivationPtrOutput) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
-	return o
-}
-
-func (o ActivationPtrOutput) Elem() ActivationOutput {
-	return o.ApplyT(func(v *Activation) Activation {
-		if v != nil {
-			return *v
-		}
-		var ret Activation
-		return ret
-	}).(ActivationOutput)
-}
-
 type ActivationArrayOutput struct{ *pulumi.OutputState }
 
 func (ActivationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Activation)(nil))
+	return reflect.TypeOf((*[]*Activation)(nil)).Elem()
 }
 
 func (o ActivationArrayOutput) ToActivationArrayOutput() ActivationArrayOutput {
@@ -366,15 +302,15 @@ func (o ActivationArrayOutput) ToActivationArrayOutputWithContext(ctx context.Co
 }
 
 func (o ActivationArrayOutput) Index(i pulumi.IntInput) ActivationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Activation {
-		return vs[0].([]Activation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Activation {
+		return vs[0].([]*Activation)[vs[1].(int)]
 	}).(ActivationOutput)
 }
 
 type ActivationMapOutput struct{ *pulumi.OutputState }
 
 func (ActivationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Activation)(nil))
+	return reflect.TypeOf((*map[string]*Activation)(nil)).Elem()
 }
 
 func (o ActivationMapOutput) ToActivationMapOutput() ActivationMapOutput {
@@ -386,18 +322,16 @@ func (o ActivationMapOutput) ToActivationMapOutputWithContext(ctx context.Contex
 }
 
 func (o ActivationMapOutput) MapIndex(k pulumi.StringInput) ActivationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Activation {
-		return vs[0].(map[string]Activation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Activation {
+		return vs[0].(map[string]*Activation)[vs[1].(string)]
 	}).(ActivationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivationInput)(nil)).Elem(), &Activation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActivationPtrInput)(nil)).Elem(), &Activation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivationArrayInput)(nil)).Elem(), ActivationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivationMapInput)(nil)).Elem(), ActivationMap{})
 	pulumi.RegisterOutputType(ActivationOutput{})
-	pulumi.RegisterOutputType(ActivationPtrOutput{})
 	pulumi.RegisterOutputType(ActivationArrayOutput{})
 	pulumi.RegisterOutputType(ActivationMapOutput{})
 }

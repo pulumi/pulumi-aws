@@ -166,7 +166,7 @@ type HumanTaskUIInput interface {
 }
 
 func (*HumanTaskUI) ElementType() reflect.Type {
-	return reflect.TypeOf((*HumanTaskUI)(nil))
+	return reflect.TypeOf((**HumanTaskUI)(nil)).Elem()
 }
 
 func (i *HumanTaskUI) ToHumanTaskUIOutput() HumanTaskUIOutput {
@@ -175,35 +175,6 @@ func (i *HumanTaskUI) ToHumanTaskUIOutput() HumanTaskUIOutput {
 
 func (i *HumanTaskUI) ToHumanTaskUIOutputWithContext(ctx context.Context) HumanTaskUIOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIOutput)
-}
-
-func (i *HumanTaskUI) ToHumanTaskUIPtrOutput() HumanTaskUIPtrOutput {
-	return i.ToHumanTaskUIPtrOutputWithContext(context.Background())
-}
-
-func (i *HumanTaskUI) ToHumanTaskUIPtrOutputWithContext(ctx context.Context) HumanTaskUIPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIPtrOutput)
-}
-
-type HumanTaskUIPtrInput interface {
-	pulumi.Input
-
-	ToHumanTaskUIPtrOutput() HumanTaskUIPtrOutput
-	ToHumanTaskUIPtrOutputWithContext(ctx context.Context) HumanTaskUIPtrOutput
-}
-
-type humanTaskUIPtrType HumanTaskUIArgs
-
-func (*humanTaskUIPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HumanTaskUI)(nil))
-}
-
-func (i *humanTaskUIPtrType) ToHumanTaskUIPtrOutput() HumanTaskUIPtrOutput {
-	return i.ToHumanTaskUIPtrOutputWithContext(context.Background())
-}
-
-func (i *humanTaskUIPtrType) ToHumanTaskUIPtrOutputWithContext(ctx context.Context) HumanTaskUIPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIPtrOutput)
 }
 
 // HumanTaskUIArrayInput is an input type that accepts HumanTaskUIArray and HumanTaskUIArrayOutput values.
@@ -259,7 +230,7 @@ func (i HumanTaskUIMap) ToHumanTaskUIMapOutputWithContext(ctx context.Context) H
 type HumanTaskUIOutput struct{ *pulumi.OutputState }
 
 func (HumanTaskUIOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HumanTaskUI)(nil))
+	return reflect.TypeOf((**HumanTaskUI)(nil)).Elem()
 }
 
 func (o HumanTaskUIOutput) ToHumanTaskUIOutput() HumanTaskUIOutput {
@@ -270,44 +241,10 @@ func (o HumanTaskUIOutput) ToHumanTaskUIOutputWithContext(ctx context.Context) H
 	return o
 }
 
-func (o HumanTaskUIOutput) ToHumanTaskUIPtrOutput() HumanTaskUIPtrOutput {
-	return o.ToHumanTaskUIPtrOutputWithContext(context.Background())
-}
-
-func (o HumanTaskUIOutput) ToHumanTaskUIPtrOutputWithContext(ctx context.Context) HumanTaskUIPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HumanTaskUI) *HumanTaskUI {
-		return &v
-	}).(HumanTaskUIPtrOutput)
-}
-
-type HumanTaskUIPtrOutput struct{ *pulumi.OutputState }
-
-func (HumanTaskUIPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HumanTaskUI)(nil))
-}
-
-func (o HumanTaskUIPtrOutput) ToHumanTaskUIPtrOutput() HumanTaskUIPtrOutput {
-	return o
-}
-
-func (o HumanTaskUIPtrOutput) ToHumanTaskUIPtrOutputWithContext(ctx context.Context) HumanTaskUIPtrOutput {
-	return o
-}
-
-func (o HumanTaskUIPtrOutput) Elem() HumanTaskUIOutput {
-	return o.ApplyT(func(v *HumanTaskUI) HumanTaskUI {
-		if v != nil {
-			return *v
-		}
-		var ret HumanTaskUI
-		return ret
-	}).(HumanTaskUIOutput)
-}
-
 type HumanTaskUIArrayOutput struct{ *pulumi.OutputState }
 
 func (HumanTaskUIArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HumanTaskUI)(nil))
+	return reflect.TypeOf((*[]*HumanTaskUI)(nil)).Elem()
 }
 
 func (o HumanTaskUIArrayOutput) ToHumanTaskUIArrayOutput() HumanTaskUIArrayOutput {
@@ -319,15 +256,15 @@ func (o HumanTaskUIArrayOutput) ToHumanTaskUIArrayOutputWithContext(ctx context.
 }
 
 func (o HumanTaskUIArrayOutput) Index(i pulumi.IntInput) HumanTaskUIOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HumanTaskUI {
-		return vs[0].([]HumanTaskUI)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HumanTaskUI {
+		return vs[0].([]*HumanTaskUI)[vs[1].(int)]
 	}).(HumanTaskUIOutput)
 }
 
 type HumanTaskUIMapOutput struct{ *pulumi.OutputState }
 
 func (HumanTaskUIMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]HumanTaskUI)(nil))
+	return reflect.TypeOf((*map[string]*HumanTaskUI)(nil)).Elem()
 }
 
 func (o HumanTaskUIMapOutput) ToHumanTaskUIMapOutput() HumanTaskUIMapOutput {
@@ -339,18 +276,16 @@ func (o HumanTaskUIMapOutput) ToHumanTaskUIMapOutputWithContext(ctx context.Cont
 }
 
 func (o HumanTaskUIMapOutput) MapIndex(k pulumi.StringInput) HumanTaskUIOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HumanTaskUI {
-		return vs[0].(map[string]HumanTaskUI)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *HumanTaskUI {
+		return vs[0].(map[string]*HumanTaskUI)[vs[1].(string)]
 	}).(HumanTaskUIOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIInput)(nil)).Elem(), &HumanTaskUI{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIPtrInput)(nil)).Elem(), &HumanTaskUI{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIArrayInput)(nil)).Elem(), HumanTaskUIArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIMapInput)(nil)).Elem(), HumanTaskUIMap{})
 	pulumi.RegisterOutputType(HumanTaskUIOutput{})
-	pulumi.RegisterOutputType(HumanTaskUIPtrOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIArrayOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIMapOutput{})
 }

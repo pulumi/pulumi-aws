@@ -321,7 +321,7 @@ type CatalogTableInput interface {
 }
 
 func (*CatalogTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*CatalogTable)(nil))
+	return reflect.TypeOf((**CatalogTable)(nil)).Elem()
 }
 
 func (i *CatalogTable) ToCatalogTableOutput() CatalogTableOutput {
@@ -330,35 +330,6 @@ func (i *CatalogTable) ToCatalogTableOutput() CatalogTableOutput {
 
 func (i *CatalogTable) ToCatalogTableOutputWithContext(ctx context.Context) CatalogTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOutput)
-}
-
-func (i *CatalogTable) ToCatalogTablePtrOutput() CatalogTablePtrOutput {
-	return i.ToCatalogTablePtrOutputWithContext(context.Background())
-}
-
-func (i *CatalogTable) ToCatalogTablePtrOutputWithContext(ctx context.Context) CatalogTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CatalogTablePtrOutput)
-}
-
-type CatalogTablePtrInput interface {
-	pulumi.Input
-
-	ToCatalogTablePtrOutput() CatalogTablePtrOutput
-	ToCatalogTablePtrOutputWithContext(ctx context.Context) CatalogTablePtrOutput
-}
-
-type catalogTablePtrType CatalogTableArgs
-
-func (*catalogTablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CatalogTable)(nil))
-}
-
-func (i *catalogTablePtrType) ToCatalogTablePtrOutput() CatalogTablePtrOutput {
-	return i.ToCatalogTablePtrOutputWithContext(context.Background())
-}
-
-func (i *catalogTablePtrType) ToCatalogTablePtrOutputWithContext(ctx context.Context) CatalogTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CatalogTablePtrOutput)
 }
 
 // CatalogTableArrayInput is an input type that accepts CatalogTableArray and CatalogTableArrayOutput values.
@@ -414,7 +385,7 @@ func (i CatalogTableMap) ToCatalogTableMapOutputWithContext(ctx context.Context)
 type CatalogTableOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CatalogTable)(nil))
+	return reflect.TypeOf((**CatalogTable)(nil)).Elem()
 }
 
 func (o CatalogTableOutput) ToCatalogTableOutput() CatalogTableOutput {
@@ -425,44 +396,10 @@ func (o CatalogTableOutput) ToCatalogTableOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o CatalogTableOutput) ToCatalogTablePtrOutput() CatalogTablePtrOutput {
-	return o.ToCatalogTablePtrOutputWithContext(context.Background())
-}
-
-func (o CatalogTableOutput) ToCatalogTablePtrOutputWithContext(ctx context.Context) CatalogTablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTable) *CatalogTable {
-		return &v
-	}).(CatalogTablePtrOutput)
-}
-
-type CatalogTablePtrOutput struct{ *pulumi.OutputState }
-
-func (CatalogTablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CatalogTable)(nil))
-}
-
-func (o CatalogTablePtrOutput) ToCatalogTablePtrOutput() CatalogTablePtrOutput {
-	return o
-}
-
-func (o CatalogTablePtrOutput) ToCatalogTablePtrOutputWithContext(ctx context.Context) CatalogTablePtrOutput {
-	return o
-}
-
-func (o CatalogTablePtrOutput) Elem() CatalogTableOutput {
-	return o.ApplyT(func(v *CatalogTable) CatalogTable {
-		if v != nil {
-			return *v
-		}
-		var ret CatalogTable
-		return ret
-	}).(CatalogTableOutput)
-}
-
 type CatalogTableArrayOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CatalogTable)(nil))
+	return reflect.TypeOf((*[]*CatalogTable)(nil)).Elem()
 }
 
 func (o CatalogTableArrayOutput) ToCatalogTableArrayOutput() CatalogTableArrayOutput {
@@ -474,15 +411,15 @@ func (o CatalogTableArrayOutput) ToCatalogTableArrayOutputWithContext(ctx contex
 }
 
 func (o CatalogTableArrayOutput) Index(i pulumi.IntInput) CatalogTableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTable {
-		return vs[0].([]CatalogTable)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CatalogTable {
+		return vs[0].([]*CatalogTable)[vs[1].(int)]
 	}).(CatalogTableOutput)
 }
 
 type CatalogTableMapOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CatalogTable)(nil))
+	return reflect.TypeOf((*map[string]*CatalogTable)(nil)).Elem()
 }
 
 func (o CatalogTableMapOutput) ToCatalogTableMapOutput() CatalogTableMapOutput {
@@ -494,18 +431,16 @@ func (o CatalogTableMapOutput) ToCatalogTableMapOutputWithContext(ctx context.Co
 }
 
 func (o CatalogTableMapOutput) MapIndex(k pulumi.StringInput) CatalogTableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CatalogTable {
-		return vs[0].(map[string]CatalogTable)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CatalogTable {
+		return vs[0].(map[string]*CatalogTable)[vs[1].(string)]
 	}).(CatalogTableOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableInput)(nil)).Elem(), &CatalogTable{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePtrInput)(nil)).Elem(), &CatalogTable{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableArrayInput)(nil)).Elem(), CatalogTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableMapInput)(nil)).Elem(), CatalogTableMap{})
 	pulumi.RegisterOutputType(CatalogTableOutput{})
-	pulumi.RegisterOutputType(CatalogTablePtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTableMapOutput{})
 }

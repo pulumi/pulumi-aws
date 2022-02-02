@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CodeCommit
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.CodeCommit
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApprovalRuleTemplateResult> InvokeAsync(GetApprovalRuleTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific CodeCommit Approval Rule Template.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.CodeCommit
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApprovalRuleTemplateResult> Invoke(GetApprovalRuleTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

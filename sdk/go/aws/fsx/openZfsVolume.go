@@ -240,7 +240,7 @@ type OpenZfsVolumeInput interface {
 }
 
 func (*OpenZfsVolume) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenZfsVolume)(nil))
+	return reflect.TypeOf((**OpenZfsVolume)(nil)).Elem()
 }
 
 func (i *OpenZfsVolume) ToOpenZfsVolumeOutput() OpenZfsVolumeOutput {
@@ -249,35 +249,6 @@ func (i *OpenZfsVolume) ToOpenZfsVolumeOutput() OpenZfsVolumeOutput {
 
 func (i *OpenZfsVolume) ToOpenZfsVolumeOutputWithContext(ctx context.Context) OpenZfsVolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeOutput)
-}
-
-func (i *OpenZfsVolume) ToOpenZfsVolumePtrOutput() OpenZfsVolumePtrOutput {
-	return i.ToOpenZfsVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *OpenZfsVolume) ToOpenZfsVolumePtrOutputWithContext(ctx context.Context) OpenZfsVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumePtrOutput)
-}
-
-type OpenZfsVolumePtrInput interface {
-	pulumi.Input
-
-	ToOpenZfsVolumePtrOutput() OpenZfsVolumePtrOutput
-	ToOpenZfsVolumePtrOutputWithContext(ctx context.Context) OpenZfsVolumePtrOutput
-}
-
-type openZfsVolumePtrType OpenZfsVolumeArgs
-
-func (*openZfsVolumePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenZfsVolume)(nil))
-}
-
-func (i *openZfsVolumePtrType) ToOpenZfsVolumePtrOutput() OpenZfsVolumePtrOutput {
-	return i.ToOpenZfsVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *openZfsVolumePtrType) ToOpenZfsVolumePtrOutputWithContext(ctx context.Context) OpenZfsVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumePtrOutput)
 }
 
 // OpenZfsVolumeArrayInput is an input type that accepts OpenZfsVolumeArray and OpenZfsVolumeArrayOutput values.
@@ -333,7 +304,7 @@ func (i OpenZfsVolumeMap) ToOpenZfsVolumeMapOutputWithContext(ctx context.Contex
 type OpenZfsVolumeOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenZfsVolume)(nil))
+	return reflect.TypeOf((**OpenZfsVolume)(nil)).Elem()
 }
 
 func (o OpenZfsVolumeOutput) ToOpenZfsVolumeOutput() OpenZfsVolumeOutput {
@@ -344,44 +315,10 @@ func (o OpenZfsVolumeOutput) ToOpenZfsVolumeOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o OpenZfsVolumeOutput) ToOpenZfsVolumePtrOutput() OpenZfsVolumePtrOutput {
-	return o.ToOpenZfsVolumePtrOutputWithContext(context.Background())
-}
-
-func (o OpenZfsVolumeOutput) ToOpenZfsVolumePtrOutputWithContext(ctx context.Context) OpenZfsVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsVolume) *OpenZfsVolume {
-		return &v
-	}).(OpenZfsVolumePtrOutput)
-}
-
-type OpenZfsVolumePtrOutput struct{ *pulumi.OutputState }
-
-func (OpenZfsVolumePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenZfsVolume)(nil))
-}
-
-func (o OpenZfsVolumePtrOutput) ToOpenZfsVolumePtrOutput() OpenZfsVolumePtrOutput {
-	return o
-}
-
-func (o OpenZfsVolumePtrOutput) ToOpenZfsVolumePtrOutputWithContext(ctx context.Context) OpenZfsVolumePtrOutput {
-	return o
-}
-
-func (o OpenZfsVolumePtrOutput) Elem() OpenZfsVolumeOutput {
-	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolume {
-		if v != nil {
-			return *v
-		}
-		var ret OpenZfsVolume
-		return ret
-	}).(OpenZfsVolumeOutput)
-}
-
 type OpenZfsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OpenZfsVolume)(nil))
+	return reflect.TypeOf((*[]*OpenZfsVolume)(nil)).Elem()
 }
 
 func (o OpenZfsVolumeArrayOutput) ToOpenZfsVolumeArrayOutput() OpenZfsVolumeArrayOutput {
@@ -393,15 +330,15 @@ func (o OpenZfsVolumeArrayOutput) ToOpenZfsVolumeArrayOutputWithContext(ctx cont
 }
 
 func (o OpenZfsVolumeArrayOutput) Index(i pulumi.IntInput) OpenZfsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenZfsVolume {
-		return vs[0].([]OpenZfsVolume)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OpenZfsVolume {
+		return vs[0].([]*OpenZfsVolume)[vs[1].(int)]
 	}).(OpenZfsVolumeOutput)
 }
 
 type OpenZfsVolumeMapOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OpenZfsVolume)(nil))
+	return reflect.TypeOf((*map[string]*OpenZfsVolume)(nil)).Elem()
 }
 
 func (o OpenZfsVolumeMapOutput) ToOpenZfsVolumeMapOutput() OpenZfsVolumeMapOutput {
@@ -413,18 +350,16 @@ func (o OpenZfsVolumeMapOutput) ToOpenZfsVolumeMapOutputWithContext(ctx context.
 }
 
 func (o OpenZfsVolumeMapOutput) MapIndex(k pulumi.StringInput) OpenZfsVolumeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OpenZfsVolume {
-		return vs[0].(map[string]OpenZfsVolume)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OpenZfsVolume {
+		return vs[0].(map[string]*OpenZfsVolume)[vs[1].(string)]
 	}).(OpenZfsVolumeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeInput)(nil)).Elem(), &OpenZfsVolume{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumePtrInput)(nil)).Elem(), &OpenZfsVolume{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeArrayInput)(nil)).Elem(), OpenZfsVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeMapInput)(nil)).Elem(), OpenZfsVolumeMap{})
 	pulumi.RegisterOutputType(OpenZfsVolumeOutput{})
-	pulumi.RegisterOutputType(OpenZfsVolumePtrOutput{})
 	pulumi.RegisterOutputType(OpenZfsVolumeArrayOutput{})
 	pulumi.RegisterOutputType(OpenZfsVolumeMapOutput{})
 }

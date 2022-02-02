@@ -158,22 +158,22 @@ export class Queue extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["hoursOfOperationId"] = state ? state.hoursOfOperationId : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["maxContacts"] = state ? state.maxContacts : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outboundCallerConfig"] = state ? state.outboundCallerConfig : undefined;
-            inputs["queueId"] = state ? state.queueId : undefined;
-            inputs["quickConnectIds"] = state ? state.quickConnectIds : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["hoursOfOperationId"] = state ? state.hoursOfOperationId : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["maxContacts"] = state ? state.maxContacts : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outboundCallerConfig"] = state ? state.outboundCallerConfig : undefined;
+            resourceInputs["queueId"] = state ? state.queueId : undefined;
+            resourceInputs["quickConnectIds"] = state ? state.quickConnectIds : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
             if ((!args || args.hoursOfOperationId === undefined) && !opts.urn) {
@@ -182,23 +182,21 @@ export class Queue extends pulumi.CustomResource {
             if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["hoursOfOperationId"] = args ? args.hoursOfOperationId : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["maxContacts"] = args ? args.maxContacts : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outboundCallerConfig"] = args ? args.outboundCallerConfig : undefined;
-            inputs["quickConnectIds"] = args ? args.quickConnectIds : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["queueId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["hoursOfOperationId"] = args ? args.hoursOfOperationId : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["maxContacts"] = args ? args.maxContacts : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outboundCallerConfig"] = args ? args.outboundCallerConfig : undefined;
+            resourceInputs["quickConnectIds"] = args ? args.quickConnectIds : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["queueId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Queue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

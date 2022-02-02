@@ -213,7 +213,7 @@ type ResolverEndpointInput interface {
 }
 
 func (*ResolverEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverEndpoint)(nil))
+	return reflect.TypeOf((**ResolverEndpoint)(nil)).Elem()
 }
 
 func (i *ResolverEndpoint) ToResolverEndpointOutput() ResolverEndpointOutput {
@@ -222,35 +222,6 @@ func (i *ResolverEndpoint) ToResolverEndpointOutput() ResolverEndpointOutput {
 
 func (i *ResolverEndpoint) ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointOutput)
-}
-
-func (i *ResolverEndpoint) ToResolverEndpointPtrOutput() ResolverEndpointPtrOutput {
-	return i.ToResolverEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *ResolverEndpoint) ToResolverEndpointPtrOutputWithContext(ctx context.Context) ResolverEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointPtrOutput)
-}
-
-type ResolverEndpointPtrInput interface {
-	pulumi.Input
-
-	ToResolverEndpointPtrOutput() ResolverEndpointPtrOutput
-	ToResolverEndpointPtrOutputWithContext(ctx context.Context) ResolverEndpointPtrOutput
-}
-
-type resolverEndpointPtrType ResolverEndpointArgs
-
-func (*resolverEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverEndpoint)(nil))
-}
-
-func (i *resolverEndpointPtrType) ToResolverEndpointPtrOutput() ResolverEndpointPtrOutput {
-	return i.ToResolverEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *resolverEndpointPtrType) ToResolverEndpointPtrOutputWithContext(ctx context.Context) ResolverEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointPtrOutput)
 }
 
 // ResolverEndpointArrayInput is an input type that accepts ResolverEndpointArray and ResolverEndpointArrayOutput values.
@@ -306,7 +277,7 @@ func (i ResolverEndpointMap) ToResolverEndpointMapOutputWithContext(ctx context.
 type ResolverEndpointOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverEndpoint)(nil))
+	return reflect.TypeOf((**ResolverEndpoint)(nil)).Elem()
 }
 
 func (o ResolverEndpointOutput) ToResolverEndpointOutput() ResolverEndpointOutput {
@@ -317,44 +288,10 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.
 	return o
 }
 
-func (o ResolverEndpointOutput) ToResolverEndpointPtrOutput() ResolverEndpointPtrOutput {
-	return o.ToResolverEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o ResolverEndpointOutput) ToResolverEndpointPtrOutputWithContext(ctx context.Context) ResolverEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverEndpoint) *ResolverEndpoint {
-		return &v
-	}).(ResolverEndpointPtrOutput)
-}
-
-type ResolverEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (ResolverEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverEndpoint)(nil))
-}
-
-func (o ResolverEndpointPtrOutput) ToResolverEndpointPtrOutput() ResolverEndpointPtrOutput {
-	return o
-}
-
-func (o ResolverEndpointPtrOutput) ToResolverEndpointPtrOutputWithContext(ctx context.Context) ResolverEndpointPtrOutput {
-	return o
-}
-
-func (o ResolverEndpointPtrOutput) Elem() ResolverEndpointOutput {
-	return o.ApplyT(func(v *ResolverEndpoint) ResolverEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret ResolverEndpoint
-		return ret
-	}).(ResolverEndpointOutput)
-}
-
 type ResolverEndpointArrayOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverEndpoint)(nil))
+	return reflect.TypeOf((*[]*ResolverEndpoint)(nil)).Elem()
 }
 
 func (o ResolverEndpointArrayOutput) ToResolverEndpointArrayOutput() ResolverEndpointArrayOutput {
@@ -366,15 +303,15 @@ func (o ResolverEndpointArrayOutput) ToResolverEndpointArrayOutputWithContext(ct
 }
 
 func (o ResolverEndpointArrayOutput) Index(i pulumi.IntInput) ResolverEndpointOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverEndpoint {
-		return vs[0].([]ResolverEndpoint)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverEndpoint {
+		return vs[0].([]*ResolverEndpoint)[vs[1].(int)]
 	}).(ResolverEndpointOutput)
 }
 
 type ResolverEndpointMapOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResolverEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*ResolverEndpoint)(nil)).Elem()
 }
 
 func (o ResolverEndpointMapOutput) ToResolverEndpointMapOutput() ResolverEndpointMapOutput {
@@ -386,18 +323,16 @@ func (o ResolverEndpointMapOutput) ToResolverEndpointMapOutputWithContext(ctx co
 }
 
 func (o ResolverEndpointMapOutput) MapIndex(k pulumi.StringInput) ResolverEndpointOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverEndpoint {
-		return vs[0].(map[string]ResolverEndpoint)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResolverEndpoint {
+		return vs[0].(map[string]*ResolverEndpoint)[vs[1].(string)]
 	}).(ResolverEndpointOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointInput)(nil)).Elem(), &ResolverEndpoint{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointPtrInput)(nil)).Elem(), &ResolverEndpoint{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointArrayInput)(nil)).Elem(), ResolverEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointMapInput)(nil)).Elem(), ResolverEndpointMap{})
 	pulumi.RegisterOutputType(ResolverEndpointOutput{})
-	pulumi.RegisterOutputType(ResolverEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointMapOutput{})
 }

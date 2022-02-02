@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.WafV2
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.WafV2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpSetResult> InvokeAsync(GetIpSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the summary of a WAFv2 IP Set.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.WafV2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());
     }
 
 

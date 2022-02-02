@@ -23,7 +23,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cfg"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
@@ -177,7 +176,7 @@ type RecorderStatusInput interface {
 }
 
 func (*RecorderStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecorderStatus)(nil))
+	return reflect.TypeOf((**RecorderStatus)(nil)).Elem()
 }
 
 func (i *RecorderStatus) ToRecorderStatusOutput() RecorderStatusOutput {
@@ -186,35 +185,6 @@ func (i *RecorderStatus) ToRecorderStatusOutput() RecorderStatusOutput {
 
 func (i *RecorderStatus) ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusOutput)
-}
-
-func (i *RecorderStatus) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
-	return i.ToRecorderStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *RecorderStatus) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusPtrOutput)
-}
-
-type RecorderStatusPtrInput interface {
-	pulumi.Input
-
-	ToRecorderStatusPtrOutput() RecorderStatusPtrOutput
-	ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput
-}
-
-type recorderStatusPtrType RecorderStatusArgs
-
-func (*recorderStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecorderStatus)(nil))
-}
-
-func (i *recorderStatusPtrType) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
-	return i.ToRecorderStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *recorderStatusPtrType) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusPtrOutput)
 }
 
 // RecorderStatusArrayInput is an input type that accepts RecorderStatusArray and RecorderStatusArrayOutput values.
@@ -270,7 +240,7 @@ func (i RecorderStatusMap) ToRecorderStatusMapOutputWithContext(ctx context.Cont
 type RecorderStatusOutput struct{ *pulumi.OutputState }
 
 func (RecorderStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecorderStatus)(nil))
+	return reflect.TypeOf((**RecorderStatus)(nil)).Elem()
 }
 
 func (o RecorderStatusOutput) ToRecorderStatusOutput() RecorderStatusOutput {
@@ -281,44 +251,10 @@ func (o RecorderStatusOutput) ToRecorderStatusOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RecorderStatusOutput) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
-	return o.ToRecorderStatusPtrOutputWithContext(context.Background())
-}
-
-func (o RecorderStatusOutput) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecorderStatus) *RecorderStatus {
-		return &v
-	}).(RecorderStatusPtrOutput)
-}
-
-type RecorderStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (RecorderStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecorderStatus)(nil))
-}
-
-func (o RecorderStatusPtrOutput) ToRecorderStatusPtrOutput() RecorderStatusPtrOutput {
-	return o
-}
-
-func (o RecorderStatusPtrOutput) ToRecorderStatusPtrOutputWithContext(ctx context.Context) RecorderStatusPtrOutput {
-	return o
-}
-
-func (o RecorderStatusPtrOutput) Elem() RecorderStatusOutput {
-	return o.ApplyT(func(v *RecorderStatus) RecorderStatus {
-		if v != nil {
-			return *v
-		}
-		var ret RecorderStatus
-		return ret
-	}).(RecorderStatusOutput)
-}
-
 type RecorderStatusArrayOutput struct{ *pulumi.OutputState }
 
 func (RecorderStatusArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecorderStatus)(nil))
+	return reflect.TypeOf((*[]*RecorderStatus)(nil)).Elem()
 }
 
 func (o RecorderStatusArrayOutput) ToRecorderStatusArrayOutput() RecorderStatusArrayOutput {
@@ -330,15 +266,15 @@ func (o RecorderStatusArrayOutput) ToRecorderStatusArrayOutputWithContext(ctx co
 }
 
 func (o RecorderStatusArrayOutput) Index(i pulumi.IntInput) RecorderStatusOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecorderStatus {
-		return vs[0].([]RecorderStatus)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RecorderStatus {
+		return vs[0].([]*RecorderStatus)[vs[1].(int)]
 	}).(RecorderStatusOutput)
 }
 
 type RecorderStatusMapOutput struct{ *pulumi.OutputState }
 
 func (RecorderStatusMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RecorderStatus)(nil))
+	return reflect.TypeOf((*map[string]*RecorderStatus)(nil)).Elem()
 }
 
 func (o RecorderStatusMapOutput) ToRecorderStatusMapOutput() RecorderStatusMapOutput {
@@ -350,18 +286,16 @@ func (o RecorderStatusMapOutput) ToRecorderStatusMapOutputWithContext(ctx contex
 }
 
 func (o RecorderStatusMapOutput) MapIndex(k pulumi.StringInput) RecorderStatusOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RecorderStatus {
-		return vs[0].(map[string]RecorderStatus)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RecorderStatus {
+		return vs[0].(map[string]*RecorderStatus)[vs[1].(string)]
 	}).(RecorderStatusOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusInput)(nil)).Elem(), &RecorderStatus{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusPtrInput)(nil)).Elem(), &RecorderStatus{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusArrayInput)(nil)).Elem(), RecorderStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusMapInput)(nil)).Elem(), RecorderStatusMap{})
 	pulumi.RegisterOutputType(RecorderStatusOutput{})
-	pulumi.RegisterOutputType(RecorderStatusPtrOutput{})
 	pulumi.RegisterOutputType(RecorderStatusArrayOutput{})
 	pulumi.RegisterOutputType(RecorderStatusMapOutput{})
 }

@@ -124,56 +124,54 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: LayerVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LayerVersionArgs | LayerVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LayerVersionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["code"] = state ? state.code : undefined;
-            inputs["compatibleArchitectures"] = state ? state.compatibleArchitectures : undefined;
-            inputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["layerArn"] = state ? state.layerArn : undefined;
-            inputs["layerName"] = state ? state.layerName : undefined;
-            inputs["licenseInfo"] = state ? state.licenseInfo : undefined;
-            inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            inputs["s3Key"] = state ? state.s3Key : undefined;
-            inputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
-            inputs["signingJobArn"] = state ? state.signingJobArn : undefined;
-            inputs["signingProfileVersionArn"] = state ? state.signingProfileVersionArn : undefined;
-            inputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            inputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
-            inputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["compatibleArchitectures"] = state ? state.compatibleArchitectures : undefined;
+            resourceInputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["layerArn"] = state ? state.layerArn : undefined;
+            resourceInputs["layerName"] = state ? state.layerName : undefined;
+            resourceInputs["licenseInfo"] = state ? state.licenseInfo : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["s3Key"] = state ? state.s3Key : undefined;
+            resourceInputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
+            resourceInputs["signingJobArn"] = state ? state.signingJobArn : undefined;
+            resourceInputs["signingProfileVersionArn"] = state ? state.signingProfileVersionArn : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
+            resourceInputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as LayerVersionArgs | undefined;
             if ((!args || args.layerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'layerName'");
             }
-            inputs["code"] = args ? args.code : undefined;
-            inputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
-            inputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["layerName"] = args ? args.layerName : undefined;
-            inputs["licenseInfo"] = args ? args.licenseInfo : undefined;
-            inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
-            inputs["s3Key"] = args ? args.s3Key : undefined;
-            inputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
-            inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            inputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["layerArn"] = undefined /*out*/;
-            inputs["signingJobArn"] = undefined /*out*/;
-            inputs["signingProfileVersionArn"] = undefined /*out*/;
-            inputs["sourceCodeSize"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
+            resourceInputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["layerName"] = args ? args.layerName : undefined;
+            resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
+            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
+            resourceInputs["s3Key"] = args ? args.s3Key : undefined;
+            resourceInputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["layerArn"] = undefined /*out*/;
+            resourceInputs["signingJobArn"] = undefined /*out*/;
+            resourceInputs["signingProfileVersionArn"] = undefined /*out*/;
+            resourceInputs["sourceCodeSize"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LayerVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LayerVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

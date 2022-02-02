@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFormation
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCloudFormationTypeResult> InvokeAsync(GetCloudFormationTypeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a CloudFormation Type.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCloudFormationTypeResult> Invoke(GetCloudFormationTypeInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeInvokeArgs(), options.WithDefaults());
     }
 
 

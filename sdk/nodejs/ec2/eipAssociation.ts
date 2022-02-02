@@ -113,29 +113,27 @@ export class EipAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args?: EipAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EipAssociationArgs | EipAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EipAssociationState | undefined;
-            inputs["allocationId"] = state ? state.allocationId : undefined;
-            inputs["allowReassociation"] = state ? state.allowReassociation : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            inputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["allocationId"] = state ? state.allocationId : undefined;
+            resourceInputs["allowReassociation"] = state ? state.allowReassociation : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
+            resourceInputs["publicIp"] = state ? state.publicIp : undefined;
         } else {
             const args = argsOrState as EipAssociationArgs | undefined;
-            inputs["allocationId"] = args ? args.allocationId : undefined;
-            inputs["allowReassociation"] = args ? args.allowReassociation : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            inputs["publicIp"] = args ? args.publicIp : undefined;
+            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
+            resourceInputs["allowReassociation"] = args ? args.allowReassociation : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["publicIp"] = args ? args.publicIp : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EipAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EipAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

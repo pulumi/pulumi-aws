@@ -195,7 +195,7 @@ type MeshInput interface {
 }
 
 func (*Mesh) ElementType() reflect.Type {
-	return reflect.TypeOf((*Mesh)(nil))
+	return reflect.TypeOf((**Mesh)(nil)).Elem()
 }
 
 func (i *Mesh) ToMeshOutput() MeshOutput {
@@ -204,35 +204,6 @@ func (i *Mesh) ToMeshOutput() MeshOutput {
 
 func (i *Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshOutput)
-}
-
-func (i *Mesh) ToMeshPtrOutput() MeshPtrOutput {
-	return i.ToMeshPtrOutputWithContext(context.Background())
-}
-
-func (i *Mesh) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshPtrOutput)
-}
-
-type MeshPtrInput interface {
-	pulumi.Input
-
-	ToMeshPtrOutput() MeshPtrOutput
-	ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput
-}
-
-type meshPtrType MeshArgs
-
-func (*meshPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Mesh)(nil))
-}
-
-func (i *meshPtrType) ToMeshPtrOutput() MeshPtrOutput {
-	return i.ToMeshPtrOutputWithContext(context.Background())
-}
-
-func (i *meshPtrType) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshPtrOutput)
 }
 
 // MeshArrayInput is an input type that accepts MeshArray and MeshArrayOutput values.
@@ -288,7 +259,7 @@ func (i MeshMap) ToMeshMapOutputWithContext(ctx context.Context) MeshMapOutput {
 type MeshOutput struct{ *pulumi.OutputState }
 
 func (MeshOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Mesh)(nil))
+	return reflect.TypeOf((**Mesh)(nil)).Elem()
 }
 
 func (o MeshOutput) ToMeshOutput() MeshOutput {
@@ -299,44 +270,10 @@ func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return o
 }
 
-func (o MeshOutput) ToMeshPtrOutput() MeshPtrOutput {
-	return o.ToMeshPtrOutputWithContext(context.Background())
-}
-
-func (o MeshOutput) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Mesh) *Mesh {
-		return &v
-	}).(MeshPtrOutput)
-}
-
-type MeshPtrOutput struct{ *pulumi.OutputState }
-
-func (MeshPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Mesh)(nil))
-}
-
-func (o MeshPtrOutput) ToMeshPtrOutput() MeshPtrOutput {
-	return o
-}
-
-func (o MeshPtrOutput) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
-	return o
-}
-
-func (o MeshPtrOutput) Elem() MeshOutput {
-	return o.ApplyT(func(v *Mesh) Mesh {
-		if v != nil {
-			return *v
-		}
-		var ret Mesh
-		return ret
-	}).(MeshOutput)
-}
-
 type MeshArrayOutput struct{ *pulumi.OutputState }
 
 func (MeshArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Mesh)(nil))
+	return reflect.TypeOf((*[]*Mesh)(nil)).Elem()
 }
 
 func (o MeshArrayOutput) ToMeshArrayOutput() MeshArrayOutput {
@@ -348,15 +285,15 @@ func (o MeshArrayOutput) ToMeshArrayOutputWithContext(ctx context.Context) MeshA
 }
 
 func (o MeshArrayOutput) Index(i pulumi.IntInput) MeshOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Mesh {
-		return vs[0].([]Mesh)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Mesh {
+		return vs[0].([]*Mesh)[vs[1].(int)]
 	}).(MeshOutput)
 }
 
 type MeshMapOutput struct{ *pulumi.OutputState }
 
 func (MeshMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Mesh)(nil))
+	return reflect.TypeOf((*map[string]*Mesh)(nil)).Elem()
 }
 
 func (o MeshMapOutput) ToMeshMapOutput() MeshMapOutput {
@@ -368,18 +305,16 @@ func (o MeshMapOutput) ToMeshMapOutputWithContext(ctx context.Context) MeshMapOu
 }
 
 func (o MeshMapOutput) MapIndex(k pulumi.StringInput) MeshOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Mesh {
-		return vs[0].(map[string]Mesh)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Mesh {
+		return vs[0].(map[string]*Mesh)[vs[1].(string)]
 	}).(MeshOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshInput)(nil)).Elem(), &Mesh{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MeshPtrInput)(nil)).Elem(), &Mesh{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshArrayInput)(nil)).Elem(), MeshArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshMapInput)(nil)).Elem(), MeshMap{})
 	pulumi.RegisterOutputType(MeshOutput{})
-	pulumi.RegisterOutputType(MeshPtrOutput{})
 	pulumi.RegisterOutputType(MeshArrayOutput{})
 	pulumi.RegisterOutputType(MeshMapOutput{})
 }

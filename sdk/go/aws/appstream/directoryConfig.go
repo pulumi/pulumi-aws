@@ -157,7 +157,7 @@ type DirectoryConfigInput interface {
 }
 
 func (*DirectoryConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectoryConfig)(nil))
+	return reflect.TypeOf((**DirectoryConfig)(nil)).Elem()
 }
 
 func (i *DirectoryConfig) ToDirectoryConfigOutput() DirectoryConfigOutput {
@@ -166,35 +166,6 @@ func (i *DirectoryConfig) ToDirectoryConfigOutput() DirectoryConfigOutput {
 
 func (i *DirectoryConfig) ToDirectoryConfigOutputWithContext(ctx context.Context) DirectoryConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigOutput)
-}
-
-func (i *DirectoryConfig) ToDirectoryConfigPtrOutput() DirectoryConfigPtrOutput {
-	return i.ToDirectoryConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *DirectoryConfig) ToDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigPtrOutput)
-}
-
-type DirectoryConfigPtrInput interface {
-	pulumi.Input
-
-	ToDirectoryConfigPtrOutput() DirectoryConfigPtrOutput
-	ToDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryConfigPtrOutput
-}
-
-type directoryConfigPtrType DirectoryConfigArgs
-
-func (*directoryConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectoryConfig)(nil))
-}
-
-func (i *directoryConfigPtrType) ToDirectoryConfigPtrOutput() DirectoryConfigPtrOutput {
-	return i.ToDirectoryConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *directoryConfigPtrType) ToDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigPtrOutput)
 }
 
 // DirectoryConfigArrayInput is an input type that accepts DirectoryConfigArray and DirectoryConfigArrayOutput values.
@@ -250,7 +221,7 @@ func (i DirectoryConfigMap) ToDirectoryConfigMapOutputWithContext(ctx context.Co
 type DirectoryConfigOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectoryConfig)(nil))
+	return reflect.TypeOf((**DirectoryConfig)(nil)).Elem()
 }
 
 func (o DirectoryConfigOutput) ToDirectoryConfigOutput() DirectoryConfigOutput {
@@ -261,44 +232,10 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DirectoryConfigOutput) ToDirectoryConfigPtrOutput() DirectoryConfigPtrOutput {
-	return o.ToDirectoryConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DirectoryConfigOutput) ToDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryConfig) *DirectoryConfig {
-		return &v
-	}).(DirectoryConfigPtrOutput)
-}
-
-type DirectoryConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DirectoryConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectoryConfig)(nil))
-}
-
-func (o DirectoryConfigPtrOutput) ToDirectoryConfigPtrOutput() DirectoryConfigPtrOutput {
-	return o
-}
-
-func (o DirectoryConfigPtrOutput) ToDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryConfigPtrOutput {
-	return o
-}
-
-func (o DirectoryConfigPtrOutput) Elem() DirectoryConfigOutput {
-	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DirectoryConfig
-		return ret
-	}).(DirectoryConfigOutput)
-}
-
 type DirectoryConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DirectoryConfig)(nil))
+	return reflect.TypeOf((*[]*DirectoryConfig)(nil)).Elem()
 }
 
 func (o DirectoryConfigArrayOutput) ToDirectoryConfigArrayOutput() DirectoryConfigArrayOutput {
@@ -310,15 +247,15 @@ func (o DirectoryConfigArrayOutput) ToDirectoryConfigArrayOutputWithContext(ctx 
 }
 
 func (o DirectoryConfigArrayOutput) Index(i pulumi.IntInput) DirectoryConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryConfig {
-		return vs[0].([]DirectoryConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DirectoryConfig {
+		return vs[0].([]*DirectoryConfig)[vs[1].(int)]
 	}).(DirectoryConfigOutput)
 }
 
 type DirectoryConfigMapOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DirectoryConfig)(nil))
+	return reflect.TypeOf((*map[string]*DirectoryConfig)(nil)).Elem()
 }
 
 func (o DirectoryConfigMapOutput) ToDirectoryConfigMapOutput() DirectoryConfigMapOutput {
@@ -330,18 +267,16 @@ func (o DirectoryConfigMapOutput) ToDirectoryConfigMapOutputWithContext(ctx cont
 }
 
 func (o DirectoryConfigMapOutput) MapIndex(k pulumi.StringInput) DirectoryConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DirectoryConfig {
-		return vs[0].(map[string]DirectoryConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DirectoryConfig {
+		return vs[0].(map[string]*DirectoryConfig)[vs[1].(string)]
 	}).(DirectoryConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigInput)(nil)).Elem(), &DirectoryConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigPtrInput)(nil)).Elem(), &DirectoryConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigArrayInput)(nil)).Elem(), DirectoryConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigMapInput)(nil)).Elem(), DirectoryConfigMap{})
 	pulumi.RegisterOutputType(DirectoryConfigOutput{})
-	pulumi.RegisterOutputType(DirectoryConfigPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigMapOutput{})
 }

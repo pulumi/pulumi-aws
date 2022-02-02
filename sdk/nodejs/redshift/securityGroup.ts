@@ -79,26 +79,24 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ingress"] = state ? state.ingress : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ingress"] = state ? state.ingress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as SecurityGroupArgs | undefined;
             if ((!args || args.ingress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ingress'");
             }
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["ingress"] = args ? args.ingress : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["ingress"] = args ? args.ingress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

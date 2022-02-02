@@ -39,9 +39,7 @@ export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getQuickConnect:getQuickConnect", {
         "instanceId": args.instanceId,
         "name": args.name,

@@ -23,9 +23,7 @@ export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:wafregional/getIpset:getIpset", {
         "name": args.name,
     }, opts);

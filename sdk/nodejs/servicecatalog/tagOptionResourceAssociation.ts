@@ -92,16 +92,16 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagOptionResourceAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TagOptionResourceAssociationArgs | TagOptionResourceAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagOptionResourceAssociationState | undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
-            inputs["resourceCreatedTime"] = state ? state.resourceCreatedTime : undefined;
-            inputs["resourceDescription"] = state ? state.resourceDescription : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["resourceName"] = state ? state.resourceName : undefined;
-            inputs["tagOptionId"] = state ? state.tagOptionId : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["resourceCreatedTime"] = state ? state.resourceCreatedTime : undefined;
+            resourceInputs["resourceDescription"] = state ? state.resourceDescription : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
+            resourceInputs["tagOptionId"] = state ? state.tagOptionId : undefined;
         } else {
             const args = argsOrState as TagOptionResourceAssociationArgs | undefined;
             if ((!args || args.resourceId === undefined) && !opts.urn) {
@@ -110,17 +110,15 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
             if ((!args || args.tagOptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tagOptionId'");
             }
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["tagOptionId"] = args ? args.tagOptionId : undefined;
-            inputs["resourceArn"] = undefined /*out*/;
-            inputs["resourceCreatedTime"] = undefined /*out*/;
-            inputs["resourceDescription"] = undefined /*out*/;
-            inputs["resourceName"] = undefined /*out*/;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["tagOptionId"] = args ? args.tagOptionId : undefined;
+            resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["resourceCreatedTime"] = undefined /*out*/;
+            resourceInputs["resourceDescription"] = undefined /*out*/;
+            resourceInputs["resourceName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TagOptionResourceAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TagOptionResourceAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -128,19 +128,19 @@ export class Workteam extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkteamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkteamArgs | WorkteamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkteamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["memberDefinitions"] = state ? state.memberDefinitions : undefined;
-            inputs["notificationConfiguration"] = state ? state.notificationConfiguration : undefined;
-            inputs["subdomain"] = state ? state.subdomain : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["workforceName"] = state ? state.workforceName : undefined;
-            inputs["workteamName"] = state ? state.workteamName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["memberDefinitions"] = state ? state.memberDefinitions : undefined;
+            resourceInputs["notificationConfiguration"] = state ? state.notificationConfiguration : undefined;
+            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["workforceName"] = state ? state.workforceName : undefined;
+            resourceInputs["workteamName"] = state ? state.workteamName : undefined;
         } else {
             const args = argsOrState as WorkteamArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -155,20 +155,18 @@ export class Workteam extends pulumi.CustomResource {
             if ((!args || args.workteamName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workteamName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
-            inputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workforceName"] = args ? args.workforceName : undefined;
-            inputs["workteamName"] = args ? args.workteamName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["subdomain"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
+            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workforceName"] = args ? args.workforceName : undefined;
+            resourceInputs["workteamName"] = args ? args.workteamName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["subdomain"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Workteam.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Workteam.__pulumiType, name, resourceInputs, opts);
     }
 }
 

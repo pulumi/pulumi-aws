@@ -28,9 +28,7 @@ export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUser
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", {
         "region": args.region,
     }, opts);

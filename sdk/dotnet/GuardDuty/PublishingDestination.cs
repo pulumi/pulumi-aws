@@ -29,62 +29,57 @@ namespace Pulumi.Aws.GuardDuty
     ///             Acl = "private",
     ///             ForceDestroy = true,
     ///         });
-    ///         var bucketPol = Output.Tuple(gdBucket.Arn, gdBucket.Arn).Apply(values =&gt;
+    ///         var bucketPol = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
-    ///             var gdBucketArn = values.Item1;
-    ///             var gdBucketArn1 = values.Item2;
-    ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             Statements = 
     ///             {
-    ///                 Statements = 
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     Sid = "Allow PutObject",
+    ///                     Actions = 
     ///                     {
-    ///                         Sid = "Allow PutObject",
-    ///                         Actions = 
-    ///                         {
-    ///                             "s3:PutObject",
-    ///                         },
-    ///                         Resources = 
-    ///                         {
-    ///                             $"{gdBucketArn}/*",
-    ///                         },
-    ///                         Principals = 
-    ///                         {
-    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                             {
-    ///                                 Type = "Service",
-    ///                                 Identifiers = 
-    ///                                 {
-    ///                                     "guardduty.amazonaws.com",
-    ///                                 },
-    ///                             },
-    ///                         },
+    ///                         "s3:PutObject",
     ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     Resources = 
     ///                     {
-    ///                         Sid = "Allow GetBucketLocation",
-    ///                         Actions = 
+    ///                         gdBucket.Arn.Apply(arn =&gt; $"{arn}/*"),
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
-    ///                             "s3:GetBucketLocation",
-    ///                         },
-    ///                         Resources = 
-    ///                         {
-    ///                             gdBucketArn1,
-    ///                         },
-    ///                         Principals = 
-    ///                         {
-    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             Type = "Service",
+    ///                             Identifiers = 
     ///                             {
-    ///                                 Type = "Service",
-    ///                                 Identifiers = 
-    ///                                 {
-    ///                                     "guardduty.amazonaws.com",
-    ///                                 },
+    ///                                 "guardduty.amazonaws.com",
     ///                             },
     ///                         },
     ///                     },
     ///                 },
-    ///             });
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 {
+    ///                     Sid = "Allow GetBucketLocation",
+    ///                     Actions = 
+    ///                     {
+    ///                         "s3:GetBucketLocation",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         gdBucket.Arn,
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         {
+    ///                             Type = "Service",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "guardduty.amazonaws.com",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///         });
     ///         var kmsPol = Output.Tuple(currentRegion, currentCallerIdentity, currentRegion, currentCallerIdentity, currentCallerIdentity).Apply(values =&gt;
     ///         {

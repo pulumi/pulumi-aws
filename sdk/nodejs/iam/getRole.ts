@@ -25,9 +25,7 @@ export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getRole:getRole", {
         "name": args.name,
         "tags": args.tags,

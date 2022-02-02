@@ -127,46 +127,44 @@ export class ReplicaKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicaKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicaKeyArgs | ReplicaKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicaKeyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["keyRotationEnabled"] = state ? state.keyRotationEnabled : undefined;
-            inputs["keySpec"] = state ? state.keySpec : undefined;
-            inputs["keyUsage"] = state ? state.keyUsage : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["primaryKeyArn"] = state ? state.primaryKeyArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["keyRotationEnabled"] = state ? state.keyRotationEnabled : undefined;
+            resourceInputs["keySpec"] = state ? state.keySpec : undefined;
+            resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["primaryKeyArn"] = state ? state.primaryKeyArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ReplicaKeyArgs | undefined;
             if ((!args || args.primaryKeyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryKeyArn'");
             }
-            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
-            inputs["keyRotationEnabled"] = undefined /*out*/;
-            inputs["keySpec"] = undefined /*out*/;
-            inputs["keyUsage"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["keyRotationEnabled"] = undefined /*out*/;
+            resourceInputs["keySpec"] = undefined /*out*/;
+            resourceInputs["keyUsage"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicaKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicaKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

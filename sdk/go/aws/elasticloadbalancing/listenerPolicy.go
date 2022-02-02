@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := elb.NewLoadBalancer(ctx, "wu_tang", &elb.LoadBalancerArgs{
+// 		_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-east-1a"),
 // 			},
@@ -46,7 +46,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_ssl", &elb.LoadBalancerPolicyArgs{
+// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			PolicyName:       pulumi.String("wu-tang-ssl"),
 // 			PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
@@ -64,7 +64,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewListenerPolicy(ctx, "wu_tang_listener_policies_443", &elb.ListenerPolicyArgs{
+// 		_, err = elb.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb.ListenerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			LoadBalancerPort: pulumi.Int(443),
 // 			PolicyNames: pulumi.StringArray{
@@ -92,7 +92,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := elb.NewLoadBalancer(ctx, "wu_tang", &elb.LoadBalancerArgs{
+// 		_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-east-1a"),
 // 			},
@@ -112,7 +112,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_ssl_tls_1_1", &elb.LoadBalancerPolicyArgs{
+// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			PolicyName:       pulumi.String("wu-tang-ssl"),
 // 			PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
@@ -126,7 +126,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewListenerPolicy(ctx, "wu_tang_listener_policies_443", &elb.ListenerPolicyArgs{
+// 		_, err = elb.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb.ListenerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			LoadBalancerPort: pulumi.Int(443),
 // 			PolicyNames: pulumi.StringArray{
@@ -242,7 +242,7 @@ type ListenerPolicyInput interface {
 }
 
 func (*ListenerPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerPolicy)(nil))
+	return reflect.TypeOf((**ListenerPolicy)(nil)).Elem()
 }
 
 func (i *ListenerPolicy) ToListenerPolicyOutput() ListenerPolicyOutput {
@@ -251,35 +251,6 @@ func (i *ListenerPolicy) ToListenerPolicyOutput() ListenerPolicyOutput {
 
 func (i *ListenerPolicy) ToListenerPolicyOutputWithContext(ctx context.Context) ListenerPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyOutput)
-}
-
-func (i *ListenerPolicy) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
-	return i.ToListenerPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ListenerPolicy) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyPtrOutput)
-}
-
-type ListenerPolicyPtrInput interface {
-	pulumi.Input
-
-	ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput
-	ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput
-}
-
-type listenerPolicyPtrType ListenerPolicyArgs
-
-func (*listenerPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ListenerPolicy)(nil))
-}
-
-func (i *listenerPolicyPtrType) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
-	return i.ToListenerPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *listenerPolicyPtrType) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyPtrOutput)
 }
 
 // ListenerPolicyArrayInput is an input type that accepts ListenerPolicyArray and ListenerPolicyArrayOutput values.
@@ -335,7 +306,7 @@ func (i ListenerPolicyMap) ToListenerPolicyMapOutputWithContext(ctx context.Cont
 type ListenerPolicyOutput struct{ *pulumi.OutputState }
 
 func (ListenerPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerPolicy)(nil))
+	return reflect.TypeOf((**ListenerPolicy)(nil)).Elem()
 }
 
 func (o ListenerPolicyOutput) ToListenerPolicyOutput() ListenerPolicyOutput {
@@ -346,44 +317,10 @@ func (o ListenerPolicyOutput) ToListenerPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ListenerPolicyOutput) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
-	return o.ToListenerPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ListenerPolicyOutput) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerPolicy) *ListenerPolicy {
-		return &v
-	}).(ListenerPolicyPtrOutput)
-}
-
-type ListenerPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ListenerPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ListenerPolicy)(nil))
-}
-
-func (o ListenerPolicyPtrOutput) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutput {
-	return o
-}
-
-func (o ListenerPolicyPtrOutput) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
-	return o
-}
-
-func (o ListenerPolicyPtrOutput) Elem() ListenerPolicyOutput {
-	return o.ApplyT(func(v *ListenerPolicy) ListenerPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ListenerPolicy
-		return ret
-	}).(ListenerPolicyOutput)
-}
-
 type ListenerPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ListenerPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ListenerPolicy)(nil))
+	return reflect.TypeOf((*[]*ListenerPolicy)(nil)).Elem()
 }
 
 func (o ListenerPolicyArrayOutput) ToListenerPolicyArrayOutput() ListenerPolicyArrayOutput {
@@ -395,15 +332,15 @@ func (o ListenerPolicyArrayOutput) ToListenerPolicyArrayOutputWithContext(ctx co
 }
 
 func (o ListenerPolicyArrayOutput) Index(i pulumi.IntInput) ListenerPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerPolicy {
-		return vs[0].([]ListenerPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ListenerPolicy {
+		return vs[0].([]*ListenerPolicy)[vs[1].(int)]
 	}).(ListenerPolicyOutput)
 }
 
 type ListenerPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ListenerPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ListenerPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ListenerPolicy)(nil)).Elem()
 }
 
 func (o ListenerPolicyMapOutput) ToListenerPolicyMapOutput() ListenerPolicyMapOutput {
@@ -415,18 +352,16 @@ func (o ListenerPolicyMapOutput) ToListenerPolicyMapOutputWithContext(ctx contex
 }
 
 func (o ListenerPolicyMapOutput) MapIndex(k pulumi.StringInput) ListenerPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ListenerPolicy {
-		return vs[0].(map[string]ListenerPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ListenerPolicy {
+		return vs[0].(map[string]*ListenerPolicy)[vs[1].(string)]
 	}).(ListenerPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPolicyInput)(nil)).Elem(), &ListenerPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPolicyPtrInput)(nil)).Elem(), &ListenerPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPolicyArrayInput)(nil)).Elem(), ListenerPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPolicyMapInput)(nil)).Elem(), ListenerPolicyMap{})
 	pulumi.RegisterOutputType(ListenerPolicyOutput{})
-	pulumi.RegisterOutputType(ListenerPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ListenerPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ListenerPolicyMapOutput{})
 }

@@ -137,19 +137,19 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: OptionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OptionGroupArgs | OptionGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OptionGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["engineName"] = state ? state.engineName : undefined;
-            inputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["optionGroupDescription"] = state ? state.optionGroupDescription : undefined;
-            inputs["options"] = state ? state.options : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["engineName"] = state ? state.engineName : undefined;
+            resourceInputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["optionGroupDescription"] = state ? state.optionGroupDescription : undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as OptionGroupArgs | undefined;
             if ((!args || args.engineName === undefined) && !opts.urn) {
@@ -158,20 +158,18 @@ export class OptionGroup extends pulumi.CustomResource {
             if ((!args || args.majorEngineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'majorEngineVersion'");
             }
-            inputs["engineName"] = args ? args.engineName : undefined;
-            inputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) ?? "Managed by Pulumi";
-            inputs["options"] = args ? args.options : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["engineName"] = args ? args.engineName : undefined;
+            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) ?? "Managed by Pulumi";
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OptionGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OptionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

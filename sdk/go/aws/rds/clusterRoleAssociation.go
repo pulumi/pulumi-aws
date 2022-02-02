@@ -149,7 +149,7 @@ type ClusterRoleAssociationInput interface {
 }
 
 func (*ClusterRoleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterRoleAssociation)(nil))
+	return reflect.TypeOf((**ClusterRoleAssociation)(nil)).Elem()
 }
 
 func (i *ClusterRoleAssociation) ToClusterRoleAssociationOutput() ClusterRoleAssociationOutput {
@@ -158,35 +158,6 @@ func (i *ClusterRoleAssociation) ToClusterRoleAssociationOutput() ClusterRoleAss
 
 func (i *ClusterRoleAssociation) ToClusterRoleAssociationOutputWithContext(ctx context.Context) ClusterRoleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRoleAssociationOutput)
-}
-
-func (i *ClusterRoleAssociation) ToClusterRoleAssociationPtrOutput() ClusterRoleAssociationPtrOutput {
-	return i.ToClusterRoleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ClusterRoleAssociation) ToClusterRoleAssociationPtrOutputWithContext(ctx context.Context) ClusterRoleAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterRoleAssociationPtrOutput)
-}
-
-type ClusterRoleAssociationPtrInput interface {
-	pulumi.Input
-
-	ToClusterRoleAssociationPtrOutput() ClusterRoleAssociationPtrOutput
-	ToClusterRoleAssociationPtrOutputWithContext(ctx context.Context) ClusterRoleAssociationPtrOutput
-}
-
-type clusterRoleAssociationPtrType ClusterRoleAssociationArgs
-
-func (*clusterRoleAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterRoleAssociation)(nil))
-}
-
-func (i *clusterRoleAssociationPtrType) ToClusterRoleAssociationPtrOutput() ClusterRoleAssociationPtrOutput {
-	return i.ToClusterRoleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterRoleAssociationPtrType) ToClusterRoleAssociationPtrOutputWithContext(ctx context.Context) ClusterRoleAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterRoleAssociationPtrOutput)
 }
 
 // ClusterRoleAssociationArrayInput is an input type that accepts ClusterRoleAssociationArray and ClusterRoleAssociationArrayOutput values.
@@ -242,7 +213,7 @@ func (i ClusterRoleAssociationMap) ToClusterRoleAssociationMapOutputWithContext(
 type ClusterRoleAssociationOutput struct{ *pulumi.OutputState }
 
 func (ClusterRoleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterRoleAssociation)(nil))
+	return reflect.TypeOf((**ClusterRoleAssociation)(nil)).Elem()
 }
 
 func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationOutput() ClusterRoleAssociationOutput {
@@ -253,44 +224,10 @@ func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationOutputWithContext(
 	return o
 }
 
-func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationPtrOutput() ClusterRoleAssociationPtrOutput {
-	return o.ToClusterRoleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationPtrOutputWithContext(ctx context.Context) ClusterRoleAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRoleAssociation) *ClusterRoleAssociation {
-		return &v
-	}).(ClusterRoleAssociationPtrOutput)
-}
-
-type ClusterRoleAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterRoleAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterRoleAssociation)(nil))
-}
-
-func (o ClusterRoleAssociationPtrOutput) ToClusterRoleAssociationPtrOutput() ClusterRoleAssociationPtrOutput {
-	return o
-}
-
-func (o ClusterRoleAssociationPtrOutput) ToClusterRoleAssociationPtrOutputWithContext(ctx context.Context) ClusterRoleAssociationPtrOutput {
-	return o
-}
-
-func (o ClusterRoleAssociationPtrOutput) Elem() ClusterRoleAssociationOutput {
-	return o.ApplyT(func(v *ClusterRoleAssociation) ClusterRoleAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterRoleAssociation
-		return ret
-	}).(ClusterRoleAssociationOutput)
-}
-
 type ClusterRoleAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterRoleAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterRoleAssociation)(nil))
+	return reflect.TypeOf((*[]*ClusterRoleAssociation)(nil)).Elem()
 }
 
 func (o ClusterRoleAssociationArrayOutput) ToClusterRoleAssociationArrayOutput() ClusterRoleAssociationArrayOutput {
@@ -302,15 +239,15 @@ func (o ClusterRoleAssociationArrayOutput) ToClusterRoleAssociationArrayOutputWi
 }
 
 func (o ClusterRoleAssociationArrayOutput) Index(i pulumi.IntInput) ClusterRoleAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterRoleAssociation {
-		return vs[0].([]ClusterRoleAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterRoleAssociation {
+		return vs[0].([]*ClusterRoleAssociation)[vs[1].(int)]
 	}).(ClusterRoleAssociationOutput)
 }
 
 type ClusterRoleAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ClusterRoleAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterRoleAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ClusterRoleAssociation)(nil)).Elem()
 }
 
 func (o ClusterRoleAssociationMapOutput) ToClusterRoleAssociationMapOutput() ClusterRoleAssociationMapOutput {
@@ -322,18 +259,16 @@ func (o ClusterRoleAssociationMapOutput) ToClusterRoleAssociationMapOutputWithCo
 }
 
 func (o ClusterRoleAssociationMapOutput) MapIndex(k pulumi.StringInput) ClusterRoleAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterRoleAssociation {
-		return vs[0].(map[string]ClusterRoleAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ClusterRoleAssociation {
+		return vs[0].(map[string]*ClusterRoleAssociation)[vs[1].(string)]
 	}).(ClusterRoleAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoleAssociationInput)(nil)).Elem(), &ClusterRoleAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoleAssociationPtrInput)(nil)).Elem(), &ClusterRoleAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoleAssociationArrayInput)(nil)).Elem(), ClusterRoleAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRoleAssociationMapInput)(nil)).Elem(), ClusterRoleAssociationMap{})
 	pulumi.RegisterOutputType(ClusterRoleAssociationOutput{})
-	pulumi.RegisterOutputType(ClusterRoleAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRoleAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterRoleAssociationMapOutput{})
 }

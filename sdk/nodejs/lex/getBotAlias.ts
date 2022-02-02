@@ -24,9 +24,7 @@ export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lex/getBotAlias:getBotAlias", {
         "botName": args.botName,
         "name": args.name,

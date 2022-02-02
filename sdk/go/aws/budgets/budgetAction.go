@@ -290,7 +290,7 @@ type BudgetActionInput interface {
 }
 
 func (*BudgetAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetAction)(nil))
+	return reflect.TypeOf((**BudgetAction)(nil)).Elem()
 }
 
 func (i *BudgetAction) ToBudgetActionOutput() BudgetActionOutput {
@@ -299,35 +299,6 @@ func (i *BudgetAction) ToBudgetActionOutput() BudgetActionOutput {
 
 func (i *BudgetAction) ToBudgetActionOutputWithContext(ctx context.Context) BudgetActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionOutput)
-}
-
-func (i *BudgetAction) ToBudgetActionPtrOutput() BudgetActionPtrOutput {
-	return i.ToBudgetActionPtrOutputWithContext(context.Background())
-}
-
-func (i *BudgetAction) ToBudgetActionPtrOutputWithContext(ctx context.Context) BudgetActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionPtrOutput)
-}
-
-type BudgetActionPtrInput interface {
-	pulumi.Input
-
-	ToBudgetActionPtrOutput() BudgetActionPtrOutput
-	ToBudgetActionPtrOutputWithContext(ctx context.Context) BudgetActionPtrOutput
-}
-
-type budgetActionPtrType BudgetActionArgs
-
-func (*budgetActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetAction)(nil))
-}
-
-func (i *budgetActionPtrType) ToBudgetActionPtrOutput() BudgetActionPtrOutput {
-	return i.ToBudgetActionPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetActionPtrType) ToBudgetActionPtrOutputWithContext(ctx context.Context) BudgetActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionPtrOutput)
 }
 
 // BudgetActionArrayInput is an input type that accepts BudgetActionArray and BudgetActionArrayOutput values.
@@ -383,7 +354,7 @@ func (i BudgetActionMap) ToBudgetActionMapOutputWithContext(ctx context.Context)
 type BudgetActionOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetAction)(nil))
+	return reflect.TypeOf((**BudgetAction)(nil)).Elem()
 }
 
 func (o BudgetActionOutput) ToBudgetActionOutput() BudgetActionOutput {
@@ -394,44 +365,10 @@ func (o BudgetActionOutput) ToBudgetActionOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o BudgetActionOutput) ToBudgetActionPtrOutput() BudgetActionPtrOutput {
-	return o.ToBudgetActionPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetActionOutput) ToBudgetActionPtrOutputWithContext(ctx context.Context) BudgetActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetAction) *BudgetAction {
-		return &v
-	}).(BudgetActionPtrOutput)
-}
-
-type BudgetActionPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetAction)(nil))
-}
-
-func (o BudgetActionPtrOutput) ToBudgetActionPtrOutput() BudgetActionPtrOutput {
-	return o
-}
-
-func (o BudgetActionPtrOutput) ToBudgetActionPtrOutputWithContext(ctx context.Context) BudgetActionPtrOutput {
-	return o
-}
-
-func (o BudgetActionPtrOutput) Elem() BudgetActionOutput {
-	return o.ApplyT(func(v *BudgetAction) BudgetAction {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetAction
-		return ret
-	}).(BudgetActionOutput)
-}
-
 type BudgetActionArrayOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BudgetAction)(nil))
+	return reflect.TypeOf((*[]*BudgetAction)(nil)).Elem()
 }
 
 func (o BudgetActionArrayOutput) ToBudgetActionArrayOutput() BudgetActionArrayOutput {
@@ -443,15 +380,15 @@ func (o BudgetActionArrayOutput) ToBudgetActionArrayOutputWithContext(ctx contex
 }
 
 func (o BudgetActionArrayOutput) Index(i pulumi.IntInput) BudgetActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetAction {
-		return vs[0].([]BudgetAction)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetAction {
+		return vs[0].([]*BudgetAction)[vs[1].(int)]
 	}).(BudgetActionOutput)
 }
 
 type BudgetActionMapOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BudgetAction)(nil))
+	return reflect.TypeOf((*map[string]*BudgetAction)(nil)).Elem()
 }
 
 func (o BudgetActionMapOutput) ToBudgetActionMapOutput() BudgetActionMapOutput {
@@ -463,18 +400,16 @@ func (o BudgetActionMapOutput) ToBudgetActionMapOutputWithContext(ctx context.Co
 }
 
 func (o BudgetActionMapOutput) MapIndex(k pulumi.StringInput) BudgetActionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BudgetAction {
-		return vs[0].(map[string]BudgetAction)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BudgetAction {
+		return vs[0].(map[string]*BudgetAction)[vs[1].(string)]
 	}).(BudgetActionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionInput)(nil)).Elem(), &BudgetAction{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionPtrInput)(nil)).Elem(), &BudgetAction{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionArrayInput)(nil)).Elem(), BudgetActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionMapInput)(nil)).Elem(), BudgetActionMap{})
 	pulumi.RegisterOutputType(BudgetActionOutput{})
-	pulumi.RegisterOutputType(BudgetActionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionArrayOutput{})
 	pulumi.RegisterOutputType(BudgetActionMapOutput{})
 }

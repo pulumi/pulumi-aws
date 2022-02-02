@@ -220,7 +220,7 @@ type DefaultRouteTableInput interface {
 }
 
 func (*DefaultRouteTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultRouteTable)(nil))
+	return reflect.TypeOf((**DefaultRouteTable)(nil)).Elem()
 }
 
 func (i *DefaultRouteTable) ToDefaultRouteTableOutput() DefaultRouteTableOutput {
@@ -229,35 +229,6 @@ func (i *DefaultRouteTable) ToDefaultRouteTableOutput() DefaultRouteTableOutput 
 
 func (i *DefaultRouteTable) ToDefaultRouteTableOutputWithContext(ctx context.Context) DefaultRouteTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableOutput)
-}
-
-func (i *DefaultRouteTable) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
-	return i.ToDefaultRouteTablePtrOutputWithContext(context.Background())
-}
-
-func (i *DefaultRouteTable) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTablePtrOutput)
-}
-
-type DefaultRouteTablePtrInput interface {
-	pulumi.Input
-
-	ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput
-	ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput
-}
-
-type defaultRouteTablePtrType DefaultRouteTableArgs
-
-func (*defaultRouteTablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DefaultRouteTable)(nil))
-}
-
-func (i *defaultRouteTablePtrType) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
-	return i.ToDefaultRouteTablePtrOutputWithContext(context.Background())
-}
-
-func (i *defaultRouteTablePtrType) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTablePtrOutput)
 }
 
 // DefaultRouteTableArrayInput is an input type that accepts DefaultRouteTableArray and DefaultRouteTableArrayOutput values.
@@ -313,7 +284,7 @@ func (i DefaultRouteTableMap) ToDefaultRouteTableMapOutputWithContext(ctx contex
 type DefaultRouteTableOutput struct{ *pulumi.OutputState }
 
 func (DefaultRouteTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultRouteTable)(nil))
+	return reflect.TypeOf((**DefaultRouteTable)(nil)).Elem()
 }
 
 func (o DefaultRouteTableOutput) ToDefaultRouteTableOutput() DefaultRouteTableOutput {
@@ -324,44 +295,10 @@ func (o DefaultRouteTableOutput) ToDefaultRouteTableOutputWithContext(ctx contex
 	return o
 }
 
-func (o DefaultRouteTableOutput) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
-	return o.ToDefaultRouteTablePtrOutputWithContext(context.Background())
-}
-
-func (o DefaultRouteTableOutput) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRouteTable) *DefaultRouteTable {
-		return &v
-	}).(DefaultRouteTablePtrOutput)
-}
-
-type DefaultRouteTablePtrOutput struct{ *pulumi.OutputState }
-
-func (DefaultRouteTablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DefaultRouteTable)(nil))
-}
-
-func (o DefaultRouteTablePtrOutput) ToDefaultRouteTablePtrOutput() DefaultRouteTablePtrOutput {
-	return o
-}
-
-func (o DefaultRouteTablePtrOutput) ToDefaultRouteTablePtrOutputWithContext(ctx context.Context) DefaultRouteTablePtrOutput {
-	return o
-}
-
-func (o DefaultRouteTablePtrOutput) Elem() DefaultRouteTableOutput {
-	return o.ApplyT(func(v *DefaultRouteTable) DefaultRouteTable {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRouteTable
-		return ret
-	}).(DefaultRouteTableOutput)
-}
-
 type DefaultRouteTableArrayOutput struct{ *pulumi.OutputState }
 
 func (DefaultRouteTableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DefaultRouteTable)(nil))
+	return reflect.TypeOf((*[]*DefaultRouteTable)(nil)).Elem()
 }
 
 func (o DefaultRouteTableArrayOutput) ToDefaultRouteTableArrayOutput() DefaultRouteTableArrayOutput {
@@ -373,15 +310,15 @@ func (o DefaultRouteTableArrayOutput) ToDefaultRouteTableArrayOutputWithContext(
 }
 
 func (o DefaultRouteTableArrayOutput) Index(i pulumi.IntInput) DefaultRouteTableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultRouteTable {
-		return vs[0].([]DefaultRouteTable)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultRouteTable {
+		return vs[0].([]*DefaultRouteTable)[vs[1].(int)]
 	}).(DefaultRouteTableOutput)
 }
 
 type DefaultRouteTableMapOutput struct{ *pulumi.OutputState }
 
 func (DefaultRouteTableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DefaultRouteTable)(nil))
+	return reflect.TypeOf((*map[string]*DefaultRouteTable)(nil)).Elem()
 }
 
 func (o DefaultRouteTableMapOutput) ToDefaultRouteTableMapOutput() DefaultRouteTableMapOutput {
@@ -393,18 +330,16 @@ func (o DefaultRouteTableMapOutput) ToDefaultRouteTableMapOutputWithContext(ctx 
 }
 
 func (o DefaultRouteTableMapOutput) MapIndex(k pulumi.StringInput) DefaultRouteTableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultRouteTable {
-		return vs[0].(map[string]DefaultRouteTable)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DefaultRouteTable {
+		return vs[0].(map[string]*DefaultRouteTable)[vs[1].(string)]
 	}).(DefaultRouteTableOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableInput)(nil)).Elem(), &DefaultRouteTable{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTablePtrInput)(nil)).Elem(), &DefaultRouteTable{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableArrayInput)(nil)).Elem(), DefaultRouteTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableMapInput)(nil)).Elem(), DefaultRouteTableMap{})
 	pulumi.RegisterOutputType(DefaultRouteTableOutput{})
-	pulumi.RegisterOutputType(DefaultRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(DefaultRouteTableArrayOutput{})
 	pulumi.RegisterOutputType(DefaultRouteTableMapOutput{})
 }

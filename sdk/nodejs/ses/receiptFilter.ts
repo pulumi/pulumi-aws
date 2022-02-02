@@ -81,14 +81,14 @@ export class ReceiptFilter extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReceiptFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReceiptFilterArgs | ReceiptFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReceiptFilterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cidr"] = state ? state.cidr : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cidr"] = state ? state.cidr : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as ReceiptFilterArgs | undefined;
             if ((!args || args.cidr === undefined) && !opts.urn) {
@@ -97,15 +97,13 @@ export class ReceiptFilter extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["cidr"] = args ? args.cidr : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["cidr"] = args ? args.cidr : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReceiptFilter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReceiptFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

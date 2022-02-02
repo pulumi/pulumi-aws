@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Outposts
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Outposts
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOutpostInstanceTypesResult> InvokeAsync(GetOutpostInstanceTypesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about Outposts Instance Types.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Outposts
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOutpostInstanceTypesResult> Invoke(GetOutpostInstanceTypesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesInvokeArgs(), options.WithDefaults());
     }
 
 

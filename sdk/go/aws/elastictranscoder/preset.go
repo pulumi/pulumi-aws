@@ -264,7 +264,7 @@ type PresetInput interface {
 }
 
 func (*Preset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Preset)(nil))
+	return reflect.TypeOf((**Preset)(nil)).Elem()
 }
 
 func (i *Preset) ToPresetOutput() PresetOutput {
@@ -273,35 +273,6 @@ func (i *Preset) ToPresetOutput() PresetOutput {
 
 func (i *Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
-}
-
-func (i *Preset) ToPresetPtrOutput() PresetPtrOutput {
-	return i.ToPresetPtrOutputWithContext(context.Background())
-}
-
-func (i *Preset) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PresetPtrOutput)
-}
-
-type PresetPtrInput interface {
-	pulumi.Input
-
-	ToPresetPtrOutput() PresetPtrOutput
-	ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput
-}
-
-type presetPtrType PresetArgs
-
-func (*presetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Preset)(nil))
-}
-
-func (i *presetPtrType) ToPresetPtrOutput() PresetPtrOutput {
-	return i.ToPresetPtrOutputWithContext(context.Background())
-}
-
-func (i *presetPtrType) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PresetPtrOutput)
 }
 
 // PresetArrayInput is an input type that accepts PresetArray and PresetArrayOutput values.
@@ -357,7 +328,7 @@ func (i PresetMap) ToPresetMapOutputWithContext(ctx context.Context) PresetMapOu
 type PresetOutput struct{ *pulumi.OutputState }
 
 func (PresetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Preset)(nil))
+	return reflect.TypeOf((**Preset)(nil)).Elem()
 }
 
 func (o PresetOutput) ToPresetOutput() PresetOutput {
@@ -368,44 +339,10 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 	return o
 }
 
-func (o PresetOutput) ToPresetPtrOutput() PresetPtrOutput {
-	return o.ToPresetPtrOutputWithContext(context.Background())
-}
-
-func (o PresetOutput) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Preset) *Preset {
-		return &v
-	}).(PresetPtrOutput)
-}
-
-type PresetPtrOutput struct{ *pulumi.OutputState }
-
-func (PresetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Preset)(nil))
-}
-
-func (o PresetPtrOutput) ToPresetPtrOutput() PresetPtrOutput {
-	return o
-}
-
-func (o PresetPtrOutput) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
-	return o
-}
-
-func (o PresetPtrOutput) Elem() PresetOutput {
-	return o.ApplyT(func(v *Preset) Preset {
-		if v != nil {
-			return *v
-		}
-		var ret Preset
-		return ret
-	}).(PresetOutput)
-}
-
 type PresetArrayOutput struct{ *pulumi.OutputState }
 
 func (PresetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Preset)(nil))
+	return reflect.TypeOf((*[]*Preset)(nil)).Elem()
 }
 
 func (o PresetArrayOutput) ToPresetArrayOutput() PresetArrayOutput {
@@ -417,15 +354,15 @@ func (o PresetArrayOutput) ToPresetArrayOutputWithContext(ctx context.Context) P
 }
 
 func (o PresetArrayOutput) Index(i pulumi.IntInput) PresetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Preset {
-		return vs[0].([]Preset)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Preset {
+		return vs[0].([]*Preset)[vs[1].(int)]
 	}).(PresetOutput)
 }
 
 type PresetMapOutput struct{ *pulumi.OutputState }
 
 func (PresetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Preset)(nil))
+	return reflect.TypeOf((*map[string]*Preset)(nil)).Elem()
 }
 
 func (o PresetMapOutput) ToPresetMapOutput() PresetMapOutput {
@@ -437,18 +374,16 @@ func (o PresetMapOutput) ToPresetMapOutputWithContext(ctx context.Context) Prese
 }
 
 func (o PresetMapOutput) MapIndex(k pulumi.StringInput) PresetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Preset {
-		return vs[0].(map[string]Preset)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Preset {
+		return vs[0].(map[string]*Preset)[vs[1].(string)]
 	}).(PresetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PresetInput)(nil)).Elem(), &Preset{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PresetPtrInput)(nil)).Elem(), &Preset{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PresetArrayInput)(nil)).Elem(), PresetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PresetMapInput)(nil)).Elem(), PresetMap{})
 	pulumi.RegisterOutputType(PresetOutput{})
-	pulumi.RegisterOutputType(PresetPtrOutput{})
 	pulumi.RegisterOutputType(PresetArrayOutput{})
 	pulumi.RegisterOutputType(PresetMapOutput{})
 }

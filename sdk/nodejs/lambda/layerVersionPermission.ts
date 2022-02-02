@@ -104,18 +104,18 @@ export class LayerVersionPermission extends pulumi.CustomResource {
      */
     constructor(name: string, args: LayerVersionPermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LayerVersionPermissionArgs | LayerVersionPermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LayerVersionPermissionState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["layerName"] = state ? state.layerName : undefined;
-            inputs["organizationId"] = state ? state.organizationId : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["revisionId"] = state ? state.revisionId : undefined;
-            inputs["statementId"] = state ? state.statementId : undefined;
-            inputs["versionNumber"] = state ? state.versionNumber : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["layerName"] = state ? state.layerName : undefined;
+            resourceInputs["organizationId"] = state ? state.organizationId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["revisionId"] = state ? state.revisionId : undefined;
+            resourceInputs["statementId"] = state ? state.statementId : undefined;
+            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
         } else {
             const args = argsOrState as LayerVersionPermissionArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -133,19 +133,17 @@ export class LayerVersionPermission extends pulumi.CustomResource {
             if ((!args || args.versionNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versionNumber'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["layerName"] = args ? args.layerName : undefined;
-            inputs["organizationId"] = args ? args.organizationId : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
-            inputs["versionNumber"] = args ? args.versionNumber : undefined;
-            inputs["policy"] = undefined /*out*/;
-            inputs["revisionId"] = undefined /*out*/;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["layerName"] = args ? args.layerName : undefined;
+            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["versionNumber"] = args ? args.versionNumber : undefined;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["revisionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LayerVersionPermission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LayerVersionPermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

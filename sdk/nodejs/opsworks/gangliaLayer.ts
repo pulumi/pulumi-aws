@@ -148,37 +148,37 @@ export class GangliaLayer extends pulumi.CustomResource {
      */
     constructor(name: string, args: GangliaLayerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GangliaLayerArgs | GangliaLayerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GangliaLayerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = state ? state.autoHealing : undefined;
-            inputs["cloudwatchConfiguration"] = state ? state.cloudwatchConfiguration : undefined;
-            inputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
-            inputs["customJson"] = state ? state.customJson : undefined;
-            inputs["customSecurityGroupIds"] = state ? state.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = state ? state.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = state ? state.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = state ? state.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = state ? state.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = state ? state.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
-            inputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["systemPackages"] = state ? state.systemPackages : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
+            resourceInputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
+            resourceInputs["autoHealing"] = state ? state.autoHealing : undefined;
+            resourceInputs["cloudwatchConfiguration"] = state ? state.cloudwatchConfiguration : undefined;
+            resourceInputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
+            resourceInputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
+            resourceInputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
+            resourceInputs["customJson"] = state ? state.customJson : undefined;
+            resourceInputs["customSecurityGroupIds"] = state ? state.customSecurityGroupIds : undefined;
+            resourceInputs["customSetupRecipes"] = state ? state.customSetupRecipes : undefined;
+            resourceInputs["customShutdownRecipes"] = state ? state.customShutdownRecipes : undefined;
+            resourceInputs["customUndeployRecipes"] = state ? state.customUndeployRecipes : undefined;
+            resourceInputs["drainElbOnShutdown"] = state ? state.drainElbOnShutdown : undefined;
+            resourceInputs["ebsVolumes"] = state ? state.ebsVolumes : undefined;
+            resourceInputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
+            resourceInputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
+            resourceInputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["systemPackages"] = state ? state.systemPackages : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as GangliaLayerArgs | undefined;
             if ((!args || args.password === undefined) && !opts.urn) {
@@ -187,38 +187,36 @@ export class GangliaLayer extends pulumi.CustomResource {
             if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = args ? args.autoHealing : undefined;
-            inputs["cloudwatchConfiguration"] = args ? args.cloudwatchConfiguration : undefined;
-            inputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
-            inputs["customJson"] = args ? args.customJson : undefined;
-            inputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = args ? args.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = args ? args.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = args ? args.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = args ? args.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = args ? args.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
-            inputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["systemPackages"] = args ? args.systemPackages : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
+            resourceInputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
+            resourceInputs["autoHealing"] = args ? args.autoHealing : undefined;
+            resourceInputs["cloudwatchConfiguration"] = args ? args.cloudwatchConfiguration : undefined;
+            resourceInputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
+            resourceInputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
+            resourceInputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
+            resourceInputs["customJson"] = args ? args.customJson : undefined;
+            resourceInputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
+            resourceInputs["customSetupRecipes"] = args ? args.customSetupRecipes : undefined;
+            resourceInputs["customShutdownRecipes"] = args ? args.customShutdownRecipes : undefined;
+            resourceInputs["customUndeployRecipes"] = args ? args.customUndeployRecipes : undefined;
+            resourceInputs["drainElbOnShutdown"] = args ? args.drainElbOnShutdown : undefined;
+            resourceInputs["ebsVolumes"] = args ? args.ebsVolumes : undefined;
+            resourceInputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
+            resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
+            resourceInputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["systemPackages"] = args ? args.systemPackages : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GangliaLayer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GangliaLayer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -116,7 +116,7 @@ type ActiveReceiptRuleSetInput interface {
 }
 
 func (*ActiveReceiptRuleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveReceiptRuleSet)(nil))
+	return reflect.TypeOf((**ActiveReceiptRuleSet)(nil)).Elem()
 }
 
 func (i *ActiveReceiptRuleSet) ToActiveReceiptRuleSetOutput() ActiveReceiptRuleSetOutput {
@@ -125,35 +125,6 @@ func (i *ActiveReceiptRuleSet) ToActiveReceiptRuleSetOutput() ActiveReceiptRuleS
 
 func (i *ActiveReceiptRuleSet) ToActiveReceiptRuleSetOutputWithContext(ctx context.Context) ActiveReceiptRuleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveReceiptRuleSetOutput)
-}
-
-func (i *ActiveReceiptRuleSet) ToActiveReceiptRuleSetPtrOutput() ActiveReceiptRuleSetPtrOutput {
-	return i.ToActiveReceiptRuleSetPtrOutputWithContext(context.Background())
-}
-
-func (i *ActiveReceiptRuleSet) ToActiveReceiptRuleSetPtrOutputWithContext(ctx context.Context) ActiveReceiptRuleSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveReceiptRuleSetPtrOutput)
-}
-
-type ActiveReceiptRuleSetPtrInput interface {
-	pulumi.Input
-
-	ToActiveReceiptRuleSetPtrOutput() ActiveReceiptRuleSetPtrOutput
-	ToActiveReceiptRuleSetPtrOutputWithContext(ctx context.Context) ActiveReceiptRuleSetPtrOutput
-}
-
-type activeReceiptRuleSetPtrType ActiveReceiptRuleSetArgs
-
-func (*activeReceiptRuleSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveReceiptRuleSet)(nil))
-}
-
-func (i *activeReceiptRuleSetPtrType) ToActiveReceiptRuleSetPtrOutput() ActiveReceiptRuleSetPtrOutput {
-	return i.ToActiveReceiptRuleSetPtrOutputWithContext(context.Background())
-}
-
-func (i *activeReceiptRuleSetPtrType) ToActiveReceiptRuleSetPtrOutputWithContext(ctx context.Context) ActiveReceiptRuleSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveReceiptRuleSetPtrOutput)
 }
 
 // ActiveReceiptRuleSetArrayInput is an input type that accepts ActiveReceiptRuleSetArray and ActiveReceiptRuleSetArrayOutput values.
@@ -209,7 +180,7 @@ func (i ActiveReceiptRuleSetMap) ToActiveReceiptRuleSetMapOutputWithContext(ctx 
 type ActiveReceiptRuleSetOutput struct{ *pulumi.OutputState }
 
 func (ActiveReceiptRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveReceiptRuleSet)(nil))
+	return reflect.TypeOf((**ActiveReceiptRuleSet)(nil)).Elem()
 }
 
 func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetOutput() ActiveReceiptRuleSetOutput {
@@ -220,44 +191,10 @@ func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetOutputWithContext(ctx 
 	return o
 }
 
-func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetPtrOutput() ActiveReceiptRuleSetPtrOutput {
-	return o.ToActiveReceiptRuleSetPtrOutputWithContext(context.Background())
-}
-
-func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetPtrOutputWithContext(ctx context.Context) ActiveReceiptRuleSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveReceiptRuleSet) *ActiveReceiptRuleSet {
-		return &v
-	}).(ActiveReceiptRuleSetPtrOutput)
-}
-
-type ActiveReceiptRuleSetPtrOutput struct{ *pulumi.OutputState }
-
-func (ActiveReceiptRuleSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveReceiptRuleSet)(nil))
-}
-
-func (o ActiveReceiptRuleSetPtrOutput) ToActiveReceiptRuleSetPtrOutput() ActiveReceiptRuleSetPtrOutput {
-	return o
-}
-
-func (o ActiveReceiptRuleSetPtrOutput) ToActiveReceiptRuleSetPtrOutputWithContext(ctx context.Context) ActiveReceiptRuleSetPtrOutput {
-	return o
-}
-
-func (o ActiveReceiptRuleSetPtrOutput) Elem() ActiveReceiptRuleSetOutput {
-	return o.ApplyT(func(v *ActiveReceiptRuleSet) ActiveReceiptRuleSet {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveReceiptRuleSet
-		return ret
-	}).(ActiveReceiptRuleSetOutput)
-}
-
 type ActiveReceiptRuleSetArrayOutput struct{ *pulumi.OutputState }
 
 func (ActiveReceiptRuleSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveReceiptRuleSet)(nil))
+	return reflect.TypeOf((*[]*ActiveReceiptRuleSet)(nil)).Elem()
 }
 
 func (o ActiveReceiptRuleSetArrayOutput) ToActiveReceiptRuleSetArrayOutput() ActiveReceiptRuleSetArrayOutput {
@@ -269,15 +206,15 @@ func (o ActiveReceiptRuleSetArrayOutput) ToActiveReceiptRuleSetArrayOutputWithCo
 }
 
 func (o ActiveReceiptRuleSetArrayOutput) Index(i pulumi.IntInput) ActiveReceiptRuleSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveReceiptRuleSet {
-		return vs[0].([]ActiveReceiptRuleSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActiveReceiptRuleSet {
+		return vs[0].([]*ActiveReceiptRuleSet)[vs[1].(int)]
 	}).(ActiveReceiptRuleSetOutput)
 }
 
 type ActiveReceiptRuleSetMapOutput struct{ *pulumi.OutputState }
 
 func (ActiveReceiptRuleSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActiveReceiptRuleSet)(nil))
+	return reflect.TypeOf((*map[string]*ActiveReceiptRuleSet)(nil)).Elem()
 }
 
 func (o ActiveReceiptRuleSetMapOutput) ToActiveReceiptRuleSetMapOutput() ActiveReceiptRuleSetMapOutput {
@@ -289,18 +226,16 @@ func (o ActiveReceiptRuleSetMapOutput) ToActiveReceiptRuleSetMapOutputWithContex
 }
 
 func (o ActiveReceiptRuleSetMapOutput) MapIndex(k pulumi.StringInput) ActiveReceiptRuleSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActiveReceiptRuleSet {
-		return vs[0].(map[string]ActiveReceiptRuleSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActiveReceiptRuleSet {
+		return vs[0].(map[string]*ActiveReceiptRuleSet)[vs[1].(string)]
 	}).(ActiveReceiptRuleSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetInput)(nil)).Elem(), &ActiveReceiptRuleSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetPtrInput)(nil)).Elem(), &ActiveReceiptRuleSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetArrayInput)(nil)).Elem(), ActiveReceiptRuleSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetMapInput)(nil)).Elem(), ActiveReceiptRuleSetMap{})
 	pulumi.RegisterOutputType(ActiveReceiptRuleSetOutput{})
-	pulumi.RegisterOutputType(ActiveReceiptRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(ActiveReceiptRuleSetArrayOutput{})
 	pulumi.RegisterOutputType(ActiveReceiptRuleSetMapOutput{})
 }

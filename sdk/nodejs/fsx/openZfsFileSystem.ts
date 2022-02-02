@@ -175,33 +175,33 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     constructor(name: string, args: OpenZfsFileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OpenZfsFileSystemArgs | OpenZfsFileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenZfsFileSystemState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            inputs["backupId"] = state ? state.backupId : undefined;
-            inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
-            inputs["copyTagsToVolumes"] = state ? state.copyTagsToVolumes : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            inputs["deploymentType"] = state ? state.deploymentType : undefined;
-            inputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["rootVolumeConfiguration"] = state ? state.rootVolumeConfiguration : undefined;
-            inputs["rootVolumeId"] = state ? state.rootVolumeId : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = state ? state.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
+            resourceInputs["copyTagsToVolumes"] = state ? state.copyTagsToVolumes : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["rootVolumeConfiguration"] = state ? state.rootVolumeConfiguration : undefined;
+            resourceInputs["rootVolumeId"] = state ? state.rootVolumeId : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as OpenZfsFileSystemArgs | undefined;
             if ((!args || args.deploymentType === undefined) && !opts.urn) {
@@ -213,34 +213,32 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             if ((!args || args.throughputCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
-            inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            inputs["backupId"] = args ? args.backupId : undefined;
-            inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
-            inputs["copyTagsToVolumes"] = args ? args.copyTagsToVolumes : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            inputs["deploymentType"] = args ? args.deploymentType : undefined;
-            inputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["rootVolumeConfiguration"] = args ? args.rootVolumeConfiguration : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
-            inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["rootVolumeId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = args ? args.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
+            resourceInputs["copyTagsToVolumes"] = args ? args.copyTagsToVolumes : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["rootVolumeConfiguration"] = args ? args.rootVolumeConfiguration : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["rootVolumeId"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OpenZfsFileSystem.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OpenZfsFileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

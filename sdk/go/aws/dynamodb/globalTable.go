@@ -30,19 +30,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "us_east_1", &providers.awsArgs{
+// 		_, err := providers.Newaws(ctx, "us-east-1", &providers.awsArgs{
 // 			Region: "us-east-1",
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = providers.Newaws(ctx, "us_west_2", &providers.awsArgs{
+// 		_, err = providers.Newaws(ctx, "us-west-2", &providers.awsArgs{
 // 			Region: "us-west-2",
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = dynamodb.NewTable(ctx, "us_east_1Table", &dynamodb.TableArgs{
+// 		_, err = dynamodb.NewTable(ctx, "us-east-1Table", &dynamodb.TableArgs{
 // 			HashKey:        pulumi.String("myAttribute"),
 // 			StreamEnabled:  pulumi.Bool(true),
 // 			StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
@@ -58,7 +58,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = dynamodb.NewTable(ctx, "us_west_2Table", &dynamodb.TableArgs{
+// 		_, err = dynamodb.NewTable(ctx, "us-west-2Table", &dynamodb.TableArgs{
 // 			HashKey:        pulumi.String("myAttribute"),
 // 			StreamEnabled:  pulumi.Bool(true),
 // 			StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
@@ -193,7 +193,7 @@ type GlobalTableInput interface {
 }
 
 func (*GlobalTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTable)(nil))
+	return reflect.TypeOf((**GlobalTable)(nil)).Elem()
 }
 
 func (i *GlobalTable) ToGlobalTableOutput() GlobalTableOutput {
@@ -202,35 +202,6 @@ func (i *GlobalTable) ToGlobalTableOutput() GlobalTableOutput {
 
 func (i *GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) GlobalTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableOutput)
-}
-
-func (i *GlobalTable) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
-	return i.ToGlobalTablePtrOutputWithContext(context.Background())
-}
-
-func (i *GlobalTable) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTablePtrOutput)
-}
-
-type GlobalTablePtrInput interface {
-	pulumi.Input
-
-	ToGlobalTablePtrOutput() GlobalTablePtrOutput
-	ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput
-}
-
-type globalTablePtrType GlobalTableArgs
-
-func (*globalTablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalTable)(nil))
-}
-
-func (i *globalTablePtrType) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
-	return i.ToGlobalTablePtrOutputWithContext(context.Background())
-}
-
-func (i *globalTablePtrType) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalTablePtrOutput)
 }
 
 // GlobalTableArrayInput is an input type that accepts GlobalTableArray and GlobalTableArrayOutput values.
@@ -286,7 +257,7 @@ func (i GlobalTableMap) ToGlobalTableMapOutputWithContext(ctx context.Context) G
 type GlobalTableOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTable)(nil))
+	return reflect.TypeOf((**GlobalTable)(nil)).Elem()
 }
 
 func (o GlobalTableOutput) ToGlobalTableOutput() GlobalTableOutput {
@@ -297,44 +268,10 @@ func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) G
 	return o
 }
 
-func (o GlobalTableOutput) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
-	return o.ToGlobalTablePtrOutputWithContext(context.Background())
-}
-
-func (o GlobalTableOutput) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTable) *GlobalTable {
-		return &v
-	}).(GlobalTablePtrOutput)
-}
-
-type GlobalTablePtrOutput struct{ *pulumi.OutputState }
-
-func (GlobalTablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalTable)(nil))
-}
-
-func (o GlobalTablePtrOutput) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
-	return o
-}
-
-func (o GlobalTablePtrOutput) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
-	return o
-}
-
-func (o GlobalTablePtrOutput) Elem() GlobalTableOutput {
-	return o.ApplyT(func(v *GlobalTable) GlobalTable {
-		if v != nil {
-			return *v
-		}
-		var ret GlobalTable
-		return ret
-	}).(GlobalTableOutput)
-}
-
 type GlobalTableArrayOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalTable)(nil))
+	return reflect.TypeOf((*[]*GlobalTable)(nil)).Elem()
 }
 
 func (o GlobalTableArrayOutput) ToGlobalTableArrayOutput() GlobalTableArrayOutput {
@@ -346,15 +283,15 @@ func (o GlobalTableArrayOutput) ToGlobalTableArrayOutputWithContext(ctx context.
 }
 
 func (o GlobalTableArrayOutput) Index(i pulumi.IntInput) GlobalTableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalTable {
-		return vs[0].([]GlobalTable)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalTable {
+		return vs[0].([]*GlobalTable)[vs[1].(int)]
 	}).(GlobalTableOutput)
 }
 
 type GlobalTableMapOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GlobalTable)(nil))
+	return reflect.TypeOf((*map[string]*GlobalTable)(nil)).Elem()
 }
 
 func (o GlobalTableMapOutput) ToGlobalTableMapOutput() GlobalTableMapOutput {
@@ -366,18 +303,16 @@ func (o GlobalTableMapOutput) ToGlobalTableMapOutputWithContext(ctx context.Cont
 }
 
 func (o GlobalTableMapOutput) MapIndex(k pulumi.StringInput) GlobalTableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GlobalTable {
-		return vs[0].(map[string]GlobalTable)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GlobalTable {
+		return vs[0].(map[string]*GlobalTable)[vs[1].(string)]
 	}).(GlobalTableOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableInput)(nil)).Elem(), &GlobalTable{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTablePtrInput)(nil)).Elem(), &GlobalTable{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableArrayInput)(nil)).Elem(), GlobalTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMapInput)(nil)).Elem(), GlobalTableMap{})
 	pulumi.RegisterOutputType(GlobalTableOutput{})
-	pulumi.RegisterOutputType(GlobalTablePtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableMapOutput{})
 }

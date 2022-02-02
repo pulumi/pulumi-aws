@@ -260,7 +260,7 @@ type DataRepositoryAssociationInput interface {
 }
 
 func (*DataRepositoryAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataRepositoryAssociation)(nil))
+	return reflect.TypeOf((**DataRepositoryAssociation)(nil)).Elem()
 }
 
 func (i *DataRepositoryAssociation) ToDataRepositoryAssociationOutput() DataRepositoryAssociationOutput {
@@ -269,35 +269,6 @@ func (i *DataRepositoryAssociation) ToDataRepositoryAssociationOutput() DataRepo
 
 func (i *DataRepositoryAssociation) ToDataRepositoryAssociationOutputWithContext(ctx context.Context) DataRepositoryAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationOutput)
-}
-
-func (i *DataRepositoryAssociation) ToDataRepositoryAssociationPtrOutput() DataRepositoryAssociationPtrOutput {
-	return i.ToDataRepositoryAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *DataRepositoryAssociation) ToDataRepositoryAssociationPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationPtrOutput)
-}
-
-type DataRepositoryAssociationPtrInput interface {
-	pulumi.Input
-
-	ToDataRepositoryAssociationPtrOutput() DataRepositoryAssociationPtrOutput
-	ToDataRepositoryAssociationPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationPtrOutput
-}
-
-type dataRepositoryAssociationPtrType DataRepositoryAssociationArgs
-
-func (*dataRepositoryAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataRepositoryAssociation)(nil))
-}
-
-func (i *dataRepositoryAssociationPtrType) ToDataRepositoryAssociationPtrOutput() DataRepositoryAssociationPtrOutput {
-	return i.ToDataRepositoryAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataRepositoryAssociationPtrType) ToDataRepositoryAssociationPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationPtrOutput)
 }
 
 // DataRepositoryAssociationArrayInput is an input type that accepts DataRepositoryAssociationArray and DataRepositoryAssociationArrayOutput values.
@@ -353,7 +324,7 @@ func (i DataRepositoryAssociationMap) ToDataRepositoryAssociationMapOutputWithCo
 type DataRepositoryAssociationOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataRepositoryAssociation)(nil))
+	return reflect.TypeOf((**DataRepositoryAssociation)(nil)).Elem()
 }
 
 func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutput() DataRepositoryAssociationOutput {
@@ -364,44 +335,10 @@ func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutputWithCo
 	return o
 }
 
-func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationPtrOutput() DataRepositoryAssociationPtrOutput {
-	return o.ToDataRepositoryAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataRepositoryAssociation) *DataRepositoryAssociation {
-		return &v
-	}).(DataRepositoryAssociationPtrOutput)
-}
-
-type DataRepositoryAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataRepositoryAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataRepositoryAssociation)(nil))
-}
-
-func (o DataRepositoryAssociationPtrOutput) ToDataRepositoryAssociationPtrOutput() DataRepositoryAssociationPtrOutput {
-	return o
-}
-
-func (o DataRepositoryAssociationPtrOutput) ToDataRepositoryAssociationPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationPtrOutput {
-	return o
-}
-
-func (o DataRepositoryAssociationPtrOutput) Elem() DataRepositoryAssociationOutput {
-	return o.ApplyT(func(v *DataRepositoryAssociation) DataRepositoryAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret DataRepositoryAssociation
-		return ret
-	}).(DataRepositoryAssociationOutput)
-}
-
 type DataRepositoryAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataRepositoryAssociation)(nil))
+	return reflect.TypeOf((*[]*DataRepositoryAssociation)(nil)).Elem()
 }
 
 func (o DataRepositoryAssociationArrayOutput) ToDataRepositoryAssociationArrayOutput() DataRepositoryAssociationArrayOutput {
@@ -413,15 +350,15 @@ func (o DataRepositoryAssociationArrayOutput) ToDataRepositoryAssociationArrayOu
 }
 
 func (o DataRepositoryAssociationArrayOutput) Index(i pulumi.IntInput) DataRepositoryAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataRepositoryAssociation {
-		return vs[0].([]DataRepositoryAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataRepositoryAssociation {
+		return vs[0].([]*DataRepositoryAssociation)[vs[1].(int)]
 	}).(DataRepositoryAssociationOutput)
 }
 
 type DataRepositoryAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataRepositoryAssociation)(nil))
+	return reflect.TypeOf((*map[string]*DataRepositoryAssociation)(nil)).Elem()
 }
 
 func (o DataRepositoryAssociationMapOutput) ToDataRepositoryAssociationMapOutput() DataRepositoryAssociationMapOutput {
@@ -433,18 +370,16 @@ func (o DataRepositoryAssociationMapOutput) ToDataRepositoryAssociationMapOutput
 }
 
 func (o DataRepositoryAssociationMapOutput) MapIndex(k pulumi.StringInput) DataRepositoryAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataRepositoryAssociation {
-		return vs[0].(map[string]DataRepositoryAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataRepositoryAssociation {
+		return vs[0].(map[string]*DataRepositoryAssociation)[vs[1].(string)]
 	}).(DataRepositoryAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationInput)(nil)).Elem(), &DataRepositoryAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationPtrInput)(nil)).Elem(), &DataRepositoryAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationArrayInput)(nil)).Elem(), DataRepositoryAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationMapInput)(nil)).Elem(), DataRepositoryAssociationMap{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationOutput{})
-	pulumi.RegisterOutputType(DataRepositoryAssociationPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationMapOutput{})
 }

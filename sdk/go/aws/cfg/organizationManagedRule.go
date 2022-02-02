@@ -230,7 +230,7 @@ type OrganizationManagedRuleInput interface {
 }
 
 func (*OrganizationManagedRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationManagedRule)(nil))
+	return reflect.TypeOf((**OrganizationManagedRule)(nil)).Elem()
 }
 
 func (i *OrganizationManagedRule) ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput {
@@ -239,35 +239,6 @@ func (i *OrganizationManagedRule) ToOrganizationManagedRuleOutput() Organization
 
 func (i *OrganizationManagedRule) ToOrganizationManagedRuleOutputWithContext(ctx context.Context) OrganizationManagedRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRuleOutput)
-}
-
-func (i *OrganizationManagedRule) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
-	return i.ToOrganizationManagedRulePtrOutputWithContext(context.Background())
-}
-
-func (i *OrganizationManagedRule) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRulePtrOutput)
-}
-
-type OrganizationManagedRulePtrInput interface {
-	pulumi.Input
-
-	ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput
-	ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput
-}
-
-type organizationManagedRulePtrType OrganizationManagedRuleArgs
-
-func (*organizationManagedRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationManagedRule)(nil))
-}
-
-func (i *organizationManagedRulePtrType) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
-	return i.ToOrganizationManagedRulePtrOutputWithContext(context.Background())
-}
-
-func (i *organizationManagedRulePtrType) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRulePtrOutput)
 }
 
 // OrganizationManagedRuleArrayInput is an input type that accepts OrganizationManagedRuleArray and OrganizationManagedRuleArrayOutput values.
@@ -323,7 +294,7 @@ func (i OrganizationManagedRuleMap) ToOrganizationManagedRuleMapOutputWithContex
 type OrganizationManagedRuleOutput struct{ *pulumi.OutputState }
 
 func (OrganizationManagedRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationManagedRule)(nil))
+	return reflect.TypeOf((**OrganizationManagedRule)(nil)).Elem()
 }
 
 func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutput() OrganizationManagedRuleOutput {
@@ -334,44 +305,10 @@ func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutputWithContex
 	return o
 }
 
-func (o OrganizationManagedRuleOutput) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
-	return o.ToOrganizationManagedRulePtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationManagedRuleOutput) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationManagedRule) *OrganizationManagedRule {
-		return &v
-	}).(OrganizationManagedRulePtrOutput)
-}
-
-type OrganizationManagedRulePtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationManagedRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationManagedRule)(nil))
-}
-
-func (o OrganizationManagedRulePtrOutput) ToOrganizationManagedRulePtrOutput() OrganizationManagedRulePtrOutput {
-	return o
-}
-
-func (o OrganizationManagedRulePtrOutput) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
-	return o
-}
-
-func (o OrganizationManagedRulePtrOutput) Elem() OrganizationManagedRuleOutput {
-	return o.ApplyT(func(v *OrganizationManagedRule) OrganizationManagedRule {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationManagedRule
-		return ret
-	}).(OrganizationManagedRuleOutput)
-}
-
 type OrganizationManagedRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationManagedRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrganizationManagedRule)(nil))
+	return reflect.TypeOf((*[]*OrganizationManagedRule)(nil)).Elem()
 }
 
 func (o OrganizationManagedRuleArrayOutput) ToOrganizationManagedRuleArrayOutput() OrganizationManagedRuleArrayOutput {
@@ -383,15 +320,15 @@ func (o OrganizationManagedRuleArrayOutput) ToOrganizationManagedRuleArrayOutput
 }
 
 func (o OrganizationManagedRuleArrayOutput) Index(i pulumi.IntInput) OrganizationManagedRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationManagedRule {
-		return vs[0].([]OrganizationManagedRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationManagedRule {
+		return vs[0].([]*OrganizationManagedRule)[vs[1].(int)]
 	}).(OrganizationManagedRuleOutput)
 }
 
 type OrganizationManagedRuleMapOutput struct{ *pulumi.OutputState }
 
 func (OrganizationManagedRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OrganizationManagedRule)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationManagedRule)(nil)).Elem()
 }
 
 func (o OrganizationManagedRuleMapOutput) ToOrganizationManagedRuleMapOutput() OrganizationManagedRuleMapOutput {
@@ -403,18 +340,16 @@ func (o OrganizationManagedRuleMapOutput) ToOrganizationManagedRuleMapOutputWith
 }
 
 func (o OrganizationManagedRuleMapOutput) MapIndex(k pulumi.StringInput) OrganizationManagedRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationManagedRule {
-		return vs[0].(map[string]OrganizationManagedRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OrganizationManagedRule {
+		return vs[0].(map[string]*OrganizationManagedRule)[vs[1].(string)]
 	}).(OrganizationManagedRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRuleInput)(nil)).Elem(), &OrganizationManagedRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRulePtrInput)(nil)).Elem(), &OrganizationManagedRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRuleArrayInput)(nil)).Elem(), OrganizationManagedRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRuleMapInput)(nil)).Elem(), OrganizationManagedRuleMap{})
 	pulumi.RegisterOutputType(OrganizationManagedRuleOutput{})
-	pulumi.RegisterOutputType(OrganizationManagedRulePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationManagedRuleArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationManagedRuleMapOutput{})
 }

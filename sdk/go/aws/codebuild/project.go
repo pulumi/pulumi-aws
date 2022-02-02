@@ -119,7 +119,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = codebuild.NewProject(ctx, "project_with_cache", &codebuild.ProjectArgs{
+// 		_, err = codebuild.NewProject(ctx, "project-with-cache", &codebuild.ProjectArgs{
 // 			Description:   pulumi.String("test_codebuild_project_cache"),
 // 			BuildTimeout:  pulumi.Int(5),
 // 			QueuedTimeout: pulumi.Int(5),
@@ -498,7 +498,7 @@ type ProjectInput interface {
 }
 
 func (*Project) ElementType() reflect.Type {
-	return reflect.TypeOf((*Project)(nil))
+	return reflect.TypeOf((**Project)(nil)).Elem()
 }
 
 func (i *Project) ToProjectOutput() ProjectOutput {
@@ -507,35 +507,6 @@ func (i *Project) ToProjectOutput() ProjectOutput {
 
 func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
-}
-
-func (i *Project) ToProjectPtrOutput() ProjectPtrOutput {
-	return i.ToProjectPtrOutputWithContext(context.Background())
-}
-
-func (i *Project) ToProjectPtrOutputWithContext(ctx context.Context) ProjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectPtrOutput)
-}
-
-type ProjectPtrInput interface {
-	pulumi.Input
-
-	ToProjectPtrOutput() ProjectPtrOutput
-	ToProjectPtrOutputWithContext(ctx context.Context) ProjectPtrOutput
-}
-
-type projectPtrType ProjectArgs
-
-func (*projectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Project)(nil))
-}
-
-func (i *projectPtrType) ToProjectPtrOutput() ProjectPtrOutput {
-	return i.ToProjectPtrOutputWithContext(context.Background())
-}
-
-func (i *projectPtrType) ToProjectPtrOutputWithContext(ctx context.Context) ProjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectPtrOutput)
 }
 
 // ProjectArrayInput is an input type that accepts ProjectArray and ProjectArrayOutput values.
@@ -591,7 +562,7 @@ func (i ProjectMap) ToProjectMapOutputWithContext(ctx context.Context) ProjectMa
 type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Project)(nil))
+	return reflect.TypeOf((**Project)(nil)).Elem()
 }
 
 func (o ProjectOutput) ToProjectOutput() ProjectOutput {
@@ -602,44 +573,10 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-func (o ProjectOutput) ToProjectPtrOutput() ProjectPtrOutput {
-	return o.ToProjectPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectOutput) ToProjectPtrOutputWithContext(ctx context.Context) ProjectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Project) *Project {
-		return &v
-	}).(ProjectPtrOutput)
-}
-
-type ProjectPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Project)(nil))
-}
-
-func (o ProjectPtrOutput) ToProjectPtrOutput() ProjectPtrOutput {
-	return o
-}
-
-func (o ProjectPtrOutput) ToProjectPtrOutputWithContext(ctx context.Context) ProjectPtrOutput {
-	return o
-}
-
-func (o ProjectPtrOutput) Elem() ProjectOutput {
-	return o.ApplyT(func(v *Project) Project {
-		if v != nil {
-			return *v
-		}
-		var ret Project
-		return ret
-	}).(ProjectOutput)
-}
-
 type ProjectArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Project)(nil))
+	return reflect.TypeOf((*[]*Project)(nil)).Elem()
 }
 
 func (o ProjectArrayOutput) ToProjectArrayOutput() ProjectArrayOutput {
@@ -651,15 +588,15 @@ func (o ProjectArrayOutput) ToProjectArrayOutputWithContext(ctx context.Context)
 }
 
 func (o ProjectArrayOutput) Index(i pulumi.IntInput) ProjectOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Project {
-		return vs[0].([]Project)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Project {
+		return vs[0].([]*Project)[vs[1].(int)]
 	}).(ProjectOutput)
 }
 
 type ProjectMapOutput struct{ *pulumi.OutputState }
 
 func (ProjectMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Project)(nil))
+	return reflect.TypeOf((*map[string]*Project)(nil)).Elem()
 }
 
 func (o ProjectMapOutput) ToProjectMapOutput() ProjectMapOutput {
@@ -671,18 +608,16 @@ func (o ProjectMapOutput) ToProjectMapOutputWithContext(ctx context.Context) Pro
 }
 
 func (o ProjectMapOutput) MapIndex(k pulumi.StringInput) ProjectOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Project {
-		return vs[0].(map[string]Project)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Project {
+		return vs[0].(map[string]*Project)[vs[1].(string)]
 	}).(ProjectOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPtrInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArrayInput)(nil)).Elem(), ProjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMapInput)(nil)).Elem(), ProjectMap{})
 	pulumi.RegisterOutputType(ProjectOutput{})
-	pulumi.RegisterOutputType(ProjectPtrOutput{})
 	pulumi.RegisterOutputType(ProjectArrayOutput{})
 	pulumi.RegisterOutputType(ProjectMapOutput{})
 }

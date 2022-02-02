@@ -156,21 +156,21 @@ export class DataSource extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataSourceArgs | DataSourceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dynamodbConfig"] = state ? state.dynamodbConfig : undefined;
-            inputs["elasticsearchConfig"] = state ? state.elasticsearchConfig : undefined;
-            inputs["httpConfig"] = state ? state.httpConfig : undefined;
-            inputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["relationalDatabaseConfig"] = state ? state.relationalDatabaseConfig : undefined;
-            inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dynamodbConfig"] = state ? state.dynamodbConfig : undefined;
+            resourceInputs["elasticsearchConfig"] = state ? state.elasticsearchConfig : undefined;
+            resourceInputs["httpConfig"] = state ? state.httpConfig : undefined;
+            resourceInputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["relationalDatabaseConfig"] = state ? state.relationalDatabaseConfig : undefined;
+            resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DataSourceArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -179,22 +179,20 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dynamodbConfig"] = args ? args.dynamodbConfig : undefined;
-            inputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
-            inputs["httpConfig"] = args ? args.httpConfig : undefined;
-            inputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dynamodbConfig"] = args ? args.dynamodbConfig : undefined;
+            resourceInputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
+            resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
+            resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataSource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

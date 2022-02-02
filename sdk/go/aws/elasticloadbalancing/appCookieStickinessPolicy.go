@@ -189,7 +189,7 @@ type AppCookieStickinessPolicyInput interface {
 }
 
 func (*AppCookieStickinessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((**AppCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (i *AppCookieStickinessPolicy) ToAppCookieStickinessPolicyOutput() AppCookieStickinessPolicyOutput {
@@ -198,35 +198,6 @@ func (i *AppCookieStickinessPolicy) ToAppCookieStickinessPolicyOutput() AppCooki
 
 func (i *AppCookieStickinessPolicy) ToAppCookieStickinessPolicyOutputWithContext(ctx context.Context) AppCookieStickinessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppCookieStickinessPolicyOutput)
-}
-
-func (i *AppCookieStickinessPolicy) ToAppCookieStickinessPolicyPtrOutput() AppCookieStickinessPolicyPtrOutput {
-	return i.ToAppCookieStickinessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *AppCookieStickinessPolicy) ToAppCookieStickinessPolicyPtrOutputWithContext(ctx context.Context) AppCookieStickinessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppCookieStickinessPolicyPtrOutput)
-}
-
-type AppCookieStickinessPolicyPtrInput interface {
-	pulumi.Input
-
-	ToAppCookieStickinessPolicyPtrOutput() AppCookieStickinessPolicyPtrOutput
-	ToAppCookieStickinessPolicyPtrOutputWithContext(ctx context.Context) AppCookieStickinessPolicyPtrOutput
-}
-
-type appCookieStickinessPolicyPtrType AppCookieStickinessPolicyArgs
-
-func (*appCookieStickinessPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppCookieStickinessPolicy)(nil))
-}
-
-func (i *appCookieStickinessPolicyPtrType) ToAppCookieStickinessPolicyPtrOutput() AppCookieStickinessPolicyPtrOutput {
-	return i.ToAppCookieStickinessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *appCookieStickinessPolicyPtrType) ToAppCookieStickinessPolicyPtrOutputWithContext(ctx context.Context) AppCookieStickinessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppCookieStickinessPolicyPtrOutput)
 }
 
 // AppCookieStickinessPolicyArrayInput is an input type that accepts AppCookieStickinessPolicyArray and AppCookieStickinessPolicyArrayOutput values.
@@ -282,7 +253,7 @@ func (i AppCookieStickinessPolicyMap) ToAppCookieStickinessPolicyMapOutputWithCo
 type AppCookieStickinessPolicyOutput struct{ *pulumi.OutputState }
 
 func (AppCookieStickinessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((**AppCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (o AppCookieStickinessPolicyOutput) ToAppCookieStickinessPolicyOutput() AppCookieStickinessPolicyOutput {
@@ -293,44 +264,10 @@ func (o AppCookieStickinessPolicyOutput) ToAppCookieStickinessPolicyOutputWithCo
 	return o
 }
 
-func (o AppCookieStickinessPolicyOutput) ToAppCookieStickinessPolicyPtrOutput() AppCookieStickinessPolicyPtrOutput {
-	return o.ToAppCookieStickinessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o AppCookieStickinessPolicyOutput) ToAppCookieStickinessPolicyPtrOutputWithContext(ctx context.Context) AppCookieStickinessPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppCookieStickinessPolicy) *AppCookieStickinessPolicy {
-		return &v
-	}).(AppCookieStickinessPolicyPtrOutput)
-}
-
-type AppCookieStickinessPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (AppCookieStickinessPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppCookieStickinessPolicy)(nil))
-}
-
-func (o AppCookieStickinessPolicyPtrOutput) ToAppCookieStickinessPolicyPtrOutput() AppCookieStickinessPolicyPtrOutput {
-	return o
-}
-
-func (o AppCookieStickinessPolicyPtrOutput) ToAppCookieStickinessPolicyPtrOutputWithContext(ctx context.Context) AppCookieStickinessPolicyPtrOutput {
-	return o
-}
-
-func (o AppCookieStickinessPolicyPtrOutput) Elem() AppCookieStickinessPolicyOutput {
-	return o.ApplyT(func(v *AppCookieStickinessPolicy) AppCookieStickinessPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret AppCookieStickinessPolicy
-		return ret
-	}).(AppCookieStickinessPolicyOutput)
-}
-
 type AppCookieStickinessPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (AppCookieStickinessPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((*[]*AppCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (o AppCookieStickinessPolicyArrayOutput) ToAppCookieStickinessPolicyArrayOutput() AppCookieStickinessPolicyArrayOutput {
@@ -342,15 +279,15 @@ func (o AppCookieStickinessPolicyArrayOutput) ToAppCookieStickinessPolicyArrayOu
 }
 
 func (o AppCookieStickinessPolicyArrayOutput) Index(i pulumi.IntInput) AppCookieStickinessPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppCookieStickinessPolicy {
-		return vs[0].([]AppCookieStickinessPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppCookieStickinessPolicy {
+		return vs[0].([]*AppCookieStickinessPolicy)[vs[1].(int)]
 	}).(AppCookieStickinessPolicyOutput)
 }
 
 type AppCookieStickinessPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (AppCookieStickinessPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*AppCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (o AppCookieStickinessPolicyMapOutput) ToAppCookieStickinessPolicyMapOutput() AppCookieStickinessPolicyMapOutput {
@@ -362,18 +299,16 @@ func (o AppCookieStickinessPolicyMapOutput) ToAppCookieStickinessPolicyMapOutput
 }
 
 func (o AppCookieStickinessPolicyMapOutput) MapIndex(k pulumi.StringInput) AppCookieStickinessPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppCookieStickinessPolicy {
-		return vs[0].(map[string]AppCookieStickinessPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppCookieStickinessPolicy {
+		return vs[0].(map[string]*AppCookieStickinessPolicy)[vs[1].(string)]
 	}).(AppCookieStickinessPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyInput)(nil)).Elem(), &AppCookieStickinessPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyPtrInput)(nil)).Elem(), &AppCookieStickinessPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyArrayInput)(nil)).Elem(), AppCookieStickinessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyMapInput)(nil)).Elem(), AppCookieStickinessPolicyMap{})
 	pulumi.RegisterOutputType(AppCookieStickinessPolicyOutput{})
-	pulumi.RegisterOutputType(AppCookieStickinessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AppCookieStickinessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AppCookieStickinessPolicyMapOutput{})
 }

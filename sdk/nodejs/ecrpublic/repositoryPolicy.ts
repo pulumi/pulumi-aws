@@ -105,13 +105,13 @@ export class RepositoryPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryPolicyArgs | RepositoryPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyState | undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["repositoryName"] = state ? state.repositoryName : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
         } else {
             const args = argsOrState as RepositoryPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -120,14 +120,12 @@ export class RepositoryPolicy extends pulumi.CustomResource {
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["registryId"] = undefined /*out*/;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["registryId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RepositoryPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RepositoryPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

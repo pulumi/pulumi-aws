@@ -185,7 +185,7 @@ type ZoneAssociationInput interface {
 }
 
 func (*ZoneAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZoneAssociation)(nil))
+	return reflect.TypeOf((**ZoneAssociation)(nil)).Elem()
 }
 
 func (i *ZoneAssociation) ToZoneAssociationOutput() ZoneAssociationOutput {
@@ -194,35 +194,6 @@ func (i *ZoneAssociation) ToZoneAssociationOutput() ZoneAssociationOutput {
 
 func (i *ZoneAssociation) ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationOutput)
-}
-
-func (i *ZoneAssociation) ToZoneAssociationPtrOutput() ZoneAssociationPtrOutput {
-	return i.ToZoneAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ZoneAssociation) ToZoneAssociationPtrOutputWithContext(ctx context.Context) ZoneAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationPtrOutput)
-}
-
-type ZoneAssociationPtrInput interface {
-	pulumi.Input
-
-	ToZoneAssociationPtrOutput() ZoneAssociationPtrOutput
-	ToZoneAssociationPtrOutputWithContext(ctx context.Context) ZoneAssociationPtrOutput
-}
-
-type zoneAssociationPtrType ZoneAssociationArgs
-
-func (*zoneAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZoneAssociation)(nil))
-}
-
-func (i *zoneAssociationPtrType) ToZoneAssociationPtrOutput() ZoneAssociationPtrOutput {
-	return i.ToZoneAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *zoneAssociationPtrType) ToZoneAssociationPtrOutputWithContext(ctx context.Context) ZoneAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationPtrOutput)
 }
 
 // ZoneAssociationArrayInput is an input type that accepts ZoneAssociationArray and ZoneAssociationArrayOutput values.
@@ -278,7 +249,7 @@ func (i ZoneAssociationMap) ToZoneAssociationMapOutputWithContext(ctx context.Co
 type ZoneAssociationOutput struct{ *pulumi.OutputState }
 
 func (ZoneAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZoneAssociation)(nil))
+	return reflect.TypeOf((**ZoneAssociation)(nil)).Elem()
 }
 
 func (o ZoneAssociationOutput) ToZoneAssociationOutput() ZoneAssociationOutput {
@@ -289,44 +260,10 @@ func (o ZoneAssociationOutput) ToZoneAssociationOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ZoneAssociationOutput) ToZoneAssociationPtrOutput() ZoneAssociationPtrOutput {
-	return o.ToZoneAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ZoneAssociationOutput) ToZoneAssociationPtrOutputWithContext(ctx context.Context) ZoneAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZoneAssociation) *ZoneAssociation {
-		return &v
-	}).(ZoneAssociationPtrOutput)
-}
-
-type ZoneAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ZoneAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZoneAssociation)(nil))
-}
-
-func (o ZoneAssociationPtrOutput) ToZoneAssociationPtrOutput() ZoneAssociationPtrOutput {
-	return o
-}
-
-func (o ZoneAssociationPtrOutput) ToZoneAssociationPtrOutputWithContext(ctx context.Context) ZoneAssociationPtrOutput {
-	return o
-}
-
-func (o ZoneAssociationPtrOutput) Elem() ZoneAssociationOutput {
-	return o.ApplyT(func(v *ZoneAssociation) ZoneAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ZoneAssociation
-		return ret
-	}).(ZoneAssociationOutput)
-}
-
 type ZoneAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ZoneAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ZoneAssociation)(nil))
+	return reflect.TypeOf((*[]*ZoneAssociation)(nil)).Elem()
 }
 
 func (o ZoneAssociationArrayOutput) ToZoneAssociationArrayOutput() ZoneAssociationArrayOutput {
@@ -338,15 +275,15 @@ func (o ZoneAssociationArrayOutput) ToZoneAssociationArrayOutputWithContext(ctx 
 }
 
 func (o ZoneAssociationArrayOutput) Index(i pulumi.IntInput) ZoneAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZoneAssociation {
-		return vs[0].([]ZoneAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ZoneAssociation {
+		return vs[0].([]*ZoneAssociation)[vs[1].(int)]
 	}).(ZoneAssociationOutput)
 }
 
 type ZoneAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ZoneAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ZoneAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ZoneAssociation)(nil)).Elem()
 }
 
 func (o ZoneAssociationMapOutput) ToZoneAssociationMapOutput() ZoneAssociationMapOutput {
@@ -358,18 +295,16 @@ func (o ZoneAssociationMapOutput) ToZoneAssociationMapOutputWithContext(ctx cont
 }
 
 func (o ZoneAssociationMapOutput) MapIndex(k pulumi.StringInput) ZoneAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ZoneAssociation {
-		return vs[0].(map[string]ZoneAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ZoneAssociation {
+		return vs[0].(map[string]*ZoneAssociation)[vs[1].(string)]
 	}).(ZoneAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationInput)(nil)).Elem(), &ZoneAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationPtrInput)(nil)).Elem(), &ZoneAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationArrayInput)(nil)).Elem(), ZoneAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationMapInput)(nil)).Elem(), ZoneAssociationMap{})
 	pulumi.RegisterOutputType(ZoneAssociationOutput{})
-	pulumi.RegisterOutputType(ZoneAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ZoneAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ZoneAssociationMapOutput{})
 }

@@ -117,48 +117,46 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     constructor(name: string, args: OpenZfsVolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OpenZfsVolumeArgs | OpenZfsVolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenZfsVolumeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["copyTagsToSnapshots"] = state ? state.copyTagsToSnapshots : undefined;
-            inputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nfsExports"] = state ? state.nfsExports : undefined;
-            inputs["originSnapshot"] = state ? state.originSnapshot : undefined;
-            inputs["parentVolumeId"] = state ? state.parentVolumeId : undefined;
-            inputs["readOnly"] = state ? state.readOnly : undefined;
-            inputs["storageCapacityQuotaGib"] = state ? state.storageCapacityQuotaGib : undefined;
-            inputs["storageCapacityReservationGib"] = state ? state.storageCapacityReservationGib : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userAndGroupQuotas"] = state ? state.userAndGroupQuotas : undefined;
-            inputs["volumeType"] = state ? state.volumeType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["copyTagsToSnapshots"] = state ? state.copyTagsToSnapshots : undefined;
+            resourceInputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nfsExports"] = state ? state.nfsExports : undefined;
+            resourceInputs["originSnapshot"] = state ? state.originSnapshot : undefined;
+            resourceInputs["parentVolumeId"] = state ? state.parentVolumeId : undefined;
+            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["storageCapacityQuotaGib"] = state ? state.storageCapacityQuotaGib : undefined;
+            resourceInputs["storageCapacityReservationGib"] = state ? state.storageCapacityReservationGib : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userAndGroupQuotas"] = state ? state.userAndGroupQuotas : undefined;
+            resourceInputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as OpenZfsVolumeArgs | undefined;
             if ((!args || args.parentVolumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentVolumeId'");
             }
-            inputs["copyTagsToSnapshots"] = args ? args.copyTagsToSnapshots : undefined;
-            inputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nfsExports"] = args ? args.nfsExports : undefined;
-            inputs["originSnapshot"] = args ? args.originSnapshot : undefined;
-            inputs["parentVolumeId"] = args ? args.parentVolumeId : undefined;
-            inputs["readOnly"] = args ? args.readOnly : undefined;
-            inputs["storageCapacityQuotaGib"] = args ? args.storageCapacityQuotaGib : undefined;
-            inputs["storageCapacityReservationGib"] = args ? args.storageCapacityReservationGib : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["userAndGroupQuotas"] = args ? args.userAndGroupQuotas : undefined;
-            inputs["volumeType"] = args ? args.volumeType : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["copyTagsToSnapshots"] = args ? args.copyTagsToSnapshots : undefined;
+            resourceInputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nfsExports"] = args ? args.nfsExports : undefined;
+            resourceInputs["originSnapshot"] = args ? args.originSnapshot : undefined;
+            resourceInputs["parentVolumeId"] = args ? args.parentVolumeId : undefined;
+            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["storageCapacityQuotaGib"] = args ? args.storageCapacityQuotaGib : undefined;
+            resourceInputs["storageCapacityReservationGib"] = args ? args.storageCapacityReservationGib : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["userAndGroupQuotas"] = args ? args.userAndGroupQuotas : undefined;
+            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OpenZfsVolume.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OpenZfsVolume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

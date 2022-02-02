@@ -32,9 +32,7 @@ export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kms/getPublicKey:getPublicKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,

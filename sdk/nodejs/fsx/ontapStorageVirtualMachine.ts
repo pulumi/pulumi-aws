@@ -144,42 +144,40 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      */
     constructor(name: string, args: OntapStorageVirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OntapStorageVirtualMachineArgs | OntapStorageVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OntapStorageVirtualMachineState | undefined;
-            inputs["activeDirectoryConfiguration"] = state ? state.activeDirectoryConfiguration : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endpoints"] = state ? state.endpoints : undefined;
-            inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rootVolumeSecurityStyle"] = state ? state.rootVolumeSecurityStyle : undefined;
-            inputs["subtype"] = state ? state.subtype : undefined;
-            inputs["svmAdminPassword"] = state ? state.svmAdminPassword : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uuid"] = state ? state.uuid : undefined;
+            resourceInputs["activeDirectoryConfiguration"] = state ? state.activeDirectoryConfiguration : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rootVolumeSecurityStyle"] = state ? state.rootVolumeSecurityStyle : undefined;
+            resourceInputs["subtype"] = state ? state.subtype : undefined;
+            resourceInputs["svmAdminPassword"] = state ? state.svmAdminPassword : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uuid"] = state ? state.uuid : undefined;
         } else {
             const args = argsOrState as OntapStorageVirtualMachineArgs | undefined;
             if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            inputs["activeDirectoryConfiguration"] = args ? args.activeDirectoryConfiguration : undefined;
-            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rootVolumeSecurityStyle"] = args ? args.rootVolumeSecurityStyle : undefined;
-            inputs["svmAdminPassword"] = args ? args.svmAdminPassword : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["subtype"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
+            resourceInputs["activeDirectoryConfiguration"] = args ? args.activeDirectoryConfiguration : undefined;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rootVolumeSecurityStyle"] = args ? args.rootVolumeSecurityStyle : undefined;
+            resourceInputs["svmAdminPassword"] = args ? args.svmAdminPassword : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["subtype"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OntapStorageVirtualMachine.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OntapStorageVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

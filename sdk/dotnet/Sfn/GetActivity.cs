@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Sfn
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Sfn
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetActivityResult> InvokeAsync(GetActivityArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? new GetActivityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? new GetActivityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a Step Functions Activity data source
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Sfn
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetActivityResult> Invoke(GetActivityInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? new GetActivityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? new GetActivityInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -133,35 +133,33 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     constructor(name: string, args?: VpcDhcpOptionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcDhcpOptionsArgs | VpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcDhcpOptionsState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["domainNameServers"] = state ? state.domainNameServers : undefined;
-            inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
-            inputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
-            inputs["ntpServers"] = state ? state.ntpServers : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainNameServers"] = state ? state.domainNameServers : undefined;
+            resourceInputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
+            resourceInputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
+            resourceInputs["ntpServers"] = state ? state.ntpServers : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcDhcpOptionsArgs | undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainNameServers"] = args ? args.domainNameServers : undefined;
-            inputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
-            inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
-            inputs["ntpServers"] = args ? args.ntpServers : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainNameServers"] = args ? args.domainNameServers : undefined;
+            resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
+            resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
+            resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcDhcpOptions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcDhcpOptions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

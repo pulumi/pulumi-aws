@@ -130,21 +130,21 @@ export class NetworkAclRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkAclRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkAclRuleArgs | NetworkAclRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkAclRuleState | undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["egress"] = state ? state.egress : undefined;
-            inputs["fromPort"] = state ? state.fromPort : undefined;
-            inputs["icmpCode"] = state ? state.icmpCode : undefined;
-            inputs["icmpType"] = state ? state.icmpType : undefined;
-            inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            inputs["networkAclId"] = state ? state.networkAclId : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["ruleAction"] = state ? state.ruleAction : undefined;
-            inputs["ruleNumber"] = state ? state.ruleNumber : undefined;
-            inputs["toPort"] = state ? state.toPort : undefined;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["egress"] = state ? state.egress : undefined;
+            resourceInputs["fromPort"] = state ? state.fromPort : undefined;
+            resourceInputs["icmpCode"] = state ? state.icmpCode : undefined;
+            resourceInputs["icmpType"] = state ? state.icmpType : undefined;
+            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            resourceInputs["networkAclId"] = state ? state.networkAclId : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["ruleAction"] = state ? state.ruleAction : undefined;
+            resourceInputs["ruleNumber"] = state ? state.ruleNumber : undefined;
+            resourceInputs["toPort"] = state ? state.toPort : undefined;
         } else {
             const args = argsOrState as NetworkAclRuleArgs | undefined;
             if ((!args || args.networkAclId === undefined) && !opts.urn) {
@@ -159,22 +159,20 @@ export class NetworkAclRule extends pulumi.CustomResource {
             if ((!args || args.ruleNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleNumber'");
             }
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["egress"] = args ? args.egress : undefined;
-            inputs["fromPort"] = args ? args.fromPort : undefined;
-            inputs["icmpCode"] = args ? args.icmpCode : undefined;
-            inputs["icmpType"] = args ? args.icmpType : undefined;
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["networkAclId"] = args ? args.networkAclId : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["ruleAction"] = args ? args.ruleAction : undefined;
-            inputs["ruleNumber"] = args ? args.ruleNumber : undefined;
-            inputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["egress"] = args ? args.egress : undefined;
+            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
+            resourceInputs["icmpCode"] = args ? args.icmpCode : undefined;
+            resourceInputs["icmpType"] = args ? args.icmpType : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
+            resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
+            resourceInputs["toPort"] = args ? args.toPort : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkAclRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkAclRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

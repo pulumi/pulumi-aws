@@ -21,7 +21,6 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/glue"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -61,7 +60,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "example_AWSGlueServiceRole", &iam.RolePolicyAttachmentArgs{
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "example-AWSGlueServiceRole", &iam.RolePolicyAttachmentArgs{
 // 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"),
 // 			Role:      exampleRole.Name,
 // 		})
@@ -355,7 +354,7 @@ type DevEndpointInput interface {
 }
 
 func (*DevEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevEndpoint)(nil))
+	return reflect.TypeOf((**DevEndpoint)(nil)).Elem()
 }
 
 func (i *DevEndpoint) ToDevEndpointOutput() DevEndpointOutput {
@@ -364,35 +363,6 @@ func (i *DevEndpoint) ToDevEndpointOutput() DevEndpointOutput {
 
 func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointOutput)
-}
-
-func (i *DevEndpoint) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
-	return i.ToDevEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *DevEndpoint) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointPtrOutput)
-}
-
-type DevEndpointPtrInput interface {
-	pulumi.Input
-
-	ToDevEndpointPtrOutput() DevEndpointPtrOutput
-	ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput
-}
-
-type devEndpointPtrType DevEndpointArgs
-
-func (*devEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DevEndpoint)(nil))
-}
-
-func (i *devEndpointPtrType) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
-	return i.ToDevEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *devEndpointPtrType) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointPtrOutput)
 }
 
 // DevEndpointArrayInput is an input type that accepts DevEndpointArray and DevEndpointArrayOutput values.
@@ -448,7 +418,7 @@ func (i DevEndpointMap) ToDevEndpointMapOutputWithContext(ctx context.Context) D
 type DevEndpointOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevEndpoint)(nil))
+	return reflect.TypeOf((**DevEndpoint)(nil)).Elem()
 }
 
 func (o DevEndpointOutput) ToDevEndpointOutput() DevEndpointOutput {
@@ -459,44 +429,10 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 	return o
 }
 
-func (o DevEndpointOutput) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
-	return o.ToDevEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o DevEndpointOutput) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DevEndpoint) *DevEndpoint {
-		return &v
-	}).(DevEndpointPtrOutput)
-}
-
-type DevEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (DevEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DevEndpoint)(nil))
-}
-
-func (o DevEndpointPtrOutput) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
-	return o
-}
-
-func (o DevEndpointPtrOutput) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
-	return o
-}
-
-func (o DevEndpointPtrOutput) Elem() DevEndpointOutput {
-	return o.ApplyT(func(v *DevEndpoint) DevEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret DevEndpoint
-		return ret
-	}).(DevEndpointOutput)
-}
-
 type DevEndpointArrayOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DevEndpoint)(nil))
+	return reflect.TypeOf((*[]*DevEndpoint)(nil)).Elem()
 }
 
 func (o DevEndpointArrayOutput) ToDevEndpointArrayOutput() DevEndpointArrayOutput {
@@ -508,15 +444,15 @@ func (o DevEndpointArrayOutput) ToDevEndpointArrayOutputWithContext(ctx context.
 }
 
 func (o DevEndpointArrayOutput) Index(i pulumi.IntInput) DevEndpointOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DevEndpoint {
-		return vs[0].([]DevEndpoint)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DevEndpoint {
+		return vs[0].([]*DevEndpoint)[vs[1].(int)]
 	}).(DevEndpointOutput)
 }
 
 type DevEndpointMapOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DevEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*DevEndpoint)(nil)).Elem()
 }
 
 func (o DevEndpointMapOutput) ToDevEndpointMapOutput() DevEndpointMapOutput {
@@ -528,18 +464,16 @@ func (o DevEndpointMapOutput) ToDevEndpointMapOutputWithContext(ctx context.Cont
 }
 
 func (o DevEndpointMapOutput) MapIndex(k pulumi.StringInput) DevEndpointOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DevEndpoint {
-		return vs[0].(map[string]DevEndpoint)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DevEndpoint {
+		return vs[0].(map[string]*DevEndpoint)[vs[1].(string)]
 	}).(DevEndpointOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DevEndpointInput)(nil)).Elem(), &DevEndpoint{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DevEndpointPtrInput)(nil)).Elem(), &DevEndpoint{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevEndpointArrayInput)(nil)).Elem(), DevEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevEndpointMapInput)(nil)).Elem(), DevEndpointMap{})
 	pulumi.RegisterOutputType(DevEndpointOutput{})
-	pulumi.RegisterOutputType(DevEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DevEndpointArrayOutput{})
 	pulumi.RegisterOutputType(DevEndpointMapOutput{})
 }

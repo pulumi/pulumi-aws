@@ -130,50 +130,48 @@ export class Stage extends pulumi.CustomResource {
      */
     constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StageState | undefined;
-            inputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoDeploy"] = state ? state.autoDeploy : undefined;
-            inputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
-            inputs["defaultRouteSettings"] = state ? state.defaultRouteSettings : undefined;
-            inputs["deploymentId"] = state ? state.deploymentId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["invokeUrl"] = state ? state.invokeUrl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["routeSettings"] = state ? state.routeSettings : undefined;
-            inputs["stageVariables"] = state ? state.stageVariables : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoDeploy"] = state ? state.autoDeploy : undefined;
+            resourceInputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
+            resourceInputs["defaultRouteSettings"] = state ? state.defaultRouteSettings : undefined;
+            resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
+            resourceInputs["invokeUrl"] = state ? state.invokeUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["routeSettings"] = state ? state.routeSettings : undefined;
+            resourceInputs["stageVariables"] = state ? state.stageVariables : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["autoDeploy"] = args ? args.autoDeploy : undefined;
-            inputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            inputs["defaultRouteSettings"] = args ? args.defaultRouteSettings : undefined;
-            inputs["deploymentId"] = args ? args.deploymentId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["routeSettings"] = args ? args.routeSettings : undefined;
-            inputs["stageVariables"] = args ? args.stageVariables : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["invokeUrl"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
+            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
+            resourceInputs["defaultRouteSettings"] = args ? args.defaultRouteSettings : undefined;
+            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["routeSettings"] = args ? args.routeSettings : undefined;
+            resourceInputs["stageVariables"] = args ? args.stageVariables : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["executionArn"] = undefined /*out*/;
+            resourceInputs["invokeUrl"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -95,15 +95,15 @@ export class Model extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -115,16 +115,14 @@ export class Model extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Model.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Model.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -147,7 +147,7 @@ import (
 // 				},
 // 			},
 // 			Outputs: kinesis.AnalyticsApplicationOutputArray{
-// 				&kinesis.AnalyticsApplicationOutputArgs{
+// 				kinesis.AnalyticsApplicationOutputArgs{
 // 					Name: pulumi.String("OUTPUT_1"),
 // 					Schema: &kinesis.AnalyticsApplicationOutputSchemaArgs{
 // 						RecordFormatType: pulumi.String("CSV"),
@@ -378,7 +378,7 @@ type AnalyticsApplicationInput interface {
 }
 
 func (*AnalyticsApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsApplication)(nil))
+	return reflect.TypeOf((**AnalyticsApplication)(nil)).Elem()
 }
 
 func (i *AnalyticsApplication) ToAnalyticsApplicationOutput() AnalyticsApplicationOutput {
@@ -387,35 +387,6 @@ func (i *AnalyticsApplication) ToAnalyticsApplicationOutput() AnalyticsApplicati
 
 func (i *AnalyticsApplication) ToAnalyticsApplicationOutputWithContext(ctx context.Context) AnalyticsApplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutput)
-}
-
-func (i *AnalyticsApplication) ToAnalyticsApplicationPtrOutput() AnalyticsApplicationPtrOutput {
-	return i.ToAnalyticsApplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *AnalyticsApplication) ToAnalyticsApplicationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationPtrOutput)
-}
-
-type AnalyticsApplicationPtrInput interface {
-	pulumi.Input
-
-	ToAnalyticsApplicationPtrOutput() AnalyticsApplicationPtrOutput
-	ToAnalyticsApplicationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationPtrOutput
-}
-
-type analyticsApplicationPtrType AnalyticsApplicationArgs
-
-func (*analyticsApplicationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsApplication)(nil))
-}
-
-func (i *analyticsApplicationPtrType) ToAnalyticsApplicationPtrOutput() AnalyticsApplicationPtrOutput {
-	return i.ToAnalyticsApplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *analyticsApplicationPtrType) ToAnalyticsApplicationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationPtrOutput)
 }
 
 // AnalyticsApplicationArrayInput is an input type that accepts AnalyticsApplicationArray and AnalyticsApplicationArrayOutput values.
@@ -471,7 +442,7 @@ func (i AnalyticsApplicationMap) ToAnalyticsApplicationMapOutputWithContext(ctx 
 type AnalyticsApplicationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsApplication)(nil))
+	return reflect.TypeOf((**AnalyticsApplication)(nil)).Elem()
 }
 
 func (o AnalyticsApplicationOutput) ToAnalyticsApplicationOutput() AnalyticsApplicationOutput {
@@ -482,44 +453,10 @@ func (o AnalyticsApplicationOutput) ToAnalyticsApplicationOutputWithContext(ctx 
 	return o
 }
 
-func (o AnalyticsApplicationOutput) ToAnalyticsApplicationPtrOutput() AnalyticsApplicationPtrOutput {
-	return o.ToAnalyticsApplicationPtrOutputWithContext(context.Background())
-}
-
-func (o AnalyticsApplicationOutput) ToAnalyticsApplicationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplication) *AnalyticsApplication {
-		return &v
-	}).(AnalyticsApplicationPtrOutput)
-}
-
-type AnalyticsApplicationPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalyticsApplicationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsApplication)(nil))
-}
-
-func (o AnalyticsApplicationPtrOutput) ToAnalyticsApplicationPtrOutput() AnalyticsApplicationPtrOutput {
-	return o
-}
-
-func (o AnalyticsApplicationPtrOutput) ToAnalyticsApplicationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationPtrOutput {
-	return o
-}
-
-func (o AnalyticsApplicationPtrOutput) Elem() AnalyticsApplicationOutput {
-	return o.ApplyT(func(v *AnalyticsApplication) AnalyticsApplication {
-		if v != nil {
-			return *v
-		}
-		var ret AnalyticsApplication
-		return ret
-	}).(AnalyticsApplicationOutput)
-}
-
 type AnalyticsApplicationArrayOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalyticsApplication)(nil))
+	return reflect.TypeOf((*[]*AnalyticsApplication)(nil)).Elem()
 }
 
 func (o AnalyticsApplicationArrayOutput) ToAnalyticsApplicationArrayOutput() AnalyticsApplicationArrayOutput {
@@ -531,15 +468,15 @@ func (o AnalyticsApplicationArrayOutput) ToAnalyticsApplicationArrayOutputWithCo
 }
 
 func (o AnalyticsApplicationArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsApplication {
-		return vs[0].([]AnalyticsApplication)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsApplication {
+		return vs[0].([]*AnalyticsApplication)[vs[1].(int)]
 	}).(AnalyticsApplicationOutput)
 }
 
 type AnalyticsApplicationMapOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AnalyticsApplication)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsApplication)(nil)).Elem()
 }
 
 func (o AnalyticsApplicationMapOutput) ToAnalyticsApplicationMapOutput() AnalyticsApplicationMapOutput {
@@ -551,18 +488,16 @@ func (o AnalyticsApplicationMapOutput) ToAnalyticsApplicationMapOutputWithContex
 }
 
 func (o AnalyticsApplicationMapOutput) MapIndex(k pulumi.StringInput) AnalyticsApplicationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AnalyticsApplication {
-		return vs[0].(map[string]AnalyticsApplication)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AnalyticsApplication {
+		return vs[0].(map[string]*AnalyticsApplication)[vs[1].(string)]
 	}).(AnalyticsApplicationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsApplicationInput)(nil)).Elem(), &AnalyticsApplication{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsApplicationPtrInput)(nil)).Elem(), &AnalyticsApplication{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsApplicationArrayInput)(nil)).Elem(), AnalyticsApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsApplicationMapInput)(nil)).Elem(), AnalyticsApplicationMap{})
 	pulumi.RegisterOutputType(AnalyticsApplicationOutput{})
-	pulumi.RegisterOutputType(AnalyticsApplicationPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationArrayOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationMapOutput{})
 }

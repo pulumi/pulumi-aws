@@ -175,11 +175,11 @@ class PublishingDestination(pulumi.CustomResource):
         gd_bucket = aws.s3.Bucket("gdBucket",
             acl="private",
             force_destroy=True)
-        bucket_pol = pulumi.Output.all(gd_bucket.arn, gd_bucket.arn).apply(lambda gdBucketArn, gdBucketArn1: aws.iam.get_policy_document(statements=[
+        bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow PutObject",
                 actions=["s3:PutObject"],
-                resources=[f"{gd_bucket_arn}/*"],
+                resources=[gd_bucket.arn.apply(lambda arn: f"{arn}/*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
@@ -188,13 +188,13 @@ class PublishingDestination(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow GetBucketLocation",
                 actions=["s3:GetBucketLocation"],
-                resources=[gd_bucket_arn1],
+                resources=[gd_bucket.arn],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
-        ]))
+        ])
         kms_pol = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow GuardDuty to encrypt findings",
@@ -267,11 +267,11 @@ class PublishingDestination(pulumi.CustomResource):
         gd_bucket = aws.s3.Bucket("gdBucket",
             acl="private",
             force_destroy=True)
-        bucket_pol = pulumi.Output.all(gd_bucket.arn, gd_bucket.arn).apply(lambda gdBucketArn, gdBucketArn1: aws.iam.get_policy_document(statements=[
+        bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow PutObject",
                 actions=["s3:PutObject"],
-                resources=[f"{gd_bucket_arn}/*"],
+                resources=[gd_bucket.arn.apply(lambda arn: f"{arn}/*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
@@ -280,13 +280,13 @@ class PublishingDestination(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow GetBucketLocation",
                 actions=["s3:GetBucketLocation"],
-                resources=[gd_bucket_arn1],
+                resources=[gd_bucket.arn],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
-        ]))
+        ])
         kms_pol = aws.iam.get_policy_document(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow GuardDuty to encrypt findings",

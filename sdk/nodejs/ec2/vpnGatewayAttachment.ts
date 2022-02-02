@@ -82,12 +82,12 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnGatewayAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnGatewayAttachmentArgs | VpnGatewayAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayAttachmentState | undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnGatewayAttachmentArgs | undefined;
             if ((!args || args.vpcId === undefined) && !opts.urn) {
@@ -96,13 +96,11 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
             if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpnGatewayAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpnGatewayAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

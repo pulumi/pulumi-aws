@@ -105,14 +105,14 @@ export class BasePathMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: BasePathMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BasePathMappingArgs | BasePathMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BasePathMappingState | undefined;
-            inputs["basePath"] = state ? state.basePath : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["stageName"] = state ? state.stageName : undefined;
+            resourceInputs["basePath"] = state ? state.basePath : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["stageName"] = state ? state.stageName : undefined;
         } else {
             const args = argsOrState as BasePathMappingArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -121,15 +121,13 @@ export class BasePathMapping extends pulumi.CustomResource {
             if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["basePath"] = args ? args.basePath : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["basePath"] = args ? args.basePath : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BasePathMapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BasePathMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

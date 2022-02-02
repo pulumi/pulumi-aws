@@ -26,11 +26,11 @@ namespace Pulumi.Aws.DirectoryService
     ///         {
     ///             RetentionInDays = 14,
     ///         });
-    ///         var ad_log_policyPolicyDocument = exampleLogGroup.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var ad_log_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Actions = 
     ///                     {
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.DirectoryService
     ///                     },
     ///                     Principals = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
     ///                             Identifiers = 
     ///                             {
@@ -50,12 +50,12 @@ namespace Pulumi.Aws.DirectoryService
     ///                     },
     ///                     Resources = 
     ///                     {
-    ///                         $"{arn}:*",
+    ///                         exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///                     },
     ///                     Effect = "Allow",
     ///                 },
     ///             },
-    ///         }));
+    ///         });
     ///         var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", new Aws.CloudWatch.LogResourcePolicyArgs
     ///         {
     ///             PolicyDocument = ad_log_policyPolicyDocument.Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Json),

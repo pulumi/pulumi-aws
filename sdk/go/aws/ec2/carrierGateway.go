@@ -149,7 +149,7 @@ type CarrierGatewayInput interface {
 }
 
 func (*CarrierGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGateway)(nil))
+	return reflect.TypeOf((**CarrierGateway)(nil)).Elem()
 }
 
 func (i *CarrierGateway) ToCarrierGatewayOutput() CarrierGatewayOutput {
@@ -158,35 +158,6 @@ func (i *CarrierGateway) ToCarrierGatewayOutput() CarrierGatewayOutput {
 
 func (i *CarrierGateway) ToCarrierGatewayOutputWithContext(ctx context.Context) CarrierGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayOutput)
-}
-
-func (i *CarrierGateway) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
-	return i.ToCarrierGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *CarrierGateway) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayPtrOutput)
-}
-
-type CarrierGatewayPtrInput interface {
-	pulumi.Input
-
-	ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput
-	ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput
-}
-
-type carrierGatewayPtrType CarrierGatewayArgs
-
-func (*carrierGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CarrierGateway)(nil))
-}
-
-func (i *carrierGatewayPtrType) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
-	return i.ToCarrierGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *carrierGatewayPtrType) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayPtrOutput)
 }
 
 // CarrierGatewayArrayInput is an input type that accepts CarrierGatewayArray and CarrierGatewayArrayOutput values.
@@ -242,7 +213,7 @@ func (i CarrierGatewayMap) ToCarrierGatewayMapOutputWithContext(ctx context.Cont
 type CarrierGatewayOutput struct{ *pulumi.OutputState }
 
 func (CarrierGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGateway)(nil))
+	return reflect.TypeOf((**CarrierGateway)(nil)).Elem()
 }
 
 func (o CarrierGatewayOutput) ToCarrierGatewayOutput() CarrierGatewayOutput {
@@ -253,44 +224,10 @@ func (o CarrierGatewayOutput) ToCarrierGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o CarrierGatewayOutput) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
-	return o.ToCarrierGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o CarrierGatewayOutput) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CarrierGateway) *CarrierGateway {
-		return &v
-	}).(CarrierGatewayPtrOutput)
-}
-
-type CarrierGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (CarrierGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CarrierGateway)(nil))
-}
-
-func (o CarrierGatewayPtrOutput) ToCarrierGatewayPtrOutput() CarrierGatewayPtrOutput {
-	return o
-}
-
-func (o CarrierGatewayPtrOutput) ToCarrierGatewayPtrOutputWithContext(ctx context.Context) CarrierGatewayPtrOutput {
-	return o
-}
-
-func (o CarrierGatewayPtrOutput) Elem() CarrierGatewayOutput {
-	return o.ApplyT(func(v *CarrierGateway) CarrierGateway {
-		if v != nil {
-			return *v
-		}
-		var ret CarrierGateway
-		return ret
-	}).(CarrierGatewayOutput)
-}
-
 type CarrierGatewayArrayOutput struct{ *pulumi.OutputState }
 
 func (CarrierGatewayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CarrierGateway)(nil))
+	return reflect.TypeOf((*[]*CarrierGateway)(nil)).Elem()
 }
 
 func (o CarrierGatewayArrayOutput) ToCarrierGatewayArrayOutput() CarrierGatewayArrayOutput {
@@ -302,15 +239,15 @@ func (o CarrierGatewayArrayOutput) ToCarrierGatewayArrayOutputWithContext(ctx co
 }
 
 func (o CarrierGatewayArrayOutput) Index(i pulumi.IntInput) CarrierGatewayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CarrierGateway {
-		return vs[0].([]CarrierGateway)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CarrierGateway {
+		return vs[0].([]*CarrierGateway)[vs[1].(int)]
 	}).(CarrierGatewayOutput)
 }
 
 type CarrierGatewayMapOutput struct{ *pulumi.OutputState }
 
 func (CarrierGatewayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CarrierGateway)(nil))
+	return reflect.TypeOf((*map[string]*CarrierGateway)(nil)).Elem()
 }
 
 func (o CarrierGatewayMapOutput) ToCarrierGatewayMapOutput() CarrierGatewayMapOutput {
@@ -322,18 +259,16 @@ func (o CarrierGatewayMapOutput) ToCarrierGatewayMapOutputWithContext(ctx contex
 }
 
 func (o CarrierGatewayMapOutput) MapIndex(k pulumi.StringInput) CarrierGatewayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CarrierGateway {
-		return vs[0].(map[string]CarrierGateway)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CarrierGateway {
+		return vs[0].(map[string]*CarrierGateway)[vs[1].(string)]
 	}).(CarrierGatewayOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayInput)(nil)).Elem(), &CarrierGateway{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayPtrInput)(nil)).Elem(), &CarrierGateway{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayArrayInput)(nil)).Elem(), CarrierGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayMapInput)(nil)).Elem(), CarrierGatewayMap{})
 	pulumi.RegisterOutputType(CarrierGatewayOutput{})
-	pulumi.RegisterOutputType(CarrierGatewayPtrOutput{})
 	pulumi.RegisterOutputType(CarrierGatewayArrayOutput{})
 	pulumi.RegisterOutputType(CarrierGatewayMapOutput{})
 }

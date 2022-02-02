@@ -88,30 +88,28 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotCopyGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotCopyGrantArgs | SnapshotCopyGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotCopyGrantState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SnapshotCopyGrantArgs | undefined;
             if ((!args || args.snapshotCopyGrantName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snapshotCopyGrantName'");
             }
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SnapshotCopyGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SnapshotCopyGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

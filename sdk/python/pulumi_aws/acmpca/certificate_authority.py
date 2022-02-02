@@ -404,7 +404,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket = aws.s3.Bucket("exampleBucket")
-        acmpca_bucket_access = pulumi.Output.all(example_bucket.arn, example_bucket.arn).apply(lambda exampleBucketArn, exampleBucketArn1: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -412,14 +412,14 @@ class CertificateAuthority(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                example_bucket_arn,
-                f"{example_bucket_arn1}/*",
+                example_bucket.arn,
+                example_bucket.arn.apply(lambda arn: f"{arn}/*"),
             ],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 identifiers=["acm-pca.amazonaws.com"],
                 type="Service",
             )],
-        )]))
+        )])
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket.id,
             policy=acmpca_bucket_access.json)
@@ -494,7 +494,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket = aws.s3.Bucket("exampleBucket")
-        acmpca_bucket_access = pulumi.Output.all(example_bucket.arn, example_bucket.arn).apply(lambda exampleBucketArn, exampleBucketArn1: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -502,14 +502,14 @@ class CertificateAuthority(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                example_bucket_arn,
-                f"{example_bucket_arn1}/*",
+                example_bucket.arn,
+                example_bucket.arn.apply(lambda arn: f"{arn}/*"),
             ],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 identifiers=["acm-pca.amazonaws.com"],
                 type="Service",
             )],
-        )]))
+        )])
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket.id,
             policy=acmpca_bucket_access.json)

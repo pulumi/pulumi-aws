@@ -192,45 +192,43 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args?: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
-            inputs["certificateBody"] = state ? state.certificateBody : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
-            inputs["options"] = state ? state.options : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["validationEmails"] = state ? state.validationEmails : undefined;
-            inputs["validationMethod"] = state ? state.validationMethod : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
+            resourceInputs["certificateBody"] = state ? state.certificateBody : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["validationEmails"] = state ? state.validationEmails : undefined;
+            resourceInputs["validationMethod"] = state ? state.validationMethod : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            inputs["certificateBody"] = args ? args.certificateBody : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validationMethod"] = args ? args.validationMethod : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainValidationOptions"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["validationEmails"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainValidationOptions"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["validationEmails"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -24,9 +24,7 @@ export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getImageRecipe:getImageRecipe", {
         "arn": args.arn,
         "tags": args.tags,

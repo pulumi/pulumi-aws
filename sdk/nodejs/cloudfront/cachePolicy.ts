@@ -116,34 +116,32 @@ export class CachePolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: CachePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CachePolicyArgs | CachePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CachePolicyState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["maxTtl"] = state ? state.maxTtl : undefined;
-            inputs["minTtl"] = state ? state.minTtl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parametersInCacheKeyAndForwardedToOrigin"] = state ? state.parametersInCacheKeyAndForwardedToOrigin : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["maxTtl"] = state ? state.maxTtl : undefined;
+            resourceInputs["minTtl"] = state ? state.minTtl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parametersInCacheKeyAndForwardedToOrigin"] = state ? state.parametersInCacheKeyAndForwardedToOrigin : undefined;
         } else {
             const args = argsOrState as CachePolicyArgs | undefined;
             if ((!args || args.parametersInCacheKeyAndForwardedToOrigin === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parametersInCacheKeyAndForwardedToOrigin'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            inputs["maxTtl"] = args ? args.maxTtl : undefined;
-            inputs["minTtl"] = args ? args.minTtl : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parametersInCacheKeyAndForwardedToOrigin"] = args ? args.parametersInCacheKeyAndForwardedToOrigin : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
+            resourceInputs["maxTtl"] = args ? args.maxTtl : undefined;
+            resourceInputs["minTtl"] = args ? args.minTtl : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parametersInCacheKeyAndForwardedToOrigin"] = args ? args.parametersInCacheKeyAndForwardedToOrigin : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CachePolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CachePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

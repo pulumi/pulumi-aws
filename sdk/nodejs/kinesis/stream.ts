@@ -126,39 +126,37 @@ export class Stream extends pulumi.CustomResource {
      */
     constructor(name: string, args?: StreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamArgs | StreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["encryptionType"] = state ? state.encryptionType : undefined;
-            inputs["enforceConsumerDeletion"] = state ? state.enforceConsumerDeletion : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
-            inputs["shardCount"] = state ? state.shardCount : undefined;
-            inputs["shardLevelMetrics"] = state ? state.shardLevelMetrics : undefined;
-            inputs["streamModeDetails"] = state ? state.streamModeDetails : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
+            resourceInputs["enforceConsumerDeletion"] = state ? state.enforceConsumerDeletion : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
+            resourceInputs["shardCount"] = state ? state.shardCount : undefined;
+            resourceInputs["shardLevelMetrics"] = state ? state.shardLevelMetrics : undefined;
+            resourceInputs["streamModeDetails"] = state ? state.streamModeDetails : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StreamArgs | undefined;
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["encryptionType"] = args ? args.encryptionType : undefined;
-            inputs["enforceConsumerDeletion"] = args ? args.enforceConsumerDeletion : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            inputs["shardCount"] = args ? args.shardCount : undefined;
-            inputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
-            inputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
+            resourceInputs["enforceConsumerDeletion"] = args ? args.enforceConsumerDeletion : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
+            resourceInputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
+            resourceInputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

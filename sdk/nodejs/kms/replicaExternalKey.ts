@@ -140,50 +140,48 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicaExternalKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicaExternalKeyArgs | ReplicaExternalKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicaExternalKeyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["expirationModel"] = state ? state.expirationModel : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["keyMaterialBase64"] = state ? state.keyMaterialBase64 : undefined;
-            inputs["keyState"] = state ? state.keyState : undefined;
-            inputs["keyUsage"] = state ? state.keyUsage : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["primaryKeyArn"] = state ? state.primaryKeyArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["validTo"] = state ? state.validTo : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["expirationModel"] = state ? state.expirationModel : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["keyMaterialBase64"] = state ? state.keyMaterialBase64 : undefined;
+            resourceInputs["keyState"] = state ? state.keyState : undefined;
+            resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["primaryKeyArn"] = state ? state.primaryKeyArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["validTo"] = state ? state.validTo : undefined;
         } else {
             const args = argsOrState as ReplicaExternalKeyArgs | undefined;
             if ((!args || args.primaryKeyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryKeyArn'");
             }
-            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["keyMaterialBase64"] = args ? args.keyMaterialBase64 : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validTo"] = args ? args.validTo : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["expirationModel"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
-            inputs["keyState"] = undefined /*out*/;
-            inputs["keyUsage"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["keyMaterialBase64"] = args ? args.keyMaterialBase64 : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validTo"] = args ? args.validTo : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["expirationModel"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["keyState"] = undefined /*out*/;
+            resourceInputs["keyUsage"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicaExternalKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicaExternalKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

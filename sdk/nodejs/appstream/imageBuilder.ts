@@ -143,54 +143,52 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImageBuilderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageBuilderArgs | ImageBuilderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageBuilderState | undefined;
-            inputs["accessEndpoints"] = state ? state.accessEndpoints : undefined;
-            inputs["appstreamAgentVersion"] = state ? state.appstreamAgentVersion : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["domainJoinInfo"] = state ? state.domainJoinInfo : undefined;
-            inputs["enableDefaultInternetAccess"] = state ? state.enableDefaultInternetAccess : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["imageArn"] = state ? state.imageArn : undefined;
-            inputs["imageName"] = state ? state.imageName : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["accessEndpoints"] = state ? state.accessEndpoints : undefined;
+            resourceInputs["appstreamAgentVersion"] = state ? state.appstreamAgentVersion : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = state ? state.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = state ? state.enableDefaultInternetAccess : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["imageArn"] = state ? state.imageArn : undefined;
+            resourceInputs["imageName"] = state ? state.imageName : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ImageBuilderArgs | undefined;
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            inputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
-            inputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["imageArn"] = args ? args.imageArn : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
+            resourceInputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ImageBuilder.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ImageBuilder.__pulumiType, name, resourceInputs, opts);
     }
 }
 

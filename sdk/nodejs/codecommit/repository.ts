@@ -101,38 +101,36 @@ export class Repository extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloneUrlHttp"] = state ? state.cloneUrlHttp : undefined;
-            inputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;
-            inputs["defaultBranch"] = state ? state.defaultBranch : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["repositoryId"] = state ? state.repositoryId : undefined;
-            inputs["repositoryName"] = state ? state.repositoryName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloneUrlHttp"] = state ? state.cloneUrlHttp : undefined;
+            resourceInputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;
+            resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
+            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            inputs["defaultBranch"] = args ? args.defaultBranch : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cloneUrlHttp"] = undefined /*out*/;
-            inputs["cloneUrlSsh"] = undefined /*out*/;
-            inputs["repositoryId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cloneUrlHttp"] = undefined /*out*/;
+            resourceInputs["cloneUrlSsh"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Repository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

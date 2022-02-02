@@ -209,7 +209,7 @@ type OpenZfsSnapshotInput interface {
 }
 
 func (*OpenZfsSnapshot) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenZfsSnapshot)(nil))
+	return reflect.TypeOf((**OpenZfsSnapshot)(nil)).Elem()
 }
 
 func (i *OpenZfsSnapshot) ToOpenZfsSnapshotOutput() OpenZfsSnapshotOutput {
@@ -218,35 +218,6 @@ func (i *OpenZfsSnapshot) ToOpenZfsSnapshotOutput() OpenZfsSnapshotOutput {
 
 func (i *OpenZfsSnapshot) ToOpenZfsSnapshotOutputWithContext(ctx context.Context) OpenZfsSnapshotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsSnapshotOutput)
-}
-
-func (i *OpenZfsSnapshot) ToOpenZfsSnapshotPtrOutput() OpenZfsSnapshotPtrOutput {
-	return i.ToOpenZfsSnapshotPtrOutputWithContext(context.Background())
-}
-
-func (i *OpenZfsSnapshot) ToOpenZfsSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsSnapshotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsSnapshotPtrOutput)
-}
-
-type OpenZfsSnapshotPtrInput interface {
-	pulumi.Input
-
-	ToOpenZfsSnapshotPtrOutput() OpenZfsSnapshotPtrOutput
-	ToOpenZfsSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsSnapshotPtrOutput
-}
-
-type openZfsSnapshotPtrType OpenZfsSnapshotArgs
-
-func (*openZfsSnapshotPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenZfsSnapshot)(nil))
-}
-
-func (i *openZfsSnapshotPtrType) ToOpenZfsSnapshotPtrOutput() OpenZfsSnapshotPtrOutput {
-	return i.ToOpenZfsSnapshotPtrOutputWithContext(context.Background())
-}
-
-func (i *openZfsSnapshotPtrType) ToOpenZfsSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsSnapshotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsSnapshotPtrOutput)
 }
 
 // OpenZfsSnapshotArrayInput is an input type that accepts OpenZfsSnapshotArray and OpenZfsSnapshotArrayOutput values.
@@ -302,7 +273,7 @@ func (i OpenZfsSnapshotMap) ToOpenZfsSnapshotMapOutputWithContext(ctx context.Co
 type OpenZfsSnapshotOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsSnapshotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenZfsSnapshot)(nil))
+	return reflect.TypeOf((**OpenZfsSnapshot)(nil)).Elem()
 }
 
 func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotOutput() OpenZfsSnapshotOutput {
@@ -313,44 +284,10 @@ func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotPtrOutput() OpenZfsSnapshotPtrOutput {
-	return o.ToOpenZfsSnapshotPtrOutputWithContext(context.Background())
-}
-
-func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsSnapshotPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsSnapshot) *OpenZfsSnapshot {
-		return &v
-	}).(OpenZfsSnapshotPtrOutput)
-}
-
-type OpenZfsSnapshotPtrOutput struct{ *pulumi.OutputState }
-
-func (OpenZfsSnapshotPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenZfsSnapshot)(nil))
-}
-
-func (o OpenZfsSnapshotPtrOutput) ToOpenZfsSnapshotPtrOutput() OpenZfsSnapshotPtrOutput {
-	return o
-}
-
-func (o OpenZfsSnapshotPtrOutput) ToOpenZfsSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsSnapshotPtrOutput {
-	return o
-}
-
-func (o OpenZfsSnapshotPtrOutput) Elem() OpenZfsSnapshotOutput {
-	return o.ApplyT(func(v *OpenZfsSnapshot) OpenZfsSnapshot {
-		if v != nil {
-			return *v
-		}
-		var ret OpenZfsSnapshot
-		return ret
-	}).(OpenZfsSnapshotOutput)
-}
-
 type OpenZfsSnapshotArrayOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsSnapshotArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OpenZfsSnapshot)(nil))
+	return reflect.TypeOf((*[]*OpenZfsSnapshot)(nil)).Elem()
 }
 
 func (o OpenZfsSnapshotArrayOutput) ToOpenZfsSnapshotArrayOutput() OpenZfsSnapshotArrayOutput {
@@ -362,15 +299,15 @@ func (o OpenZfsSnapshotArrayOutput) ToOpenZfsSnapshotArrayOutputWithContext(ctx 
 }
 
 func (o OpenZfsSnapshotArrayOutput) Index(i pulumi.IntInput) OpenZfsSnapshotOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenZfsSnapshot {
-		return vs[0].([]OpenZfsSnapshot)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OpenZfsSnapshot {
+		return vs[0].([]*OpenZfsSnapshot)[vs[1].(int)]
 	}).(OpenZfsSnapshotOutput)
 }
 
 type OpenZfsSnapshotMapOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsSnapshotMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OpenZfsSnapshot)(nil))
+	return reflect.TypeOf((*map[string]*OpenZfsSnapshot)(nil)).Elem()
 }
 
 func (o OpenZfsSnapshotMapOutput) ToOpenZfsSnapshotMapOutput() OpenZfsSnapshotMapOutput {
@@ -382,18 +319,16 @@ func (o OpenZfsSnapshotMapOutput) ToOpenZfsSnapshotMapOutputWithContext(ctx cont
 }
 
 func (o OpenZfsSnapshotMapOutput) MapIndex(k pulumi.StringInput) OpenZfsSnapshotOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OpenZfsSnapshot {
-		return vs[0].(map[string]OpenZfsSnapshot)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OpenZfsSnapshot {
+		return vs[0].(map[string]*OpenZfsSnapshot)[vs[1].(string)]
 	}).(OpenZfsSnapshotOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsSnapshotInput)(nil)).Elem(), &OpenZfsSnapshot{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsSnapshotPtrInput)(nil)).Elem(), &OpenZfsSnapshot{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsSnapshotArrayInput)(nil)).Elem(), OpenZfsSnapshotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsSnapshotMapInput)(nil)).Elem(), OpenZfsSnapshotMap{})
 	pulumi.RegisterOutputType(OpenZfsSnapshotOutput{})
-	pulumi.RegisterOutputType(OpenZfsSnapshotPtrOutput{})
 	pulumi.RegisterOutputType(OpenZfsSnapshotArrayOutput{})
 	pulumi.RegisterOutputType(OpenZfsSnapshotMapOutput{})
 }

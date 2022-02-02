@@ -6,9 +6,9 @@ require (
 	github.com/hashicorp/aws-sdk-go-base v1.0.0
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.11.0
-	github.com/pulumi/pulumi/pkg/v3 v3.17.0
-	github.com/pulumi/pulumi/sdk/v3 v3.17.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.18.0
+	github.com/pulumi/pulumi/pkg/v3 v3.23.2
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 )
 
 replace (

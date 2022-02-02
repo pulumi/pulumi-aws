@@ -85,28 +85,26 @@ export class StreamConsumer extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamConsumerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamConsumerArgs | StreamConsumerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamConsumerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["creationTimestamp"] = state ? state.creationTimestamp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["streamArn"] = state ? state.streamArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTimestamp"] = state ? state.creationTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["streamArn"] = state ? state.streamArn : undefined;
         } else {
             const args = argsOrState as StreamConsumerArgs | undefined;
             if ((!args || args.streamArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamArn'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["streamArn"] = args ? args.streamArn : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTimestamp"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["streamArn"] = args ? args.streamArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTimestamp"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamConsumer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamConsumer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

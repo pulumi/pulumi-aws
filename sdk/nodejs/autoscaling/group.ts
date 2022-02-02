@@ -507,45 +507,45 @@ export class Group extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
-            inputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
-            inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
-            inputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
-            inputs["forceDelete"] = state ? state.forceDelete : undefined;
-            inputs["forceDeleteWarmPool"] = state ? state.forceDeleteWarmPool : undefined;
-            inputs["healthCheckGracePeriod"] = state ? state.healthCheckGracePeriod : undefined;
-            inputs["healthCheckType"] = state ? state.healthCheckType : undefined;
-            inputs["initialLifecycleHooks"] = state ? state.initialLifecycleHooks : undefined;
-            inputs["instanceRefresh"] = state ? state.instanceRefresh : undefined;
-            inputs["launchConfiguration"] = state ? state.launchConfiguration : undefined;
-            inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["maxInstanceLifetime"] = state ? state.maxInstanceLifetime : undefined;
-            inputs["maxSize"] = state ? state.maxSize : undefined;
-            inputs["metricsGranularity"] = state ? state.metricsGranularity : undefined;
-            inputs["minElbCapacity"] = state ? state.minElbCapacity : undefined;
-            inputs["minSize"] = state ? state.minSize : undefined;
-            inputs["mixedInstancesPolicy"] = state ? state.mixedInstancesPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["placementGroup"] = state ? state.placementGroup : undefined;
-            inputs["protectFromScaleIn"] = state ? state.protectFromScaleIn : undefined;
-            inputs["serviceLinkedRoleArn"] = state ? state.serviceLinkedRoleArn : undefined;
-            inputs["suspendedProcesses"] = state ? state.suspendedProcesses : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsCollection"] = state ? state.tagsCollection : undefined;
-            inputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
-            inputs["terminationPolicies"] = state ? state.terminationPolicies : undefined;
-            inputs["vpcZoneIdentifiers"] = state ? state.vpcZoneIdentifiers : undefined;
-            inputs["waitForCapacityTimeout"] = state ? state.waitForCapacityTimeout : undefined;
-            inputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
-            inputs["warmPool"] = state ? state.warmPool : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
+            resourceInputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
+            resourceInputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
+            resourceInputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["forceDeleteWarmPool"] = state ? state.forceDeleteWarmPool : undefined;
+            resourceInputs["healthCheckGracePeriod"] = state ? state.healthCheckGracePeriod : undefined;
+            resourceInputs["healthCheckType"] = state ? state.healthCheckType : undefined;
+            resourceInputs["initialLifecycleHooks"] = state ? state.initialLifecycleHooks : undefined;
+            resourceInputs["instanceRefresh"] = state ? state.instanceRefresh : undefined;
+            resourceInputs["launchConfiguration"] = state ? state.launchConfiguration : undefined;
+            resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
+            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            resourceInputs["maxInstanceLifetime"] = state ? state.maxInstanceLifetime : undefined;
+            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
+            resourceInputs["metricsGranularity"] = state ? state.metricsGranularity : undefined;
+            resourceInputs["minElbCapacity"] = state ? state.minElbCapacity : undefined;
+            resourceInputs["minSize"] = state ? state.minSize : undefined;
+            resourceInputs["mixedInstancesPolicy"] = state ? state.mixedInstancesPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
+            resourceInputs["protectFromScaleIn"] = state ? state.protectFromScaleIn : undefined;
+            resourceInputs["serviceLinkedRoleArn"] = state ? state.serviceLinkedRoleArn : undefined;
+            resourceInputs["suspendedProcesses"] = state ? state.suspendedProcesses : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsCollection"] = state ? state.tagsCollection : undefined;
+            resourceInputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
+            resourceInputs["terminationPolicies"] = state ? state.terminationPolicies : undefined;
+            resourceInputs["vpcZoneIdentifiers"] = state ? state.vpcZoneIdentifiers : undefined;
+            resourceInputs["waitForCapacityTimeout"] = state ? state.waitForCapacityTimeout : undefined;
+            resourceInputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
+            resourceInputs["warmPool"] = state ? state.warmPool : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.maxSize === undefined) && !opts.urn) {
@@ -554,46 +554,44 @@ export class Group extends pulumi.CustomResource {
             if ((!args || args.minSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minSize'");
             }
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
-            inputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
-            inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            inputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
-            inputs["forceDelete"] = args ? args.forceDelete : undefined;
-            inputs["forceDeleteWarmPool"] = args ? args.forceDeleteWarmPool : undefined;
-            inputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
-            inputs["healthCheckType"] = args ? args.healthCheckType : undefined;
-            inputs["initialLifecycleHooks"] = args ? args.initialLifecycleHooks : undefined;
-            inputs["instanceRefresh"] = args ? args.instanceRefresh : undefined;
-            inputs["launchConfiguration"] = args ? args.launchConfiguration : undefined;
-            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["maxInstanceLifetime"] = args ? args.maxInstanceLifetime : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["metricsGranularity"] = args ? args.metricsGranularity : undefined;
-            inputs["minElbCapacity"] = args ? args.minElbCapacity : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["mixedInstancesPolicy"] = args ? args.mixedInstancesPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["placementGroup"] = args ? args.placementGroup : undefined;
-            inputs["protectFromScaleIn"] = args ? args.protectFromScaleIn : undefined;
-            inputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
-            inputs["suspendedProcesses"] = args ? args.suspendedProcesses : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsCollection"] = args ? args.tagsCollection : undefined;
-            inputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
-            inputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
-            inputs["vpcZoneIdentifiers"] = args ? args.vpcZoneIdentifiers : undefined;
-            inputs["waitForCapacityTimeout"] = args ? args.waitForCapacityTimeout : undefined;
-            inputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
-            inputs["warmPool"] = args ? args.warmPool : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
+            resourceInputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
+            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
+            resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["forceDeleteWarmPool"] = args ? args.forceDeleteWarmPool : undefined;
+            resourceInputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
+            resourceInputs["healthCheckType"] = args ? args.healthCheckType : undefined;
+            resourceInputs["initialLifecycleHooks"] = args ? args.initialLifecycleHooks : undefined;
+            resourceInputs["instanceRefresh"] = args ? args.instanceRefresh : undefined;
+            resourceInputs["launchConfiguration"] = args ? args.launchConfiguration : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["maxInstanceLifetime"] = args ? args.maxInstanceLifetime : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["metricsGranularity"] = args ? args.metricsGranularity : undefined;
+            resourceInputs["minElbCapacity"] = args ? args.minElbCapacity : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["mixedInstancesPolicy"] = args ? args.mixedInstancesPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
+            resourceInputs["protectFromScaleIn"] = args ? args.protectFromScaleIn : undefined;
+            resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
+            resourceInputs["suspendedProcesses"] = args ? args.suspendedProcesses : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsCollection"] = args ? args.tagsCollection : undefined;
+            resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
+            resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
+            resourceInputs["vpcZoneIdentifiers"] = args ? args.vpcZoneIdentifiers : undefined;
+            resourceInputs["waitForCapacityTimeout"] = args ? args.waitForCapacityTimeout : undefined;
+            resourceInputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
+            resourceInputs["warmPool"] = args ? args.warmPool : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Group.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

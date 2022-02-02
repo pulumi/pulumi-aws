@@ -128,11 +128,11 @@ namespace Pulumi.Aws.CloudWatch
     ///   }
     /// ",
     ///         });
-    ///         var ssmLifecyclePolicyDocument = stopInstance.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var ssmLifecyclePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Effect = "Allow",
     ///                     Actions = 
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                     },
     ///                     Conditions = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                         {
     ///                             Test = "StringEquals",
     ///                             Variable = "ec2:ResourceTag/Terminate",
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Effect = "Allow",
     ///                     Actions = 
@@ -165,11 +165,11 @@ namespace Pulumi.Aws.CloudWatch
     ///                     },
     ///                     Resources = 
     ///                     {
-    ///                         arn,
+    ///                         stopInstance.Arn,
     ///                     },
     ///                 },
     ///             },
-    ///         }));
+    ///         });
     ///         var ssmLifecycleRole = new Aws.Iam.Role("ssmLifecycleRole", new Aws.Iam.RoleArgs
     ///         {
     ///             AssumeRolePolicy = ssmLifecycleTrust.Apply(ssmLifecycleTrust =&gt; ssmLifecycleTrust.Json),

@@ -145,45 +145,43 @@ export class Secret extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SecretArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretArgs | SecretState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceOverwriteReplicaSecret"] = state ? state.forceOverwriteReplicaSecret : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
-            inputs["replicas"] = state ? state.replicas : undefined;
-            inputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
-            inputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
-            inputs["rotationRules"] = state ? state.rotationRules : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceOverwriteReplicaSecret"] = state ? state.forceOverwriteReplicaSecret : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
+            resourceInputs["replicas"] = state ? state.replicas : undefined;
+            resourceInputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
+            resourceInputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
+            resourceInputs["rotationRules"] = state ? state.rotationRules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceOverwriteReplicaSecret"] = args ? args.forceOverwriteReplicaSecret : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
-            inputs["replicas"] = args ? args.replicas : undefined;
-            inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
-            inputs["rotationRules"] = args ? args.rotationRules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["rotationEnabled"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceOverwriteReplicaSecret"] = args ? args.forceOverwriteReplicaSecret : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
+            resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
+            resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["rotationEnabled"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Secret.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Secret.__pulumiType, name, resourceInputs, opts);
     }
 }
 

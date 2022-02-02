@@ -106,37 +106,35 @@ export class Agent extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AgentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AgentArgs | AgentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentState | undefined;
-            inputs["activationKey"] = state ? state.activationKey : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateLinkEndpoint"] = state ? state.privateLinkEndpoint : undefined;
-            inputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
-            inputs["subnetArns"] = state ? state.subnetArns : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["activationKey"] = state ? state.activationKey : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateLinkEndpoint"] = state ? state.privateLinkEndpoint : undefined;
+            resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
+            resourceInputs["subnetArns"] = state ? state.subnetArns : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as AgentArgs | undefined;
-            inputs["activationKey"] = args ? args.activationKey : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateLinkEndpoint"] = args ? args.privateLinkEndpoint : undefined;
-            inputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            inputs["subnetArns"] = args ? args.subnetArns : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["activationKey"] = args ? args.activationKey : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateLinkEndpoint"] = args ? args.privateLinkEndpoint : undefined;
+            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
+            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Agent.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Agent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

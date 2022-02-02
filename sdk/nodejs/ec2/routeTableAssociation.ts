@@ -94,26 +94,24 @@ export class RouteTableAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTableAssociationState | undefined;
-            inputs["gatewayId"] = state ? state.gatewayId : undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
+            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as RouteTableAssociationArgs | undefined;
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RouteTableAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -25,9 +25,7 @@ export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCalle
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getCallerIdentity:getCallerIdentity", {
     }, opts);
 }

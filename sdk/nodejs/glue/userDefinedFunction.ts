@@ -104,19 +104,19 @@ export class UserDefinedFunction extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserDefinedFunctionArgs | UserDefinedFunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserDefinedFunctionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["className"] = state ? state.className : undefined;
-            inputs["createTime"] = state ? state.createTime : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerName"] = state ? state.ownerName : undefined;
-            inputs["ownerType"] = state ? state.ownerType : undefined;
-            inputs["resourceUris"] = state ? state.resourceUris : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["className"] = state ? state.className : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerName"] = state ? state.ownerName : undefined;
+            resourceInputs["ownerType"] = state ? state.ownerType : undefined;
+            resourceInputs["resourceUris"] = state ? state.resourceUris : undefined;
         } else {
             const args = argsOrState as UserDefinedFunctionArgs | undefined;
             if ((!args || args.className === undefined) && !opts.urn) {
@@ -131,20 +131,18 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             if ((!args || args.ownerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerType'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["className"] = args ? args.className : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerName"] = args ? args.ownerName : undefined;
-            inputs["ownerType"] = args ? args.ownerType : undefined;
-            inputs["resourceUris"] = args ? args.resourceUris : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["className"] = args ? args.className : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerName"] = args ? args.ownerName : undefined;
+            resourceInputs["ownerType"] = args ? args.ownerType : undefined;
+            resourceInputs["resourceUris"] = args ? args.resourceUris : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserDefinedFunction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserDefinedFunction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

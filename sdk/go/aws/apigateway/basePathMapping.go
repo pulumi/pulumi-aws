@@ -190,7 +190,7 @@ type BasePathMappingInput interface {
 }
 
 func (*BasePathMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasePathMapping)(nil))
+	return reflect.TypeOf((**BasePathMapping)(nil)).Elem()
 }
 
 func (i *BasePathMapping) ToBasePathMappingOutput() BasePathMappingOutput {
@@ -199,35 +199,6 @@ func (i *BasePathMapping) ToBasePathMappingOutput() BasePathMappingOutput {
 
 func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingOutput)
-}
-
-func (i *BasePathMapping) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
-	return i.ToBasePathMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *BasePathMapping) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingPtrOutput)
-}
-
-type BasePathMappingPtrInput interface {
-	pulumi.Input
-
-	ToBasePathMappingPtrOutput() BasePathMappingPtrOutput
-	ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput
-}
-
-type basePathMappingPtrType BasePathMappingArgs
-
-func (*basePathMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BasePathMapping)(nil))
-}
-
-func (i *basePathMappingPtrType) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
-	return i.ToBasePathMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *basePathMappingPtrType) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingPtrOutput)
 }
 
 // BasePathMappingArrayInput is an input type that accepts BasePathMappingArray and BasePathMappingArrayOutput values.
@@ -283,7 +254,7 @@ func (i BasePathMappingMap) ToBasePathMappingMapOutputWithContext(ctx context.Co
 type BasePathMappingOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasePathMapping)(nil))
+	return reflect.TypeOf((**BasePathMapping)(nil)).Elem()
 }
 
 func (o BasePathMappingOutput) ToBasePathMappingOutput() BasePathMappingOutput {
@@ -294,44 +265,10 @@ func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o BasePathMappingOutput) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
-	return o.ToBasePathMappingPtrOutputWithContext(context.Background())
-}
-
-func (o BasePathMappingOutput) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BasePathMapping) *BasePathMapping {
-		return &v
-	}).(BasePathMappingPtrOutput)
-}
-
-type BasePathMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (BasePathMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BasePathMapping)(nil))
-}
-
-func (o BasePathMappingPtrOutput) ToBasePathMappingPtrOutput() BasePathMappingPtrOutput {
-	return o
-}
-
-func (o BasePathMappingPtrOutput) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
-	return o
-}
-
-func (o BasePathMappingPtrOutput) Elem() BasePathMappingOutput {
-	return o.ApplyT(func(v *BasePathMapping) BasePathMapping {
-		if v != nil {
-			return *v
-		}
-		var ret BasePathMapping
-		return ret
-	}).(BasePathMappingOutput)
-}
-
 type BasePathMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BasePathMapping)(nil))
+	return reflect.TypeOf((*[]*BasePathMapping)(nil)).Elem()
 }
 
 func (o BasePathMappingArrayOutput) ToBasePathMappingArrayOutput() BasePathMappingArrayOutput {
@@ -343,15 +280,15 @@ func (o BasePathMappingArrayOutput) ToBasePathMappingArrayOutputWithContext(ctx 
 }
 
 func (o BasePathMappingArrayOutput) Index(i pulumi.IntInput) BasePathMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BasePathMapping {
-		return vs[0].([]BasePathMapping)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BasePathMapping {
+		return vs[0].([]*BasePathMapping)[vs[1].(int)]
 	}).(BasePathMappingOutput)
 }
 
 type BasePathMappingMapOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BasePathMapping)(nil))
+	return reflect.TypeOf((*map[string]*BasePathMapping)(nil)).Elem()
 }
 
 func (o BasePathMappingMapOutput) ToBasePathMappingMapOutput() BasePathMappingMapOutput {
@@ -363,18 +300,16 @@ func (o BasePathMappingMapOutput) ToBasePathMappingMapOutputWithContext(ctx cont
 }
 
 func (o BasePathMappingMapOutput) MapIndex(k pulumi.StringInput) BasePathMappingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BasePathMapping {
-		return vs[0].(map[string]BasePathMapping)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BasePathMapping {
+		return vs[0].(map[string]*BasePathMapping)[vs[1].(string)]
 	}).(BasePathMappingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingInput)(nil)).Elem(), &BasePathMapping{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingPtrInput)(nil)).Elem(), &BasePathMapping{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingArrayInput)(nil)).Elem(), BasePathMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingMapInput)(nil)).Elem(), BasePathMappingMap{})
 	pulumi.RegisterOutputType(BasePathMappingOutput{})
-	pulumi.RegisterOutputType(BasePathMappingPtrOutput{})
 	pulumi.RegisterOutputType(BasePathMappingArrayOutput{})
 	pulumi.RegisterOutputType(BasePathMappingMapOutput{})
 }

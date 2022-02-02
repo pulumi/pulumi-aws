@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testTopic = new aws.sns.Topic("testTopic", {});
- * const testPolicyDocument = testTopic.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const testPolicyDocument = testTopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     policyId: "__default_policy_ID",
  *     statements: [{
  *         actions: ["SNS:Publish"],
@@ -103,14 +103,14 @@ export class VaultNotifications extends pulumi.CustomResource {
      */
     constructor(name: string, args: VaultNotificationsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultNotificationsArgs | VaultNotificationsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultNotificationsState | undefined;
-            inputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
-            inputs["backupVaultEvents"] = state ? state.backupVaultEvents : undefined;
-            inputs["backupVaultName"] = state ? state.backupVaultName : undefined;
-            inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+            resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
+            resourceInputs["backupVaultEvents"] = state ? state.backupVaultEvents : undefined;
+            resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as VaultNotificationsArgs | undefined;
             if ((!args || args.backupVaultEvents === undefined) && !opts.urn) {
@@ -122,15 +122,13 @@ export class VaultNotifications extends pulumi.CustomResource {
             if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            inputs["backupVaultEvents"] = args ? args.backupVaultEvents : undefined;
-            inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            inputs["backupVaultArn"] = undefined /*out*/;
+            resourceInputs["backupVaultEvents"] = args ? args.backupVaultEvents : undefined;
+            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VaultNotifications.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VaultNotifications.__pulumiType, name, resourceInputs, opts);
     }
 }
 

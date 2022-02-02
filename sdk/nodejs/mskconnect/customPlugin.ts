@@ -106,17 +106,17 @@ export class CustomPlugin extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomPluginArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomPluginArgs | CustomPluginState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomPluginState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["latestRevision"] = state ? state.latestRevision : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["state"] = state ? state.state : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["latestRevision"] = state ? state.latestRevision : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as CustomPluginArgs | undefined;
             if ((!args || args.contentType === undefined) && !opts.urn) {
@@ -125,18 +125,16 @@ export class CustomPlugin extends pulumi.CustomResource {
             if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["latestRevision"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestRevision"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomPlugin.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomPlugin.__pulumiType, name, resourceInputs, opts);
     }
 }
 

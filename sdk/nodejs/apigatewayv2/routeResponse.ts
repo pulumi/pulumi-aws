@@ -88,15 +88,15 @@ export class RouteResponse extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteResponseArgs | RouteResponseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteResponseState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
-            inputs["responseModels"] = state ? state.responseModels : undefined;
-            inputs["routeId"] = state ? state.routeId : undefined;
-            inputs["routeResponseKey"] = state ? state.routeResponseKey : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
+            resourceInputs["responseModels"] = state ? state.responseModels : undefined;
+            resourceInputs["routeId"] = state ? state.routeId : undefined;
+            resourceInputs["routeResponseKey"] = state ? state.routeResponseKey : undefined;
         } else {
             const args = argsOrState as RouteResponseArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -108,16 +108,14 @@ export class RouteResponse extends pulumi.CustomResource {
             if ((!args || args.routeResponseKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeResponseKey'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            inputs["responseModels"] = args ? args.responseModels : undefined;
-            inputs["routeId"] = args ? args.routeId : undefined;
-            inputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
+            resourceInputs["responseModels"] = args ? args.responseModels : undefined;
+            resourceInputs["routeId"] = args ? args.routeId : undefined;
+            resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RouteResponse.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RouteResponse.__pulumiType, name, resourceInputs, opts);
     }
 }
 

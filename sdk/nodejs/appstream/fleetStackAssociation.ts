@@ -81,12 +81,12 @@ export class FleetStackAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: FleetStackAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FleetStackAssociationArgs | FleetStackAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetStackAssociationState | undefined;
-            inputs["fleetName"] = state ? state.fleetName : undefined;
-            inputs["stackName"] = state ? state.stackName : undefined;
+            resourceInputs["fleetName"] = state ? state.fleetName : undefined;
+            resourceInputs["stackName"] = state ? state.stackName : undefined;
         } else {
             const args = argsOrState as FleetStackAssociationArgs | undefined;
             if ((!args || args.fleetName === undefined) && !opts.urn) {
@@ -95,13 +95,11 @@ export class FleetStackAssociation extends pulumi.CustomResource {
             if ((!args || args.stackName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            inputs["fleetName"] = args ? args.fleetName : undefined;
-            inputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FleetStackAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FleetStackAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

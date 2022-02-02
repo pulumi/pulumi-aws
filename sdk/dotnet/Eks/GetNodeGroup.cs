@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Eks
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.Eks
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNodeGroupResult> InvokeAsync(GetNodeGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about an EKS Node Group.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.Eks
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNodeGroupResult> Invoke(GetNodeGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupInvokeArgs(), options.WithDefaults());
     }
 
 

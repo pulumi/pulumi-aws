@@ -126,22 +126,22 @@ export class PlatformApplication extends pulumi.CustomResource {
      */
     constructor(name: string, args: PlatformApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PlatformApplicationArgs | PlatformApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlatformApplicationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["eventDeliveryFailureTopicArn"] = state ? state.eventDeliveryFailureTopicArn : undefined;
-            inputs["eventEndpointCreatedTopicArn"] = state ? state.eventEndpointCreatedTopicArn : undefined;
-            inputs["eventEndpointDeletedTopicArn"] = state ? state.eventEndpointDeletedTopicArn : undefined;
-            inputs["eventEndpointUpdatedTopicArn"] = state ? state.eventEndpointUpdatedTopicArn : undefined;
-            inputs["failureFeedbackRoleArn"] = state ? state.failureFeedbackRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["platformCredential"] = state ? state.platformCredential : undefined;
-            inputs["platformPrincipal"] = state ? state.platformPrincipal : undefined;
-            inputs["successFeedbackRoleArn"] = state ? state.successFeedbackRoleArn : undefined;
-            inputs["successFeedbackSampleRate"] = state ? state.successFeedbackSampleRate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["eventDeliveryFailureTopicArn"] = state ? state.eventDeliveryFailureTopicArn : undefined;
+            resourceInputs["eventEndpointCreatedTopicArn"] = state ? state.eventEndpointCreatedTopicArn : undefined;
+            resourceInputs["eventEndpointDeletedTopicArn"] = state ? state.eventEndpointDeletedTopicArn : undefined;
+            resourceInputs["eventEndpointUpdatedTopicArn"] = state ? state.eventEndpointUpdatedTopicArn : undefined;
+            resourceInputs["failureFeedbackRoleArn"] = state ? state.failureFeedbackRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["platformCredential"] = state ? state.platformCredential : undefined;
+            resourceInputs["platformPrincipal"] = state ? state.platformPrincipal : undefined;
+            resourceInputs["successFeedbackRoleArn"] = state ? state.successFeedbackRoleArn : undefined;
+            resourceInputs["successFeedbackSampleRate"] = state ? state.successFeedbackSampleRate : undefined;
         } else {
             const args = argsOrState as PlatformApplicationArgs | undefined;
             if ((!args || args.platform === undefined) && !opts.urn) {
@@ -150,23 +150,21 @@ export class PlatformApplication extends pulumi.CustomResource {
             if ((!args || args.platformCredential === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformCredential'");
             }
-            inputs["eventDeliveryFailureTopicArn"] = args ? args.eventDeliveryFailureTopicArn : undefined;
-            inputs["eventEndpointCreatedTopicArn"] = args ? args.eventEndpointCreatedTopicArn : undefined;
-            inputs["eventEndpointDeletedTopicArn"] = args ? args.eventEndpointDeletedTopicArn : undefined;
-            inputs["eventEndpointUpdatedTopicArn"] = args ? args.eventEndpointUpdatedTopicArn : undefined;
-            inputs["failureFeedbackRoleArn"] = args ? args.failureFeedbackRoleArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["platformCredential"] = args ? args.platformCredential : undefined;
-            inputs["platformPrincipal"] = args ? args.platformPrincipal : undefined;
-            inputs["successFeedbackRoleArn"] = args ? args.successFeedbackRoleArn : undefined;
-            inputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["eventDeliveryFailureTopicArn"] = args ? args.eventDeliveryFailureTopicArn : undefined;
+            resourceInputs["eventEndpointCreatedTopicArn"] = args ? args.eventEndpointCreatedTopicArn : undefined;
+            resourceInputs["eventEndpointDeletedTopicArn"] = args ? args.eventEndpointDeletedTopicArn : undefined;
+            resourceInputs["eventEndpointUpdatedTopicArn"] = args ? args.eventEndpointUpdatedTopicArn : undefined;
+            resourceInputs["failureFeedbackRoleArn"] = args ? args.failureFeedbackRoleArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["platformCredential"] = args ? args.platformCredential : undefined;
+            resourceInputs["platformPrincipal"] = args ? args.platformPrincipal : undefined;
+            resourceInputs["successFeedbackRoleArn"] = args ? args.successFeedbackRoleArn : undefined;
+            resourceInputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PlatformApplication.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PlatformApplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

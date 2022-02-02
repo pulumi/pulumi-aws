@@ -99,18 +99,18 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
      */
     constructor(name: string, args: ResolverFirewallRuleGroupAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverFirewallRuleGroupAssociationArgs | ResolverFirewallRuleGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverFirewallRuleGroupAssociationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["firewallRuleGroupId"] = state ? state.firewallRuleGroupId : undefined;
-            inputs["mutationProtection"] = state ? state.mutationProtection : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["firewallRuleGroupId"] = state ? state.firewallRuleGroupId : undefined;
+            resourceInputs["mutationProtection"] = state ? state.mutationProtection : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ResolverFirewallRuleGroupAssociationArgs | undefined;
             if ((!args || args.firewallRuleGroupId === undefined) && !opts.urn) {
@@ -122,19 +122,17 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
-            inputs["mutationProtection"] = args ? args.mutationProtection : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
+            resourceInputs["mutationProtection"] = args ? args.mutationProtection : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverFirewallRuleGroupAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverFirewallRuleGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

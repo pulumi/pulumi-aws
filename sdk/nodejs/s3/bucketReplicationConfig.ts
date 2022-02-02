@@ -172,13 +172,13 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: BucketReplicationConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketReplicationConfigArgs | BucketReplicationConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketReplicationConfigState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as BucketReplicationConfigArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -190,14 +190,12 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BucketReplicationConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BucketReplicationConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

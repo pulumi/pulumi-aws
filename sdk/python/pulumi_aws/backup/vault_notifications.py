@@ -154,7 +154,7 @@ class VaultNotifications(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document(policy_id="__default_policy_ID",
+        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["SNS:Publish"],
                 effect="Allow",
@@ -207,7 +207,7 @@ class VaultNotifications(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document(policy_id="__default_policy_ID",
+        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=["SNS:Publish"],
                 effect="Allow",

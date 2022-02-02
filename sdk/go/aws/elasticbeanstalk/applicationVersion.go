@@ -217,7 +217,7 @@ type ApplicationVersionInput interface {
 }
 
 func (*ApplicationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationVersion)(nil))
+	return reflect.TypeOf((**ApplicationVersion)(nil)).Elem()
 }
 
 func (i *ApplicationVersion) ToApplicationVersionOutput() ApplicationVersionOutput {
@@ -226,35 +226,6 @@ func (i *ApplicationVersion) ToApplicationVersionOutput() ApplicationVersionOutp
 
 func (i *ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionOutput)
-}
-
-func (i *ApplicationVersion) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
-	return i.ToApplicationVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *ApplicationVersion) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionPtrOutput)
-}
-
-type ApplicationVersionPtrInput interface {
-	pulumi.Input
-
-	ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput
-	ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput
-}
-
-type applicationVersionPtrType ApplicationVersionArgs
-
-func (*applicationVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationVersion)(nil))
-}
-
-func (i *applicationVersionPtrType) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
-	return i.ToApplicationVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationVersionPtrType) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionPtrOutput)
 }
 
 // ApplicationVersionArrayInput is an input type that accepts ApplicationVersionArray and ApplicationVersionArrayOutput values.
@@ -310,7 +281,7 @@ func (i ApplicationVersionMap) ToApplicationVersionMapOutputWithContext(ctx cont
 type ApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationVersion)(nil))
+	return reflect.TypeOf((**ApplicationVersion)(nil)).Elem()
 }
 
 func (o ApplicationVersionOutput) ToApplicationVersionOutput() ApplicationVersionOutput {
@@ -321,44 +292,10 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx cont
 	return o
 }
 
-func (o ApplicationVersionOutput) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
-	return o.ToApplicationVersionPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationVersionOutput) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersion) *ApplicationVersion {
-		return &v
-	}).(ApplicationVersionPtrOutput)
-}
-
-type ApplicationVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationVersion)(nil))
-}
-
-func (o ApplicationVersionPtrOutput) ToApplicationVersionPtrOutput() ApplicationVersionPtrOutput {
-	return o
-}
-
-func (o ApplicationVersionPtrOutput) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
-	return o
-}
-
-func (o ApplicationVersionPtrOutput) Elem() ApplicationVersionOutput {
-	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersion {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationVersion
-		return ret
-	}).(ApplicationVersionOutput)
-}
-
 type ApplicationVersionArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationVersion)(nil))
+	return reflect.TypeOf((*[]*ApplicationVersion)(nil)).Elem()
 }
 
 func (o ApplicationVersionArrayOutput) ToApplicationVersionArrayOutput() ApplicationVersionArrayOutput {
@@ -370,15 +307,15 @@ func (o ApplicationVersionArrayOutput) ToApplicationVersionArrayOutputWithContex
 }
 
 func (o ApplicationVersionArrayOutput) Index(i pulumi.IntInput) ApplicationVersionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationVersion {
-		return vs[0].([]ApplicationVersion)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationVersion {
+		return vs[0].([]*ApplicationVersion)[vs[1].(int)]
 	}).(ApplicationVersionOutput)
 }
 
 type ApplicationVersionMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationVersion)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationVersion)(nil)).Elem()
 }
 
 func (o ApplicationVersionMapOutput) ToApplicationVersionMapOutput() ApplicationVersionMapOutput {
@@ -390,18 +327,16 @@ func (o ApplicationVersionMapOutput) ToApplicationVersionMapOutputWithContext(ct
 }
 
 func (o ApplicationVersionMapOutput) MapIndex(k pulumi.StringInput) ApplicationVersionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationVersion {
-		return vs[0].(map[string]ApplicationVersion)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApplicationVersion {
+		return vs[0].(map[string]*ApplicationVersion)[vs[1].(string)]
 	}).(ApplicationVersionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionInput)(nil)).Elem(), &ApplicationVersion{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionPtrInput)(nil)).Elem(), &ApplicationVersion{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionArrayInput)(nil)).Elem(), ApplicationVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionMapInput)(nil)).Elem(), ApplicationVersionMap{})
 	pulumi.RegisterOutputType(ApplicationVersionOutput{})
-	pulumi.RegisterOutputType(ApplicationVersionPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionMapOutput{})
 }

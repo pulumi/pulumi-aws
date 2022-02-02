@@ -258,7 +258,7 @@ type ReportDefinitionInput interface {
 }
 
 func (*ReportDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDefinition)(nil))
+	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
 }
 
 func (i *ReportDefinition) ToReportDefinitionOutput() ReportDefinitionOutput {
@@ -267,35 +267,6 @@ func (i *ReportDefinition) ToReportDefinitionOutput() ReportDefinitionOutput {
 
 func (i *ReportDefinition) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput)
-}
-
-func (i *ReportDefinition) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *ReportDefinition) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionPtrOutput)
-}
-
-type ReportDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput
-	ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput
-}
-
-type reportDefinitionPtrType ReportDefinitionArgs
-
-func (*reportDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDefinition)(nil))
-}
-
-func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionPtrOutput)
 }
 
 // ReportDefinitionArrayInput is an input type that accepts ReportDefinitionArray and ReportDefinitionArrayOutput values.
@@ -351,7 +322,7 @@ func (i ReportDefinitionMap) ToReportDefinitionMapOutputWithContext(ctx context.
 type ReportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDefinition)(nil))
+	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
 }
 
 func (o ReportDefinitionOutput) ToReportDefinitionOutput() ReportDefinitionOutput {
@@ -362,44 +333,10 @@ func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.
 	return o
 }
 
-func (o ReportDefinitionOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return o.ToReportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ReportDefinitionOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDefinition) *ReportDefinition {
-		return &v
-	}).(ReportDefinitionPtrOutput)
-}
-
-type ReportDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDefinition)(nil))
-}
-
-func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return o
-}
-
-func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return o
-}
-
-func (o ReportDefinitionPtrOutput) Elem() ReportDefinitionOutput {
-	return o.ApplyT(func(v *ReportDefinition) ReportDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDefinition
-		return ret
-	}).(ReportDefinitionOutput)
-}
-
 type ReportDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportDefinition)(nil))
+	return reflect.TypeOf((*[]*ReportDefinition)(nil)).Elem()
 }
 
 func (o ReportDefinitionArrayOutput) ToReportDefinitionArrayOutput() ReportDefinitionArrayOutput {
@@ -411,15 +348,15 @@ func (o ReportDefinitionArrayOutput) ToReportDefinitionArrayOutputWithContext(ct
 }
 
 func (o ReportDefinitionArrayOutput) Index(i pulumi.IntInput) ReportDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportDefinition {
-		return vs[0].([]ReportDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReportDefinition {
+		return vs[0].([]*ReportDefinition)[vs[1].(int)]
 	}).(ReportDefinitionOutput)
 }
 
 type ReportDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReportDefinition)(nil))
+	return reflect.TypeOf((*map[string]*ReportDefinition)(nil)).Elem()
 }
 
 func (o ReportDefinitionMapOutput) ToReportDefinitionMapOutput() ReportDefinitionMapOutput {
@@ -431,18 +368,16 @@ func (o ReportDefinitionMapOutput) ToReportDefinitionMapOutputWithContext(ctx co
 }
 
 func (o ReportDefinitionMapOutput) MapIndex(k pulumi.StringInput) ReportDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportDefinition {
-		return vs[0].(map[string]ReportDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReportDefinition {
+		return vs[0].(map[string]*ReportDefinition)[vs[1].(string)]
 	}).(ReportDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionInput)(nil)).Elem(), &ReportDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionPtrInput)(nil)).Elem(), &ReportDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionArrayInput)(nil)).Elem(), ReportDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionMapInput)(nil)).Elem(), ReportDefinitionMap{})
 	pulumi.RegisterOutputType(ReportDefinitionOutput{})
-	pulumi.RegisterOutputType(ReportDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionMapOutput{})
 }

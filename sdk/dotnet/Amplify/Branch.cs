@@ -131,11 +131,11 @@ namespace Pulumi.Aws.Amplify
     ///         {
     ///             var masterArn = values.Item1;
     ///             var amplifyAppMasterTopicArn = values.Item2;
-    ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             return Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///             {
     ///                 Statements = 
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                     {
     ///                         Sid = $"Allow_Publish_Events {masterArn}",
     ///                         Effect = "Allow",
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Amplify
     ///                         },
     ///                         Principals = 
     ///                         {
-    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                             {
     ///                                 Type = "Service",
     ///                                 Identifiers = 

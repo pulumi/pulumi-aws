@@ -184,7 +184,7 @@ type ProtectionHealthCheckAssociationInput interface {
 }
 
 func (*ProtectionHealthCheckAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionHealthCheckAssociation)(nil))
+	return reflect.TypeOf((**ProtectionHealthCheckAssociation)(nil)).Elem()
 }
 
 func (i *ProtectionHealthCheckAssociation) ToProtectionHealthCheckAssociationOutput() ProtectionHealthCheckAssociationOutput {
@@ -193,35 +193,6 @@ func (i *ProtectionHealthCheckAssociation) ToProtectionHealthCheckAssociationOut
 
 func (i *ProtectionHealthCheckAssociation) ToProtectionHealthCheckAssociationOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionHealthCheckAssociationOutput)
-}
-
-func (i *ProtectionHealthCheckAssociation) ToProtectionHealthCheckAssociationPtrOutput() ProtectionHealthCheckAssociationPtrOutput {
-	return i.ToProtectionHealthCheckAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ProtectionHealthCheckAssociation) ToProtectionHealthCheckAssociationPtrOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionHealthCheckAssociationPtrOutput)
-}
-
-type ProtectionHealthCheckAssociationPtrInput interface {
-	pulumi.Input
-
-	ToProtectionHealthCheckAssociationPtrOutput() ProtectionHealthCheckAssociationPtrOutput
-	ToProtectionHealthCheckAssociationPtrOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationPtrOutput
-}
-
-type protectionHealthCheckAssociationPtrType ProtectionHealthCheckAssociationArgs
-
-func (*protectionHealthCheckAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionHealthCheckAssociation)(nil))
-}
-
-func (i *protectionHealthCheckAssociationPtrType) ToProtectionHealthCheckAssociationPtrOutput() ProtectionHealthCheckAssociationPtrOutput {
-	return i.ToProtectionHealthCheckAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *protectionHealthCheckAssociationPtrType) ToProtectionHealthCheckAssociationPtrOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionHealthCheckAssociationPtrOutput)
 }
 
 // ProtectionHealthCheckAssociationArrayInput is an input type that accepts ProtectionHealthCheckAssociationArray and ProtectionHealthCheckAssociationArrayOutput values.
@@ -277,7 +248,7 @@ func (i ProtectionHealthCheckAssociationMap) ToProtectionHealthCheckAssociationM
 type ProtectionHealthCheckAssociationOutput struct{ *pulumi.OutputState }
 
 func (ProtectionHealthCheckAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionHealthCheckAssociation)(nil))
+	return reflect.TypeOf((**ProtectionHealthCheckAssociation)(nil)).Elem()
 }
 
 func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociationOutput() ProtectionHealthCheckAssociationOutput {
@@ -288,44 +259,10 @@ func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociati
 	return o
 }
 
-func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociationPtrOutput() ProtectionHealthCheckAssociationPtrOutput {
-	return o.ToProtectionHealthCheckAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociationPtrOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionHealthCheckAssociation) *ProtectionHealthCheckAssociation {
-		return &v
-	}).(ProtectionHealthCheckAssociationPtrOutput)
-}
-
-type ProtectionHealthCheckAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ProtectionHealthCheckAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionHealthCheckAssociation)(nil))
-}
-
-func (o ProtectionHealthCheckAssociationPtrOutput) ToProtectionHealthCheckAssociationPtrOutput() ProtectionHealthCheckAssociationPtrOutput {
-	return o
-}
-
-func (o ProtectionHealthCheckAssociationPtrOutput) ToProtectionHealthCheckAssociationPtrOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationPtrOutput {
-	return o
-}
-
-func (o ProtectionHealthCheckAssociationPtrOutput) Elem() ProtectionHealthCheckAssociationOutput {
-	return o.ApplyT(func(v *ProtectionHealthCheckAssociation) ProtectionHealthCheckAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectionHealthCheckAssociation
-		return ret
-	}).(ProtectionHealthCheckAssociationOutput)
-}
-
 type ProtectionHealthCheckAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ProtectionHealthCheckAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectionHealthCheckAssociation)(nil))
+	return reflect.TypeOf((*[]*ProtectionHealthCheckAssociation)(nil)).Elem()
 }
 
 func (o ProtectionHealthCheckAssociationArrayOutput) ToProtectionHealthCheckAssociationArrayOutput() ProtectionHealthCheckAssociationArrayOutput {
@@ -337,15 +274,15 @@ func (o ProtectionHealthCheckAssociationArrayOutput) ToProtectionHealthCheckAsso
 }
 
 func (o ProtectionHealthCheckAssociationArrayOutput) Index(i pulumi.IntInput) ProtectionHealthCheckAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectionHealthCheckAssociation {
-		return vs[0].([]ProtectionHealthCheckAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectionHealthCheckAssociation {
+		return vs[0].([]*ProtectionHealthCheckAssociation)[vs[1].(int)]
 	}).(ProtectionHealthCheckAssociationOutput)
 }
 
 type ProtectionHealthCheckAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ProtectionHealthCheckAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProtectionHealthCheckAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ProtectionHealthCheckAssociation)(nil)).Elem()
 }
 
 func (o ProtectionHealthCheckAssociationMapOutput) ToProtectionHealthCheckAssociationMapOutput() ProtectionHealthCheckAssociationMapOutput {
@@ -357,18 +294,16 @@ func (o ProtectionHealthCheckAssociationMapOutput) ToProtectionHealthCheckAssoci
 }
 
 func (o ProtectionHealthCheckAssociationMapOutput) MapIndex(k pulumi.StringInput) ProtectionHealthCheckAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProtectionHealthCheckAssociation {
-		return vs[0].(map[string]ProtectionHealthCheckAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProtectionHealthCheckAssociation {
+		return vs[0].(map[string]*ProtectionHealthCheckAssociation)[vs[1].(string)]
 	}).(ProtectionHealthCheckAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionHealthCheckAssociationInput)(nil)).Elem(), &ProtectionHealthCheckAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionHealthCheckAssociationPtrInput)(nil)).Elem(), &ProtectionHealthCheckAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionHealthCheckAssociationArrayInput)(nil)).Elem(), ProtectionHealthCheckAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionHealthCheckAssociationMapInput)(nil)).Elem(), ProtectionHealthCheckAssociationMap{})
 	pulumi.RegisterOutputType(ProtectionHealthCheckAssociationOutput{})
-	pulumi.RegisterOutputType(ProtectionHealthCheckAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ProtectionHealthCheckAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ProtectionHealthCheckAssociationMapOutput{})
 }

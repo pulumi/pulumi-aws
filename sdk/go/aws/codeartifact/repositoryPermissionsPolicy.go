@@ -197,7 +197,7 @@ type RepositoryPermissionsPolicyInput interface {
 }
 
 func (*RepositoryPermissionsPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPermissionsPolicy)(nil))
+	return reflect.TypeOf((**RepositoryPermissionsPolicy)(nil)).Elem()
 }
 
 func (i *RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyOutput() RepositoryPermissionsPolicyOutput {
@@ -206,35 +206,6 @@ func (i *RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyOutput() Repo
 
 func (i *RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyOutput)
-}
-
-func (i *RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyPtrOutput() RepositoryPermissionsPolicyPtrOutput {
-	return i.ToRepositoryPermissionsPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyPtrOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyPtrOutput)
-}
-
-type RepositoryPermissionsPolicyPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryPermissionsPolicyPtrOutput() RepositoryPermissionsPolicyPtrOutput
-	ToRepositoryPermissionsPolicyPtrOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyPtrOutput
-}
-
-type repositoryPermissionsPolicyPtrType RepositoryPermissionsPolicyArgs
-
-func (*repositoryPermissionsPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPermissionsPolicy)(nil))
-}
-
-func (i *repositoryPermissionsPolicyPtrType) ToRepositoryPermissionsPolicyPtrOutput() RepositoryPermissionsPolicyPtrOutput {
-	return i.ToRepositoryPermissionsPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryPermissionsPolicyPtrType) ToRepositoryPermissionsPolicyPtrOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyPtrOutput)
 }
 
 // RepositoryPermissionsPolicyArrayInput is an input type that accepts RepositoryPermissionsPolicyArray and RepositoryPermissionsPolicyArrayOutput values.
@@ -290,7 +261,7 @@ func (i RepositoryPermissionsPolicyMap) ToRepositoryPermissionsPolicyMapOutputWi
 type RepositoryPermissionsPolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPermissionsPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPermissionsPolicy)(nil))
+	return reflect.TypeOf((**RepositoryPermissionsPolicy)(nil)).Elem()
 }
 
 func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyOutput() RepositoryPermissionsPolicyOutput {
@@ -301,44 +272,10 @@ func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyOutputWi
 	return o
 }
 
-func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyPtrOutput() RepositoryPermissionsPolicyPtrOutput {
-	return o.ToRepositoryPermissionsPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyPtrOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPermissionsPolicy) *RepositoryPermissionsPolicy {
-		return &v
-	}).(RepositoryPermissionsPolicyPtrOutput)
-}
-
-type RepositoryPermissionsPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPermissionsPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPermissionsPolicy)(nil))
-}
-
-func (o RepositoryPermissionsPolicyPtrOutput) ToRepositoryPermissionsPolicyPtrOutput() RepositoryPermissionsPolicyPtrOutput {
-	return o
-}
-
-func (o RepositoryPermissionsPolicyPtrOutput) ToRepositoryPermissionsPolicyPtrOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyPtrOutput {
-	return o
-}
-
-func (o RepositoryPermissionsPolicyPtrOutput) Elem() RepositoryPermissionsPolicyOutput {
-	return o.ApplyT(func(v *RepositoryPermissionsPolicy) RepositoryPermissionsPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RepositoryPermissionsPolicy
-		return ret
-	}).(RepositoryPermissionsPolicyOutput)
-}
-
 type RepositoryPermissionsPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPermissionsPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPermissionsPolicy)(nil))
+	return reflect.TypeOf((*[]*RepositoryPermissionsPolicy)(nil)).Elem()
 }
 
 func (o RepositoryPermissionsPolicyArrayOutput) ToRepositoryPermissionsPolicyArrayOutput() RepositoryPermissionsPolicyArrayOutput {
@@ -350,15 +287,15 @@ func (o RepositoryPermissionsPolicyArrayOutput) ToRepositoryPermissionsPolicyArr
 }
 
 func (o RepositoryPermissionsPolicyArrayOutput) Index(i pulumi.IntInput) RepositoryPermissionsPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPermissionsPolicy {
-		return vs[0].([]RepositoryPermissionsPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPermissionsPolicy {
+		return vs[0].([]*RepositoryPermissionsPolicy)[vs[1].(int)]
 	}).(RepositoryPermissionsPolicyOutput)
 }
 
 type RepositoryPermissionsPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPermissionsPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryPermissionsPolicy)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPermissionsPolicy)(nil)).Elem()
 }
 
 func (o RepositoryPermissionsPolicyMapOutput) ToRepositoryPermissionsPolicyMapOutput() RepositoryPermissionsPolicyMapOutput {
@@ -370,18 +307,16 @@ func (o RepositoryPermissionsPolicyMapOutput) ToRepositoryPermissionsPolicyMapOu
 }
 
 func (o RepositoryPermissionsPolicyMapOutput) MapIndex(k pulumi.StringInput) RepositoryPermissionsPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryPermissionsPolicy {
-		return vs[0].(map[string]RepositoryPermissionsPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryPermissionsPolicy {
+		return vs[0].(map[string]*RepositoryPermissionsPolicy)[vs[1].(string)]
 	}).(RepositoryPermissionsPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPermissionsPolicyInput)(nil)).Elem(), &RepositoryPermissionsPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPermissionsPolicyPtrInput)(nil)).Elem(), &RepositoryPermissionsPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPermissionsPolicyArrayInput)(nil)).Elem(), RepositoryPermissionsPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPermissionsPolicyMapInput)(nil)).Elem(), RepositoryPermissionsPolicyMap{})
 	pulumi.RegisterOutputType(RepositoryPermissionsPolicyOutput{})
-	pulumi.RegisterOutputType(RepositoryPermissionsPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPermissionsPolicyArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryPermissionsPolicyMapOutput{})
 }

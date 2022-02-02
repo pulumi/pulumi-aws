@@ -114,20 +114,20 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationProfileArgs | ConfigurationProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationProfileState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["locationUri"] = state ? state.locationUri : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retrievalRoleArn"] = state ? state.retrievalRoleArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["validators"] = state ? state.validators : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["locationUri"] = state ? state.locationUri : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retrievalRoleArn"] = state ? state.retrievalRoleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["validators"] = state ? state.validators : undefined;
         } else {
             const args = argsOrState as ConfigurationProfileArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -136,21 +136,19 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             if ((!args || args.locationUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationUri'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["locationUri"] = args ? args.locationUri : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validators"] = args ? args.validators : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["configurationProfileId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["locationUri"] = args ? args.locationUri : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validators"] = args ? args.validators : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["configurationProfileId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

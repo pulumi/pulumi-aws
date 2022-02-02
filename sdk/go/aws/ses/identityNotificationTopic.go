@@ -154,7 +154,7 @@ type IdentityNotificationTopicInput interface {
 }
 
 func (*IdentityNotificationTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityNotificationTopic)(nil))
+	return reflect.TypeOf((**IdentityNotificationTopic)(nil)).Elem()
 }
 
 func (i *IdentityNotificationTopic) ToIdentityNotificationTopicOutput() IdentityNotificationTopicOutput {
@@ -163,35 +163,6 @@ func (i *IdentityNotificationTopic) ToIdentityNotificationTopicOutput() Identity
 
 func (i *IdentityNotificationTopic) ToIdentityNotificationTopicOutputWithContext(ctx context.Context) IdentityNotificationTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityNotificationTopicOutput)
-}
-
-func (i *IdentityNotificationTopic) ToIdentityNotificationTopicPtrOutput() IdentityNotificationTopicPtrOutput {
-	return i.ToIdentityNotificationTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *IdentityNotificationTopic) ToIdentityNotificationTopicPtrOutputWithContext(ctx context.Context) IdentityNotificationTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityNotificationTopicPtrOutput)
-}
-
-type IdentityNotificationTopicPtrInput interface {
-	pulumi.Input
-
-	ToIdentityNotificationTopicPtrOutput() IdentityNotificationTopicPtrOutput
-	ToIdentityNotificationTopicPtrOutputWithContext(ctx context.Context) IdentityNotificationTopicPtrOutput
-}
-
-type identityNotificationTopicPtrType IdentityNotificationTopicArgs
-
-func (*identityNotificationTopicPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityNotificationTopic)(nil))
-}
-
-func (i *identityNotificationTopicPtrType) ToIdentityNotificationTopicPtrOutput() IdentityNotificationTopicPtrOutput {
-	return i.ToIdentityNotificationTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *identityNotificationTopicPtrType) ToIdentityNotificationTopicPtrOutputWithContext(ctx context.Context) IdentityNotificationTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityNotificationTopicPtrOutput)
 }
 
 // IdentityNotificationTopicArrayInput is an input type that accepts IdentityNotificationTopicArray and IdentityNotificationTopicArrayOutput values.
@@ -247,7 +218,7 @@ func (i IdentityNotificationTopicMap) ToIdentityNotificationTopicMapOutputWithCo
 type IdentityNotificationTopicOutput struct{ *pulumi.OutputState }
 
 func (IdentityNotificationTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityNotificationTopic)(nil))
+	return reflect.TypeOf((**IdentityNotificationTopic)(nil)).Elem()
 }
 
 func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicOutput() IdentityNotificationTopicOutput {
@@ -258,44 +229,10 @@ func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicOutputWithCo
 	return o
 }
 
-func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicPtrOutput() IdentityNotificationTopicPtrOutput {
-	return o.ToIdentityNotificationTopicPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicPtrOutputWithContext(ctx context.Context) IdentityNotificationTopicPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityNotificationTopic) *IdentityNotificationTopic {
-		return &v
-	}).(IdentityNotificationTopicPtrOutput)
-}
-
-type IdentityNotificationTopicPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityNotificationTopicPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityNotificationTopic)(nil))
-}
-
-func (o IdentityNotificationTopicPtrOutput) ToIdentityNotificationTopicPtrOutput() IdentityNotificationTopicPtrOutput {
-	return o
-}
-
-func (o IdentityNotificationTopicPtrOutput) ToIdentityNotificationTopicPtrOutputWithContext(ctx context.Context) IdentityNotificationTopicPtrOutput {
-	return o
-}
-
-func (o IdentityNotificationTopicPtrOutput) Elem() IdentityNotificationTopicOutput {
-	return o.ApplyT(func(v *IdentityNotificationTopic) IdentityNotificationTopic {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityNotificationTopic
-		return ret
-	}).(IdentityNotificationTopicOutput)
-}
-
 type IdentityNotificationTopicArrayOutput struct{ *pulumi.OutputState }
 
 func (IdentityNotificationTopicArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityNotificationTopic)(nil))
+	return reflect.TypeOf((*[]*IdentityNotificationTopic)(nil)).Elem()
 }
 
 func (o IdentityNotificationTopicArrayOutput) ToIdentityNotificationTopicArrayOutput() IdentityNotificationTopicArrayOutput {
@@ -307,15 +244,15 @@ func (o IdentityNotificationTopicArrayOutput) ToIdentityNotificationTopicArrayOu
 }
 
 func (o IdentityNotificationTopicArrayOutput) Index(i pulumi.IntInput) IdentityNotificationTopicOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityNotificationTopic {
-		return vs[0].([]IdentityNotificationTopic)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityNotificationTopic {
+		return vs[0].([]*IdentityNotificationTopic)[vs[1].(int)]
 	}).(IdentityNotificationTopicOutput)
 }
 
 type IdentityNotificationTopicMapOutput struct{ *pulumi.OutputState }
 
 func (IdentityNotificationTopicMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityNotificationTopic)(nil))
+	return reflect.TypeOf((*map[string]*IdentityNotificationTopic)(nil)).Elem()
 }
 
 func (o IdentityNotificationTopicMapOutput) ToIdentityNotificationTopicMapOutput() IdentityNotificationTopicMapOutput {
@@ -327,18 +264,16 @@ func (o IdentityNotificationTopicMapOutput) ToIdentityNotificationTopicMapOutput
 }
 
 func (o IdentityNotificationTopicMapOutput) MapIndex(k pulumi.StringInput) IdentityNotificationTopicOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityNotificationTopic {
-		return vs[0].(map[string]IdentityNotificationTopic)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IdentityNotificationTopic {
+		return vs[0].(map[string]*IdentityNotificationTopic)[vs[1].(string)]
 	}).(IdentityNotificationTopicOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicInput)(nil)).Elem(), &IdentityNotificationTopic{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicPtrInput)(nil)).Elem(), &IdentityNotificationTopic{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicArrayInput)(nil)).Elem(), IdentityNotificationTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicMapInput)(nil)).Elem(), IdentityNotificationTopicMap{})
 	pulumi.RegisterOutputType(IdentityNotificationTopicOutput{})
-	pulumi.RegisterOutputType(IdentityNotificationTopicPtrOutput{})
 	pulumi.RegisterOutputType(IdentityNotificationTopicArrayOutput{})
 	pulumi.RegisterOutputType(IdentityNotificationTopicMapOutput{})
 }

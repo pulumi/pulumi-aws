@@ -79,16 +79,16 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: StudioLifecycleConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StudioLifecycleConfigArgs | StudioLifecycleConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StudioLifecycleConfigState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["studioLifecycleConfigAppType"] = state ? state.studioLifecycleConfigAppType : undefined;
-            inputs["studioLifecycleConfigContent"] = state ? state.studioLifecycleConfigContent : undefined;
-            inputs["studioLifecycleConfigName"] = state ? state.studioLifecycleConfigName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["studioLifecycleConfigAppType"] = state ? state.studioLifecycleConfigAppType : undefined;
+            resourceInputs["studioLifecycleConfigContent"] = state ? state.studioLifecycleConfigContent : undefined;
+            resourceInputs["studioLifecycleConfigName"] = state ? state.studioLifecycleConfigName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StudioLifecycleConfigArgs | undefined;
             if ((!args || args.studioLifecycleConfigAppType === undefined) && !opts.urn) {
@@ -100,17 +100,15 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
             if ((!args || args.studioLifecycleConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigName'");
             }
-            inputs["studioLifecycleConfigAppType"] = args ? args.studioLifecycleConfigAppType : undefined;
-            inputs["studioLifecycleConfigContent"] = args ? args.studioLifecycleConfigContent : undefined;
-            inputs["studioLifecycleConfigName"] = args ? args.studioLifecycleConfigName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["studioLifecycleConfigAppType"] = args ? args.studioLifecycleConfigAppType : undefined;
+            resourceInputs["studioLifecycleConfigContent"] = args ? args.studioLifecycleConfigContent : undefined;
+            resourceInputs["studioLifecycleConfigName"] = args ? args.studioLifecycleConfigName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StudioLifecycleConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StudioLifecycleConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -70,22 +70,20 @@ export class GlobalSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: GlobalSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GlobalSettingsArgs | GlobalSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalSettingsState | undefined;
-            inputs["globalSettings"] = state ? state.globalSettings : undefined;
+            resourceInputs["globalSettings"] = state ? state.globalSettings : undefined;
         } else {
             const args = argsOrState as GlobalSettingsArgs | undefined;
             if ((!args || args.globalSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalSettings'");
             }
-            inputs["globalSettings"] = args ? args.globalSettings : undefined;
+            resourceInputs["globalSettings"] = args ? args.globalSettings : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GlobalSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GlobalSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

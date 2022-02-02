@@ -86,30 +86,28 @@ export class Alias extends pulumi.CustomResource {
      */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AliasState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["targetKeyArn"] = state ? state.targetKeyArn : undefined;
-            inputs["targetKeyId"] = state ? state.targetKeyId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["targetKeyArn"] = state ? state.targetKeyArn : undefined;
+            resourceInputs["targetKeyId"] = state ? state.targetKeyId : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
             if ((!args || args.targetKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetKeyId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["targetKeyId"] = args ? args.targetKeyId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["targetKeyArn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["targetKeyId"] = args ? args.targetKeyId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["targetKeyArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Alias.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Alias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

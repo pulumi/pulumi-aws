@@ -200,7 +200,7 @@ type NamedQueryInput interface {
 }
 
 func (*NamedQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedQuery)(nil))
+	return reflect.TypeOf((**NamedQuery)(nil)).Elem()
 }
 
 func (i *NamedQuery) ToNamedQueryOutput() NamedQueryOutput {
@@ -209,35 +209,6 @@ func (i *NamedQuery) ToNamedQueryOutput() NamedQueryOutput {
 
 func (i *NamedQuery) ToNamedQueryOutputWithContext(ctx context.Context) NamedQueryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryOutput)
-}
-
-func (i *NamedQuery) ToNamedQueryPtrOutput() NamedQueryPtrOutput {
-	return i.ToNamedQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *NamedQuery) ToNamedQueryPtrOutputWithContext(ctx context.Context) NamedQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryPtrOutput)
-}
-
-type NamedQueryPtrInput interface {
-	pulumi.Input
-
-	ToNamedQueryPtrOutput() NamedQueryPtrOutput
-	ToNamedQueryPtrOutputWithContext(ctx context.Context) NamedQueryPtrOutput
-}
-
-type namedQueryPtrType NamedQueryArgs
-
-func (*namedQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamedQuery)(nil))
-}
-
-func (i *namedQueryPtrType) ToNamedQueryPtrOutput() NamedQueryPtrOutput {
-	return i.ToNamedQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *namedQueryPtrType) ToNamedQueryPtrOutputWithContext(ctx context.Context) NamedQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryPtrOutput)
 }
 
 // NamedQueryArrayInput is an input type that accepts NamedQueryArray and NamedQueryArrayOutput values.
@@ -293,7 +264,7 @@ func (i NamedQueryMap) ToNamedQueryMapOutputWithContext(ctx context.Context) Nam
 type NamedQueryOutput struct{ *pulumi.OutputState }
 
 func (NamedQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedQuery)(nil))
+	return reflect.TypeOf((**NamedQuery)(nil)).Elem()
 }
 
 func (o NamedQueryOutput) ToNamedQueryOutput() NamedQueryOutput {
@@ -304,44 +275,10 @@ func (o NamedQueryOutput) ToNamedQueryOutputWithContext(ctx context.Context) Nam
 	return o
 }
 
-func (o NamedQueryOutput) ToNamedQueryPtrOutput() NamedQueryPtrOutput {
-	return o.ToNamedQueryPtrOutputWithContext(context.Background())
-}
-
-func (o NamedQueryOutput) ToNamedQueryPtrOutputWithContext(ctx context.Context) NamedQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamedQuery) *NamedQuery {
-		return &v
-	}).(NamedQueryPtrOutput)
-}
-
-type NamedQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (NamedQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamedQuery)(nil))
-}
-
-func (o NamedQueryPtrOutput) ToNamedQueryPtrOutput() NamedQueryPtrOutput {
-	return o
-}
-
-func (o NamedQueryPtrOutput) ToNamedQueryPtrOutputWithContext(ctx context.Context) NamedQueryPtrOutput {
-	return o
-}
-
-func (o NamedQueryPtrOutput) Elem() NamedQueryOutput {
-	return o.ApplyT(func(v *NamedQuery) NamedQuery {
-		if v != nil {
-			return *v
-		}
-		var ret NamedQuery
-		return ret
-	}).(NamedQueryOutput)
-}
-
 type NamedQueryArrayOutput struct{ *pulumi.OutputState }
 
 func (NamedQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NamedQuery)(nil))
+	return reflect.TypeOf((*[]*NamedQuery)(nil)).Elem()
 }
 
 func (o NamedQueryArrayOutput) ToNamedQueryArrayOutput() NamedQueryArrayOutput {
@@ -353,15 +290,15 @@ func (o NamedQueryArrayOutput) ToNamedQueryArrayOutputWithContext(ctx context.Co
 }
 
 func (o NamedQueryArrayOutput) Index(i pulumi.IntInput) NamedQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamedQuery {
-		return vs[0].([]NamedQuery)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamedQuery {
+		return vs[0].([]*NamedQuery)[vs[1].(int)]
 	}).(NamedQueryOutput)
 }
 
 type NamedQueryMapOutput struct{ *pulumi.OutputState }
 
 func (NamedQueryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NamedQuery)(nil))
+	return reflect.TypeOf((*map[string]*NamedQuery)(nil)).Elem()
 }
 
 func (o NamedQueryMapOutput) ToNamedQueryMapOutput() NamedQueryMapOutput {
@@ -373,18 +310,16 @@ func (o NamedQueryMapOutput) ToNamedQueryMapOutputWithContext(ctx context.Contex
 }
 
 func (o NamedQueryMapOutput) MapIndex(k pulumi.StringInput) NamedQueryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NamedQuery {
-		return vs[0].(map[string]NamedQuery)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NamedQuery {
+		return vs[0].(map[string]*NamedQuery)[vs[1].(string)]
 	}).(NamedQueryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryInput)(nil)).Elem(), &NamedQuery{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryPtrInput)(nil)).Elem(), &NamedQuery{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryArrayInput)(nil)).Elem(), NamedQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryMapInput)(nil)).Elem(), NamedQueryMap{})
 	pulumi.RegisterOutputType(NamedQueryOutput{})
-	pulumi.RegisterOutputType(NamedQueryPtrOutput{})
 	pulumi.RegisterOutputType(NamedQueryArrayOutput{})
 	pulumi.RegisterOutputType(NamedQueryMapOutput{})
 }

@@ -85,15 +85,15 @@ export class DomainName extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameState | undefined;
-            inputs["appsyncDomainName"] = state ? state.appsyncDomainName : undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["appsyncDomainName"] = state ? state.appsyncDomainName : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
@@ -102,16 +102,14 @@ export class DomainName extends pulumi.CustomResource {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["appsyncDomainName"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["appsyncDomainName"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainName.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

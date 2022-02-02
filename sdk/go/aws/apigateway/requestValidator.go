@@ -150,7 +150,7 @@ type RequestValidatorInput interface {
 }
 
 func (*RequestValidator) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequestValidator)(nil))
+	return reflect.TypeOf((**RequestValidator)(nil)).Elem()
 }
 
 func (i *RequestValidator) ToRequestValidatorOutput() RequestValidatorOutput {
@@ -159,35 +159,6 @@ func (i *RequestValidator) ToRequestValidatorOutput() RequestValidatorOutput {
 
 func (i *RequestValidator) ToRequestValidatorOutputWithContext(ctx context.Context) RequestValidatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorOutput)
-}
-
-func (i *RequestValidator) ToRequestValidatorPtrOutput() RequestValidatorPtrOutput {
-	return i.ToRequestValidatorPtrOutputWithContext(context.Background())
-}
-
-func (i *RequestValidator) ToRequestValidatorPtrOutputWithContext(ctx context.Context) RequestValidatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorPtrOutput)
-}
-
-type RequestValidatorPtrInput interface {
-	pulumi.Input
-
-	ToRequestValidatorPtrOutput() RequestValidatorPtrOutput
-	ToRequestValidatorPtrOutputWithContext(ctx context.Context) RequestValidatorPtrOutput
-}
-
-type requestValidatorPtrType RequestValidatorArgs
-
-func (*requestValidatorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RequestValidator)(nil))
-}
-
-func (i *requestValidatorPtrType) ToRequestValidatorPtrOutput() RequestValidatorPtrOutput {
-	return i.ToRequestValidatorPtrOutputWithContext(context.Background())
-}
-
-func (i *requestValidatorPtrType) ToRequestValidatorPtrOutputWithContext(ctx context.Context) RequestValidatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorPtrOutput)
 }
 
 // RequestValidatorArrayInput is an input type that accepts RequestValidatorArray and RequestValidatorArrayOutput values.
@@ -243,7 +214,7 @@ func (i RequestValidatorMap) ToRequestValidatorMapOutputWithContext(ctx context.
 type RequestValidatorOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequestValidator)(nil))
+	return reflect.TypeOf((**RequestValidator)(nil)).Elem()
 }
 
 func (o RequestValidatorOutput) ToRequestValidatorOutput() RequestValidatorOutput {
@@ -254,44 +225,10 @@ func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.
 	return o
 }
 
-func (o RequestValidatorOutput) ToRequestValidatorPtrOutput() RequestValidatorPtrOutput {
-	return o.ToRequestValidatorPtrOutputWithContext(context.Background())
-}
-
-func (o RequestValidatorOutput) ToRequestValidatorPtrOutputWithContext(ctx context.Context) RequestValidatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestValidator) *RequestValidator {
-		return &v
-	}).(RequestValidatorPtrOutput)
-}
-
-type RequestValidatorPtrOutput struct{ *pulumi.OutputState }
-
-func (RequestValidatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RequestValidator)(nil))
-}
-
-func (o RequestValidatorPtrOutput) ToRequestValidatorPtrOutput() RequestValidatorPtrOutput {
-	return o
-}
-
-func (o RequestValidatorPtrOutput) ToRequestValidatorPtrOutputWithContext(ctx context.Context) RequestValidatorPtrOutput {
-	return o
-}
-
-func (o RequestValidatorPtrOutput) Elem() RequestValidatorOutput {
-	return o.ApplyT(func(v *RequestValidator) RequestValidator {
-		if v != nil {
-			return *v
-		}
-		var ret RequestValidator
-		return ret
-	}).(RequestValidatorOutput)
-}
-
 type RequestValidatorArrayOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RequestValidator)(nil))
+	return reflect.TypeOf((*[]*RequestValidator)(nil)).Elem()
 }
 
 func (o RequestValidatorArrayOutput) ToRequestValidatorArrayOutput() RequestValidatorArrayOutput {
@@ -303,15 +240,15 @@ func (o RequestValidatorArrayOutput) ToRequestValidatorArrayOutputWithContext(ct
 }
 
 func (o RequestValidatorArrayOutput) Index(i pulumi.IntInput) RequestValidatorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestValidator {
-		return vs[0].([]RequestValidator)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RequestValidator {
+		return vs[0].([]*RequestValidator)[vs[1].(int)]
 	}).(RequestValidatorOutput)
 }
 
 type RequestValidatorMapOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RequestValidator)(nil))
+	return reflect.TypeOf((*map[string]*RequestValidator)(nil)).Elem()
 }
 
 func (o RequestValidatorMapOutput) ToRequestValidatorMapOutput() RequestValidatorMapOutput {
@@ -323,18 +260,16 @@ func (o RequestValidatorMapOutput) ToRequestValidatorMapOutputWithContext(ctx co
 }
 
 func (o RequestValidatorMapOutput) MapIndex(k pulumi.StringInput) RequestValidatorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RequestValidator {
-		return vs[0].(map[string]RequestValidator)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RequestValidator {
+		return vs[0].(map[string]*RequestValidator)[vs[1].(string)]
 	}).(RequestValidatorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorInput)(nil)).Elem(), &RequestValidator{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorPtrInput)(nil)).Elem(), &RequestValidator{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorArrayInput)(nil)).Elem(), RequestValidatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorMapInput)(nil)).Elem(), RequestValidatorMap{})
 	pulumi.RegisterOutputType(RequestValidatorOutput{})
-	pulumi.RegisterOutputType(RequestValidatorPtrOutput{})
 	pulumi.RegisterOutputType(RequestValidatorArrayOutput{})
 	pulumi.RegisterOutputType(RequestValidatorMapOutput{})
 }

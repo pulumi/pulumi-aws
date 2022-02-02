@@ -146,7 +146,7 @@ type DelegationSetInput interface {
 }
 
 func (*DelegationSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegationSet)(nil))
+	return reflect.TypeOf((**DelegationSet)(nil)).Elem()
 }
 
 func (i *DelegationSet) ToDelegationSetOutput() DelegationSetOutput {
@@ -155,35 +155,6 @@ func (i *DelegationSet) ToDelegationSetOutput() DelegationSetOutput {
 
 func (i *DelegationSet) ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetOutput)
-}
-
-func (i *DelegationSet) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
-	return i.ToDelegationSetPtrOutputWithContext(context.Background())
-}
-
-func (i *DelegationSet) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetPtrOutput)
-}
-
-type DelegationSetPtrInput interface {
-	pulumi.Input
-
-	ToDelegationSetPtrOutput() DelegationSetPtrOutput
-	ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput
-}
-
-type delegationSetPtrType DelegationSetArgs
-
-func (*delegationSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DelegationSet)(nil))
-}
-
-func (i *delegationSetPtrType) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
-	return i.ToDelegationSetPtrOutputWithContext(context.Background())
-}
-
-func (i *delegationSetPtrType) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetPtrOutput)
 }
 
 // DelegationSetArrayInput is an input type that accepts DelegationSetArray and DelegationSetArrayOutput values.
@@ -239,7 +210,7 @@ func (i DelegationSetMap) ToDelegationSetMapOutputWithContext(ctx context.Contex
 type DelegationSetOutput struct{ *pulumi.OutputState }
 
 func (DelegationSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegationSet)(nil))
+	return reflect.TypeOf((**DelegationSet)(nil)).Elem()
 }
 
 func (o DelegationSetOutput) ToDelegationSetOutput() DelegationSetOutput {
@@ -250,44 +221,10 @@ func (o DelegationSetOutput) ToDelegationSetOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DelegationSetOutput) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
-	return o.ToDelegationSetPtrOutputWithContext(context.Background())
-}
-
-func (o DelegationSetOutput) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DelegationSet) *DelegationSet {
-		return &v
-	}).(DelegationSetPtrOutput)
-}
-
-type DelegationSetPtrOutput struct{ *pulumi.OutputState }
-
-func (DelegationSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DelegationSet)(nil))
-}
-
-func (o DelegationSetPtrOutput) ToDelegationSetPtrOutput() DelegationSetPtrOutput {
-	return o
-}
-
-func (o DelegationSetPtrOutput) ToDelegationSetPtrOutputWithContext(ctx context.Context) DelegationSetPtrOutput {
-	return o
-}
-
-func (o DelegationSetPtrOutput) Elem() DelegationSetOutput {
-	return o.ApplyT(func(v *DelegationSet) DelegationSet {
-		if v != nil {
-			return *v
-		}
-		var ret DelegationSet
-		return ret
-	}).(DelegationSetOutput)
-}
-
 type DelegationSetArrayOutput struct{ *pulumi.OutputState }
 
 func (DelegationSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DelegationSet)(nil))
+	return reflect.TypeOf((*[]*DelegationSet)(nil)).Elem()
 }
 
 func (o DelegationSetArrayOutput) ToDelegationSetArrayOutput() DelegationSetArrayOutput {
@@ -299,15 +236,15 @@ func (o DelegationSetArrayOutput) ToDelegationSetArrayOutputWithContext(ctx cont
 }
 
 func (o DelegationSetArrayOutput) Index(i pulumi.IntInput) DelegationSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DelegationSet {
-		return vs[0].([]DelegationSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DelegationSet {
+		return vs[0].([]*DelegationSet)[vs[1].(int)]
 	}).(DelegationSetOutput)
 }
 
 type DelegationSetMapOutput struct{ *pulumi.OutputState }
 
 func (DelegationSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DelegationSet)(nil))
+	return reflect.TypeOf((*map[string]*DelegationSet)(nil)).Elem()
 }
 
 func (o DelegationSetMapOutput) ToDelegationSetMapOutput() DelegationSetMapOutput {
@@ -319,18 +256,16 @@ func (o DelegationSetMapOutput) ToDelegationSetMapOutputWithContext(ctx context.
 }
 
 func (o DelegationSetMapOutput) MapIndex(k pulumi.StringInput) DelegationSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DelegationSet {
-		return vs[0].(map[string]DelegationSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DelegationSet {
+		return vs[0].(map[string]*DelegationSet)[vs[1].(string)]
 	}).(DelegationSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetInput)(nil)).Elem(), &DelegationSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetPtrInput)(nil)).Elem(), &DelegationSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetArrayInput)(nil)).Elem(), DelegationSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetMapInput)(nil)).Elem(), DelegationSetMap{})
 	pulumi.RegisterOutputType(DelegationSetOutput{})
-	pulumi.RegisterOutputType(DelegationSetPtrOutput{})
 	pulumi.RegisterOutputType(DelegationSetArrayOutput{})
 	pulumi.RegisterOutputType(DelegationSetMapOutput{})
 }

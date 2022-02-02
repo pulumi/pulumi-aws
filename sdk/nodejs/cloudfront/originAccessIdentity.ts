@@ -151,29 +151,27 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
      */
     constructor(name: string, args?: OriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OriginAccessIdentityArgs | OriginAccessIdentityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginAccessIdentityState | undefined;
-            inputs["callerReference"] = state ? state.callerReference : undefined;
-            inputs["cloudfrontAccessIdentityPath"] = state ? state.cloudfrontAccessIdentityPath : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["iamArn"] = state ? state.iamArn : undefined;
-            inputs["s3CanonicalUserId"] = state ? state.s3CanonicalUserId : undefined;
+            resourceInputs["callerReference"] = state ? state.callerReference : undefined;
+            resourceInputs["cloudfrontAccessIdentityPath"] = state ? state.cloudfrontAccessIdentityPath : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["iamArn"] = state ? state.iamArn : undefined;
+            resourceInputs["s3CanonicalUserId"] = state ? state.s3CanonicalUserId : undefined;
         } else {
             const args = argsOrState as OriginAccessIdentityArgs | undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["callerReference"] = undefined /*out*/;
-            inputs["cloudfrontAccessIdentityPath"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["iamArn"] = undefined /*out*/;
-            inputs["s3CanonicalUserId"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["callerReference"] = undefined /*out*/;
+            resourceInputs["cloudfrontAccessIdentityPath"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["iamArn"] = undefined /*out*/;
+            resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OriginAccessIdentity.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OriginAccessIdentity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

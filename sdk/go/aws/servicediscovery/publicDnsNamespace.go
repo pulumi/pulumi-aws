@@ -152,7 +152,7 @@ type PublicDnsNamespaceInput interface {
 }
 
 func (*PublicDnsNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespace)(nil))
+	return reflect.TypeOf((**PublicDnsNamespace)(nil)).Elem()
 }
 
 func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
@@ -161,35 +161,6 @@ func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutp
 
 func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceOutput)
-}
-
-func (i *PublicDnsNamespace) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
-	return i.ToPublicDnsNamespacePtrOutputWithContext(context.Background())
-}
-
-func (i *PublicDnsNamespace) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePtrOutput)
-}
-
-type PublicDnsNamespacePtrInput interface {
-	pulumi.Input
-
-	ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput
-	ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput
-}
-
-type publicDnsNamespacePtrType PublicDnsNamespaceArgs
-
-func (*publicDnsNamespacePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicDnsNamespace)(nil))
-}
-
-func (i *publicDnsNamespacePtrType) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
-	return i.ToPublicDnsNamespacePtrOutputWithContext(context.Background())
-}
-
-func (i *publicDnsNamespacePtrType) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePtrOutput)
 }
 
 // PublicDnsNamespaceArrayInput is an input type that accepts PublicDnsNamespaceArray and PublicDnsNamespaceArrayOutput values.
@@ -245,7 +216,7 @@ func (i PublicDnsNamespaceMap) ToPublicDnsNamespaceMapOutputWithContext(ctx cont
 type PublicDnsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespace)(nil))
+	return reflect.TypeOf((**PublicDnsNamespace)(nil)).Elem()
 }
 
 func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
@@ -256,44 +227,10 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx cont
 	return o
 }
 
-func (o PublicDnsNamespaceOutput) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
-	return o.ToPublicDnsNamespacePtrOutputWithContext(context.Background())
-}
-
-func (o PublicDnsNamespaceOutput) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicDnsNamespace) *PublicDnsNamespace {
-		return &v
-	}).(PublicDnsNamespacePtrOutput)
-}
-
-type PublicDnsNamespacePtrOutput struct{ *pulumi.OutputState }
-
-func (PublicDnsNamespacePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicDnsNamespace)(nil))
-}
-
-func (o PublicDnsNamespacePtrOutput) ToPublicDnsNamespacePtrOutput() PublicDnsNamespacePtrOutput {
-	return o
-}
-
-func (o PublicDnsNamespacePtrOutput) ToPublicDnsNamespacePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePtrOutput {
-	return o
-}
-
-func (o PublicDnsNamespacePtrOutput) Elem() PublicDnsNamespaceOutput {
-	return o.ApplyT(func(v *PublicDnsNamespace) PublicDnsNamespace {
-		if v != nil {
-			return *v
-		}
-		var ret PublicDnsNamespace
-		return ret
-	}).(PublicDnsNamespaceOutput)
-}
-
 type PublicDnsNamespaceArrayOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublicDnsNamespace)(nil))
+	return reflect.TypeOf((*[]*PublicDnsNamespace)(nil)).Elem()
 }
 
 func (o PublicDnsNamespaceArrayOutput) ToPublicDnsNamespaceArrayOutput() PublicDnsNamespaceArrayOutput {
@@ -305,15 +242,15 @@ func (o PublicDnsNamespaceArrayOutput) ToPublicDnsNamespaceArrayOutputWithContex
 }
 
 func (o PublicDnsNamespaceArrayOutput) Index(i pulumi.IntInput) PublicDnsNamespaceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicDnsNamespace {
-		return vs[0].([]PublicDnsNamespace)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicDnsNamespace {
+		return vs[0].([]*PublicDnsNamespace)[vs[1].(int)]
 	}).(PublicDnsNamespaceOutput)
 }
 
 type PublicDnsNamespaceMapOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PublicDnsNamespace)(nil))
+	return reflect.TypeOf((*map[string]*PublicDnsNamespace)(nil)).Elem()
 }
 
 func (o PublicDnsNamespaceMapOutput) ToPublicDnsNamespaceMapOutput() PublicDnsNamespaceMapOutput {
@@ -325,18 +262,16 @@ func (o PublicDnsNamespaceMapOutput) ToPublicDnsNamespaceMapOutputWithContext(ct
 }
 
 func (o PublicDnsNamespaceMapOutput) MapIndex(k pulumi.StringInput) PublicDnsNamespaceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublicDnsNamespace {
-		return vs[0].(map[string]PublicDnsNamespace)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PublicDnsNamespace {
+		return vs[0].(map[string]*PublicDnsNamespace)[vs[1].(string)]
 	}).(PublicDnsNamespaceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceInput)(nil)).Elem(), &PublicDnsNamespace{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespacePtrInput)(nil)).Elem(), &PublicDnsNamespace{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceArrayInput)(nil)).Elem(), PublicDnsNamespaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceMapInput)(nil)).Elem(), PublicDnsNamespaceMap{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceOutput{})
-	pulumi.RegisterOutputType(PublicDnsNamespacePtrOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceArrayOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceMapOutput{})
 }

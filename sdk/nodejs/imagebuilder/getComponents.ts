@@ -29,9 +29,7 @@ export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOpti
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getComponents:getComponents", {
         "filters": args.filters,
         "owner": args.owner,

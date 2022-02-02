@@ -25,9 +25,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getUser:getUser", {
         "tags": args.tags,
         "userName": args.userName,

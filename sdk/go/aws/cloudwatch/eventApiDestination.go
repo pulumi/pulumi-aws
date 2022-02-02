@@ -186,7 +186,7 @@ type EventApiDestinationInput interface {
 }
 
 func (*EventApiDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventApiDestination)(nil))
+	return reflect.TypeOf((**EventApiDestination)(nil)).Elem()
 }
 
 func (i *EventApiDestination) ToEventApiDestinationOutput() EventApiDestinationOutput {
@@ -195,35 +195,6 @@ func (i *EventApiDestination) ToEventApiDestinationOutput() EventApiDestinationO
 
 func (i *EventApiDestination) ToEventApiDestinationOutputWithContext(ctx context.Context) EventApiDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventApiDestinationOutput)
-}
-
-func (i *EventApiDestination) ToEventApiDestinationPtrOutput() EventApiDestinationPtrOutput {
-	return i.ToEventApiDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *EventApiDestination) ToEventApiDestinationPtrOutputWithContext(ctx context.Context) EventApiDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventApiDestinationPtrOutput)
-}
-
-type EventApiDestinationPtrInput interface {
-	pulumi.Input
-
-	ToEventApiDestinationPtrOutput() EventApiDestinationPtrOutput
-	ToEventApiDestinationPtrOutputWithContext(ctx context.Context) EventApiDestinationPtrOutput
-}
-
-type eventApiDestinationPtrType EventApiDestinationArgs
-
-func (*eventApiDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventApiDestination)(nil))
-}
-
-func (i *eventApiDestinationPtrType) ToEventApiDestinationPtrOutput() EventApiDestinationPtrOutput {
-	return i.ToEventApiDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *eventApiDestinationPtrType) ToEventApiDestinationPtrOutputWithContext(ctx context.Context) EventApiDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventApiDestinationPtrOutput)
 }
 
 // EventApiDestinationArrayInput is an input type that accepts EventApiDestinationArray and EventApiDestinationArrayOutput values.
@@ -279,7 +250,7 @@ func (i EventApiDestinationMap) ToEventApiDestinationMapOutputWithContext(ctx co
 type EventApiDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventApiDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventApiDestination)(nil))
+	return reflect.TypeOf((**EventApiDestination)(nil)).Elem()
 }
 
 func (o EventApiDestinationOutput) ToEventApiDestinationOutput() EventApiDestinationOutput {
@@ -290,44 +261,10 @@ func (o EventApiDestinationOutput) ToEventApiDestinationOutputWithContext(ctx co
 	return o
 }
 
-func (o EventApiDestinationOutput) ToEventApiDestinationPtrOutput() EventApiDestinationPtrOutput {
-	return o.ToEventApiDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o EventApiDestinationOutput) ToEventApiDestinationPtrOutputWithContext(ctx context.Context) EventApiDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventApiDestination) *EventApiDestination {
-		return &v
-	}).(EventApiDestinationPtrOutput)
-}
-
-type EventApiDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (EventApiDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventApiDestination)(nil))
-}
-
-func (o EventApiDestinationPtrOutput) ToEventApiDestinationPtrOutput() EventApiDestinationPtrOutput {
-	return o
-}
-
-func (o EventApiDestinationPtrOutput) ToEventApiDestinationPtrOutputWithContext(ctx context.Context) EventApiDestinationPtrOutput {
-	return o
-}
-
-func (o EventApiDestinationPtrOutput) Elem() EventApiDestinationOutput {
-	return o.ApplyT(func(v *EventApiDestination) EventApiDestination {
-		if v != nil {
-			return *v
-		}
-		var ret EventApiDestination
-		return ret
-	}).(EventApiDestinationOutput)
-}
-
 type EventApiDestinationArrayOutput struct{ *pulumi.OutputState }
 
 func (EventApiDestinationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventApiDestination)(nil))
+	return reflect.TypeOf((*[]*EventApiDestination)(nil)).Elem()
 }
 
 func (o EventApiDestinationArrayOutput) ToEventApiDestinationArrayOutput() EventApiDestinationArrayOutput {
@@ -339,15 +276,15 @@ func (o EventApiDestinationArrayOutput) ToEventApiDestinationArrayOutputWithCont
 }
 
 func (o EventApiDestinationArrayOutput) Index(i pulumi.IntInput) EventApiDestinationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventApiDestination {
-		return vs[0].([]EventApiDestination)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventApiDestination {
+		return vs[0].([]*EventApiDestination)[vs[1].(int)]
 	}).(EventApiDestinationOutput)
 }
 
 type EventApiDestinationMapOutput struct{ *pulumi.OutputState }
 
 func (EventApiDestinationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventApiDestination)(nil))
+	return reflect.TypeOf((*map[string]*EventApiDestination)(nil)).Elem()
 }
 
 func (o EventApiDestinationMapOutput) ToEventApiDestinationMapOutput() EventApiDestinationMapOutput {
@@ -359,18 +296,16 @@ func (o EventApiDestinationMapOutput) ToEventApiDestinationMapOutputWithContext(
 }
 
 func (o EventApiDestinationMapOutput) MapIndex(k pulumi.StringInput) EventApiDestinationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventApiDestination {
-		return vs[0].(map[string]EventApiDestination)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventApiDestination {
+		return vs[0].(map[string]*EventApiDestination)[vs[1].(string)]
 	}).(EventApiDestinationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationInput)(nil)).Elem(), &EventApiDestination{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationPtrInput)(nil)).Elem(), &EventApiDestination{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationArrayInput)(nil)).Elem(), EventApiDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationMapInput)(nil)).Elem(), EventApiDestinationMap{})
 	pulumi.RegisterOutputType(EventApiDestinationOutput{})
-	pulumi.RegisterOutputType(EventApiDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventApiDestinationArrayOutput{})
 	pulumi.RegisterOutputType(EventApiDestinationMapOutput{})
 }

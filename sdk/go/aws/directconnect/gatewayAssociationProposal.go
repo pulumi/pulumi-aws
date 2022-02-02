@@ -176,7 +176,7 @@ type GatewayAssociationProposalInput interface {
 }
 
 func (*GatewayAssociationProposal) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayAssociationProposal)(nil))
+	return reflect.TypeOf((**GatewayAssociationProposal)(nil)).Elem()
 }
 
 func (i *GatewayAssociationProposal) ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput {
@@ -185,35 +185,6 @@ func (i *GatewayAssociationProposal) ToGatewayAssociationProposalOutput() Gatewa
 
 func (i *GatewayAssociationProposal) ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalOutput)
-}
-
-func (i *GatewayAssociationProposal) ToGatewayAssociationProposalPtrOutput() GatewayAssociationProposalPtrOutput {
-	return i.ToGatewayAssociationProposalPtrOutputWithContext(context.Background())
-}
-
-func (i *GatewayAssociationProposal) ToGatewayAssociationProposalPtrOutputWithContext(ctx context.Context) GatewayAssociationProposalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalPtrOutput)
-}
-
-type GatewayAssociationProposalPtrInput interface {
-	pulumi.Input
-
-	ToGatewayAssociationProposalPtrOutput() GatewayAssociationProposalPtrOutput
-	ToGatewayAssociationProposalPtrOutputWithContext(ctx context.Context) GatewayAssociationProposalPtrOutput
-}
-
-type gatewayAssociationProposalPtrType GatewayAssociationProposalArgs
-
-func (*gatewayAssociationProposalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayAssociationProposal)(nil))
-}
-
-func (i *gatewayAssociationProposalPtrType) ToGatewayAssociationProposalPtrOutput() GatewayAssociationProposalPtrOutput {
-	return i.ToGatewayAssociationProposalPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayAssociationProposalPtrType) ToGatewayAssociationProposalPtrOutputWithContext(ctx context.Context) GatewayAssociationProposalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalPtrOutput)
 }
 
 // GatewayAssociationProposalArrayInput is an input type that accepts GatewayAssociationProposalArray and GatewayAssociationProposalArrayOutput values.
@@ -269,7 +240,7 @@ func (i GatewayAssociationProposalMap) ToGatewayAssociationProposalMapOutputWith
 type GatewayAssociationProposalOutput struct{ *pulumi.OutputState }
 
 func (GatewayAssociationProposalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayAssociationProposal)(nil))
+	return reflect.TypeOf((**GatewayAssociationProposal)(nil)).Elem()
 }
 
 func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput {
@@ -280,44 +251,10 @@ func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutputWith
 	return o
 }
 
-func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalPtrOutput() GatewayAssociationProposalPtrOutput {
-	return o.ToGatewayAssociationProposalPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalPtrOutputWithContext(ctx context.Context) GatewayAssociationProposalPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayAssociationProposal) *GatewayAssociationProposal {
-		return &v
-	}).(GatewayAssociationProposalPtrOutput)
-}
-
-type GatewayAssociationProposalPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayAssociationProposalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayAssociationProposal)(nil))
-}
-
-func (o GatewayAssociationProposalPtrOutput) ToGatewayAssociationProposalPtrOutput() GatewayAssociationProposalPtrOutput {
-	return o
-}
-
-func (o GatewayAssociationProposalPtrOutput) ToGatewayAssociationProposalPtrOutputWithContext(ctx context.Context) GatewayAssociationProposalPtrOutput {
-	return o
-}
-
-func (o GatewayAssociationProposalPtrOutput) Elem() GatewayAssociationProposalOutput {
-	return o.ApplyT(func(v *GatewayAssociationProposal) GatewayAssociationProposal {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayAssociationProposal
-		return ret
-	}).(GatewayAssociationProposalOutput)
-}
-
 type GatewayAssociationProposalArrayOutput struct{ *pulumi.OutputState }
 
 func (GatewayAssociationProposalArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayAssociationProposal)(nil))
+	return reflect.TypeOf((*[]*GatewayAssociationProposal)(nil)).Elem()
 }
 
 func (o GatewayAssociationProposalArrayOutput) ToGatewayAssociationProposalArrayOutput() GatewayAssociationProposalArrayOutput {
@@ -329,15 +266,15 @@ func (o GatewayAssociationProposalArrayOutput) ToGatewayAssociationProposalArray
 }
 
 func (o GatewayAssociationProposalArrayOutput) Index(i pulumi.IntInput) GatewayAssociationProposalOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayAssociationProposal {
-		return vs[0].([]GatewayAssociationProposal)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GatewayAssociationProposal {
+		return vs[0].([]*GatewayAssociationProposal)[vs[1].(int)]
 	}).(GatewayAssociationProposalOutput)
 }
 
 type GatewayAssociationProposalMapOutput struct{ *pulumi.OutputState }
 
 func (GatewayAssociationProposalMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GatewayAssociationProposal)(nil))
+	return reflect.TypeOf((*map[string]*GatewayAssociationProposal)(nil)).Elem()
 }
 
 func (o GatewayAssociationProposalMapOutput) ToGatewayAssociationProposalMapOutput() GatewayAssociationProposalMapOutput {
@@ -349,18 +286,16 @@ func (o GatewayAssociationProposalMapOutput) ToGatewayAssociationProposalMapOutp
 }
 
 func (o GatewayAssociationProposalMapOutput) MapIndex(k pulumi.StringInput) GatewayAssociationProposalOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GatewayAssociationProposal {
-		return vs[0].(map[string]GatewayAssociationProposal)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GatewayAssociationProposal {
+		return vs[0].(map[string]*GatewayAssociationProposal)[vs[1].(string)]
 	}).(GatewayAssociationProposalOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalInput)(nil)).Elem(), &GatewayAssociationProposal{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalPtrInput)(nil)).Elem(), &GatewayAssociationProposal{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalArrayInput)(nil)).Elem(), GatewayAssociationProposalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalMapInput)(nil)).Elem(), GatewayAssociationProposalMap{})
 	pulumi.RegisterOutputType(GatewayAssociationProposalOutput{})
-	pulumi.RegisterOutputType(GatewayAssociationProposalPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAssociationProposalArrayOutput{})
 	pulumi.RegisterOutputType(GatewayAssociationProposalMapOutput{})
 }

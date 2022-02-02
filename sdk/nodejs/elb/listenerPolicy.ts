@@ -137,13 +137,13 @@ export class ListenerPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ListenerPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ListenerPolicyArgs | ListenerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerPolicyState | undefined;
-            inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
-            inputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
-            inputs["policyNames"] = state ? state.policyNames : undefined;
+            resourceInputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
+            resourceInputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
+            resourceInputs["policyNames"] = state ? state.policyNames : undefined;
         } else {
             const args = argsOrState as ListenerPolicyArgs | undefined;
             if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
@@ -152,16 +152,14 @@ export class ListenerPolicy extends pulumi.CustomResource {
             if ((!args || args.loadBalancerPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerPort'");
             }
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
-            inputs["policyNames"] = args ? args.policyNames : undefined;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
+            resourceInputs["policyNames"] = args ? args.policyNames : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ListenerPolicy.__pulumiType, name, inputs, opts);
+        super(ListenerPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

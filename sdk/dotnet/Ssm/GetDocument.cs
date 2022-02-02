@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ssm
 {
@@ -65,7 +64,7 @@ namespace Pulumi.Aws.Ssm
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDocumentResult> InvokeAsync(GetDocumentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the contents of the specified Systems Manager document.
@@ -120,7 +119,7 @@ namespace Pulumi.Aws.Ssm
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

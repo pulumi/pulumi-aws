@@ -132,7 +132,7 @@ type ApprovalRuleTemplateAssociationInput interface {
 }
 
 func (*ApprovalRuleTemplateAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApprovalRuleTemplateAssociation)(nil))
+	return reflect.TypeOf((**ApprovalRuleTemplateAssociation)(nil)).Elem()
 }
 
 func (i *ApprovalRuleTemplateAssociation) ToApprovalRuleTemplateAssociationOutput() ApprovalRuleTemplateAssociationOutput {
@@ -141,35 +141,6 @@ func (i *ApprovalRuleTemplateAssociation) ToApprovalRuleTemplateAssociationOutpu
 
 func (i *ApprovalRuleTemplateAssociation) ToApprovalRuleTemplateAssociationOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateAssociationOutput)
-}
-
-func (i *ApprovalRuleTemplateAssociation) ToApprovalRuleTemplateAssociationPtrOutput() ApprovalRuleTemplateAssociationPtrOutput {
-	return i.ToApprovalRuleTemplateAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ApprovalRuleTemplateAssociation) ToApprovalRuleTemplateAssociationPtrOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateAssociationPtrOutput)
-}
-
-type ApprovalRuleTemplateAssociationPtrInput interface {
-	pulumi.Input
-
-	ToApprovalRuleTemplateAssociationPtrOutput() ApprovalRuleTemplateAssociationPtrOutput
-	ToApprovalRuleTemplateAssociationPtrOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationPtrOutput
-}
-
-type approvalRuleTemplateAssociationPtrType ApprovalRuleTemplateAssociationArgs
-
-func (*approvalRuleTemplateAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApprovalRuleTemplateAssociation)(nil))
-}
-
-func (i *approvalRuleTemplateAssociationPtrType) ToApprovalRuleTemplateAssociationPtrOutput() ApprovalRuleTemplateAssociationPtrOutput {
-	return i.ToApprovalRuleTemplateAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *approvalRuleTemplateAssociationPtrType) ToApprovalRuleTemplateAssociationPtrOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateAssociationPtrOutput)
 }
 
 // ApprovalRuleTemplateAssociationArrayInput is an input type that accepts ApprovalRuleTemplateAssociationArray and ApprovalRuleTemplateAssociationArrayOutput values.
@@ -225,7 +196,7 @@ func (i ApprovalRuleTemplateAssociationMap) ToApprovalRuleTemplateAssociationMap
 type ApprovalRuleTemplateAssociationOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApprovalRuleTemplateAssociation)(nil))
+	return reflect.TypeOf((**ApprovalRuleTemplateAssociation)(nil)).Elem()
 }
 
 func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociationOutput() ApprovalRuleTemplateAssociationOutput {
@@ -236,44 +207,10 @@ func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociation
 	return o
 }
 
-func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociationPtrOutput() ApprovalRuleTemplateAssociationPtrOutput {
-	return o.ToApprovalRuleTemplateAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociationPtrOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApprovalRuleTemplateAssociation) *ApprovalRuleTemplateAssociation {
-		return &v
-	}).(ApprovalRuleTemplateAssociationPtrOutput)
-}
-
-type ApprovalRuleTemplateAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApprovalRuleTemplateAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApprovalRuleTemplateAssociation)(nil))
-}
-
-func (o ApprovalRuleTemplateAssociationPtrOutput) ToApprovalRuleTemplateAssociationPtrOutput() ApprovalRuleTemplateAssociationPtrOutput {
-	return o
-}
-
-func (o ApprovalRuleTemplateAssociationPtrOutput) ToApprovalRuleTemplateAssociationPtrOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationPtrOutput {
-	return o
-}
-
-func (o ApprovalRuleTemplateAssociationPtrOutput) Elem() ApprovalRuleTemplateAssociationOutput {
-	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) ApprovalRuleTemplateAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ApprovalRuleTemplateAssociation
-		return ret
-	}).(ApprovalRuleTemplateAssociationOutput)
-}
-
 type ApprovalRuleTemplateAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApprovalRuleTemplateAssociation)(nil))
+	return reflect.TypeOf((*[]*ApprovalRuleTemplateAssociation)(nil)).Elem()
 }
 
 func (o ApprovalRuleTemplateAssociationArrayOutput) ToApprovalRuleTemplateAssociationArrayOutput() ApprovalRuleTemplateAssociationArrayOutput {
@@ -285,15 +222,15 @@ func (o ApprovalRuleTemplateAssociationArrayOutput) ToApprovalRuleTemplateAssoci
 }
 
 func (o ApprovalRuleTemplateAssociationArrayOutput) Index(i pulumi.IntInput) ApprovalRuleTemplateAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApprovalRuleTemplateAssociation {
-		return vs[0].([]ApprovalRuleTemplateAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApprovalRuleTemplateAssociation {
+		return vs[0].([]*ApprovalRuleTemplateAssociation)[vs[1].(int)]
 	}).(ApprovalRuleTemplateAssociationOutput)
 }
 
 type ApprovalRuleTemplateAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApprovalRuleTemplateAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ApprovalRuleTemplateAssociation)(nil)).Elem()
 }
 
 func (o ApprovalRuleTemplateAssociationMapOutput) ToApprovalRuleTemplateAssociationMapOutput() ApprovalRuleTemplateAssociationMapOutput {
@@ -305,18 +242,16 @@ func (o ApprovalRuleTemplateAssociationMapOutput) ToApprovalRuleTemplateAssociat
 }
 
 func (o ApprovalRuleTemplateAssociationMapOutput) MapIndex(k pulumi.StringInput) ApprovalRuleTemplateAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApprovalRuleTemplateAssociation {
-		return vs[0].(map[string]ApprovalRuleTemplateAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApprovalRuleTemplateAssociation {
+		return vs[0].(map[string]*ApprovalRuleTemplateAssociation)[vs[1].(string)]
 	}).(ApprovalRuleTemplateAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplateAssociationInput)(nil)).Elem(), &ApprovalRuleTemplateAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplateAssociationPtrInput)(nil)).Elem(), &ApprovalRuleTemplateAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplateAssociationArrayInput)(nil)).Elem(), ApprovalRuleTemplateAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplateAssociationMapInput)(nil)).Elem(), ApprovalRuleTemplateAssociationMap{})
 	pulumi.RegisterOutputType(ApprovalRuleTemplateAssociationOutput{})
-	pulumi.RegisterOutputType(ApprovalRuleTemplateAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ApprovalRuleTemplateAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ApprovalRuleTemplateAssociationMapOutput{})
 }

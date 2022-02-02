@@ -15,7 +15,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

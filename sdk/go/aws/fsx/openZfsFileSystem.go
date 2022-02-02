@@ -340,7 +340,7 @@ type OpenZfsFileSystemInput interface {
 }
 
 func (*OpenZfsFileSystem) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenZfsFileSystem)(nil))
+	return reflect.TypeOf((**OpenZfsFileSystem)(nil)).Elem()
 }
 
 func (i *OpenZfsFileSystem) ToOpenZfsFileSystemOutput() OpenZfsFileSystemOutput {
@@ -349,35 +349,6 @@ func (i *OpenZfsFileSystem) ToOpenZfsFileSystemOutput() OpenZfsFileSystemOutput 
 
 func (i *OpenZfsFileSystem) ToOpenZfsFileSystemOutputWithContext(ctx context.Context) OpenZfsFileSystemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemOutput)
-}
-
-func (i *OpenZfsFileSystem) ToOpenZfsFileSystemPtrOutput() OpenZfsFileSystemPtrOutput {
-	return i.ToOpenZfsFileSystemPtrOutputWithContext(context.Background())
-}
-
-func (i *OpenZfsFileSystem) ToOpenZfsFileSystemPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemPtrOutput)
-}
-
-type OpenZfsFileSystemPtrInput interface {
-	pulumi.Input
-
-	ToOpenZfsFileSystemPtrOutput() OpenZfsFileSystemPtrOutput
-	ToOpenZfsFileSystemPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemPtrOutput
-}
-
-type openZfsFileSystemPtrType OpenZfsFileSystemArgs
-
-func (*openZfsFileSystemPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenZfsFileSystem)(nil))
-}
-
-func (i *openZfsFileSystemPtrType) ToOpenZfsFileSystemPtrOutput() OpenZfsFileSystemPtrOutput {
-	return i.ToOpenZfsFileSystemPtrOutputWithContext(context.Background())
-}
-
-func (i *openZfsFileSystemPtrType) ToOpenZfsFileSystemPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemPtrOutput)
 }
 
 // OpenZfsFileSystemArrayInput is an input type that accepts OpenZfsFileSystemArray and OpenZfsFileSystemArrayOutput values.
@@ -433,7 +404,7 @@ func (i OpenZfsFileSystemMap) ToOpenZfsFileSystemMapOutputWithContext(ctx contex
 type OpenZfsFileSystemOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenZfsFileSystem)(nil))
+	return reflect.TypeOf((**OpenZfsFileSystem)(nil)).Elem()
 }
 
 func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemOutput() OpenZfsFileSystemOutput {
@@ -444,44 +415,10 @@ func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemOutputWithContext(ctx contex
 	return o
 }
 
-func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemPtrOutput() OpenZfsFileSystemPtrOutput {
-	return o.ToOpenZfsFileSystemPtrOutputWithContext(context.Background())
-}
-
-func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsFileSystem) *OpenZfsFileSystem {
-		return &v
-	}).(OpenZfsFileSystemPtrOutput)
-}
-
-type OpenZfsFileSystemPtrOutput struct{ *pulumi.OutputState }
-
-func (OpenZfsFileSystemPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenZfsFileSystem)(nil))
-}
-
-func (o OpenZfsFileSystemPtrOutput) ToOpenZfsFileSystemPtrOutput() OpenZfsFileSystemPtrOutput {
-	return o
-}
-
-func (o OpenZfsFileSystemPtrOutput) ToOpenZfsFileSystemPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemPtrOutput {
-	return o
-}
-
-func (o OpenZfsFileSystemPtrOutput) Elem() OpenZfsFileSystemOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystem {
-		if v != nil {
-			return *v
-		}
-		var ret OpenZfsFileSystem
-		return ret
-	}).(OpenZfsFileSystemOutput)
-}
-
 type OpenZfsFileSystemArrayOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OpenZfsFileSystem)(nil))
+	return reflect.TypeOf((*[]*OpenZfsFileSystem)(nil)).Elem()
 }
 
 func (o OpenZfsFileSystemArrayOutput) ToOpenZfsFileSystemArrayOutput() OpenZfsFileSystemArrayOutput {
@@ -493,15 +430,15 @@ func (o OpenZfsFileSystemArrayOutput) ToOpenZfsFileSystemArrayOutputWithContext(
 }
 
 func (o OpenZfsFileSystemArrayOutput) Index(i pulumi.IntInput) OpenZfsFileSystemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenZfsFileSystem {
-		return vs[0].([]OpenZfsFileSystem)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OpenZfsFileSystem {
+		return vs[0].([]*OpenZfsFileSystem)[vs[1].(int)]
 	}).(OpenZfsFileSystemOutput)
 }
 
 type OpenZfsFileSystemMapOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OpenZfsFileSystem)(nil))
+	return reflect.TypeOf((*map[string]*OpenZfsFileSystem)(nil)).Elem()
 }
 
 func (o OpenZfsFileSystemMapOutput) ToOpenZfsFileSystemMapOutput() OpenZfsFileSystemMapOutput {
@@ -513,18 +450,16 @@ func (o OpenZfsFileSystemMapOutput) ToOpenZfsFileSystemMapOutputWithContext(ctx 
 }
 
 func (o OpenZfsFileSystemMapOutput) MapIndex(k pulumi.StringInput) OpenZfsFileSystemOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OpenZfsFileSystem {
-		return vs[0].(map[string]OpenZfsFileSystem)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OpenZfsFileSystem {
+		return vs[0].(map[string]*OpenZfsFileSystem)[vs[1].(string)]
 	}).(OpenZfsFileSystemOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemInput)(nil)).Elem(), &OpenZfsFileSystem{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemPtrInput)(nil)).Elem(), &OpenZfsFileSystem{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemArrayInput)(nil)).Elem(), OpenZfsFileSystemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemMapInput)(nil)).Elem(), OpenZfsFileSystemMap{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemOutput{})
-	pulumi.RegisterOutputType(OpenZfsFileSystemPtrOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemArrayOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemMapOutput{})
 }

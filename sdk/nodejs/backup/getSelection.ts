@@ -24,9 +24,7 @@ export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:backup/getSelection:getSelection", {
         "planId": args.planId,
         "selectionId": args.selectionId,

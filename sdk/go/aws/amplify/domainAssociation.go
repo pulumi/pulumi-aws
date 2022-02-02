@@ -196,7 +196,7 @@ type DomainAssociationInput interface {
 }
 
 func (*DomainAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainAssociation)(nil))
+	return reflect.TypeOf((**DomainAssociation)(nil)).Elem()
 }
 
 func (i *DomainAssociation) ToDomainAssociationOutput() DomainAssociationOutput {
@@ -205,35 +205,6 @@ func (i *DomainAssociation) ToDomainAssociationOutput() DomainAssociationOutput 
 
 func (i *DomainAssociation) ToDomainAssociationOutputWithContext(ctx context.Context) DomainAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationOutput)
-}
-
-func (i *DomainAssociation) ToDomainAssociationPtrOutput() DomainAssociationPtrOutput {
-	return i.ToDomainAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainAssociation) ToDomainAssociationPtrOutputWithContext(ctx context.Context) DomainAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationPtrOutput)
-}
-
-type DomainAssociationPtrInput interface {
-	pulumi.Input
-
-	ToDomainAssociationPtrOutput() DomainAssociationPtrOutput
-	ToDomainAssociationPtrOutputWithContext(ctx context.Context) DomainAssociationPtrOutput
-}
-
-type domainAssociationPtrType DomainAssociationArgs
-
-func (*domainAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainAssociation)(nil))
-}
-
-func (i *domainAssociationPtrType) ToDomainAssociationPtrOutput() DomainAssociationPtrOutput {
-	return i.ToDomainAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *domainAssociationPtrType) ToDomainAssociationPtrOutputWithContext(ctx context.Context) DomainAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationPtrOutput)
 }
 
 // DomainAssociationArrayInput is an input type that accepts DomainAssociationArray and DomainAssociationArrayOutput values.
@@ -289,7 +260,7 @@ func (i DomainAssociationMap) ToDomainAssociationMapOutputWithContext(ctx contex
 type DomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (DomainAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainAssociation)(nil))
+	return reflect.TypeOf((**DomainAssociation)(nil)).Elem()
 }
 
 func (o DomainAssociationOutput) ToDomainAssociationOutput() DomainAssociationOutput {
@@ -300,44 +271,10 @@ func (o DomainAssociationOutput) ToDomainAssociationOutputWithContext(ctx contex
 	return o
 }
 
-func (o DomainAssociationOutput) ToDomainAssociationPtrOutput() DomainAssociationPtrOutput {
-	return o.ToDomainAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o DomainAssociationOutput) ToDomainAssociationPtrOutputWithContext(ctx context.Context) DomainAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAssociation) *DomainAssociation {
-		return &v
-	}).(DomainAssociationPtrOutput)
-}
-
-type DomainAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainAssociation)(nil))
-}
-
-func (o DomainAssociationPtrOutput) ToDomainAssociationPtrOutput() DomainAssociationPtrOutput {
-	return o
-}
-
-func (o DomainAssociationPtrOutput) ToDomainAssociationPtrOutputWithContext(ctx context.Context) DomainAssociationPtrOutput {
-	return o
-}
-
-func (o DomainAssociationPtrOutput) Elem() DomainAssociationOutput {
-	return o.ApplyT(func(v *DomainAssociation) DomainAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret DomainAssociation
-		return ret
-	}).(DomainAssociationOutput)
-}
-
 type DomainAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainAssociation)(nil))
+	return reflect.TypeOf((*[]*DomainAssociation)(nil)).Elem()
 }
 
 func (o DomainAssociationArrayOutput) ToDomainAssociationArrayOutput() DomainAssociationArrayOutput {
@@ -349,15 +286,15 @@ func (o DomainAssociationArrayOutput) ToDomainAssociationArrayOutputWithContext(
 }
 
 func (o DomainAssociationArrayOutput) Index(i pulumi.IntInput) DomainAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainAssociation {
-		return vs[0].([]DomainAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainAssociation {
+		return vs[0].([]*DomainAssociation)[vs[1].(int)]
 	}).(DomainAssociationOutput)
 }
 
 type DomainAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (DomainAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainAssociation)(nil))
+	return reflect.TypeOf((*map[string]*DomainAssociation)(nil)).Elem()
 }
 
 func (o DomainAssociationMapOutput) ToDomainAssociationMapOutput() DomainAssociationMapOutput {
@@ -369,18 +306,16 @@ func (o DomainAssociationMapOutput) ToDomainAssociationMapOutputWithContext(ctx 
 }
 
 func (o DomainAssociationMapOutput) MapIndex(k pulumi.StringInput) DomainAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainAssociation {
-		return vs[0].(map[string]DomainAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainAssociation {
+		return vs[0].(map[string]*DomainAssociation)[vs[1].(string)]
 	}).(DomainAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationInput)(nil)).Elem(), &DomainAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationPtrInput)(nil)).Elem(), &DomainAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationArrayInput)(nil)).Elem(), DomainAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationMapInput)(nil)).Elem(), DomainAssociationMap{})
 	pulumi.RegisterOutputType(DomainAssociationOutput{})
-	pulumi.RegisterOutputType(DomainAssociationPtrOutput{})
 	pulumi.RegisterOutputType(DomainAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DomainAssociationMapOutput{})
 }

@@ -293,7 +293,7 @@ type EventBusPolicyInput interface {
 }
 
 func (*EventBusPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventBusPolicy)(nil))
+	return reflect.TypeOf((**EventBusPolicy)(nil)).Elem()
 }
 
 func (i *EventBusPolicy) ToEventBusPolicyOutput() EventBusPolicyOutput {
@@ -302,35 +302,6 @@ func (i *EventBusPolicy) ToEventBusPolicyOutput() EventBusPolicyOutput {
 
 func (i *EventBusPolicy) ToEventBusPolicyOutputWithContext(ctx context.Context) EventBusPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyOutput)
-}
-
-func (i *EventBusPolicy) ToEventBusPolicyPtrOutput() EventBusPolicyPtrOutput {
-	return i.ToEventBusPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *EventBusPolicy) ToEventBusPolicyPtrOutputWithContext(ctx context.Context) EventBusPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyPtrOutput)
-}
-
-type EventBusPolicyPtrInput interface {
-	pulumi.Input
-
-	ToEventBusPolicyPtrOutput() EventBusPolicyPtrOutput
-	ToEventBusPolicyPtrOutputWithContext(ctx context.Context) EventBusPolicyPtrOutput
-}
-
-type eventBusPolicyPtrType EventBusPolicyArgs
-
-func (*eventBusPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventBusPolicy)(nil))
-}
-
-func (i *eventBusPolicyPtrType) ToEventBusPolicyPtrOutput() EventBusPolicyPtrOutput {
-	return i.ToEventBusPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *eventBusPolicyPtrType) ToEventBusPolicyPtrOutputWithContext(ctx context.Context) EventBusPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyPtrOutput)
 }
 
 // EventBusPolicyArrayInput is an input type that accepts EventBusPolicyArray and EventBusPolicyArrayOutput values.
@@ -386,7 +357,7 @@ func (i EventBusPolicyMap) ToEventBusPolicyMapOutputWithContext(ctx context.Cont
 type EventBusPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventBusPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventBusPolicy)(nil))
+	return reflect.TypeOf((**EventBusPolicy)(nil)).Elem()
 }
 
 func (o EventBusPolicyOutput) ToEventBusPolicyOutput() EventBusPolicyOutput {
@@ -397,44 +368,10 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o EventBusPolicyOutput) ToEventBusPolicyPtrOutput() EventBusPolicyPtrOutput {
-	return o.ToEventBusPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o EventBusPolicyOutput) ToEventBusPolicyPtrOutputWithContext(ctx context.Context) EventBusPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventBusPolicy) *EventBusPolicy {
-		return &v
-	}).(EventBusPolicyPtrOutput)
-}
-
-type EventBusPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (EventBusPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventBusPolicy)(nil))
-}
-
-func (o EventBusPolicyPtrOutput) ToEventBusPolicyPtrOutput() EventBusPolicyPtrOutput {
-	return o
-}
-
-func (o EventBusPolicyPtrOutput) ToEventBusPolicyPtrOutputWithContext(ctx context.Context) EventBusPolicyPtrOutput {
-	return o
-}
-
-func (o EventBusPolicyPtrOutput) Elem() EventBusPolicyOutput {
-	return o.ApplyT(func(v *EventBusPolicy) EventBusPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret EventBusPolicy
-		return ret
-	}).(EventBusPolicyOutput)
-}
-
 type EventBusPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (EventBusPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventBusPolicy)(nil))
+	return reflect.TypeOf((*[]*EventBusPolicy)(nil)).Elem()
 }
 
 func (o EventBusPolicyArrayOutput) ToEventBusPolicyArrayOutput() EventBusPolicyArrayOutput {
@@ -446,15 +383,15 @@ func (o EventBusPolicyArrayOutput) ToEventBusPolicyArrayOutputWithContext(ctx co
 }
 
 func (o EventBusPolicyArrayOutput) Index(i pulumi.IntInput) EventBusPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventBusPolicy {
-		return vs[0].([]EventBusPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventBusPolicy {
+		return vs[0].([]*EventBusPolicy)[vs[1].(int)]
 	}).(EventBusPolicyOutput)
 }
 
 type EventBusPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (EventBusPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventBusPolicy)(nil))
+	return reflect.TypeOf((*map[string]*EventBusPolicy)(nil)).Elem()
 }
 
 func (o EventBusPolicyMapOutput) ToEventBusPolicyMapOutput() EventBusPolicyMapOutput {
@@ -466,18 +403,16 @@ func (o EventBusPolicyMapOutput) ToEventBusPolicyMapOutputWithContext(ctx contex
 }
 
 func (o EventBusPolicyMapOutput) MapIndex(k pulumi.StringInput) EventBusPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventBusPolicy {
-		return vs[0].(map[string]EventBusPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventBusPolicy {
+		return vs[0].(map[string]*EventBusPolicy)[vs[1].(string)]
 	}).(EventBusPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyInput)(nil)).Elem(), &EventBusPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyPtrInput)(nil)).Elem(), &EventBusPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyArrayInput)(nil)).Elem(), EventBusPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyMapInput)(nil)).Elem(), EventBusPolicyMap{})
 	pulumi.RegisterOutputType(EventBusPolicyOutput{})
-	pulumi.RegisterOutputType(EventBusPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyArrayOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyMapOutput{})
 }

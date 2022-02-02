@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lex
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.Lex
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Lex Bot.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.Lex
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
     }
 
 

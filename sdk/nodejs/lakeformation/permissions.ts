@@ -79,19 +79,19 @@ export class Permissions extends pulumi.CustomResource {
      */
     constructor(name: string, args: PermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionsArgs | PermissionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionsState | undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["catalogResource"] = state ? state.catalogResource : undefined;
-            inputs["dataLocation"] = state ? state.dataLocation : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["permissionsWithGrantOptions"] = state ? state.permissionsWithGrantOptions : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["table"] = state ? state.table : undefined;
-            inputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["catalogResource"] = state ? state.catalogResource : undefined;
+            resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["permissionsWithGrantOptions"] = state ? state.permissionsWithGrantOptions : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["table"] = state ? state.table : undefined;
+            resourceInputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
         } else {
             const args = argsOrState as PermissionsArgs | undefined;
             if ((!args || args.permissions === undefined) && !opts.urn) {
@@ -100,20 +100,18 @@ export class Permissions extends pulumi.CustomResource {
             if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["catalogResource"] = args ? args.catalogResource : undefined;
-            inputs["dataLocation"] = args ? args.dataLocation : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["permissionsWithGrantOptions"] = args ? args.permissionsWithGrantOptions : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["table"] = args ? args.table : undefined;
-            inputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["catalogResource"] = args ? args.catalogResource : undefined;
+            resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["permissionsWithGrantOptions"] = args ? args.permissionsWithGrantOptions : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["table"] = args ? args.table : undefined;
+            resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Permissions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Permissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

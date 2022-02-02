@@ -114,7 +114,7 @@ type MemberAccountAssociationInput interface {
 }
 
 func (*MemberAccountAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberAccountAssociation)(nil))
+	return reflect.TypeOf((**MemberAccountAssociation)(nil)).Elem()
 }
 
 func (i *MemberAccountAssociation) ToMemberAccountAssociationOutput() MemberAccountAssociationOutput {
@@ -123,35 +123,6 @@ func (i *MemberAccountAssociation) ToMemberAccountAssociationOutput() MemberAcco
 
 func (i *MemberAccountAssociation) ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationOutput)
-}
-
-func (i *MemberAccountAssociation) ToMemberAccountAssociationPtrOutput() MemberAccountAssociationPtrOutput {
-	return i.ToMemberAccountAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *MemberAccountAssociation) ToMemberAccountAssociationPtrOutputWithContext(ctx context.Context) MemberAccountAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationPtrOutput)
-}
-
-type MemberAccountAssociationPtrInput interface {
-	pulumi.Input
-
-	ToMemberAccountAssociationPtrOutput() MemberAccountAssociationPtrOutput
-	ToMemberAccountAssociationPtrOutputWithContext(ctx context.Context) MemberAccountAssociationPtrOutput
-}
-
-type memberAccountAssociationPtrType MemberAccountAssociationArgs
-
-func (*memberAccountAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberAccountAssociation)(nil))
-}
-
-func (i *memberAccountAssociationPtrType) ToMemberAccountAssociationPtrOutput() MemberAccountAssociationPtrOutput {
-	return i.ToMemberAccountAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *memberAccountAssociationPtrType) ToMemberAccountAssociationPtrOutputWithContext(ctx context.Context) MemberAccountAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationPtrOutput)
 }
 
 // MemberAccountAssociationArrayInput is an input type that accepts MemberAccountAssociationArray and MemberAccountAssociationArrayOutput values.
@@ -207,7 +178,7 @@ func (i MemberAccountAssociationMap) ToMemberAccountAssociationMapOutputWithCont
 type MemberAccountAssociationOutput struct{ *pulumi.OutputState }
 
 func (MemberAccountAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberAccountAssociation)(nil))
+	return reflect.TypeOf((**MemberAccountAssociation)(nil)).Elem()
 }
 
 func (o MemberAccountAssociationOutput) ToMemberAccountAssociationOutput() MemberAccountAssociationOutput {
@@ -218,44 +189,10 @@ func (o MemberAccountAssociationOutput) ToMemberAccountAssociationOutputWithCont
 	return o
 }
 
-func (o MemberAccountAssociationOutput) ToMemberAccountAssociationPtrOutput() MemberAccountAssociationPtrOutput {
-	return o.ToMemberAccountAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o MemberAccountAssociationOutput) ToMemberAccountAssociationPtrOutputWithContext(ctx context.Context) MemberAccountAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberAccountAssociation) *MemberAccountAssociation {
-		return &v
-	}).(MemberAccountAssociationPtrOutput)
-}
-
-type MemberAccountAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (MemberAccountAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberAccountAssociation)(nil))
-}
-
-func (o MemberAccountAssociationPtrOutput) ToMemberAccountAssociationPtrOutput() MemberAccountAssociationPtrOutput {
-	return o
-}
-
-func (o MemberAccountAssociationPtrOutput) ToMemberAccountAssociationPtrOutputWithContext(ctx context.Context) MemberAccountAssociationPtrOutput {
-	return o
-}
-
-func (o MemberAccountAssociationPtrOutput) Elem() MemberAccountAssociationOutput {
-	return o.ApplyT(func(v *MemberAccountAssociation) MemberAccountAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret MemberAccountAssociation
-		return ret
-	}).(MemberAccountAssociationOutput)
-}
-
 type MemberAccountAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (MemberAccountAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MemberAccountAssociation)(nil))
+	return reflect.TypeOf((*[]*MemberAccountAssociation)(nil)).Elem()
 }
 
 func (o MemberAccountAssociationArrayOutput) ToMemberAccountAssociationArrayOutput() MemberAccountAssociationArrayOutput {
@@ -267,15 +204,15 @@ func (o MemberAccountAssociationArrayOutput) ToMemberAccountAssociationArrayOutp
 }
 
 func (o MemberAccountAssociationArrayOutput) Index(i pulumi.IntInput) MemberAccountAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemberAccountAssociation {
-		return vs[0].([]MemberAccountAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MemberAccountAssociation {
+		return vs[0].([]*MemberAccountAssociation)[vs[1].(int)]
 	}).(MemberAccountAssociationOutput)
 }
 
 type MemberAccountAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (MemberAccountAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MemberAccountAssociation)(nil))
+	return reflect.TypeOf((*map[string]*MemberAccountAssociation)(nil)).Elem()
 }
 
 func (o MemberAccountAssociationMapOutput) ToMemberAccountAssociationMapOutput() MemberAccountAssociationMapOutput {
@@ -287,18 +224,16 @@ func (o MemberAccountAssociationMapOutput) ToMemberAccountAssociationMapOutputWi
 }
 
 func (o MemberAccountAssociationMapOutput) MapIndex(k pulumi.StringInput) MemberAccountAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MemberAccountAssociation {
-		return vs[0].(map[string]MemberAccountAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MemberAccountAssociation {
+		return vs[0].(map[string]*MemberAccountAssociation)[vs[1].(string)]
 	}).(MemberAccountAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberAccountAssociationInput)(nil)).Elem(), &MemberAccountAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MemberAccountAssociationPtrInput)(nil)).Elem(), &MemberAccountAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberAccountAssociationArrayInput)(nil)).Elem(), MemberAccountAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberAccountAssociationMapInput)(nil)).Elem(), MemberAccountAssociationMap{})
 	pulumi.RegisterOutputType(MemberAccountAssociationOutput{})
-	pulumi.RegisterOutputType(MemberAccountAssociationPtrOutput{})
 	pulumi.RegisterOutputType(MemberAccountAssociationArrayOutput{})
 	pulumi.RegisterOutputType(MemberAccountAssociationMapOutput{})
 }

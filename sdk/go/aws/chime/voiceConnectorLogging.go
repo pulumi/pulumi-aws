@@ -135,7 +135,7 @@ type VoiceConnectorLoggingInput interface {
 }
 
 func (*VoiceConnectorLogging) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorLogging)(nil))
+	return reflect.TypeOf((**VoiceConnectorLogging)(nil)).Elem()
 }
 
 func (i *VoiceConnectorLogging) ToVoiceConnectorLoggingOutput() VoiceConnectorLoggingOutput {
@@ -144,35 +144,6 @@ func (i *VoiceConnectorLogging) ToVoiceConnectorLoggingOutput() VoiceConnectorLo
 
 func (i *VoiceConnectorLogging) ToVoiceConnectorLoggingOutputWithContext(ctx context.Context) VoiceConnectorLoggingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorLoggingOutput)
-}
-
-func (i *VoiceConnectorLogging) ToVoiceConnectorLoggingPtrOutput() VoiceConnectorLoggingPtrOutput {
-	return i.ToVoiceConnectorLoggingPtrOutputWithContext(context.Background())
-}
-
-func (i *VoiceConnectorLogging) ToVoiceConnectorLoggingPtrOutputWithContext(ctx context.Context) VoiceConnectorLoggingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorLoggingPtrOutput)
-}
-
-type VoiceConnectorLoggingPtrInput interface {
-	pulumi.Input
-
-	ToVoiceConnectorLoggingPtrOutput() VoiceConnectorLoggingPtrOutput
-	ToVoiceConnectorLoggingPtrOutputWithContext(ctx context.Context) VoiceConnectorLoggingPtrOutput
-}
-
-type voiceConnectorLoggingPtrType VoiceConnectorLoggingArgs
-
-func (*voiceConnectorLoggingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorLogging)(nil))
-}
-
-func (i *voiceConnectorLoggingPtrType) ToVoiceConnectorLoggingPtrOutput() VoiceConnectorLoggingPtrOutput {
-	return i.ToVoiceConnectorLoggingPtrOutputWithContext(context.Background())
-}
-
-func (i *voiceConnectorLoggingPtrType) ToVoiceConnectorLoggingPtrOutputWithContext(ctx context.Context) VoiceConnectorLoggingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorLoggingPtrOutput)
 }
 
 // VoiceConnectorLoggingArrayInput is an input type that accepts VoiceConnectorLoggingArray and VoiceConnectorLoggingArrayOutput values.
@@ -228,7 +199,7 @@ func (i VoiceConnectorLoggingMap) ToVoiceConnectorLoggingMapOutputWithContext(ct
 type VoiceConnectorLoggingOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorLoggingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorLogging)(nil))
+	return reflect.TypeOf((**VoiceConnectorLogging)(nil)).Elem()
 }
 
 func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingOutput() VoiceConnectorLoggingOutput {
@@ -239,44 +210,10 @@ func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingOutputWithContext(ct
 	return o
 }
 
-func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingPtrOutput() VoiceConnectorLoggingPtrOutput {
-	return o.ToVoiceConnectorLoggingPtrOutputWithContext(context.Background())
-}
-
-func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingPtrOutputWithContext(ctx context.Context) VoiceConnectorLoggingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VoiceConnectorLogging) *VoiceConnectorLogging {
-		return &v
-	}).(VoiceConnectorLoggingPtrOutput)
-}
-
-type VoiceConnectorLoggingPtrOutput struct{ *pulumi.OutputState }
-
-func (VoiceConnectorLoggingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorLogging)(nil))
-}
-
-func (o VoiceConnectorLoggingPtrOutput) ToVoiceConnectorLoggingPtrOutput() VoiceConnectorLoggingPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorLoggingPtrOutput) ToVoiceConnectorLoggingPtrOutputWithContext(ctx context.Context) VoiceConnectorLoggingPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorLoggingPtrOutput) Elem() VoiceConnectorLoggingOutput {
-	return o.ApplyT(func(v *VoiceConnectorLogging) VoiceConnectorLogging {
-		if v != nil {
-			return *v
-		}
-		var ret VoiceConnectorLogging
-		return ret
-	}).(VoiceConnectorLoggingOutput)
-}
-
 type VoiceConnectorLoggingArrayOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorLoggingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceConnectorLogging)(nil))
+	return reflect.TypeOf((*[]*VoiceConnectorLogging)(nil)).Elem()
 }
 
 func (o VoiceConnectorLoggingArrayOutput) ToVoiceConnectorLoggingArrayOutput() VoiceConnectorLoggingArrayOutput {
@@ -288,15 +225,15 @@ func (o VoiceConnectorLoggingArrayOutput) ToVoiceConnectorLoggingArrayOutputWith
 }
 
 func (o VoiceConnectorLoggingArrayOutput) Index(i pulumi.IntInput) VoiceConnectorLoggingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorLogging {
-		return vs[0].([]VoiceConnectorLogging)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorLogging {
+		return vs[0].([]*VoiceConnectorLogging)[vs[1].(int)]
 	}).(VoiceConnectorLoggingOutput)
 }
 
 type VoiceConnectorLoggingMapOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorLoggingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VoiceConnectorLogging)(nil))
+	return reflect.TypeOf((*map[string]*VoiceConnectorLogging)(nil)).Elem()
 }
 
 func (o VoiceConnectorLoggingMapOutput) ToVoiceConnectorLoggingMapOutput() VoiceConnectorLoggingMapOutput {
@@ -308,18 +245,16 @@ func (o VoiceConnectorLoggingMapOutput) ToVoiceConnectorLoggingMapOutputWithCont
 }
 
 func (o VoiceConnectorLoggingMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorLoggingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VoiceConnectorLogging {
-		return vs[0].(map[string]VoiceConnectorLogging)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VoiceConnectorLogging {
+		return vs[0].(map[string]*VoiceConnectorLogging)[vs[1].(string)]
 	}).(VoiceConnectorLoggingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorLoggingInput)(nil)).Elem(), &VoiceConnectorLogging{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorLoggingPtrInput)(nil)).Elem(), &VoiceConnectorLogging{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorLoggingArrayInput)(nil)).Elem(), VoiceConnectorLoggingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorLoggingMapInput)(nil)).Elem(), VoiceConnectorLoggingMap{})
 	pulumi.RegisterOutputType(VoiceConnectorLoggingOutput{})
-	pulumi.RegisterOutputType(VoiceConnectorLoggingPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorLoggingArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorLoggingMapOutput{})
 }

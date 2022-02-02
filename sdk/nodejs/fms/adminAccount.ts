@@ -66,19 +66,17 @@ export class AdminAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AdminAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdminAccountArgs | AdminAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminAccountState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
         } else {
             const args = argsOrState as AdminAccountArgs | undefined;
-            inputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AdminAccount.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AdminAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

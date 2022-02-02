@@ -318,7 +318,7 @@ type MethodInput interface {
 }
 
 func (*Method) ElementType() reflect.Type {
-	return reflect.TypeOf((*Method)(nil))
+	return reflect.TypeOf((**Method)(nil)).Elem()
 }
 
 func (i *Method) ToMethodOutput() MethodOutput {
@@ -327,35 +327,6 @@ func (i *Method) ToMethodOutput() MethodOutput {
 
 func (i *Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodOutput)
-}
-
-func (i *Method) ToMethodPtrOutput() MethodPtrOutput {
-	return i.ToMethodPtrOutputWithContext(context.Background())
-}
-
-func (i *Method) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodPtrOutput)
-}
-
-type MethodPtrInput interface {
-	pulumi.Input
-
-	ToMethodPtrOutput() MethodPtrOutput
-	ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput
-}
-
-type methodPtrType MethodArgs
-
-func (*methodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Method)(nil))
-}
-
-func (i *methodPtrType) ToMethodPtrOutput() MethodPtrOutput {
-	return i.ToMethodPtrOutputWithContext(context.Background())
-}
-
-func (i *methodPtrType) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodPtrOutput)
 }
 
 // MethodArrayInput is an input type that accepts MethodArray and MethodArrayOutput values.
@@ -411,7 +382,7 @@ func (i MethodMap) ToMethodMapOutputWithContext(ctx context.Context) MethodMapOu
 type MethodOutput struct{ *pulumi.OutputState }
 
 func (MethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Method)(nil))
+	return reflect.TypeOf((**Method)(nil)).Elem()
 }
 
 func (o MethodOutput) ToMethodOutput() MethodOutput {
@@ -422,44 +393,10 @@ func (o MethodOutput) ToMethodOutputWithContext(ctx context.Context) MethodOutpu
 	return o
 }
 
-func (o MethodOutput) ToMethodPtrOutput() MethodPtrOutput {
-	return o.ToMethodPtrOutputWithContext(context.Background())
-}
-
-func (o MethodOutput) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Method) *Method {
-		return &v
-	}).(MethodPtrOutput)
-}
-
-type MethodPtrOutput struct{ *pulumi.OutputState }
-
-func (MethodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Method)(nil))
-}
-
-func (o MethodPtrOutput) ToMethodPtrOutput() MethodPtrOutput {
-	return o
-}
-
-func (o MethodPtrOutput) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
-	return o
-}
-
-func (o MethodPtrOutput) Elem() MethodOutput {
-	return o.ApplyT(func(v *Method) Method {
-		if v != nil {
-			return *v
-		}
-		var ret Method
-		return ret
-	}).(MethodOutput)
-}
-
 type MethodArrayOutput struct{ *pulumi.OutputState }
 
 func (MethodArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Method)(nil))
+	return reflect.TypeOf((*[]*Method)(nil)).Elem()
 }
 
 func (o MethodArrayOutput) ToMethodArrayOutput() MethodArrayOutput {
@@ -471,15 +408,15 @@ func (o MethodArrayOutput) ToMethodArrayOutputWithContext(ctx context.Context) M
 }
 
 func (o MethodArrayOutput) Index(i pulumi.IntInput) MethodOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Method {
-		return vs[0].([]Method)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Method {
+		return vs[0].([]*Method)[vs[1].(int)]
 	}).(MethodOutput)
 }
 
 type MethodMapOutput struct{ *pulumi.OutputState }
 
 func (MethodMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Method)(nil))
+	return reflect.TypeOf((*map[string]*Method)(nil)).Elem()
 }
 
 func (o MethodMapOutput) ToMethodMapOutput() MethodMapOutput {
@@ -491,18 +428,16 @@ func (o MethodMapOutput) ToMethodMapOutputWithContext(ctx context.Context) Metho
 }
 
 func (o MethodMapOutput) MapIndex(k pulumi.StringInput) MethodOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Method {
-		return vs[0].(map[string]Method)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Method {
+		return vs[0].(map[string]*Method)[vs[1].(string)]
 	}).(MethodOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodInput)(nil)).Elem(), &Method{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MethodPtrInput)(nil)).Elem(), &Method{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodArrayInput)(nil)).Elem(), MethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodMapInput)(nil)).Elem(), MethodMap{})
 	pulumi.RegisterOutputType(MethodOutput{})
-	pulumi.RegisterOutputType(MethodPtrOutput{})
 	pulumi.RegisterOutputType(MethodArrayOutput{})
 	pulumi.RegisterOutputType(MethodMapOutput{})
 }

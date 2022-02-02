@@ -132,27 +132,27 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotCopyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotCopyArgs | SnapshotCopyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotCopyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["outpostArn"] = state ? state.outpostArn : undefined;
-            inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["permanentRestore"] = state ? state.permanentRestore : undefined;
-            inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
-            inputs["sourceSnapshotId"] = state ? state.sourceSnapshotId : undefined;
-            inputs["storageTier"] = state ? state.storageTier : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["temporaryRestoreDays"] = state ? state.temporaryRestoreDays : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
-            inputs["volumeSize"] = state ? state.volumeSize : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["ownerAlias"] = state ? state.ownerAlias : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["permanentRestore"] = state ? state.permanentRestore : undefined;
+            resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
+            resourceInputs["sourceSnapshotId"] = state ? state.sourceSnapshotId : undefined;
+            resourceInputs["storageTier"] = state ? state.storageTier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["temporaryRestoreDays"] = state ? state.temporaryRestoreDays : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as SnapshotCopyArgs | undefined;
             if ((!args || args.sourceRegion === undefined) && !opts.urn) {
@@ -161,28 +161,26 @@ export class SnapshotCopy extends pulumi.CustomResource {
             if ((!args || args.sourceSnapshotId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceSnapshotId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["permanentRestore"] = args ? args.permanentRestore : undefined;
-            inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
-            inputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
-            inputs["storageTier"] = args ? args.storageTier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["temporaryRestoreDays"] = args ? args.temporaryRestoreDays : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dataEncryptionKeyId"] = undefined /*out*/;
-            inputs["outpostArn"] = undefined /*out*/;
-            inputs["ownerAlias"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["volumeId"] = undefined /*out*/;
-            inputs["volumeSize"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["permanentRestore"] = args ? args.permanentRestore : undefined;
+            resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
+            resourceInputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
+            resourceInputs["storageTier"] = args ? args.storageTier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["temporaryRestoreDays"] = args ? args.temporaryRestoreDays : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dataEncryptionKeyId"] = undefined /*out*/;
+            resourceInputs["outpostArn"] = undefined /*out*/;
+            resourceInputs["ownerAlias"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["volumeId"] = undefined /*out*/;
+            resourceInputs["volumeSize"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SnapshotCopy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SnapshotCopy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

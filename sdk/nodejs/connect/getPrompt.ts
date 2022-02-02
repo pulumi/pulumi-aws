@@ -26,9 +26,7 @@ export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,
         "name": args.name,

@@ -178,70 +178,68 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: DevEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DevEndpointArgs | DevEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DevEndpointState | undefined;
-            inputs["arguments"] = state ? state.arguments : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["extraJarsS3Path"] = state ? state.extraJarsS3Path : undefined;
-            inputs["extraPythonLibsS3Path"] = state ? state.extraPythonLibsS3Path : undefined;
-            inputs["failureReason"] = state ? state.failureReason : undefined;
-            inputs["glueVersion"] = state ? state.glueVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
-            inputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
-            inputs["privateAddress"] = state ? state.privateAddress : undefined;
-            inputs["publicAddress"] = state ? state.publicAddress : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
-            inputs["publicKeys"] = state ? state.publicKeys : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["workerType"] = state ? state.workerType : undefined;
-            inputs["yarnEndpointAddress"] = state ? state.yarnEndpointAddress : undefined;
-            inputs["zeppelinRemoteSparkInterpreterPort"] = state ? state.zeppelinRemoteSparkInterpreterPort : undefined;
+            resourceInputs["arguments"] = state ? state.arguments : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["extraJarsS3Path"] = state ? state.extraJarsS3Path : undefined;
+            resourceInputs["extraPythonLibsS3Path"] = state ? state.extraPythonLibsS3Path : undefined;
+            resourceInputs["failureReason"] = state ? state.failureReason : undefined;
+            resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
+            resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
+            resourceInputs["privateAddress"] = state ? state.privateAddress : undefined;
+            resourceInputs["publicAddress"] = state ? state.publicAddress : undefined;
+            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["publicKeys"] = state ? state.publicKeys : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["workerType"] = state ? state.workerType : undefined;
+            resourceInputs["yarnEndpointAddress"] = state ? state.yarnEndpointAddress : undefined;
+            resourceInputs["zeppelinRemoteSparkInterpreterPort"] = state ? state.zeppelinRemoteSparkInterpreterPort : undefined;
         } else {
             const args = argsOrState as DevEndpointArgs | undefined;
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["arguments"] = args ? args.arguments : undefined;
-            inputs["extraJarsS3Path"] = args ? args.extraJarsS3Path : undefined;
-            inputs["extraPythonLibsS3Path"] = args ? args.extraPythonLibsS3Path : undefined;
-            inputs["glueVersion"] = args ? args.glueVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["publicKeys"] = args ? args.publicKeys : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workerType"] = args ? args.workerType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["failureReason"] = undefined /*out*/;
-            inputs["privateAddress"] = undefined /*out*/;
-            inputs["publicAddress"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
-            inputs["yarnEndpointAddress"] = undefined /*out*/;
-            inputs["zeppelinRemoteSparkInterpreterPort"] = undefined /*out*/;
+            resourceInputs["arguments"] = args ? args.arguments : undefined;
+            resourceInputs["extraJarsS3Path"] = args ? args.extraJarsS3Path : undefined;
+            resourceInputs["extraPythonLibsS3Path"] = args ? args.extraPythonLibsS3Path : undefined;
+            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
+            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["publicKeys"] = args ? args.publicKeys : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["privateAddress"] = undefined /*out*/;
+            resourceInputs["publicAddress"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
+            resourceInputs["yarnEndpointAddress"] = undefined /*out*/;
+            resourceInputs["zeppelinRemoteSparkInterpreterPort"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DevEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DevEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

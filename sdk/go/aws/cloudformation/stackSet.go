@@ -68,6 +68,21 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// 			Statements: iam.GetPolicyDocumentStatementArray{
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("sts:AssumeRole"),
+// 					},
+// 					Effect: pulumi.String("Allow"),
+// 					Resources: pulumi.StringArray{
+// 						example.ExecutionRoleName.ApplyT(func(executionRoleName string) (string, error) {
+// 							return fmt.Sprintf("%v%v", "arn:aws:iam::*:role/", executionRoleName), nil
+// 						}).(pulumi.StringOutput),
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		_, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
 // 			Policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
 // 				return aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json, nil
@@ -279,7 +294,7 @@ type StackSetInput interface {
 }
 
 func (*StackSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSet)(nil))
+	return reflect.TypeOf((**StackSet)(nil)).Elem()
 }
 
 func (i *StackSet) ToStackSetOutput() StackSetOutput {
@@ -288,35 +303,6 @@ func (i *StackSet) ToStackSetOutput() StackSetOutput {
 
 func (i *StackSet) ToStackSetOutputWithContext(ctx context.Context) StackSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOutput)
-}
-
-func (i *StackSet) ToStackSetPtrOutput() StackSetPtrOutput {
-	return i.ToStackSetPtrOutputWithContext(context.Background())
-}
-
-func (i *StackSet) ToStackSetPtrOutputWithContext(ctx context.Context) StackSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackSetPtrOutput)
-}
-
-type StackSetPtrInput interface {
-	pulumi.Input
-
-	ToStackSetPtrOutput() StackSetPtrOutput
-	ToStackSetPtrOutputWithContext(ctx context.Context) StackSetPtrOutput
-}
-
-type stackSetPtrType StackSetArgs
-
-func (*stackSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StackSet)(nil))
-}
-
-func (i *stackSetPtrType) ToStackSetPtrOutput() StackSetPtrOutput {
-	return i.ToStackSetPtrOutputWithContext(context.Background())
-}
-
-func (i *stackSetPtrType) ToStackSetPtrOutputWithContext(ctx context.Context) StackSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackSetPtrOutput)
 }
 
 // StackSetArrayInput is an input type that accepts StackSetArray and StackSetArrayOutput values.
@@ -372,7 +358,7 @@ func (i StackSetMap) ToStackSetMapOutputWithContext(ctx context.Context) StackSe
 type StackSetOutput struct{ *pulumi.OutputState }
 
 func (StackSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSet)(nil))
+	return reflect.TypeOf((**StackSet)(nil)).Elem()
 }
 
 func (o StackSetOutput) ToStackSetOutput() StackSetOutput {
@@ -383,44 +369,10 @@ func (o StackSetOutput) ToStackSetOutputWithContext(ctx context.Context) StackSe
 	return o
 }
 
-func (o StackSetOutput) ToStackSetPtrOutput() StackSetPtrOutput {
-	return o.ToStackSetPtrOutputWithContext(context.Background())
-}
-
-func (o StackSetOutput) ToStackSetPtrOutputWithContext(ctx context.Context) StackSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSet) *StackSet {
-		return &v
-	}).(StackSetPtrOutput)
-}
-
-type StackSetPtrOutput struct{ *pulumi.OutputState }
-
-func (StackSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StackSet)(nil))
-}
-
-func (o StackSetPtrOutput) ToStackSetPtrOutput() StackSetPtrOutput {
-	return o
-}
-
-func (o StackSetPtrOutput) ToStackSetPtrOutputWithContext(ctx context.Context) StackSetPtrOutput {
-	return o
-}
-
-func (o StackSetPtrOutput) Elem() StackSetOutput {
-	return o.ApplyT(func(v *StackSet) StackSet {
-		if v != nil {
-			return *v
-		}
-		var ret StackSet
-		return ret
-	}).(StackSetOutput)
-}
-
 type StackSetArrayOutput struct{ *pulumi.OutputState }
 
 func (StackSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackSet)(nil))
+	return reflect.TypeOf((*[]*StackSet)(nil)).Elem()
 }
 
 func (o StackSetArrayOutput) ToStackSetArrayOutput() StackSetArrayOutput {
@@ -432,15 +384,15 @@ func (o StackSetArrayOutput) ToStackSetArrayOutputWithContext(ctx context.Contex
 }
 
 func (o StackSetArrayOutput) Index(i pulumi.IntInput) StackSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSet {
-		return vs[0].([]StackSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StackSet {
+		return vs[0].([]*StackSet)[vs[1].(int)]
 	}).(StackSetOutput)
 }
 
 type StackSetMapOutput struct{ *pulumi.OutputState }
 
 func (StackSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StackSet)(nil))
+	return reflect.TypeOf((*map[string]*StackSet)(nil)).Elem()
 }
 
 func (o StackSetMapOutput) ToStackSetMapOutput() StackSetMapOutput {
@@ -452,18 +404,16 @@ func (o StackSetMapOutput) ToStackSetMapOutputWithContext(ctx context.Context) S
 }
 
 func (o StackSetMapOutput) MapIndex(k pulumi.StringInput) StackSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StackSet {
-		return vs[0].(map[string]StackSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StackSet {
+		return vs[0].(map[string]*StackSet)[vs[1].(string)]
 	}).(StackSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInput)(nil)).Elem(), &StackSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackSetPtrInput)(nil)).Elem(), &StackSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetArrayInput)(nil)).Elem(), StackSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetMapInput)(nil)).Elem(), StackSetMap{})
 	pulumi.RegisterOutputType(StackSetOutput{})
-	pulumi.RegisterOutputType(StackSetPtrOutput{})
 	pulumi.RegisterOutputType(StackSetArrayOutput{})
 	pulumi.RegisterOutputType(StackSetMapOutput{})
 }

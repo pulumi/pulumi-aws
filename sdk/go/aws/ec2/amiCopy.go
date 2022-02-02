@@ -358,7 +358,7 @@ type AmiCopyInput interface {
 }
 
 func (*AmiCopy) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmiCopy)(nil))
+	return reflect.TypeOf((**AmiCopy)(nil)).Elem()
 }
 
 func (i *AmiCopy) ToAmiCopyOutput() AmiCopyOutput {
@@ -367,35 +367,6 @@ func (i *AmiCopy) ToAmiCopyOutput() AmiCopyOutput {
 
 func (i *AmiCopy) ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyOutput)
-}
-
-func (i *AmiCopy) ToAmiCopyPtrOutput() AmiCopyPtrOutput {
-	return i.ToAmiCopyPtrOutputWithContext(context.Background())
-}
-
-func (i *AmiCopy) ToAmiCopyPtrOutputWithContext(ctx context.Context) AmiCopyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyPtrOutput)
-}
-
-type AmiCopyPtrInput interface {
-	pulumi.Input
-
-	ToAmiCopyPtrOutput() AmiCopyPtrOutput
-	ToAmiCopyPtrOutputWithContext(ctx context.Context) AmiCopyPtrOutput
-}
-
-type amiCopyPtrType AmiCopyArgs
-
-func (*amiCopyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AmiCopy)(nil))
-}
-
-func (i *amiCopyPtrType) ToAmiCopyPtrOutput() AmiCopyPtrOutput {
-	return i.ToAmiCopyPtrOutputWithContext(context.Background())
-}
-
-func (i *amiCopyPtrType) ToAmiCopyPtrOutputWithContext(ctx context.Context) AmiCopyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyPtrOutput)
 }
 
 // AmiCopyArrayInput is an input type that accepts AmiCopyArray and AmiCopyArrayOutput values.
@@ -451,7 +422,7 @@ func (i AmiCopyMap) ToAmiCopyMapOutputWithContext(ctx context.Context) AmiCopyMa
 type AmiCopyOutput struct{ *pulumi.OutputState }
 
 func (AmiCopyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmiCopy)(nil))
+	return reflect.TypeOf((**AmiCopy)(nil)).Elem()
 }
 
 func (o AmiCopyOutput) ToAmiCopyOutput() AmiCopyOutput {
@@ -462,44 +433,10 @@ func (o AmiCopyOutput) ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOu
 	return o
 }
 
-func (o AmiCopyOutput) ToAmiCopyPtrOutput() AmiCopyPtrOutput {
-	return o.ToAmiCopyPtrOutputWithContext(context.Background())
-}
-
-func (o AmiCopyOutput) ToAmiCopyPtrOutputWithContext(ctx context.Context) AmiCopyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AmiCopy) *AmiCopy {
-		return &v
-	}).(AmiCopyPtrOutput)
-}
-
-type AmiCopyPtrOutput struct{ *pulumi.OutputState }
-
-func (AmiCopyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AmiCopy)(nil))
-}
-
-func (o AmiCopyPtrOutput) ToAmiCopyPtrOutput() AmiCopyPtrOutput {
-	return o
-}
-
-func (o AmiCopyPtrOutput) ToAmiCopyPtrOutputWithContext(ctx context.Context) AmiCopyPtrOutput {
-	return o
-}
-
-func (o AmiCopyPtrOutput) Elem() AmiCopyOutput {
-	return o.ApplyT(func(v *AmiCopy) AmiCopy {
-		if v != nil {
-			return *v
-		}
-		var ret AmiCopy
-		return ret
-	}).(AmiCopyOutput)
-}
-
 type AmiCopyArrayOutput struct{ *pulumi.OutputState }
 
 func (AmiCopyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AmiCopy)(nil))
+	return reflect.TypeOf((*[]*AmiCopy)(nil)).Elem()
 }
 
 func (o AmiCopyArrayOutput) ToAmiCopyArrayOutput() AmiCopyArrayOutput {
@@ -511,15 +448,15 @@ func (o AmiCopyArrayOutput) ToAmiCopyArrayOutputWithContext(ctx context.Context)
 }
 
 func (o AmiCopyArrayOutput) Index(i pulumi.IntInput) AmiCopyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AmiCopy {
-		return vs[0].([]AmiCopy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AmiCopy {
+		return vs[0].([]*AmiCopy)[vs[1].(int)]
 	}).(AmiCopyOutput)
 }
 
 type AmiCopyMapOutput struct{ *pulumi.OutputState }
 
 func (AmiCopyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AmiCopy)(nil))
+	return reflect.TypeOf((*map[string]*AmiCopy)(nil)).Elem()
 }
 
 func (o AmiCopyMapOutput) ToAmiCopyMapOutput() AmiCopyMapOutput {
@@ -531,18 +468,16 @@ func (o AmiCopyMapOutput) ToAmiCopyMapOutputWithContext(ctx context.Context) Ami
 }
 
 func (o AmiCopyMapOutput) MapIndex(k pulumi.StringInput) AmiCopyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AmiCopy {
-		return vs[0].(map[string]AmiCopy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AmiCopy {
+		return vs[0].(map[string]*AmiCopy)[vs[1].(string)]
 	}).(AmiCopyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyInput)(nil)).Elem(), &AmiCopy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyPtrInput)(nil)).Elem(), &AmiCopy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyArrayInput)(nil)).Elem(), AmiCopyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyMapInput)(nil)).Elem(), AmiCopyMap{})
 	pulumi.RegisterOutputType(AmiCopyOutput{})
-	pulumi.RegisterOutputType(AmiCopyPtrOutput{})
 	pulumi.RegisterOutputType(AmiCopyArrayOutput{})
 	pulumi.RegisterOutputType(AmiCopyMapOutput{})
 }

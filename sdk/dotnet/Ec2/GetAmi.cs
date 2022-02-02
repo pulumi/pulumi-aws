@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -76,7 +75,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAmiResult> InvokeAsync(GetAmiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ID of a registered AMI for use in other
@@ -142,7 +141,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAmiResult> Invoke(GetAmiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithDefaults());
     }
 
 

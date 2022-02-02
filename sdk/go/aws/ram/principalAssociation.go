@@ -172,7 +172,7 @@ type PrincipalAssociationInput interface {
 }
 
 func (*PrincipalAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalAssociation)(nil))
+	return reflect.TypeOf((**PrincipalAssociation)(nil)).Elem()
 }
 
 func (i *PrincipalAssociation) ToPrincipalAssociationOutput() PrincipalAssociationOutput {
@@ -181,35 +181,6 @@ func (i *PrincipalAssociation) ToPrincipalAssociationOutput() PrincipalAssociati
 
 func (i *PrincipalAssociation) ToPrincipalAssociationOutputWithContext(ctx context.Context) PrincipalAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationOutput)
-}
-
-func (i *PrincipalAssociation) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
-	return i.ToPrincipalAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *PrincipalAssociation) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationPtrOutput)
-}
-
-type PrincipalAssociationPtrInput interface {
-	pulumi.Input
-
-	ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput
-	ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput
-}
-
-type principalAssociationPtrType PrincipalAssociationArgs
-
-func (*principalAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrincipalAssociation)(nil))
-}
-
-func (i *principalAssociationPtrType) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
-	return i.ToPrincipalAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *principalAssociationPtrType) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationPtrOutput)
 }
 
 // PrincipalAssociationArrayInput is an input type that accepts PrincipalAssociationArray and PrincipalAssociationArrayOutput values.
@@ -265,7 +236,7 @@ func (i PrincipalAssociationMap) ToPrincipalAssociationMapOutputWithContext(ctx 
 type PrincipalAssociationOutput struct{ *pulumi.OutputState }
 
 func (PrincipalAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalAssociation)(nil))
+	return reflect.TypeOf((**PrincipalAssociation)(nil)).Elem()
 }
 
 func (o PrincipalAssociationOutput) ToPrincipalAssociationOutput() PrincipalAssociationOutput {
@@ -276,44 +247,10 @@ func (o PrincipalAssociationOutput) ToPrincipalAssociationOutputWithContext(ctx 
 	return o
 }
 
-func (o PrincipalAssociationOutput) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
-	return o.ToPrincipalAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o PrincipalAssociationOutput) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalAssociation) *PrincipalAssociation {
-		return &v
-	}).(PrincipalAssociationPtrOutput)
-}
-
-type PrincipalAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (PrincipalAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrincipalAssociation)(nil))
-}
-
-func (o PrincipalAssociationPtrOutput) ToPrincipalAssociationPtrOutput() PrincipalAssociationPtrOutput {
-	return o
-}
-
-func (o PrincipalAssociationPtrOutput) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
-	return o
-}
-
-func (o PrincipalAssociationPtrOutput) Elem() PrincipalAssociationOutput {
-	return o.ApplyT(func(v *PrincipalAssociation) PrincipalAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret PrincipalAssociation
-		return ret
-	}).(PrincipalAssociationOutput)
-}
-
 type PrincipalAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (PrincipalAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrincipalAssociation)(nil))
+	return reflect.TypeOf((*[]*PrincipalAssociation)(nil)).Elem()
 }
 
 func (o PrincipalAssociationArrayOutput) ToPrincipalAssociationArrayOutput() PrincipalAssociationArrayOutput {
@@ -325,15 +262,15 @@ func (o PrincipalAssociationArrayOutput) ToPrincipalAssociationArrayOutputWithCo
 }
 
 func (o PrincipalAssociationArrayOutput) Index(i pulumi.IntInput) PrincipalAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrincipalAssociation {
-		return vs[0].([]PrincipalAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrincipalAssociation {
+		return vs[0].([]*PrincipalAssociation)[vs[1].(int)]
 	}).(PrincipalAssociationOutput)
 }
 
 type PrincipalAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (PrincipalAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PrincipalAssociation)(nil))
+	return reflect.TypeOf((*map[string]*PrincipalAssociation)(nil)).Elem()
 }
 
 func (o PrincipalAssociationMapOutput) ToPrincipalAssociationMapOutput() PrincipalAssociationMapOutput {
@@ -345,18 +282,16 @@ func (o PrincipalAssociationMapOutput) ToPrincipalAssociationMapOutputWithContex
 }
 
 func (o PrincipalAssociationMapOutput) MapIndex(k pulumi.StringInput) PrincipalAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrincipalAssociation {
-		return vs[0].(map[string]PrincipalAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PrincipalAssociation {
+		return vs[0].(map[string]*PrincipalAssociation)[vs[1].(string)]
 	}).(PrincipalAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationInput)(nil)).Elem(), &PrincipalAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationPtrInput)(nil)).Elem(), &PrincipalAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationArrayInput)(nil)).Elem(), PrincipalAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationMapInput)(nil)).Elem(), PrincipalAssociationMap{})
 	pulumi.RegisterOutputType(PrincipalAssociationOutput{})
-	pulumi.RegisterOutputType(PrincipalAssociationPtrOutput{})
 	pulumi.RegisterOutputType(PrincipalAssociationArrayOutput{})
 	pulumi.RegisterOutputType(PrincipalAssociationMapOutput{})
 }

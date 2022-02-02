@@ -436,7 +436,7 @@ type PatchBaselineInput interface {
 }
 
 func (*PatchBaseline) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaseline)(nil))
+	return reflect.TypeOf((**PatchBaseline)(nil)).Elem()
 }
 
 func (i *PatchBaseline) ToPatchBaselineOutput() PatchBaselineOutput {
@@ -445,35 +445,6 @@ func (i *PatchBaseline) ToPatchBaselineOutput() PatchBaselineOutput {
 
 func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineOutput)
-}
-
-func (i *PatchBaseline) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
-	return i.ToPatchBaselinePtrOutputWithContext(context.Background())
-}
-
-func (i *PatchBaseline) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePtrOutput)
-}
-
-type PatchBaselinePtrInput interface {
-	pulumi.Input
-
-	ToPatchBaselinePtrOutput() PatchBaselinePtrOutput
-	ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput
-}
-
-type patchBaselinePtrType PatchBaselineArgs
-
-func (*patchBaselinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PatchBaseline)(nil))
-}
-
-func (i *patchBaselinePtrType) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
-	return i.ToPatchBaselinePtrOutputWithContext(context.Background())
-}
-
-func (i *patchBaselinePtrType) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePtrOutput)
 }
 
 // PatchBaselineArrayInput is an input type that accepts PatchBaselineArray and PatchBaselineArrayOutput values.
@@ -529,7 +500,7 @@ func (i PatchBaselineMap) ToPatchBaselineMapOutputWithContext(ctx context.Contex
 type PatchBaselineOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaseline)(nil))
+	return reflect.TypeOf((**PatchBaseline)(nil)).Elem()
 }
 
 func (o PatchBaselineOutput) ToPatchBaselineOutput() PatchBaselineOutput {
@@ -540,44 +511,10 @@ func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o PatchBaselineOutput) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
-	return o.ToPatchBaselinePtrOutputWithContext(context.Background())
-}
-
-func (o PatchBaselineOutput) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaseline) *PatchBaseline {
-		return &v
-	}).(PatchBaselinePtrOutput)
-}
-
-type PatchBaselinePtrOutput struct{ *pulumi.OutputState }
-
-func (PatchBaselinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PatchBaseline)(nil))
-}
-
-func (o PatchBaselinePtrOutput) ToPatchBaselinePtrOutput() PatchBaselinePtrOutput {
-	return o
-}
-
-func (o PatchBaselinePtrOutput) ToPatchBaselinePtrOutputWithContext(ctx context.Context) PatchBaselinePtrOutput {
-	return o
-}
-
-func (o PatchBaselinePtrOutput) Elem() PatchBaselineOutput {
-	return o.ApplyT(func(v *PatchBaseline) PatchBaseline {
-		if v != nil {
-			return *v
-		}
-		var ret PatchBaseline
-		return ret
-	}).(PatchBaselineOutput)
-}
-
 type PatchBaselineArrayOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PatchBaseline)(nil))
+	return reflect.TypeOf((*[]*PatchBaseline)(nil)).Elem()
 }
 
 func (o PatchBaselineArrayOutput) ToPatchBaselineArrayOutput() PatchBaselineArrayOutput {
@@ -589,15 +526,15 @@ func (o PatchBaselineArrayOutput) ToPatchBaselineArrayOutputWithContext(ctx cont
 }
 
 func (o PatchBaselineArrayOutput) Index(i pulumi.IntInput) PatchBaselineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaseline {
-		return vs[0].([]PatchBaseline)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PatchBaseline {
+		return vs[0].([]*PatchBaseline)[vs[1].(int)]
 	}).(PatchBaselineOutput)
 }
 
 type PatchBaselineMapOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PatchBaseline)(nil))
+	return reflect.TypeOf((*map[string]*PatchBaseline)(nil)).Elem()
 }
 
 func (o PatchBaselineMapOutput) ToPatchBaselineMapOutput() PatchBaselineMapOutput {
@@ -609,18 +546,16 @@ func (o PatchBaselineMapOutput) ToPatchBaselineMapOutputWithContext(ctx context.
 }
 
 func (o PatchBaselineMapOutput) MapIndex(k pulumi.StringInput) PatchBaselineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PatchBaseline {
-		return vs[0].(map[string]PatchBaseline)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PatchBaseline {
+		return vs[0].(map[string]*PatchBaseline)[vs[1].(string)]
 	}).(PatchBaselineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineInput)(nil)).Elem(), &PatchBaseline{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePtrInput)(nil)).Elem(), &PatchBaseline{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineArrayInput)(nil)).Elem(), PatchBaselineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineMapInput)(nil)).Elem(), PatchBaselineMap{})
 	pulumi.RegisterOutputType(PatchBaselineOutput{})
-	pulumi.RegisterOutputType(PatchBaselinePtrOutput{})
 	pulumi.RegisterOutputType(PatchBaselineArrayOutput{})
 	pulumi.RegisterOutputType(PatchBaselineMapOutput{})
 }

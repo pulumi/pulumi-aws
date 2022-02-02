@@ -149,7 +149,7 @@ type VoiceConnectorGroupInput interface {
 }
 
 func (*VoiceConnectorGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorGroup)(nil))
+	return reflect.TypeOf((**VoiceConnectorGroup)(nil)).Elem()
 }
 
 func (i *VoiceConnectorGroup) ToVoiceConnectorGroupOutput() VoiceConnectorGroupOutput {
@@ -158,35 +158,6 @@ func (i *VoiceConnectorGroup) ToVoiceConnectorGroupOutput() VoiceConnectorGroupO
 
 func (i *VoiceConnectorGroup) ToVoiceConnectorGroupOutputWithContext(ctx context.Context) VoiceConnectorGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupOutput)
-}
-
-func (i *VoiceConnectorGroup) ToVoiceConnectorGroupPtrOutput() VoiceConnectorGroupPtrOutput {
-	return i.ToVoiceConnectorGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *VoiceConnectorGroup) ToVoiceConnectorGroupPtrOutputWithContext(ctx context.Context) VoiceConnectorGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupPtrOutput)
-}
-
-type VoiceConnectorGroupPtrInput interface {
-	pulumi.Input
-
-	ToVoiceConnectorGroupPtrOutput() VoiceConnectorGroupPtrOutput
-	ToVoiceConnectorGroupPtrOutputWithContext(ctx context.Context) VoiceConnectorGroupPtrOutput
-}
-
-type voiceConnectorGroupPtrType VoiceConnectorGroupArgs
-
-func (*voiceConnectorGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorGroup)(nil))
-}
-
-func (i *voiceConnectorGroupPtrType) ToVoiceConnectorGroupPtrOutput() VoiceConnectorGroupPtrOutput {
-	return i.ToVoiceConnectorGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *voiceConnectorGroupPtrType) ToVoiceConnectorGroupPtrOutputWithContext(ctx context.Context) VoiceConnectorGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupPtrOutput)
 }
 
 // VoiceConnectorGroupArrayInput is an input type that accepts VoiceConnectorGroupArray and VoiceConnectorGroupArrayOutput values.
@@ -242,7 +213,7 @@ func (i VoiceConnectorGroupMap) ToVoiceConnectorGroupMapOutputWithContext(ctx co
 type VoiceConnectorGroupOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorGroup)(nil))
+	return reflect.TypeOf((**VoiceConnectorGroup)(nil)).Elem()
 }
 
 func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupOutput() VoiceConnectorGroupOutput {
@@ -253,44 +224,10 @@ func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupOutputWithContext(ctx co
 	return o
 }
 
-func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupPtrOutput() VoiceConnectorGroupPtrOutput {
-	return o.ToVoiceConnectorGroupPtrOutputWithContext(context.Background())
-}
-
-func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupPtrOutputWithContext(ctx context.Context) VoiceConnectorGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VoiceConnectorGroup) *VoiceConnectorGroup {
-		return &v
-	}).(VoiceConnectorGroupPtrOutput)
-}
-
-type VoiceConnectorGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (VoiceConnectorGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorGroup)(nil))
-}
-
-func (o VoiceConnectorGroupPtrOutput) ToVoiceConnectorGroupPtrOutput() VoiceConnectorGroupPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorGroupPtrOutput) ToVoiceConnectorGroupPtrOutputWithContext(ctx context.Context) VoiceConnectorGroupPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorGroupPtrOutput) Elem() VoiceConnectorGroupOutput {
-	return o.ApplyT(func(v *VoiceConnectorGroup) VoiceConnectorGroup {
-		if v != nil {
-			return *v
-		}
-		var ret VoiceConnectorGroup
-		return ret
-	}).(VoiceConnectorGroupOutput)
-}
-
 type VoiceConnectorGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceConnectorGroup)(nil))
+	return reflect.TypeOf((*[]*VoiceConnectorGroup)(nil)).Elem()
 }
 
 func (o VoiceConnectorGroupArrayOutput) ToVoiceConnectorGroupArrayOutput() VoiceConnectorGroupArrayOutput {
@@ -302,15 +239,15 @@ func (o VoiceConnectorGroupArrayOutput) ToVoiceConnectorGroupArrayOutputWithCont
 }
 
 func (o VoiceConnectorGroupArrayOutput) Index(i pulumi.IntInput) VoiceConnectorGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorGroup {
-		return vs[0].([]VoiceConnectorGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorGroup {
+		return vs[0].([]*VoiceConnectorGroup)[vs[1].(int)]
 	}).(VoiceConnectorGroupOutput)
 }
 
 type VoiceConnectorGroupMapOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VoiceConnectorGroup)(nil))
+	return reflect.TypeOf((*map[string]*VoiceConnectorGroup)(nil)).Elem()
 }
 
 func (o VoiceConnectorGroupMapOutput) ToVoiceConnectorGroupMapOutput() VoiceConnectorGroupMapOutput {
@@ -322,18 +259,16 @@ func (o VoiceConnectorGroupMapOutput) ToVoiceConnectorGroupMapOutputWithContext(
 }
 
 func (o VoiceConnectorGroupMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VoiceConnectorGroup {
-		return vs[0].(map[string]VoiceConnectorGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VoiceConnectorGroup {
+		return vs[0].(map[string]*VoiceConnectorGroup)[vs[1].(string)]
 	}).(VoiceConnectorGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupInput)(nil)).Elem(), &VoiceConnectorGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupPtrInput)(nil)).Elem(), &VoiceConnectorGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupArrayInput)(nil)).Elem(), VoiceConnectorGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupMapInput)(nil)).Elem(), VoiceConnectorGroupMap{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupOutput{})
-	pulumi.RegisterOutputType(VoiceConnectorGroupPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupMapOutput{})
 }

@@ -204,7 +204,7 @@ type FindingsFilterInput interface {
 }
 
 func (*FindingsFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilter)(nil))
+	return reflect.TypeOf((**FindingsFilter)(nil)).Elem()
 }
 
 func (i *FindingsFilter) ToFindingsFilterOutput() FindingsFilterOutput {
@@ -213,35 +213,6 @@ func (i *FindingsFilter) ToFindingsFilterOutput() FindingsFilterOutput {
 
 func (i *FindingsFilter) ToFindingsFilterOutputWithContext(ctx context.Context) FindingsFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterOutput)
-}
-
-func (i *FindingsFilter) ToFindingsFilterPtrOutput() FindingsFilterPtrOutput {
-	return i.ToFindingsFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *FindingsFilter) ToFindingsFilterPtrOutputWithContext(ctx context.Context) FindingsFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterPtrOutput)
-}
-
-type FindingsFilterPtrInput interface {
-	pulumi.Input
-
-	ToFindingsFilterPtrOutput() FindingsFilterPtrOutput
-	ToFindingsFilterPtrOutputWithContext(ctx context.Context) FindingsFilterPtrOutput
-}
-
-type findingsFilterPtrType FindingsFilterArgs
-
-func (*findingsFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilter)(nil))
-}
-
-func (i *findingsFilterPtrType) ToFindingsFilterPtrOutput() FindingsFilterPtrOutput {
-	return i.ToFindingsFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *findingsFilterPtrType) ToFindingsFilterPtrOutputWithContext(ctx context.Context) FindingsFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterPtrOutput)
 }
 
 // FindingsFilterArrayInput is an input type that accepts FindingsFilterArray and FindingsFilterArrayOutput values.
@@ -297,7 +268,7 @@ func (i FindingsFilterMap) ToFindingsFilterMapOutputWithContext(ctx context.Cont
 type FindingsFilterOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilter)(nil))
+	return reflect.TypeOf((**FindingsFilter)(nil)).Elem()
 }
 
 func (o FindingsFilterOutput) ToFindingsFilterOutput() FindingsFilterOutput {
@@ -308,44 +279,10 @@ func (o FindingsFilterOutput) ToFindingsFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o FindingsFilterOutput) ToFindingsFilterPtrOutput() FindingsFilterPtrOutput {
-	return o.ToFindingsFilterPtrOutputWithContext(context.Background())
-}
-
-func (o FindingsFilterOutput) ToFindingsFilterPtrOutputWithContext(ctx context.Context) FindingsFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingsFilter) *FindingsFilter {
-		return &v
-	}).(FindingsFilterPtrOutput)
-}
-
-type FindingsFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (FindingsFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilter)(nil))
-}
-
-func (o FindingsFilterPtrOutput) ToFindingsFilterPtrOutput() FindingsFilterPtrOutput {
-	return o
-}
-
-func (o FindingsFilterPtrOutput) ToFindingsFilterPtrOutputWithContext(ctx context.Context) FindingsFilterPtrOutput {
-	return o
-}
-
-func (o FindingsFilterPtrOutput) Elem() FindingsFilterOutput {
-	return o.ApplyT(func(v *FindingsFilter) FindingsFilter {
-		if v != nil {
-			return *v
-		}
-		var ret FindingsFilter
-		return ret
-	}).(FindingsFilterOutput)
-}
-
 type FindingsFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FindingsFilter)(nil))
+	return reflect.TypeOf((*[]*FindingsFilter)(nil)).Elem()
 }
 
 func (o FindingsFilterArrayOutput) ToFindingsFilterArrayOutput() FindingsFilterArrayOutput {
@@ -357,15 +294,15 @@ func (o FindingsFilterArrayOutput) ToFindingsFilterArrayOutputWithContext(ctx co
 }
 
 func (o FindingsFilterArrayOutput) Index(i pulumi.IntInput) FindingsFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FindingsFilter {
-		return vs[0].([]FindingsFilter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FindingsFilter {
+		return vs[0].([]*FindingsFilter)[vs[1].(int)]
 	}).(FindingsFilterOutput)
 }
 
 type FindingsFilterMapOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FindingsFilter)(nil))
+	return reflect.TypeOf((*map[string]*FindingsFilter)(nil)).Elem()
 }
 
 func (o FindingsFilterMapOutput) ToFindingsFilterMapOutput() FindingsFilterMapOutput {
@@ -377,18 +314,16 @@ func (o FindingsFilterMapOutput) ToFindingsFilterMapOutputWithContext(ctx contex
 }
 
 func (o FindingsFilterMapOutput) MapIndex(k pulumi.StringInput) FindingsFilterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FindingsFilter {
-		return vs[0].(map[string]FindingsFilter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FindingsFilter {
+		return vs[0].(map[string]*FindingsFilter)[vs[1].(string)]
 	}).(FindingsFilterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterInput)(nil)).Elem(), &FindingsFilter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterPtrInput)(nil)).Elem(), &FindingsFilter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterArrayInput)(nil)).Elem(), FindingsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterMapInput)(nil)).Elem(), FindingsFilterMap{})
 	pulumi.RegisterOutputType(FindingsFilterOutput{})
-	pulumi.RegisterOutputType(FindingsFilterPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterArrayOutput{})
 	pulumi.RegisterOutputType(FindingsFilterMapOutput{})
 }

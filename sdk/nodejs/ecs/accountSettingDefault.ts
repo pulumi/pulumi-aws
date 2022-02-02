@@ -77,26 +77,24 @@ export class AccountSettingDefault extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountSettingDefaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountSettingDefaultArgs | AccountSettingDefaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountSettingDefaultState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["principalArn"] = state ? state.principalArn : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as AccountSettingDefaultArgs | undefined;
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["principalArn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["principalArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccountSettingDefault.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccountSettingDefault.__pulumiType, name, resourceInputs, opts);
     }
 }
 

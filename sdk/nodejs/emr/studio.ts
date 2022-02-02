@@ -129,26 +129,26 @@ export class Studio extends pulumi.CustomResource {
      */
     constructor(name: string, args: StudioArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StudioArgs | StudioState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StudioState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authMode"] = state ? state.authMode : undefined;
-            inputs["defaultS3Location"] = state ? state.defaultS3Location : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["engineSecurityGroupId"] = state ? state.engineSecurityGroupId : undefined;
-            inputs["idpAuthUrl"] = state ? state.idpAuthUrl : undefined;
-            inputs["idpRelayStateParameterName"] = state ? state.idpRelayStateParameterName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["userRole"] = state ? state.userRole : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authMode"] = state ? state.authMode : undefined;
+            resourceInputs["defaultS3Location"] = state ? state.defaultS3Location : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["engineSecurityGroupId"] = state ? state.engineSecurityGroupId : undefined;
+            resourceInputs["idpAuthUrl"] = state ? state.idpAuthUrl : undefined;
+            resourceInputs["idpRelayStateParameterName"] = state ? state.idpRelayStateParameterName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["userRole"] = state ? state.userRole : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
         } else {
             const args = argsOrState as StudioArgs | undefined;
             if ((!args || args.authMode === undefined) && !opts.urn) {
@@ -172,27 +172,25 @@ export class Studio extends pulumi.CustomResource {
             if ((!args || args.workspaceSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceSecurityGroupId'");
             }
-            inputs["authMode"] = args ? args.authMode : undefined;
-            inputs["defaultS3Location"] = args ? args.defaultS3Location : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["engineSecurityGroupId"] = args ? args.engineSecurityGroupId : undefined;
-            inputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
-            inputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["userRole"] = args ? args.userRole : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["workspaceSecurityGroupId"] = args ? args.workspaceSecurityGroupId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["authMode"] = args ? args.authMode : undefined;
+            resourceInputs["defaultS3Location"] = args ? args.defaultS3Location : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engineSecurityGroupId"] = args ? args.engineSecurityGroupId : undefined;
+            resourceInputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
+            resourceInputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["userRole"] = args ? args.userRole : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["workspaceSecurityGroupId"] = args ? args.workspaceSecurityGroupId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Studio.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Studio.__pulumiType, name, resourceInputs, opts);
     }
 }
 

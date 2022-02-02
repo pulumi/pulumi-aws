@@ -141,7 +141,7 @@ type PullThroughCacheRuleInput interface {
 }
 
 func (*PullThroughCacheRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*PullThroughCacheRule)(nil))
+	return reflect.TypeOf((**PullThroughCacheRule)(nil)).Elem()
 }
 
 func (i *PullThroughCacheRule) ToPullThroughCacheRuleOutput() PullThroughCacheRuleOutput {
@@ -150,35 +150,6 @@ func (i *PullThroughCacheRule) ToPullThroughCacheRuleOutput() PullThroughCacheRu
 
 func (i *PullThroughCacheRule) ToPullThroughCacheRuleOutputWithContext(ctx context.Context) PullThroughCacheRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PullThroughCacheRuleOutput)
-}
-
-func (i *PullThroughCacheRule) ToPullThroughCacheRulePtrOutput() PullThroughCacheRulePtrOutput {
-	return i.ToPullThroughCacheRulePtrOutputWithContext(context.Background())
-}
-
-func (i *PullThroughCacheRule) ToPullThroughCacheRulePtrOutputWithContext(ctx context.Context) PullThroughCacheRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PullThroughCacheRulePtrOutput)
-}
-
-type PullThroughCacheRulePtrInput interface {
-	pulumi.Input
-
-	ToPullThroughCacheRulePtrOutput() PullThroughCacheRulePtrOutput
-	ToPullThroughCacheRulePtrOutputWithContext(ctx context.Context) PullThroughCacheRulePtrOutput
-}
-
-type pullThroughCacheRulePtrType PullThroughCacheRuleArgs
-
-func (*pullThroughCacheRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PullThroughCacheRule)(nil))
-}
-
-func (i *pullThroughCacheRulePtrType) ToPullThroughCacheRulePtrOutput() PullThroughCacheRulePtrOutput {
-	return i.ToPullThroughCacheRulePtrOutputWithContext(context.Background())
-}
-
-func (i *pullThroughCacheRulePtrType) ToPullThroughCacheRulePtrOutputWithContext(ctx context.Context) PullThroughCacheRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PullThroughCacheRulePtrOutput)
 }
 
 // PullThroughCacheRuleArrayInput is an input type that accepts PullThroughCacheRuleArray and PullThroughCacheRuleArrayOutput values.
@@ -234,7 +205,7 @@ func (i PullThroughCacheRuleMap) ToPullThroughCacheRuleMapOutputWithContext(ctx 
 type PullThroughCacheRuleOutput struct{ *pulumi.OutputState }
 
 func (PullThroughCacheRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PullThroughCacheRule)(nil))
+	return reflect.TypeOf((**PullThroughCacheRule)(nil)).Elem()
 }
 
 func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutput() PullThroughCacheRuleOutput {
@@ -245,44 +216,10 @@ func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutputWithContext(ctx 
 	return o
 }
 
-func (o PullThroughCacheRuleOutput) ToPullThroughCacheRulePtrOutput() PullThroughCacheRulePtrOutput {
-	return o.ToPullThroughCacheRulePtrOutputWithContext(context.Background())
-}
-
-func (o PullThroughCacheRuleOutput) ToPullThroughCacheRulePtrOutputWithContext(ctx context.Context) PullThroughCacheRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PullThroughCacheRule) *PullThroughCacheRule {
-		return &v
-	}).(PullThroughCacheRulePtrOutput)
-}
-
-type PullThroughCacheRulePtrOutput struct{ *pulumi.OutputState }
-
-func (PullThroughCacheRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PullThroughCacheRule)(nil))
-}
-
-func (o PullThroughCacheRulePtrOutput) ToPullThroughCacheRulePtrOutput() PullThroughCacheRulePtrOutput {
-	return o
-}
-
-func (o PullThroughCacheRulePtrOutput) ToPullThroughCacheRulePtrOutputWithContext(ctx context.Context) PullThroughCacheRulePtrOutput {
-	return o
-}
-
-func (o PullThroughCacheRulePtrOutput) Elem() PullThroughCacheRuleOutput {
-	return o.ApplyT(func(v *PullThroughCacheRule) PullThroughCacheRule {
-		if v != nil {
-			return *v
-		}
-		var ret PullThroughCacheRule
-		return ret
-	}).(PullThroughCacheRuleOutput)
-}
-
 type PullThroughCacheRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (PullThroughCacheRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PullThroughCacheRule)(nil))
+	return reflect.TypeOf((*[]*PullThroughCacheRule)(nil)).Elem()
 }
 
 func (o PullThroughCacheRuleArrayOutput) ToPullThroughCacheRuleArrayOutput() PullThroughCacheRuleArrayOutput {
@@ -294,15 +231,15 @@ func (o PullThroughCacheRuleArrayOutput) ToPullThroughCacheRuleArrayOutputWithCo
 }
 
 func (o PullThroughCacheRuleArrayOutput) Index(i pulumi.IntInput) PullThroughCacheRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PullThroughCacheRule {
-		return vs[0].([]PullThroughCacheRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PullThroughCacheRule {
+		return vs[0].([]*PullThroughCacheRule)[vs[1].(int)]
 	}).(PullThroughCacheRuleOutput)
 }
 
 type PullThroughCacheRuleMapOutput struct{ *pulumi.OutputState }
 
 func (PullThroughCacheRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PullThroughCacheRule)(nil))
+	return reflect.TypeOf((*map[string]*PullThroughCacheRule)(nil)).Elem()
 }
 
 func (o PullThroughCacheRuleMapOutput) ToPullThroughCacheRuleMapOutput() PullThroughCacheRuleMapOutput {
@@ -314,18 +251,16 @@ func (o PullThroughCacheRuleMapOutput) ToPullThroughCacheRuleMapOutputWithContex
 }
 
 func (o PullThroughCacheRuleMapOutput) MapIndex(k pulumi.StringInput) PullThroughCacheRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PullThroughCacheRule {
-		return vs[0].(map[string]PullThroughCacheRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PullThroughCacheRule {
+		return vs[0].(map[string]*PullThroughCacheRule)[vs[1].(string)]
 	}).(PullThroughCacheRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PullThroughCacheRuleInput)(nil)).Elem(), &PullThroughCacheRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PullThroughCacheRulePtrInput)(nil)).Elem(), &PullThroughCacheRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PullThroughCacheRuleArrayInput)(nil)).Elem(), PullThroughCacheRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PullThroughCacheRuleMapInput)(nil)).Elem(), PullThroughCacheRuleMap{})
 	pulumi.RegisterOutputType(PullThroughCacheRuleOutput{})
-	pulumi.RegisterOutputType(PullThroughCacheRulePtrOutput{})
 	pulumi.RegisterOutputType(PullThroughCacheRuleArrayOutput{})
 	pulumi.RegisterOutputType(PullThroughCacheRuleMapOutput{})
 }

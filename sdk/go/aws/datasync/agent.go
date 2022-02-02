@@ -198,7 +198,7 @@ type AgentInput interface {
 }
 
 func (*Agent) ElementType() reflect.Type {
-	return reflect.TypeOf((*Agent)(nil))
+	return reflect.TypeOf((**Agent)(nil)).Elem()
 }
 
 func (i *Agent) ToAgentOutput() AgentOutput {
@@ -207,35 +207,6 @@ func (i *Agent) ToAgentOutput() AgentOutput {
 
 func (i *Agent) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AgentOutput)
-}
-
-func (i *Agent) ToAgentPtrOutput() AgentPtrOutput {
-	return i.ToAgentPtrOutputWithContext(context.Background())
-}
-
-func (i *Agent) ToAgentPtrOutputWithContext(ctx context.Context) AgentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentPtrOutput)
-}
-
-type AgentPtrInput interface {
-	pulumi.Input
-
-	ToAgentPtrOutput() AgentPtrOutput
-	ToAgentPtrOutputWithContext(ctx context.Context) AgentPtrOutput
-}
-
-type agentPtrType AgentArgs
-
-func (*agentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Agent)(nil))
-}
-
-func (i *agentPtrType) ToAgentPtrOutput() AgentPtrOutput {
-	return i.ToAgentPtrOutputWithContext(context.Background())
-}
-
-func (i *agentPtrType) ToAgentPtrOutputWithContext(ctx context.Context) AgentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentPtrOutput)
 }
 
 // AgentArrayInput is an input type that accepts AgentArray and AgentArrayOutput values.
@@ -291,7 +262,7 @@ func (i AgentMap) ToAgentMapOutputWithContext(ctx context.Context) AgentMapOutpu
 type AgentOutput struct{ *pulumi.OutputState }
 
 func (AgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Agent)(nil))
+	return reflect.TypeOf((**Agent)(nil)).Elem()
 }
 
 func (o AgentOutput) ToAgentOutput() AgentOutput {
@@ -302,44 +273,10 @@ func (o AgentOutput) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
 	return o
 }
 
-func (o AgentOutput) ToAgentPtrOutput() AgentPtrOutput {
-	return o.ToAgentPtrOutputWithContext(context.Background())
-}
-
-func (o AgentOutput) ToAgentPtrOutputWithContext(ctx context.Context) AgentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Agent) *Agent {
-		return &v
-	}).(AgentPtrOutput)
-}
-
-type AgentPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Agent)(nil))
-}
-
-func (o AgentPtrOutput) ToAgentPtrOutput() AgentPtrOutput {
-	return o
-}
-
-func (o AgentPtrOutput) ToAgentPtrOutputWithContext(ctx context.Context) AgentPtrOutput {
-	return o
-}
-
-func (o AgentPtrOutput) Elem() AgentOutput {
-	return o.ApplyT(func(v *Agent) Agent {
-		if v != nil {
-			return *v
-		}
-		var ret Agent
-		return ret
-	}).(AgentOutput)
-}
-
 type AgentArrayOutput struct{ *pulumi.OutputState }
 
 func (AgentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Agent)(nil))
+	return reflect.TypeOf((*[]*Agent)(nil)).Elem()
 }
 
 func (o AgentArrayOutput) ToAgentArrayOutput() AgentArrayOutput {
@@ -351,15 +288,15 @@ func (o AgentArrayOutput) ToAgentArrayOutputWithContext(ctx context.Context) Age
 }
 
 func (o AgentArrayOutput) Index(i pulumi.IntInput) AgentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Agent {
-		return vs[0].([]Agent)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Agent {
+		return vs[0].([]*Agent)[vs[1].(int)]
 	}).(AgentOutput)
 }
 
 type AgentMapOutput struct{ *pulumi.OutputState }
 
 func (AgentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Agent)(nil))
+	return reflect.TypeOf((*map[string]*Agent)(nil)).Elem()
 }
 
 func (o AgentMapOutput) ToAgentMapOutput() AgentMapOutput {
@@ -371,18 +308,16 @@ func (o AgentMapOutput) ToAgentMapOutputWithContext(ctx context.Context) AgentMa
 }
 
 func (o AgentMapOutput) MapIndex(k pulumi.StringInput) AgentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Agent {
-		return vs[0].(map[string]Agent)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Agent {
+		return vs[0].(map[string]*Agent)[vs[1].(string)]
 	}).(AgentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentInput)(nil)).Elem(), &Agent{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentPtrInput)(nil)).Elem(), &Agent{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentArrayInput)(nil)).Elem(), AgentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentMapInput)(nil)).Elem(), AgentMap{})
 	pulumi.RegisterOutputType(AgentOutput{})
-	pulumi.RegisterOutputType(AgentPtrOutput{})
 	pulumi.RegisterOutputType(AgentArrayOutput{})
 	pulumi.RegisterOutputType(AgentMapOutput{})
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
  * const notif = new aws.sns.Topic("notif", {});
- * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["sns:Publish"],
  *         principals: [{
@@ -123,19 +123,19 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotificationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationRuleArgs | NotificationRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["detailType"] = state ? state.detailType : undefined;
-            inputs["eventTypeIds"] = state ? state.eventTypeIds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resource"] = state ? state.resource : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["detailType"] = state ? state.detailType : undefined;
+            resourceInputs["eventTypeIds"] = state ? state.eventTypeIds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resource"] = state ? state.resource : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
             if ((!args || args.detailType === undefined) && !opts.urn) {
@@ -147,20 +147,18 @@ export class NotificationRule extends pulumi.CustomResource {
             if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            inputs["detailType"] = args ? args.detailType : undefined;
-            inputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["detailType"] = args ? args.detailType : undefined;
+            resourceInputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotificationRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotificationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -219,55 +219,53 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["endpointDetails"] = state ? state.endpointDetails : undefined;
-            inputs["endpointType"] = state ? state.endpointType : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["function"] = state ? state.function : undefined;
-            inputs["hostKey"] = state ? state.hostKey : undefined;
-            inputs["hostKeyFingerprint"] = state ? state.hostKeyFingerprint : undefined;
-            inputs["identityProviderType"] = state ? state.identityProviderType : undefined;
-            inputs["invocationRole"] = state ? state.invocationRole : undefined;
-            inputs["loggingRole"] = state ? state.loggingRole : undefined;
-            inputs["protocols"] = state ? state.protocols : undefined;
-            inputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["endpointDetails"] = state ? state.endpointDetails : undefined;
+            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["function"] = state ? state.function : undefined;
+            resourceInputs["hostKey"] = state ? state.hostKey : undefined;
+            resourceInputs["hostKeyFingerprint"] = state ? state.hostKeyFingerprint : undefined;
+            resourceInputs["identityProviderType"] = state ? state.identityProviderType : undefined;
+            resourceInputs["invocationRole"] = state ? state.invocationRole : undefined;
+            resourceInputs["loggingRole"] = state ? state.loggingRole : undefined;
+            resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["function"] = args ? args.function : undefined;
-            inputs["hostKey"] = args ? args.hostKey : undefined;
-            inputs["identityProviderType"] = args ? args.identityProviderType : undefined;
-            inputs["invocationRole"] = args ? args.invocationRole : undefined;
-            inputs["loggingRole"] = args ? args.loggingRole : undefined;
-            inputs["protocols"] = args ? args.protocols : undefined;
-            inputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["hostKeyFingerprint"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["endpointDetails"] = args ? args.endpointDetails : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["function"] = args ? args.function : undefined;
+            resourceInputs["hostKey"] = args ? args.hostKey : undefined;
+            resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
+            resourceInputs["invocationRole"] = args ? args.invocationRole : undefined;
+            resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["hostKeyFingerprint"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Server.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

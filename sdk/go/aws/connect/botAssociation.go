@@ -215,7 +215,7 @@ type BotAssociationInput interface {
 }
 
 func (*BotAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAssociation)(nil))
+	return reflect.TypeOf((**BotAssociation)(nil)).Elem()
 }
 
 func (i *BotAssociation) ToBotAssociationOutput() BotAssociationOutput {
@@ -224,35 +224,6 @@ func (i *BotAssociation) ToBotAssociationOutput() BotAssociationOutput {
 
 func (i *BotAssociation) ToBotAssociationOutputWithContext(ctx context.Context) BotAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationOutput)
-}
-
-func (i *BotAssociation) ToBotAssociationPtrOutput() BotAssociationPtrOutput {
-	return i.ToBotAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *BotAssociation) ToBotAssociationPtrOutputWithContext(ctx context.Context) BotAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationPtrOutput)
-}
-
-type BotAssociationPtrInput interface {
-	pulumi.Input
-
-	ToBotAssociationPtrOutput() BotAssociationPtrOutput
-	ToBotAssociationPtrOutputWithContext(ctx context.Context) BotAssociationPtrOutput
-}
-
-type botAssociationPtrType BotAssociationArgs
-
-func (*botAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAssociation)(nil))
-}
-
-func (i *botAssociationPtrType) ToBotAssociationPtrOutput() BotAssociationPtrOutput {
-	return i.ToBotAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *botAssociationPtrType) ToBotAssociationPtrOutputWithContext(ctx context.Context) BotAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationPtrOutput)
 }
 
 // BotAssociationArrayInput is an input type that accepts BotAssociationArray and BotAssociationArrayOutput values.
@@ -308,7 +279,7 @@ func (i BotAssociationMap) ToBotAssociationMapOutputWithContext(ctx context.Cont
 type BotAssociationOutput struct{ *pulumi.OutputState }
 
 func (BotAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAssociation)(nil))
+	return reflect.TypeOf((**BotAssociation)(nil)).Elem()
 }
 
 func (o BotAssociationOutput) ToBotAssociationOutput() BotAssociationOutput {
@@ -319,44 +290,10 @@ func (o BotAssociationOutput) ToBotAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o BotAssociationOutput) ToBotAssociationPtrOutput() BotAssociationPtrOutput {
-	return o.ToBotAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o BotAssociationOutput) ToBotAssociationPtrOutputWithContext(ctx context.Context) BotAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAssociation) *BotAssociation {
-		return &v
-	}).(BotAssociationPtrOutput)
-}
-
-type BotAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAssociation)(nil))
-}
-
-func (o BotAssociationPtrOutput) ToBotAssociationPtrOutput() BotAssociationPtrOutput {
-	return o
-}
-
-func (o BotAssociationPtrOutput) ToBotAssociationPtrOutputWithContext(ctx context.Context) BotAssociationPtrOutput {
-	return o
-}
-
-func (o BotAssociationPtrOutput) Elem() BotAssociationOutput {
-	return o.ApplyT(func(v *BotAssociation) BotAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret BotAssociation
-		return ret
-	}).(BotAssociationOutput)
-}
-
 type BotAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (BotAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BotAssociation)(nil))
+	return reflect.TypeOf((*[]*BotAssociation)(nil)).Elem()
 }
 
 func (o BotAssociationArrayOutput) ToBotAssociationArrayOutput() BotAssociationArrayOutput {
@@ -368,15 +305,15 @@ func (o BotAssociationArrayOutput) ToBotAssociationArrayOutputWithContext(ctx co
 }
 
 func (o BotAssociationArrayOutput) Index(i pulumi.IntInput) BotAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAssociation {
-		return vs[0].([]BotAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BotAssociation {
+		return vs[0].([]*BotAssociation)[vs[1].(int)]
 	}).(BotAssociationOutput)
 }
 
 type BotAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (BotAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BotAssociation)(nil))
+	return reflect.TypeOf((*map[string]*BotAssociation)(nil)).Elem()
 }
 
 func (o BotAssociationMapOutput) ToBotAssociationMapOutput() BotAssociationMapOutput {
@@ -388,18 +325,16 @@ func (o BotAssociationMapOutput) ToBotAssociationMapOutputWithContext(ctx contex
 }
 
 func (o BotAssociationMapOutput) MapIndex(k pulumi.StringInput) BotAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BotAssociation {
-		return vs[0].(map[string]BotAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BotAssociation {
+		return vs[0].(map[string]*BotAssociation)[vs[1].(string)]
 	}).(BotAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationInput)(nil)).Elem(), &BotAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationPtrInput)(nil)).Elem(), &BotAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationArrayInput)(nil)).Elem(), BotAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationMapInput)(nil)).Elem(), BotAssociationMap{})
 	pulumi.RegisterOutputType(BotAssociationOutput{})
-	pulumi.RegisterOutputType(BotAssociationPtrOutput{})
 	pulumi.RegisterOutputType(BotAssociationArrayOutput{})
 	pulumi.RegisterOutputType(BotAssociationMapOutput{})
 }

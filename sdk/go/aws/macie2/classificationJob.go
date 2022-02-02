@@ -253,7 +253,7 @@ type ClassificationJobInput interface {
 }
 
 func (*ClassificationJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClassificationJob)(nil))
+	return reflect.TypeOf((**ClassificationJob)(nil)).Elem()
 }
 
 func (i *ClassificationJob) ToClassificationJobOutput() ClassificationJobOutput {
@@ -262,35 +262,6 @@ func (i *ClassificationJob) ToClassificationJobOutput() ClassificationJobOutput 
 
 func (i *ClassificationJob) ToClassificationJobOutputWithContext(ctx context.Context) ClassificationJobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobOutput)
-}
-
-func (i *ClassificationJob) ToClassificationJobPtrOutput() ClassificationJobPtrOutput {
-	return i.ToClassificationJobPtrOutputWithContext(context.Background())
-}
-
-func (i *ClassificationJob) ToClassificationJobPtrOutputWithContext(ctx context.Context) ClassificationJobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobPtrOutput)
-}
-
-type ClassificationJobPtrInput interface {
-	pulumi.Input
-
-	ToClassificationJobPtrOutput() ClassificationJobPtrOutput
-	ToClassificationJobPtrOutputWithContext(ctx context.Context) ClassificationJobPtrOutput
-}
-
-type classificationJobPtrType ClassificationJobArgs
-
-func (*classificationJobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClassificationJob)(nil))
-}
-
-func (i *classificationJobPtrType) ToClassificationJobPtrOutput() ClassificationJobPtrOutput {
-	return i.ToClassificationJobPtrOutputWithContext(context.Background())
-}
-
-func (i *classificationJobPtrType) ToClassificationJobPtrOutputWithContext(ctx context.Context) ClassificationJobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobPtrOutput)
 }
 
 // ClassificationJobArrayInput is an input type that accepts ClassificationJobArray and ClassificationJobArrayOutput values.
@@ -346,7 +317,7 @@ func (i ClassificationJobMap) ToClassificationJobMapOutputWithContext(ctx contex
 type ClassificationJobOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClassificationJob)(nil))
+	return reflect.TypeOf((**ClassificationJob)(nil)).Elem()
 }
 
 func (o ClassificationJobOutput) ToClassificationJobOutput() ClassificationJobOutput {
@@ -357,44 +328,10 @@ func (o ClassificationJobOutput) ToClassificationJobOutputWithContext(ctx contex
 	return o
 }
 
-func (o ClassificationJobOutput) ToClassificationJobPtrOutput() ClassificationJobPtrOutput {
-	return o.ToClassificationJobPtrOutputWithContext(context.Background())
-}
-
-func (o ClassificationJobOutput) ToClassificationJobPtrOutputWithContext(ctx context.Context) ClassificationJobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJob) *ClassificationJob {
-		return &v
-	}).(ClassificationJobPtrOutput)
-}
-
-type ClassificationJobPtrOutput struct{ *pulumi.OutputState }
-
-func (ClassificationJobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClassificationJob)(nil))
-}
-
-func (o ClassificationJobPtrOutput) ToClassificationJobPtrOutput() ClassificationJobPtrOutput {
-	return o
-}
-
-func (o ClassificationJobPtrOutput) ToClassificationJobPtrOutputWithContext(ctx context.Context) ClassificationJobPtrOutput {
-	return o
-}
-
-func (o ClassificationJobPtrOutput) Elem() ClassificationJobOutput {
-	return o.ApplyT(func(v *ClassificationJob) ClassificationJob {
-		if v != nil {
-			return *v
-		}
-		var ret ClassificationJob
-		return ret
-	}).(ClassificationJobOutput)
-}
-
 type ClassificationJobArrayOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClassificationJob)(nil))
+	return reflect.TypeOf((*[]*ClassificationJob)(nil)).Elem()
 }
 
 func (o ClassificationJobArrayOutput) ToClassificationJobArrayOutput() ClassificationJobArrayOutput {
@@ -406,15 +343,15 @@ func (o ClassificationJobArrayOutput) ToClassificationJobArrayOutputWithContext(
 }
 
 func (o ClassificationJobArrayOutput) Index(i pulumi.IntInput) ClassificationJobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClassificationJob {
-		return vs[0].([]ClassificationJob)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClassificationJob {
+		return vs[0].([]*ClassificationJob)[vs[1].(int)]
 	}).(ClassificationJobOutput)
 }
 
 type ClassificationJobMapOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClassificationJob)(nil))
+	return reflect.TypeOf((*map[string]*ClassificationJob)(nil)).Elem()
 }
 
 func (o ClassificationJobMapOutput) ToClassificationJobMapOutput() ClassificationJobMapOutput {
@@ -426,18 +363,16 @@ func (o ClassificationJobMapOutput) ToClassificationJobMapOutputWithContext(ctx 
 }
 
 func (o ClassificationJobMapOutput) MapIndex(k pulumi.StringInput) ClassificationJobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClassificationJob {
-		return vs[0].(map[string]ClassificationJob)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ClassificationJob {
+		return vs[0].(map[string]*ClassificationJob)[vs[1].(string)]
 	}).(ClassificationJobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobInput)(nil)).Elem(), &ClassificationJob{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobPtrInput)(nil)).Elem(), &ClassificationJob{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobArrayInput)(nil)).Elem(), ClassificationJobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobMapInput)(nil)).Elem(), ClassificationJobMap{})
 	pulumi.RegisterOutputType(ClassificationJobOutput{})
-	pulumi.RegisterOutputType(ClassificationJobPtrOutput{})
 	pulumi.RegisterOutputType(ClassificationJobArrayOutput{})
 	pulumi.RegisterOutputType(ClassificationJobMapOutput{})
 }

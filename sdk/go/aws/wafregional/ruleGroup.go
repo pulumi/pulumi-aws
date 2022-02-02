@@ -175,7 +175,7 @@ type RuleGroupInput interface {
 }
 
 func (*RuleGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroup)(nil))
+	return reflect.TypeOf((**RuleGroup)(nil)).Elem()
 }
 
 func (i *RuleGroup) ToRuleGroupOutput() RuleGroupOutput {
@@ -184,35 +184,6 @@ func (i *RuleGroup) ToRuleGroupOutput() RuleGroupOutput {
 
 func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOutput)
-}
-
-func (i *RuleGroup) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
-	return i.ToRuleGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *RuleGroup) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPtrOutput)
-}
-
-type RuleGroupPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupPtrOutput() RuleGroupPtrOutput
-	ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput
-}
-
-type ruleGroupPtrType RuleGroupArgs
-
-func (*ruleGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroup)(nil))
-}
-
-func (i *ruleGroupPtrType) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
-	return i.ToRuleGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupPtrType) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPtrOutput)
 }
 
 // RuleGroupArrayInput is an input type that accepts RuleGroupArray and RuleGroupArrayOutput values.
@@ -268,7 +239,7 @@ func (i RuleGroupMap) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleG
 type RuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroup)(nil))
+	return reflect.TypeOf((**RuleGroup)(nil)).Elem()
 }
 
 func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {
@@ -279,44 +250,10 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
-func (o RuleGroupOutput) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
-	return o.ToRuleGroupPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupOutput) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroup) *RuleGroup {
-		return &v
-	}).(RuleGroupPtrOutput)
-}
-
-type RuleGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroup)(nil))
-}
-
-func (o RuleGroupPtrOutput) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
-	return o
-}
-
-func (o RuleGroupPtrOutput) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
-	return o
-}
-
-func (o RuleGroupPtrOutput) Elem() RuleGroupOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroup {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroup
-		return ret
-	}).(RuleGroupOutput)
-}
-
 type RuleGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroup)(nil))
+	return reflect.TypeOf((*[]*RuleGroup)(nil)).Elem()
 }
 
 func (o RuleGroupArrayOutput) ToRuleGroupArrayOutput() RuleGroupArrayOutput {
@@ -328,15 +265,15 @@ func (o RuleGroupArrayOutput) ToRuleGroupArrayOutputWithContext(ctx context.Cont
 }
 
 func (o RuleGroupArrayOutput) Index(i pulumi.IntInput) RuleGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroup {
-		return vs[0].([]RuleGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleGroup {
+		return vs[0].([]*RuleGroup)[vs[1].(int)]
 	}).(RuleGroupOutput)
 }
 
 type RuleGroupMapOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RuleGroup)(nil))
+	return reflect.TypeOf((*map[string]*RuleGroup)(nil)).Elem()
 }
 
 func (o RuleGroupMapOutput) ToRuleGroupMapOutput() RuleGroupMapOutput {
@@ -348,18 +285,16 @@ func (o RuleGroupMapOutput) ToRuleGroupMapOutputWithContext(ctx context.Context)
 }
 
 func (o RuleGroupMapOutput) MapIndex(k pulumi.StringInput) RuleGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroup {
-		return vs[0].(map[string]RuleGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RuleGroup {
+		return vs[0].(map[string]*RuleGroup)[vs[1].(string)]
 	}).(RuleGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupInput)(nil)).Elem(), &RuleGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPtrInput)(nil)).Elem(), &RuleGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupArrayInput)(nil)).Elem(), RuleGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMapInput)(nil)).Elem(), RuleGroupMap{})
 	pulumi.RegisterOutputType(RuleGroupOutput{})
-	pulumi.RegisterOutputType(RuleGroupPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupMapOutput{})
 }

@@ -269,7 +269,7 @@ type IntegrationResponseInput interface {
 }
 
 func (*IntegrationResponse) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationResponse)(nil))
+	return reflect.TypeOf((**IntegrationResponse)(nil)).Elem()
 }
 
 func (i *IntegrationResponse) ToIntegrationResponseOutput() IntegrationResponseOutput {
@@ -278,35 +278,6 @@ func (i *IntegrationResponse) ToIntegrationResponseOutput() IntegrationResponseO
 
 func (i *IntegrationResponse) ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseOutput)
-}
-
-func (i *IntegrationResponse) ToIntegrationResponsePtrOutput() IntegrationResponsePtrOutput {
-	return i.ToIntegrationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationResponse) ToIntegrationResponsePtrOutputWithContext(ctx context.Context) IntegrationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponsePtrOutput)
-}
-
-type IntegrationResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationResponsePtrOutput() IntegrationResponsePtrOutput
-	ToIntegrationResponsePtrOutputWithContext(ctx context.Context) IntegrationResponsePtrOutput
-}
-
-type integrationResponsePtrType IntegrationResponseArgs
-
-func (*integrationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationResponse)(nil))
-}
-
-func (i *integrationResponsePtrType) ToIntegrationResponsePtrOutput() IntegrationResponsePtrOutput {
-	return i.ToIntegrationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationResponsePtrType) ToIntegrationResponsePtrOutputWithContext(ctx context.Context) IntegrationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponsePtrOutput)
 }
 
 // IntegrationResponseArrayInput is an input type that accepts IntegrationResponseArray and IntegrationResponseArrayOutput values.
@@ -362,7 +333,7 @@ func (i IntegrationResponseMap) ToIntegrationResponseMapOutputWithContext(ctx co
 type IntegrationResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationResponse)(nil))
+	return reflect.TypeOf((**IntegrationResponse)(nil)).Elem()
 }
 
 func (o IntegrationResponseOutput) ToIntegrationResponseOutput() IntegrationResponseOutput {
@@ -373,44 +344,10 @@ func (o IntegrationResponseOutput) ToIntegrationResponseOutputWithContext(ctx co
 	return o
 }
 
-func (o IntegrationResponseOutput) ToIntegrationResponsePtrOutput() IntegrationResponsePtrOutput {
-	return o.ToIntegrationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationResponseOutput) ToIntegrationResponsePtrOutputWithContext(ctx context.Context) IntegrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationResponse) *IntegrationResponse {
-		return &v
-	}).(IntegrationResponsePtrOutput)
-}
-
-type IntegrationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationResponse)(nil))
-}
-
-func (o IntegrationResponsePtrOutput) ToIntegrationResponsePtrOutput() IntegrationResponsePtrOutput {
-	return o
-}
-
-func (o IntegrationResponsePtrOutput) ToIntegrationResponsePtrOutputWithContext(ctx context.Context) IntegrationResponsePtrOutput {
-	return o
-}
-
-func (o IntegrationResponsePtrOutput) Elem() IntegrationResponseOutput {
-	return o.ApplyT(func(v *IntegrationResponse) IntegrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationResponse
-		return ret
-	}).(IntegrationResponseOutput)
-}
-
 type IntegrationResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationResponse)(nil))
+	return reflect.TypeOf((*[]*IntegrationResponse)(nil)).Elem()
 }
 
 func (o IntegrationResponseArrayOutput) ToIntegrationResponseArrayOutput() IntegrationResponseArrayOutput {
@@ -422,15 +359,15 @@ func (o IntegrationResponseArrayOutput) ToIntegrationResponseArrayOutputWithCont
 }
 
 func (o IntegrationResponseArrayOutput) Index(i pulumi.IntInput) IntegrationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationResponse {
-		return vs[0].([]IntegrationResponse)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationResponse {
+		return vs[0].([]*IntegrationResponse)[vs[1].(int)]
 	}).(IntegrationResponseOutput)
 }
 
 type IntegrationResponseMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationResponse)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationResponse)(nil)).Elem()
 }
 
 func (o IntegrationResponseMapOutput) ToIntegrationResponseMapOutput() IntegrationResponseMapOutput {
@@ -442,18 +379,16 @@ func (o IntegrationResponseMapOutput) ToIntegrationResponseMapOutputWithContext(
 }
 
 func (o IntegrationResponseMapOutput) MapIndex(k pulumi.StringInput) IntegrationResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationResponse {
-		return vs[0].(map[string]IntegrationResponse)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationResponse {
+		return vs[0].(map[string]*IntegrationResponse)[vs[1].(string)]
 	}).(IntegrationResponseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseInput)(nil)).Elem(), &IntegrationResponse{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponsePtrInput)(nil)).Elem(), &IntegrationResponse{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseArrayInput)(nil)).Elem(), IntegrationResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseMapInput)(nil)).Elem(), IntegrationResponseMap{})
 	pulumi.RegisterOutputType(IntegrationResponseOutput{})
-	pulumi.RegisterOutputType(IntegrationResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationResponseArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationResponseMapOutput{})
 }

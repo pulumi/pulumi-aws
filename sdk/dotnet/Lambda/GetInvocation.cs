@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lambda
 {
@@ -18,7 +17,7 @@ namespace Pulumi.Aws.Lambda
         /// invocation type.
         /// </summary>
         public static Task<GetInvocationResult> InvokeAsync(GetInvocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to invoke custom lambda functions as data source.
@@ -26,7 +25,7 @@ namespace Pulumi.Aws.Lambda
         /// invocation type.
         /// </summary>
         public static Output<GetInvocationResult> Invoke(GetInvocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationInvokeArgs(), options.WithDefaults());
     }
 
 

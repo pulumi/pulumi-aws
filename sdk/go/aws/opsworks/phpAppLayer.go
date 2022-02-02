@@ -310,7 +310,7 @@ type PhpAppLayerInput interface {
 }
 
 func (*PhpAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhpAppLayer)(nil))
+	return reflect.TypeOf((**PhpAppLayer)(nil)).Elem()
 }
 
 func (i *PhpAppLayer) ToPhpAppLayerOutput() PhpAppLayerOutput {
@@ -319,35 +319,6 @@ func (i *PhpAppLayer) ToPhpAppLayerOutput() PhpAppLayerOutput {
 
 func (i *PhpAppLayer) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerOutput)
-}
-
-func (i *PhpAppLayer) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
-	return i.ToPhpAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *PhpAppLayer) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerPtrOutput)
-}
-
-type PhpAppLayerPtrInput interface {
-	pulumi.Input
-
-	ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput
-	ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput
-}
-
-type phpAppLayerPtrType PhpAppLayerArgs
-
-func (*phpAppLayerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PhpAppLayer)(nil))
-}
-
-func (i *phpAppLayerPtrType) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
-	return i.ToPhpAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *phpAppLayerPtrType) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerPtrOutput)
 }
 
 // PhpAppLayerArrayInput is an input type that accepts PhpAppLayerArray and PhpAppLayerArrayOutput values.
@@ -403,7 +374,7 @@ func (i PhpAppLayerMap) ToPhpAppLayerMapOutputWithContext(ctx context.Context) P
 type PhpAppLayerOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhpAppLayer)(nil))
+	return reflect.TypeOf((**PhpAppLayer)(nil)).Elem()
 }
 
 func (o PhpAppLayerOutput) ToPhpAppLayerOutput() PhpAppLayerOutput {
@@ -414,44 +385,10 @@ func (o PhpAppLayerOutput) ToPhpAppLayerOutputWithContext(ctx context.Context) P
 	return o
 }
 
-func (o PhpAppLayerOutput) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
-	return o.ToPhpAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (o PhpAppLayerOutput) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayer) *PhpAppLayer {
-		return &v
-	}).(PhpAppLayerPtrOutput)
-}
-
-type PhpAppLayerPtrOutput struct{ *pulumi.OutputState }
-
-func (PhpAppLayerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PhpAppLayer)(nil))
-}
-
-func (o PhpAppLayerPtrOutput) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
-	return o
-}
-
-func (o PhpAppLayerPtrOutput) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
-	return o
-}
-
-func (o PhpAppLayerPtrOutput) Elem() PhpAppLayerOutput {
-	return o.ApplyT(func(v *PhpAppLayer) PhpAppLayer {
-		if v != nil {
-			return *v
-		}
-		var ret PhpAppLayer
-		return ret
-	}).(PhpAppLayerOutput)
-}
-
 type PhpAppLayerArrayOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PhpAppLayer)(nil))
+	return reflect.TypeOf((*[]*PhpAppLayer)(nil)).Elem()
 }
 
 func (o PhpAppLayerArrayOutput) ToPhpAppLayerArrayOutput() PhpAppLayerArrayOutput {
@@ -463,15 +400,15 @@ func (o PhpAppLayerArrayOutput) ToPhpAppLayerArrayOutputWithContext(ctx context.
 }
 
 func (o PhpAppLayerArrayOutput) Index(i pulumi.IntInput) PhpAppLayerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PhpAppLayer {
-		return vs[0].([]PhpAppLayer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PhpAppLayer {
+		return vs[0].([]*PhpAppLayer)[vs[1].(int)]
 	}).(PhpAppLayerOutput)
 }
 
 type PhpAppLayerMapOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PhpAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*PhpAppLayer)(nil)).Elem()
 }
 
 func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutput() PhpAppLayerMapOutput {
@@ -483,18 +420,16 @@ func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutputWithContext(ctx context.Cont
 }
 
 func (o PhpAppLayerMapOutput) MapIndex(k pulumi.StringInput) PhpAppLayerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PhpAppLayer {
-		return vs[0].(map[string]PhpAppLayer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PhpAppLayer {
+		return vs[0].(map[string]*PhpAppLayer)[vs[1].(string)]
 	}).(PhpAppLayerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerInput)(nil)).Elem(), &PhpAppLayer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerPtrInput)(nil)).Elem(), &PhpAppLayer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerArrayInput)(nil)).Elem(), PhpAppLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerMapInput)(nil)).Elem(), PhpAppLayerMap{})
 	pulumi.RegisterOutputType(PhpAppLayerOutput{})
-	pulumi.RegisterOutputType(PhpAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerArrayOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerMapOutput{})
 }

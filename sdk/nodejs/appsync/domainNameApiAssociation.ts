@@ -73,12 +73,12 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainNameApiAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainNameApiAssociationArgs | DomainNameApiAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameApiAssociationState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
         } else {
             const args = argsOrState as DomainNameApiAssociationArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -87,13 +87,11 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainNameApiAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainNameApiAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

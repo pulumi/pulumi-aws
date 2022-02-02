@@ -457,67 +457,65 @@ export class Bucket extends pulumi.CustomResource {
      */
     constructor(name: string, args?: BucketArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketArgs | BucketState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketState | undefined;
-            inputs["accelerationStatus"] = state ? state.accelerationStatus : undefined;
-            inputs["acl"] = state ? state.acl : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["bucketDomainName"] = state ? state.bucketDomainName : undefined;
-            inputs["bucketPrefix"] = state ? state.bucketPrefix : undefined;
-            inputs["bucketRegionalDomainName"] = state ? state.bucketRegionalDomainName : undefined;
-            inputs["corsRules"] = state ? state.corsRules : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["grants"] = state ? state.grants : undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            inputs["lifecycleRules"] = state ? state.lifecycleRules : undefined;
-            inputs["loggings"] = state ? state.loggings : undefined;
-            inputs["objectLockConfiguration"] = state ? state.objectLockConfiguration : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["region"] = state ? state.region : undefined;
-            inputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
-            inputs["requestPayer"] = state ? state.requestPayer : undefined;
-            inputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["versioning"] = state ? state.versioning : undefined;
-            inputs["website"] = state ? state.website : undefined;
-            inputs["websiteDomain"] = state ? state.websiteDomain : undefined;
-            inputs["websiteEndpoint"] = state ? state.websiteEndpoint : undefined;
+            resourceInputs["accelerationStatus"] = state ? state.accelerationStatus : undefined;
+            resourceInputs["acl"] = state ? state.acl : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["bucketDomainName"] = state ? state.bucketDomainName : undefined;
+            resourceInputs["bucketPrefix"] = state ? state.bucketPrefix : undefined;
+            resourceInputs["bucketRegionalDomainName"] = state ? state.bucketRegionalDomainName : undefined;
+            resourceInputs["corsRules"] = state ? state.corsRules : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["grants"] = state ? state.grants : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["lifecycleRules"] = state ? state.lifecycleRules : undefined;
+            resourceInputs["loggings"] = state ? state.loggings : undefined;
+            resourceInputs["objectLockConfiguration"] = state ? state.objectLockConfiguration : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
+            resourceInputs["requestPayer"] = state ? state.requestPayer : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["versioning"] = state ? state.versioning : undefined;
+            resourceInputs["website"] = state ? state.website : undefined;
+            resourceInputs["websiteDomain"] = state ? state.websiteDomain : undefined;
+            resourceInputs["websiteEndpoint"] = state ? state.websiteEndpoint : undefined;
         } else {
             const args = argsOrState as BucketArgs | undefined;
-            inputs["accelerationStatus"] = args ? args.accelerationStatus : undefined;
-            inputs["acl"] = args ? args.acl : undefined;
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
-            inputs["corsRules"] = args ? args.corsRules : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["grants"] = args ? args.grants : undefined;
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            inputs["lifecycleRules"] = args ? args.lifecycleRules : undefined;
-            inputs["loggings"] = args ? args.loggings : undefined;
-            inputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            inputs["requestPayer"] = args ? args.requestPayer : undefined;
-            inputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["versioning"] = args ? args.versioning : undefined;
-            inputs["website"] = args ? args.website : undefined;
-            inputs["websiteDomain"] = args ? args.websiteDomain : undefined;
-            inputs["websiteEndpoint"] = args ? args.websiteEndpoint : undefined;
-            inputs["bucketDomainName"] = undefined /*out*/;
-            inputs["bucketRegionalDomainName"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accelerationStatus"] = args ? args.accelerationStatus : undefined;
+            resourceInputs["acl"] = args ? args.acl : undefined;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
+            resourceInputs["corsRules"] = args ? args.corsRules : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["grants"] = args ? args.grants : undefined;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["lifecycleRules"] = args ? args.lifecycleRules : undefined;
+            resourceInputs["loggings"] = args ? args.loggings : undefined;
+            resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
+            resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["versioning"] = args ? args.versioning : undefined;
+            resourceInputs["website"] = args ? args.website : undefined;
+            resourceInputs["websiteDomain"] = args ? args.websiteDomain : undefined;
+            resourceInputs["websiteEndpoint"] = args ? args.websiteEndpoint : undefined;
+            resourceInputs["bucketDomainName"] = undefined /*out*/;
+            resourceInputs["bucketRegionalDomainName"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Bucket.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
 }
 

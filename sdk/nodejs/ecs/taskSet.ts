@@ -126,30 +126,30 @@ export class TaskSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: TaskSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TaskSetArgs | TaskSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
-            inputs["cluster"] = state ? state.cluster : undefined;
-            inputs["externalId"] = state ? state.externalId : undefined;
-            inputs["forceDelete"] = state ? state.forceDelete : undefined;
-            inputs["launchType"] = state ? state.launchType : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            inputs["platformVersion"] = state ? state.platformVersion : undefined;
-            inputs["scale"] = state ? state.scale : undefined;
-            inputs["service"] = state ? state.service : undefined;
-            inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
-            inputs["stabilityStatus"] = state ? state.stabilityStatus : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["taskDefinition"] = state ? state.taskDefinition : undefined;
-            inputs["taskSetId"] = state ? state.taskSetId : undefined;
-            inputs["waitUntilStable"] = state ? state.waitUntilStable : undefined;
-            inputs["waitUntilStableTimeout"] = state ? state.waitUntilStableTimeout : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
+            resourceInputs["cluster"] = state ? state.cluster : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["launchType"] = state ? state.launchType : undefined;
+            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
+            resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
+            resourceInputs["scale"] = state ? state.scale : undefined;
+            resourceInputs["service"] = state ? state.service : undefined;
+            resourceInputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
+            resourceInputs["stabilityStatus"] = state ? state.stabilityStatus : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["taskDefinition"] = state ? state.taskDefinition : undefined;
+            resourceInputs["taskSetId"] = state ? state.taskSetId : undefined;
+            resourceInputs["waitUntilStable"] = state ? state.waitUntilStable : undefined;
+            resourceInputs["waitUntilStableTimeout"] = state ? state.waitUntilStableTimeout : undefined;
         } else {
             const args = argsOrState as TaskSetArgs | undefined;
             if ((!args || args.cluster === undefined) && !opts.urn) {
@@ -161,31 +161,29 @@ export class TaskSet extends pulumi.CustomResource {
             if ((!args || args.taskDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
-            inputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
-            inputs["cluster"] = args ? args.cluster : undefined;
-            inputs["externalId"] = args ? args.externalId : undefined;
-            inputs["forceDelete"] = args ? args.forceDelete : undefined;
-            inputs["launchType"] = args ? args.launchType : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["platformVersion"] = args ? args.platformVersion : undefined;
-            inputs["scale"] = args ? args.scale : undefined;
-            inputs["service"] = args ? args.service : undefined;
-            inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
-            inputs["waitUntilStable"] = args ? args.waitUntilStable : undefined;
-            inputs["waitUntilStableTimeout"] = args ? args.waitUntilStableTimeout : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["stabilityStatus"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["taskSetId"] = undefined /*out*/;
+            resourceInputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
+            resourceInputs["cluster"] = args ? args.cluster : undefined;
+            resourceInputs["externalId"] = args ? args.externalId : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["launchType"] = args ? args.launchType : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
+            resourceInputs["scale"] = args ? args.scale : undefined;
+            resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["waitUntilStable"] = args ? args.waitUntilStable : undefined;
+            resourceInputs["waitUntilStableTimeout"] = args ? args.waitUntilStableTimeout : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["stabilityStatus"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["taskSetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TaskSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TaskSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -83,14 +83,14 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityNotificationTopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityNotificationTopicArgs | IdentityNotificationTopicState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityNotificationTopicState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["includeOriginalHeaders"] = state ? state.includeOriginalHeaders : undefined;
-            inputs["notificationType"] = state ? state.notificationType : undefined;
-            inputs["topicArn"] = state ? state.topicArn : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["includeOriginalHeaders"] = state ? state.includeOriginalHeaders : undefined;
+            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as IdentityNotificationTopicArgs | undefined;
             if ((!args || args.identity === undefined) && !opts.urn) {
@@ -99,15 +99,13 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             if ((!args || args.notificationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["includeOriginalHeaders"] = args ? args.includeOriginalHeaders : undefined;
-            inputs["notificationType"] = args ? args.notificationType : undefined;
-            inputs["topicArn"] = args ? args.topicArn : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["includeOriginalHeaders"] = args ? args.includeOriginalHeaders : undefined;
+            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IdentityNotificationTopic.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IdentityNotificationTopic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

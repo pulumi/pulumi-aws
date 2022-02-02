@@ -135,7 +135,7 @@ type DomainPolicyInput interface {
 }
 
 func (*DomainPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainPolicy)(nil))
+	return reflect.TypeOf((**DomainPolicy)(nil)).Elem()
 }
 
 func (i *DomainPolicy) ToDomainPolicyOutput() DomainPolicyOutput {
@@ -144,35 +144,6 @@ func (i *DomainPolicy) ToDomainPolicyOutput() DomainPolicyOutput {
 
 func (i *DomainPolicy) ToDomainPolicyOutputWithContext(ctx context.Context) DomainPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyOutput)
-}
-
-func (i *DomainPolicy) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
-	return i.ToDomainPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainPolicy) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyPtrOutput)
-}
-
-type DomainPolicyPtrInput interface {
-	pulumi.Input
-
-	ToDomainPolicyPtrOutput() DomainPolicyPtrOutput
-	ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput
-}
-
-type domainPolicyPtrType DomainPolicyArgs
-
-func (*domainPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainPolicy)(nil))
-}
-
-func (i *domainPolicyPtrType) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
-	return i.ToDomainPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *domainPolicyPtrType) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyPtrOutput)
 }
 
 // DomainPolicyArrayInput is an input type that accepts DomainPolicyArray and DomainPolicyArrayOutput values.
@@ -228,7 +199,7 @@ func (i DomainPolicyMap) ToDomainPolicyMapOutputWithContext(ctx context.Context)
 type DomainPolicyOutput struct{ *pulumi.OutputState }
 
 func (DomainPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainPolicy)(nil))
+	return reflect.TypeOf((**DomainPolicy)(nil)).Elem()
 }
 
 func (o DomainPolicyOutput) ToDomainPolicyOutput() DomainPolicyOutput {
@@ -239,44 +210,10 @@ func (o DomainPolicyOutput) ToDomainPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o DomainPolicyOutput) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
-	return o.ToDomainPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o DomainPolicyOutput) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainPolicy) *DomainPolicy {
-		return &v
-	}).(DomainPolicyPtrOutput)
-}
-
-type DomainPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainPolicy)(nil))
-}
-
-func (o DomainPolicyPtrOutput) ToDomainPolicyPtrOutput() DomainPolicyPtrOutput {
-	return o
-}
-
-func (o DomainPolicyPtrOutput) ToDomainPolicyPtrOutputWithContext(ctx context.Context) DomainPolicyPtrOutput {
-	return o
-}
-
-func (o DomainPolicyPtrOutput) Elem() DomainPolicyOutput {
-	return o.ApplyT(func(v *DomainPolicy) DomainPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret DomainPolicy
-		return ret
-	}).(DomainPolicyOutput)
-}
-
 type DomainPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainPolicy)(nil))
+	return reflect.TypeOf((*[]*DomainPolicy)(nil)).Elem()
 }
 
 func (o DomainPolicyArrayOutput) ToDomainPolicyArrayOutput() DomainPolicyArrayOutput {
@@ -288,15 +225,15 @@ func (o DomainPolicyArrayOutput) ToDomainPolicyArrayOutputWithContext(ctx contex
 }
 
 func (o DomainPolicyArrayOutput) Index(i pulumi.IntInput) DomainPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainPolicy {
-		return vs[0].([]DomainPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainPolicy {
+		return vs[0].([]*DomainPolicy)[vs[1].(int)]
 	}).(DomainPolicyOutput)
 }
 
 type DomainPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (DomainPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainPolicy)(nil))
+	return reflect.TypeOf((*map[string]*DomainPolicy)(nil)).Elem()
 }
 
 func (o DomainPolicyMapOutput) ToDomainPolicyMapOutput() DomainPolicyMapOutput {
@@ -308,18 +245,16 @@ func (o DomainPolicyMapOutput) ToDomainPolicyMapOutputWithContext(ctx context.Co
 }
 
 func (o DomainPolicyMapOutput) MapIndex(k pulumi.StringInput) DomainPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainPolicy {
-		return vs[0].(map[string]DomainPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainPolicy {
+		return vs[0].(map[string]*DomainPolicy)[vs[1].(string)]
 	}).(DomainPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyInput)(nil)).Elem(), &DomainPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyPtrInput)(nil)).Elem(), &DomainPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyArrayInput)(nil)).Elem(), DomainPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyMapInput)(nil)).Elem(), DomainPolicyMap{})
 	pulumi.RegisterOutputType(DomainPolicyOutput{})
-	pulumi.RegisterOutputType(DomainPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DomainPolicyArrayOutput{})
 	pulumi.RegisterOutputType(DomainPolicyMapOutput{})
 }
