@@ -1,9 +1,24 @@
-# Contributing to Pulumi
+# Contributing to the Pulumi ecosystem
 
-Do you want to hack on Pulumi?  Awesome!  We are so happy to have you.
+Do you want to contribute to Pulumi? Awesome! We are so happy to have you.
+We have a few tips and housekeeping items to help you get up and running.
+
+## Code of Conduct
+
+Please make sure to read and observe our [Code of Conduct](./CODE-OF-CONDUCT.md)
+
+## Community Expectations
+
+Please read about our [contribution guidelines here.](https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md#communications)
+
+## Setting up your development environment
+
+This repository holds the source code for the [Pulumi AWS provider](https://www.pulumi.com/registry/packages/aws/). The Provider SDK code in this repository is generated via the [Pulumi Terraform Bridge](https://github.com/pulumi/pulumi-terraform-bridge), so keep that in mind as you work in this repository.
+
+### Pulumi prerequisites
 
 Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CONTRIBUTING.md file](
-https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md) for details on how to do so.
+https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md#developing) for details on how to get set up with Pulumi.
 
 ## Committing Generated Code
 
