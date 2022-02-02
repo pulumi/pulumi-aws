@@ -111,37 +111,35 @@ export class Organization extends pulumi.CustomResource {
      */
     constructor(name: string, args?: OrganizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationArgs | OrganizationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationState | undefined;
-            inputs["accounts"] = state ? state.accounts : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsServiceAccessPrincipals"] = state ? state.awsServiceAccessPrincipals : undefined;
-            inputs["enabledPolicyTypes"] = state ? state.enabledPolicyTypes : undefined;
-            inputs["featureSet"] = state ? state.featureSet : undefined;
-            inputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
-            inputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
-            inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
-            inputs["nonMasterAccounts"] = state ? state.nonMasterAccounts : undefined;
-            inputs["roots"] = state ? state.roots : undefined;
+            resourceInputs["accounts"] = state ? state.accounts : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsServiceAccessPrincipals"] = state ? state.awsServiceAccessPrincipals : undefined;
+            resourceInputs["enabledPolicyTypes"] = state ? state.enabledPolicyTypes : undefined;
+            resourceInputs["featureSet"] = state ? state.featureSet : undefined;
+            resourceInputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
+            resourceInputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
+            resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            resourceInputs["nonMasterAccounts"] = state ? state.nonMasterAccounts : undefined;
+            resourceInputs["roots"] = state ? state.roots : undefined;
         } else {
             const args = argsOrState as OrganizationArgs | undefined;
-            inputs["awsServiceAccessPrincipals"] = args ? args.awsServiceAccessPrincipals : undefined;
-            inputs["enabledPolicyTypes"] = args ? args.enabledPolicyTypes : undefined;
-            inputs["featureSet"] = args ? args.featureSet : undefined;
-            inputs["accounts"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["masterAccountArn"] = undefined /*out*/;
-            inputs["masterAccountEmail"] = undefined /*out*/;
-            inputs["masterAccountId"] = undefined /*out*/;
-            inputs["nonMasterAccounts"] = undefined /*out*/;
-            inputs["roots"] = undefined /*out*/;
+            resourceInputs["awsServiceAccessPrincipals"] = args ? args.awsServiceAccessPrincipals : undefined;
+            resourceInputs["enabledPolicyTypes"] = args ? args.enabledPolicyTypes : undefined;
+            resourceInputs["featureSet"] = args ? args.featureSet : undefined;
+            resourceInputs["accounts"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["masterAccountArn"] = undefined /*out*/;
+            resourceInputs["masterAccountEmail"] = undefined /*out*/;
+            resourceInputs["masterAccountId"] = undefined /*out*/;
+            resourceInputs["nonMasterAccounts"] = undefined /*out*/;
+            resourceInputs["roots"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Organization.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Organization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

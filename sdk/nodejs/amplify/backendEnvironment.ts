@@ -88,15 +88,15 @@ export class BackendEnvironment extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackendEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackendEnvironmentArgs | BackendEnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendEnvironmentState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deploymentArtifacts"] = state ? state.deploymentArtifacts : undefined;
-            inputs["environmentName"] = state ? state.environmentName : undefined;
-            inputs["stackName"] = state ? state.stackName : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deploymentArtifacts"] = state ? state.deploymentArtifacts : undefined;
+            resourceInputs["environmentName"] = state ? state.environmentName : undefined;
+            resourceInputs["stackName"] = state ? state.stackName : undefined;
         } else {
             const args = argsOrState as BackendEnvironmentArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -105,16 +105,14 @@ export class BackendEnvironment extends pulumi.CustomResource {
             if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["deploymentArtifacts"] = args ? args.deploymentArtifacts : undefined;
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["stackName"] = args ? args.stackName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["deploymentArtifacts"] = args ? args.deploymentArtifacts : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackendEnvironment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackendEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

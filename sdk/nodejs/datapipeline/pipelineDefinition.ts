@@ -136,14 +136,14 @@ export class PipelineDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipelineDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipelineDefinitionArgs | PipelineDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineDefinitionState | undefined;
-            inputs["parameterObjects"] = state ? state.parameterObjects : undefined;
-            inputs["parameterValues"] = state ? state.parameterValues : undefined;
-            inputs["pipelineId"] = state ? state.pipelineId : undefined;
-            inputs["pipelineObjects"] = state ? state.pipelineObjects : undefined;
+            resourceInputs["parameterObjects"] = state ? state.parameterObjects : undefined;
+            resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
+            resourceInputs["pipelineId"] = state ? state.pipelineId : undefined;
+            resourceInputs["pipelineObjects"] = state ? state.pipelineObjects : undefined;
         } else {
             const args = argsOrState as PipelineDefinitionArgs | undefined;
             if ((!args || args.pipelineId === undefined) && !opts.urn) {
@@ -152,15 +152,13 @@ export class PipelineDefinition extends pulumi.CustomResource {
             if ((!args || args.pipelineObjects === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineObjects'");
             }
-            inputs["parameterObjects"] = args ? args.parameterObjects : undefined;
-            inputs["parameterValues"] = args ? args.parameterValues : undefined;
-            inputs["pipelineId"] = args ? args.pipelineId : undefined;
-            inputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
+            resourceInputs["parameterObjects"] = args ? args.parameterObjects : undefined;
+            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
+            resourceInputs["pipelineId"] = args ? args.pipelineId : undefined;
+            resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PipelineDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PipelineDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

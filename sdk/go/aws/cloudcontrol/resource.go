@@ -167,7 +167,7 @@ type ResourceInput interface {
 }
 
 func (*Resource) ElementType() reflect.Type {
-	return reflect.TypeOf((*Resource)(nil))
+	return reflect.TypeOf((**Resource)(nil)).Elem()
 }
 
 func (i *Resource) ToResourceOutput() ResourceOutput {
@@ -176,35 +176,6 @@ func (i *Resource) ToResourceOutput() ResourceOutput {
 
 func (i *Resource) ToResourceOutputWithContext(ctx context.Context) ResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceOutput)
-}
-
-func (i *Resource) ToResourcePtrOutput() ResourcePtrOutput {
-	return i.ToResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *Resource) ToResourcePtrOutputWithContext(ctx context.Context) ResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePtrOutput)
-}
-
-type ResourcePtrInput interface {
-	pulumi.Input
-
-	ToResourcePtrOutput() ResourcePtrOutput
-	ToResourcePtrOutputWithContext(ctx context.Context) ResourcePtrOutput
-}
-
-type resourcePtrType ResourceArgs
-
-func (*resourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Resource)(nil))
-}
-
-func (i *resourcePtrType) ToResourcePtrOutput() ResourcePtrOutput {
-	return i.ToResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *resourcePtrType) ToResourcePtrOutputWithContext(ctx context.Context) ResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePtrOutput)
 }
 
 // ResourceArrayInput is an input type that accepts ResourceArray and ResourceArrayOutput values.
@@ -260,7 +231,7 @@ func (i ResourceMap) ToResourceMapOutputWithContext(ctx context.Context) Resourc
 type ResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Resource)(nil))
+	return reflect.TypeOf((**Resource)(nil)).Elem()
 }
 
 func (o ResourceOutput) ToResourceOutput() ResourceOutput {
@@ -271,44 +242,10 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
-func (o ResourceOutput) ToResourcePtrOutput() ResourcePtrOutput {
-	return o.ToResourcePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceOutput) ToResourcePtrOutputWithContext(ctx context.Context) ResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Resource) *Resource {
-		return &v
-	}).(ResourcePtrOutput)
-}
-
-type ResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (ResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Resource)(nil))
-}
-
-func (o ResourcePtrOutput) ToResourcePtrOutput() ResourcePtrOutput {
-	return o
-}
-
-func (o ResourcePtrOutput) ToResourcePtrOutputWithContext(ctx context.Context) ResourcePtrOutput {
-	return o
-}
-
-func (o ResourcePtrOutput) Elem() ResourceOutput {
-	return o.ApplyT(func(v *Resource) Resource {
-		if v != nil {
-			return *v
-		}
-		var ret Resource
-		return ret
-	}).(ResourceOutput)
-}
-
 type ResourceArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Resource)(nil))
+	return reflect.TypeOf((*[]*Resource)(nil)).Elem()
 }
 
 func (o ResourceArrayOutput) ToResourceArrayOutput() ResourceArrayOutput {
@@ -320,15 +257,15 @@ func (o ResourceArrayOutput) ToResourceArrayOutputWithContext(ctx context.Contex
 }
 
 func (o ResourceArrayOutput) Index(i pulumi.IntInput) ResourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Resource {
-		return vs[0].([]Resource)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Resource {
+		return vs[0].([]*Resource)[vs[1].(int)]
 	}).(ResourceOutput)
 }
 
 type ResourceMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Resource)(nil))
+	return reflect.TypeOf((*map[string]*Resource)(nil)).Elem()
 }
 
 func (o ResourceMapOutput) ToResourceMapOutput() ResourceMapOutput {
@@ -340,18 +277,16 @@ func (o ResourceMapOutput) ToResourceMapOutputWithContext(ctx context.Context) R
 }
 
 func (o ResourceMapOutput) MapIndex(k pulumi.StringInput) ResourceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Resource {
-		return vs[0].(map[string]Resource)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Resource {
+		return vs[0].(map[string]*Resource)[vs[1].(string)]
 	}).(ResourceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceInput)(nil)).Elem(), &Resource{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePtrInput)(nil)).Elem(), &Resource{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceArrayInput)(nil)).Elem(), ResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMapInput)(nil)).Elem(), ResourceMap{})
 	pulumi.RegisterOutputType(ResourceOutput{})
-	pulumi.RegisterOutputType(ResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceMapOutput{})
 }

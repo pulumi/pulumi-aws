@@ -116,7 +116,7 @@ type ManagedPrefixListEntryInput interface {
 }
 
 func (*ManagedPrefixListEntry) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrefixListEntry)(nil))
+	return reflect.TypeOf((**ManagedPrefixListEntry)(nil)).Elem()
 }
 
 func (i *ManagedPrefixListEntry) ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput {
@@ -125,35 +125,6 @@ func (i *ManagedPrefixListEntry) ToManagedPrefixListEntryOutput() ManagedPrefixL
 
 func (i *ManagedPrefixListEntry) ToManagedPrefixListEntryOutputWithContext(ctx context.Context) ManagedPrefixListEntryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryOutput)
-}
-
-func (i *ManagedPrefixListEntry) ToManagedPrefixListEntryPtrOutput() ManagedPrefixListEntryPtrOutput {
-	return i.ToManagedPrefixListEntryPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedPrefixListEntry) ToManagedPrefixListEntryPtrOutputWithContext(ctx context.Context) ManagedPrefixListEntryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryPtrOutput)
-}
-
-type ManagedPrefixListEntryPtrInput interface {
-	pulumi.Input
-
-	ToManagedPrefixListEntryPtrOutput() ManagedPrefixListEntryPtrOutput
-	ToManagedPrefixListEntryPtrOutputWithContext(ctx context.Context) ManagedPrefixListEntryPtrOutput
-}
-
-type managedPrefixListEntryPtrType ManagedPrefixListEntryArgs
-
-func (*managedPrefixListEntryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedPrefixListEntry)(nil))
-}
-
-func (i *managedPrefixListEntryPtrType) ToManagedPrefixListEntryPtrOutput() ManagedPrefixListEntryPtrOutput {
-	return i.ToManagedPrefixListEntryPtrOutputWithContext(context.Background())
-}
-
-func (i *managedPrefixListEntryPtrType) ToManagedPrefixListEntryPtrOutputWithContext(ctx context.Context) ManagedPrefixListEntryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryPtrOutput)
 }
 
 // ManagedPrefixListEntryArrayInput is an input type that accepts ManagedPrefixListEntryArray and ManagedPrefixListEntryArrayOutput values.
@@ -209,7 +180,7 @@ func (i ManagedPrefixListEntryMap) ToManagedPrefixListEntryMapOutputWithContext(
 type ManagedPrefixListEntryOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrefixListEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrefixListEntry)(nil))
+	return reflect.TypeOf((**ManagedPrefixListEntry)(nil)).Elem()
 }
 
 func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput {
@@ -220,44 +191,10 @@ func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutputWithContext(
 	return o
 }
 
-func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryPtrOutput() ManagedPrefixListEntryPtrOutput {
-	return o.ToManagedPrefixListEntryPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryPtrOutputWithContext(ctx context.Context) ManagedPrefixListEntryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedPrefixListEntry) *ManagedPrefixListEntry {
-		return &v
-	}).(ManagedPrefixListEntryPtrOutput)
-}
-
-type ManagedPrefixListEntryPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedPrefixListEntryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedPrefixListEntry)(nil))
-}
-
-func (o ManagedPrefixListEntryPtrOutput) ToManagedPrefixListEntryPtrOutput() ManagedPrefixListEntryPtrOutput {
-	return o
-}
-
-func (o ManagedPrefixListEntryPtrOutput) ToManagedPrefixListEntryPtrOutputWithContext(ctx context.Context) ManagedPrefixListEntryPtrOutput {
-	return o
-}
-
-func (o ManagedPrefixListEntryPtrOutput) Elem() ManagedPrefixListEntryOutput {
-	return o.ApplyT(func(v *ManagedPrefixListEntry) ManagedPrefixListEntry {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedPrefixListEntry
-		return ret
-	}).(ManagedPrefixListEntryOutput)
-}
-
 type ManagedPrefixListEntryArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrefixListEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedPrefixListEntry)(nil))
+	return reflect.TypeOf((*[]*ManagedPrefixListEntry)(nil)).Elem()
 }
 
 func (o ManagedPrefixListEntryArrayOutput) ToManagedPrefixListEntryArrayOutput() ManagedPrefixListEntryArrayOutput {
@@ -269,15 +206,15 @@ func (o ManagedPrefixListEntryArrayOutput) ToManagedPrefixListEntryArrayOutputWi
 }
 
 func (o ManagedPrefixListEntryArrayOutput) Index(i pulumi.IntInput) ManagedPrefixListEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedPrefixListEntry {
-		return vs[0].([]ManagedPrefixListEntry)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedPrefixListEntry {
+		return vs[0].([]*ManagedPrefixListEntry)[vs[1].(int)]
 	}).(ManagedPrefixListEntryOutput)
 }
 
 type ManagedPrefixListEntryMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrefixListEntryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedPrefixListEntry)(nil))
+	return reflect.TypeOf((*map[string]*ManagedPrefixListEntry)(nil)).Elem()
 }
 
 func (o ManagedPrefixListEntryMapOutput) ToManagedPrefixListEntryMapOutput() ManagedPrefixListEntryMapOutput {
@@ -289,18 +226,16 @@ func (o ManagedPrefixListEntryMapOutput) ToManagedPrefixListEntryMapOutputWithCo
 }
 
 func (o ManagedPrefixListEntryMapOutput) MapIndex(k pulumi.StringInput) ManagedPrefixListEntryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedPrefixListEntry {
-		return vs[0].(map[string]ManagedPrefixListEntry)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedPrefixListEntry {
+		return vs[0].(map[string]*ManagedPrefixListEntry)[vs[1].(string)]
 	}).(ManagedPrefixListEntryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryInput)(nil)).Elem(), &ManagedPrefixListEntry{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryPtrInput)(nil)).Elem(), &ManagedPrefixListEntry{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryArrayInput)(nil)).Elem(), ManagedPrefixListEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryMapInput)(nil)).Elem(), ManagedPrefixListEntryMap{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryOutput{})
-	pulumi.RegisterOutputType(ManagedPrefixListEntryPtrOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryMapOutput{})
 }

@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFront
 {
     public static class GetOriginAccessIdentity
     {
         public static Task<GetOriginAccessIdentityResult> InvokeAsync(GetOriginAccessIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityArgs(), options.WithDefaults());
 
         public static Output<GetOriginAccessIdentityResult> Invoke(GetOriginAccessIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

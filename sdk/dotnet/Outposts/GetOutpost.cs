@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Outposts
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Outposts
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOutpostResult> InvokeAsync(GetOutpostArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about an Outposts Outpost.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Outposts
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOutpostResult> Invoke(GetOutpostInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostInvokeArgs(), options.WithDefaults());
     }
 
 

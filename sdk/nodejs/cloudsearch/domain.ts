@@ -88,35 +88,33 @@ export class Domain extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["documentServiceEndpoint"] = state ? state.documentServiceEndpoint : undefined;
-            inputs["domainId"] = state ? state.domainId : undefined;
-            inputs["endpointOptions"] = state ? state.endpointOptions : undefined;
-            inputs["indexFields"] = state ? state.indexFields : undefined;
-            inputs["multiAz"] = state ? state.multiAz : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["scalingParameters"] = state ? state.scalingParameters : undefined;
-            inputs["searchServiceEndpoint"] = state ? state.searchServiceEndpoint : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["documentServiceEndpoint"] = state ? state.documentServiceEndpoint : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["endpointOptions"] = state ? state.endpointOptions : undefined;
+            resourceInputs["indexFields"] = state ? state.indexFields : undefined;
+            resourceInputs["multiAz"] = state ? state.multiAz : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scalingParameters"] = state ? state.scalingParameters : undefined;
+            resourceInputs["searchServiceEndpoint"] = state ? state.searchServiceEndpoint : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            inputs["endpointOptions"] = args ? args.endpointOptions : undefined;
-            inputs["indexFields"] = args ? args.indexFields : undefined;
-            inputs["multiAz"] = args ? args.multiAz : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scalingParameters"] = args ? args.scalingParameters : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["documentServiceEndpoint"] = undefined /*out*/;
-            inputs["domainId"] = undefined /*out*/;
-            inputs["searchServiceEndpoint"] = undefined /*out*/;
+            resourceInputs["endpointOptions"] = args ? args.endpointOptions : undefined;
+            resourceInputs["indexFields"] = args ? args.indexFields : undefined;
+            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scalingParameters"] = args ? args.scalingParameters : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["documentServiceEndpoint"] = undefined /*out*/;
+            resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["searchServiceEndpoint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

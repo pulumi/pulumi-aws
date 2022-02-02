@@ -104,33 +104,31 @@ export class ThingGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ThingGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThingGroupArgs | ThingGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["metadatas"] = state ? state.metadatas : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parentGroupName"] = state ? state.parentGroupName : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["metadatas"] = state ? state.metadatas : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentGroupName"] = state ? state.parentGroupName : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ThingGroupArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentGroupName"] = args ? args.parentGroupName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["metadatas"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentGroupName"] = args ? args.parentGroupName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["metadatas"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ThingGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ThingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

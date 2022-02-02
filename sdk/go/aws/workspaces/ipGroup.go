@@ -164,7 +164,7 @@ type IpGroupInput interface {
 }
 
 func (*IpGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpGroup)(nil))
+	return reflect.TypeOf((**IpGroup)(nil)).Elem()
 }
 
 func (i *IpGroup) ToIpGroupOutput() IpGroupOutput {
@@ -173,35 +173,6 @@ func (i *IpGroup) ToIpGroupOutput() IpGroupOutput {
 
 func (i *IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupOutput)
-}
-
-func (i *IpGroup) ToIpGroupPtrOutput() IpGroupPtrOutput {
-	return i.ToIpGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *IpGroup) ToIpGroupPtrOutputWithContext(ctx context.Context) IpGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpGroupPtrOutput)
-}
-
-type IpGroupPtrInput interface {
-	pulumi.Input
-
-	ToIpGroupPtrOutput() IpGroupPtrOutput
-	ToIpGroupPtrOutputWithContext(ctx context.Context) IpGroupPtrOutput
-}
-
-type ipGroupPtrType IpGroupArgs
-
-func (*ipGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IpGroup)(nil))
-}
-
-func (i *ipGroupPtrType) ToIpGroupPtrOutput() IpGroupPtrOutput {
-	return i.ToIpGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ipGroupPtrType) ToIpGroupPtrOutputWithContext(ctx context.Context) IpGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpGroupPtrOutput)
 }
 
 // IpGroupArrayInput is an input type that accepts IpGroupArray and IpGroupArrayOutput values.
@@ -257,7 +228,7 @@ func (i IpGroupMap) ToIpGroupMapOutputWithContext(ctx context.Context) IpGroupMa
 type IpGroupOutput struct{ *pulumi.OutputState }
 
 func (IpGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpGroup)(nil))
+	return reflect.TypeOf((**IpGroup)(nil)).Elem()
 }
 
 func (o IpGroupOutput) ToIpGroupOutput() IpGroupOutput {
@@ -268,44 +239,10 @@ func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOu
 	return o
 }
 
-func (o IpGroupOutput) ToIpGroupPtrOutput() IpGroupPtrOutput {
-	return o.ToIpGroupPtrOutputWithContext(context.Background())
-}
-
-func (o IpGroupOutput) ToIpGroupPtrOutputWithContext(ctx context.Context) IpGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpGroup) *IpGroup {
-		return &v
-	}).(IpGroupPtrOutput)
-}
-
-type IpGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (IpGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IpGroup)(nil))
-}
-
-func (o IpGroupPtrOutput) ToIpGroupPtrOutput() IpGroupPtrOutput {
-	return o
-}
-
-func (o IpGroupPtrOutput) ToIpGroupPtrOutputWithContext(ctx context.Context) IpGroupPtrOutput {
-	return o
-}
-
-func (o IpGroupPtrOutput) Elem() IpGroupOutput {
-	return o.ApplyT(func(v *IpGroup) IpGroup {
-		if v != nil {
-			return *v
-		}
-		var ret IpGroup
-		return ret
-	}).(IpGroupOutput)
-}
-
 type IpGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (IpGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IpGroup)(nil))
+	return reflect.TypeOf((*[]*IpGroup)(nil)).Elem()
 }
 
 func (o IpGroupArrayOutput) ToIpGroupArrayOutput() IpGroupArrayOutput {
@@ -317,15 +254,15 @@ func (o IpGroupArrayOutput) ToIpGroupArrayOutputWithContext(ctx context.Context)
 }
 
 func (o IpGroupArrayOutput) Index(i pulumi.IntInput) IpGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpGroup {
-		return vs[0].([]IpGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IpGroup {
+		return vs[0].([]*IpGroup)[vs[1].(int)]
 	}).(IpGroupOutput)
 }
 
 type IpGroupMapOutput struct{ *pulumi.OutputState }
 
 func (IpGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IpGroup)(nil))
+	return reflect.TypeOf((*map[string]*IpGroup)(nil)).Elem()
 }
 
 func (o IpGroupMapOutput) ToIpGroupMapOutput() IpGroupMapOutput {
@@ -337,18 +274,16 @@ func (o IpGroupMapOutput) ToIpGroupMapOutputWithContext(ctx context.Context) IpG
 }
 
 func (o IpGroupMapOutput) MapIndex(k pulumi.StringInput) IpGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IpGroup {
-		return vs[0].(map[string]IpGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IpGroup {
+		return vs[0].(map[string]*IpGroup)[vs[1].(string)]
 	}).(IpGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupInput)(nil)).Elem(), &IpGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupPtrInput)(nil)).Elem(), &IpGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupArrayInput)(nil)).Elem(), IpGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupMapInput)(nil)).Elem(), IpGroupMap{})
 	pulumi.RegisterOutputType(IpGroupOutput{})
-	pulumi.RegisterOutputType(IpGroupPtrOutput{})
 	pulumi.RegisterOutputType(IpGroupArrayOutput{})
 	pulumi.RegisterOutputType(IpGroupMapOutput{})
 }

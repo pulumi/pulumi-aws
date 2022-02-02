@@ -174,7 +174,7 @@ type VpcIpamPreviewNextCidrInput interface {
 }
 
 func (*VpcIpamPreviewNextCidr) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamPreviewNextCidr)(nil))
+	return reflect.TypeOf((**VpcIpamPreviewNextCidr)(nil)).Elem()
 }
 
 func (i *VpcIpamPreviewNextCidr) ToVpcIpamPreviewNextCidrOutput() VpcIpamPreviewNextCidrOutput {
@@ -183,35 +183,6 @@ func (i *VpcIpamPreviewNextCidr) ToVpcIpamPreviewNextCidrOutput() VpcIpamPreview
 
 func (i *VpcIpamPreviewNextCidr) ToVpcIpamPreviewNextCidrOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPreviewNextCidrOutput)
-}
-
-func (i *VpcIpamPreviewNextCidr) ToVpcIpamPreviewNextCidrPtrOutput() VpcIpamPreviewNextCidrPtrOutput {
-	return i.ToVpcIpamPreviewNextCidrPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcIpamPreviewNextCidr) ToVpcIpamPreviewNextCidrPtrOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPreviewNextCidrPtrOutput)
-}
-
-type VpcIpamPreviewNextCidrPtrInput interface {
-	pulumi.Input
-
-	ToVpcIpamPreviewNextCidrPtrOutput() VpcIpamPreviewNextCidrPtrOutput
-	ToVpcIpamPreviewNextCidrPtrOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrPtrOutput
-}
-
-type vpcIpamPreviewNextCidrPtrType VpcIpamPreviewNextCidrArgs
-
-func (*vpcIpamPreviewNextCidrPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamPreviewNextCidr)(nil))
-}
-
-func (i *vpcIpamPreviewNextCidrPtrType) ToVpcIpamPreviewNextCidrPtrOutput() VpcIpamPreviewNextCidrPtrOutput {
-	return i.ToVpcIpamPreviewNextCidrPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcIpamPreviewNextCidrPtrType) ToVpcIpamPreviewNextCidrPtrOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPreviewNextCidrPtrOutput)
 }
 
 // VpcIpamPreviewNextCidrArrayInput is an input type that accepts VpcIpamPreviewNextCidrArray and VpcIpamPreviewNextCidrArrayOutput values.
@@ -267,7 +238,7 @@ func (i VpcIpamPreviewNextCidrMap) ToVpcIpamPreviewNextCidrMapOutputWithContext(
 type VpcIpamPreviewNextCidrOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPreviewNextCidrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamPreviewNextCidr)(nil))
+	return reflect.TypeOf((**VpcIpamPreviewNextCidr)(nil)).Elem()
 }
 
 func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrOutput() VpcIpamPreviewNextCidrOutput {
@@ -278,44 +249,10 @@ func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrOutputWithContext(
 	return o
 }
 
-func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrPtrOutput() VpcIpamPreviewNextCidrPtrOutput {
-	return o.ToVpcIpamPreviewNextCidrPtrOutputWithContext(context.Background())
-}
-
-func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrPtrOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpamPreviewNextCidr) *VpcIpamPreviewNextCidr {
-		return &v
-	}).(VpcIpamPreviewNextCidrPtrOutput)
-}
-
-type VpcIpamPreviewNextCidrPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcIpamPreviewNextCidrPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamPreviewNextCidr)(nil))
-}
-
-func (o VpcIpamPreviewNextCidrPtrOutput) ToVpcIpamPreviewNextCidrPtrOutput() VpcIpamPreviewNextCidrPtrOutput {
-	return o
-}
-
-func (o VpcIpamPreviewNextCidrPtrOutput) ToVpcIpamPreviewNextCidrPtrOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrPtrOutput {
-	return o
-}
-
-func (o VpcIpamPreviewNextCidrPtrOutput) Elem() VpcIpamPreviewNextCidrOutput {
-	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) VpcIpamPreviewNextCidr {
-		if v != nil {
-			return *v
-		}
-		var ret VpcIpamPreviewNextCidr
-		return ret
-	}).(VpcIpamPreviewNextCidrOutput)
-}
-
 type VpcIpamPreviewNextCidrArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPreviewNextCidrArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcIpamPreviewNextCidr)(nil))
+	return reflect.TypeOf((*[]*VpcIpamPreviewNextCidr)(nil)).Elem()
 }
 
 func (o VpcIpamPreviewNextCidrArrayOutput) ToVpcIpamPreviewNextCidrArrayOutput() VpcIpamPreviewNextCidrArrayOutput {
@@ -327,15 +264,15 @@ func (o VpcIpamPreviewNextCidrArrayOutput) ToVpcIpamPreviewNextCidrArrayOutputWi
 }
 
 func (o VpcIpamPreviewNextCidrArrayOutput) Index(i pulumi.IntInput) VpcIpamPreviewNextCidrOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamPreviewNextCidr {
-		return vs[0].([]VpcIpamPreviewNextCidr)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamPreviewNextCidr {
+		return vs[0].([]*VpcIpamPreviewNextCidr)[vs[1].(int)]
 	}).(VpcIpamPreviewNextCidrOutput)
 }
 
 type VpcIpamPreviewNextCidrMapOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPreviewNextCidrMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcIpamPreviewNextCidr)(nil))
+	return reflect.TypeOf((*map[string]*VpcIpamPreviewNextCidr)(nil)).Elem()
 }
 
 func (o VpcIpamPreviewNextCidrMapOutput) ToVpcIpamPreviewNextCidrMapOutput() VpcIpamPreviewNextCidrMapOutput {
@@ -347,18 +284,16 @@ func (o VpcIpamPreviewNextCidrMapOutput) ToVpcIpamPreviewNextCidrMapOutputWithCo
 }
 
 func (o VpcIpamPreviewNextCidrMapOutput) MapIndex(k pulumi.StringInput) VpcIpamPreviewNextCidrOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcIpamPreviewNextCidr {
-		return vs[0].(map[string]VpcIpamPreviewNextCidr)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcIpamPreviewNextCidr {
+		return vs[0].(map[string]*VpcIpamPreviewNextCidr)[vs[1].(string)]
 	}).(VpcIpamPreviewNextCidrOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPreviewNextCidrInput)(nil)).Elem(), &VpcIpamPreviewNextCidr{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPreviewNextCidrPtrInput)(nil)).Elem(), &VpcIpamPreviewNextCidr{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPreviewNextCidrArrayInput)(nil)).Elem(), VpcIpamPreviewNextCidrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPreviewNextCidrMapInput)(nil)).Elem(), VpcIpamPreviewNextCidrMap{})
 	pulumi.RegisterOutputType(VpcIpamPreviewNextCidrOutput{})
-	pulumi.RegisterOutputType(VpcIpamPreviewNextCidrPtrOutput{})
 	pulumi.RegisterOutputType(VpcIpamPreviewNextCidrArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamPreviewNextCidrMapOutput{})
 }

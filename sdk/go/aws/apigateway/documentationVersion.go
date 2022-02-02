@@ -159,7 +159,7 @@ type DocumentationVersionInput interface {
 }
 
 func (*DocumentationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationVersion)(nil))
+	return reflect.TypeOf((**DocumentationVersion)(nil)).Elem()
 }
 
 func (i *DocumentationVersion) ToDocumentationVersionOutput() DocumentationVersionOutput {
@@ -168,35 +168,6 @@ func (i *DocumentationVersion) ToDocumentationVersionOutput() DocumentationVersi
 
 func (i *DocumentationVersion) ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionOutput)
-}
-
-func (i *DocumentationVersion) ToDocumentationVersionPtrOutput() DocumentationVersionPtrOutput {
-	return i.ToDocumentationVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *DocumentationVersion) ToDocumentationVersionPtrOutputWithContext(ctx context.Context) DocumentationVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionPtrOutput)
-}
-
-type DocumentationVersionPtrInput interface {
-	pulumi.Input
-
-	ToDocumentationVersionPtrOutput() DocumentationVersionPtrOutput
-	ToDocumentationVersionPtrOutputWithContext(ctx context.Context) DocumentationVersionPtrOutput
-}
-
-type documentationVersionPtrType DocumentationVersionArgs
-
-func (*documentationVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentationVersion)(nil))
-}
-
-func (i *documentationVersionPtrType) ToDocumentationVersionPtrOutput() DocumentationVersionPtrOutput {
-	return i.ToDocumentationVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *documentationVersionPtrType) ToDocumentationVersionPtrOutputWithContext(ctx context.Context) DocumentationVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionPtrOutput)
 }
 
 // DocumentationVersionArrayInput is an input type that accepts DocumentationVersionArray and DocumentationVersionArrayOutput values.
@@ -252,7 +223,7 @@ func (i DocumentationVersionMap) ToDocumentationVersionMapOutputWithContext(ctx 
 type DocumentationVersionOutput struct{ *pulumi.OutputState }
 
 func (DocumentationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationVersion)(nil))
+	return reflect.TypeOf((**DocumentationVersion)(nil)).Elem()
 }
 
 func (o DocumentationVersionOutput) ToDocumentationVersionOutput() DocumentationVersionOutput {
@@ -263,44 +234,10 @@ func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx 
 	return o
 }
 
-func (o DocumentationVersionOutput) ToDocumentationVersionPtrOutput() DocumentationVersionPtrOutput {
-	return o.ToDocumentationVersionPtrOutputWithContext(context.Background())
-}
-
-func (o DocumentationVersionOutput) ToDocumentationVersionPtrOutputWithContext(ctx context.Context) DocumentationVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationVersion) *DocumentationVersion {
-		return &v
-	}).(DocumentationVersionPtrOutput)
-}
-
-type DocumentationVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (DocumentationVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentationVersion)(nil))
-}
-
-func (o DocumentationVersionPtrOutput) ToDocumentationVersionPtrOutput() DocumentationVersionPtrOutput {
-	return o
-}
-
-func (o DocumentationVersionPtrOutput) ToDocumentationVersionPtrOutputWithContext(ctx context.Context) DocumentationVersionPtrOutput {
-	return o
-}
-
-func (o DocumentationVersionPtrOutput) Elem() DocumentationVersionOutput {
-	return o.ApplyT(func(v *DocumentationVersion) DocumentationVersion {
-		if v != nil {
-			return *v
-		}
-		var ret DocumentationVersion
-		return ret
-	}).(DocumentationVersionOutput)
-}
-
 type DocumentationVersionArrayOutput struct{ *pulumi.OutputState }
 
 func (DocumentationVersionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentationVersion)(nil))
+	return reflect.TypeOf((*[]*DocumentationVersion)(nil)).Elem()
 }
 
 func (o DocumentationVersionArrayOutput) ToDocumentationVersionArrayOutput() DocumentationVersionArrayOutput {
@@ -312,15 +249,15 @@ func (o DocumentationVersionArrayOutput) ToDocumentationVersionArrayOutputWithCo
 }
 
 func (o DocumentationVersionArrayOutput) Index(i pulumi.IntInput) DocumentationVersionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentationVersion {
-		return vs[0].([]DocumentationVersion)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DocumentationVersion {
+		return vs[0].([]*DocumentationVersion)[vs[1].(int)]
 	}).(DocumentationVersionOutput)
 }
 
 type DocumentationVersionMapOutput struct{ *pulumi.OutputState }
 
 func (DocumentationVersionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DocumentationVersion)(nil))
+	return reflect.TypeOf((*map[string]*DocumentationVersion)(nil)).Elem()
 }
 
 func (o DocumentationVersionMapOutput) ToDocumentationVersionMapOutput() DocumentationVersionMapOutput {
@@ -332,18 +269,16 @@ func (o DocumentationVersionMapOutput) ToDocumentationVersionMapOutputWithContex
 }
 
 func (o DocumentationVersionMapOutput) MapIndex(k pulumi.StringInput) DocumentationVersionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DocumentationVersion {
-		return vs[0].(map[string]DocumentationVersion)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DocumentationVersion {
+		return vs[0].(map[string]*DocumentationVersion)[vs[1].(string)]
 	}).(DocumentationVersionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionInput)(nil)).Elem(), &DocumentationVersion{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionPtrInput)(nil)).Elem(), &DocumentationVersion{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionArrayInput)(nil)).Elem(), DocumentationVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionMapInput)(nil)).Elem(), DocumentationVersionMap{})
 	pulumi.RegisterOutputType(DocumentationVersionOutput{})
-	pulumi.RegisterOutputType(DocumentationVersionPtrOutput{})
 	pulumi.RegisterOutputType(DocumentationVersionArrayOutput{})
 	pulumi.RegisterOutputType(DocumentationVersionMapOutput{})
 }

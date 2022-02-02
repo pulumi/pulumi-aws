@@ -47,9 +47,7 @@ export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.In
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
         "tags": args.tags,

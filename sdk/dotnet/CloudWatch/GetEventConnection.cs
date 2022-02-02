@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudWatch
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventConnectionResult> InvokeAsync(GetEventConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an EventBridge connection.
@@ -74,7 +73,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEventConnectionResult> Invoke(GetEventConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

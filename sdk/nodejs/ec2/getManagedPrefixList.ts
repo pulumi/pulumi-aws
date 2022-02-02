@@ -41,9 +41,7 @@ export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pul
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getManagedPrefixList:getManagedPrefixList", {
         "filters": args.filters,
         "id": args.id,

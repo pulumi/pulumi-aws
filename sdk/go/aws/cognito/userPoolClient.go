@@ -409,7 +409,7 @@ type UserPoolClientInput interface {
 }
 
 func (*UserPoolClient) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolClient)(nil))
+	return reflect.TypeOf((**UserPoolClient)(nil)).Elem()
 }
 
 func (i *UserPoolClient) ToUserPoolClientOutput() UserPoolClientOutput {
@@ -418,35 +418,6 @@ func (i *UserPoolClient) ToUserPoolClientOutput() UserPoolClientOutput {
 
 func (i *UserPoolClient) ToUserPoolClientOutputWithContext(ctx context.Context) UserPoolClientOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientOutput)
-}
-
-func (i *UserPoolClient) ToUserPoolClientPtrOutput() UserPoolClientPtrOutput {
-	return i.ToUserPoolClientPtrOutputWithContext(context.Background())
-}
-
-func (i *UserPoolClient) ToUserPoolClientPtrOutputWithContext(ctx context.Context) UserPoolClientPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientPtrOutput)
-}
-
-type UserPoolClientPtrInput interface {
-	pulumi.Input
-
-	ToUserPoolClientPtrOutput() UserPoolClientPtrOutput
-	ToUserPoolClientPtrOutputWithContext(ctx context.Context) UserPoolClientPtrOutput
-}
-
-type userPoolClientPtrType UserPoolClientArgs
-
-func (*userPoolClientPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolClient)(nil))
-}
-
-func (i *userPoolClientPtrType) ToUserPoolClientPtrOutput() UserPoolClientPtrOutput {
-	return i.ToUserPoolClientPtrOutputWithContext(context.Background())
-}
-
-func (i *userPoolClientPtrType) ToUserPoolClientPtrOutputWithContext(ctx context.Context) UserPoolClientPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientPtrOutput)
 }
 
 // UserPoolClientArrayInput is an input type that accepts UserPoolClientArray and UserPoolClientArrayOutput values.
@@ -502,7 +473,7 @@ func (i UserPoolClientMap) ToUserPoolClientMapOutputWithContext(ctx context.Cont
 type UserPoolClientOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolClient)(nil))
+	return reflect.TypeOf((**UserPoolClient)(nil)).Elem()
 }
 
 func (o UserPoolClientOutput) ToUserPoolClientOutput() UserPoolClientOutput {
@@ -513,44 +484,10 @@ func (o UserPoolClientOutput) ToUserPoolClientOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o UserPoolClientOutput) ToUserPoolClientPtrOutput() UserPoolClientPtrOutput {
-	return o.ToUserPoolClientPtrOutputWithContext(context.Background())
-}
-
-func (o UserPoolClientOutput) ToUserPoolClientPtrOutputWithContext(ctx context.Context) UserPoolClientPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClient) *UserPoolClient {
-		return &v
-	}).(UserPoolClientPtrOutput)
-}
-
-type UserPoolClientPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPoolClientPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolClient)(nil))
-}
-
-func (o UserPoolClientPtrOutput) ToUserPoolClientPtrOutput() UserPoolClientPtrOutput {
-	return o
-}
-
-func (o UserPoolClientPtrOutput) ToUserPoolClientPtrOutputWithContext(ctx context.Context) UserPoolClientPtrOutput {
-	return o
-}
-
-func (o UserPoolClientPtrOutput) Elem() UserPoolClientOutput {
-	return o.ApplyT(func(v *UserPoolClient) UserPoolClient {
-		if v != nil {
-			return *v
-		}
-		var ret UserPoolClient
-		return ret
-	}).(UserPoolClientOutput)
-}
-
 type UserPoolClientArrayOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserPoolClient)(nil))
+	return reflect.TypeOf((*[]*UserPoolClient)(nil)).Elem()
 }
 
 func (o UserPoolClientArrayOutput) ToUserPoolClientArrayOutput() UserPoolClientArrayOutput {
@@ -562,15 +499,15 @@ func (o UserPoolClientArrayOutput) ToUserPoolClientArrayOutputWithContext(ctx co
 }
 
 func (o UserPoolClientArrayOutput) Index(i pulumi.IntInput) UserPoolClientOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPoolClient {
-		return vs[0].([]UserPoolClient)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPoolClient {
+		return vs[0].([]*UserPoolClient)[vs[1].(int)]
 	}).(UserPoolClientOutput)
 }
 
 type UserPoolClientMapOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserPoolClient)(nil))
+	return reflect.TypeOf((*map[string]*UserPoolClient)(nil)).Elem()
 }
 
 func (o UserPoolClientMapOutput) ToUserPoolClientMapOutput() UserPoolClientMapOutput {
@@ -582,18 +519,16 @@ func (o UserPoolClientMapOutput) ToUserPoolClientMapOutputWithContext(ctx contex
 }
 
 func (o UserPoolClientMapOutput) MapIndex(k pulumi.StringInput) UserPoolClientOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserPoolClient {
-		return vs[0].(map[string]UserPoolClient)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserPoolClient {
+		return vs[0].(map[string]*UserPoolClient)[vs[1].(string)]
 	}).(UserPoolClientOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientInput)(nil)).Elem(), &UserPoolClient{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientPtrInput)(nil)).Elem(), &UserPoolClient{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientArrayInput)(nil)).Elem(), UserPoolClientArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientMapInput)(nil)).Elem(), UserPoolClientMap{})
 	pulumi.RegisterOutputType(UserPoolClientOutput{})
-	pulumi.RegisterOutputType(UserPoolClientPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolClientMapOutput{})
 }

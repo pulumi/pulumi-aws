@@ -260,7 +260,7 @@ type NetworkProfileInput interface {
 }
 
 func (*NetworkProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkProfile)(nil))
+	return reflect.TypeOf((**NetworkProfile)(nil)).Elem()
 }
 
 func (i *NetworkProfile) ToNetworkProfileOutput() NetworkProfileOutput {
@@ -269,35 +269,6 @@ func (i *NetworkProfile) ToNetworkProfileOutput() NetworkProfileOutput {
 
 func (i *NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput)
-}
-
-func (i *NetworkProfile) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
-	return i.ToNetworkProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *NetworkProfile) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
-}
-
-type NetworkProfilePtrInput interface {
-	pulumi.Input
-
-	ToNetworkProfilePtrOutput() NetworkProfilePtrOutput
-	ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput
-}
-
-type networkProfilePtrType NetworkProfileArgs
-
-func (*networkProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkProfile)(nil))
-}
-
-func (i *networkProfilePtrType) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
-	return i.ToNetworkProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
 // NetworkProfileArrayInput is an input type that accepts NetworkProfileArray and NetworkProfileArrayOutput values.
@@ -353,7 +324,7 @@ func (i NetworkProfileMap) ToNetworkProfileMapOutputWithContext(ctx context.Cont
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkProfile)(nil))
+	return reflect.TypeOf((**NetworkProfile)(nil)).Elem()
 }
 
 func (o NetworkProfileOutput) ToNetworkProfileOutput() NetworkProfileOutput {
@@ -364,44 +335,10 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
-	return o.ToNetworkProfilePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
-		return &v
-	}).(NetworkProfilePtrOutput)
-}
-
-type NetworkProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkProfile)(nil))
-}
-
-func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutput {
-	return o
-}
-
-func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o
-}
-
-func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfile
-		return ret
-	}).(NetworkProfileOutput)
-}
-
 type NetworkProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkProfile)(nil))
+	return reflect.TypeOf((*[]*NetworkProfile)(nil)).Elem()
 }
 
 func (o NetworkProfileArrayOutput) ToNetworkProfileArrayOutput() NetworkProfileArrayOutput {
@@ -413,15 +350,15 @@ func (o NetworkProfileArrayOutput) ToNetworkProfileArrayOutputWithContext(ctx co
 }
 
 func (o NetworkProfileArrayOutput) Index(i pulumi.IntInput) NetworkProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkProfile {
-		return vs[0].([]NetworkProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkProfile {
+		return vs[0].([]*NetworkProfile)[vs[1].(int)]
 	}).(NetworkProfileOutput)
 }
 
 type NetworkProfileMapOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NetworkProfile)(nil))
+	return reflect.TypeOf((*map[string]*NetworkProfile)(nil)).Elem()
 }
 
 func (o NetworkProfileMapOutput) ToNetworkProfileMapOutput() NetworkProfileMapOutput {
@@ -433,18 +370,16 @@ func (o NetworkProfileMapOutput) ToNetworkProfileMapOutputWithContext(ctx contex
 }
 
 func (o NetworkProfileMapOutput) MapIndex(k pulumi.StringInput) NetworkProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkProfile {
-		return vs[0].(map[string]NetworkProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NetworkProfile {
+		return vs[0].(map[string]*NetworkProfile)[vs[1].(string)]
 	}).(NetworkProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileInput)(nil)).Elem(), &NetworkProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfilePtrInput)(nil)).Elem(), &NetworkProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileArrayInput)(nil)).Elem(), NetworkProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileMapInput)(nil)).Elem(), NetworkProfileMap{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
-	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileArrayOutput{})
 	pulumi.RegisterOutputType(NetworkProfileMapOutput{})
 }

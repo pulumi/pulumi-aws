@@ -181,7 +181,7 @@ type UploadBufferInput interface {
 }
 
 func (*UploadBuffer) ElementType() reflect.Type {
-	return reflect.TypeOf((*UploadBuffer)(nil))
+	return reflect.TypeOf((**UploadBuffer)(nil)).Elem()
 }
 
 func (i *UploadBuffer) ToUploadBufferOutput() UploadBufferOutput {
@@ -190,35 +190,6 @@ func (i *UploadBuffer) ToUploadBufferOutput() UploadBufferOutput {
 
 func (i *UploadBuffer) ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferOutput)
-}
-
-func (i *UploadBuffer) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
-	return i.ToUploadBufferPtrOutputWithContext(context.Background())
-}
-
-func (i *UploadBuffer) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferPtrOutput)
-}
-
-type UploadBufferPtrInput interface {
-	pulumi.Input
-
-	ToUploadBufferPtrOutput() UploadBufferPtrOutput
-	ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput
-}
-
-type uploadBufferPtrType UploadBufferArgs
-
-func (*uploadBufferPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UploadBuffer)(nil))
-}
-
-func (i *uploadBufferPtrType) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
-	return i.ToUploadBufferPtrOutputWithContext(context.Background())
-}
-
-func (i *uploadBufferPtrType) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferPtrOutput)
 }
 
 // UploadBufferArrayInput is an input type that accepts UploadBufferArray and UploadBufferArrayOutput values.
@@ -274,7 +245,7 @@ func (i UploadBufferMap) ToUploadBufferMapOutputWithContext(ctx context.Context)
 type UploadBufferOutput struct{ *pulumi.OutputState }
 
 func (UploadBufferOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UploadBuffer)(nil))
+	return reflect.TypeOf((**UploadBuffer)(nil)).Elem()
 }
 
 func (o UploadBufferOutput) ToUploadBufferOutput() UploadBufferOutput {
@@ -285,44 +256,10 @@ func (o UploadBufferOutput) ToUploadBufferOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o UploadBufferOutput) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
-	return o.ToUploadBufferPtrOutputWithContext(context.Background())
-}
-
-func (o UploadBufferOutput) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadBuffer) *UploadBuffer {
-		return &v
-	}).(UploadBufferPtrOutput)
-}
-
-type UploadBufferPtrOutput struct{ *pulumi.OutputState }
-
-func (UploadBufferPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UploadBuffer)(nil))
-}
-
-func (o UploadBufferPtrOutput) ToUploadBufferPtrOutput() UploadBufferPtrOutput {
-	return o
-}
-
-func (o UploadBufferPtrOutput) ToUploadBufferPtrOutputWithContext(ctx context.Context) UploadBufferPtrOutput {
-	return o
-}
-
-func (o UploadBufferPtrOutput) Elem() UploadBufferOutput {
-	return o.ApplyT(func(v *UploadBuffer) UploadBuffer {
-		if v != nil {
-			return *v
-		}
-		var ret UploadBuffer
-		return ret
-	}).(UploadBufferOutput)
-}
-
 type UploadBufferArrayOutput struct{ *pulumi.OutputState }
 
 func (UploadBufferArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UploadBuffer)(nil))
+	return reflect.TypeOf((*[]*UploadBuffer)(nil)).Elem()
 }
 
 func (o UploadBufferArrayOutput) ToUploadBufferArrayOutput() UploadBufferArrayOutput {
@@ -334,15 +271,15 @@ func (o UploadBufferArrayOutput) ToUploadBufferArrayOutputWithContext(ctx contex
 }
 
 func (o UploadBufferArrayOutput) Index(i pulumi.IntInput) UploadBufferOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UploadBuffer {
-		return vs[0].([]UploadBuffer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UploadBuffer {
+		return vs[0].([]*UploadBuffer)[vs[1].(int)]
 	}).(UploadBufferOutput)
 }
 
 type UploadBufferMapOutput struct{ *pulumi.OutputState }
 
 func (UploadBufferMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UploadBuffer)(nil))
+	return reflect.TypeOf((*map[string]*UploadBuffer)(nil)).Elem()
 }
 
 func (o UploadBufferMapOutput) ToUploadBufferMapOutput() UploadBufferMapOutput {
@@ -354,18 +291,16 @@ func (o UploadBufferMapOutput) ToUploadBufferMapOutputWithContext(ctx context.Co
 }
 
 func (o UploadBufferMapOutput) MapIndex(k pulumi.StringInput) UploadBufferOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UploadBuffer {
-		return vs[0].(map[string]UploadBuffer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UploadBuffer {
+		return vs[0].(map[string]*UploadBuffer)[vs[1].(string)]
 	}).(UploadBufferOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferInput)(nil)).Elem(), &UploadBuffer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferPtrInput)(nil)).Elem(), &UploadBuffer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferArrayInput)(nil)).Elem(), UploadBufferArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferMapInput)(nil)).Elem(), UploadBufferMap{})
 	pulumi.RegisterOutputType(UploadBufferOutput{})
-	pulumi.RegisterOutputType(UploadBufferPtrOutput{})
 	pulumi.RegisterOutputType(UploadBufferArrayOutput{})
 	pulumi.RegisterOutputType(UploadBufferMapOutput{})
 }

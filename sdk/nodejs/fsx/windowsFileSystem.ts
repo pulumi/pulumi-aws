@@ -220,37 +220,37 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     constructor(name: string, args: WindowsFileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WindowsFileSystemArgs | WindowsFileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WindowsFileSystemState | undefined;
-            inputs["activeDirectoryId"] = state ? state.activeDirectoryId : undefined;
-            inputs["aliases"] = state ? state.aliases : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["auditLogConfiguration"] = state ? state.auditLogConfiguration : undefined;
-            inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            inputs["backupId"] = state ? state.backupId : undefined;
-            inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            inputs["deploymentType"] = state ? state.deploymentType : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["preferredFileServerIp"] = state ? state.preferredFileServerIp : undefined;
-            inputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
-            inputs["remoteAdministrationEndpoint"] = state ? state.remoteAdministrationEndpoint : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["selfManagedActiveDirectory"] = state ? state.selfManagedActiveDirectory : undefined;
-            inputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
-            inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["activeDirectoryId"] = state ? state.activeDirectoryId : undefined;
+            resourceInputs["aliases"] = state ? state.aliases : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auditLogConfiguration"] = state ? state.auditLogConfiguration : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = state ? state.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["preferredFileServerIp"] = state ? state.preferredFileServerIp : undefined;
+            resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
+            resourceInputs["remoteAdministrationEndpoint"] = state ? state.remoteAdministrationEndpoint : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["selfManagedActiveDirectory"] = state ? state.selfManagedActiveDirectory : undefined;
+            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
+            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as WindowsFileSystemArgs | undefined;
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
@@ -259,38 +259,36 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             if ((!args || args.throughputCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
-            inputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;
-            inputs["aliases"] = args ? args.aliases : undefined;
-            inputs["auditLogConfiguration"] = args ? args.auditLogConfiguration : undefined;
-            inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            inputs["backupId"] = args ? args.backupId : undefined;
-            inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            inputs["deploymentType"] = args ? args.deploymentType : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["selfManagedActiveDirectory"] = args ? args.selfManagedActiveDirectory : undefined;
-            inputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
-            inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
-            inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["preferredFileServerIp"] = undefined /*out*/;
-            inputs["remoteAdministrationEndpoint"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;
+            resourceInputs["aliases"] = args ? args.aliases : undefined;
+            resourceInputs["auditLogConfiguration"] = args ? args.auditLogConfiguration : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = args ? args.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["selfManagedActiveDirectory"] = args ? args.selfManagedActiveDirectory : undefined;
+            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
+            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["preferredFileServerIp"] = undefined /*out*/;
+            resourceInputs["remoteAdministrationEndpoint"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WindowsFileSystem.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WindowsFileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

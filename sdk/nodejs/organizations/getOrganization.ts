@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * const example = aws.organizations.getOrganization({});
  * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
+ * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -56,9 +56,7 @@ export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganiz
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:organizations/getOrganization:getOrganization", {
     }, opts);
 }

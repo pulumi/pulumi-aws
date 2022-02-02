@@ -128,7 +128,7 @@ type IdentityPoolProviderPrincipalTagInput interface {
 }
 
 func (*IdentityPoolProviderPrincipalTag) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolProviderPrincipalTag)(nil))
+	return reflect.TypeOf((**IdentityPoolProviderPrincipalTag)(nil)).Elem()
 }
 
 func (i *IdentityPoolProviderPrincipalTag) ToIdentityPoolProviderPrincipalTagOutput() IdentityPoolProviderPrincipalTagOutput {
@@ -137,35 +137,6 @@ func (i *IdentityPoolProviderPrincipalTag) ToIdentityPoolProviderPrincipalTagOut
 
 func (i *IdentityPoolProviderPrincipalTag) ToIdentityPoolProviderPrincipalTagOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolProviderPrincipalTagOutput)
-}
-
-func (i *IdentityPoolProviderPrincipalTag) ToIdentityPoolProviderPrincipalTagPtrOutput() IdentityPoolProviderPrincipalTagPtrOutput {
-	return i.ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(context.Background())
-}
-
-func (i *IdentityPoolProviderPrincipalTag) ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolProviderPrincipalTagPtrOutput)
-}
-
-type IdentityPoolProviderPrincipalTagPtrInput interface {
-	pulumi.Input
-
-	ToIdentityPoolProviderPrincipalTagPtrOutput() IdentityPoolProviderPrincipalTagPtrOutput
-	ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagPtrOutput
-}
-
-type identityPoolProviderPrincipalTagPtrType IdentityPoolProviderPrincipalTagArgs
-
-func (*identityPoolProviderPrincipalTagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPoolProviderPrincipalTag)(nil))
-}
-
-func (i *identityPoolProviderPrincipalTagPtrType) ToIdentityPoolProviderPrincipalTagPtrOutput() IdentityPoolProviderPrincipalTagPtrOutput {
-	return i.ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(context.Background())
-}
-
-func (i *identityPoolProviderPrincipalTagPtrType) ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolProviderPrincipalTagPtrOutput)
 }
 
 // IdentityPoolProviderPrincipalTagArrayInput is an input type that accepts IdentityPoolProviderPrincipalTagArray and IdentityPoolProviderPrincipalTagArrayOutput values.
@@ -221,7 +192,7 @@ func (i IdentityPoolProviderPrincipalTagMap) ToIdentityPoolProviderPrincipalTagM
 type IdentityPoolProviderPrincipalTagOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolProviderPrincipalTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolProviderPrincipalTag)(nil))
+	return reflect.TypeOf((**IdentityPoolProviderPrincipalTag)(nil)).Elem()
 }
 
 func (o IdentityPoolProviderPrincipalTagOutput) ToIdentityPoolProviderPrincipalTagOutput() IdentityPoolProviderPrincipalTagOutput {
@@ -232,44 +203,10 @@ func (o IdentityPoolProviderPrincipalTagOutput) ToIdentityPoolProviderPrincipalT
 	return o
 }
 
-func (o IdentityPoolProviderPrincipalTagOutput) ToIdentityPoolProviderPrincipalTagPtrOutput() IdentityPoolProviderPrincipalTagPtrOutput {
-	return o.ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityPoolProviderPrincipalTagOutput) ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPoolProviderPrincipalTag) *IdentityPoolProviderPrincipalTag {
-		return &v
-	}).(IdentityPoolProviderPrincipalTagPtrOutput)
-}
-
-type IdentityPoolProviderPrincipalTagPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityPoolProviderPrincipalTagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPoolProviderPrincipalTag)(nil))
-}
-
-func (o IdentityPoolProviderPrincipalTagPtrOutput) ToIdentityPoolProviderPrincipalTagPtrOutput() IdentityPoolProviderPrincipalTagPtrOutput {
-	return o
-}
-
-func (o IdentityPoolProviderPrincipalTagPtrOutput) ToIdentityPoolProviderPrincipalTagPtrOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagPtrOutput {
-	return o
-}
-
-func (o IdentityPoolProviderPrincipalTagPtrOutput) Elem() IdentityPoolProviderPrincipalTagOutput {
-	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) IdentityPoolProviderPrincipalTag {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityPoolProviderPrincipalTag
-		return ret
-	}).(IdentityPoolProviderPrincipalTagOutput)
-}
-
 type IdentityPoolProviderPrincipalTagArrayOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolProviderPrincipalTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityPoolProviderPrincipalTag)(nil))
+	return reflect.TypeOf((*[]*IdentityPoolProviderPrincipalTag)(nil)).Elem()
 }
 
 func (o IdentityPoolProviderPrincipalTagArrayOutput) ToIdentityPoolProviderPrincipalTagArrayOutput() IdentityPoolProviderPrincipalTagArrayOutput {
@@ -281,15 +218,15 @@ func (o IdentityPoolProviderPrincipalTagArrayOutput) ToIdentityPoolProviderPrinc
 }
 
 func (o IdentityPoolProviderPrincipalTagArrayOutput) Index(i pulumi.IntInput) IdentityPoolProviderPrincipalTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPoolProviderPrincipalTag {
-		return vs[0].([]IdentityPoolProviderPrincipalTag)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPoolProviderPrincipalTag {
+		return vs[0].([]*IdentityPoolProviderPrincipalTag)[vs[1].(int)]
 	}).(IdentityPoolProviderPrincipalTagOutput)
 }
 
 type IdentityPoolProviderPrincipalTagMapOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolProviderPrincipalTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityPoolProviderPrincipalTag)(nil))
+	return reflect.TypeOf((*map[string]*IdentityPoolProviderPrincipalTag)(nil)).Elem()
 }
 
 func (o IdentityPoolProviderPrincipalTagMapOutput) ToIdentityPoolProviderPrincipalTagMapOutput() IdentityPoolProviderPrincipalTagMapOutput {
@@ -301,18 +238,16 @@ func (o IdentityPoolProviderPrincipalTagMapOutput) ToIdentityPoolProviderPrincip
 }
 
 func (o IdentityPoolProviderPrincipalTagMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolProviderPrincipalTagOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPoolProviderPrincipalTag {
-		return vs[0].(map[string]IdentityPoolProviderPrincipalTag)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IdentityPoolProviderPrincipalTag {
+		return vs[0].(map[string]*IdentityPoolProviderPrincipalTag)[vs[1].(string)]
 	}).(IdentityPoolProviderPrincipalTagOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolProviderPrincipalTagInput)(nil)).Elem(), &IdentityPoolProviderPrincipalTag{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolProviderPrincipalTagPtrInput)(nil)).Elem(), &IdentityPoolProviderPrincipalTag{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolProviderPrincipalTagArrayInput)(nil)).Elem(), IdentityPoolProviderPrincipalTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolProviderPrincipalTagMapInput)(nil)).Elem(), IdentityPoolProviderPrincipalTagMap{})
 	pulumi.RegisterOutputType(IdentityPoolProviderPrincipalTagOutput{})
-	pulumi.RegisterOutputType(IdentityPoolProviderPrincipalTagPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolProviderPrincipalTagArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPoolProviderPrincipalTagMapOutput{})
 }

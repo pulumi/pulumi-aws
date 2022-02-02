@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ses
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Ses
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEmailIdentityResult> InvokeAsync(GetEmailIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the active SES email identity
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Ses
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEmailIdentityResult> Invoke(GetEmailIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -103,34 +103,32 @@ export class Plan extends pulumi.CustomResource {
      */
     constructor(name: string, args: PlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlanState | undefined;
-            inputs["advancedBackupSettings"] = state ? state.advancedBackupSettings : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["advancedBackupSettings"] = state ? state.advancedBackupSettings : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as PlanArgs | undefined;
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["advancedBackupSettings"] = args ? args.advancedBackupSettings : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["advancedBackupSettings"] = args ? args.advancedBackupSettings : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Plan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Plan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

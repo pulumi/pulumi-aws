@@ -25,9 +25,7 @@ export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", {
         "acceptLanguage": args.acceptLanguage,
         "portfolioId": args.portfolioId,

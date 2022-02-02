@@ -21,9 +21,7 @@ export function getActiveReceiptRuleSet(opts?: pulumi.InvokeOptions): Promise<Ge
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
     }, opts);
 }

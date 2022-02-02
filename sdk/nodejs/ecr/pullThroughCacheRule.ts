@@ -80,13 +80,13 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: PullThroughCacheRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PullThroughCacheRuleArgs | PullThroughCacheRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PullThroughCacheRuleState | undefined;
-            inputs["ecrRepositoryPrefix"] = state ? state.ecrRepositoryPrefix : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["upstreamRegistryUrl"] = state ? state.upstreamRegistryUrl : undefined;
+            resourceInputs["ecrRepositoryPrefix"] = state ? state.ecrRepositoryPrefix : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["upstreamRegistryUrl"] = state ? state.upstreamRegistryUrl : undefined;
         } else {
             const args = argsOrState as PullThroughCacheRuleArgs | undefined;
             if ((!args || args.ecrRepositoryPrefix === undefined) && !opts.urn) {
@@ -95,14 +95,12 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
             if ((!args || args.upstreamRegistryUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'upstreamRegistryUrl'");
             }
-            inputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
-            inputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
-            inputs["registryId"] = undefined /*out*/;
+            resourceInputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
+            resourceInputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
+            resourceInputs["registryId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PullThroughCacheRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PullThroughCacheRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -327,8 +327,8 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
         password="bar",
         db_subnet_group_name="my_database_subnet_group",
         parameter_group_name="default.mysql5.6")
-    latest_prod_snapshot = prod.id.apply(lambda id: aws.rds.get_snapshot(db_instance_identifier=id,
-        most_recent=True))
+    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.id,
+        most_recent=True)
     # Use the latest production snapshot to create a dev instance.
     dev = aws.rds.Instance("dev",
         instance_class="db.t2.micro",
@@ -420,8 +420,8 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
         password="bar",
         db_subnet_group_name="my_database_subnet_group",
         parameter_group_name="default.mysql5.6")
-    latest_prod_snapshot = prod.id.apply(lambda id: aws.rds.get_snapshot(db_instance_identifier=id,
-        most_recent=True))
+    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.id,
+        most_recent=True)
     # Use the latest production snapshot to create a dev instance.
     dev = aws.rds.Instance("dev",
         instance_class="db.t2.micro",

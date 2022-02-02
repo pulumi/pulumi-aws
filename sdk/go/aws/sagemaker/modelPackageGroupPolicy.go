@@ -105,7 +105,7 @@ type ModelPackageGroupPolicyInput interface {
 }
 
 func (*ModelPackageGroupPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroupPolicy)(nil))
+	return reflect.TypeOf((**ModelPackageGroupPolicy)(nil)).Elem()
 }
 
 func (i *ModelPackageGroupPolicy) ToModelPackageGroupPolicyOutput() ModelPackageGroupPolicyOutput {
@@ -114,35 +114,6 @@ func (i *ModelPackageGroupPolicy) ToModelPackageGroupPolicyOutput() ModelPackage
 
 func (i *ModelPackageGroupPolicy) ToModelPackageGroupPolicyOutputWithContext(ctx context.Context) ModelPackageGroupPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPolicyOutput)
-}
-
-func (i *ModelPackageGroupPolicy) ToModelPackageGroupPolicyPtrOutput() ModelPackageGroupPolicyPtrOutput {
-	return i.ToModelPackageGroupPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ModelPackageGroupPolicy) ToModelPackageGroupPolicyPtrOutputWithContext(ctx context.Context) ModelPackageGroupPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPolicyPtrOutput)
-}
-
-type ModelPackageGroupPolicyPtrInput interface {
-	pulumi.Input
-
-	ToModelPackageGroupPolicyPtrOutput() ModelPackageGroupPolicyPtrOutput
-	ToModelPackageGroupPolicyPtrOutputWithContext(ctx context.Context) ModelPackageGroupPolicyPtrOutput
-}
-
-type modelPackageGroupPolicyPtrType ModelPackageGroupPolicyArgs
-
-func (*modelPackageGroupPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelPackageGroupPolicy)(nil))
-}
-
-func (i *modelPackageGroupPolicyPtrType) ToModelPackageGroupPolicyPtrOutput() ModelPackageGroupPolicyPtrOutput {
-	return i.ToModelPackageGroupPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *modelPackageGroupPolicyPtrType) ToModelPackageGroupPolicyPtrOutputWithContext(ctx context.Context) ModelPackageGroupPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPolicyPtrOutput)
 }
 
 // ModelPackageGroupPolicyArrayInput is an input type that accepts ModelPackageGroupPolicyArray and ModelPackageGroupPolicyArrayOutput values.
@@ -198,7 +169,7 @@ func (i ModelPackageGroupPolicyMap) ToModelPackageGroupPolicyMapOutputWithContex
 type ModelPackageGroupPolicyOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroupPolicy)(nil))
+	return reflect.TypeOf((**ModelPackageGroupPolicy)(nil)).Elem()
 }
 
 func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyOutput() ModelPackageGroupPolicyOutput {
@@ -209,44 +180,10 @@ func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyOutputWithContex
 	return o
 }
 
-func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyPtrOutput() ModelPackageGroupPolicyPtrOutput {
-	return o.ToModelPackageGroupPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyPtrOutputWithContext(ctx context.Context) ModelPackageGroupPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageGroupPolicy) *ModelPackageGroupPolicy {
-		return &v
-	}).(ModelPackageGroupPolicyPtrOutput)
-}
-
-type ModelPackageGroupPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelPackageGroupPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelPackageGroupPolicy)(nil))
-}
-
-func (o ModelPackageGroupPolicyPtrOutput) ToModelPackageGroupPolicyPtrOutput() ModelPackageGroupPolicyPtrOutput {
-	return o
-}
-
-func (o ModelPackageGroupPolicyPtrOutput) ToModelPackageGroupPolicyPtrOutputWithContext(ctx context.Context) ModelPackageGroupPolicyPtrOutput {
-	return o
-}
-
-func (o ModelPackageGroupPolicyPtrOutput) Elem() ModelPackageGroupPolicyOutput {
-	return o.ApplyT(func(v *ModelPackageGroupPolicy) ModelPackageGroupPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ModelPackageGroupPolicy
-		return ret
-	}).(ModelPackageGroupPolicyOutput)
-}
-
 type ModelPackageGroupPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelPackageGroupPolicy)(nil))
+	return reflect.TypeOf((*[]*ModelPackageGroupPolicy)(nil)).Elem()
 }
 
 func (o ModelPackageGroupPolicyArrayOutput) ToModelPackageGroupPolicyArrayOutput() ModelPackageGroupPolicyArrayOutput {
@@ -258,15 +195,15 @@ func (o ModelPackageGroupPolicyArrayOutput) ToModelPackageGroupPolicyArrayOutput
 }
 
 func (o ModelPackageGroupPolicyArrayOutput) Index(i pulumi.IntInput) ModelPackageGroupPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageGroupPolicy {
-		return vs[0].([]ModelPackageGroupPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ModelPackageGroupPolicy {
+		return vs[0].([]*ModelPackageGroupPolicy)[vs[1].(int)]
 	}).(ModelPackageGroupPolicyOutput)
 }
 
 type ModelPackageGroupPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ModelPackageGroupPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ModelPackageGroupPolicy)(nil)).Elem()
 }
 
 func (o ModelPackageGroupPolicyMapOutput) ToModelPackageGroupPolicyMapOutput() ModelPackageGroupPolicyMapOutput {
@@ -278,18 +215,16 @@ func (o ModelPackageGroupPolicyMapOutput) ToModelPackageGroupPolicyMapOutputWith
 }
 
 func (o ModelPackageGroupPolicyMapOutput) MapIndex(k pulumi.StringInput) ModelPackageGroupPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ModelPackageGroupPolicy {
-		return vs[0].(map[string]ModelPackageGroupPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ModelPackageGroupPolicy {
+		return vs[0].(map[string]*ModelPackageGroupPolicy)[vs[1].(string)]
 	}).(ModelPackageGroupPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyInput)(nil)).Elem(), &ModelPackageGroupPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyPtrInput)(nil)).Elem(), &ModelPackageGroupPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyArrayInput)(nil)).Elem(), ModelPackageGroupPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyMapInput)(nil)).Elem(), ModelPackageGroupPolicyMap{})
 	pulumi.RegisterOutputType(ModelPackageGroupPolicyOutput{})
-	pulumi.RegisterOutputType(ModelPackageGroupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupPolicyMapOutput{})
 }

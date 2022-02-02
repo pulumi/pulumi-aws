@@ -98,17 +98,17 @@ export class EventApiDestination extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventApiDestinationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventApiDestinationArgs | EventApiDestinationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventApiDestinationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["connectionArn"] = state ? state.connectionArn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["invocationEndpoint"] = state ? state.invocationEndpoint : undefined;
-            inputs["invocationRateLimitPerSecond"] = state ? state.invocationRateLimitPerSecond : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionArn"] = state ? state.connectionArn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["invocationEndpoint"] = state ? state.invocationEndpoint : undefined;
+            resourceInputs["invocationRateLimitPerSecond"] = state ? state.invocationRateLimitPerSecond : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EventApiDestinationArgs | undefined;
             if ((!args || args.connectionArn === undefined) && !opts.urn) {
@@ -120,18 +120,16 @@ export class EventApiDestination extends pulumi.CustomResource {
             if ((!args || args.invocationEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'invocationEndpoint'");
             }
-            inputs["connectionArn"] = args ? args.connectionArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["invocationEndpoint"] = args ? args.invocationEndpoint : undefined;
-            inputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["invocationEndpoint"] = args ? args.invocationEndpoint : undefined;
+            resourceInputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventApiDestination.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventApiDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

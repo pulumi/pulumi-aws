@@ -191,7 +191,7 @@ type ResourceServerInput interface {
 }
 
 func (*ResourceServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceServer)(nil))
+	return reflect.TypeOf((**ResourceServer)(nil)).Elem()
 }
 
 func (i *ResourceServer) ToResourceServerOutput() ResourceServerOutput {
@@ -200,35 +200,6 @@ func (i *ResourceServer) ToResourceServerOutput() ResourceServerOutput {
 
 func (i *ResourceServer) ToResourceServerOutputWithContext(ctx context.Context) ResourceServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceServerOutput)
-}
-
-func (i *ResourceServer) ToResourceServerPtrOutput() ResourceServerPtrOutput {
-	return i.ToResourceServerPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceServer) ToResourceServerPtrOutputWithContext(ctx context.Context) ResourceServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceServerPtrOutput)
-}
-
-type ResourceServerPtrInput interface {
-	pulumi.Input
-
-	ToResourceServerPtrOutput() ResourceServerPtrOutput
-	ToResourceServerPtrOutputWithContext(ctx context.Context) ResourceServerPtrOutput
-}
-
-type resourceServerPtrType ResourceServerArgs
-
-func (*resourceServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceServer)(nil))
-}
-
-func (i *resourceServerPtrType) ToResourceServerPtrOutput() ResourceServerPtrOutput {
-	return i.ToResourceServerPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceServerPtrType) ToResourceServerPtrOutputWithContext(ctx context.Context) ResourceServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceServerPtrOutput)
 }
 
 // ResourceServerArrayInput is an input type that accepts ResourceServerArray and ResourceServerArrayOutput values.
@@ -284,7 +255,7 @@ func (i ResourceServerMap) ToResourceServerMapOutputWithContext(ctx context.Cont
 type ResourceServerOutput struct{ *pulumi.OutputState }
 
 func (ResourceServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceServer)(nil))
+	return reflect.TypeOf((**ResourceServer)(nil)).Elem()
 }
 
 func (o ResourceServerOutput) ToResourceServerOutput() ResourceServerOutput {
@@ -295,44 +266,10 @@ func (o ResourceServerOutput) ToResourceServerOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ResourceServerOutput) ToResourceServerPtrOutput() ResourceServerPtrOutput {
-	return o.ToResourceServerPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceServerOutput) ToResourceServerPtrOutputWithContext(ctx context.Context) ResourceServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceServer) *ResourceServer {
-		return &v
-	}).(ResourceServerPtrOutput)
-}
-
-type ResourceServerPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceServer)(nil))
-}
-
-func (o ResourceServerPtrOutput) ToResourceServerPtrOutput() ResourceServerPtrOutput {
-	return o
-}
-
-func (o ResourceServerPtrOutput) ToResourceServerPtrOutputWithContext(ctx context.Context) ResourceServerPtrOutput {
-	return o
-}
-
-func (o ResourceServerPtrOutput) Elem() ResourceServerOutput {
-	return o.ApplyT(func(v *ResourceServer) ResourceServer {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceServer
-		return ret
-	}).(ResourceServerOutput)
-}
-
 type ResourceServerArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceServerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceServer)(nil))
+	return reflect.TypeOf((*[]*ResourceServer)(nil)).Elem()
 }
 
 func (o ResourceServerArrayOutput) ToResourceServerArrayOutput() ResourceServerArrayOutput {
@@ -344,15 +281,15 @@ func (o ResourceServerArrayOutput) ToResourceServerArrayOutputWithContext(ctx co
 }
 
 func (o ResourceServerArrayOutput) Index(i pulumi.IntInput) ResourceServerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceServer {
-		return vs[0].([]ResourceServer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceServer {
+		return vs[0].([]*ResourceServer)[vs[1].(int)]
 	}).(ResourceServerOutput)
 }
 
 type ResourceServerMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceServerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceServer)(nil))
+	return reflect.TypeOf((*map[string]*ResourceServer)(nil)).Elem()
 }
 
 func (o ResourceServerMapOutput) ToResourceServerMapOutput() ResourceServerMapOutput {
@@ -364,18 +301,16 @@ func (o ResourceServerMapOutput) ToResourceServerMapOutputWithContext(ctx contex
 }
 
 func (o ResourceServerMapOutput) MapIndex(k pulumi.StringInput) ResourceServerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceServer {
-		return vs[0].(map[string]ResourceServer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceServer {
+		return vs[0].(map[string]*ResourceServer)[vs[1].(string)]
 	}).(ResourceServerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerInput)(nil)).Elem(), &ResourceServer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerPtrInput)(nil)).Elem(), &ResourceServer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerArrayInput)(nil)).Elem(), ResourceServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerMapInput)(nil)).Elem(), ResourceServerMap{})
 	pulumi.RegisterOutputType(ResourceServerOutput{})
-	pulumi.RegisterOutputType(ResourceServerPtrOutput{})
 	pulumi.RegisterOutputType(ResourceServerArrayOutput{})
 	pulumi.RegisterOutputType(ResourceServerMapOutput{})
 }

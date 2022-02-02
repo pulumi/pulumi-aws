@@ -262,7 +262,7 @@ type DataSourceInput interface {
 }
 
 func (*DataSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSource)(nil))
+	return reflect.TypeOf((**DataSource)(nil)).Elem()
 }
 
 func (i *DataSource) ToDataSourceOutput() DataSourceOutput {
@@ -271,35 +271,6 @@ func (i *DataSource) ToDataSourceOutput() DataSourceOutput {
 
 func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
-}
-
-func (i *DataSource) ToDataSourcePtrOutput() DataSourcePtrOutput {
-	return i.ToDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *DataSource) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePtrOutput)
-}
-
-type DataSourcePtrInput interface {
-	pulumi.Input
-
-	ToDataSourcePtrOutput() DataSourcePtrOutput
-	ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput
-}
-
-type dataSourcePtrType DataSourceArgs
-
-func (*dataSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSource)(nil))
-}
-
-func (i *dataSourcePtrType) ToDataSourcePtrOutput() DataSourcePtrOutput {
-	return i.ToDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourcePtrType) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePtrOutput)
 }
 
 // DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
@@ -355,7 +326,7 @@ func (i DataSourceMap) ToDataSourceMapOutputWithContext(ctx context.Context) Dat
 type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSource)(nil))
+	return reflect.TypeOf((**DataSource)(nil)).Elem()
 }
 
 func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {
@@ -366,44 +337,10 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
-func (o DataSourceOutput) ToDataSourcePtrOutput() DataSourcePtrOutput {
-	return o.ToDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceOutput) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSource) *DataSource {
-		return &v
-	}).(DataSourcePtrOutput)
-}
-
-type DataSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSource)(nil))
-}
-
-func (o DataSourcePtrOutput) ToDataSourcePtrOutput() DataSourcePtrOutput {
-	return o
-}
-
-func (o DataSourcePtrOutput) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
-	return o
-}
-
-func (o DataSourcePtrOutput) Elem() DataSourceOutput {
-	return o.ApplyT(func(v *DataSource) DataSource {
-		if v != nil {
-			return *v
-		}
-		var ret DataSource
-		return ret
-	}).(DataSourceOutput)
-}
-
 type DataSourceArrayOutput struct{ *pulumi.OutputState }
 
 func (DataSourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSource)(nil))
+	return reflect.TypeOf((*[]*DataSource)(nil)).Elem()
 }
 
 func (o DataSourceArrayOutput) ToDataSourceArrayOutput() DataSourceArrayOutput {
@@ -415,15 +352,15 @@ func (o DataSourceArrayOutput) ToDataSourceArrayOutputWithContext(ctx context.Co
 }
 
 func (o DataSourceArrayOutput) Index(i pulumi.IntInput) DataSourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSource {
-		return vs[0].([]DataSource)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSource {
+		return vs[0].([]*DataSource)[vs[1].(int)]
 	}).(DataSourceOutput)
 }
 
 type DataSourceMapOutput struct{ *pulumi.OutputState }
 
 func (DataSourceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSource)(nil))
+	return reflect.TypeOf((*map[string]*DataSource)(nil)).Elem()
 }
 
 func (o DataSourceMapOutput) ToDataSourceMapOutput() DataSourceMapOutput {
@@ -435,18 +372,16 @@ func (o DataSourceMapOutput) ToDataSourceMapOutputWithContext(ctx context.Contex
 }
 
 func (o DataSourceMapOutput) MapIndex(k pulumi.StringInput) DataSourceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataSource {
-		return vs[0].(map[string]DataSource)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataSource {
+		return vs[0].(map[string]*DataSource)[vs[1].(string)]
 	}).(DataSourceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), &DataSource{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePtrInput)(nil)).Elem(), &DataSource{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceArrayInput)(nil)).Elem(), DataSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMapInput)(nil)).Elem(), DataSourceMap{})
 	pulumi.RegisterOutputType(DataSourceOutput{})
-	pulumi.RegisterOutputType(DataSourcePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceMapOutput{})
 }

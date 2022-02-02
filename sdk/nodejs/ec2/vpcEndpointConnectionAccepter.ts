@@ -91,13 +91,13 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcEndpointConnectionAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointConnectionAccepterArgs | VpcEndpointConnectionAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointConnectionAccepterState | undefined;
-            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
-            inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
-            inputs["vpcEndpointState"] = state ? state.vpcEndpointState : undefined;
+            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
+            resourceInputs["vpcEndpointState"] = state ? state.vpcEndpointState : undefined;
         } else {
             const args = argsOrState as VpcEndpointConnectionAccepterArgs | undefined;
             if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
@@ -106,14 +106,12 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointServiceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
-            inputs["vpcEndpointState"] = undefined /*out*/;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+            resourceInputs["vpcEndpointState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcEndpointConnectionAccepter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcEndpointConnectionAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

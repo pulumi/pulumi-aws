@@ -69,25 +69,23 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
      */
     constructor(name: string, args?: NotebookInstanceLifecycleConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotebookInstanceLifecycleConfigurationArgs | NotebookInstanceLifecycleConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotebookInstanceLifecycleConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["onCreate"] = state ? state.onCreate : undefined;
-            inputs["onStart"] = state ? state.onStart : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onCreate"] = state ? state.onCreate : undefined;
+            resourceInputs["onStart"] = state ? state.onStart : undefined;
         } else {
             const args = argsOrState as NotebookInstanceLifecycleConfigurationArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["onCreate"] = args ? args.onCreate : undefined;
-            inputs["onStart"] = args ? args.onStart : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onCreate"] = args ? args.onCreate : undefined;
+            resourceInputs["onStart"] = args ? args.onStart : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

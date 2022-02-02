@@ -90,21 +90,19 @@ export class VoiceConnectorGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args?: VoiceConnectorGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VoiceConnectorGroupArgs | VoiceConnectorGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorGroupState | undefined;
-            inputs["connectors"] = state ? state.connectors : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["connectors"] = state ? state.connectors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as VoiceConnectorGroupArgs | undefined;
-            inputs["connectors"] = args ? args.connectors : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["connectors"] = args ? args.connectors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VoiceConnectorGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VoiceConnectorGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

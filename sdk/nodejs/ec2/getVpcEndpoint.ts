@@ -31,9 +31,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
         "id": args.id,

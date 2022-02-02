@@ -14,6 +14,151 @@ import (
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"Version": "2012-10-17",
+// 			"Statement": []map[string]interface{}{
+// 				map[string]interface{}{
+// 					"Action": "sts:AssumeRole",
+// 					"Effect": "Allow",
+// 					"Sid":    "",
+// 					"Principal": map[string]interface{}{
+// 						"Service": "lambda.amazonaws.com",
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testLambda, err := lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("lambdatest.zip"),
+// 			Role:    iamForLambda.Arn,
+// 			Handler: pulumi.String("exports.handler"),
+// 			Runtime: pulumi.String("nodejs12.x"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testAlias, err := lambda.NewAlias(ctx, "testAlias", &lambda.AliasArgs{
+// 			Description:     pulumi.String("a sample description"),
+// 			FunctionName:    testLambda.Name,
+// 			FunctionVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewPermission(ctx, "allowCloudwatch", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  testLambda.Name,
+// 			Principal: pulumi.String("events.amazonaws.com"),
+// 			SourceArn: pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
+// 			Qualifier: testAlias.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Usage with SNS
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"Version": "2012-10-17",
+// 			"Statement": []map[string]interface{}{
+// 				map[string]interface{}{
+// 					"Action": "sts:AssumeRole",
+// 					"Effect": "Allow",
+// 					"Sid":    "",
+// 					"Principal": map[string]interface{}{
+// 						"Service": "lambda.amazonaws.com",
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		defaultRole, err := iam.NewRole(ctx, "defaultRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("lambdatest.zip"),
+// 			Role:    defaultRole.Arn,
+// 			Handler: pulumi.String("exports.handler"),
+// 			Runtime: pulumi.String("python3.6"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewPermission(ctx, "withSns", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  _func.Name,
+// 			Principal: pulumi.String("sns.amazonaws.com"),
+// 			SourceArn: defaultTopic.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sns.NewTopicSubscription(ctx, "lambda", &sns.TopicSubscriptionArgs{
+// 			Topic:    defaultTopic.Arn,
+// 			Protocol: pulumi.String("lambda"),
+// 			Endpoint: _func.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Specify Lambda permissions for API Gateway REST API
 //
 // ```go
@@ -43,6 +188,67 @@ import (
 // 				return fmt.Sprintf("%v%v", executionArn, "/*/*/*"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Usage with CloudWatch log group
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		defaultLogGroup, err := cloudwatch.NewLogGroup(ctx, "defaultLogGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		defaultRole, err := iam.NewRole(ctx, "defaultRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		loggingFunction, err := lambda.NewFunction(ctx, "loggingFunction", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("lamba_logging.zip"),
+// 			Handler: pulumi.String("exports.handler"),
+// 			Role:    defaultRole.Arn,
+// 			Runtime: pulumi.String("python3.6"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		loggingPermission, err := lambda.NewPermission(ctx, "loggingPermission", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  loggingFunction.Name,
+// 			Principal: pulumi.String("logs.eu-west-1.amazonaws.com"),
+// 			SourceArn: defaultLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+// 				return fmt.Sprintf("%v%v", arn, ":*"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewLogSubscriptionFilter(ctx, "loggingLogSubscriptionFilter", &cloudwatch.LogSubscriptionFilterArgs{
+// 			DestinationArn: loggingFunction.Arn,
+// 			FilterPattern:  pulumi.String(""),
+// 			LogGroup:       defaultLogGroup.Name,
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			loggingPermission,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -243,7 +449,7 @@ type PermissionInput interface {
 }
 
 func (*Permission) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permission)(nil))
+	return reflect.TypeOf((**Permission)(nil)).Elem()
 }
 
 func (i *Permission) ToPermissionOutput() PermissionOutput {
@@ -252,35 +458,6 @@ func (i *Permission) ToPermissionOutput() PermissionOutput {
 
 func (i *Permission) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionOutput)
-}
-
-func (i *Permission) ToPermissionPtrOutput() PermissionPtrOutput {
-	return i.ToPermissionPtrOutputWithContext(context.Background())
-}
-
-func (i *Permission) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionPtrOutput)
-}
-
-type PermissionPtrInput interface {
-	pulumi.Input
-
-	ToPermissionPtrOutput() PermissionPtrOutput
-	ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput
-}
-
-type permissionPtrType PermissionArgs
-
-func (*permissionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Permission)(nil))
-}
-
-func (i *permissionPtrType) ToPermissionPtrOutput() PermissionPtrOutput {
-	return i.ToPermissionPtrOutputWithContext(context.Background())
-}
-
-func (i *permissionPtrType) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionPtrOutput)
 }
 
 // PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
@@ -336,7 +513,7 @@ func (i PermissionMap) ToPermissionMapOutputWithContext(ctx context.Context) Per
 type PermissionOutput struct{ *pulumi.OutputState }
 
 func (PermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permission)(nil))
+	return reflect.TypeOf((**Permission)(nil)).Elem()
 }
 
 func (o PermissionOutput) ToPermissionOutput() PermissionOutput {
@@ -347,44 +524,10 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-func (o PermissionOutput) ToPermissionPtrOutput() PermissionPtrOutput {
-	return o.ToPermissionPtrOutputWithContext(context.Background())
-}
-
-func (o PermissionOutput) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Permission) *Permission {
-		return &v
-	}).(PermissionPtrOutput)
-}
-
-type PermissionPtrOutput struct{ *pulumi.OutputState }
-
-func (PermissionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Permission)(nil))
-}
-
-func (o PermissionPtrOutput) ToPermissionPtrOutput() PermissionPtrOutput {
-	return o
-}
-
-func (o PermissionPtrOutput) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
-	return o
-}
-
-func (o PermissionPtrOutput) Elem() PermissionOutput {
-	return o.ApplyT(func(v *Permission) Permission {
-		if v != nil {
-			return *v
-		}
-		var ret Permission
-		return ret
-	}).(PermissionOutput)
-}
-
 type PermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (PermissionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Permission)(nil))
+	return reflect.TypeOf((*[]*Permission)(nil)).Elem()
 }
 
 func (o PermissionArrayOutput) ToPermissionArrayOutput() PermissionArrayOutput {
@@ -396,15 +539,15 @@ func (o PermissionArrayOutput) ToPermissionArrayOutputWithContext(ctx context.Co
 }
 
 func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Permission {
-		return vs[0].([]Permission)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Permission {
+		return vs[0].([]*Permission)[vs[1].(int)]
 	}).(PermissionOutput)
 }
 
 type PermissionMapOutput struct{ *pulumi.OutputState }
 
 func (PermissionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Permission)(nil))
+	return reflect.TypeOf((*map[string]*Permission)(nil)).Elem()
 }
 
 func (o PermissionMapOutput) ToPermissionMapOutput() PermissionMapOutput {
@@ -416,18 +559,16 @@ func (o PermissionMapOutput) ToPermissionMapOutputWithContext(ctx context.Contex
 }
 
 func (o PermissionMapOutput) MapIndex(k pulumi.StringInput) PermissionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Permission {
-		return vs[0].(map[string]Permission)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Permission {
+		return vs[0].(map[string]*Permission)[vs[1].(string)]
 	}).(PermissionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionInput)(nil)).Elem(), &Permission{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionPtrInput)(nil)).Elem(), &Permission{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionArrayInput)(nil)).Elem(), PermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionMapInput)(nil)).Elem(), PermissionMap{})
 	pulumi.RegisterOutputType(PermissionOutput{})
-	pulumi.RegisterOutputType(PermissionPtrOutput{})
 	pulumi.RegisterOutputType(PermissionArrayOutput{})
 	pulumi.RegisterOutputType(PermissionMapOutput{})
 }

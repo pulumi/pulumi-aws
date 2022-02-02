@@ -95,17 +95,17 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicationSubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationSubnetGroupArgs | ReplicationSubnetGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationSubnetGroupState | undefined;
-            inputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
-            inputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
-            inputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
+            resourceInputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
+            resourceInputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ReplicationSubnetGroupArgs | undefined;
             if ((!args || args.replicationSubnetGroupDescription === undefined) && !opts.urn) {
@@ -117,18 +117,16 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;
-            inputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["replicationSubnetGroupArn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;
+            resourceInputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["replicationSubnetGroupArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicationSubnetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicationSubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

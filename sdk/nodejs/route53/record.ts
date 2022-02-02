@@ -221,25 +221,25 @@ export class Record extends pulumi.CustomResource {
      */
     constructor(name: string, args: RecordArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RecordArgs | RecordState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordState | undefined;
-            inputs["aliases"] = state ? state.aliases : undefined;
-            inputs["allowOverwrite"] = state ? state.allowOverwrite : undefined;
-            inputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
-            inputs["healthCheckId"] = state ? state.healthCheckId : undefined;
-            inputs["latencyRoutingPolicies"] = state ? state.latencyRoutingPolicies : undefined;
-            inputs["multivalueAnswerRoutingPolicy"] = state ? state.multivalueAnswerRoutingPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["records"] = state ? state.records : undefined;
-            inputs["setIdentifier"] = state ? state.setIdentifier : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["weightedRoutingPolicies"] = state ? state.weightedRoutingPolicies : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["aliases"] = state ? state.aliases : undefined;
+            resourceInputs["allowOverwrite"] = state ? state.allowOverwrite : undefined;
+            resourceInputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
+            resourceInputs["healthCheckId"] = state ? state.healthCheckId : undefined;
+            resourceInputs["latencyRoutingPolicies"] = state ? state.latencyRoutingPolicies : undefined;
+            resourceInputs["multivalueAnswerRoutingPolicy"] = state ? state.multivalueAnswerRoutingPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["records"] = state ? state.records : undefined;
+            resourceInputs["setIdentifier"] = state ? state.setIdentifier : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["weightedRoutingPolicies"] = state ? state.weightedRoutingPolicies : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as RecordArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -251,26 +251,24 @@ export class Record extends pulumi.CustomResource {
             if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            inputs["aliases"] = args ? args.aliases : undefined;
-            inputs["allowOverwrite"] = args ? args.allowOverwrite : undefined;
-            inputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
-            inputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
-            inputs["healthCheckId"] = args ? args.healthCheckId : undefined;
-            inputs["latencyRoutingPolicies"] = args ? args.latencyRoutingPolicies : undefined;
-            inputs["multivalueAnswerRoutingPolicy"] = args ? args.multivalueAnswerRoutingPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["records"] = args ? args.records : undefined;
-            inputs["setIdentifier"] = args ? args.setIdentifier : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["weightedRoutingPolicies"] = args ? args.weightedRoutingPolicies : undefined;
-            inputs["zoneId"] = args ? args.zoneId : undefined;
-            inputs["fqdn"] = undefined /*out*/;
+            resourceInputs["aliases"] = args ? args.aliases : undefined;
+            resourceInputs["allowOverwrite"] = args ? args.allowOverwrite : undefined;
+            resourceInputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
+            resourceInputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
+            resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
+            resourceInputs["latencyRoutingPolicies"] = args ? args.latencyRoutingPolicies : undefined;
+            resourceInputs["multivalueAnswerRoutingPolicy"] = args ? args.multivalueAnswerRoutingPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["records"] = args ? args.records : undefined;
+            resourceInputs["setIdentifier"] = args ? args.setIdentifier : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["weightedRoutingPolicies"] = args ? args.weightedRoutingPolicies : undefined;
+            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Record.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Record.__pulumiType, name, resourceInputs, opts);
     }
 }
 

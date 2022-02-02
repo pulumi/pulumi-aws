@@ -225,7 +225,7 @@ type ProvisioningArtifactInput interface {
 }
 
 func (*ProvisioningArtifact) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisioningArtifact)(nil))
+	return reflect.TypeOf((**ProvisioningArtifact)(nil)).Elem()
 }
 
 func (i *ProvisioningArtifact) ToProvisioningArtifactOutput() ProvisioningArtifactOutput {
@@ -234,35 +234,6 @@ func (i *ProvisioningArtifact) ToProvisioningArtifactOutput() ProvisioningArtifa
 
 func (i *ProvisioningArtifact) ToProvisioningArtifactOutputWithContext(ctx context.Context) ProvisioningArtifactOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningArtifactOutput)
-}
-
-func (i *ProvisioningArtifact) ToProvisioningArtifactPtrOutput() ProvisioningArtifactPtrOutput {
-	return i.ToProvisioningArtifactPtrOutputWithContext(context.Background())
-}
-
-func (i *ProvisioningArtifact) ToProvisioningArtifactPtrOutputWithContext(ctx context.Context) ProvisioningArtifactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningArtifactPtrOutput)
-}
-
-type ProvisioningArtifactPtrInput interface {
-	pulumi.Input
-
-	ToProvisioningArtifactPtrOutput() ProvisioningArtifactPtrOutput
-	ToProvisioningArtifactPtrOutputWithContext(ctx context.Context) ProvisioningArtifactPtrOutput
-}
-
-type provisioningArtifactPtrType ProvisioningArtifactArgs
-
-func (*provisioningArtifactPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProvisioningArtifact)(nil))
-}
-
-func (i *provisioningArtifactPtrType) ToProvisioningArtifactPtrOutput() ProvisioningArtifactPtrOutput {
-	return i.ToProvisioningArtifactPtrOutputWithContext(context.Background())
-}
-
-func (i *provisioningArtifactPtrType) ToProvisioningArtifactPtrOutputWithContext(ctx context.Context) ProvisioningArtifactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningArtifactPtrOutput)
 }
 
 // ProvisioningArtifactArrayInput is an input type that accepts ProvisioningArtifactArray and ProvisioningArtifactArrayOutput values.
@@ -318,7 +289,7 @@ func (i ProvisioningArtifactMap) ToProvisioningArtifactMapOutputWithContext(ctx 
 type ProvisioningArtifactOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisioningArtifact)(nil))
+	return reflect.TypeOf((**ProvisioningArtifact)(nil)).Elem()
 }
 
 func (o ProvisioningArtifactOutput) ToProvisioningArtifactOutput() ProvisioningArtifactOutput {
@@ -329,44 +300,10 @@ func (o ProvisioningArtifactOutput) ToProvisioningArtifactOutputWithContext(ctx 
 	return o
 }
 
-func (o ProvisioningArtifactOutput) ToProvisioningArtifactPtrOutput() ProvisioningArtifactPtrOutput {
-	return o.ToProvisioningArtifactPtrOutputWithContext(context.Background())
-}
-
-func (o ProvisioningArtifactOutput) ToProvisioningArtifactPtrOutputWithContext(ctx context.Context) ProvisioningArtifactPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningArtifact) *ProvisioningArtifact {
-		return &v
-	}).(ProvisioningArtifactPtrOutput)
-}
-
-type ProvisioningArtifactPtrOutput struct{ *pulumi.OutputState }
-
-func (ProvisioningArtifactPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProvisioningArtifact)(nil))
-}
-
-func (o ProvisioningArtifactPtrOutput) ToProvisioningArtifactPtrOutput() ProvisioningArtifactPtrOutput {
-	return o
-}
-
-func (o ProvisioningArtifactPtrOutput) ToProvisioningArtifactPtrOutputWithContext(ctx context.Context) ProvisioningArtifactPtrOutput {
-	return o
-}
-
-func (o ProvisioningArtifactPtrOutput) Elem() ProvisioningArtifactOutput {
-	return o.ApplyT(func(v *ProvisioningArtifact) ProvisioningArtifact {
-		if v != nil {
-			return *v
-		}
-		var ret ProvisioningArtifact
-		return ret
-	}).(ProvisioningArtifactOutput)
-}
-
 type ProvisioningArtifactArrayOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningArtifactArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProvisioningArtifact)(nil))
+	return reflect.TypeOf((*[]*ProvisioningArtifact)(nil)).Elem()
 }
 
 func (o ProvisioningArtifactArrayOutput) ToProvisioningArtifactArrayOutput() ProvisioningArtifactArrayOutput {
@@ -378,15 +315,15 @@ func (o ProvisioningArtifactArrayOutput) ToProvisioningArtifactArrayOutputWithCo
 }
 
 func (o ProvisioningArtifactArrayOutput) Index(i pulumi.IntInput) ProvisioningArtifactOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProvisioningArtifact {
-		return vs[0].([]ProvisioningArtifact)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProvisioningArtifact {
+		return vs[0].([]*ProvisioningArtifact)[vs[1].(int)]
 	}).(ProvisioningArtifactOutput)
 }
 
 type ProvisioningArtifactMapOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningArtifactMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProvisioningArtifact)(nil))
+	return reflect.TypeOf((*map[string]*ProvisioningArtifact)(nil)).Elem()
 }
 
 func (o ProvisioningArtifactMapOutput) ToProvisioningArtifactMapOutput() ProvisioningArtifactMapOutput {
@@ -398,18 +335,16 @@ func (o ProvisioningArtifactMapOutput) ToProvisioningArtifactMapOutputWithContex
 }
 
 func (o ProvisioningArtifactMapOutput) MapIndex(k pulumi.StringInput) ProvisioningArtifactOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProvisioningArtifact {
-		return vs[0].(map[string]ProvisioningArtifact)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProvisioningArtifact {
+		return vs[0].(map[string]*ProvisioningArtifact)[vs[1].(string)]
 	}).(ProvisioningArtifactOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactInput)(nil)).Elem(), &ProvisioningArtifact{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactPtrInput)(nil)).Elem(), &ProvisioningArtifact{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactArrayInput)(nil)).Elem(), ProvisioningArtifactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactMapInput)(nil)).Elem(), ProvisioningArtifactMap{})
 	pulumi.RegisterOutputType(ProvisioningArtifactOutput{})
-	pulumi.RegisterOutputType(ProvisioningArtifactPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningArtifactArrayOutput{})
 	pulumi.RegisterOutputType(ProvisioningArtifactMapOutput{})
 }

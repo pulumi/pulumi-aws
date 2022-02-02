@@ -108,6 +108,166 @@ import (
 // 	})
 // }
 // ```
+// ### Add notification configuration to Lambda Function
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("your-function.zip"),
+// 			Role:    iamForLambda.Arn,
+// 			Handler: pulumi.String("exports.example"),
+// 			Runtime: pulumi.String("go1.x"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		allowBucket, err := lambda.NewPermission(ctx, "allowBucket", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  _func.Arn,
+// 			Principal: pulumi.String("s3.amazonaws.com"),
+// 			SourceArn: bucket.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketNotification(ctx, "bucketNotification", &s3.BucketNotificationArgs{
+// 			Bucket: bucket.ID(),
+// 			LambdaFunctions: s3.BucketNotificationLambdaFunctionArray{
+// 				&s3.BucketNotificationLambdaFunctionArgs{
+// 					LambdaFunctionArn: _func.Arn,
+// 					Events: pulumi.StringArray{
+// 						pulumi.String("s3:ObjectCreated:*"),
+// 					},
+// 					FilterPrefix: pulumi.String("AWSLogs/"),
+// 					FilterSuffix: pulumi.String(".log"),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			allowBucket,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Trigger multiple Lambda functions
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		func1, err := lambda.NewFunction(ctx, "func1", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("your-function1.zip"),
+// 			Role:    iamForLambda.Arn,
+// 			Handler: pulumi.String("exports.example"),
+// 			Runtime: pulumi.String("go1.x"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		allowBucket1, err := lambda.NewPermission(ctx, "allowBucket1", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  func1.Arn,
+// 			Principal: pulumi.String("s3.amazonaws.com"),
+// 			SourceArn: bucket.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		func2, err := lambda.NewFunction(ctx, "func2", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("your-function2.zip"),
+// 			Role:    iamForLambda.Arn,
+// 			Handler: pulumi.String("exports.example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		allowBucket2, err := lambda.NewPermission(ctx, "allowBucket2", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  func2.Arn,
+// 			Principal: pulumi.String("s3.amazonaws.com"),
+// 			SourceArn: bucket.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketNotification(ctx, "bucketNotification", &s3.BucketNotificationArgs{
+// 			Bucket: bucket.ID(),
+// 			LambdaFunctions: s3.BucketNotificationLambdaFunctionArray{
+// 				&s3.BucketNotificationLambdaFunctionArgs{
+// 					LambdaFunctionArn: func1.Arn,
+// 					Events: pulumi.StringArray{
+// 						pulumi.String("s3:ObjectCreated:*"),
+// 					},
+// 					FilterPrefix: pulumi.String("AWSLogs/"),
+// 					FilterSuffix: pulumi.String(".log"),
+// 				},
+// 				&s3.BucketNotificationLambdaFunctionArgs{
+// 					LambdaFunctionArn: func2.Arn,
+// 					Events: pulumi.StringArray{
+// 						pulumi.String("s3:ObjectCreated:*"),
+// 					},
+// 					FilterPrefix: pulumi.String("OtherLogs/"),
+// 					FilterSuffix: pulumi.String(".log"),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			allowBucket1,
+// 			allowBucket2,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Add multiple notification configurations to SQS Queue
 //
 // ```go
@@ -286,7 +446,7 @@ type BucketNotificationInput interface {
 }
 
 func (*BucketNotification) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketNotification)(nil))
+	return reflect.TypeOf((**BucketNotification)(nil)).Elem()
 }
 
 func (i *BucketNotification) ToBucketNotificationOutput() BucketNotificationOutput {
@@ -295,35 +455,6 @@ func (i *BucketNotification) ToBucketNotificationOutput() BucketNotificationOutp
 
 func (i *BucketNotification) ToBucketNotificationOutputWithContext(ctx context.Context) BucketNotificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationOutput)
-}
-
-func (i *BucketNotification) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return i.ToBucketNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i *BucketNotification) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationPtrOutput)
-}
-
-type BucketNotificationPtrInput interface {
-	pulumi.Input
-
-	ToBucketNotificationPtrOutput() BucketNotificationPtrOutput
-	ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput
-}
-
-type bucketNotificationPtrType BucketNotificationArgs
-
-func (*bucketNotificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketNotification)(nil))
-}
-
-func (i *bucketNotificationPtrType) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return i.ToBucketNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketNotificationPtrType) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationPtrOutput)
 }
 
 // BucketNotificationArrayInput is an input type that accepts BucketNotificationArray and BucketNotificationArrayOutput values.
@@ -379,7 +510,7 @@ func (i BucketNotificationMap) ToBucketNotificationMapOutputWithContext(ctx cont
 type BucketNotificationOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketNotification)(nil))
+	return reflect.TypeOf((**BucketNotification)(nil)).Elem()
 }
 
 func (o BucketNotificationOutput) ToBucketNotificationOutput() BucketNotificationOutput {
@@ -390,44 +521,10 @@ func (o BucketNotificationOutput) ToBucketNotificationOutputWithContext(ctx cont
 	return o
 }
 
-func (o BucketNotificationOutput) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return o.ToBucketNotificationPtrOutputWithContext(context.Background())
-}
-
-func (o BucketNotificationOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotification) *BucketNotification {
-		return &v
-	}).(BucketNotificationPtrOutput)
-}
-
-type BucketNotificationPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketNotification)(nil))
-}
-
-func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return o
-}
-
-func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return o
-}
-
-func (o BucketNotificationPtrOutput) Elem() BucketNotificationOutput {
-	return o.ApplyT(func(v *BucketNotification) BucketNotification {
-		if v != nil {
-			return *v
-		}
-		var ret BucketNotification
-		return ret
-	}).(BucketNotificationOutput)
-}
-
 type BucketNotificationArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketNotification)(nil))
+	return reflect.TypeOf((*[]*BucketNotification)(nil)).Elem()
 }
 
 func (o BucketNotificationArrayOutput) ToBucketNotificationArrayOutput() BucketNotificationArrayOutput {
@@ -439,15 +536,15 @@ func (o BucketNotificationArrayOutput) ToBucketNotificationArrayOutputWithContex
 }
 
 func (o BucketNotificationArrayOutput) Index(i pulumi.IntInput) BucketNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotification {
-		return vs[0].([]BucketNotification)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketNotification {
+		return vs[0].([]*BucketNotification)[vs[1].(int)]
 	}).(BucketNotificationOutput)
 }
 
 type BucketNotificationMapOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BucketNotification)(nil))
+	return reflect.TypeOf((*map[string]*BucketNotification)(nil)).Elem()
 }
 
 func (o BucketNotificationMapOutput) ToBucketNotificationMapOutput() BucketNotificationMapOutput {
@@ -459,18 +556,16 @@ func (o BucketNotificationMapOutput) ToBucketNotificationMapOutputWithContext(ct
 }
 
 func (o BucketNotificationMapOutput) MapIndex(k pulumi.StringInput) BucketNotificationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketNotification {
-		return vs[0].(map[string]BucketNotification)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BucketNotification {
+		return vs[0].(map[string]*BucketNotification)[vs[1].(string)]
 	}).(BucketNotificationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationInput)(nil)).Elem(), &BucketNotification{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationPtrInput)(nil)).Elem(), &BucketNotification{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationArrayInput)(nil)).Elem(), BucketNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationMapInput)(nil)).Elem(), BucketNotificationMap{})
 	pulumi.RegisterOutputType(BucketNotificationOutput{})
-	pulumi.RegisterOutputType(BucketNotificationPtrOutput{})
 	pulumi.RegisterOutputType(BucketNotificationArrayOutput{})
 	pulumi.RegisterOutputType(BucketNotificationMapOutput{})
 }

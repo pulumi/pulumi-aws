@@ -14,9 +14,7 @@ export function getCoipPools(args?: GetCoipPoolsArgs, opts?: pulumi.InvokeOption
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getCoipPools:getCoipPools", {
         "filters": args.filters,
         "tags": args.tags,

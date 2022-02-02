@@ -98,17 +98,17 @@ export class Project extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["projectDescription"] = state ? state.projectDescription : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["projectName"] = state ? state.projectName : undefined;
-            inputs["serviceCatalogProvisioningDetails"] = state ? state.serviceCatalogProvisioningDetails : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["projectDescription"] = state ? state.projectDescription : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["serviceCatalogProvisioningDetails"] = state ? state.serviceCatalogProvisioningDetails : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
             if ((!args || args.projectName === undefined) && !opts.urn) {
@@ -117,18 +117,16 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.serviceCatalogProvisioningDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceCatalogProvisioningDetails'");
             }
-            inputs["projectDescription"] = args ? args.projectDescription : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["projectId"] = undefined /*out*/;
+            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["projectId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Project.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
 

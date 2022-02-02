@@ -219,7 +219,7 @@ type ContactFlowInput interface {
 }
 
 func (*ContactFlow) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactFlow)(nil))
+	return reflect.TypeOf((**ContactFlow)(nil)).Elem()
 }
 
 func (i *ContactFlow) ToContactFlowOutput() ContactFlowOutput {
@@ -228,35 +228,6 @@ func (i *ContactFlow) ToContactFlowOutput() ContactFlowOutput {
 
 func (i *ContactFlow) ToContactFlowOutputWithContext(ctx context.Context) ContactFlowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowOutput)
-}
-
-func (i *ContactFlow) ToContactFlowPtrOutput() ContactFlowPtrOutput {
-	return i.ToContactFlowPtrOutputWithContext(context.Background())
-}
-
-func (i *ContactFlow) ToContactFlowPtrOutputWithContext(ctx context.Context) ContactFlowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowPtrOutput)
-}
-
-type ContactFlowPtrInput interface {
-	pulumi.Input
-
-	ToContactFlowPtrOutput() ContactFlowPtrOutput
-	ToContactFlowPtrOutputWithContext(ctx context.Context) ContactFlowPtrOutput
-}
-
-type contactFlowPtrType ContactFlowArgs
-
-func (*contactFlowPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContactFlow)(nil))
-}
-
-func (i *contactFlowPtrType) ToContactFlowPtrOutput() ContactFlowPtrOutput {
-	return i.ToContactFlowPtrOutputWithContext(context.Background())
-}
-
-func (i *contactFlowPtrType) ToContactFlowPtrOutputWithContext(ctx context.Context) ContactFlowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowPtrOutput)
 }
 
 // ContactFlowArrayInput is an input type that accepts ContactFlowArray and ContactFlowArrayOutput values.
@@ -312,7 +283,7 @@ func (i ContactFlowMap) ToContactFlowMapOutputWithContext(ctx context.Context) C
 type ContactFlowOutput struct{ *pulumi.OutputState }
 
 func (ContactFlowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactFlow)(nil))
+	return reflect.TypeOf((**ContactFlow)(nil)).Elem()
 }
 
 func (o ContactFlowOutput) ToContactFlowOutput() ContactFlowOutput {
@@ -323,44 +294,10 @@ func (o ContactFlowOutput) ToContactFlowOutputWithContext(ctx context.Context) C
 	return o
 }
 
-func (o ContactFlowOutput) ToContactFlowPtrOutput() ContactFlowPtrOutput {
-	return o.ToContactFlowPtrOutputWithContext(context.Background())
-}
-
-func (o ContactFlowOutput) ToContactFlowPtrOutputWithContext(ctx context.Context) ContactFlowPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactFlow) *ContactFlow {
-		return &v
-	}).(ContactFlowPtrOutput)
-}
-
-type ContactFlowPtrOutput struct{ *pulumi.OutputState }
-
-func (ContactFlowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContactFlow)(nil))
-}
-
-func (o ContactFlowPtrOutput) ToContactFlowPtrOutput() ContactFlowPtrOutput {
-	return o
-}
-
-func (o ContactFlowPtrOutput) ToContactFlowPtrOutputWithContext(ctx context.Context) ContactFlowPtrOutput {
-	return o
-}
-
-func (o ContactFlowPtrOutput) Elem() ContactFlowOutput {
-	return o.ApplyT(func(v *ContactFlow) ContactFlow {
-		if v != nil {
-			return *v
-		}
-		var ret ContactFlow
-		return ret
-	}).(ContactFlowOutput)
-}
-
 type ContactFlowArrayOutput struct{ *pulumi.OutputState }
 
 func (ContactFlowArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContactFlow)(nil))
+	return reflect.TypeOf((*[]*ContactFlow)(nil)).Elem()
 }
 
 func (o ContactFlowArrayOutput) ToContactFlowArrayOutput() ContactFlowArrayOutput {
@@ -372,15 +309,15 @@ func (o ContactFlowArrayOutput) ToContactFlowArrayOutputWithContext(ctx context.
 }
 
 func (o ContactFlowArrayOutput) Index(i pulumi.IntInput) ContactFlowOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactFlow {
-		return vs[0].([]ContactFlow)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContactFlow {
+		return vs[0].([]*ContactFlow)[vs[1].(int)]
 	}).(ContactFlowOutput)
 }
 
 type ContactFlowMapOutput struct{ *pulumi.OutputState }
 
 func (ContactFlowMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ContactFlow)(nil))
+	return reflect.TypeOf((*map[string]*ContactFlow)(nil)).Elem()
 }
 
 func (o ContactFlowMapOutput) ToContactFlowMapOutput() ContactFlowMapOutput {
@@ -392,18 +329,16 @@ func (o ContactFlowMapOutput) ToContactFlowMapOutputWithContext(ctx context.Cont
 }
 
 func (o ContactFlowMapOutput) MapIndex(k pulumi.StringInput) ContactFlowOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ContactFlow {
-		return vs[0].(map[string]ContactFlow)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ContactFlow {
+		return vs[0].(map[string]*ContactFlow)[vs[1].(string)]
 	}).(ContactFlowOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowInput)(nil)).Elem(), &ContactFlow{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowPtrInput)(nil)).Elem(), &ContactFlow{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowArrayInput)(nil)).Elem(), ContactFlowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowMapInput)(nil)).Elem(), ContactFlowMap{})
 	pulumi.RegisterOutputType(ContactFlowOutput{})
-	pulumi.RegisterOutputType(ContactFlowPtrOutput{})
 	pulumi.RegisterOutputType(ContactFlowArrayOutput{})
 	pulumi.RegisterOutputType(ContactFlowMapOutput{})
 }

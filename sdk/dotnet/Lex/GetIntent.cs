@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lex
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.Lex
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIntentResult> InvokeAsync(GetIntentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntentResult>("aws:lex/getIntent:getIntent", args ?? new GetIntentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntentResult>("aws:lex/getIntent:getIntent", args ?? new GetIntentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Lex Intent.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.Lex
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIntentResult> Invoke(GetIntentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntentResult>("aws:lex/getIntent:getIntent", args ?? new GetIntentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIntentResult>("aws:lex/getIntent:getIntent", args ?? new GetIntentInvokeArgs(), options.WithDefaults());
     }
 
 

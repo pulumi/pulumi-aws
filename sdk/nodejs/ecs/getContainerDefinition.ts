@@ -25,9 +25,7 @@ export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
         "taskDefinition": args.taskDefinition,

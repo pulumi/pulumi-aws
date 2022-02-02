@@ -128,36 +128,34 @@ export class InstanceFleet extends pulumi.CustomResource {
      */
     constructor(name: string, args: InstanceFleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceFleetArgs | InstanceFleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceFleetState | undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["instanceTypeConfigs"] = state ? state.instanceTypeConfigs : undefined;
-            inputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["provisionedOnDemandCapacity"] = state ? state.provisionedOnDemandCapacity : undefined;
-            inputs["provisionedSpotCapacity"] = state ? state.provisionedSpotCapacity : undefined;
-            inputs["targetOnDemandCapacity"] = state ? state.targetOnDemandCapacity : undefined;
-            inputs["targetSpotCapacity"] = state ? state.targetSpotCapacity : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["instanceTypeConfigs"] = state ? state.instanceTypeConfigs : undefined;
+            resourceInputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["provisionedOnDemandCapacity"] = state ? state.provisionedOnDemandCapacity : undefined;
+            resourceInputs["provisionedSpotCapacity"] = state ? state.provisionedSpotCapacity : undefined;
+            resourceInputs["targetOnDemandCapacity"] = state ? state.targetOnDemandCapacity : undefined;
+            resourceInputs["targetSpotCapacity"] = state ? state.targetSpotCapacity : undefined;
         } else {
             const args = argsOrState as InstanceFleetArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["instanceTypeConfigs"] = args ? args.instanceTypeConfigs : undefined;
-            inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["targetOnDemandCapacity"] = args ? args.targetOnDemandCapacity : undefined;
-            inputs["targetSpotCapacity"] = args ? args.targetSpotCapacity : undefined;
-            inputs["provisionedOnDemandCapacity"] = undefined /*out*/;
-            inputs["provisionedSpotCapacity"] = undefined /*out*/;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["instanceTypeConfigs"] = args ? args.instanceTypeConfigs : undefined;
+            resourceInputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["targetOnDemandCapacity"] = args ? args.targetOnDemandCapacity : undefined;
+            resourceInputs["targetSpotCapacity"] = args ? args.targetSpotCapacity : undefined;
+            resourceInputs["provisionedOnDemandCapacity"] = undefined /*out*/;
+            resourceInputs["provisionedSpotCapacity"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InstanceFleet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InstanceFleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

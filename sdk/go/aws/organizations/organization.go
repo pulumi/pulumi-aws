@@ -182,7 +182,7 @@ type OrganizationInput interface {
 }
 
 func (*Organization) ElementType() reflect.Type {
-	return reflect.TypeOf((*Organization)(nil))
+	return reflect.TypeOf((**Organization)(nil)).Elem()
 }
 
 func (i *Organization) ToOrganizationOutput() OrganizationOutput {
@@ -191,35 +191,6 @@ func (i *Organization) ToOrganizationOutput() OrganizationOutput {
 
 func (i *Organization) ToOrganizationOutputWithContext(ctx context.Context) OrganizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationOutput)
-}
-
-func (i *Organization) ToOrganizationPtrOutput() OrganizationPtrOutput {
-	return i.ToOrganizationPtrOutputWithContext(context.Background())
-}
-
-func (i *Organization) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationPtrOutput)
-}
-
-type OrganizationPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationPtrOutput() OrganizationPtrOutput
-	ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput
-}
-
-type organizationPtrType OrganizationArgs
-
-func (*organizationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Organization)(nil))
-}
-
-func (i *organizationPtrType) ToOrganizationPtrOutput() OrganizationPtrOutput {
-	return i.ToOrganizationPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationPtrType) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationPtrOutput)
 }
 
 // OrganizationArrayInput is an input type that accepts OrganizationArray and OrganizationArrayOutput values.
@@ -275,7 +246,7 @@ func (i OrganizationMap) ToOrganizationMapOutputWithContext(ctx context.Context)
 type OrganizationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Organization)(nil))
+	return reflect.TypeOf((**Organization)(nil)).Elem()
 }
 
 func (o OrganizationOutput) ToOrganizationOutput() OrganizationOutput {
@@ -286,44 +257,10 @@ func (o OrganizationOutput) ToOrganizationOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o OrganizationOutput) ToOrganizationPtrOutput() OrganizationPtrOutput {
-	return o.ToOrganizationPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationOutput) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Organization) *Organization {
-		return &v
-	}).(OrganizationPtrOutput)
-}
-
-type OrganizationPtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Organization)(nil))
-}
-
-func (o OrganizationPtrOutput) ToOrganizationPtrOutput() OrganizationPtrOutput {
-	return o
-}
-
-func (o OrganizationPtrOutput) ToOrganizationPtrOutputWithContext(ctx context.Context) OrganizationPtrOutput {
-	return o
-}
-
-func (o OrganizationPtrOutput) Elem() OrganizationOutput {
-	return o.ApplyT(func(v *Organization) Organization {
-		if v != nil {
-			return *v
-		}
-		var ret Organization
-		return ret
-	}).(OrganizationOutput)
-}
-
 type OrganizationArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Organization)(nil))
+	return reflect.TypeOf((*[]*Organization)(nil)).Elem()
 }
 
 func (o OrganizationArrayOutput) ToOrganizationArrayOutput() OrganizationArrayOutput {
@@ -335,15 +272,15 @@ func (o OrganizationArrayOutput) ToOrganizationArrayOutputWithContext(ctx contex
 }
 
 func (o OrganizationArrayOutput) Index(i pulumi.IntInput) OrganizationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Organization {
-		return vs[0].([]Organization)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Organization {
+		return vs[0].([]*Organization)[vs[1].(int)]
 	}).(OrganizationOutput)
 }
 
 type OrganizationMapOutput struct{ *pulumi.OutputState }
 
 func (OrganizationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Organization)(nil))
+	return reflect.TypeOf((*map[string]*Organization)(nil)).Elem()
 }
 
 func (o OrganizationMapOutput) ToOrganizationMapOutput() OrganizationMapOutput {
@@ -355,18 +292,16 @@ func (o OrganizationMapOutput) ToOrganizationMapOutputWithContext(ctx context.Co
 }
 
 func (o OrganizationMapOutput) MapIndex(k pulumi.StringInput) OrganizationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Organization {
-		return vs[0].(map[string]Organization)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Organization {
+		return vs[0].(map[string]*Organization)[vs[1].(string)]
 	}).(OrganizationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationInput)(nil)).Elem(), &Organization{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationPtrInput)(nil)).Elem(), &Organization{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationArrayInput)(nil)).Elem(), OrganizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationMapInput)(nil)).Elem(), OrganizationMap{})
 	pulumi.RegisterOutputType(OrganizationOutput{})
-	pulumi.RegisterOutputType(OrganizationPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationMapOutput{})
 }

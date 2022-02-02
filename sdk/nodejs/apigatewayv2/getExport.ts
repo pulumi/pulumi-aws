@@ -25,9 +25,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:apigatewayv2/getExport:getExport", {
         "apiId": args.apiId,
         "exportVersion": args.exportVersion,

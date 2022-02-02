@@ -84,28 +84,26 @@ export class RequestValidator extends pulumi.CustomResource {
      */
     constructor(name: string, args: RequestValidatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RequestValidatorArgs | RequestValidatorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RequestValidatorState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["validateRequestBody"] = state ? state.validateRequestBody : undefined;
-            inputs["validateRequestParameters"] = state ? state.validateRequestParameters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["validateRequestBody"] = state ? state.validateRequestBody : undefined;
+            resourceInputs["validateRequestParameters"] = state ? state.validateRequestParameters : undefined;
         } else {
             const args = argsOrState as RequestValidatorArgs | undefined;
             if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
-            inputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
+            resourceInputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RequestValidator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RequestValidator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

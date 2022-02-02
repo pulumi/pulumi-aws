@@ -24,9 +24,7 @@ export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
         "revocationConfigurations": args.revocationConfigurations,

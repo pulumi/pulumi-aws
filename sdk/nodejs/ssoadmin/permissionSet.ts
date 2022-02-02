@@ -91,38 +91,36 @@ export class PermissionSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: PermissionSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionSetArgs | PermissionSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["instanceArn"] = state ? state.instanceArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["relayState"] = state ? state.relayState : undefined;
-            inputs["sessionDuration"] = state ? state.sessionDuration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["relayState"] = state ? state.relayState : undefined;
+            resourceInputs["sessionDuration"] = state ? state.sessionDuration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PermissionSetArgs | undefined;
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["relayState"] = args ? args.relayState : undefined;
-            inputs["sessionDuration"] = args ? args.sessionDuration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["relayState"] = args ? args.relayState : undefined;
+            resourceInputs["sessionDuration"] = args ? args.sessionDuration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PermissionSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PermissionSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

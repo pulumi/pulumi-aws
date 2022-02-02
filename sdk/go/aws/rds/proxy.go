@@ -257,7 +257,7 @@ type ProxyInput interface {
 }
 
 func (*Proxy) ElementType() reflect.Type {
-	return reflect.TypeOf((*Proxy)(nil))
+	return reflect.TypeOf((**Proxy)(nil)).Elem()
 }
 
 func (i *Proxy) ToProxyOutput() ProxyOutput {
@@ -266,35 +266,6 @@ func (i *Proxy) ToProxyOutput() ProxyOutput {
 
 func (i *Proxy) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyOutput)
-}
-
-func (i *Proxy) ToProxyPtrOutput() ProxyPtrOutput {
-	return i.ToProxyPtrOutputWithContext(context.Background())
-}
-
-func (i *Proxy) ToProxyPtrOutputWithContext(ctx context.Context) ProxyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProxyPtrOutput)
-}
-
-type ProxyPtrInput interface {
-	pulumi.Input
-
-	ToProxyPtrOutput() ProxyPtrOutput
-	ToProxyPtrOutputWithContext(ctx context.Context) ProxyPtrOutput
-}
-
-type proxyPtrType ProxyArgs
-
-func (*proxyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Proxy)(nil))
-}
-
-func (i *proxyPtrType) ToProxyPtrOutput() ProxyPtrOutput {
-	return i.ToProxyPtrOutputWithContext(context.Background())
-}
-
-func (i *proxyPtrType) ToProxyPtrOutputWithContext(ctx context.Context) ProxyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProxyPtrOutput)
 }
 
 // ProxyArrayInput is an input type that accepts ProxyArray and ProxyArrayOutput values.
@@ -350,7 +321,7 @@ func (i ProxyMap) ToProxyMapOutputWithContext(ctx context.Context) ProxyMapOutpu
 type ProxyOutput struct{ *pulumi.OutputState }
 
 func (ProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Proxy)(nil))
+	return reflect.TypeOf((**Proxy)(nil)).Elem()
 }
 
 func (o ProxyOutput) ToProxyOutput() ProxyOutput {
@@ -361,44 +332,10 @@ func (o ProxyOutput) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return o
 }
 
-func (o ProxyOutput) ToProxyPtrOutput() ProxyPtrOutput {
-	return o.ToProxyPtrOutputWithContext(context.Background())
-}
-
-func (o ProxyOutput) ToProxyPtrOutputWithContext(ctx context.Context) ProxyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Proxy) *Proxy {
-		return &v
-	}).(ProxyPtrOutput)
-}
-
-type ProxyPtrOutput struct{ *pulumi.OutputState }
-
-func (ProxyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Proxy)(nil))
-}
-
-func (o ProxyPtrOutput) ToProxyPtrOutput() ProxyPtrOutput {
-	return o
-}
-
-func (o ProxyPtrOutput) ToProxyPtrOutputWithContext(ctx context.Context) ProxyPtrOutput {
-	return o
-}
-
-func (o ProxyPtrOutput) Elem() ProxyOutput {
-	return o.ApplyT(func(v *Proxy) Proxy {
-		if v != nil {
-			return *v
-		}
-		var ret Proxy
-		return ret
-	}).(ProxyOutput)
-}
-
 type ProxyArrayOutput struct{ *pulumi.OutputState }
 
 func (ProxyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Proxy)(nil))
+	return reflect.TypeOf((*[]*Proxy)(nil)).Elem()
 }
 
 func (o ProxyArrayOutput) ToProxyArrayOutput() ProxyArrayOutput {
@@ -410,15 +347,15 @@ func (o ProxyArrayOutput) ToProxyArrayOutputWithContext(ctx context.Context) Pro
 }
 
 func (o ProxyArrayOutput) Index(i pulumi.IntInput) ProxyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Proxy {
-		return vs[0].([]Proxy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Proxy {
+		return vs[0].([]*Proxy)[vs[1].(int)]
 	}).(ProxyOutput)
 }
 
 type ProxyMapOutput struct{ *pulumi.OutputState }
 
 func (ProxyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Proxy)(nil))
+	return reflect.TypeOf((*map[string]*Proxy)(nil)).Elem()
 }
 
 func (o ProxyMapOutput) ToProxyMapOutput() ProxyMapOutput {
@@ -430,18 +367,16 @@ func (o ProxyMapOutput) ToProxyMapOutputWithContext(ctx context.Context) ProxyMa
 }
 
 func (o ProxyMapOutput) MapIndex(k pulumi.StringInput) ProxyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Proxy {
-		return vs[0].(map[string]Proxy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Proxy {
+		return vs[0].(map[string]*Proxy)[vs[1].(string)]
 	}).(ProxyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyInput)(nil)).Elem(), &Proxy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProxyPtrInput)(nil)).Elem(), &Proxy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyArrayInput)(nil)).Elem(), ProxyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyMapInput)(nil)).Elem(), ProxyMap{})
 	pulumi.RegisterOutputType(ProxyOutput{})
-	pulumi.RegisterOutputType(ProxyPtrOutput{})
 	pulumi.RegisterOutputType(ProxyArrayOutput{})
 	pulumi.RegisterOutputType(ProxyMapOutput{})
 }

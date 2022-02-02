@@ -152,7 +152,7 @@ type ControlPanelInput interface {
 }
 
 func (*ControlPanel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControlPanel)(nil))
+	return reflect.TypeOf((**ControlPanel)(nil)).Elem()
 }
 
 func (i *ControlPanel) ToControlPanelOutput() ControlPanelOutput {
@@ -161,35 +161,6 @@ func (i *ControlPanel) ToControlPanelOutput() ControlPanelOutput {
 
 func (i *ControlPanel) ToControlPanelOutputWithContext(ctx context.Context) ControlPanelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelOutput)
-}
-
-func (i *ControlPanel) ToControlPanelPtrOutput() ControlPanelPtrOutput {
-	return i.ToControlPanelPtrOutputWithContext(context.Background())
-}
-
-func (i *ControlPanel) ToControlPanelPtrOutputWithContext(ctx context.Context) ControlPanelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelPtrOutput)
-}
-
-type ControlPanelPtrInput interface {
-	pulumi.Input
-
-	ToControlPanelPtrOutput() ControlPanelPtrOutput
-	ToControlPanelPtrOutputWithContext(ctx context.Context) ControlPanelPtrOutput
-}
-
-type controlPanelPtrType ControlPanelArgs
-
-func (*controlPanelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ControlPanel)(nil))
-}
-
-func (i *controlPanelPtrType) ToControlPanelPtrOutput() ControlPanelPtrOutput {
-	return i.ToControlPanelPtrOutputWithContext(context.Background())
-}
-
-func (i *controlPanelPtrType) ToControlPanelPtrOutputWithContext(ctx context.Context) ControlPanelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelPtrOutput)
 }
 
 // ControlPanelArrayInput is an input type that accepts ControlPanelArray and ControlPanelArrayOutput values.
@@ -245,7 +216,7 @@ func (i ControlPanelMap) ToControlPanelMapOutputWithContext(ctx context.Context)
 type ControlPanelOutput struct{ *pulumi.OutputState }
 
 func (ControlPanelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControlPanel)(nil))
+	return reflect.TypeOf((**ControlPanel)(nil)).Elem()
 }
 
 func (o ControlPanelOutput) ToControlPanelOutput() ControlPanelOutput {
@@ -256,44 +227,10 @@ func (o ControlPanelOutput) ToControlPanelOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ControlPanelOutput) ToControlPanelPtrOutput() ControlPanelPtrOutput {
-	return o.ToControlPanelPtrOutputWithContext(context.Background())
-}
-
-func (o ControlPanelOutput) ToControlPanelPtrOutputWithContext(ctx context.Context) ControlPanelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ControlPanel) *ControlPanel {
-		return &v
-	}).(ControlPanelPtrOutput)
-}
-
-type ControlPanelPtrOutput struct{ *pulumi.OutputState }
-
-func (ControlPanelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ControlPanel)(nil))
-}
-
-func (o ControlPanelPtrOutput) ToControlPanelPtrOutput() ControlPanelPtrOutput {
-	return o
-}
-
-func (o ControlPanelPtrOutput) ToControlPanelPtrOutputWithContext(ctx context.Context) ControlPanelPtrOutput {
-	return o
-}
-
-func (o ControlPanelPtrOutput) Elem() ControlPanelOutput {
-	return o.ApplyT(func(v *ControlPanel) ControlPanel {
-		if v != nil {
-			return *v
-		}
-		var ret ControlPanel
-		return ret
-	}).(ControlPanelOutput)
-}
-
 type ControlPanelArrayOutput struct{ *pulumi.OutputState }
 
 func (ControlPanelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ControlPanel)(nil))
+	return reflect.TypeOf((*[]*ControlPanel)(nil)).Elem()
 }
 
 func (o ControlPanelArrayOutput) ToControlPanelArrayOutput() ControlPanelArrayOutput {
@@ -305,15 +242,15 @@ func (o ControlPanelArrayOutput) ToControlPanelArrayOutputWithContext(ctx contex
 }
 
 func (o ControlPanelArrayOutput) Index(i pulumi.IntInput) ControlPanelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControlPanel {
-		return vs[0].([]ControlPanel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ControlPanel {
+		return vs[0].([]*ControlPanel)[vs[1].(int)]
 	}).(ControlPanelOutput)
 }
 
 type ControlPanelMapOutput struct{ *pulumi.OutputState }
 
 func (ControlPanelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ControlPanel)(nil))
+	return reflect.TypeOf((*map[string]*ControlPanel)(nil)).Elem()
 }
 
 func (o ControlPanelMapOutput) ToControlPanelMapOutput() ControlPanelMapOutput {
@@ -325,18 +262,16 @@ func (o ControlPanelMapOutput) ToControlPanelMapOutputWithContext(ctx context.Co
 }
 
 func (o ControlPanelMapOutput) MapIndex(k pulumi.StringInput) ControlPanelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ControlPanel {
-		return vs[0].(map[string]ControlPanel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ControlPanel {
+		return vs[0].(map[string]*ControlPanel)[vs[1].(string)]
 	}).(ControlPanelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelInput)(nil)).Elem(), &ControlPanel{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelPtrInput)(nil)).Elem(), &ControlPanel{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelArrayInput)(nil)).Elem(), ControlPanelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelMapInput)(nil)).Elem(), ControlPanelMap{})
 	pulumi.RegisterOutputType(ControlPanelOutput{})
-	pulumi.RegisterOutputType(ControlPanelPtrOutput{})
 	pulumi.RegisterOutputType(ControlPanelArrayOutput{})
 	pulumi.RegisterOutputType(ControlPanelMapOutput{})
 }

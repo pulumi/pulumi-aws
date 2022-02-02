@@ -171,7 +171,7 @@ type ApprovalRuleTemplateInput interface {
 }
 
 func (*ApprovalRuleTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApprovalRuleTemplate)(nil))
+	return reflect.TypeOf((**ApprovalRuleTemplate)(nil)).Elem()
 }
 
 func (i *ApprovalRuleTemplate) ToApprovalRuleTemplateOutput() ApprovalRuleTemplateOutput {
@@ -180,35 +180,6 @@ func (i *ApprovalRuleTemplate) ToApprovalRuleTemplateOutput() ApprovalRuleTempla
 
 func (i *ApprovalRuleTemplate) ToApprovalRuleTemplateOutputWithContext(ctx context.Context) ApprovalRuleTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateOutput)
-}
-
-func (i *ApprovalRuleTemplate) ToApprovalRuleTemplatePtrOutput() ApprovalRuleTemplatePtrOutput {
-	return i.ToApprovalRuleTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *ApprovalRuleTemplate) ToApprovalRuleTemplatePtrOutputWithContext(ctx context.Context) ApprovalRuleTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplatePtrOutput)
-}
-
-type ApprovalRuleTemplatePtrInput interface {
-	pulumi.Input
-
-	ToApprovalRuleTemplatePtrOutput() ApprovalRuleTemplatePtrOutput
-	ToApprovalRuleTemplatePtrOutputWithContext(ctx context.Context) ApprovalRuleTemplatePtrOutput
-}
-
-type approvalRuleTemplatePtrType ApprovalRuleTemplateArgs
-
-func (*approvalRuleTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApprovalRuleTemplate)(nil))
-}
-
-func (i *approvalRuleTemplatePtrType) ToApprovalRuleTemplatePtrOutput() ApprovalRuleTemplatePtrOutput {
-	return i.ToApprovalRuleTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *approvalRuleTemplatePtrType) ToApprovalRuleTemplatePtrOutputWithContext(ctx context.Context) ApprovalRuleTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplatePtrOutput)
 }
 
 // ApprovalRuleTemplateArrayInput is an input type that accepts ApprovalRuleTemplateArray and ApprovalRuleTemplateArrayOutput values.
@@ -264,7 +235,7 @@ func (i ApprovalRuleTemplateMap) ToApprovalRuleTemplateMapOutputWithContext(ctx 
 type ApprovalRuleTemplateOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApprovalRuleTemplate)(nil))
+	return reflect.TypeOf((**ApprovalRuleTemplate)(nil)).Elem()
 }
 
 func (o ApprovalRuleTemplateOutput) ToApprovalRuleTemplateOutput() ApprovalRuleTemplateOutput {
@@ -275,44 +246,10 @@ func (o ApprovalRuleTemplateOutput) ToApprovalRuleTemplateOutputWithContext(ctx 
 	return o
 }
 
-func (o ApprovalRuleTemplateOutput) ToApprovalRuleTemplatePtrOutput() ApprovalRuleTemplatePtrOutput {
-	return o.ToApprovalRuleTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o ApprovalRuleTemplateOutput) ToApprovalRuleTemplatePtrOutputWithContext(ctx context.Context) ApprovalRuleTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApprovalRuleTemplate) *ApprovalRuleTemplate {
-		return &v
-	}).(ApprovalRuleTemplatePtrOutput)
-}
-
-type ApprovalRuleTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (ApprovalRuleTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApprovalRuleTemplate)(nil))
-}
-
-func (o ApprovalRuleTemplatePtrOutput) ToApprovalRuleTemplatePtrOutput() ApprovalRuleTemplatePtrOutput {
-	return o
-}
-
-func (o ApprovalRuleTemplatePtrOutput) ToApprovalRuleTemplatePtrOutputWithContext(ctx context.Context) ApprovalRuleTemplatePtrOutput {
-	return o
-}
-
-func (o ApprovalRuleTemplatePtrOutput) Elem() ApprovalRuleTemplateOutput {
-	return o.ApplyT(func(v *ApprovalRuleTemplate) ApprovalRuleTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret ApprovalRuleTemplate
-		return ret
-	}).(ApprovalRuleTemplateOutput)
-}
-
 type ApprovalRuleTemplateArrayOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApprovalRuleTemplate)(nil))
+	return reflect.TypeOf((*[]*ApprovalRuleTemplate)(nil)).Elem()
 }
 
 func (o ApprovalRuleTemplateArrayOutput) ToApprovalRuleTemplateArrayOutput() ApprovalRuleTemplateArrayOutput {
@@ -324,15 +261,15 @@ func (o ApprovalRuleTemplateArrayOutput) ToApprovalRuleTemplateArrayOutputWithCo
 }
 
 func (o ApprovalRuleTemplateArrayOutput) Index(i pulumi.IntInput) ApprovalRuleTemplateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApprovalRuleTemplate {
-		return vs[0].([]ApprovalRuleTemplate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApprovalRuleTemplate {
+		return vs[0].([]*ApprovalRuleTemplate)[vs[1].(int)]
 	}).(ApprovalRuleTemplateOutput)
 }
 
 type ApprovalRuleTemplateMapOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApprovalRuleTemplate)(nil))
+	return reflect.TypeOf((*map[string]*ApprovalRuleTemplate)(nil)).Elem()
 }
 
 func (o ApprovalRuleTemplateMapOutput) ToApprovalRuleTemplateMapOutput() ApprovalRuleTemplateMapOutput {
@@ -344,18 +281,16 @@ func (o ApprovalRuleTemplateMapOutput) ToApprovalRuleTemplateMapOutputWithContex
 }
 
 func (o ApprovalRuleTemplateMapOutput) MapIndex(k pulumi.StringInput) ApprovalRuleTemplateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApprovalRuleTemplate {
-		return vs[0].(map[string]ApprovalRuleTemplate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApprovalRuleTemplate {
+		return vs[0].(map[string]*ApprovalRuleTemplate)[vs[1].(string)]
 	}).(ApprovalRuleTemplateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplateInput)(nil)).Elem(), &ApprovalRuleTemplate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplatePtrInput)(nil)).Elem(), &ApprovalRuleTemplate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplateArrayInput)(nil)).Elem(), ApprovalRuleTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalRuleTemplateMapInput)(nil)).Elem(), ApprovalRuleTemplateMap{})
 	pulumi.RegisterOutputType(ApprovalRuleTemplateOutput{})
-	pulumi.RegisterOutputType(ApprovalRuleTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ApprovalRuleTemplateArrayOutput{})
 	pulumi.RegisterOutputType(ApprovalRuleTemplateMapOutput{})
 }

@@ -156,7 +156,7 @@ type CellInput interface {
 }
 
 func (*Cell) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cell)(nil))
+	return reflect.TypeOf((**Cell)(nil)).Elem()
 }
 
 func (i *Cell) ToCellOutput() CellOutput {
@@ -165,35 +165,6 @@ func (i *Cell) ToCellOutput() CellOutput {
 
 func (i *Cell) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellOutput)
-}
-
-func (i *Cell) ToCellPtrOutput() CellPtrOutput {
-	return i.ToCellPtrOutputWithContext(context.Background())
-}
-
-func (i *Cell) ToCellPtrOutputWithContext(ctx context.Context) CellPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CellPtrOutput)
-}
-
-type CellPtrInput interface {
-	pulumi.Input
-
-	ToCellPtrOutput() CellPtrOutput
-	ToCellPtrOutputWithContext(ctx context.Context) CellPtrOutput
-}
-
-type cellPtrType CellArgs
-
-func (*cellPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Cell)(nil))
-}
-
-func (i *cellPtrType) ToCellPtrOutput() CellPtrOutput {
-	return i.ToCellPtrOutputWithContext(context.Background())
-}
-
-func (i *cellPtrType) ToCellPtrOutputWithContext(ctx context.Context) CellPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CellPtrOutput)
 }
 
 // CellArrayInput is an input type that accepts CellArray and CellArrayOutput values.
@@ -249,7 +220,7 @@ func (i CellMap) ToCellMapOutputWithContext(ctx context.Context) CellMapOutput {
 type CellOutput struct{ *pulumi.OutputState }
 
 func (CellOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cell)(nil))
+	return reflect.TypeOf((**Cell)(nil)).Elem()
 }
 
 func (o CellOutput) ToCellOutput() CellOutput {
@@ -260,44 +231,10 @@ func (o CellOutput) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return o
 }
 
-func (o CellOutput) ToCellPtrOutput() CellPtrOutput {
-	return o.ToCellPtrOutputWithContext(context.Background())
-}
-
-func (o CellOutput) ToCellPtrOutputWithContext(ctx context.Context) CellPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Cell) *Cell {
-		return &v
-	}).(CellPtrOutput)
-}
-
-type CellPtrOutput struct{ *pulumi.OutputState }
-
-func (CellPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Cell)(nil))
-}
-
-func (o CellPtrOutput) ToCellPtrOutput() CellPtrOutput {
-	return o
-}
-
-func (o CellPtrOutput) ToCellPtrOutputWithContext(ctx context.Context) CellPtrOutput {
-	return o
-}
-
-func (o CellPtrOutput) Elem() CellOutput {
-	return o.ApplyT(func(v *Cell) Cell {
-		if v != nil {
-			return *v
-		}
-		var ret Cell
-		return ret
-	}).(CellOutput)
-}
-
 type CellArrayOutput struct{ *pulumi.OutputState }
 
 func (CellArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Cell)(nil))
+	return reflect.TypeOf((*[]*Cell)(nil)).Elem()
 }
 
 func (o CellArrayOutput) ToCellArrayOutput() CellArrayOutput {
@@ -309,15 +246,15 @@ func (o CellArrayOutput) ToCellArrayOutputWithContext(ctx context.Context) CellA
 }
 
 func (o CellArrayOutput) Index(i pulumi.IntInput) CellOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Cell {
-		return vs[0].([]Cell)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cell {
+		return vs[0].([]*Cell)[vs[1].(int)]
 	}).(CellOutput)
 }
 
 type CellMapOutput struct{ *pulumi.OutputState }
 
 func (CellMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Cell)(nil))
+	return reflect.TypeOf((*map[string]*Cell)(nil)).Elem()
 }
 
 func (o CellMapOutput) ToCellMapOutput() CellMapOutput {
@@ -329,18 +266,16 @@ func (o CellMapOutput) ToCellMapOutputWithContext(ctx context.Context) CellMapOu
 }
 
 func (o CellMapOutput) MapIndex(k pulumi.StringInput) CellOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Cell {
-		return vs[0].(map[string]Cell)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Cell {
+		return vs[0].(map[string]*Cell)[vs[1].(string)]
 	}).(CellOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CellInput)(nil)).Elem(), &Cell{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CellPtrInput)(nil)).Elem(), &Cell{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CellArrayInput)(nil)).Elem(), CellArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CellMapInput)(nil)).Elem(), CellMap{})
 	pulumi.RegisterOutputType(CellOutput{})
-	pulumi.RegisterOutputType(CellPtrOutput{})
 	pulumi.RegisterOutputType(CellArrayOutput{})
 	pulumi.RegisterOutputType(CellMapOutput{})
 }

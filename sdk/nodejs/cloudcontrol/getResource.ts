@@ -24,9 +24,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudcontrol/getResource:getResource", {
         "identifier": args.identifier,
         "roleArn": args.roleArn,

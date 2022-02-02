@@ -28,9 +28,7 @@ export function getDistributionConfigurations(args?: GetDistributionConfiguratio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", {
         "filters": args.filters,
     }, opts);

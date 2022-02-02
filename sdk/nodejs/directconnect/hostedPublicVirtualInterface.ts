@@ -123,23 +123,23 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostedPublicVirtualInterfaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedPublicVirtualInterfaceArgs | HostedPublicVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedPublicVirtualInterfaceState | undefined;
-            inputs["addressFamily"] = state ? state.addressFamily : undefined;
-            inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
-            inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsDevice"] = state ? state.awsDevice : undefined;
-            inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["customerAddress"] = state ? state.customerAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            inputs["routeFilterPrefixes"] = state ? state.routeFilterPrefixes : undefined;
-            inputs["vlan"] = state ? state.vlan : undefined;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = state ? state.amazonAddress : undefined;
+            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["routeFilterPrefixes"] = state ? state.routeFilterPrefixes : undefined;
+            resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedPublicVirtualInterfaceArgs | undefined;
             if ((!args || args.addressFamily === undefined) && !opts.urn) {
@@ -160,24 +160,22 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
             if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            inputs["addressFamily"] = args ? args.addressFamily : undefined;
-            inputs["amazonAddress"] = args ? args.amazonAddress : undefined;
-            inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["customerAddress"] = args ? args.customerAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
-            inputs["routeFilterPrefixes"] = args ? args.routeFilterPrefixes : undefined;
-            inputs["vlan"] = args ? args.vlan : undefined;
-            inputs["amazonSideAsn"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsDevice"] = undefined /*out*/;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = args ? args.amazonAddress : undefined;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
+            resourceInputs["routeFilterPrefixes"] = args ? args.routeFilterPrefixes : undefined;
+            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["amazonSideAsn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsDevice"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HostedPublicVirtualInterface.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HostedPublicVirtualInterface.__pulumiType, name, resourceInputs, opts);
     }
 }
 

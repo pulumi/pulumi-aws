@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFormation
 {
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackArgs(), options.WithDefaults());
 
         /// <summary>
         /// The CloudFormation Stack data source allows access to stack
@@ -90,7 +89,7 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
     }
 
 

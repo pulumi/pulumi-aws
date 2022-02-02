@@ -534,7 +534,7 @@ type ObjectCopyInput interface {
 }
 
 func (*ObjectCopy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectCopy)(nil))
+	return reflect.TypeOf((**ObjectCopy)(nil)).Elem()
 }
 
 func (i *ObjectCopy) ToObjectCopyOutput() ObjectCopyOutput {
@@ -543,35 +543,6 @@ func (i *ObjectCopy) ToObjectCopyOutput() ObjectCopyOutput {
 
 func (i *ObjectCopy) ToObjectCopyOutputWithContext(ctx context.Context) ObjectCopyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOutput)
-}
-
-func (i *ObjectCopy) ToObjectCopyPtrOutput() ObjectCopyPtrOutput {
-	return i.ToObjectCopyPtrOutputWithContext(context.Background())
-}
-
-func (i *ObjectCopy) ToObjectCopyPtrOutputWithContext(ctx context.Context) ObjectCopyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyPtrOutput)
-}
-
-type ObjectCopyPtrInput interface {
-	pulumi.Input
-
-	ToObjectCopyPtrOutput() ObjectCopyPtrOutput
-	ToObjectCopyPtrOutputWithContext(ctx context.Context) ObjectCopyPtrOutput
-}
-
-type objectCopyPtrType ObjectCopyArgs
-
-func (*objectCopyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectCopy)(nil))
-}
-
-func (i *objectCopyPtrType) ToObjectCopyPtrOutput() ObjectCopyPtrOutput {
-	return i.ToObjectCopyPtrOutputWithContext(context.Background())
-}
-
-func (i *objectCopyPtrType) ToObjectCopyPtrOutputWithContext(ctx context.Context) ObjectCopyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyPtrOutput)
 }
 
 // ObjectCopyArrayInput is an input type that accepts ObjectCopyArray and ObjectCopyArrayOutput values.
@@ -627,7 +598,7 @@ func (i ObjectCopyMap) ToObjectCopyMapOutputWithContext(ctx context.Context) Obj
 type ObjectCopyOutput struct{ *pulumi.OutputState }
 
 func (ObjectCopyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectCopy)(nil))
+	return reflect.TypeOf((**ObjectCopy)(nil)).Elem()
 }
 
 func (o ObjectCopyOutput) ToObjectCopyOutput() ObjectCopyOutput {
@@ -638,44 +609,10 @@ func (o ObjectCopyOutput) ToObjectCopyOutputWithContext(ctx context.Context) Obj
 	return o
 }
 
-func (o ObjectCopyOutput) ToObjectCopyPtrOutput() ObjectCopyPtrOutput {
-	return o.ToObjectCopyPtrOutputWithContext(context.Background())
-}
-
-func (o ObjectCopyOutput) ToObjectCopyPtrOutputWithContext(ctx context.Context) ObjectCopyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectCopy) *ObjectCopy {
-		return &v
-	}).(ObjectCopyPtrOutput)
-}
-
-type ObjectCopyPtrOutput struct{ *pulumi.OutputState }
-
-func (ObjectCopyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectCopy)(nil))
-}
-
-func (o ObjectCopyPtrOutput) ToObjectCopyPtrOutput() ObjectCopyPtrOutput {
-	return o
-}
-
-func (o ObjectCopyPtrOutput) ToObjectCopyPtrOutputWithContext(ctx context.Context) ObjectCopyPtrOutput {
-	return o
-}
-
-func (o ObjectCopyPtrOutput) Elem() ObjectCopyOutput {
-	return o.ApplyT(func(v *ObjectCopy) ObjectCopy {
-		if v != nil {
-			return *v
-		}
-		var ret ObjectCopy
-		return ret
-	}).(ObjectCopyOutput)
-}
-
 type ObjectCopyArrayOutput struct{ *pulumi.OutputState }
 
 func (ObjectCopyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObjectCopy)(nil))
+	return reflect.TypeOf((*[]*ObjectCopy)(nil)).Elem()
 }
 
 func (o ObjectCopyArrayOutput) ToObjectCopyArrayOutput() ObjectCopyArrayOutput {
@@ -687,15 +624,15 @@ func (o ObjectCopyArrayOutput) ToObjectCopyArrayOutputWithContext(ctx context.Co
 }
 
 func (o ObjectCopyArrayOutput) Index(i pulumi.IntInput) ObjectCopyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectCopy {
-		return vs[0].([]ObjectCopy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObjectCopy {
+		return vs[0].([]*ObjectCopy)[vs[1].(int)]
 	}).(ObjectCopyOutput)
 }
 
 type ObjectCopyMapOutput struct{ *pulumi.OutputState }
 
 func (ObjectCopyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ObjectCopy)(nil))
+	return reflect.TypeOf((*map[string]*ObjectCopy)(nil)).Elem()
 }
 
 func (o ObjectCopyMapOutput) ToObjectCopyMapOutput() ObjectCopyMapOutput {
@@ -707,18 +644,16 @@ func (o ObjectCopyMapOutput) ToObjectCopyMapOutputWithContext(ctx context.Contex
 }
 
 func (o ObjectCopyMapOutput) MapIndex(k pulumi.StringInput) ObjectCopyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ObjectCopy {
-		return vs[0].(map[string]ObjectCopy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ObjectCopy {
+		return vs[0].(map[string]*ObjectCopy)[vs[1].(string)]
 	}).(ObjectCopyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyInput)(nil)).Elem(), &ObjectCopy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyPtrInput)(nil)).Elem(), &ObjectCopy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyArrayInput)(nil)).Elem(), ObjectCopyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyMapInput)(nil)).Elem(), ObjectCopyMap{})
 	pulumi.RegisterOutputType(ObjectCopyOutput{})
-	pulumi.RegisterOutputType(ObjectCopyPtrOutput{})
 	pulumi.RegisterOutputType(ObjectCopyArrayOutput{})
 	pulumi.RegisterOutputType(ObjectCopyMapOutput{})
 }

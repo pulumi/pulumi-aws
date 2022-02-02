@@ -93,16 +93,16 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceSetArgs | ResourceSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["resourceSetName"] = state ? state.resourceSetName : undefined;
-            inputs["resourceSetType"] = state ? state.resourceSetType : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["resourceSetName"] = state ? state.resourceSetName : undefined;
+            resourceInputs["resourceSetType"] = state ? state.resourceSetType : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
             if ((!args || args.resourceSetName === undefined) && !opts.urn) {
@@ -114,17 +114,15 @@ export class ResourceSet extends pulumi.CustomResource {
             if ((!args || args.resources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            inputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            inputs["resourceSetType"] = args ? args.resourceSetType : undefined;
-            inputs["resources"] = args ? args.resources : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
+            resourceInputs["resourceSetType"] = args ? args.resourceSetType : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -24,9 +24,7 @@ export function getLocations(opts?: pulumi.InvokeOptions): Promise<GetLocationsR
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:directconnect/getLocations:getLocations", {
     }, opts);
 }

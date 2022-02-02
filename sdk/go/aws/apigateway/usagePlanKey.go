@@ -177,7 +177,7 @@ type UsagePlanKeyInput interface {
 }
 
 func (*UsagePlanKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlanKey)(nil))
+	return reflect.TypeOf((**UsagePlanKey)(nil)).Elem()
 }
 
 func (i *UsagePlanKey) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
@@ -186,35 +186,6 @@ func (i *UsagePlanKey) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
 
 func (i *UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyOutput)
-}
-
-func (i *UsagePlanKey) ToUsagePlanKeyPtrOutput() UsagePlanKeyPtrOutput {
-	return i.ToUsagePlanKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *UsagePlanKey) ToUsagePlanKeyPtrOutputWithContext(ctx context.Context) UsagePlanKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyPtrOutput)
-}
-
-type UsagePlanKeyPtrInput interface {
-	pulumi.Input
-
-	ToUsagePlanKeyPtrOutput() UsagePlanKeyPtrOutput
-	ToUsagePlanKeyPtrOutputWithContext(ctx context.Context) UsagePlanKeyPtrOutput
-}
-
-type usagePlanKeyPtrType UsagePlanKeyArgs
-
-func (*usagePlanKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UsagePlanKey)(nil))
-}
-
-func (i *usagePlanKeyPtrType) ToUsagePlanKeyPtrOutput() UsagePlanKeyPtrOutput {
-	return i.ToUsagePlanKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *usagePlanKeyPtrType) ToUsagePlanKeyPtrOutputWithContext(ctx context.Context) UsagePlanKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyPtrOutput)
 }
 
 // UsagePlanKeyArrayInput is an input type that accepts UsagePlanKeyArray and UsagePlanKeyArrayOutput values.
@@ -270,7 +241,7 @@ func (i UsagePlanKeyMap) ToUsagePlanKeyMapOutputWithContext(ctx context.Context)
 type UsagePlanKeyOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlanKey)(nil))
+	return reflect.TypeOf((**UsagePlanKey)(nil)).Elem()
 }
 
 func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
@@ -281,44 +252,10 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o UsagePlanKeyOutput) ToUsagePlanKeyPtrOutput() UsagePlanKeyPtrOutput {
-	return o.ToUsagePlanKeyPtrOutputWithContext(context.Background())
-}
-
-func (o UsagePlanKeyOutput) ToUsagePlanKeyPtrOutputWithContext(ctx context.Context) UsagePlanKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanKey) *UsagePlanKey {
-		return &v
-	}).(UsagePlanKeyPtrOutput)
-}
-
-type UsagePlanKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (UsagePlanKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UsagePlanKey)(nil))
-}
-
-func (o UsagePlanKeyPtrOutput) ToUsagePlanKeyPtrOutput() UsagePlanKeyPtrOutput {
-	return o
-}
-
-func (o UsagePlanKeyPtrOutput) ToUsagePlanKeyPtrOutputWithContext(ctx context.Context) UsagePlanKeyPtrOutput {
-	return o
-}
-
-func (o UsagePlanKeyPtrOutput) Elem() UsagePlanKeyOutput {
-	return o.ApplyT(func(v *UsagePlanKey) UsagePlanKey {
-		if v != nil {
-			return *v
-		}
-		var ret UsagePlanKey
-		return ret
-	}).(UsagePlanKeyOutput)
-}
-
 type UsagePlanKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UsagePlanKey)(nil))
+	return reflect.TypeOf((*[]*UsagePlanKey)(nil)).Elem()
 }
 
 func (o UsagePlanKeyArrayOutput) ToUsagePlanKeyArrayOutput() UsagePlanKeyArrayOutput {
@@ -330,15 +267,15 @@ func (o UsagePlanKeyArrayOutput) ToUsagePlanKeyArrayOutputWithContext(ctx contex
 }
 
 func (o UsagePlanKeyArrayOutput) Index(i pulumi.IntInput) UsagePlanKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UsagePlanKey {
-		return vs[0].([]UsagePlanKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UsagePlanKey {
+		return vs[0].([]*UsagePlanKey)[vs[1].(int)]
 	}).(UsagePlanKeyOutput)
 }
 
 type UsagePlanKeyMapOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UsagePlanKey)(nil))
+	return reflect.TypeOf((*map[string]*UsagePlanKey)(nil)).Elem()
 }
 
 func (o UsagePlanKeyMapOutput) ToUsagePlanKeyMapOutput() UsagePlanKeyMapOutput {
@@ -350,18 +287,16 @@ func (o UsagePlanKeyMapOutput) ToUsagePlanKeyMapOutputWithContext(ctx context.Co
 }
 
 func (o UsagePlanKeyMapOutput) MapIndex(k pulumi.StringInput) UsagePlanKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UsagePlanKey {
-		return vs[0].(map[string]UsagePlanKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UsagePlanKey {
+		return vs[0].(map[string]*UsagePlanKey)[vs[1].(string)]
 	}).(UsagePlanKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyInput)(nil)).Elem(), &UsagePlanKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyPtrInput)(nil)).Elem(), &UsagePlanKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyArrayInput)(nil)).Elem(), UsagePlanKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyMapInput)(nil)).Elem(), UsagePlanKeyMap{})
 	pulumi.RegisterOutputType(UsagePlanKeyOutput{})
-	pulumi.RegisterOutputType(UsagePlanKeyPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanKeyArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanKeyMapOutput{})
 }

@@ -206,32 +206,32 @@ export class Broker extends pulumi.CustomResource {
      */
     constructor(name: string, args: BrokerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BrokerArgs | BrokerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrokerState | undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authenticationStrategy"] = state ? state.authenticationStrategy : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["brokerName"] = state ? state.brokerName : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
-            inputs["encryptionOptions"] = state ? state.encryptionOptions : undefined;
-            inputs["engineType"] = state ? state.engineType : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["hostInstanceType"] = state ? state.hostInstanceType : undefined;
-            inputs["instances"] = state ? state.instances : undefined;
-            inputs["ldapServerMetadata"] = state ? state.ldapServerMetadata : undefined;
-            inputs["logs"] = state ? state.logs : undefined;
-            inputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["users"] = state ? state.users : undefined;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationStrategy"] = state ? state.authenticationStrategy : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
+            resourceInputs["brokerName"] = state ? state.brokerName : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["deploymentMode"] = state ? state.deploymentMode : undefined;
+            resourceInputs["encryptionOptions"] = state ? state.encryptionOptions : undefined;
+            resourceInputs["engineType"] = state ? state.engineType : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["hostInstanceType"] = state ? state.hostInstanceType : undefined;
+            resourceInputs["instances"] = state ? state.instances : undefined;
+            resourceInputs["ldapServerMetadata"] = state ? state.ldapServerMetadata : undefined;
+            resourceInputs["logs"] = state ? state.logs : undefined;
+            resourceInputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BrokerArgs | undefined;
             if ((!args || args.engineType === undefined) && !opts.urn) {
@@ -246,33 +246,31 @@ export class Broker extends pulumi.CustomResource {
             if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["brokerName"] = args ? args.brokerName : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
-            inputs["engineType"] = args ? args.engineType : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
-            inputs["ldapServerMetadata"] = args ? args.ldapServerMetadata : undefined;
-            inputs["logs"] = args ? args.logs : undefined;
-            inputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["users"] = args ? args.users : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["instances"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["brokerName"] = args ? args.brokerName : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            resourceInputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
+            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
+            resourceInputs["ldapServerMetadata"] = args ? args.ldapServerMetadata : undefined;
+            resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Broker.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Broker.__pulumiType, name, resourceInputs, opts);
     }
 }
 

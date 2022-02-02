@@ -29,9 +29,7 @@ export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:apigateway/getSdk:getSdk", {
         "parameters": args.parameters,
         "restApiId": args.restApiId,

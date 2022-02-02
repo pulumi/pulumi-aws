@@ -36,7 +36,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.NewSamlProvider(ctx, "_default", &iam.SamlProviderArgs{
+// 		_, err := iam.NewSamlProvider(ctx, "default", &iam.SamlProviderArgs{
 // 			SamlMetadataDocument: readFileOrPanic("saml-metadata.xml"),
 // 		})
 // 		if err != nil {
@@ -256,7 +256,7 @@ type IdentityPoolInput interface {
 }
 
 func (*IdentityPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPool)(nil))
+	return reflect.TypeOf((**IdentityPool)(nil)).Elem()
 }
 
 func (i *IdentityPool) ToIdentityPoolOutput() IdentityPoolOutput {
@@ -265,35 +265,6 @@ func (i *IdentityPool) ToIdentityPoolOutput() IdentityPoolOutput {
 
 func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolOutput)
-}
-
-func (i *IdentityPool) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
-	return i.ToIdentityPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *IdentityPool) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolPtrOutput)
-}
-
-type IdentityPoolPtrInput interface {
-	pulumi.Input
-
-	ToIdentityPoolPtrOutput() IdentityPoolPtrOutput
-	ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput
-}
-
-type identityPoolPtrType IdentityPoolArgs
-
-func (*identityPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPool)(nil))
-}
-
-func (i *identityPoolPtrType) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
-	return i.ToIdentityPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *identityPoolPtrType) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolPtrOutput)
 }
 
 // IdentityPoolArrayInput is an input type that accepts IdentityPoolArray and IdentityPoolArrayOutput values.
@@ -349,7 +320,7 @@ func (i IdentityPoolMap) ToIdentityPoolMapOutputWithContext(ctx context.Context)
 type IdentityPoolOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPool)(nil))
+	return reflect.TypeOf((**IdentityPool)(nil)).Elem()
 }
 
 func (o IdentityPoolOutput) ToIdentityPoolOutput() IdentityPoolOutput {
@@ -360,44 +331,10 @@ func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o IdentityPoolOutput) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
-	return o.ToIdentityPoolPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityPoolOutput) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPool) *IdentityPool {
-		return &v
-	}).(IdentityPoolPtrOutput)
-}
-
-type IdentityPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPool)(nil))
-}
-
-func (o IdentityPoolPtrOutput) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
-	return o
-}
-
-func (o IdentityPoolPtrOutput) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
-	return o
-}
-
-func (o IdentityPoolPtrOutput) Elem() IdentityPoolOutput {
-	return o.ApplyT(func(v *IdentityPool) IdentityPool {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityPool
-		return ret
-	}).(IdentityPoolOutput)
-}
-
 type IdentityPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityPool)(nil))
+	return reflect.TypeOf((*[]*IdentityPool)(nil)).Elem()
 }
 
 func (o IdentityPoolArrayOutput) ToIdentityPoolArrayOutput() IdentityPoolArrayOutput {
@@ -409,15 +346,15 @@ func (o IdentityPoolArrayOutput) ToIdentityPoolArrayOutputWithContext(ctx contex
 }
 
 func (o IdentityPoolArrayOutput) Index(i pulumi.IntInput) IdentityPoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPool {
-		return vs[0].([]IdentityPool)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPool {
+		return vs[0].([]*IdentityPool)[vs[1].(int)]
 	}).(IdentityPoolOutput)
 }
 
 type IdentityPoolMapOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityPool)(nil))
+	return reflect.TypeOf((*map[string]*IdentityPool)(nil)).Elem()
 }
 
 func (o IdentityPoolMapOutput) ToIdentityPoolMapOutput() IdentityPoolMapOutput {
@@ -429,18 +366,16 @@ func (o IdentityPoolMapOutput) ToIdentityPoolMapOutputWithContext(ctx context.Co
 }
 
 func (o IdentityPoolMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPool {
-		return vs[0].(map[string]IdentityPool)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IdentityPool {
+		return vs[0].(map[string]*IdentityPool)[vs[1].(string)]
 	}).(IdentityPoolOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolInput)(nil)).Elem(), &IdentityPool{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolPtrInput)(nil)).Elem(), &IdentityPool{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolArrayInput)(nil)).Elem(), IdentityPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolMapInput)(nil)).Elem(), IdentityPoolMap{})
 	pulumi.RegisterOutputType(IdentityPoolOutput{})
-	pulumi.RegisterOutputType(IdentityPoolPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPoolMapOutput{})
 }

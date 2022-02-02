@@ -352,7 +352,7 @@ type JavaAppLayerInput interface {
 }
 
 func (*JavaAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*JavaAppLayer)(nil))
+	return reflect.TypeOf((**JavaAppLayer)(nil)).Elem()
 }
 
 func (i *JavaAppLayer) ToJavaAppLayerOutput() JavaAppLayerOutput {
@@ -361,35 +361,6 @@ func (i *JavaAppLayer) ToJavaAppLayerOutput() JavaAppLayerOutput {
 
 func (i *JavaAppLayer) ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerOutput)
-}
-
-func (i *JavaAppLayer) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
-	return i.ToJavaAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *JavaAppLayer) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerPtrOutput)
-}
-
-type JavaAppLayerPtrInput interface {
-	pulumi.Input
-
-	ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput
-	ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput
-}
-
-type javaAppLayerPtrType JavaAppLayerArgs
-
-func (*javaAppLayerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JavaAppLayer)(nil))
-}
-
-func (i *javaAppLayerPtrType) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
-	return i.ToJavaAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *javaAppLayerPtrType) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerPtrOutput)
 }
 
 // JavaAppLayerArrayInput is an input type that accepts JavaAppLayerArray and JavaAppLayerArrayOutput values.
@@ -445,7 +416,7 @@ func (i JavaAppLayerMap) ToJavaAppLayerMapOutputWithContext(ctx context.Context)
 type JavaAppLayerOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JavaAppLayer)(nil))
+	return reflect.TypeOf((**JavaAppLayer)(nil)).Elem()
 }
 
 func (o JavaAppLayerOutput) ToJavaAppLayerOutput() JavaAppLayerOutput {
@@ -456,44 +427,10 @@ func (o JavaAppLayerOutput) ToJavaAppLayerOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o JavaAppLayerOutput) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
-	return o.ToJavaAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (o JavaAppLayerOutput) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayer) *JavaAppLayer {
-		return &v
-	}).(JavaAppLayerPtrOutput)
-}
-
-type JavaAppLayerPtrOutput struct{ *pulumi.OutputState }
-
-func (JavaAppLayerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JavaAppLayer)(nil))
-}
-
-func (o JavaAppLayerPtrOutput) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
-	return o
-}
-
-func (o JavaAppLayerPtrOutput) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
-	return o
-}
-
-func (o JavaAppLayerPtrOutput) Elem() JavaAppLayerOutput {
-	return o.ApplyT(func(v *JavaAppLayer) JavaAppLayer {
-		if v != nil {
-			return *v
-		}
-		var ret JavaAppLayer
-		return ret
-	}).(JavaAppLayerOutput)
-}
-
 type JavaAppLayerArrayOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JavaAppLayer)(nil))
+	return reflect.TypeOf((*[]*JavaAppLayer)(nil)).Elem()
 }
 
 func (o JavaAppLayerArrayOutput) ToJavaAppLayerArrayOutput() JavaAppLayerArrayOutput {
@@ -505,15 +442,15 @@ func (o JavaAppLayerArrayOutput) ToJavaAppLayerArrayOutputWithContext(ctx contex
 }
 
 func (o JavaAppLayerArrayOutput) Index(i pulumi.IntInput) JavaAppLayerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JavaAppLayer {
-		return vs[0].([]JavaAppLayer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JavaAppLayer {
+		return vs[0].([]*JavaAppLayer)[vs[1].(int)]
 	}).(JavaAppLayerOutput)
 }
 
 type JavaAppLayerMapOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]JavaAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*JavaAppLayer)(nil)).Elem()
 }
 
 func (o JavaAppLayerMapOutput) ToJavaAppLayerMapOutput() JavaAppLayerMapOutput {
@@ -525,18 +462,16 @@ func (o JavaAppLayerMapOutput) ToJavaAppLayerMapOutputWithContext(ctx context.Co
 }
 
 func (o JavaAppLayerMapOutput) MapIndex(k pulumi.StringInput) JavaAppLayerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JavaAppLayer {
-		return vs[0].(map[string]JavaAppLayer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *JavaAppLayer {
+		return vs[0].(map[string]*JavaAppLayer)[vs[1].(string)]
 	}).(JavaAppLayerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerInput)(nil)).Elem(), &JavaAppLayer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerPtrInput)(nil)).Elem(), &JavaAppLayer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerArrayInput)(nil)).Elem(), JavaAppLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerMapInput)(nil)).Elem(), JavaAppLayerMap{})
 	pulumi.RegisterOutputType(JavaAppLayerOutput{})
-	pulumi.RegisterOutputType(JavaAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerArrayOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerMapOutput{})
 }

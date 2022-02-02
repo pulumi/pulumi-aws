@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Signer
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Signer
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSigningJobResult> InvokeAsync(GetSigningJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a Signer Signing Job.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Signer
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSigningJobResult> Invoke(GetSigningJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobInvokeArgs(), options.WithDefaults());
     }
 
 

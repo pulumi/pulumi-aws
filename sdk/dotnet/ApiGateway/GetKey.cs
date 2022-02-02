@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGateway
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the name and value of a pre-existing API Key, for
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -157,7 +157,7 @@ type AccountAssignmentInput interface {
 }
 
 func (*AccountAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountAssignment)(nil))
+	return reflect.TypeOf((**AccountAssignment)(nil)).Elem()
 }
 
 func (i *AccountAssignment) ToAccountAssignmentOutput() AccountAssignmentOutput {
@@ -166,35 +166,6 @@ func (i *AccountAssignment) ToAccountAssignmentOutput() AccountAssignmentOutput 
 
 func (i *AccountAssignment) ToAccountAssignmentOutputWithContext(ctx context.Context) AccountAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentOutput)
-}
-
-func (i *AccountAssignment) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
-	return i.ToAccountAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *AccountAssignment) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentPtrOutput)
-}
-
-type AccountAssignmentPtrInput interface {
-	pulumi.Input
-
-	ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput
-	ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput
-}
-
-type accountAssignmentPtrType AccountAssignmentArgs
-
-func (*accountAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountAssignment)(nil))
-}
-
-func (i *accountAssignmentPtrType) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
-	return i.ToAccountAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *accountAssignmentPtrType) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentPtrOutput)
 }
 
 // AccountAssignmentArrayInput is an input type that accepts AccountAssignmentArray and AccountAssignmentArrayOutput values.
@@ -250,7 +221,7 @@ func (i AccountAssignmentMap) ToAccountAssignmentMapOutputWithContext(ctx contex
 type AccountAssignmentOutput struct{ *pulumi.OutputState }
 
 func (AccountAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountAssignment)(nil))
+	return reflect.TypeOf((**AccountAssignment)(nil)).Elem()
 }
 
 func (o AccountAssignmentOutput) ToAccountAssignmentOutput() AccountAssignmentOutput {
@@ -261,44 +232,10 @@ func (o AccountAssignmentOutput) ToAccountAssignmentOutputWithContext(ctx contex
 	return o
 }
 
-func (o AccountAssignmentOutput) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
-	return o.ToAccountAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o AccountAssignmentOutput) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAssignment) *AccountAssignment {
-		return &v
-	}).(AccountAssignmentPtrOutput)
-}
-
-type AccountAssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountAssignment)(nil))
-}
-
-func (o AccountAssignmentPtrOutput) ToAccountAssignmentPtrOutput() AccountAssignmentPtrOutput {
-	return o
-}
-
-func (o AccountAssignmentPtrOutput) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
-	return o
-}
-
-func (o AccountAssignmentPtrOutput) Elem() AccountAssignmentOutput {
-	return o.ApplyT(func(v *AccountAssignment) AccountAssignment {
-		if v != nil {
-			return *v
-		}
-		var ret AccountAssignment
-		return ret
-	}).(AccountAssignmentOutput)
-}
-
 type AccountAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountAssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountAssignment)(nil))
+	return reflect.TypeOf((*[]*AccountAssignment)(nil)).Elem()
 }
 
 func (o AccountAssignmentArrayOutput) ToAccountAssignmentArrayOutput() AccountAssignmentArrayOutput {
@@ -310,15 +247,15 @@ func (o AccountAssignmentArrayOutput) ToAccountAssignmentArrayOutputWithContext(
 }
 
 func (o AccountAssignmentArrayOutput) Index(i pulumi.IntInput) AccountAssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountAssignment {
-		return vs[0].([]AccountAssignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountAssignment {
+		return vs[0].([]*AccountAssignment)[vs[1].(int)]
 	}).(AccountAssignmentOutput)
 }
 
 type AccountAssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (AccountAssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AccountAssignment)(nil))
+	return reflect.TypeOf((*map[string]*AccountAssignment)(nil)).Elem()
 }
 
 func (o AccountAssignmentMapOutput) ToAccountAssignmentMapOutput() AccountAssignmentMapOutput {
@@ -330,18 +267,16 @@ func (o AccountAssignmentMapOutput) ToAccountAssignmentMapOutputWithContext(ctx 
 }
 
 func (o AccountAssignmentMapOutput) MapIndex(k pulumi.StringInput) AccountAssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountAssignment {
-		return vs[0].(map[string]AccountAssignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AccountAssignment {
+		return vs[0].(map[string]*AccountAssignment)[vs[1].(string)]
 	}).(AccountAssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentInput)(nil)).Elem(), &AccountAssignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentPtrInput)(nil)).Elem(), &AccountAssignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentArrayInput)(nil)).Elem(), AccountAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentMapInput)(nil)).Elem(), AccountAssignmentMap{})
 	pulumi.RegisterOutputType(AccountAssignmentOutput{})
-	pulumi.RegisterOutputType(AccountAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(AccountAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(AccountAssignmentMapOutput{})
 }

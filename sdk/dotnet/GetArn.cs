@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetArnResult> InvokeAsync(GetArnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnArgs(), options.WithDefaults());
 
         /// <summary>
         /// Parses an Amazon Resource Name (ARN) into its constituent parts.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetArnResult> Invoke(GetArnInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnInvokeArgs(), options.WithDefaults());
     }
 
 

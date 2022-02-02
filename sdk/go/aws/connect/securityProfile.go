@@ -200,7 +200,7 @@ type SecurityProfileInput interface {
 }
 
 func (*SecurityProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityProfile)(nil))
+	return reflect.TypeOf((**SecurityProfile)(nil)).Elem()
 }
 
 func (i *SecurityProfile) ToSecurityProfileOutput() SecurityProfileOutput {
@@ -209,35 +209,6 @@ func (i *SecurityProfile) ToSecurityProfileOutput() SecurityProfileOutput {
 
 func (i *SecurityProfile) ToSecurityProfileOutputWithContext(ctx context.Context) SecurityProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileOutput)
-}
-
-func (i *SecurityProfile) ToSecurityProfilePtrOutput() SecurityProfilePtrOutput {
-	return i.ToSecurityProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *SecurityProfile) ToSecurityProfilePtrOutputWithContext(ctx context.Context) SecurityProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePtrOutput)
-}
-
-type SecurityProfilePtrInput interface {
-	pulumi.Input
-
-	ToSecurityProfilePtrOutput() SecurityProfilePtrOutput
-	ToSecurityProfilePtrOutputWithContext(ctx context.Context) SecurityProfilePtrOutput
-}
-
-type securityProfilePtrType SecurityProfileArgs
-
-func (*securityProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityProfile)(nil))
-}
-
-func (i *securityProfilePtrType) ToSecurityProfilePtrOutput() SecurityProfilePtrOutput {
-	return i.ToSecurityProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *securityProfilePtrType) ToSecurityProfilePtrOutputWithContext(ctx context.Context) SecurityProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePtrOutput)
 }
 
 // SecurityProfileArrayInput is an input type that accepts SecurityProfileArray and SecurityProfileArrayOutput values.
@@ -293,7 +264,7 @@ func (i SecurityProfileMap) ToSecurityProfileMapOutputWithContext(ctx context.Co
 type SecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityProfile)(nil))
+	return reflect.TypeOf((**SecurityProfile)(nil)).Elem()
 }
 
 func (o SecurityProfileOutput) ToSecurityProfileOutput() SecurityProfileOutput {
@@ -304,44 +275,10 @@ func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SecurityProfileOutput) ToSecurityProfilePtrOutput() SecurityProfilePtrOutput {
-	return o.ToSecurityProfilePtrOutputWithContext(context.Background())
-}
-
-func (o SecurityProfileOutput) ToSecurityProfilePtrOutputWithContext(ctx context.Context) SecurityProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityProfile) *SecurityProfile {
-		return &v
-	}).(SecurityProfilePtrOutput)
-}
-
-type SecurityProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityProfile)(nil))
-}
-
-func (o SecurityProfilePtrOutput) ToSecurityProfilePtrOutput() SecurityProfilePtrOutput {
-	return o
-}
-
-func (o SecurityProfilePtrOutput) ToSecurityProfilePtrOutputWithContext(ctx context.Context) SecurityProfilePtrOutput {
-	return o
-}
-
-func (o SecurityProfilePtrOutput) Elem() SecurityProfileOutput {
-	return o.ApplyT(func(v *SecurityProfile) SecurityProfile {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityProfile
-		return ret
-	}).(SecurityProfileOutput)
-}
-
 type SecurityProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityProfile)(nil))
+	return reflect.TypeOf((*[]*SecurityProfile)(nil)).Elem()
 }
 
 func (o SecurityProfileArrayOutput) ToSecurityProfileArrayOutput() SecurityProfileArrayOutput {
@@ -353,15 +290,15 @@ func (o SecurityProfileArrayOutput) ToSecurityProfileArrayOutputWithContext(ctx 
 }
 
 func (o SecurityProfileArrayOutput) Index(i pulumi.IntInput) SecurityProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityProfile {
-		return vs[0].([]SecurityProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityProfile {
+		return vs[0].([]*SecurityProfile)[vs[1].(int)]
 	}).(SecurityProfileOutput)
 }
 
 type SecurityProfileMapOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecurityProfile)(nil))
+	return reflect.TypeOf((*map[string]*SecurityProfile)(nil)).Elem()
 }
 
 func (o SecurityProfileMapOutput) ToSecurityProfileMapOutput() SecurityProfileMapOutput {
@@ -373,18 +310,16 @@ func (o SecurityProfileMapOutput) ToSecurityProfileMapOutputWithContext(ctx cont
 }
 
 func (o SecurityProfileMapOutput) MapIndex(k pulumi.StringInput) SecurityProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityProfile {
-		return vs[0].(map[string]SecurityProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SecurityProfile {
+		return vs[0].(map[string]*SecurityProfile)[vs[1].(string)]
 	}).(SecurityProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileInput)(nil)).Elem(), &SecurityProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePtrInput)(nil)).Elem(), &SecurityProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileArrayInput)(nil)).Elem(), SecurityProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileMapInput)(nil)).Elem(), SecurityProfileMap{})
 	pulumi.RegisterOutputType(SecurityProfileOutput{})
-	pulumi.RegisterOutputType(SecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfileArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileMapOutput{})
 }

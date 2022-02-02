@@ -28,9 +28,7 @@ export function getInfrastructureConfigurations(args?: GetInfrastructureConfigur
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", {
         "filters": args.filters,
     }, opts);

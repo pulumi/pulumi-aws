@@ -120,26 +120,24 @@ export class GlobalTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: GlobalTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GlobalTableArgs | GlobalTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalTableState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["replicas"] = state ? state.replicas : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["replicas"] = state ? state.replicas : undefined;
         } else {
             const args = argsOrState as GlobalTableArgs | undefined;
             if ((!args || args.replicas === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicas'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["replicas"] = args ? args.replicas : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GlobalTable.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GlobalTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

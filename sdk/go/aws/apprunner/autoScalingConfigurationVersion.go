@@ -194,7 +194,7 @@ type AutoScalingConfigurationVersionInput interface {
 }
 
 func (*AutoScalingConfigurationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingConfigurationVersion)(nil))
+	return reflect.TypeOf((**AutoScalingConfigurationVersion)(nil)).Elem()
 }
 
 func (i *AutoScalingConfigurationVersion) ToAutoScalingConfigurationVersionOutput() AutoScalingConfigurationVersionOutput {
@@ -203,35 +203,6 @@ func (i *AutoScalingConfigurationVersion) ToAutoScalingConfigurationVersionOutpu
 
 func (i *AutoScalingConfigurationVersion) ToAutoScalingConfigurationVersionOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationVersionOutput)
-}
-
-func (i *AutoScalingConfigurationVersion) ToAutoScalingConfigurationVersionPtrOutput() AutoScalingConfigurationVersionPtrOutput {
-	return i.ToAutoScalingConfigurationVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *AutoScalingConfigurationVersion) ToAutoScalingConfigurationVersionPtrOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationVersionPtrOutput)
-}
-
-type AutoScalingConfigurationVersionPtrInput interface {
-	pulumi.Input
-
-	ToAutoScalingConfigurationVersionPtrOutput() AutoScalingConfigurationVersionPtrOutput
-	ToAutoScalingConfigurationVersionPtrOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionPtrOutput
-}
-
-type autoScalingConfigurationVersionPtrType AutoScalingConfigurationVersionArgs
-
-func (*autoScalingConfigurationVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingConfigurationVersion)(nil))
-}
-
-func (i *autoScalingConfigurationVersionPtrType) ToAutoScalingConfigurationVersionPtrOutput() AutoScalingConfigurationVersionPtrOutput {
-	return i.ToAutoScalingConfigurationVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *autoScalingConfigurationVersionPtrType) ToAutoScalingConfigurationVersionPtrOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationVersionPtrOutput)
 }
 
 // AutoScalingConfigurationVersionArrayInput is an input type that accepts AutoScalingConfigurationVersionArray and AutoScalingConfigurationVersionArrayOutput values.
@@ -287,7 +258,7 @@ func (i AutoScalingConfigurationVersionMap) ToAutoScalingConfigurationVersionMap
 type AutoScalingConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingConfigurationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingConfigurationVersion)(nil))
+	return reflect.TypeOf((**AutoScalingConfigurationVersion)(nil)).Elem()
 }
 
 func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersionOutput() AutoScalingConfigurationVersionOutput {
@@ -298,44 +269,10 @@ func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersion
 	return o
 }
 
-func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersionPtrOutput() AutoScalingConfigurationVersionPtrOutput {
-	return o.ToAutoScalingConfigurationVersionPtrOutputWithContext(context.Background())
-}
-
-func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersionPtrOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingConfigurationVersion) *AutoScalingConfigurationVersion {
-		return &v
-	}).(AutoScalingConfigurationVersionPtrOutput)
-}
-
-type AutoScalingConfigurationVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (AutoScalingConfigurationVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingConfigurationVersion)(nil))
-}
-
-func (o AutoScalingConfigurationVersionPtrOutput) ToAutoScalingConfigurationVersionPtrOutput() AutoScalingConfigurationVersionPtrOutput {
-	return o
-}
-
-func (o AutoScalingConfigurationVersionPtrOutput) ToAutoScalingConfigurationVersionPtrOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionPtrOutput {
-	return o
-}
-
-func (o AutoScalingConfigurationVersionPtrOutput) Elem() AutoScalingConfigurationVersionOutput {
-	return o.ApplyT(func(v *AutoScalingConfigurationVersion) AutoScalingConfigurationVersion {
-		if v != nil {
-			return *v
-		}
-		var ret AutoScalingConfigurationVersion
-		return ret
-	}).(AutoScalingConfigurationVersionOutput)
-}
-
 type AutoScalingConfigurationVersionArrayOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingConfigurationVersionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoScalingConfigurationVersion)(nil))
+	return reflect.TypeOf((*[]*AutoScalingConfigurationVersion)(nil)).Elem()
 }
 
 func (o AutoScalingConfigurationVersionArrayOutput) ToAutoScalingConfigurationVersionArrayOutput() AutoScalingConfigurationVersionArrayOutput {
@@ -347,15 +284,15 @@ func (o AutoScalingConfigurationVersionArrayOutput) ToAutoScalingConfigurationVe
 }
 
 func (o AutoScalingConfigurationVersionArrayOutput) Index(i pulumi.IntInput) AutoScalingConfigurationVersionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingConfigurationVersion {
-		return vs[0].([]AutoScalingConfigurationVersion)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutoScalingConfigurationVersion {
+		return vs[0].([]*AutoScalingConfigurationVersion)[vs[1].(int)]
 	}).(AutoScalingConfigurationVersionOutput)
 }
 
 type AutoScalingConfigurationVersionMapOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingConfigurationVersionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AutoScalingConfigurationVersion)(nil))
+	return reflect.TypeOf((*map[string]*AutoScalingConfigurationVersion)(nil)).Elem()
 }
 
 func (o AutoScalingConfigurationVersionMapOutput) ToAutoScalingConfigurationVersionMapOutput() AutoScalingConfigurationVersionMapOutput {
@@ -367,18 +304,16 @@ func (o AutoScalingConfigurationVersionMapOutput) ToAutoScalingConfigurationVers
 }
 
 func (o AutoScalingConfigurationVersionMapOutput) MapIndex(k pulumi.StringInput) AutoScalingConfigurationVersionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AutoScalingConfigurationVersion {
-		return vs[0].(map[string]AutoScalingConfigurationVersion)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AutoScalingConfigurationVersion {
+		return vs[0].(map[string]*AutoScalingConfigurationVersion)[vs[1].(string)]
 	}).(AutoScalingConfigurationVersionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionInput)(nil)).Elem(), &AutoScalingConfigurationVersion{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionPtrInput)(nil)).Elem(), &AutoScalingConfigurationVersion{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionArrayInput)(nil)).Elem(), AutoScalingConfigurationVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionMapInput)(nil)).Elem(), AutoScalingConfigurationVersionMap{})
 	pulumi.RegisterOutputType(AutoScalingConfigurationVersionOutput{})
-	pulumi.RegisterOutputType(AutoScalingConfigurationVersionPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingConfigurationVersionArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingConfigurationVersionMapOutput{})
 }

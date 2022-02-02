@@ -311,7 +311,7 @@ type TopicRuleInput interface {
 }
 
 func (*TopicRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRule)(nil))
+	return reflect.TypeOf((**TopicRule)(nil)).Elem()
 }
 
 func (i *TopicRule) ToTopicRuleOutput() TopicRuleOutput {
@@ -320,35 +320,6 @@ func (i *TopicRule) ToTopicRuleOutput() TopicRuleOutput {
 
 func (i *TopicRule) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOutput)
-}
-
-func (i *TopicRule) ToTopicRulePtrOutput() TopicRulePtrOutput {
-	return i.ToTopicRulePtrOutputWithContext(context.Background())
-}
-
-func (i *TopicRule) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePtrOutput)
-}
-
-type TopicRulePtrInput interface {
-	pulumi.Input
-
-	ToTopicRulePtrOutput() TopicRulePtrOutput
-	ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput
-}
-
-type topicRulePtrType TopicRuleArgs
-
-func (*topicRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRule)(nil))
-}
-
-func (i *topicRulePtrType) ToTopicRulePtrOutput() TopicRulePtrOutput {
-	return i.ToTopicRulePtrOutputWithContext(context.Background())
-}
-
-func (i *topicRulePtrType) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePtrOutput)
 }
 
 // TopicRuleArrayInput is an input type that accepts TopicRuleArray and TopicRuleArrayOutput values.
@@ -404,7 +375,7 @@ func (i TopicRuleMap) ToTopicRuleMapOutputWithContext(ctx context.Context) Topic
 type TopicRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRule)(nil))
+	return reflect.TypeOf((**TopicRule)(nil)).Elem()
 }
 
 func (o TopicRuleOutput) ToTopicRuleOutput() TopicRuleOutput {
@@ -415,44 +386,10 @@ func (o TopicRuleOutput) ToTopicRuleOutputWithContext(ctx context.Context) Topic
 	return o
 }
 
-func (o TopicRuleOutput) ToTopicRulePtrOutput() TopicRulePtrOutput {
-	return o.ToTopicRulePtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleOutput) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRule) *TopicRule {
-		return &v
-	}).(TopicRulePtrOutput)
-}
-
-type TopicRulePtrOutput struct{ *pulumi.OutputState }
-
-func (TopicRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRule)(nil))
-}
-
-func (o TopicRulePtrOutput) ToTopicRulePtrOutput() TopicRulePtrOutput {
-	return o
-}
-
-func (o TopicRulePtrOutput) ToTopicRulePtrOutputWithContext(ctx context.Context) TopicRulePtrOutput {
-	return o
-}
-
-func (o TopicRulePtrOutput) Elem() TopicRuleOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRule {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRule
-		return ret
-	}).(TopicRuleOutput)
-}
-
 type TopicRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicRule)(nil))
+	return reflect.TypeOf((*[]*TopicRule)(nil)).Elem()
 }
 
 func (o TopicRuleArrayOutput) ToTopicRuleArrayOutput() TopicRuleArrayOutput {
@@ -464,15 +401,15 @@ func (o TopicRuleArrayOutput) ToTopicRuleArrayOutputWithContext(ctx context.Cont
 }
 
 func (o TopicRuleArrayOutput) Index(i pulumi.IntInput) TopicRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRule {
-		return vs[0].([]TopicRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TopicRule {
+		return vs[0].([]*TopicRule)[vs[1].(int)]
 	}).(TopicRuleOutput)
 }
 
 type TopicRuleMapOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TopicRule)(nil))
+	return reflect.TypeOf((*map[string]*TopicRule)(nil)).Elem()
 }
 
 func (o TopicRuleMapOutput) ToTopicRuleMapOutput() TopicRuleMapOutput {
@@ -484,18 +421,16 @@ func (o TopicRuleMapOutput) ToTopicRuleMapOutputWithContext(ctx context.Context)
 }
 
 func (o TopicRuleMapOutput) MapIndex(k pulumi.StringInput) TopicRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TopicRule {
-		return vs[0].(map[string]TopicRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TopicRule {
+		return vs[0].(map[string]*TopicRule)[vs[1].(string)]
 	}).(TopicRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleInput)(nil)).Elem(), &TopicRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePtrInput)(nil)).Elem(), &TopicRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleArrayInput)(nil)).Elem(), TopicRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleMapInput)(nil)).Elem(), TopicRuleMap{})
 	pulumi.RegisterOutputType(TopicRuleOutput{})
-	pulumi.RegisterOutputType(TopicRulePtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleMapOutput{})
 }

@@ -181,7 +181,7 @@ type PrefixListReferenceInput interface {
 }
 
 func (*PrefixListReference) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrefixListReference)(nil))
+	return reflect.TypeOf((**PrefixListReference)(nil)).Elem()
 }
 
 func (i *PrefixListReference) ToPrefixListReferenceOutput() PrefixListReferenceOutput {
@@ -190,35 +190,6 @@ func (i *PrefixListReference) ToPrefixListReferenceOutput() PrefixListReferenceO
 
 func (i *PrefixListReference) ToPrefixListReferenceOutputWithContext(ctx context.Context) PrefixListReferenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferenceOutput)
-}
-
-func (i *PrefixListReference) ToPrefixListReferencePtrOutput() PrefixListReferencePtrOutput {
-	return i.ToPrefixListReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *PrefixListReference) ToPrefixListReferencePtrOutputWithContext(ctx context.Context) PrefixListReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferencePtrOutput)
-}
-
-type PrefixListReferencePtrInput interface {
-	pulumi.Input
-
-	ToPrefixListReferencePtrOutput() PrefixListReferencePtrOutput
-	ToPrefixListReferencePtrOutputWithContext(ctx context.Context) PrefixListReferencePtrOutput
-}
-
-type prefixListReferencePtrType PrefixListReferenceArgs
-
-func (*prefixListReferencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrefixListReference)(nil))
-}
-
-func (i *prefixListReferencePtrType) ToPrefixListReferencePtrOutput() PrefixListReferencePtrOutput {
-	return i.ToPrefixListReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *prefixListReferencePtrType) ToPrefixListReferencePtrOutputWithContext(ctx context.Context) PrefixListReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferencePtrOutput)
 }
 
 // PrefixListReferenceArrayInput is an input type that accepts PrefixListReferenceArray and PrefixListReferenceArrayOutput values.
@@ -274,7 +245,7 @@ func (i PrefixListReferenceMap) ToPrefixListReferenceMapOutputWithContext(ctx co
 type PrefixListReferenceOutput struct{ *pulumi.OutputState }
 
 func (PrefixListReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrefixListReference)(nil))
+	return reflect.TypeOf((**PrefixListReference)(nil)).Elem()
 }
 
 func (o PrefixListReferenceOutput) ToPrefixListReferenceOutput() PrefixListReferenceOutput {
@@ -285,44 +256,10 @@ func (o PrefixListReferenceOutput) ToPrefixListReferenceOutputWithContext(ctx co
 	return o
 }
 
-func (o PrefixListReferenceOutput) ToPrefixListReferencePtrOutput() PrefixListReferencePtrOutput {
-	return o.ToPrefixListReferencePtrOutputWithContext(context.Background())
-}
-
-func (o PrefixListReferenceOutput) ToPrefixListReferencePtrOutputWithContext(ctx context.Context) PrefixListReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrefixListReference) *PrefixListReference {
-		return &v
-	}).(PrefixListReferencePtrOutput)
-}
-
-type PrefixListReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (PrefixListReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrefixListReference)(nil))
-}
-
-func (o PrefixListReferencePtrOutput) ToPrefixListReferencePtrOutput() PrefixListReferencePtrOutput {
-	return o
-}
-
-func (o PrefixListReferencePtrOutput) ToPrefixListReferencePtrOutputWithContext(ctx context.Context) PrefixListReferencePtrOutput {
-	return o
-}
-
-func (o PrefixListReferencePtrOutput) Elem() PrefixListReferenceOutput {
-	return o.ApplyT(func(v *PrefixListReference) PrefixListReference {
-		if v != nil {
-			return *v
-		}
-		var ret PrefixListReference
-		return ret
-	}).(PrefixListReferenceOutput)
-}
-
 type PrefixListReferenceArrayOutput struct{ *pulumi.OutputState }
 
 func (PrefixListReferenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrefixListReference)(nil))
+	return reflect.TypeOf((*[]*PrefixListReference)(nil)).Elem()
 }
 
 func (o PrefixListReferenceArrayOutput) ToPrefixListReferenceArrayOutput() PrefixListReferenceArrayOutput {
@@ -334,15 +271,15 @@ func (o PrefixListReferenceArrayOutput) ToPrefixListReferenceArrayOutputWithCont
 }
 
 func (o PrefixListReferenceArrayOutput) Index(i pulumi.IntInput) PrefixListReferenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListReference {
-		return vs[0].([]PrefixListReference)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrefixListReference {
+		return vs[0].([]*PrefixListReference)[vs[1].(int)]
 	}).(PrefixListReferenceOutput)
 }
 
 type PrefixListReferenceMapOutput struct{ *pulumi.OutputState }
 
 func (PrefixListReferenceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PrefixListReference)(nil))
+	return reflect.TypeOf((*map[string]*PrefixListReference)(nil)).Elem()
 }
 
 func (o PrefixListReferenceMapOutput) ToPrefixListReferenceMapOutput() PrefixListReferenceMapOutput {
@@ -354,18 +291,16 @@ func (o PrefixListReferenceMapOutput) ToPrefixListReferenceMapOutputWithContext(
 }
 
 func (o PrefixListReferenceMapOutput) MapIndex(k pulumi.StringInput) PrefixListReferenceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrefixListReference {
-		return vs[0].(map[string]PrefixListReference)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PrefixListReference {
+		return vs[0].(map[string]*PrefixListReference)[vs[1].(string)]
 	}).(PrefixListReferenceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferenceInput)(nil)).Elem(), &PrefixListReference{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferencePtrInput)(nil)).Elem(), &PrefixListReference{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferenceArrayInput)(nil)).Elem(), PrefixListReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferenceMapInput)(nil)).Elem(), PrefixListReferenceMap{})
 	pulumi.RegisterOutputType(PrefixListReferenceOutput{})
-	pulumi.RegisterOutputType(PrefixListReferencePtrOutput{})
 	pulumi.RegisterOutputType(PrefixListReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListReferenceMapOutput{})
 }

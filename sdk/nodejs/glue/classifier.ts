@@ -136,27 +136,25 @@ export class Classifier extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ClassifierArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClassifierArgs | ClassifierState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClassifierState | undefined;
-            inputs["csvClassifier"] = state ? state.csvClassifier : undefined;
-            inputs["grokClassifier"] = state ? state.grokClassifier : undefined;
-            inputs["jsonClassifier"] = state ? state.jsonClassifier : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["xmlClassifier"] = state ? state.xmlClassifier : undefined;
+            resourceInputs["csvClassifier"] = state ? state.csvClassifier : undefined;
+            resourceInputs["grokClassifier"] = state ? state.grokClassifier : undefined;
+            resourceInputs["jsonClassifier"] = state ? state.jsonClassifier : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["xmlClassifier"] = state ? state.xmlClassifier : undefined;
         } else {
             const args = argsOrState as ClassifierArgs | undefined;
-            inputs["csvClassifier"] = args ? args.csvClassifier : undefined;
-            inputs["grokClassifier"] = args ? args.grokClassifier : undefined;
-            inputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
+            resourceInputs["csvClassifier"] = args ? args.csvClassifier : undefined;
+            resourceInputs["grokClassifier"] = args ? args.grokClassifier : undefined;
+            resourceInputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Classifier.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Classifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

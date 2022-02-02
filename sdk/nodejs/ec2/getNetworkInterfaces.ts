@@ -54,9 +54,7 @@ export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pul
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
         "filters": args.filters,
         "tags": args.tags,

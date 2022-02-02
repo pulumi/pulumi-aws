@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  *     acl: "private",
  *     forceDestroy: true,
  * });
- * const bucketPol = pulumi.all([gdBucket.arn, gdBucket.arn]).apply(([gdBucketArn, gdBucketArn1]) => aws.iam.getPolicyDocument({
+ * const bucketPol = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "Allow PutObject",
  *             actions: ["s3:PutObject"],
- *             resources: [`${gdBucketArn}/*`],
+ *             resources: [pulumi.interpolate`${gdBucket.arn}/*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
@@ -33,14 +33,14 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow GetBucketLocation",
  *             actions: ["s3:GetBucketLocation"],
- *             resources: [gdBucketArn1],
+ *             resources: [gdBucket.arn],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
  *             }],
  *         },
  *     ],
- * }));
+ * });
  * const kmsPol = Promise.all([currentRegion, currentCallerIdentity, currentRegion, currentCallerIdentity, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity, currentRegion1, currentCallerIdentity1, currentCallerIdentity2]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
@@ -146,14 +146,14 @@ export class PublishingDestination extends pulumi.CustomResource {
      */
     constructor(name: string, args: PublishingDestinationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublishingDestinationArgs | PublishingDestinationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublishingDestinationState | undefined;
-            inputs["destinationArn"] = state ? state.destinationArn : undefined;
-            inputs["destinationType"] = state ? state.destinationType : undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
+            resourceInputs["destinationType"] = state ? state.destinationType : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
         } else {
             const args = argsOrState as PublishingDestinationArgs | undefined;
             if ((!args || args.destinationArn === undefined) && !opts.urn) {
@@ -165,15 +165,13 @@ export class PublishingDestination extends pulumi.CustomResource {
             if ((!args || args.kmsKeyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kmsKeyArn'");
             }
-            inputs["destinationArn"] = args ? args.destinationArn : undefined;
-            inputs["destinationType"] = args ? args.destinationType : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
+            resourceInputs["destinationType"] = args ? args.destinationType : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PublishingDestination.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PublishingDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

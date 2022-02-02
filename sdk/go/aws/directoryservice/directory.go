@@ -408,7 +408,7 @@ type DirectoryInput interface {
 }
 
 func (*Directory) ElementType() reflect.Type {
-	return reflect.TypeOf((*Directory)(nil))
+	return reflect.TypeOf((**Directory)(nil)).Elem()
 }
 
 func (i *Directory) ToDirectoryOutput() DirectoryOutput {
@@ -417,35 +417,6 @@ func (i *Directory) ToDirectoryOutput() DirectoryOutput {
 
 func (i *Directory) ToDirectoryOutputWithContext(ctx context.Context) DirectoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryOutput)
-}
-
-func (i *Directory) ToDirectoryPtrOutput() DirectoryPtrOutput {
-	return i.ToDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *Directory) ToDirectoryPtrOutputWithContext(ctx context.Context) DirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryPtrOutput)
-}
-
-type DirectoryPtrInput interface {
-	pulumi.Input
-
-	ToDirectoryPtrOutput() DirectoryPtrOutput
-	ToDirectoryPtrOutputWithContext(ctx context.Context) DirectoryPtrOutput
-}
-
-type directoryPtrType DirectoryArgs
-
-func (*directoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Directory)(nil))
-}
-
-func (i *directoryPtrType) ToDirectoryPtrOutput() DirectoryPtrOutput {
-	return i.ToDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *directoryPtrType) ToDirectoryPtrOutputWithContext(ctx context.Context) DirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryPtrOutput)
 }
 
 // DirectoryArrayInput is an input type that accepts DirectoryArray and DirectoryArrayOutput values.
@@ -501,7 +472,7 @@ func (i DirectoryMap) ToDirectoryMapOutputWithContext(ctx context.Context) Direc
 type DirectoryOutput struct{ *pulumi.OutputState }
 
 func (DirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Directory)(nil))
+	return reflect.TypeOf((**Directory)(nil)).Elem()
 }
 
 func (o DirectoryOutput) ToDirectoryOutput() DirectoryOutput {
@@ -512,44 +483,10 @@ func (o DirectoryOutput) ToDirectoryOutputWithContext(ctx context.Context) Direc
 	return o
 }
 
-func (o DirectoryOutput) ToDirectoryPtrOutput() DirectoryPtrOutput {
-	return o.ToDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (o DirectoryOutput) ToDirectoryPtrOutputWithContext(ctx context.Context) DirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Directory) *Directory {
-		return &v
-	}).(DirectoryPtrOutput)
-}
-
-type DirectoryPtrOutput struct{ *pulumi.OutputState }
-
-func (DirectoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Directory)(nil))
-}
-
-func (o DirectoryPtrOutput) ToDirectoryPtrOutput() DirectoryPtrOutput {
-	return o
-}
-
-func (o DirectoryPtrOutput) ToDirectoryPtrOutputWithContext(ctx context.Context) DirectoryPtrOutput {
-	return o
-}
-
-func (o DirectoryPtrOutput) Elem() DirectoryOutput {
-	return o.ApplyT(func(v *Directory) Directory {
-		if v != nil {
-			return *v
-		}
-		var ret Directory
-		return ret
-	}).(DirectoryOutput)
-}
-
 type DirectoryArrayOutput struct{ *pulumi.OutputState }
 
 func (DirectoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Directory)(nil))
+	return reflect.TypeOf((*[]*Directory)(nil)).Elem()
 }
 
 func (o DirectoryArrayOutput) ToDirectoryArrayOutput() DirectoryArrayOutput {
@@ -561,15 +498,15 @@ func (o DirectoryArrayOutput) ToDirectoryArrayOutputWithContext(ctx context.Cont
 }
 
 func (o DirectoryArrayOutput) Index(i pulumi.IntInput) DirectoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Directory {
-		return vs[0].([]Directory)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Directory {
+		return vs[0].([]*Directory)[vs[1].(int)]
 	}).(DirectoryOutput)
 }
 
 type DirectoryMapOutput struct{ *pulumi.OutputState }
 
 func (DirectoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Directory)(nil))
+	return reflect.TypeOf((*map[string]*Directory)(nil)).Elem()
 }
 
 func (o DirectoryMapOutput) ToDirectoryMapOutput() DirectoryMapOutput {
@@ -581,18 +518,16 @@ func (o DirectoryMapOutput) ToDirectoryMapOutputWithContext(ctx context.Context)
 }
 
 func (o DirectoryMapOutput) MapIndex(k pulumi.StringInput) DirectoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Directory {
-		return vs[0].(map[string]Directory)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Directory {
+		return vs[0].(map[string]*Directory)[vs[1].(string)]
 	}).(DirectoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryInput)(nil)).Elem(), &Directory{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryPtrInput)(nil)).Elem(), &Directory{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryArrayInput)(nil)).Elem(), DirectoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryMapInput)(nil)).Elem(), DirectoryMap{})
 	pulumi.RegisterOutputType(DirectoryOutput{})
-	pulumi.RegisterOutputType(DirectoryPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryMapOutput{})
 }

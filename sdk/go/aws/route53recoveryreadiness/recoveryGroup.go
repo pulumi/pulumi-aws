@@ -150,7 +150,7 @@ type RecoveryGroupInput interface {
 }
 
 func (*RecoveryGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryGroup)(nil))
+	return reflect.TypeOf((**RecoveryGroup)(nil)).Elem()
 }
 
 func (i *RecoveryGroup) ToRecoveryGroupOutput() RecoveryGroupOutput {
@@ -159,35 +159,6 @@ func (i *RecoveryGroup) ToRecoveryGroupOutput() RecoveryGroupOutput {
 
 func (i *RecoveryGroup) ToRecoveryGroupOutputWithContext(ctx context.Context) RecoveryGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupOutput)
-}
-
-func (i *RecoveryGroup) ToRecoveryGroupPtrOutput() RecoveryGroupPtrOutput {
-	return i.ToRecoveryGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *RecoveryGroup) ToRecoveryGroupPtrOutputWithContext(ctx context.Context) RecoveryGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupPtrOutput)
-}
-
-type RecoveryGroupPtrInput interface {
-	pulumi.Input
-
-	ToRecoveryGroupPtrOutput() RecoveryGroupPtrOutput
-	ToRecoveryGroupPtrOutputWithContext(ctx context.Context) RecoveryGroupPtrOutput
-}
-
-type recoveryGroupPtrType RecoveryGroupArgs
-
-func (*recoveryGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecoveryGroup)(nil))
-}
-
-func (i *recoveryGroupPtrType) ToRecoveryGroupPtrOutput() RecoveryGroupPtrOutput {
-	return i.ToRecoveryGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *recoveryGroupPtrType) ToRecoveryGroupPtrOutputWithContext(ctx context.Context) RecoveryGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupPtrOutput)
 }
 
 // RecoveryGroupArrayInput is an input type that accepts RecoveryGroupArray and RecoveryGroupArrayOutput values.
@@ -243,7 +214,7 @@ func (i RecoveryGroupMap) ToRecoveryGroupMapOutputWithContext(ctx context.Contex
 type RecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (RecoveryGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryGroup)(nil))
+	return reflect.TypeOf((**RecoveryGroup)(nil)).Elem()
 }
 
 func (o RecoveryGroupOutput) ToRecoveryGroupOutput() RecoveryGroupOutput {
@@ -254,44 +225,10 @@ func (o RecoveryGroupOutput) ToRecoveryGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o RecoveryGroupOutput) ToRecoveryGroupPtrOutput() RecoveryGroupPtrOutput {
-	return o.ToRecoveryGroupPtrOutputWithContext(context.Background())
-}
-
-func (o RecoveryGroupOutput) ToRecoveryGroupPtrOutputWithContext(ctx context.Context) RecoveryGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecoveryGroup) *RecoveryGroup {
-		return &v
-	}).(RecoveryGroupPtrOutput)
-}
-
-type RecoveryGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (RecoveryGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecoveryGroup)(nil))
-}
-
-func (o RecoveryGroupPtrOutput) ToRecoveryGroupPtrOutput() RecoveryGroupPtrOutput {
-	return o
-}
-
-func (o RecoveryGroupPtrOutput) ToRecoveryGroupPtrOutputWithContext(ctx context.Context) RecoveryGroupPtrOutput {
-	return o
-}
-
-func (o RecoveryGroupPtrOutput) Elem() RecoveryGroupOutput {
-	return o.ApplyT(func(v *RecoveryGroup) RecoveryGroup {
-		if v != nil {
-			return *v
-		}
-		var ret RecoveryGroup
-		return ret
-	}).(RecoveryGroupOutput)
-}
-
 type RecoveryGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (RecoveryGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryGroup)(nil))
+	return reflect.TypeOf((*[]*RecoveryGroup)(nil)).Elem()
 }
 
 func (o RecoveryGroupArrayOutput) ToRecoveryGroupArrayOutput() RecoveryGroupArrayOutput {
@@ -303,15 +240,15 @@ func (o RecoveryGroupArrayOutput) ToRecoveryGroupArrayOutputWithContext(ctx cont
 }
 
 func (o RecoveryGroupArrayOutput) Index(i pulumi.IntInput) RecoveryGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecoveryGroup {
-		return vs[0].([]RecoveryGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RecoveryGroup {
+		return vs[0].([]*RecoveryGroup)[vs[1].(int)]
 	}).(RecoveryGroupOutput)
 }
 
 type RecoveryGroupMapOutput struct{ *pulumi.OutputState }
 
 func (RecoveryGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RecoveryGroup)(nil))
+	return reflect.TypeOf((*map[string]*RecoveryGroup)(nil)).Elem()
 }
 
 func (o RecoveryGroupMapOutput) ToRecoveryGroupMapOutput() RecoveryGroupMapOutput {
@@ -323,18 +260,16 @@ func (o RecoveryGroupMapOutput) ToRecoveryGroupMapOutputWithContext(ctx context.
 }
 
 func (o RecoveryGroupMapOutput) MapIndex(k pulumi.StringInput) RecoveryGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RecoveryGroup {
-		return vs[0].(map[string]RecoveryGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RecoveryGroup {
+		return vs[0].(map[string]*RecoveryGroup)[vs[1].(string)]
 	}).(RecoveryGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupInput)(nil)).Elem(), &RecoveryGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupPtrInput)(nil)).Elem(), &RecoveryGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupArrayInput)(nil)).Elem(), RecoveryGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupMapInput)(nil)).Elem(), RecoveryGroupMap{})
 	pulumi.RegisterOutputType(RecoveryGroupOutput{})
-	pulumi.RegisterOutputType(RecoveryGroupPtrOutput{})
 	pulumi.RegisterOutputType(RecoveryGroupArrayOutput{})
 	pulumi.RegisterOutputType(RecoveryGroupMapOutput{})
 }

@@ -222,7 +222,7 @@ type HostedConnectionInput interface {
 }
 
 func (*HostedConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedConnection)(nil))
+	return reflect.TypeOf((**HostedConnection)(nil)).Elem()
 }
 
 func (i *HostedConnection) ToHostedConnectionOutput() HostedConnectionOutput {
@@ -231,35 +231,6 @@ func (i *HostedConnection) ToHostedConnectionOutput() HostedConnectionOutput {
 
 func (i *HostedConnection) ToHostedConnectionOutputWithContext(ctx context.Context) HostedConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConnectionOutput)
-}
-
-func (i *HostedConnection) ToHostedConnectionPtrOutput() HostedConnectionPtrOutput {
-	return i.ToHostedConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *HostedConnection) ToHostedConnectionPtrOutputWithContext(ctx context.Context) HostedConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedConnectionPtrOutput)
-}
-
-type HostedConnectionPtrInput interface {
-	pulumi.Input
-
-	ToHostedConnectionPtrOutput() HostedConnectionPtrOutput
-	ToHostedConnectionPtrOutputWithContext(ctx context.Context) HostedConnectionPtrOutput
-}
-
-type hostedConnectionPtrType HostedConnectionArgs
-
-func (*hostedConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostedConnection)(nil))
-}
-
-func (i *hostedConnectionPtrType) ToHostedConnectionPtrOutput() HostedConnectionPtrOutput {
-	return i.ToHostedConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *hostedConnectionPtrType) ToHostedConnectionPtrOutputWithContext(ctx context.Context) HostedConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedConnectionPtrOutput)
 }
 
 // HostedConnectionArrayInput is an input type that accepts HostedConnectionArray and HostedConnectionArrayOutput values.
@@ -315,7 +286,7 @@ func (i HostedConnectionMap) ToHostedConnectionMapOutputWithContext(ctx context.
 type HostedConnectionOutput struct{ *pulumi.OutputState }
 
 func (HostedConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedConnection)(nil))
+	return reflect.TypeOf((**HostedConnection)(nil)).Elem()
 }
 
 func (o HostedConnectionOutput) ToHostedConnectionOutput() HostedConnectionOutput {
@@ -326,44 +297,10 @@ func (o HostedConnectionOutput) ToHostedConnectionOutputWithContext(ctx context.
 	return o
 }
 
-func (o HostedConnectionOutput) ToHostedConnectionPtrOutput() HostedConnectionPtrOutput {
-	return o.ToHostedConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o HostedConnectionOutput) ToHostedConnectionPtrOutputWithContext(ctx context.Context) HostedConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedConnection) *HostedConnection {
-		return &v
-	}).(HostedConnectionPtrOutput)
-}
-
-type HostedConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (HostedConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostedConnection)(nil))
-}
-
-func (o HostedConnectionPtrOutput) ToHostedConnectionPtrOutput() HostedConnectionPtrOutput {
-	return o
-}
-
-func (o HostedConnectionPtrOutput) ToHostedConnectionPtrOutputWithContext(ctx context.Context) HostedConnectionPtrOutput {
-	return o
-}
-
-func (o HostedConnectionPtrOutput) Elem() HostedConnectionOutput {
-	return o.ApplyT(func(v *HostedConnection) HostedConnection {
-		if v != nil {
-			return *v
-		}
-		var ret HostedConnection
-		return ret
-	}).(HostedConnectionOutput)
-}
-
 type HostedConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (HostedConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostedConnection)(nil))
+	return reflect.TypeOf((*[]*HostedConnection)(nil)).Elem()
 }
 
 func (o HostedConnectionArrayOutput) ToHostedConnectionArrayOutput() HostedConnectionArrayOutput {
@@ -375,15 +312,15 @@ func (o HostedConnectionArrayOutput) ToHostedConnectionArrayOutputWithContext(ct
 }
 
 func (o HostedConnectionArrayOutput) Index(i pulumi.IntInput) HostedConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedConnection {
-		return vs[0].([]HostedConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedConnection {
+		return vs[0].([]*HostedConnection)[vs[1].(int)]
 	}).(HostedConnectionOutput)
 }
 
 type HostedConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (HostedConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]HostedConnection)(nil))
+	return reflect.TypeOf((*map[string]*HostedConnection)(nil)).Elem()
 }
 
 func (o HostedConnectionMapOutput) ToHostedConnectionMapOutput() HostedConnectionMapOutput {
@@ -395,18 +332,16 @@ func (o HostedConnectionMapOutput) ToHostedConnectionMapOutputWithContext(ctx co
 }
 
 func (o HostedConnectionMapOutput) MapIndex(k pulumi.StringInput) HostedConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HostedConnection {
-		return vs[0].(map[string]HostedConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *HostedConnection {
+		return vs[0].(map[string]*HostedConnection)[vs[1].(string)]
 	}).(HostedConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionInput)(nil)).Elem(), &HostedConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionPtrInput)(nil)).Elem(), &HostedConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionArrayInput)(nil)).Elem(), HostedConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionMapInput)(nil)).Elem(), HostedConnectionMap{})
 	pulumi.RegisterOutputType(HostedConnectionOutput{})
-	pulumi.RegisterOutputType(HostedConnectionPtrOutput{})
 	pulumi.RegisterOutputType(HostedConnectionArrayOutput{})
 	pulumi.RegisterOutputType(HostedConnectionMapOutput{})
 }

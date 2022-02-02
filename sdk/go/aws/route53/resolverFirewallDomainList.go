@@ -144,7 +144,7 @@ type ResolverFirewallDomainListInput interface {
 }
 
 func (*ResolverFirewallDomainList) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverFirewallDomainList)(nil))
+	return reflect.TypeOf((**ResolverFirewallDomainList)(nil)).Elem()
 }
 
 func (i *ResolverFirewallDomainList) ToResolverFirewallDomainListOutput() ResolverFirewallDomainListOutput {
@@ -153,35 +153,6 @@ func (i *ResolverFirewallDomainList) ToResolverFirewallDomainListOutput() Resolv
 
 func (i *ResolverFirewallDomainList) ToResolverFirewallDomainListOutputWithContext(ctx context.Context) ResolverFirewallDomainListOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallDomainListOutput)
-}
-
-func (i *ResolverFirewallDomainList) ToResolverFirewallDomainListPtrOutput() ResolverFirewallDomainListPtrOutput {
-	return i.ToResolverFirewallDomainListPtrOutputWithContext(context.Background())
-}
-
-func (i *ResolverFirewallDomainList) ToResolverFirewallDomainListPtrOutputWithContext(ctx context.Context) ResolverFirewallDomainListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallDomainListPtrOutput)
-}
-
-type ResolverFirewallDomainListPtrInput interface {
-	pulumi.Input
-
-	ToResolverFirewallDomainListPtrOutput() ResolverFirewallDomainListPtrOutput
-	ToResolverFirewallDomainListPtrOutputWithContext(ctx context.Context) ResolverFirewallDomainListPtrOutput
-}
-
-type resolverFirewallDomainListPtrType ResolverFirewallDomainListArgs
-
-func (*resolverFirewallDomainListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverFirewallDomainList)(nil))
-}
-
-func (i *resolverFirewallDomainListPtrType) ToResolverFirewallDomainListPtrOutput() ResolverFirewallDomainListPtrOutput {
-	return i.ToResolverFirewallDomainListPtrOutputWithContext(context.Background())
-}
-
-func (i *resolverFirewallDomainListPtrType) ToResolverFirewallDomainListPtrOutputWithContext(ctx context.Context) ResolverFirewallDomainListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallDomainListPtrOutput)
 }
 
 // ResolverFirewallDomainListArrayInput is an input type that accepts ResolverFirewallDomainListArray and ResolverFirewallDomainListArrayOutput values.
@@ -237,7 +208,7 @@ func (i ResolverFirewallDomainListMap) ToResolverFirewallDomainListMapOutputWith
 type ResolverFirewallDomainListOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallDomainListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverFirewallDomainList)(nil))
+	return reflect.TypeOf((**ResolverFirewallDomainList)(nil)).Elem()
 }
 
 func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListOutput() ResolverFirewallDomainListOutput {
@@ -248,44 +219,10 @@ func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListOutputWith
 	return o
 }
 
-func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListPtrOutput() ResolverFirewallDomainListPtrOutput {
-	return o.ToResolverFirewallDomainListPtrOutputWithContext(context.Background())
-}
-
-func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListPtrOutputWithContext(ctx context.Context) ResolverFirewallDomainListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverFirewallDomainList) *ResolverFirewallDomainList {
-		return &v
-	}).(ResolverFirewallDomainListPtrOutput)
-}
-
-type ResolverFirewallDomainListPtrOutput struct{ *pulumi.OutputState }
-
-func (ResolverFirewallDomainListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverFirewallDomainList)(nil))
-}
-
-func (o ResolverFirewallDomainListPtrOutput) ToResolverFirewallDomainListPtrOutput() ResolverFirewallDomainListPtrOutput {
-	return o
-}
-
-func (o ResolverFirewallDomainListPtrOutput) ToResolverFirewallDomainListPtrOutputWithContext(ctx context.Context) ResolverFirewallDomainListPtrOutput {
-	return o
-}
-
-func (o ResolverFirewallDomainListPtrOutput) Elem() ResolverFirewallDomainListOutput {
-	return o.ApplyT(func(v *ResolverFirewallDomainList) ResolverFirewallDomainList {
-		if v != nil {
-			return *v
-		}
-		var ret ResolverFirewallDomainList
-		return ret
-	}).(ResolverFirewallDomainListOutput)
-}
-
 type ResolverFirewallDomainListArrayOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallDomainListArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverFirewallDomainList)(nil))
+	return reflect.TypeOf((*[]*ResolverFirewallDomainList)(nil)).Elem()
 }
 
 func (o ResolverFirewallDomainListArrayOutput) ToResolverFirewallDomainListArrayOutput() ResolverFirewallDomainListArrayOutput {
@@ -297,15 +234,15 @@ func (o ResolverFirewallDomainListArrayOutput) ToResolverFirewallDomainListArray
 }
 
 func (o ResolverFirewallDomainListArrayOutput) Index(i pulumi.IntInput) ResolverFirewallDomainListOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverFirewallDomainList {
-		return vs[0].([]ResolverFirewallDomainList)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallDomainList {
+		return vs[0].([]*ResolverFirewallDomainList)[vs[1].(int)]
 	}).(ResolverFirewallDomainListOutput)
 }
 
 type ResolverFirewallDomainListMapOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallDomainListMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResolverFirewallDomainList)(nil))
+	return reflect.TypeOf((*map[string]*ResolverFirewallDomainList)(nil)).Elem()
 }
 
 func (o ResolverFirewallDomainListMapOutput) ToResolverFirewallDomainListMapOutput() ResolverFirewallDomainListMapOutput {
@@ -317,18 +254,16 @@ func (o ResolverFirewallDomainListMapOutput) ToResolverFirewallDomainListMapOutp
 }
 
 func (o ResolverFirewallDomainListMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallDomainListOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverFirewallDomainList {
-		return vs[0].(map[string]ResolverFirewallDomainList)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResolverFirewallDomainList {
+		return vs[0].(map[string]*ResolverFirewallDomainList)[vs[1].(string)]
 	}).(ResolverFirewallDomainListOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallDomainListInput)(nil)).Elem(), &ResolverFirewallDomainList{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallDomainListPtrInput)(nil)).Elem(), &ResolverFirewallDomainList{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallDomainListArrayInput)(nil)).Elem(), ResolverFirewallDomainListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallDomainListMapInput)(nil)).Elem(), ResolverFirewallDomainListMap{})
 	pulumi.RegisterOutputType(ResolverFirewallDomainListOutput{})
-	pulumi.RegisterOutputType(ResolverFirewallDomainListPtrOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallDomainListArrayOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallDomainListMapOutput{})
 }

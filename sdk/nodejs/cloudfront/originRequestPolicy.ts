@@ -99,16 +99,16 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: OriginRequestPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OriginRequestPolicyArgs | OriginRequestPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginRequestPolicyState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["cookiesConfig"] = state ? state.cookiesConfig : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["headersConfig"] = state ? state.headersConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["queryStringsConfig"] = state ? state.queryStringsConfig : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["cookiesConfig"] = state ? state.cookiesConfig : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["headersConfig"] = state ? state.headersConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queryStringsConfig"] = state ? state.queryStringsConfig : undefined;
         } else {
             const args = argsOrState as OriginRequestPolicyArgs | undefined;
             if ((!args || args.cookiesConfig === undefined) && !opts.urn) {
@@ -120,17 +120,15 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
             if ((!args || args.queryStringsConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryStringsConfig'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["cookiesConfig"] = args ? args.cookiesConfig : undefined;
-            inputs["headersConfig"] = args ? args.headersConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queryStringsConfig"] = args ? args.queryStringsConfig : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["cookiesConfig"] = args ? args.cookiesConfig : undefined;
+            resourceInputs["headersConfig"] = args ? args.headersConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryStringsConfig"] = args ? args.queryStringsConfig : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OriginRequestPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OriginRequestPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

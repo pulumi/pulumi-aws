@@ -167,7 +167,7 @@ type SecretRotationInput interface {
 }
 
 func (*SecretRotation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretRotation)(nil))
+	return reflect.TypeOf((**SecretRotation)(nil)).Elem()
 }
 
 func (i *SecretRotation) ToSecretRotationOutput() SecretRotationOutput {
@@ -176,35 +176,6 @@ func (i *SecretRotation) ToSecretRotationOutput() SecretRotationOutput {
 
 func (i *SecretRotation) ToSecretRotationOutputWithContext(ctx context.Context) SecretRotationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationOutput)
-}
-
-func (i *SecretRotation) ToSecretRotationPtrOutput() SecretRotationPtrOutput {
-	return i.ToSecretRotationPtrOutputWithContext(context.Background())
-}
-
-func (i *SecretRotation) ToSecretRotationPtrOutputWithContext(ctx context.Context) SecretRotationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationPtrOutput)
-}
-
-type SecretRotationPtrInput interface {
-	pulumi.Input
-
-	ToSecretRotationPtrOutput() SecretRotationPtrOutput
-	ToSecretRotationPtrOutputWithContext(ctx context.Context) SecretRotationPtrOutput
-}
-
-type secretRotationPtrType SecretRotationArgs
-
-func (*secretRotationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretRotation)(nil))
-}
-
-func (i *secretRotationPtrType) ToSecretRotationPtrOutput() SecretRotationPtrOutput {
-	return i.ToSecretRotationPtrOutputWithContext(context.Background())
-}
-
-func (i *secretRotationPtrType) ToSecretRotationPtrOutputWithContext(ctx context.Context) SecretRotationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationPtrOutput)
 }
 
 // SecretRotationArrayInput is an input type that accepts SecretRotationArray and SecretRotationArrayOutput values.
@@ -260,7 +231,7 @@ func (i SecretRotationMap) ToSecretRotationMapOutputWithContext(ctx context.Cont
 type SecretRotationOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretRotation)(nil))
+	return reflect.TypeOf((**SecretRotation)(nil)).Elem()
 }
 
 func (o SecretRotationOutput) ToSecretRotationOutput() SecretRotationOutput {
@@ -271,44 +242,10 @@ func (o SecretRotationOutput) ToSecretRotationOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SecretRotationOutput) ToSecretRotationPtrOutput() SecretRotationPtrOutput {
-	return o.ToSecretRotationPtrOutputWithContext(context.Background())
-}
-
-func (o SecretRotationOutput) ToSecretRotationPtrOutputWithContext(ctx context.Context) SecretRotationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretRotation) *SecretRotation {
-		return &v
-	}).(SecretRotationPtrOutput)
-}
-
-type SecretRotationPtrOutput struct{ *pulumi.OutputState }
-
-func (SecretRotationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretRotation)(nil))
-}
-
-func (o SecretRotationPtrOutput) ToSecretRotationPtrOutput() SecretRotationPtrOutput {
-	return o
-}
-
-func (o SecretRotationPtrOutput) ToSecretRotationPtrOutputWithContext(ctx context.Context) SecretRotationPtrOutput {
-	return o
-}
-
-func (o SecretRotationPtrOutput) Elem() SecretRotationOutput {
-	return o.ApplyT(func(v *SecretRotation) SecretRotation {
-		if v != nil {
-			return *v
-		}
-		var ret SecretRotation
-		return ret
-	}).(SecretRotationOutput)
-}
-
 type SecretRotationArrayOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecretRotation)(nil))
+	return reflect.TypeOf((*[]*SecretRotation)(nil)).Elem()
 }
 
 func (o SecretRotationArrayOutput) ToSecretRotationArrayOutput() SecretRotationArrayOutput {
@@ -320,15 +257,15 @@ func (o SecretRotationArrayOutput) ToSecretRotationArrayOutputWithContext(ctx co
 }
 
 func (o SecretRotationArrayOutput) Index(i pulumi.IntInput) SecretRotationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecretRotation {
-		return vs[0].([]SecretRotation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecretRotation {
+		return vs[0].([]*SecretRotation)[vs[1].(int)]
 	}).(SecretRotationOutput)
 }
 
 type SecretRotationMapOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecretRotation)(nil))
+	return reflect.TypeOf((*map[string]*SecretRotation)(nil)).Elem()
 }
 
 func (o SecretRotationMapOutput) ToSecretRotationMapOutput() SecretRotationMapOutput {
@@ -340,18 +277,16 @@ func (o SecretRotationMapOutput) ToSecretRotationMapOutputWithContext(ctx contex
 }
 
 func (o SecretRotationMapOutput) MapIndex(k pulumi.StringInput) SecretRotationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecretRotation {
-		return vs[0].(map[string]SecretRotation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SecretRotation {
+		return vs[0].(map[string]*SecretRotation)[vs[1].(string)]
 	}).(SecretRotationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationInput)(nil)).Elem(), &SecretRotation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationPtrInput)(nil)).Elem(), &SecretRotation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationArrayInput)(nil)).Elem(), SecretRotationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationMapInput)(nil)).Elem(), SecretRotationMap{})
 	pulumi.RegisterOutputType(SecretRotationOutput{})
-	pulumi.RegisterOutputType(SecretRotationPtrOutput{})
 	pulumi.RegisterOutputType(SecretRotationArrayOutput{})
 	pulumi.RegisterOutputType(SecretRotationMapOutput{})
 }

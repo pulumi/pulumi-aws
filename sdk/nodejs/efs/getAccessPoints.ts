@@ -23,9 +23,7 @@ export function getAccessPoints(args: GetAccessPointsArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:efs/getAccessPoints:getAccessPoints", {
         "fileSystemId": args.fileSystemId,
     }, opts);

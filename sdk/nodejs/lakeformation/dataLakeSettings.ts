@@ -106,27 +106,25 @@ export class DataLakeSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DataLakeSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataLakeSettingsArgs | DataLakeSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataLakeSettingsState | undefined;
-            inputs["admins"] = state ? state.admins : undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["createDatabaseDefaultPermissions"] = state ? state.createDatabaseDefaultPermissions : undefined;
-            inputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
-            inputs["trustedResourceOwners"] = state ? state.trustedResourceOwners : undefined;
+            resourceInputs["admins"] = state ? state.admins : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["createDatabaseDefaultPermissions"] = state ? state.createDatabaseDefaultPermissions : undefined;
+            resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
+            resourceInputs["trustedResourceOwners"] = state ? state.trustedResourceOwners : undefined;
         } else {
             const args = argsOrState as DataLakeSettingsArgs | undefined;
-            inputs["admins"] = args ? args.admins : undefined;
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["createDatabaseDefaultPermissions"] = args ? args.createDatabaseDefaultPermissions : undefined;
-            inputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
-            inputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
+            resourceInputs["admins"] = args ? args.admins : undefined;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["createDatabaseDefaultPermissions"] = args ? args.createDatabaseDefaultPermissions : undefined;
+            resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
+            resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataLakeSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataLakeSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

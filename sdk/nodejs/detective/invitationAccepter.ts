@@ -76,22 +76,20 @@ export class InvitationAccepter extends pulumi.CustomResource {
      */
     constructor(name: string, args: InvitationAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InvitationAccepterArgs | InvitationAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvitationAccepterState | undefined;
-            inputs["graphArn"] = state ? state.graphArn : undefined;
+            resourceInputs["graphArn"] = state ? state.graphArn : undefined;
         } else {
             const args = argsOrState as InvitationAccepterArgs | undefined;
             if ((!args || args.graphArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'graphArn'");
             }
-            inputs["graphArn"] = args ? args.graphArn : undefined;
+            resourceInputs["graphArn"] = args ? args.graphArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InvitationAccepter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InvitationAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

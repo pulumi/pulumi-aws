@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := elasticache.NewParameterGroup(ctx, "_default", &elasticache.ParameterGroupArgs{
+// 		_, err := elasticache.NewParameterGroup(ctx, "default", &elasticache.ParameterGroupArgs{
 // 			Family: pulumi.String("redis2.8"),
 // 			Parameters: elasticache.ParameterGroupParameterArray{
 // 				&elasticache.ParameterGroupParameterArgs{
@@ -84,7 +84,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
-	if args.Description == nil {
+	if isZero(args.Description) {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource ParameterGroup
@@ -185,7 +185,7 @@ type ParameterGroupInput interface {
 }
 
 func (*ParameterGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroup)(nil))
+	return reflect.TypeOf((**ParameterGroup)(nil)).Elem()
 }
 
 func (i *ParameterGroup) ToParameterGroupOutput() ParameterGroupOutput {
@@ -194,35 +194,6 @@ func (i *ParameterGroup) ToParameterGroupOutput() ParameterGroupOutput {
 
 func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupOutput)
-}
-
-func (i *ParameterGroup) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
-	return i.ToParameterGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ParameterGroup) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupPtrOutput)
-}
-
-type ParameterGroupPtrInput interface {
-	pulumi.Input
-
-	ToParameterGroupPtrOutput() ParameterGroupPtrOutput
-	ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput
-}
-
-type parameterGroupPtrType ParameterGroupArgs
-
-func (*parameterGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterGroup)(nil))
-}
-
-func (i *parameterGroupPtrType) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
-	return i.ToParameterGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *parameterGroupPtrType) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupPtrOutput)
 }
 
 // ParameterGroupArrayInput is an input type that accepts ParameterGroupArray and ParameterGroupArrayOutput values.
@@ -278,7 +249,7 @@ func (i ParameterGroupMap) ToParameterGroupMapOutputWithContext(ctx context.Cont
 type ParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroup)(nil))
+	return reflect.TypeOf((**ParameterGroup)(nil)).Elem()
 }
 
 func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {
@@ -289,44 +260,10 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ParameterGroupOutput) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
-	return o.ToParameterGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ParameterGroupOutput) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterGroup) *ParameterGroup {
-		return &v
-	}).(ParameterGroupPtrOutput)
-}
-
-type ParameterGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ParameterGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterGroup)(nil))
-}
-
-func (o ParameterGroupPtrOutput) ToParameterGroupPtrOutput() ParameterGroupPtrOutput {
-	return o
-}
-
-func (o ParameterGroupPtrOutput) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
-	return o
-}
-
-func (o ParameterGroupPtrOutput) Elem() ParameterGroupOutput {
-	return o.ApplyT(func(v *ParameterGroup) ParameterGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ParameterGroup
-		return ret
-	}).(ParameterGroupOutput)
-}
-
 type ParameterGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ParameterGroup)(nil))
+	return reflect.TypeOf((*[]*ParameterGroup)(nil)).Elem()
 }
 
 func (o ParameterGroupArrayOutput) ToParameterGroupArrayOutput() ParameterGroupArrayOutput {
@@ -338,15 +275,15 @@ func (o ParameterGroupArrayOutput) ToParameterGroupArrayOutputWithContext(ctx co
 }
 
 func (o ParameterGroupArrayOutput) Index(i pulumi.IntInput) ParameterGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroup {
-		return vs[0].([]ParameterGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ParameterGroup {
+		return vs[0].([]*ParameterGroup)[vs[1].(int)]
 	}).(ParameterGroupOutput)
 }
 
 type ParameterGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ParameterGroup)(nil))
+	return reflect.TypeOf((*map[string]*ParameterGroup)(nil)).Elem()
 }
 
 func (o ParameterGroupMapOutput) ToParameterGroupMapOutput() ParameterGroupMapOutput {
@@ -358,18 +295,16 @@ func (o ParameterGroupMapOutput) ToParameterGroupMapOutputWithContext(ctx contex
 }
 
 func (o ParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ParameterGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterGroup {
-		return vs[0].(map[string]ParameterGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ParameterGroup {
+		return vs[0].(map[string]*ParameterGroup)[vs[1].(string)]
 	}).(ParameterGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupInput)(nil)).Elem(), &ParameterGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupPtrInput)(nil)).Elem(), &ParameterGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupArrayInput)(nil)).Elem(), ParameterGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupMapInput)(nil)).Elem(), ParameterGroupMap{})
 	pulumi.RegisterOutputType(ParameterGroupOutput{})
-	pulumi.RegisterOutputType(ParameterGroupPtrOutput{})
 	pulumi.RegisterOutputType(ParameterGroupArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupMapOutput{})
 }

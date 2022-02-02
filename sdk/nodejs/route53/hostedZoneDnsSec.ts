@@ -125,24 +125,22 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostedZoneDnsSecArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedZoneDnsSecArgs | HostedZoneDnsSecState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedZoneDnsSecState | undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            inputs["signingStatus"] = state ? state.signingStatus : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["signingStatus"] = state ? state.signingStatus : undefined;
         } else {
             const args = argsOrState as HostedZoneDnsSecArgs | undefined;
             if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            inputs["signingStatus"] = args ? args.signingStatus : undefined;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["signingStatus"] = args ? args.signingStatus : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HostedZoneDnsSec.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HostedZoneDnsSec.__pulumiType, name, resourceInputs, opts);
     }
 }
 

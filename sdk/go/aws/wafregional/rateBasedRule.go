@@ -208,7 +208,7 @@ type RateBasedRuleInput interface {
 }
 
 func (*RateBasedRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*RateBasedRule)(nil))
+	return reflect.TypeOf((**RateBasedRule)(nil)).Elem()
 }
 
 func (i *RateBasedRule) ToRateBasedRuleOutput() RateBasedRuleOutput {
@@ -217,35 +217,6 @@ func (i *RateBasedRule) ToRateBasedRuleOutput() RateBasedRuleOutput {
 
 func (i *RateBasedRule) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleOutput)
-}
-
-func (i *RateBasedRule) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
-	return i.ToRateBasedRulePtrOutputWithContext(context.Background())
-}
-
-func (i *RateBasedRule) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePtrOutput)
-}
-
-type RateBasedRulePtrInput interface {
-	pulumi.Input
-
-	ToRateBasedRulePtrOutput() RateBasedRulePtrOutput
-	ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput
-}
-
-type rateBasedRulePtrType RateBasedRuleArgs
-
-func (*rateBasedRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RateBasedRule)(nil))
-}
-
-func (i *rateBasedRulePtrType) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
-	return i.ToRateBasedRulePtrOutputWithContext(context.Background())
-}
-
-func (i *rateBasedRulePtrType) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePtrOutput)
 }
 
 // RateBasedRuleArrayInput is an input type that accepts RateBasedRuleArray and RateBasedRuleArrayOutput values.
@@ -301,7 +272,7 @@ func (i RateBasedRuleMap) ToRateBasedRuleMapOutputWithContext(ctx context.Contex
 type RateBasedRuleOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RateBasedRule)(nil))
+	return reflect.TypeOf((**RateBasedRule)(nil)).Elem()
 }
 
 func (o RateBasedRuleOutput) ToRateBasedRuleOutput() RateBasedRuleOutput {
@@ -312,44 +283,10 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o RateBasedRuleOutput) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
-	return o.ToRateBasedRulePtrOutputWithContext(context.Background())
-}
-
-func (o RateBasedRuleOutput) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RateBasedRule) *RateBasedRule {
-		return &v
-	}).(RateBasedRulePtrOutput)
-}
-
-type RateBasedRulePtrOutput struct{ *pulumi.OutputState }
-
-func (RateBasedRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RateBasedRule)(nil))
-}
-
-func (o RateBasedRulePtrOutput) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
-	return o
-}
-
-func (o RateBasedRulePtrOutput) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
-	return o
-}
-
-func (o RateBasedRulePtrOutput) Elem() RateBasedRuleOutput {
-	return o.ApplyT(func(v *RateBasedRule) RateBasedRule {
-		if v != nil {
-			return *v
-		}
-		var ret RateBasedRule
-		return ret
-	}).(RateBasedRuleOutput)
-}
-
 type RateBasedRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RateBasedRule)(nil))
+	return reflect.TypeOf((*[]*RateBasedRule)(nil)).Elem()
 }
 
 func (o RateBasedRuleArrayOutput) ToRateBasedRuleArrayOutput() RateBasedRuleArrayOutput {
@@ -361,15 +298,15 @@ func (o RateBasedRuleArrayOutput) ToRateBasedRuleArrayOutputWithContext(ctx cont
 }
 
 func (o RateBasedRuleArrayOutput) Index(i pulumi.IntInput) RateBasedRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RateBasedRule {
-		return vs[0].([]RateBasedRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RateBasedRule {
+		return vs[0].([]*RateBasedRule)[vs[1].(int)]
 	}).(RateBasedRuleOutput)
 }
 
 type RateBasedRuleMapOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RateBasedRule)(nil))
+	return reflect.TypeOf((*map[string]*RateBasedRule)(nil)).Elem()
 }
 
 func (o RateBasedRuleMapOutput) ToRateBasedRuleMapOutput() RateBasedRuleMapOutput {
@@ -381,18 +318,16 @@ func (o RateBasedRuleMapOutput) ToRateBasedRuleMapOutputWithContext(ctx context.
 }
 
 func (o RateBasedRuleMapOutput) MapIndex(k pulumi.StringInput) RateBasedRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RateBasedRule {
-		return vs[0].(map[string]RateBasedRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RateBasedRule {
+		return vs[0].(map[string]*RateBasedRule)[vs[1].(string)]
 	}).(RateBasedRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleInput)(nil)).Elem(), &RateBasedRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRulePtrInput)(nil)).Elem(), &RateBasedRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleArrayInput)(nil)).Elem(), RateBasedRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleMapInput)(nil)).Elem(), RateBasedRuleMap{})
 	pulumi.RegisterOutputType(RateBasedRuleOutput{})
-	pulumi.RegisterOutputType(RateBasedRulePtrOutput{})
 	pulumi.RegisterOutputType(RateBasedRuleArrayOutput{})
 	pulumi.RegisterOutputType(RateBasedRuleMapOutput{})
 }

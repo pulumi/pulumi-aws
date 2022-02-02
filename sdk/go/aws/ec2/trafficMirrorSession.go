@@ -237,7 +237,7 @@ type TrafficMirrorSessionInput interface {
 }
 
 func (*TrafficMirrorSession) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorSession)(nil))
+	return reflect.TypeOf((**TrafficMirrorSession)(nil)).Elem()
 }
 
 func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
@@ -246,35 +246,6 @@ func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutput() TrafficMirrorSessi
 
 func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutputWithContext(ctx context.Context) TrafficMirrorSessionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionOutput)
-}
-
-func (i *TrafficMirrorSession) ToTrafficMirrorSessionPtrOutput() TrafficMirrorSessionPtrOutput {
-	return i.ToTrafficMirrorSessionPtrOutputWithContext(context.Background())
-}
-
-func (i *TrafficMirrorSession) ToTrafficMirrorSessionPtrOutputWithContext(ctx context.Context) TrafficMirrorSessionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionPtrOutput)
-}
-
-type TrafficMirrorSessionPtrInput interface {
-	pulumi.Input
-
-	ToTrafficMirrorSessionPtrOutput() TrafficMirrorSessionPtrOutput
-	ToTrafficMirrorSessionPtrOutputWithContext(ctx context.Context) TrafficMirrorSessionPtrOutput
-}
-
-type trafficMirrorSessionPtrType TrafficMirrorSessionArgs
-
-func (*trafficMirrorSessionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrafficMirrorSession)(nil))
-}
-
-func (i *trafficMirrorSessionPtrType) ToTrafficMirrorSessionPtrOutput() TrafficMirrorSessionPtrOutput {
-	return i.ToTrafficMirrorSessionPtrOutputWithContext(context.Background())
-}
-
-func (i *trafficMirrorSessionPtrType) ToTrafficMirrorSessionPtrOutputWithContext(ctx context.Context) TrafficMirrorSessionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionPtrOutput)
 }
 
 // TrafficMirrorSessionArrayInput is an input type that accepts TrafficMirrorSessionArray and TrafficMirrorSessionArrayOutput values.
@@ -330,7 +301,7 @@ func (i TrafficMirrorSessionMap) ToTrafficMirrorSessionMapOutputWithContext(ctx 
 type TrafficMirrorSessionOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorSessionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorSession)(nil))
+	return reflect.TypeOf((**TrafficMirrorSession)(nil)).Elem()
 }
 
 func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
@@ -341,44 +312,10 @@ func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutputWithContext(ctx 
 	return o
 }
 
-func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionPtrOutput() TrafficMirrorSessionPtrOutput {
-	return o.ToTrafficMirrorSessionPtrOutputWithContext(context.Background())
-}
-
-func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionPtrOutputWithContext(ctx context.Context) TrafficMirrorSessionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorSession) *TrafficMirrorSession {
-		return &v
-	}).(TrafficMirrorSessionPtrOutput)
-}
-
-type TrafficMirrorSessionPtrOutput struct{ *pulumi.OutputState }
-
-func (TrafficMirrorSessionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrafficMirrorSession)(nil))
-}
-
-func (o TrafficMirrorSessionPtrOutput) ToTrafficMirrorSessionPtrOutput() TrafficMirrorSessionPtrOutput {
-	return o
-}
-
-func (o TrafficMirrorSessionPtrOutput) ToTrafficMirrorSessionPtrOutputWithContext(ctx context.Context) TrafficMirrorSessionPtrOutput {
-	return o
-}
-
-func (o TrafficMirrorSessionPtrOutput) Elem() TrafficMirrorSessionOutput {
-	return o.ApplyT(func(v *TrafficMirrorSession) TrafficMirrorSession {
-		if v != nil {
-			return *v
-		}
-		var ret TrafficMirrorSession
-		return ret
-	}).(TrafficMirrorSessionOutput)
-}
-
 type TrafficMirrorSessionArrayOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorSessionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrafficMirrorSession)(nil))
+	return reflect.TypeOf((*[]*TrafficMirrorSession)(nil)).Elem()
 }
 
 func (o TrafficMirrorSessionArrayOutput) ToTrafficMirrorSessionArrayOutput() TrafficMirrorSessionArrayOutput {
@@ -390,15 +327,15 @@ func (o TrafficMirrorSessionArrayOutput) ToTrafficMirrorSessionArrayOutputWithCo
 }
 
 func (o TrafficMirrorSessionArrayOutput) Index(i pulumi.IntInput) TrafficMirrorSessionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficMirrorSession {
-		return vs[0].([]TrafficMirrorSession)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficMirrorSession {
+		return vs[0].([]*TrafficMirrorSession)[vs[1].(int)]
 	}).(TrafficMirrorSessionOutput)
 }
 
 type TrafficMirrorSessionMapOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorSessionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TrafficMirrorSession)(nil))
+	return reflect.TypeOf((*map[string]*TrafficMirrorSession)(nil)).Elem()
 }
 
 func (o TrafficMirrorSessionMapOutput) ToTrafficMirrorSessionMapOutput() TrafficMirrorSessionMapOutput {
@@ -410,18 +347,16 @@ func (o TrafficMirrorSessionMapOutput) ToTrafficMirrorSessionMapOutputWithContex
 }
 
 func (o TrafficMirrorSessionMapOutput) MapIndex(k pulumi.StringInput) TrafficMirrorSessionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TrafficMirrorSession {
-		return vs[0].(map[string]TrafficMirrorSession)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TrafficMirrorSession {
+		return vs[0].(map[string]*TrafficMirrorSession)[vs[1].(string)]
 	}).(TrafficMirrorSessionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorSessionInput)(nil)).Elem(), &TrafficMirrorSession{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorSessionPtrInput)(nil)).Elem(), &TrafficMirrorSession{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorSessionArrayInput)(nil)).Elem(), TrafficMirrorSessionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorSessionMapInput)(nil)).Elem(), TrafficMirrorSessionMap{})
 	pulumi.RegisterOutputType(TrafficMirrorSessionOutput{})
-	pulumi.RegisterOutputType(TrafficMirrorSessionPtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorSessionArrayOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorSessionMapOutput{})
 }

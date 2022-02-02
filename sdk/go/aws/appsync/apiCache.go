@@ -154,7 +154,7 @@ type ApiCacheInput interface {
 }
 
 func (*ApiCache) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiCache)(nil))
+	return reflect.TypeOf((**ApiCache)(nil)).Elem()
 }
 
 func (i *ApiCache) ToApiCacheOutput() ApiCacheOutput {
@@ -163,35 +163,6 @@ func (i *ApiCache) ToApiCacheOutput() ApiCacheOutput {
 
 func (i *ApiCache) ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCacheOutput)
-}
-
-func (i *ApiCache) ToApiCachePtrOutput() ApiCachePtrOutput {
-	return i.ToApiCachePtrOutputWithContext(context.Background())
-}
-
-func (i *ApiCache) ToApiCachePtrOutputWithContext(ctx context.Context) ApiCachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiCachePtrOutput)
-}
-
-type ApiCachePtrInput interface {
-	pulumi.Input
-
-	ToApiCachePtrOutput() ApiCachePtrOutput
-	ToApiCachePtrOutputWithContext(ctx context.Context) ApiCachePtrOutput
-}
-
-type apiCachePtrType ApiCacheArgs
-
-func (*apiCachePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiCache)(nil))
-}
-
-func (i *apiCachePtrType) ToApiCachePtrOutput() ApiCachePtrOutput {
-	return i.ToApiCachePtrOutputWithContext(context.Background())
-}
-
-func (i *apiCachePtrType) ToApiCachePtrOutputWithContext(ctx context.Context) ApiCachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiCachePtrOutput)
 }
 
 // ApiCacheArrayInput is an input type that accepts ApiCacheArray and ApiCacheArrayOutput values.
@@ -247,7 +218,7 @@ func (i ApiCacheMap) ToApiCacheMapOutputWithContext(ctx context.Context) ApiCach
 type ApiCacheOutput struct{ *pulumi.OutputState }
 
 func (ApiCacheOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiCache)(nil))
+	return reflect.TypeOf((**ApiCache)(nil)).Elem()
 }
 
 func (o ApiCacheOutput) ToApiCacheOutput() ApiCacheOutput {
@@ -258,44 +229,10 @@ func (o ApiCacheOutput) ToApiCacheOutputWithContext(ctx context.Context) ApiCach
 	return o
 }
 
-func (o ApiCacheOutput) ToApiCachePtrOutput() ApiCachePtrOutput {
-	return o.ToApiCachePtrOutputWithContext(context.Background())
-}
-
-func (o ApiCacheOutput) ToApiCachePtrOutputWithContext(ctx context.Context) ApiCachePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiCache) *ApiCache {
-		return &v
-	}).(ApiCachePtrOutput)
-}
-
-type ApiCachePtrOutput struct{ *pulumi.OutputState }
-
-func (ApiCachePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiCache)(nil))
-}
-
-func (o ApiCachePtrOutput) ToApiCachePtrOutput() ApiCachePtrOutput {
-	return o
-}
-
-func (o ApiCachePtrOutput) ToApiCachePtrOutputWithContext(ctx context.Context) ApiCachePtrOutput {
-	return o
-}
-
-func (o ApiCachePtrOutput) Elem() ApiCacheOutput {
-	return o.ApplyT(func(v *ApiCache) ApiCache {
-		if v != nil {
-			return *v
-		}
-		var ret ApiCache
-		return ret
-	}).(ApiCacheOutput)
-}
-
 type ApiCacheArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiCacheArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiCache)(nil))
+	return reflect.TypeOf((*[]*ApiCache)(nil)).Elem()
 }
 
 func (o ApiCacheArrayOutput) ToApiCacheArrayOutput() ApiCacheArrayOutput {
@@ -307,15 +244,15 @@ func (o ApiCacheArrayOutput) ToApiCacheArrayOutputWithContext(ctx context.Contex
 }
 
 func (o ApiCacheArrayOutput) Index(i pulumi.IntInput) ApiCacheOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiCache {
-		return vs[0].([]ApiCache)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiCache {
+		return vs[0].([]*ApiCache)[vs[1].(int)]
 	}).(ApiCacheOutput)
 }
 
 type ApiCacheMapOutput struct{ *pulumi.OutputState }
 
 func (ApiCacheMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiCache)(nil))
+	return reflect.TypeOf((*map[string]*ApiCache)(nil)).Elem()
 }
 
 func (o ApiCacheMapOutput) ToApiCacheMapOutput() ApiCacheMapOutput {
@@ -327,18 +264,16 @@ func (o ApiCacheMapOutput) ToApiCacheMapOutputWithContext(ctx context.Context) A
 }
 
 func (o ApiCacheMapOutput) MapIndex(k pulumi.StringInput) ApiCacheOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiCache {
-		return vs[0].(map[string]ApiCache)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiCache {
+		return vs[0].(map[string]*ApiCache)[vs[1].(string)]
 	}).(ApiCacheOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiCacheInput)(nil)).Elem(), &ApiCache{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiCachePtrInput)(nil)).Elem(), &ApiCache{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiCacheArrayInput)(nil)).Elem(), ApiCacheArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiCacheMapInput)(nil)).Elem(), ApiCacheMap{})
 	pulumi.RegisterOutputType(ApiCacheOutput{})
-	pulumi.RegisterOutputType(ApiCachePtrOutput{})
 	pulumi.RegisterOutputType(ApiCacheArrayOutput{})
 	pulumi.RegisterOutputType(ApiCacheMapOutput{})
 }

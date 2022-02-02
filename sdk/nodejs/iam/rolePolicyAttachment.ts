@@ -110,12 +110,12 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: RolePolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RolePolicyAttachmentArgs | RolePolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RolePolicyAttachmentState | undefined;
-            inputs["policyArn"] = state ? state.policyArn : undefined;
-            inputs["role"] = state ? state.role : undefined;
+            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
         } else {
             const args = argsOrState as RolePolicyAttachmentArgs | undefined;
             if ((!args || args.policyArn === undefined) && !opts.urn) {
@@ -124,13 +124,11 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["policyArn"] = args ? args.policyArn : undefined;
-            inputs["role"] = args ? args.role : undefined;
+            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RolePolicyAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RolePolicyAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

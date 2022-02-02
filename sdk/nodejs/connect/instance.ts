@@ -150,23 +150,23 @@ export class Instance extends pulumi.CustomResource {
      */
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoResolveBestVoicesEnabled"] = state ? state.autoResolveBestVoicesEnabled : undefined;
-            inputs["contactFlowLogsEnabled"] = state ? state.contactFlowLogsEnabled : undefined;
-            inputs["contactLensEnabled"] = state ? state.contactLensEnabled : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["earlyMediaEnabled"] = state ? state.earlyMediaEnabled : undefined;
-            inputs["identityManagementType"] = state ? state.identityManagementType : undefined;
-            inputs["inboundCallsEnabled"] = state ? state.inboundCallsEnabled : undefined;
-            inputs["instanceAlias"] = state ? state.instanceAlias : undefined;
-            inputs["outboundCallsEnabled"] = state ? state.outboundCallsEnabled : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoResolveBestVoicesEnabled"] = state ? state.autoResolveBestVoicesEnabled : undefined;
+            resourceInputs["contactFlowLogsEnabled"] = state ? state.contactFlowLogsEnabled : undefined;
+            resourceInputs["contactLensEnabled"] = state ? state.contactLensEnabled : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["earlyMediaEnabled"] = state ? state.earlyMediaEnabled : undefined;
+            resourceInputs["identityManagementType"] = state ? state.identityManagementType : undefined;
+            resourceInputs["inboundCallsEnabled"] = state ? state.inboundCallsEnabled : undefined;
+            resourceInputs["instanceAlias"] = state ? state.instanceAlias : undefined;
+            resourceInputs["outboundCallsEnabled"] = state ? state.outboundCallsEnabled : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
             if ((!args || args.identityManagementType === undefined) && !opts.urn) {
@@ -178,24 +178,22 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.outboundCallsEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outboundCallsEnabled'");
             }
-            inputs["autoResolveBestVoicesEnabled"] = args ? args.autoResolveBestVoicesEnabled : undefined;
-            inputs["contactFlowLogsEnabled"] = args ? args.contactFlowLogsEnabled : undefined;
-            inputs["contactLensEnabled"] = args ? args.contactLensEnabled : undefined;
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["earlyMediaEnabled"] = args ? args.earlyMediaEnabled : undefined;
-            inputs["identityManagementType"] = args ? args.identityManagementType : undefined;
-            inputs["inboundCallsEnabled"] = args ? args.inboundCallsEnabled : undefined;
-            inputs["instanceAlias"] = args ? args.instanceAlias : undefined;
-            inputs["outboundCallsEnabled"] = args ? args.outboundCallsEnabled : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["serviceRole"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["autoResolveBestVoicesEnabled"] = args ? args.autoResolveBestVoicesEnabled : undefined;
+            resourceInputs["contactFlowLogsEnabled"] = args ? args.contactFlowLogsEnabled : undefined;
+            resourceInputs["contactLensEnabled"] = args ? args.contactLensEnabled : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["earlyMediaEnabled"] = args ? args.earlyMediaEnabled : undefined;
+            resourceInputs["identityManagementType"] = args ? args.identityManagementType : undefined;
+            resourceInputs["inboundCallsEnabled"] = args ? args.inboundCallsEnabled : undefined;
+            resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
+            resourceInputs["outboundCallsEnabled"] = args ? args.outboundCallsEnabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["serviceRole"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Instance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

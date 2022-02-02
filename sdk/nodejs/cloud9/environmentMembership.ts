@@ -84,14 +84,14 @@ export class EnvironmentMembership extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnvironmentMembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentMembershipArgs | EnvironmentMembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentMembershipState | undefined;
-            inputs["environmentId"] = state ? state.environmentId : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["userArn"] = state ? state.userArn : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["userArn"] = state ? state.userArn : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as EnvironmentMembershipArgs | undefined;
             if ((!args || args.environmentId === undefined) && !opts.urn) {
@@ -103,15 +103,13 @@ export class EnvironmentMembership extends pulumi.CustomResource {
             if ((!args || args.userArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userArn'");
             }
-            inputs["environmentId"] = args ? args.environmentId : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["userArn"] = args ? args.userArn : undefined;
-            inputs["userId"] = undefined /*out*/;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["userArn"] = args ? args.userArn : undefined;
+            resourceInputs["userId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EnvironmentMembership.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EnvironmentMembership.__pulumiType, name, resourceInputs, opts);
     }
 }
 

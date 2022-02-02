@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
     public static class GetIpamPreviewNextCidr
     {
         public static Task<GetIpamPreviewNextCidrResult> InvokeAsync(GetIpamPreviewNextCidrArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrArgs(), options.WithDefaults());
 
         public static Output<GetIpamPreviewNextCidrResult> Invoke(GetIpamPreviewNextCidrInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrInvokeArgs(), options.WithDefaults());
     }
 
 

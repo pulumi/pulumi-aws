@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Backup
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSelectionResult> InvokeAsync(GetSelectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information on an existing backup selection.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSelectionResult> Invoke(GetSelectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionInvokeArgs(), options.WithDefaults());
     }
 
 

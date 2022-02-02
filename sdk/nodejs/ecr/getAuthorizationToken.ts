@@ -22,9 +22,7 @@ export function getAuthorizationToken(args?: GetAuthorizationTokenArgs, opts?: p
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ecr/getAuthorizationToken:getAuthorizationToken", {
         "registryId": args.registryId,
     }, opts);

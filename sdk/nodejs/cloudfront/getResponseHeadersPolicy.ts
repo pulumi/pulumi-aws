@@ -25,9 +25,7 @@ export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, op
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", {
         "id": args.id,
         "name": args.name,

@@ -85,16 +85,16 @@ export class ImageVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImageVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageVersionArgs | ImageVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageVersionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["baseImage"] = state ? state.baseImage : undefined;
-            inputs["containerImage"] = state ? state.containerImage : undefined;
-            inputs["imageArn"] = state ? state.imageArn : undefined;
-            inputs["imageName"] = state ? state.imageName : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["baseImage"] = state ? state.baseImage : undefined;
+            resourceInputs["containerImage"] = state ? state.containerImage : undefined;
+            resourceInputs["imageArn"] = state ? state.imageArn : undefined;
+            resourceInputs["imageName"] = state ? state.imageName : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageVersionArgs | undefined;
             if ((!args || args.baseImage === undefined) && !opts.urn) {
@@ -103,17 +103,15 @@ export class ImageVersion extends pulumi.CustomResource {
             if ((!args || args.imageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
-            inputs["baseImage"] = args ? args.baseImage : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["containerImage"] = undefined /*out*/;
-            inputs["imageArn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["baseImage"] = args ? args.baseImage : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["containerImage"] = undefined /*out*/;
+            resourceInputs["imageArn"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ImageVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ImageVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

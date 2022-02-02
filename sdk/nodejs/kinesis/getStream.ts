@@ -27,9 +27,7 @@ export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
         "tags": args.tags,

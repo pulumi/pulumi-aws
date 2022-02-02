@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Backup
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information on an existing backup plan.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
     }
 
 

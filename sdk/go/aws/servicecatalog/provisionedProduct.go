@@ -329,7 +329,7 @@ type ProvisionedProductInput interface {
 }
 
 func (*ProvisionedProduct) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisionedProduct)(nil))
+	return reflect.TypeOf((**ProvisionedProduct)(nil)).Elem()
 }
 
 func (i *ProvisionedProduct) ToProvisionedProductOutput() ProvisionedProductOutput {
@@ -338,35 +338,6 @@ func (i *ProvisionedProduct) ToProvisionedProductOutput() ProvisionedProductOutp
 
 func (i *ProvisionedProduct) ToProvisionedProductOutputWithContext(ctx context.Context) ProvisionedProductOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductOutput)
-}
-
-func (i *ProvisionedProduct) ToProvisionedProductPtrOutput() ProvisionedProductPtrOutput {
-	return i.ToProvisionedProductPtrOutputWithContext(context.Background())
-}
-
-func (i *ProvisionedProduct) ToProvisionedProductPtrOutputWithContext(ctx context.Context) ProvisionedProductPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductPtrOutput)
-}
-
-type ProvisionedProductPtrInput interface {
-	pulumi.Input
-
-	ToProvisionedProductPtrOutput() ProvisionedProductPtrOutput
-	ToProvisionedProductPtrOutputWithContext(ctx context.Context) ProvisionedProductPtrOutput
-}
-
-type provisionedProductPtrType ProvisionedProductArgs
-
-func (*provisionedProductPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProvisionedProduct)(nil))
-}
-
-func (i *provisionedProductPtrType) ToProvisionedProductPtrOutput() ProvisionedProductPtrOutput {
-	return i.ToProvisionedProductPtrOutputWithContext(context.Background())
-}
-
-func (i *provisionedProductPtrType) ToProvisionedProductPtrOutputWithContext(ctx context.Context) ProvisionedProductPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductPtrOutput)
 }
 
 // ProvisionedProductArrayInput is an input type that accepts ProvisionedProductArray and ProvisionedProductArrayOutput values.
@@ -422,7 +393,7 @@ func (i ProvisionedProductMap) ToProvisionedProductMapOutputWithContext(ctx cont
 type ProvisionedProductOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedProductOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisionedProduct)(nil))
+	return reflect.TypeOf((**ProvisionedProduct)(nil)).Elem()
 }
 
 func (o ProvisionedProductOutput) ToProvisionedProductOutput() ProvisionedProductOutput {
@@ -433,44 +404,10 @@ func (o ProvisionedProductOutput) ToProvisionedProductOutputWithContext(ctx cont
 	return o
 }
 
-func (o ProvisionedProductOutput) ToProvisionedProductPtrOutput() ProvisionedProductPtrOutput {
-	return o.ToProvisionedProductPtrOutputWithContext(context.Background())
-}
-
-func (o ProvisionedProductOutput) ToProvisionedProductPtrOutputWithContext(ctx context.Context) ProvisionedProductPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedProduct) *ProvisionedProduct {
-		return &v
-	}).(ProvisionedProductPtrOutput)
-}
-
-type ProvisionedProductPtrOutput struct{ *pulumi.OutputState }
-
-func (ProvisionedProductPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProvisionedProduct)(nil))
-}
-
-func (o ProvisionedProductPtrOutput) ToProvisionedProductPtrOutput() ProvisionedProductPtrOutput {
-	return o
-}
-
-func (o ProvisionedProductPtrOutput) ToProvisionedProductPtrOutputWithContext(ctx context.Context) ProvisionedProductPtrOutput {
-	return o
-}
-
-func (o ProvisionedProductPtrOutput) Elem() ProvisionedProductOutput {
-	return o.ApplyT(func(v *ProvisionedProduct) ProvisionedProduct {
-		if v != nil {
-			return *v
-		}
-		var ret ProvisionedProduct
-		return ret
-	}).(ProvisionedProductOutput)
-}
-
 type ProvisionedProductArrayOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedProductArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProvisionedProduct)(nil))
+	return reflect.TypeOf((*[]*ProvisionedProduct)(nil)).Elem()
 }
 
 func (o ProvisionedProductArrayOutput) ToProvisionedProductArrayOutput() ProvisionedProductArrayOutput {
@@ -482,15 +419,15 @@ func (o ProvisionedProductArrayOutput) ToProvisionedProductArrayOutputWithContex
 }
 
 func (o ProvisionedProductArrayOutput) Index(i pulumi.IntInput) ProvisionedProductOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProvisionedProduct {
-		return vs[0].([]ProvisionedProduct)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProvisionedProduct {
+		return vs[0].([]*ProvisionedProduct)[vs[1].(int)]
 	}).(ProvisionedProductOutput)
 }
 
 type ProvisionedProductMapOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedProductMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProvisionedProduct)(nil))
+	return reflect.TypeOf((*map[string]*ProvisionedProduct)(nil)).Elem()
 }
 
 func (o ProvisionedProductMapOutput) ToProvisionedProductMapOutput() ProvisionedProductMapOutput {
@@ -502,18 +439,16 @@ func (o ProvisionedProductMapOutput) ToProvisionedProductMapOutputWithContext(ct
 }
 
 func (o ProvisionedProductMapOutput) MapIndex(k pulumi.StringInput) ProvisionedProductOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProvisionedProduct {
-		return vs[0].(map[string]ProvisionedProduct)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProvisionedProduct {
+		return vs[0].(map[string]*ProvisionedProduct)[vs[1].(string)]
 	}).(ProvisionedProductOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductInput)(nil)).Elem(), &ProvisionedProduct{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductPtrInput)(nil)).Elem(), &ProvisionedProduct{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductArrayInput)(nil)).Elem(), ProvisionedProductArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductMapInput)(nil)).Elem(), ProvisionedProductMap{})
 	pulumi.RegisterOutputType(ProvisionedProductOutput{})
-	pulumi.RegisterOutputType(ProvisionedProductPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductArrayOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductMapOutput{})
 }

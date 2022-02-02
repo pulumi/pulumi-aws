@@ -457,7 +457,7 @@ type IntentInput interface {
 }
 
 func (*Intent) ElementType() reflect.Type {
-	return reflect.TypeOf((*Intent)(nil))
+	return reflect.TypeOf((**Intent)(nil)).Elem()
 }
 
 func (i *Intent) ToIntentOutput() IntentOutput {
@@ -466,35 +466,6 @@ func (i *Intent) ToIntentOutput() IntentOutput {
 
 func (i *Intent) ToIntentOutputWithContext(ctx context.Context) IntentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntentOutput)
-}
-
-func (i *Intent) ToIntentPtrOutput() IntentPtrOutput {
-	return i.ToIntentPtrOutputWithContext(context.Background())
-}
-
-func (i *Intent) ToIntentPtrOutputWithContext(ctx context.Context) IntentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntentPtrOutput)
-}
-
-type IntentPtrInput interface {
-	pulumi.Input
-
-	ToIntentPtrOutput() IntentPtrOutput
-	ToIntentPtrOutputWithContext(ctx context.Context) IntentPtrOutput
-}
-
-type intentPtrType IntentArgs
-
-func (*intentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Intent)(nil))
-}
-
-func (i *intentPtrType) ToIntentPtrOutput() IntentPtrOutput {
-	return i.ToIntentPtrOutputWithContext(context.Background())
-}
-
-func (i *intentPtrType) ToIntentPtrOutputWithContext(ctx context.Context) IntentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntentPtrOutput)
 }
 
 // IntentArrayInput is an input type that accepts IntentArray and IntentArrayOutput values.
@@ -550,7 +521,7 @@ func (i IntentMap) ToIntentMapOutputWithContext(ctx context.Context) IntentMapOu
 type IntentOutput struct{ *pulumi.OutputState }
 
 func (IntentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Intent)(nil))
+	return reflect.TypeOf((**Intent)(nil)).Elem()
 }
 
 func (o IntentOutput) ToIntentOutput() IntentOutput {
@@ -561,44 +532,10 @@ func (o IntentOutput) ToIntentOutputWithContext(ctx context.Context) IntentOutpu
 	return o
 }
 
-func (o IntentOutput) ToIntentPtrOutput() IntentPtrOutput {
-	return o.ToIntentPtrOutputWithContext(context.Background())
-}
-
-func (o IntentOutput) ToIntentPtrOutputWithContext(ctx context.Context) IntentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Intent) *Intent {
-		return &v
-	}).(IntentPtrOutput)
-}
-
-type IntentPtrOutput struct{ *pulumi.OutputState }
-
-func (IntentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Intent)(nil))
-}
-
-func (o IntentPtrOutput) ToIntentPtrOutput() IntentPtrOutput {
-	return o
-}
-
-func (o IntentPtrOutput) ToIntentPtrOutputWithContext(ctx context.Context) IntentPtrOutput {
-	return o
-}
-
-func (o IntentPtrOutput) Elem() IntentOutput {
-	return o.ApplyT(func(v *Intent) Intent {
-		if v != nil {
-			return *v
-		}
-		var ret Intent
-		return ret
-	}).(IntentOutput)
-}
-
 type IntentArrayOutput struct{ *pulumi.OutputState }
 
 func (IntentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Intent)(nil))
+	return reflect.TypeOf((*[]*Intent)(nil)).Elem()
 }
 
 func (o IntentArrayOutput) ToIntentArrayOutput() IntentArrayOutput {
@@ -610,15 +547,15 @@ func (o IntentArrayOutput) ToIntentArrayOutputWithContext(ctx context.Context) I
 }
 
 func (o IntentArrayOutput) Index(i pulumi.IntInput) IntentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Intent {
-		return vs[0].([]Intent)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Intent {
+		return vs[0].([]*Intent)[vs[1].(int)]
 	}).(IntentOutput)
 }
 
 type IntentMapOutput struct{ *pulumi.OutputState }
 
 func (IntentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Intent)(nil))
+	return reflect.TypeOf((*map[string]*Intent)(nil)).Elem()
 }
 
 func (o IntentMapOutput) ToIntentMapOutput() IntentMapOutput {
@@ -630,18 +567,16 @@ func (o IntentMapOutput) ToIntentMapOutputWithContext(ctx context.Context) Inten
 }
 
 func (o IntentMapOutput) MapIndex(k pulumi.StringInput) IntentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Intent {
-		return vs[0].(map[string]Intent)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Intent {
+		return vs[0].(map[string]*Intent)[vs[1].(string)]
 	}).(IntentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentInput)(nil)).Elem(), &Intent{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntentPtrInput)(nil)).Elem(), &Intent{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentArrayInput)(nil)).Elem(), IntentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentMapInput)(nil)).Elem(), IntentMap{})
 	pulumi.RegisterOutputType(IntentOutput{})
-	pulumi.RegisterOutputType(IntentPtrOutput{})
 	pulumi.RegisterOutputType(IntentArrayOutput{})
 	pulumi.RegisterOutputType(IntentMapOutput{})
 }

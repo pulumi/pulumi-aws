@@ -40,9 +40,7 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
         "dbClusterSnapshotIdentifier": args.dbClusterSnapshotIdentifier,

@@ -106,32 +106,30 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
      */
     constructor(name: string, args: OpenZfsSnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OpenZfsSnapshotArgs | OpenZfsSnapshotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenZfsSnapshotState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["creationTime"] = state ? state.creationTime : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
         } else {
             const args = argsOrState as OpenZfsSnapshotArgs | undefined;
             if ((!args || args.volumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["volumeId"] = args ? args.volumeId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OpenZfsSnapshot.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OpenZfsSnapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

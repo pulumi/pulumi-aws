@@ -237,7 +237,7 @@ type BucketReplicationConfigInput interface {
 }
 
 func (*BucketReplicationConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketReplicationConfig)(nil))
+	return reflect.TypeOf((**BucketReplicationConfig)(nil)).Elem()
 }
 
 func (i *BucketReplicationConfig) ToBucketReplicationConfigOutput() BucketReplicationConfigOutput {
@@ -246,35 +246,6 @@ func (i *BucketReplicationConfig) ToBucketReplicationConfigOutput() BucketReplic
 
 func (i *BucketReplicationConfig) ToBucketReplicationConfigOutputWithContext(ctx context.Context) BucketReplicationConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigOutput)
-}
-
-func (i *BucketReplicationConfig) ToBucketReplicationConfigPtrOutput() BucketReplicationConfigPtrOutput {
-	return i.ToBucketReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *BucketReplicationConfig) ToBucketReplicationConfigPtrOutputWithContext(ctx context.Context) BucketReplicationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigPtrOutput)
-}
-
-type BucketReplicationConfigPtrInput interface {
-	pulumi.Input
-
-	ToBucketReplicationConfigPtrOutput() BucketReplicationConfigPtrOutput
-	ToBucketReplicationConfigPtrOutputWithContext(ctx context.Context) BucketReplicationConfigPtrOutput
-}
-
-type bucketReplicationConfigPtrType BucketReplicationConfigArgs
-
-func (*bucketReplicationConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketReplicationConfig)(nil))
-}
-
-func (i *bucketReplicationConfigPtrType) ToBucketReplicationConfigPtrOutput() BucketReplicationConfigPtrOutput {
-	return i.ToBucketReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketReplicationConfigPtrType) ToBucketReplicationConfigPtrOutputWithContext(ctx context.Context) BucketReplicationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigPtrOutput)
 }
 
 // BucketReplicationConfigArrayInput is an input type that accepts BucketReplicationConfigArray and BucketReplicationConfigArrayOutput values.
@@ -330,7 +301,7 @@ func (i BucketReplicationConfigMap) ToBucketReplicationConfigMapOutputWithContex
 type BucketReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketReplicationConfig)(nil))
+	return reflect.TypeOf((**BucketReplicationConfig)(nil)).Elem()
 }
 
 func (o BucketReplicationConfigOutput) ToBucketReplicationConfigOutput() BucketReplicationConfigOutput {
@@ -341,44 +312,10 @@ func (o BucketReplicationConfigOutput) ToBucketReplicationConfigOutputWithContex
 	return o
 }
 
-func (o BucketReplicationConfigOutput) ToBucketReplicationConfigPtrOutput() BucketReplicationConfigPtrOutput {
-	return o.ToBucketReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (o BucketReplicationConfigOutput) ToBucketReplicationConfigPtrOutputWithContext(ctx context.Context) BucketReplicationConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfig) *BucketReplicationConfig {
-		return &v
-	}).(BucketReplicationConfigPtrOutput)
-}
-
-type BucketReplicationConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketReplicationConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketReplicationConfig)(nil))
-}
-
-func (o BucketReplicationConfigPtrOutput) ToBucketReplicationConfigPtrOutput() BucketReplicationConfigPtrOutput {
-	return o
-}
-
-func (o BucketReplicationConfigPtrOutput) ToBucketReplicationConfigPtrOutputWithContext(ctx context.Context) BucketReplicationConfigPtrOutput {
-	return o
-}
-
-func (o BucketReplicationConfigPtrOutput) Elem() BucketReplicationConfigOutput {
-	return o.ApplyT(func(v *BucketReplicationConfig) BucketReplicationConfig {
-		if v != nil {
-			return *v
-		}
-		var ret BucketReplicationConfig
-		return ret
-	}).(BucketReplicationConfigOutput)
-}
-
 type BucketReplicationConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketReplicationConfig)(nil))
+	return reflect.TypeOf((*[]*BucketReplicationConfig)(nil)).Elem()
 }
 
 func (o BucketReplicationConfigArrayOutput) ToBucketReplicationConfigArrayOutput() BucketReplicationConfigArrayOutput {
@@ -390,15 +327,15 @@ func (o BucketReplicationConfigArrayOutput) ToBucketReplicationConfigArrayOutput
 }
 
 func (o BucketReplicationConfigArrayOutput) Index(i pulumi.IntInput) BucketReplicationConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketReplicationConfig {
-		return vs[0].([]BucketReplicationConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketReplicationConfig {
+		return vs[0].([]*BucketReplicationConfig)[vs[1].(int)]
 	}).(BucketReplicationConfigOutput)
 }
 
 type BucketReplicationConfigMapOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BucketReplicationConfig)(nil))
+	return reflect.TypeOf((*map[string]*BucketReplicationConfig)(nil)).Elem()
 }
 
 func (o BucketReplicationConfigMapOutput) ToBucketReplicationConfigMapOutput() BucketReplicationConfigMapOutput {
@@ -410,18 +347,16 @@ func (o BucketReplicationConfigMapOutput) ToBucketReplicationConfigMapOutputWith
 }
 
 func (o BucketReplicationConfigMapOutput) MapIndex(k pulumi.StringInput) BucketReplicationConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketReplicationConfig {
-		return vs[0].(map[string]BucketReplicationConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BucketReplicationConfig {
+		return vs[0].(map[string]*BucketReplicationConfig)[vs[1].(string)]
 	}).(BucketReplicationConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigInput)(nil)).Elem(), &BucketReplicationConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigPtrInput)(nil)).Elem(), &BucketReplicationConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigArrayInput)(nil)).Elem(), BucketReplicationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigMapInput)(nil)).Elem(), BucketReplicationConfigMap{})
 	pulumi.RegisterOutputType(BucketReplicationConfigOutput{})
-	pulumi.RegisterOutputType(BucketReplicationConfigPtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigArrayOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigMapOutput{})
 }

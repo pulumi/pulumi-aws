@@ -26,9 +26,7 @@ export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: p
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
         "arn": args.arn,
         "type": args.type,

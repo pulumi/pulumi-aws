@@ -197,7 +197,7 @@ type DevicePoolInput interface {
 }
 
 func (*DevicePool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevicePool)(nil))
+	return reflect.TypeOf((**DevicePool)(nil)).Elem()
 }
 
 func (i *DevicePool) ToDevicePoolOutput() DevicePoolOutput {
@@ -206,35 +206,6 @@ func (i *DevicePool) ToDevicePoolOutput() DevicePoolOutput {
 
 func (i *DevicePool) ToDevicePoolOutputWithContext(ctx context.Context) DevicePoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolOutput)
-}
-
-func (i *DevicePool) ToDevicePoolPtrOutput() DevicePoolPtrOutput {
-	return i.ToDevicePoolPtrOutputWithContext(context.Background())
-}
-
-func (i *DevicePool) ToDevicePoolPtrOutputWithContext(ctx context.Context) DevicePoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolPtrOutput)
-}
-
-type DevicePoolPtrInput interface {
-	pulumi.Input
-
-	ToDevicePoolPtrOutput() DevicePoolPtrOutput
-	ToDevicePoolPtrOutputWithContext(ctx context.Context) DevicePoolPtrOutput
-}
-
-type devicePoolPtrType DevicePoolArgs
-
-func (*devicePoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DevicePool)(nil))
-}
-
-func (i *devicePoolPtrType) ToDevicePoolPtrOutput() DevicePoolPtrOutput {
-	return i.ToDevicePoolPtrOutputWithContext(context.Background())
-}
-
-func (i *devicePoolPtrType) ToDevicePoolPtrOutputWithContext(ctx context.Context) DevicePoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolPtrOutput)
 }
 
 // DevicePoolArrayInput is an input type that accepts DevicePoolArray and DevicePoolArrayOutput values.
@@ -290,7 +261,7 @@ func (i DevicePoolMap) ToDevicePoolMapOutputWithContext(ctx context.Context) Dev
 type DevicePoolOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevicePool)(nil))
+	return reflect.TypeOf((**DevicePool)(nil)).Elem()
 }
 
 func (o DevicePoolOutput) ToDevicePoolOutput() DevicePoolOutput {
@@ -301,44 +272,10 @@ func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) Dev
 	return o
 }
 
-func (o DevicePoolOutput) ToDevicePoolPtrOutput() DevicePoolPtrOutput {
-	return o.ToDevicePoolPtrOutputWithContext(context.Background())
-}
-
-func (o DevicePoolOutput) ToDevicePoolPtrOutputWithContext(ctx context.Context) DevicePoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DevicePool) *DevicePool {
-		return &v
-	}).(DevicePoolPtrOutput)
-}
-
-type DevicePoolPtrOutput struct{ *pulumi.OutputState }
-
-func (DevicePoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DevicePool)(nil))
-}
-
-func (o DevicePoolPtrOutput) ToDevicePoolPtrOutput() DevicePoolPtrOutput {
-	return o
-}
-
-func (o DevicePoolPtrOutput) ToDevicePoolPtrOutputWithContext(ctx context.Context) DevicePoolPtrOutput {
-	return o
-}
-
-func (o DevicePoolPtrOutput) Elem() DevicePoolOutput {
-	return o.ApplyT(func(v *DevicePool) DevicePool {
-		if v != nil {
-			return *v
-		}
-		var ret DevicePool
-		return ret
-	}).(DevicePoolOutput)
-}
-
 type DevicePoolArrayOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DevicePool)(nil))
+	return reflect.TypeOf((*[]*DevicePool)(nil)).Elem()
 }
 
 func (o DevicePoolArrayOutput) ToDevicePoolArrayOutput() DevicePoolArrayOutput {
@@ -350,15 +287,15 @@ func (o DevicePoolArrayOutput) ToDevicePoolArrayOutputWithContext(ctx context.Co
 }
 
 func (o DevicePoolArrayOutput) Index(i pulumi.IntInput) DevicePoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DevicePool {
-		return vs[0].([]DevicePool)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DevicePool {
+		return vs[0].([]*DevicePool)[vs[1].(int)]
 	}).(DevicePoolOutput)
 }
 
 type DevicePoolMapOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DevicePool)(nil))
+	return reflect.TypeOf((*map[string]*DevicePool)(nil)).Elem()
 }
 
 func (o DevicePoolMapOutput) ToDevicePoolMapOutput() DevicePoolMapOutput {
@@ -370,18 +307,16 @@ func (o DevicePoolMapOutput) ToDevicePoolMapOutputWithContext(ctx context.Contex
 }
 
 func (o DevicePoolMapOutput) MapIndex(k pulumi.StringInput) DevicePoolOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DevicePool {
-		return vs[0].(map[string]DevicePool)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DevicePool {
+		return vs[0].(map[string]*DevicePool)[vs[1].(string)]
 	}).(DevicePoolOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolInput)(nil)).Elem(), &DevicePool{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolPtrInput)(nil)).Elem(), &DevicePool{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolArrayInput)(nil)).Elem(), DevicePoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolMapInput)(nil)).Elem(), DevicePoolMap{})
 	pulumi.RegisterOutputType(DevicePoolOutput{})
-	pulumi.RegisterOutputType(DevicePoolPtrOutput{})
 	pulumi.RegisterOutputType(DevicePoolArrayOutput{})
 	pulumi.RegisterOutputType(DevicePoolMapOutput{})
 }

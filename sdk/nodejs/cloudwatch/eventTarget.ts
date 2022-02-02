@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const ssmLifecyclePolicyDocument = stopInstance.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const ssmLifecyclePolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -98,10 +98,10 @@ import * as utilities from "../utilities";
  *         {
  *             effect: "Allow",
  *             actions: ["ssm:SendCommand"],
- *             resources: [arn],
+ *             resources: [stopInstance.arn],
  *         },
  *     ],
- * }));
+ * });
  * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycleRole", {assumeRolePolicy: ssmLifecycleTrust.then(ssmLifecycleTrust => ssmLifecycleTrust.json)});
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssmLifecyclePolicy", {policy: ssmLifecyclePolicyDocument.apply(ssmLifecyclePolicyDocument => ssmLifecyclePolicyDocument.json)});
  * const ssmLifecycleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", {
@@ -376,27 +376,27 @@ export class EventTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventTargetArgs | EventTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventTargetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["batchTarget"] = state ? state.batchTarget : undefined;
-            inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
-            inputs["ecsTarget"] = state ? state.ecsTarget : undefined;
-            inputs["eventBusName"] = state ? state.eventBusName : undefined;
-            inputs["httpTarget"] = state ? state.httpTarget : undefined;
-            inputs["input"] = state ? state.input : undefined;
-            inputs["inputPath"] = state ? state.inputPath : undefined;
-            inputs["inputTransformer"] = state ? state.inputTransformer : undefined;
-            inputs["kinesisTarget"] = state ? state.kinesisTarget : undefined;
-            inputs["redshiftTarget"] = state ? state.redshiftTarget : undefined;
-            inputs["retryPolicy"] = state ? state.retryPolicy : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["rule"] = state ? state.rule : undefined;
-            inputs["runCommandTargets"] = state ? state.runCommandTargets : undefined;
-            inputs["sqsTarget"] = state ? state.sqsTarget : undefined;
-            inputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["batchTarget"] = state ? state.batchTarget : undefined;
+            resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
+            resourceInputs["ecsTarget"] = state ? state.ecsTarget : undefined;
+            resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
+            resourceInputs["httpTarget"] = state ? state.httpTarget : undefined;
+            resourceInputs["input"] = state ? state.input : undefined;
+            resourceInputs["inputPath"] = state ? state.inputPath : undefined;
+            resourceInputs["inputTransformer"] = state ? state.inputTransformer : undefined;
+            resourceInputs["kinesisTarget"] = state ? state.kinesisTarget : undefined;
+            resourceInputs["redshiftTarget"] = state ? state.redshiftTarget : undefined;
+            resourceInputs["retryPolicy"] = state ? state.retryPolicy : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["rule"] = state ? state.rule : undefined;
+            resourceInputs["runCommandTargets"] = state ? state.runCommandTargets : undefined;
+            resourceInputs["sqsTarget"] = state ? state.sqsTarget : undefined;
+            resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as EventTargetArgs | undefined;
             if ((!args || args.arn === undefined) && !opts.urn) {
@@ -405,28 +405,26 @@ export class EventTarget extends pulumi.CustomResource {
             if ((!args || args.rule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["batchTarget"] = args ? args.batchTarget : undefined;
-            inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
-            inputs["ecsTarget"] = args ? args.ecsTarget : undefined;
-            inputs["eventBusName"] = args ? args.eventBusName : undefined;
-            inputs["httpTarget"] = args ? args.httpTarget : undefined;
-            inputs["input"] = args ? args.input : undefined;
-            inputs["inputPath"] = args ? args.inputPath : undefined;
-            inputs["inputTransformer"] = args ? args.inputTransformer : undefined;
-            inputs["kinesisTarget"] = args ? args.kinesisTarget : undefined;
-            inputs["redshiftTarget"] = args ? args.redshiftTarget : undefined;
-            inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["rule"] = args ? args.rule : undefined;
-            inputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
-            inputs["sqsTarget"] = args ? args.sqsTarget : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["batchTarget"] = args ? args.batchTarget : undefined;
+            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
+            resourceInputs["ecsTarget"] = args ? args.ecsTarget : undefined;
+            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
+            resourceInputs["httpTarget"] = args ? args.httpTarget : undefined;
+            resourceInputs["input"] = args ? args.input : undefined;
+            resourceInputs["inputPath"] = args ? args.inputPath : undefined;
+            resourceInputs["inputTransformer"] = args ? args.inputTransformer : undefined;
+            resourceInputs["kinesisTarget"] = args ? args.kinesisTarget : undefined;
+            resourceInputs["redshiftTarget"] = args ? args.redshiftTarget : undefined;
+            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["rule"] = args ? args.rule : undefined;
+            resourceInputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
+            resourceInputs["sqsTarget"] = args ? args.sqsTarget : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

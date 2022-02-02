@@ -158,7 +158,7 @@ type VpcIpv4CidrBlockAssociationInput interface {
 }
 
 func (*VpcIpv4CidrBlockAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpv4CidrBlockAssociation)(nil))
+	return reflect.TypeOf((**VpcIpv4CidrBlockAssociation)(nil)).Elem()
 }
 
 func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput {
@@ -167,35 +167,6 @@ func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutput() VpcI
 
 func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationOutput)
-}
-
-func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationPtrOutput() VpcIpv4CidrBlockAssociationPtrOutput {
-	return i.ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationPtrOutput)
-}
-
-type VpcIpv4CidrBlockAssociationPtrInput interface {
-	pulumi.Input
-
-	ToVpcIpv4CidrBlockAssociationPtrOutput() VpcIpv4CidrBlockAssociationPtrOutput
-	ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationPtrOutput
-}
-
-type vpcIpv4CidrBlockAssociationPtrType VpcIpv4CidrBlockAssociationArgs
-
-func (*vpcIpv4CidrBlockAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpv4CidrBlockAssociation)(nil))
-}
-
-func (i *vpcIpv4CidrBlockAssociationPtrType) ToVpcIpv4CidrBlockAssociationPtrOutput() VpcIpv4CidrBlockAssociationPtrOutput {
-	return i.ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcIpv4CidrBlockAssociationPtrType) ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationPtrOutput)
 }
 
 // VpcIpv4CidrBlockAssociationArrayInput is an input type that accepts VpcIpv4CidrBlockAssociationArray and VpcIpv4CidrBlockAssociationArrayOutput values.
@@ -251,7 +222,7 @@ func (i VpcIpv4CidrBlockAssociationMap) ToVpcIpv4CidrBlockAssociationMapOutputWi
 type VpcIpv4CidrBlockAssociationOutput struct{ *pulumi.OutputState }
 
 func (VpcIpv4CidrBlockAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpv4CidrBlockAssociation)(nil))
+	return reflect.TypeOf((**VpcIpv4CidrBlockAssociation)(nil)).Elem()
 }
 
 func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationOutput() VpcIpv4CidrBlockAssociationOutput {
@@ -262,44 +233,10 @@ func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationOutputWi
 	return o
 }
 
-func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationPtrOutput() VpcIpv4CidrBlockAssociationPtrOutput {
-	return o.ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpv4CidrBlockAssociation) *VpcIpv4CidrBlockAssociation {
-		return &v
-	}).(VpcIpv4CidrBlockAssociationPtrOutput)
-}
-
-type VpcIpv4CidrBlockAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcIpv4CidrBlockAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpv4CidrBlockAssociation)(nil))
-}
-
-func (o VpcIpv4CidrBlockAssociationPtrOutput) ToVpcIpv4CidrBlockAssociationPtrOutput() VpcIpv4CidrBlockAssociationPtrOutput {
-	return o
-}
-
-func (o VpcIpv4CidrBlockAssociationPtrOutput) ToVpcIpv4CidrBlockAssociationPtrOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationPtrOutput {
-	return o
-}
-
-func (o VpcIpv4CidrBlockAssociationPtrOutput) Elem() VpcIpv4CidrBlockAssociationOutput {
-	return o.ApplyT(func(v *VpcIpv4CidrBlockAssociation) VpcIpv4CidrBlockAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret VpcIpv4CidrBlockAssociation
-		return ret
-	}).(VpcIpv4CidrBlockAssociationOutput)
-}
-
 type VpcIpv4CidrBlockAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcIpv4CidrBlockAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcIpv4CidrBlockAssociation)(nil))
+	return reflect.TypeOf((*[]*VpcIpv4CidrBlockAssociation)(nil)).Elem()
 }
 
 func (o VpcIpv4CidrBlockAssociationArrayOutput) ToVpcIpv4CidrBlockAssociationArrayOutput() VpcIpv4CidrBlockAssociationArrayOutput {
@@ -311,15 +248,15 @@ func (o VpcIpv4CidrBlockAssociationArrayOutput) ToVpcIpv4CidrBlockAssociationArr
 }
 
 func (o VpcIpv4CidrBlockAssociationArrayOutput) Index(i pulumi.IntInput) VpcIpv4CidrBlockAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpv4CidrBlockAssociation {
-		return vs[0].([]VpcIpv4CidrBlockAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpv4CidrBlockAssociation {
+		return vs[0].([]*VpcIpv4CidrBlockAssociation)[vs[1].(int)]
 	}).(VpcIpv4CidrBlockAssociationOutput)
 }
 
 type VpcIpv4CidrBlockAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (VpcIpv4CidrBlockAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcIpv4CidrBlockAssociation)(nil))
+	return reflect.TypeOf((*map[string]*VpcIpv4CidrBlockAssociation)(nil)).Elem()
 }
 
 func (o VpcIpv4CidrBlockAssociationMapOutput) ToVpcIpv4CidrBlockAssociationMapOutput() VpcIpv4CidrBlockAssociationMapOutput {
@@ -331,18 +268,16 @@ func (o VpcIpv4CidrBlockAssociationMapOutput) ToVpcIpv4CidrBlockAssociationMapOu
 }
 
 func (o VpcIpv4CidrBlockAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcIpv4CidrBlockAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcIpv4CidrBlockAssociation {
-		return vs[0].(map[string]VpcIpv4CidrBlockAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcIpv4CidrBlockAssociation {
+		return vs[0].(map[string]*VpcIpv4CidrBlockAssociation)[vs[1].(string)]
 	}).(VpcIpv4CidrBlockAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationInput)(nil)).Elem(), &VpcIpv4CidrBlockAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationPtrInput)(nil)).Elem(), &VpcIpv4CidrBlockAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationArrayInput)(nil)).Elem(), VpcIpv4CidrBlockAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationMapInput)(nil)).Elem(), VpcIpv4CidrBlockAssociationMap{})
 	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationOutput{})
-	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationPtrOutput{})
 	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationMapOutput{})
 }

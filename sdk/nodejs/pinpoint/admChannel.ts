@@ -84,14 +84,14 @@ export class AdmChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: AdmChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdmChannelArgs | AdmChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdmChannelState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as AdmChannelArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -103,15 +103,13 @@ export class AdmChannel extends pulumi.CustomResource {
             if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AdmChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AdmChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

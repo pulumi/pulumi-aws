@@ -185,44 +185,42 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobDefinitionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["containerProperties"] = state ? state.containerProperties : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["platformCapabilities"] = state ? state.platformCapabilities : undefined;
-            inputs["propagateTags"] = state ? state.propagateTags : undefined;
-            inputs["retryStrategy"] = state ? state.retryStrategy : undefined;
-            inputs["revision"] = state ? state.revision : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["containerProperties"] = state ? state.containerProperties : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["platformCapabilities"] = state ? state.platformCapabilities : undefined;
+            resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
+            resourceInputs["retryStrategy"] = state ? state.retryStrategy : undefined;
+            resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as JobDefinitionArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["containerProperties"] = args ? args.containerProperties : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
-            inputs["propagateTags"] = args ? args.propagateTags : undefined;
-            inputs["retryStrategy"] = args ? args.retryStrategy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
+            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(JobDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

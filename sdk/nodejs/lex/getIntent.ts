@@ -24,9 +24,7 @@ export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lex/getIntent:getIntent", {
         "name": args.name,
         "version": args.version,

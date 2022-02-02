@@ -228,54 +228,52 @@ export class Intent extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntentArgs | IntentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntentState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["checksum"] = state ? state.checksum : undefined;
-            inputs["conclusionStatement"] = state ? state.conclusionStatement : undefined;
-            inputs["confirmationPrompt"] = state ? state.confirmationPrompt : undefined;
-            inputs["createVersion"] = state ? state.createVersion : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dialogCodeHook"] = state ? state.dialogCodeHook : undefined;
-            inputs["followUpPrompt"] = state ? state.followUpPrompt : undefined;
-            inputs["fulfillmentActivity"] = state ? state.fulfillmentActivity : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parentIntentSignature"] = state ? state.parentIntentSignature : undefined;
-            inputs["rejectionStatement"] = state ? state.rejectionStatement : undefined;
-            inputs["sampleUtterances"] = state ? state.sampleUtterances : undefined;
-            inputs["slots"] = state ? state.slots : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["checksum"] = state ? state.checksum : undefined;
+            resourceInputs["conclusionStatement"] = state ? state.conclusionStatement : undefined;
+            resourceInputs["confirmationPrompt"] = state ? state.confirmationPrompt : undefined;
+            resourceInputs["createVersion"] = state ? state.createVersion : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dialogCodeHook"] = state ? state.dialogCodeHook : undefined;
+            resourceInputs["followUpPrompt"] = state ? state.followUpPrompt : undefined;
+            resourceInputs["fulfillmentActivity"] = state ? state.fulfillmentActivity : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentIntentSignature"] = state ? state.parentIntentSignature : undefined;
+            resourceInputs["rejectionStatement"] = state ? state.rejectionStatement : undefined;
+            resourceInputs["sampleUtterances"] = state ? state.sampleUtterances : undefined;
+            resourceInputs["slots"] = state ? state.slots : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as IntentArgs | undefined;
             if ((!args || args.fulfillmentActivity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fulfillmentActivity'");
             }
-            inputs["conclusionStatement"] = args ? args.conclusionStatement : undefined;
-            inputs["confirmationPrompt"] = args ? args.confirmationPrompt : undefined;
-            inputs["createVersion"] = args ? args.createVersion : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dialogCodeHook"] = args ? args.dialogCodeHook : undefined;
-            inputs["followUpPrompt"] = args ? args.followUpPrompt : undefined;
-            inputs["fulfillmentActivity"] = args ? args.fulfillmentActivity : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentIntentSignature"] = args ? args.parentIntentSignature : undefined;
-            inputs["rejectionStatement"] = args ? args.rejectionStatement : undefined;
-            inputs["sampleUtterances"] = args ? args.sampleUtterances : undefined;
-            inputs["slots"] = args ? args.slots : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["checksum"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["conclusionStatement"] = args ? args.conclusionStatement : undefined;
+            resourceInputs["confirmationPrompt"] = args ? args.confirmationPrompt : undefined;
+            resourceInputs["createVersion"] = args ? args.createVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dialogCodeHook"] = args ? args.dialogCodeHook : undefined;
+            resourceInputs["followUpPrompt"] = args ? args.followUpPrompt : undefined;
+            resourceInputs["fulfillmentActivity"] = args ? args.fulfillmentActivity : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentIntentSignature"] = args ? args.parentIntentSignature : undefined;
+            resourceInputs["rejectionStatement"] = args ? args.rejectionStatement : undefined;
+            resourceInputs["sampleUtterances"] = args ? args.sampleUtterances : undefined;
+            resourceInputs["slots"] = args ? args.slots : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["checksum"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Intent.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Intent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

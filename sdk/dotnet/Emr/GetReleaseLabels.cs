@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Emr
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Aws.Emr
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetReleaseLabelsResult> InvokeAsync(GetReleaseLabelsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReleaseLabelsResult>("aws:emr/getReleaseLabels:getReleaseLabels", args ?? new GetReleaseLabelsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReleaseLabelsResult>("aws:emr/getReleaseLabels:getReleaseLabels", args ?? new GetReleaseLabelsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about EMR Release Labels.
@@ -76,7 +75,7 @@ namespace Pulumi.Aws.Emr
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetReleaseLabelsResult> Invoke(GetReleaseLabelsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReleaseLabelsResult>("aws:emr/getReleaseLabels:getReleaseLabels", args ?? new GetReleaseLabelsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReleaseLabelsResult>("aws:emr/getReleaseLabels:getReleaseLabels", args ?? new GetReleaseLabelsInvokeArgs(), options.WithDefaults());
     }
 
 

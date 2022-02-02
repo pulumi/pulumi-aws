@@ -108,36 +108,34 @@ export class DistributionConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: DistributionConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DistributionConfigurationArgs | DistributionConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DistributionConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dateCreated"] = state ? state.dateCreated : undefined;
-            inputs["dateUpdated"] = state ? state.dateUpdated : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["distributions"] = state ? state.distributions : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["dateUpdated"] = state ? state.dateUpdated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["distributions"] = state ? state.distributions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DistributionConfigurationArgs | undefined;
             if ((!args || args.distributions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'distributions'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["distributions"] = args ? args.distributions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dateCreated"] = undefined /*out*/;
-            inputs["dateUpdated"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["distributions"] = args ? args.distributions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dateCreated"] = undefined /*out*/;
+            resourceInputs["dateUpdated"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DistributionConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DistributionConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

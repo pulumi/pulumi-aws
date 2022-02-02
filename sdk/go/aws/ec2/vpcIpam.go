@@ -148,7 +148,7 @@ type VpcIpamInput interface {
 }
 
 func (*VpcIpam) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpam)(nil))
+	return reflect.TypeOf((**VpcIpam)(nil)).Elem()
 }
 
 func (i *VpcIpam) ToVpcIpamOutput() VpcIpamOutput {
@@ -157,35 +157,6 @@ func (i *VpcIpam) ToVpcIpamOutput() VpcIpamOutput {
 
 func (i *VpcIpam) ToVpcIpamOutputWithContext(ctx context.Context) VpcIpamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamOutput)
-}
-
-func (i *VpcIpam) ToVpcIpamPtrOutput() VpcIpamPtrOutput {
-	return i.ToVpcIpamPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcIpam) ToVpcIpamPtrOutputWithContext(ctx context.Context) VpcIpamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPtrOutput)
-}
-
-type VpcIpamPtrInput interface {
-	pulumi.Input
-
-	ToVpcIpamPtrOutput() VpcIpamPtrOutput
-	ToVpcIpamPtrOutputWithContext(ctx context.Context) VpcIpamPtrOutput
-}
-
-type vpcIpamPtrType VpcIpamArgs
-
-func (*vpcIpamPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpam)(nil))
-}
-
-func (i *vpcIpamPtrType) ToVpcIpamPtrOutput() VpcIpamPtrOutput {
-	return i.ToVpcIpamPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcIpamPtrType) ToVpcIpamPtrOutputWithContext(ctx context.Context) VpcIpamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPtrOutput)
 }
 
 // VpcIpamArrayInput is an input type that accepts VpcIpamArray and VpcIpamArrayOutput values.
@@ -241,7 +212,7 @@ func (i VpcIpamMap) ToVpcIpamMapOutputWithContext(ctx context.Context) VpcIpamMa
 type VpcIpamOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpam)(nil))
+	return reflect.TypeOf((**VpcIpam)(nil)).Elem()
 }
 
 func (o VpcIpamOutput) ToVpcIpamOutput() VpcIpamOutput {
@@ -252,44 +223,10 @@ func (o VpcIpamOutput) ToVpcIpamOutputWithContext(ctx context.Context) VpcIpamOu
 	return o
 }
 
-func (o VpcIpamOutput) ToVpcIpamPtrOutput() VpcIpamPtrOutput {
-	return o.ToVpcIpamPtrOutputWithContext(context.Background())
-}
-
-func (o VpcIpamOutput) ToVpcIpamPtrOutputWithContext(ctx context.Context) VpcIpamPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpam) *VpcIpam {
-		return &v
-	}).(VpcIpamPtrOutput)
-}
-
-type VpcIpamPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcIpamPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpam)(nil))
-}
-
-func (o VpcIpamPtrOutput) ToVpcIpamPtrOutput() VpcIpamPtrOutput {
-	return o
-}
-
-func (o VpcIpamPtrOutput) ToVpcIpamPtrOutputWithContext(ctx context.Context) VpcIpamPtrOutput {
-	return o
-}
-
-func (o VpcIpamPtrOutput) Elem() VpcIpamOutput {
-	return o.ApplyT(func(v *VpcIpam) VpcIpam {
-		if v != nil {
-			return *v
-		}
-		var ret VpcIpam
-		return ret
-	}).(VpcIpamOutput)
-}
-
 type VpcIpamArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcIpam)(nil))
+	return reflect.TypeOf((*[]*VpcIpam)(nil)).Elem()
 }
 
 func (o VpcIpamArrayOutput) ToVpcIpamArrayOutput() VpcIpamArrayOutput {
@@ -301,15 +238,15 @@ func (o VpcIpamArrayOutput) ToVpcIpamArrayOutputWithContext(ctx context.Context)
 }
 
 func (o VpcIpamArrayOutput) Index(i pulumi.IntInput) VpcIpamOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpam {
-		return vs[0].([]VpcIpam)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpam {
+		return vs[0].([]*VpcIpam)[vs[1].(int)]
 	}).(VpcIpamOutput)
 }
 
 type VpcIpamMapOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcIpam)(nil))
+	return reflect.TypeOf((*map[string]*VpcIpam)(nil)).Elem()
 }
 
 func (o VpcIpamMapOutput) ToVpcIpamMapOutput() VpcIpamMapOutput {
@@ -321,18 +258,16 @@ func (o VpcIpamMapOutput) ToVpcIpamMapOutputWithContext(ctx context.Context) Vpc
 }
 
 func (o VpcIpamMapOutput) MapIndex(k pulumi.StringInput) VpcIpamOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcIpam {
-		return vs[0].(map[string]VpcIpam)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcIpam {
+		return vs[0].(map[string]*VpcIpam)[vs[1].(string)]
 	}).(VpcIpamOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamInput)(nil)).Elem(), &VpcIpam{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPtrInput)(nil)).Elem(), &VpcIpam{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamArrayInput)(nil)).Elem(), VpcIpamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamMapInput)(nil)).Elem(), VpcIpamMap{})
 	pulumi.RegisterOutputType(VpcIpamOutput{})
-	pulumi.RegisterOutputType(VpcIpamPtrOutput{})
 	pulumi.RegisterOutputType(VpcIpamArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamMapOutput{})
 }

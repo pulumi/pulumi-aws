@@ -151,7 +151,7 @@ type VpnGatewayAttachmentInput interface {
 }
 
 func (*VpnGatewayAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayAttachment)(nil))
+	return reflect.TypeOf((**VpnGatewayAttachment)(nil)).Elem()
 }
 
 func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput {
@@ -160,35 +160,6 @@ func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentOutput() VpnGatewayAttachme
 
 func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentOutput)
-}
-
-func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentPtrOutput() VpnGatewayAttachmentPtrOutput {
-	return i.ToVpnGatewayAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentPtrOutputWithContext(ctx context.Context) VpnGatewayAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentPtrOutput)
-}
-
-type VpnGatewayAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToVpnGatewayAttachmentPtrOutput() VpnGatewayAttachmentPtrOutput
-	ToVpnGatewayAttachmentPtrOutputWithContext(ctx context.Context) VpnGatewayAttachmentPtrOutput
-}
-
-type vpnGatewayAttachmentPtrType VpnGatewayAttachmentArgs
-
-func (*vpnGatewayAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnGatewayAttachment)(nil))
-}
-
-func (i *vpnGatewayAttachmentPtrType) ToVpnGatewayAttachmentPtrOutput() VpnGatewayAttachmentPtrOutput {
-	return i.ToVpnGatewayAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *vpnGatewayAttachmentPtrType) ToVpnGatewayAttachmentPtrOutputWithContext(ctx context.Context) VpnGatewayAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentPtrOutput)
 }
 
 // VpnGatewayAttachmentArrayInput is an input type that accepts VpnGatewayAttachmentArray and VpnGatewayAttachmentArrayOutput values.
@@ -244,7 +215,7 @@ func (i VpnGatewayAttachmentMap) ToVpnGatewayAttachmentMapOutputWithContext(ctx 
 type VpnGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayAttachment)(nil))
+	return reflect.TypeOf((**VpnGatewayAttachment)(nil)).Elem()
 }
 
 func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput {
@@ -255,44 +226,10 @@ func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutputWithContext(ctx 
 	return o
 }
 
-func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentPtrOutput() VpnGatewayAttachmentPtrOutput {
-	return o.ToVpnGatewayAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentPtrOutputWithContext(ctx context.Context) VpnGatewayAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnGatewayAttachment) *VpnGatewayAttachment {
-		return &v
-	}).(VpnGatewayAttachmentPtrOutput)
-}
-
-type VpnGatewayAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (VpnGatewayAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnGatewayAttachment)(nil))
-}
-
-func (o VpnGatewayAttachmentPtrOutput) ToVpnGatewayAttachmentPtrOutput() VpnGatewayAttachmentPtrOutput {
-	return o
-}
-
-func (o VpnGatewayAttachmentPtrOutput) ToVpnGatewayAttachmentPtrOutputWithContext(ctx context.Context) VpnGatewayAttachmentPtrOutput {
-	return o
-}
-
-func (o VpnGatewayAttachmentPtrOutput) Elem() VpnGatewayAttachmentOutput {
-	return o.ApplyT(func(v *VpnGatewayAttachment) VpnGatewayAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret VpnGatewayAttachment
-		return ret
-	}).(VpnGatewayAttachmentOutput)
-}
-
 type VpnGatewayAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnGatewayAttachment)(nil))
+	return reflect.TypeOf((*[]*VpnGatewayAttachment)(nil)).Elem()
 }
 
 func (o VpnGatewayAttachmentArrayOutput) ToVpnGatewayAttachmentArrayOutput() VpnGatewayAttachmentArrayOutput {
@@ -304,15 +241,15 @@ func (o VpnGatewayAttachmentArrayOutput) ToVpnGatewayAttachmentArrayOutputWithCo
 }
 
 func (o VpnGatewayAttachmentArrayOutput) Index(i pulumi.IntInput) VpnGatewayAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayAttachment {
-		return vs[0].([]VpnGatewayAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnGatewayAttachment {
+		return vs[0].([]*VpnGatewayAttachment)[vs[1].(int)]
 	}).(VpnGatewayAttachmentOutput)
 }
 
 type VpnGatewayAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpnGatewayAttachment)(nil))
+	return reflect.TypeOf((*map[string]*VpnGatewayAttachment)(nil)).Elem()
 }
 
 func (o VpnGatewayAttachmentMapOutput) ToVpnGatewayAttachmentMapOutput() VpnGatewayAttachmentMapOutput {
@@ -324,18 +261,16 @@ func (o VpnGatewayAttachmentMapOutput) ToVpnGatewayAttachmentMapOutputWithContex
 }
 
 func (o VpnGatewayAttachmentMapOutput) MapIndex(k pulumi.StringInput) VpnGatewayAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnGatewayAttachment {
-		return vs[0].(map[string]VpnGatewayAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpnGatewayAttachment {
+		return vs[0].(map[string]*VpnGatewayAttachment)[vs[1].(string)]
 	}).(VpnGatewayAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentInput)(nil)).Elem(), &VpnGatewayAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentPtrInput)(nil)).Elem(), &VpnGatewayAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentArrayInput)(nil)).Elem(), VpnGatewayAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentMapInput)(nil)).Elem(), VpnGatewayAttachmentMap{})
 	pulumi.RegisterOutputType(VpnGatewayAttachmentOutput{})
-	pulumi.RegisterOutputType(VpnGatewayAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(VpnGatewayAttachmentMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Connect
 {
@@ -62,7 +61,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetQuickConnectResult> InvokeAsync(GetQuickConnectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQuickConnectResult>("aws:connect/getQuickConnect:getQuickConnect", args ?? new GetQuickConnectArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQuickConnectResult>("aws:connect/getQuickConnect:getQuickConnect", args ?? new GetQuickConnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Quick Connect.
@@ -114,7 +113,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetQuickConnectResult> Invoke(GetQuickConnectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQuickConnectResult>("aws:connect/getQuickConnect:getQuickConnect", args ?? new GetQuickConnectInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetQuickConnectResult>("aws:connect/getQuickConnect:getQuickConnect", args ?? new GetQuickConnectInvokeArgs(), options.WithDefaults());
     }
 
 

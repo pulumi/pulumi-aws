@@ -169,7 +169,7 @@ type TagInput interface {
 }
 
 func (*Tag) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tag)(nil))
+	return reflect.TypeOf((**Tag)(nil)).Elem()
 }
 
 func (i *Tag) ToTagOutput() TagOutput {
@@ -178,35 +178,6 @@ func (i *Tag) ToTagOutput() TagOutput {
 
 func (i *Tag) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOutput)
-}
-
-func (i *Tag) ToTagPtrOutput() TagPtrOutput {
-	return i.ToTagPtrOutputWithContext(context.Background())
-}
-
-func (i *Tag) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagPtrOutput)
-}
-
-type TagPtrInput interface {
-	pulumi.Input
-
-	ToTagPtrOutput() TagPtrOutput
-	ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput
-}
-
-type tagPtrType TagArgs
-
-func (*tagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Tag)(nil))
-}
-
-func (i *tagPtrType) ToTagPtrOutput() TagPtrOutput {
-	return i.ToTagPtrOutputWithContext(context.Background())
-}
-
-func (i *tagPtrType) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagPtrOutput)
 }
 
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
@@ -262,7 +233,7 @@ func (i TagMap) ToTagMapOutputWithContext(ctx context.Context) TagMapOutput {
 type TagOutput struct{ *pulumi.OutputState }
 
 func (TagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tag)(nil))
+	return reflect.TypeOf((**Tag)(nil)).Elem()
 }
 
 func (o TagOutput) ToTagOutput() TagOutput {
@@ -273,44 +244,10 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-func (o TagOutput) ToTagPtrOutput() TagPtrOutput {
-	return o.ToTagPtrOutputWithContext(context.Background())
-}
-
-func (o TagOutput) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Tag) *Tag {
-		return &v
-	}).(TagPtrOutput)
-}
-
-type TagPtrOutput struct{ *pulumi.OutputState }
-
-func (TagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Tag)(nil))
-}
-
-func (o TagPtrOutput) ToTagPtrOutput() TagPtrOutput {
-	return o
-}
-
-func (o TagPtrOutput) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return o
-}
-
-func (o TagPtrOutput) Elem() TagOutput {
-	return o.ApplyT(func(v *Tag) Tag {
-		if v != nil {
-			return *v
-		}
-		var ret Tag
-		return ret
-	}).(TagOutput)
-}
-
 type TagArrayOutput struct{ *pulumi.OutputState }
 
 func (TagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Tag)(nil))
+	return reflect.TypeOf((*[]*Tag)(nil)).Elem()
 }
 
 func (o TagArrayOutput) ToTagArrayOutput() TagArrayOutput {
@@ -322,15 +259,15 @@ func (o TagArrayOutput) ToTagArrayOutputWithContext(ctx context.Context) TagArra
 }
 
 func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Tag {
-		return vs[0].([]Tag)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Tag {
+		return vs[0].([]*Tag)[vs[1].(int)]
 	}).(TagOutput)
 }
 
 type TagMapOutput struct{ *pulumi.OutputState }
 
 func (TagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Tag)(nil))
+	return reflect.TypeOf((*map[string]*Tag)(nil)).Elem()
 }
 
 func (o TagMapOutput) ToTagMapOutput() TagMapOutput {
@@ -342,18 +279,16 @@ func (o TagMapOutput) ToTagMapOutputWithContext(ctx context.Context) TagMapOutpu
 }
 
 func (o TagMapOutput) MapIndex(k pulumi.StringInput) TagOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Tag {
-		return vs[0].(map[string]Tag)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Tag {
+		return vs[0].(map[string]*Tag)[vs[1].(string)]
 	}).(TagOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagInput)(nil)).Elem(), &Tag{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagPtrInput)(nil)).Elem(), &Tag{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagArrayInput)(nil)).Elem(), TagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagMapInput)(nil)).Elem(), TagMap{})
 	pulumi.RegisterOutputType(TagOutput{})
-	pulumi.RegisterOutputType(TagPtrOutput{})
 	pulumi.RegisterOutputType(TagArrayOutput{})
 	pulumi.RegisterOutputType(TagMapOutput{})
 }

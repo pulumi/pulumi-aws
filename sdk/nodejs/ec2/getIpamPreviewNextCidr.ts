@@ -9,9 +9,7 @@ export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", {
         "disallowedCidrs": args.disallowedCidrs,
         "ipamPoolId": args.ipamPoolId,

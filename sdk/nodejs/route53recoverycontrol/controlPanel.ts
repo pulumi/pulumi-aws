@@ -88,32 +88,30 @@ export class ControlPanel extends pulumi.CustomResource {
      */
     constructor(name: string, args: ControlPanelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ControlPanelArgs | ControlPanelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ControlPanelState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clusterArn"] = state ? state.clusterArn : undefined;
-            inputs["defaultControlPanel"] = state ? state.defaultControlPanel : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["routingControlCount"] = state ? state.routingControlCount : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clusterArn"] = state ? state.clusterArn : undefined;
+            resourceInputs["defaultControlPanel"] = state ? state.defaultControlPanel : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["routingControlCount"] = state ? state.routingControlCount : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ControlPanelArgs | undefined;
             if ((!args || args.clusterArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            inputs["clusterArn"] = args ? args.clusterArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultControlPanel"] = undefined /*out*/;
-            inputs["routingControlCount"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultControlPanel"] = undefined /*out*/;
+            resourceInputs["routingControlCount"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ControlPanel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ControlPanel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

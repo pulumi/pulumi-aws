@@ -84,19 +84,19 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["accessString"] = state ? state.accessString : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["noPasswordRequired"] = state ? state.noPasswordRequired : undefined;
-            inputs["passwords"] = state ? state.passwords : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["accessString"] = state ? state.accessString : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["noPasswordRequired"] = state ? state.noPasswordRequired : undefined;
+            resourceInputs["passwords"] = state ? state.passwords : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.accessString === undefined) && !opts.urn) {
@@ -111,20 +111,18 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["accessString"] = args ? args.accessString : undefined;
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
-            inputs["passwords"] = args ? args.passwords : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessString"] = args ? args.accessString : undefined;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
+            resourceInputs["passwords"] = args ? args.passwords : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,30 +84,28 @@ export class Group extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["groupName"] = state ? state.groupName : undefined;
-            inputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Group.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

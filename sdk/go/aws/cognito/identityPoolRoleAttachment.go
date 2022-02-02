@@ -187,7 +187,7 @@ type IdentityPoolRoleAttachmentInput interface {
 }
 
 func (*IdentityPoolRoleAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {
@@ -196,35 +196,6 @@ func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutput() Identi
 
 func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentOutput)
-}
-
-func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
-	return i.ToIdentityPoolRoleAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentPtrOutput)
-}
-
-type IdentityPoolRoleAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput
-	ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput
-}
-
-type identityPoolRoleAttachmentPtrType IdentityPoolRoleAttachmentArgs
-
-func (*identityPoolRoleAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil))
-}
-
-func (i *identityPoolRoleAttachmentPtrType) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
-	return i.ToIdentityPoolRoleAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *identityPoolRoleAttachmentPtrType) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentPtrOutput)
 }
 
 // IdentityPoolRoleAttachmentArrayInput is an input type that accepts IdentityPoolRoleAttachmentArray and IdentityPoolRoleAttachmentArrayOutput values.
@@ -280,7 +251,7 @@ func (i IdentityPoolRoleAttachmentMap) ToIdentityPoolRoleAttachmentMapOutputWith
 type IdentityPoolRoleAttachmentOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolRoleAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {
@@ -291,44 +262,10 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 	return o
 }
 
-func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
-	return o.ToIdentityPoolRoleAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPoolRoleAttachment) *IdentityPoolRoleAttachment {
-		return &v
-	}).(IdentityPoolRoleAttachmentPtrOutput)
-}
-
-type IdentityPoolRoleAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityPoolRoleAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil))
-}
-
-func (o IdentityPoolRoleAttachmentPtrOutput) ToIdentityPoolRoleAttachmentPtrOutput() IdentityPoolRoleAttachmentPtrOutput {
-	return o
-}
-
-func (o IdentityPoolRoleAttachmentPtrOutput) ToIdentityPoolRoleAttachmentPtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentPtrOutput {
-	return o
-}
-
-func (o IdentityPoolRoleAttachmentPtrOutput) Elem() IdentityPoolRoleAttachmentOutput {
-	return o.ApplyT(func(v *IdentityPoolRoleAttachment) IdentityPoolRoleAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityPoolRoleAttachment
-		return ret
-	}).(IdentityPoolRoleAttachmentOutput)
-}
-
 type IdentityPoolRoleAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolRoleAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((*[]*IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (o IdentityPoolRoleAttachmentArrayOutput) ToIdentityPoolRoleAttachmentArrayOutput() IdentityPoolRoleAttachmentArrayOutput {
@@ -340,15 +277,15 @@ func (o IdentityPoolRoleAttachmentArrayOutput) ToIdentityPoolRoleAttachmentArray
 }
 
 func (o IdentityPoolRoleAttachmentArrayOutput) Index(i pulumi.IntInput) IdentityPoolRoleAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPoolRoleAttachment {
-		return vs[0].([]IdentityPoolRoleAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPoolRoleAttachment {
+		return vs[0].([]*IdentityPoolRoleAttachment)[vs[1].(int)]
 	}).(IdentityPoolRoleAttachmentOutput)
 }
 
 type IdentityPoolRoleAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolRoleAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((*map[string]*IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (o IdentityPoolRoleAttachmentMapOutput) ToIdentityPoolRoleAttachmentMapOutput() IdentityPoolRoleAttachmentMapOutput {
@@ -360,18 +297,16 @@ func (o IdentityPoolRoleAttachmentMapOutput) ToIdentityPoolRoleAttachmentMapOutp
 }
 
 func (o IdentityPoolRoleAttachmentMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolRoleAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPoolRoleAttachment {
-		return vs[0].(map[string]IdentityPoolRoleAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IdentityPoolRoleAttachment {
+		return vs[0].(map[string]*IdentityPoolRoleAttachment)[vs[1].(string)]
 	}).(IdentityPoolRoleAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentInput)(nil)).Elem(), &IdentityPoolRoleAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentPtrInput)(nil)).Elem(), &IdentityPoolRoleAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentMapInput)(nil)).Elem(), IdentityPoolRoleAttachmentMap{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentOutput{})
-	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentMapOutput{})
 }

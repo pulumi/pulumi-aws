@@ -690,42 +690,42 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["additionalInfo"] = state ? state.additionalInfo : undefined;
-            inputs["applications"] = state ? state.applications : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoTerminationPolicy"] = state ? state.autoTerminationPolicy : undefined;
-            inputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;
-            inputs["bootstrapActions"] = state ? state.bootstrapActions : undefined;
-            inputs["clusterState"] = state ? state.clusterState : undefined;
-            inputs["configurations"] = state ? state.configurations : undefined;
-            inputs["configurationsJson"] = state ? state.configurationsJson : undefined;
-            inputs["coreInstanceFleet"] = state ? state.coreInstanceFleet : undefined;
-            inputs["coreInstanceGroup"] = state ? state.coreInstanceGroup : undefined;
-            inputs["customAmiId"] = state ? state.customAmiId : undefined;
-            inputs["ebsRootVolumeSize"] = state ? state.ebsRootVolumeSize : undefined;
-            inputs["ec2Attributes"] = state ? state.ec2Attributes : undefined;
-            inputs["keepJobFlowAliveWhenNoSteps"] = state ? state.keepJobFlowAliveWhenNoSteps : undefined;
-            inputs["kerberosAttributes"] = state ? state.kerberosAttributes : undefined;
-            inputs["logEncryptionKmsKeyId"] = state ? state.logEncryptionKmsKeyId : undefined;
-            inputs["logUri"] = state ? state.logUri : undefined;
-            inputs["masterInstanceFleet"] = state ? state.masterInstanceFleet : undefined;
-            inputs["masterInstanceGroup"] = state ? state.masterInstanceGroup : undefined;
-            inputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["releaseLabel"] = state ? state.releaseLabel : undefined;
-            inputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
-            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
-            inputs["steps"] = state ? state.steps : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["terminationProtection"] = state ? state.terminationProtection : undefined;
-            inputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
+            resourceInputs["additionalInfo"] = state ? state.additionalInfo : undefined;
+            resourceInputs["applications"] = state ? state.applications : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoTerminationPolicy"] = state ? state.autoTerminationPolicy : undefined;
+            resourceInputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;
+            resourceInputs["bootstrapActions"] = state ? state.bootstrapActions : undefined;
+            resourceInputs["clusterState"] = state ? state.clusterState : undefined;
+            resourceInputs["configurations"] = state ? state.configurations : undefined;
+            resourceInputs["configurationsJson"] = state ? state.configurationsJson : undefined;
+            resourceInputs["coreInstanceFleet"] = state ? state.coreInstanceFleet : undefined;
+            resourceInputs["coreInstanceGroup"] = state ? state.coreInstanceGroup : undefined;
+            resourceInputs["customAmiId"] = state ? state.customAmiId : undefined;
+            resourceInputs["ebsRootVolumeSize"] = state ? state.ebsRootVolumeSize : undefined;
+            resourceInputs["ec2Attributes"] = state ? state.ec2Attributes : undefined;
+            resourceInputs["keepJobFlowAliveWhenNoSteps"] = state ? state.keepJobFlowAliveWhenNoSteps : undefined;
+            resourceInputs["kerberosAttributes"] = state ? state.kerberosAttributes : undefined;
+            resourceInputs["logEncryptionKmsKeyId"] = state ? state.logEncryptionKmsKeyId : undefined;
+            resourceInputs["logUri"] = state ? state.logUri : undefined;
+            resourceInputs["masterInstanceFleet"] = state ? state.masterInstanceFleet : undefined;
+            resourceInputs["masterInstanceGroup"] = state ? state.masterInstanceGroup : undefined;
+            resourceInputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
+            resourceInputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
+            resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
+            resourceInputs["steps"] = state ? state.steps : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["terminationProtection"] = state ? state.terminationProtection : undefined;
+            resourceInputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.releaseLabel === undefined) && !opts.urn) {
@@ -734,43 +734,41 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            inputs["additionalInfo"] = args ? args.additionalInfo : undefined;
-            inputs["applications"] = args ? args.applications : undefined;
-            inputs["autoTerminationPolicy"] = args ? args.autoTerminationPolicy : undefined;
-            inputs["autoscalingRole"] = args ? args.autoscalingRole : undefined;
-            inputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
-            inputs["configurations"] = args ? args.configurations : undefined;
-            inputs["configurationsJson"] = args ? args.configurationsJson : undefined;
-            inputs["coreInstanceFleet"] = args ? args.coreInstanceFleet : undefined;
-            inputs["coreInstanceGroup"] = args ? args.coreInstanceGroup : undefined;
-            inputs["customAmiId"] = args ? args.customAmiId : undefined;
-            inputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
-            inputs["ec2Attributes"] = args ? args.ec2Attributes : undefined;
-            inputs["keepJobFlowAliveWhenNoSteps"] = args ? args.keepJobFlowAliveWhenNoSteps : undefined;
-            inputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
-            inputs["logEncryptionKmsKeyId"] = args ? args.logEncryptionKmsKeyId : undefined;
-            inputs["logUri"] = args ? args.logUri : undefined;
-            inputs["masterInstanceFleet"] = args ? args.masterInstanceFleet : undefined;
-            inputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["releaseLabel"] = args ? args.releaseLabel : undefined;
-            inputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
-            inputs["steps"] = args ? args.steps : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["terminationProtection"] = args ? args.terminationProtection : undefined;
-            inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["masterPublicDns"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["additionalInfo"] = args ? args.additionalInfo : undefined;
+            resourceInputs["applications"] = args ? args.applications : undefined;
+            resourceInputs["autoTerminationPolicy"] = args ? args.autoTerminationPolicy : undefined;
+            resourceInputs["autoscalingRole"] = args ? args.autoscalingRole : undefined;
+            resourceInputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
+            resourceInputs["configurations"] = args ? args.configurations : undefined;
+            resourceInputs["configurationsJson"] = args ? args.configurationsJson : undefined;
+            resourceInputs["coreInstanceFleet"] = args ? args.coreInstanceFleet : undefined;
+            resourceInputs["coreInstanceGroup"] = args ? args.coreInstanceGroup : undefined;
+            resourceInputs["customAmiId"] = args ? args.customAmiId : undefined;
+            resourceInputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
+            resourceInputs["ec2Attributes"] = args ? args.ec2Attributes : undefined;
+            resourceInputs["keepJobFlowAliveWhenNoSteps"] = args ? args.keepJobFlowAliveWhenNoSteps : undefined;
+            resourceInputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
+            resourceInputs["logEncryptionKmsKeyId"] = args ? args.logEncryptionKmsKeyId : undefined;
+            resourceInputs["logUri"] = args ? args.logUri : undefined;
+            resourceInputs["masterInstanceFleet"] = args ? args.masterInstanceFleet : undefined;
+            resourceInputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
+            resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
+            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
+            resourceInputs["steps"] = args ? args.steps : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminationProtection"] = args ? args.terminationProtection : undefined;
+            resourceInputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterState"] = undefined /*out*/;
+            resourceInputs["masterPublicDns"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

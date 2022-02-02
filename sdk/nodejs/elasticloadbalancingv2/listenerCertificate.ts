@@ -89,12 +89,12 @@ export class ListenerCertificate extends pulumi.CustomResource {
     /** @deprecated aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate */
     constructor(name: string, argsOrState?: ListenerCertificateArgs | ListenerCertificateState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ListenerCertificate is deprecated: aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerCertificateState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["listenerArn"] = state ? state.listenerArn : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
         } else {
             const args = argsOrState as ListenerCertificateArgs | undefined;
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
@@ -103,13 +103,11 @@ export class ListenerCertificate extends pulumi.CustomResource {
             if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ListenerCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ListenerCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

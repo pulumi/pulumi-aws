@@ -113,7 +113,7 @@ type ClusterCapacityProvidersInput interface {
 }
 
 func (*ClusterCapacityProviders) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCapacityProviders)(nil))
+	return reflect.TypeOf((**ClusterCapacityProviders)(nil)).Elem()
 }
 
 func (i *ClusterCapacityProviders) ToClusterCapacityProvidersOutput() ClusterCapacityProvidersOutput {
@@ -122,35 +122,6 @@ func (i *ClusterCapacityProviders) ToClusterCapacityProvidersOutput() ClusterCap
 
 func (i *ClusterCapacityProviders) ToClusterCapacityProvidersOutputWithContext(ctx context.Context) ClusterCapacityProvidersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersOutput)
-}
-
-func (i *ClusterCapacityProviders) ToClusterCapacityProvidersPtrOutput() ClusterCapacityProvidersPtrOutput {
-	return i.ToClusterCapacityProvidersPtrOutputWithContext(context.Background())
-}
-
-func (i *ClusterCapacityProviders) ToClusterCapacityProvidersPtrOutputWithContext(ctx context.Context) ClusterCapacityProvidersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersPtrOutput)
-}
-
-type ClusterCapacityProvidersPtrInput interface {
-	pulumi.Input
-
-	ToClusterCapacityProvidersPtrOutput() ClusterCapacityProvidersPtrOutput
-	ToClusterCapacityProvidersPtrOutputWithContext(ctx context.Context) ClusterCapacityProvidersPtrOutput
-}
-
-type clusterCapacityProvidersPtrType ClusterCapacityProvidersArgs
-
-func (*clusterCapacityProvidersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterCapacityProviders)(nil))
-}
-
-func (i *clusterCapacityProvidersPtrType) ToClusterCapacityProvidersPtrOutput() ClusterCapacityProvidersPtrOutput {
-	return i.ToClusterCapacityProvidersPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterCapacityProvidersPtrType) ToClusterCapacityProvidersPtrOutputWithContext(ctx context.Context) ClusterCapacityProvidersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersPtrOutput)
 }
 
 // ClusterCapacityProvidersArrayInput is an input type that accepts ClusterCapacityProvidersArray and ClusterCapacityProvidersArrayOutput values.
@@ -206,7 +177,7 @@ func (i ClusterCapacityProvidersMap) ToClusterCapacityProvidersMapOutputWithCont
 type ClusterCapacityProvidersOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProvidersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCapacityProviders)(nil))
+	return reflect.TypeOf((**ClusterCapacityProviders)(nil)).Elem()
 }
 
 func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersOutput() ClusterCapacityProvidersOutput {
@@ -217,44 +188,10 @@ func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersOutputWithCont
 	return o
 }
 
-func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersPtrOutput() ClusterCapacityProvidersPtrOutput {
-	return o.ToClusterCapacityProvidersPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersPtrOutputWithContext(ctx context.Context) ClusterCapacityProvidersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCapacityProviders) *ClusterCapacityProviders {
-		return &v
-	}).(ClusterCapacityProvidersPtrOutput)
-}
-
-type ClusterCapacityProvidersPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterCapacityProvidersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterCapacityProviders)(nil))
-}
-
-func (o ClusterCapacityProvidersPtrOutput) ToClusterCapacityProvidersPtrOutput() ClusterCapacityProvidersPtrOutput {
-	return o
-}
-
-func (o ClusterCapacityProvidersPtrOutput) ToClusterCapacityProvidersPtrOutputWithContext(ctx context.Context) ClusterCapacityProvidersPtrOutput {
-	return o
-}
-
-func (o ClusterCapacityProvidersPtrOutput) Elem() ClusterCapacityProvidersOutput {
-	return o.ApplyT(func(v *ClusterCapacityProviders) ClusterCapacityProviders {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterCapacityProviders
-		return ret
-	}).(ClusterCapacityProvidersOutput)
-}
-
 type ClusterCapacityProvidersArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProvidersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterCapacityProviders)(nil))
+	return reflect.TypeOf((*[]*ClusterCapacityProviders)(nil)).Elem()
 }
 
 func (o ClusterCapacityProvidersArrayOutput) ToClusterCapacityProvidersArrayOutput() ClusterCapacityProvidersArrayOutput {
@@ -266,15 +203,15 @@ func (o ClusterCapacityProvidersArrayOutput) ToClusterCapacityProvidersArrayOutp
 }
 
 func (o ClusterCapacityProvidersArrayOutput) Index(i pulumi.IntInput) ClusterCapacityProvidersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCapacityProviders {
-		return vs[0].([]ClusterCapacityProviders)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterCapacityProviders {
+		return vs[0].([]*ClusterCapacityProviders)[vs[1].(int)]
 	}).(ClusterCapacityProvidersOutput)
 }
 
 type ClusterCapacityProvidersMapOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProvidersMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterCapacityProviders)(nil))
+	return reflect.TypeOf((*map[string]*ClusterCapacityProviders)(nil)).Elem()
 }
 
 func (o ClusterCapacityProvidersMapOutput) ToClusterCapacityProvidersMapOutput() ClusterCapacityProvidersMapOutput {
@@ -286,18 +223,16 @@ func (o ClusterCapacityProvidersMapOutput) ToClusterCapacityProvidersMapOutputWi
 }
 
 func (o ClusterCapacityProvidersMapOutput) MapIndex(k pulumi.StringInput) ClusterCapacityProvidersOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterCapacityProviders {
-		return vs[0].(map[string]ClusterCapacityProviders)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ClusterCapacityProviders {
+		return vs[0].(map[string]*ClusterCapacityProviders)[vs[1].(string)]
 	}).(ClusterCapacityProvidersOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersInput)(nil)).Elem(), &ClusterCapacityProviders{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersPtrInput)(nil)).Elem(), &ClusterCapacityProviders{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersArrayInput)(nil)).Elem(), ClusterCapacityProvidersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersMapInput)(nil)).Elem(), ClusterCapacityProvidersMap{})
 	pulumi.RegisterOutputType(ClusterCapacityProvidersOutput{})
-	pulumi.RegisterOutputType(ClusterCapacityProvidersPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProvidersArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProvidersMapOutput{})
 }

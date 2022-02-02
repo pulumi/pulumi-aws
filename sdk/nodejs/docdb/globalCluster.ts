@@ -171,42 +171,40 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GlobalClusterArgs | GlobalClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
-            inputs["globalClusterMembers"] = state ? state.globalClusterMembers : undefined;
-            inputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
-            inputs["sourceDbClusterIdentifier"] = state ? state.sourceDbClusterIdentifier : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
+            resourceInputs["globalClusterMembers"] = state ? state.globalClusterMembers : undefined;
+            resourceInputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = state ? state.sourceDbClusterIdentifier : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
         } else {
             const args = argsOrState as GlobalClusterArgs | undefined;
             if ((!args || args.globalClusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalClusterIdentifier'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            inputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
-            inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["globalClusterMembers"] = undefined /*out*/;
-            inputs["globalClusterResourceId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["globalClusterMembers"] = undefined /*out*/;
+            resourceInputs["globalClusterResourceId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GlobalCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GlobalCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

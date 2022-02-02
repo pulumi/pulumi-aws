@@ -24,9 +24,7 @@ export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,
         "tags": args.tags,

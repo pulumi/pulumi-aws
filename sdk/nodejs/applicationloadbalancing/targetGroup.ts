@@ -181,57 +181,55 @@ export class TargetGroup extends pulumi.CustomResource {
     /** @deprecated aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup */
     constructor(name: string, argsOrState?: TargetGroupArgs | TargetGroupState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TargetGroup is deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
-            inputs["connectionTermination"] = state ? state.connectionTermination : undefined;
-            inputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
-            inputs["healthCheck"] = state ? state.healthCheck : undefined;
-            inputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
-            inputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["preserveClientIp"] = state ? state.preserveClientIp : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["protocolVersion"] = state ? state.protocolVersion : undefined;
-            inputs["proxyProtocolV2"] = state ? state.proxyProtocolV2 : undefined;
-            inputs["slowStart"] = state ? state.slowStart : undefined;
-            inputs["stickiness"] = state ? state.stickiness : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetType"] = state ? state.targetType : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["arnSuffix"] = state ? state.arnSuffix : undefined;
+            resourceInputs["connectionTermination"] = state ? state.connectionTermination : undefined;
+            resourceInputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
+            resourceInputs["healthCheck"] = state ? state.healthCheck : undefined;
+            resourceInputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
+            resourceInputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["preserveClientIp"] = state ? state.preserveClientIp : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["protocolVersion"] = state ? state.protocolVersion : undefined;
+            resourceInputs["proxyProtocolV2"] = state ? state.proxyProtocolV2 : undefined;
+            resourceInputs["slowStart"] = state ? state.slowStart : undefined;
+            resourceInputs["stickiness"] = state ? state.stickiness : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as TargetGroupArgs | undefined;
-            inputs["connectionTermination"] = args ? args.connectionTermination : undefined;
-            inputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
-            inputs["healthCheck"] = args ? args.healthCheck : undefined;
-            inputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
-            inputs["loadBalancingAlgorithmType"] = args ? args.loadBalancingAlgorithmType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["preserveClientIp"] = args ? args.preserveClientIp : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["protocolVersion"] = args ? args.protocolVersion : undefined;
-            inputs["proxyProtocolV2"] = args ? args.proxyProtocolV2 : undefined;
-            inputs["slowStart"] = args ? args.slowStart : undefined;
-            inputs["stickiness"] = args ? args.stickiness : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["arnSuffix"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["connectionTermination"] = args ? args.connectionTermination : undefined;
+            resourceInputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
+            resourceInputs["healthCheck"] = args ? args.healthCheck : undefined;
+            resourceInputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
+            resourceInputs["loadBalancingAlgorithmType"] = args ? args.loadBalancingAlgorithmType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["preserveClientIp"] = args ? args.preserveClientIp : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["protocolVersion"] = args ? args.protocolVersion : undefined;
+            resourceInputs["proxyProtocolV2"] = args ? args.proxyProtocolV2 : undefined;
+            resourceInputs["slowStart"] = args ? args.slowStart : undefined;
+            resourceInputs["stickiness"] = args ? args.stickiness : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnSuffix"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TargetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

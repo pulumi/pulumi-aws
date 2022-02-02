@@ -123,42 +123,40 @@ export class Account extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;
-            inputs["joinedMethod"] = state ? state.joinedMethod : undefined;
-            inputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parentId"] = state ? state.parentId : undefined;
-            inputs["roleName"] = state ? state.roleName : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;
+            resourceInputs["joinedMethod"] = state ? state.joinedMethod : undefined;
+            resourceInputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentId"] = state ? state.parentId : undefined;
+            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["email"] = args ? args.email : undefined;
-            inputs["iamUserAccessToBilling"] = args ? args.iamUserAccessToBilling : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentId"] = args ? args.parentId : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["joinedMethod"] = undefined /*out*/;
-            inputs["joinedTimestamp"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["iamUserAccessToBilling"] = args ? args.iamUserAccessToBilling : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentId"] = args ? args.parentId : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["joinedMethod"] = undefined /*out*/;
+            resourceInputs["joinedTimestamp"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Account.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -93,14 +93,14 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     /** @deprecated aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy */
     constructor(name: string, argsOrState?: LoadBalancerCookieStickinessPolicyArgs | LoadBalancerCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerCookieStickinessPolicyState | undefined;
-            inputs["cookieExpirationPeriod"] = state ? state.cookieExpirationPeriod : undefined;
-            inputs["lbPort"] = state ? state.lbPort : undefined;
-            inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["cookieExpirationPeriod"] = state ? state.cookieExpirationPeriod : undefined;
+            resourceInputs["lbPort"] = state ? state.lbPort : undefined;
+            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LoadBalancerCookieStickinessPolicyArgs | undefined;
             if ((!args || args.lbPort === undefined) && !opts.urn) {
@@ -109,15 +109,13 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
             if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            inputs["cookieExpirationPeriod"] = args ? args.cookieExpirationPeriod : undefined;
-            inputs["lbPort"] = args ? args.lbPort : undefined;
-            inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["cookieExpirationPeriod"] = args ? args.cookieExpirationPeriod : undefined;
+            resourceInputs["lbPort"] = args ? args.lbPort : undefined;
+            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancerCookieStickinessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancerCookieStickinessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

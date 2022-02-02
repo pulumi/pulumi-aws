@@ -90,29 +90,27 @@ export class Thing extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ThingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThingArgs | ThingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["defaultClientId"] = state ? state.defaultClientId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["thingTypeName"] = state ? state.thingTypeName : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["defaultClientId"] = state ? state.defaultClientId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["thingTypeName"] = state ? state.thingTypeName : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ThingArgs | undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["thingTypeName"] = args ? args.thingTypeName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultClientId"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["thingTypeName"] = args ? args.thingTypeName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultClientId"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Thing.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Thing.__pulumiType, name, resourceInputs, opts);
     }
 }
 

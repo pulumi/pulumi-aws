@@ -46,7 +46,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/batch"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -294,7 +293,7 @@ type JobDefinitionInput interface {
 }
 
 func (*JobDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinition)(nil))
+	return reflect.TypeOf((**JobDefinition)(nil)).Elem()
 }
 
 func (i *JobDefinition) ToJobDefinitionOutput() JobDefinitionOutput {
@@ -303,35 +302,6 @@ func (i *JobDefinition) ToJobDefinitionOutput() JobDefinitionOutput {
 
 func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionOutput)
-}
-
-func (i *JobDefinition) ToJobDefinitionPtrOutput() JobDefinitionPtrOutput {
-	return i.ToJobDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *JobDefinition) ToJobDefinitionPtrOutputWithContext(ctx context.Context) JobDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionPtrOutput)
-}
-
-type JobDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionPtrOutput() JobDefinitionPtrOutput
-	ToJobDefinitionPtrOutputWithContext(ctx context.Context) JobDefinitionPtrOutput
-}
-
-type jobDefinitionPtrType JobDefinitionArgs
-
-func (*jobDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinition)(nil))
-}
-
-func (i *jobDefinitionPtrType) ToJobDefinitionPtrOutput() JobDefinitionPtrOutput {
-	return i.ToJobDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionPtrType) ToJobDefinitionPtrOutputWithContext(ctx context.Context) JobDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionPtrOutput)
 }
 
 // JobDefinitionArrayInput is an input type that accepts JobDefinitionArray and JobDefinitionArrayOutput values.
@@ -387,7 +357,7 @@ func (i JobDefinitionMap) ToJobDefinitionMapOutputWithContext(ctx context.Contex
 type JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinition)(nil))
+	return reflect.TypeOf((**JobDefinition)(nil)).Elem()
 }
 
 func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {
@@ -398,44 +368,10 @@ func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o JobDefinitionOutput) ToJobDefinitionPtrOutput() JobDefinitionPtrOutput {
-	return o.ToJobDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionOutput) ToJobDefinitionPtrOutputWithContext(ctx context.Context) JobDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinition) *JobDefinition {
-		return &v
-	}).(JobDefinitionPtrOutput)
-}
-
-type JobDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinition)(nil))
-}
-
-func (o JobDefinitionPtrOutput) ToJobDefinitionPtrOutput() JobDefinitionPtrOutput {
-	return o
-}
-
-func (o JobDefinitionPtrOutput) ToJobDefinitionPtrOutputWithContext(ctx context.Context) JobDefinitionPtrOutput {
-	return o
-}
-
-func (o JobDefinitionPtrOutput) Elem() JobDefinitionOutput {
-	return o.ApplyT(func(v *JobDefinition) JobDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinition
-		return ret
-	}).(JobDefinitionOutput)
-}
-
 type JobDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobDefinition)(nil))
+	return reflect.TypeOf((*[]*JobDefinition)(nil)).Elem()
 }
 
 func (o JobDefinitionArrayOutput) ToJobDefinitionArrayOutput() JobDefinitionArrayOutput {
@@ -447,15 +383,15 @@ func (o JobDefinitionArrayOutput) ToJobDefinitionArrayOutputWithContext(ctx cont
 }
 
 func (o JobDefinitionArrayOutput) Index(i pulumi.IntInput) JobDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinition {
-		return vs[0].([]JobDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobDefinition {
+		return vs[0].([]*JobDefinition)[vs[1].(int)]
 	}).(JobDefinitionOutput)
 }
 
 type JobDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]JobDefinition)(nil))
+	return reflect.TypeOf((*map[string]*JobDefinition)(nil)).Elem()
 }
 
 func (o JobDefinitionMapOutput) ToJobDefinitionMapOutput() JobDefinitionMapOutput {
@@ -467,18 +403,16 @@ func (o JobDefinitionMapOutput) ToJobDefinitionMapOutputWithContext(ctx context.
 }
 
 func (o JobDefinitionMapOutput) MapIndex(k pulumi.StringInput) JobDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JobDefinition {
-		return vs[0].(map[string]JobDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *JobDefinition {
+		return vs[0].(map[string]*JobDefinition)[vs[1].(string)]
 	}).(JobDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionInput)(nil)).Elem(), &JobDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionPtrInput)(nil)).Elem(), &JobDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionArrayInput)(nil)).Elem(), JobDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMapInput)(nil)).Elem(), JobDefinitionMap{})
 	pulumi.RegisterOutputType(JobDefinitionOutput{})
-	pulumi.RegisterOutputType(JobDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionMapOutput{})
 }

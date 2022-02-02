@@ -205,7 +205,7 @@ type SecretVersionInput interface {
 }
 
 func (*SecretVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVersion)(nil))
+	return reflect.TypeOf((**SecretVersion)(nil)).Elem()
 }
 
 func (i *SecretVersion) ToSecretVersionOutput() SecretVersionOutput {
@@ -214,35 +214,6 @@ func (i *SecretVersion) ToSecretVersionOutput() SecretVersionOutput {
 
 func (i *SecretVersion) ToSecretVersionOutputWithContext(ctx context.Context) SecretVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretVersionOutput)
-}
-
-func (i *SecretVersion) ToSecretVersionPtrOutput() SecretVersionPtrOutput {
-	return i.ToSecretVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *SecretVersion) ToSecretVersionPtrOutputWithContext(ctx context.Context) SecretVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVersionPtrOutput)
-}
-
-type SecretVersionPtrInput interface {
-	pulumi.Input
-
-	ToSecretVersionPtrOutput() SecretVersionPtrOutput
-	ToSecretVersionPtrOutputWithContext(ctx context.Context) SecretVersionPtrOutput
-}
-
-type secretVersionPtrType SecretVersionArgs
-
-func (*secretVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretVersion)(nil))
-}
-
-func (i *secretVersionPtrType) ToSecretVersionPtrOutput() SecretVersionPtrOutput {
-	return i.ToSecretVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *secretVersionPtrType) ToSecretVersionPtrOutputWithContext(ctx context.Context) SecretVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVersionPtrOutput)
 }
 
 // SecretVersionArrayInput is an input type that accepts SecretVersionArray and SecretVersionArrayOutput values.
@@ -298,7 +269,7 @@ func (i SecretVersionMap) ToSecretVersionMapOutputWithContext(ctx context.Contex
 type SecretVersionOutput struct{ *pulumi.OutputState }
 
 func (SecretVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVersion)(nil))
+	return reflect.TypeOf((**SecretVersion)(nil)).Elem()
 }
 
 func (o SecretVersionOutput) ToSecretVersionOutput() SecretVersionOutput {
@@ -309,44 +280,10 @@ func (o SecretVersionOutput) ToSecretVersionOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SecretVersionOutput) ToSecretVersionPtrOutput() SecretVersionPtrOutput {
-	return o.ToSecretVersionPtrOutputWithContext(context.Background())
-}
-
-func (o SecretVersionOutput) ToSecretVersionPtrOutputWithContext(ctx context.Context) SecretVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretVersion) *SecretVersion {
-		return &v
-	}).(SecretVersionPtrOutput)
-}
-
-type SecretVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (SecretVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretVersion)(nil))
-}
-
-func (o SecretVersionPtrOutput) ToSecretVersionPtrOutput() SecretVersionPtrOutput {
-	return o
-}
-
-func (o SecretVersionPtrOutput) ToSecretVersionPtrOutputWithContext(ctx context.Context) SecretVersionPtrOutput {
-	return o
-}
-
-func (o SecretVersionPtrOutput) Elem() SecretVersionOutput {
-	return o.ApplyT(func(v *SecretVersion) SecretVersion {
-		if v != nil {
-			return *v
-		}
-		var ret SecretVersion
-		return ret
-	}).(SecretVersionOutput)
-}
-
 type SecretVersionArrayOutput struct{ *pulumi.OutputState }
 
 func (SecretVersionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecretVersion)(nil))
+	return reflect.TypeOf((*[]*SecretVersion)(nil)).Elem()
 }
 
 func (o SecretVersionArrayOutput) ToSecretVersionArrayOutput() SecretVersionArrayOutput {
@@ -358,15 +295,15 @@ func (o SecretVersionArrayOutput) ToSecretVersionArrayOutputWithContext(ctx cont
 }
 
 func (o SecretVersionArrayOutput) Index(i pulumi.IntInput) SecretVersionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecretVersion {
-		return vs[0].([]SecretVersion)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecretVersion {
+		return vs[0].([]*SecretVersion)[vs[1].(int)]
 	}).(SecretVersionOutput)
 }
 
 type SecretVersionMapOutput struct{ *pulumi.OutputState }
 
 func (SecretVersionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecretVersion)(nil))
+	return reflect.TypeOf((*map[string]*SecretVersion)(nil)).Elem()
 }
 
 func (o SecretVersionMapOutput) ToSecretVersionMapOutput() SecretVersionMapOutput {
@@ -378,18 +315,16 @@ func (o SecretVersionMapOutput) ToSecretVersionMapOutputWithContext(ctx context.
 }
 
 func (o SecretVersionMapOutput) MapIndex(k pulumi.StringInput) SecretVersionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecretVersion {
-		return vs[0].(map[string]SecretVersion)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SecretVersion {
+		return vs[0].(map[string]*SecretVersion)[vs[1].(string)]
 	}).(SecretVersionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionInput)(nil)).Elem(), &SecretVersion{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionPtrInput)(nil)).Elem(), &SecretVersion{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionArrayInput)(nil)).Elem(), SecretVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionMapInput)(nil)).Elem(), SecretVersionMap{})
 	pulumi.RegisterOutputType(SecretVersionOutput{})
-	pulumi.RegisterOutputType(SecretVersionPtrOutput{})
 	pulumi.RegisterOutputType(SecretVersionArrayOutput{})
 	pulumi.RegisterOutputType(SecretVersionMapOutput{})
 }

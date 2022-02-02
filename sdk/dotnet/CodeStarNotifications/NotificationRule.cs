@@ -29,11 +29,11 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///         var notif = new Aws.Sns.Topic("notif", new Aws.Sns.TopicArgs
     ///         {
     ///         });
-    ///         var notifAccess = notif.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var notifAccess = notif.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Actions = 
     ///                     {
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///                     },
     ///                     Principals = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
     ///                             Type = "Service",
     ///                             Identifiers = 

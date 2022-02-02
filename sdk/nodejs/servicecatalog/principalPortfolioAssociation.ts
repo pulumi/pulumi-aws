@@ -82,14 +82,14 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrincipalPortfolioAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrincipalPortfolioAssociationArgs | PrincipalPortfolioAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrincipalPortfolioAssociationState | undefined;
-            inputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            inputs["portfolioId"] = state ? state.portfolioId : undefined;
-            inputs["principalArn"] = state ? state.principalArn : undefined;
-            inputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["principalType"] = state ? state.principalType : undefined;
         } else {
             const args = argsOrState as PrincipalPortfolioAssociationArgs | undefined;
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
@@ -98,15 +98,13 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
             if ((!args || args.principalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["principalArn"] = args ? args.principalArn : undefined;
-            inputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PrincipalPortfolioAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PrincipalPortfolioAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

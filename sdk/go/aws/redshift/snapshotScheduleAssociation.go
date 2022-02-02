@@ -150,7 +150,7 @@ type SnapshotScheduleAssociationInput interface {
 }
 
 func (*SnapshotScheduleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotScheduleAssociation)(nil))
+	return reflect.TypeOf((**SnapshotScheduleAssociation)(nil)).Elem()
 }
 
 func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutput() SnapshotScheduleAssociationOutput {
@@ -159,35 +159,6 @@ func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutput() Snap
 
 func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutputWithContext(ctx context.Context) SnapshotScheduleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationOutput)
-}
-
-func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
-	return i.ToSnapshotScheduleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationPtrOutput)
-}
-
-type SnapshotScheduleAssociationPtrInput interface {
-	pulumi.Input
-
-	ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput
-	ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput
-}
-
-type snapshotScheduleAssociationPtrType SnapshotScheduleAssociationArgs
-
-func (*snapshotScheduleAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotScheduleAssociation)(nil))
-}
-
-func (i *snapshotScheduleAssociationPtrType) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
-	return i.ToSnapshotScheduleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *snapshotScheduleAssociationPtrType) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationPtrOutput)
 }
 
 // SnapshotScheduleAssociationArrayInput is an input type that accepts SnapshotScheduleAssociationArray and SnapshotScheduleAssociationArrayOutput values.
@@ -243,7 +214,7 @@ func (i SnapshotScheduleAssociationMap) ToSnapshotScheduleAssociationMapOutputWi
 type SnapshotScheduleAssociationOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotScheduleAssociation)(nil))
+	return reflect.TypeOf((**SnapshotScheduleAssociation)(nil)).Elem()
 }
 
 func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationOutput() SnapshotScheduleAssociationOutput {
@@ -254,44 +225,10 @@ func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationOutputWi
 	return o
 }
 
-func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
-	return o.ToSnapshotScheduleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotScheduleAssociation) *SnapshotScheduleAssociation {
-		return &v
-	}).(SnapshotScheduleAssociationPtrOutput)
-}
-
-type SnapshotScheduleAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (SnapshotScheduleAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotScheduleAssociation)(nil))
-}
-
-func (o SnapshotScheduleAssociationPtrOutput) ToSnapshotScheduleAssociationPtrOutput() SnapshotScheduleAssociationPtrOutput {
-	return o
-}
-
-func (o SnapshotScheduleAssociationPtrOutput) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
-	return o
-}
-
-func (o SnapshotScheduleAssociationPtrOutput) Elem() SnapshotScheduleAssociationOutput {
-	return o.ApplyT(func(v *SnapshotScheduleAssociation) SnapshotScheduleAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret SnapshotScheduleAssociation
-		return ret
-	}).(SnapshotScheduleAssociationOutput)
-}
-
 type SnapshotScheduleAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SnapshotScheduleAssociation)(nil))
+	return reflect.TypeOf((*[]*SnapshotScheduleAssociation)(nil)).Elem()
 }
 
 func (o SnapshotScheduleAssociationArrayOutput) ToSnapshotScheduleAssociationArrayOutput() SnapshotScheduleAssociationArrayOutput {
@@ -303,15 +240,15 @@ func (o SnapshotScheduleAssociationArrayOutput) ToSnapshotScheduleAssociationArr
 }
 
 func (o SnapshotScheduleAssociationArrayOutput) Index(i pulumi.IntInput) SnapshotScheduleAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotScheduleAssociation {
-		return vs[0].([]SnapshotScheduleAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotScheduleAssociation {
+		return vs[0].([]*SnapshotScheduleAssociation)[vs[1].(int)]
 	}).(SnapshotScheduleAssociationOutput)
 }
 
 type SnapshotScheduleAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SnapshotScheduleAssociation)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotScheduleAssociation)(nil)).Elem()
 }
 
 func (o SnapshotScheduleAssociationMapOutput) ToSnapshotScheduleAssociationMapOutput() SnapshotScheduleAssociationMapOutput {
@@ -323,18 +260,16 @@ func (o SnapshotScheduleAssociationMapOutput) ToSnapshotScheduleAssociationMapOu
 }
 
 func (o SnapshotScheduleAssociationMapOutput) MapIndex(k pulumi.StringInput) SnapshotScheduleAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnapshotScheduleAssociation {
-		return vs[0].(map[string]SnapshotScheduleAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SnapshotScheduleAssociation {
+		return vs[0].(map[string]*SnapshotScheduleAssociation)[vs[1].(string)]
 	}).(SnapshotScheduleAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationInput)(nil)).Elem(), &SnapshotScheduleAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationPtrInput)(nil)).Elem(), &SnapshotScheduleAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationArrayInput)(nil)).Elem(), SnapshotScheduleAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationMapInput)(nil)).Elem(), SnapshotScheduleAssociationMap{})
 	pulumi.RegisterOutputType(SnapshotScheduleAssociationOutput{})
-	pulumi.RegisterOutputType(SnapshotScheduleAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotScheduleAssociationArrayOutput{})
 	pulumi.RegisterOutputType(SnapshotScheduleAssociationMapOutput{})
 }

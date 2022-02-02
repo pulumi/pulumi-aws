@@ -161,7 +161,7 @@ type DomainSamlOptionsInput interface {
 }
 
 func (*DomainSamlOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainSamlOptions)(nil))
+	return reflect.TypeOf((**DomainSamlOptions)(nil)).Elem()
 }
 
 func (i *DomainSamlOptions) ToDomainSamlOptionsOutput() DomainSamlOptionsOutput {
@@ -170,35 +170,6 @@ func (i *DomainSamlOptions) ToDomainSamlOptionsOutput() DomainSamlOptionsOutput 
 
 func (i *DomainSamlOptions) ToDomainSamlOptionsOutputWithContext(ctx context.Context) DomainSamlOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsOutput)
-}
-
-func (i *DomainSamlOptions) ToDomainSamlOptionsPtrOutput() DomainSamlOptionsPtrOutput {
-	return i.ToDomainSamlOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainSamlOptions) ToDomainSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsPtrOutput)
-}
-
-type DomainSamlOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDomainSamlOptionsPtrOutput() DomainSamlOptionsPtrOutput
-	ToDomainSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsPtrOutput
-}
-
-type domainSamlOptionsPtrType DomainSamlOptionsArgs
-
-func (*domainSamlOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainSamlOptions)(nil))
-}
-
-func (i *domainSamlOptionsPtrType) ToDomainSamlOptionsPtrOutput() DomainSamlOptionsPtrOutput {
-	return i.ToDomainSamlOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *domainSamlOptionsPtrType) ToDomainSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsPtrOutput)
 }
 
 // DomainSamlOptionsArrayInput is an input type that accepts DomainSamlOptionsArray and DomainSamlOptionsArrayOutput values.
@@ -254,7 +225,7 @@ func (i DomainSamlOptionsMap) ToDomainSamlOptionsMapOutputWithContext(ctx contex
 type DomainSamlOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainSamlOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainSamlOptions)(nil))
+	return reflect.TypeOf((**DomainSamlOptions)(nil)).Elem()
 }
 
 func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutput() DomainSamlOptionsOutput {
@@ -265,44 +236,10 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutputWithContext(ctx contex
 	return o
 }
 
-func (o DomainSamlOptionsOutput) ToDomainSamlOptionsPtrOutput() DomainSamlOptionsPtrOutput {
-	return o.ToDomainSamlOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DomainSamlOptionsOutput) ToDomainSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSamlOptions) *DomainSamlOptions {
-		return &v
-	}).(DomainSamlOptionsPtrOutput)
-}
-
-type DomainSamlOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainSamlOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainSamlOptions)(nil))
-}
-
-func (o DomainSamlOptionsPtrOutput) ToDomainSamlOptionsPtrOutput() DomainSamlOptionsPtrOutput {
-	return o
-}
-
-func (o DomainSamlOptionsPtrOutput) ToDomainSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsPtrOutput {
-	return o
-}
-
-func (o DomainSamlOptionsPtrOutput) Elem() DomainSamlOptionsOutput {
-	return o.ApplyT(func(v *DomainSamlOptions) DomainSamlOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DomainSamlOptions
-		return ret
-	}).(DomainSamlOptionsOutput)
-}
-
 type DomainSamlOptionsArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainSamlOptionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainSamlOptions)(nil))
+	return reflect.TypeOf((*[]*DomainSamlOptions)(nil)).Elem()
 }
 
 func (o DomainSamlOptionsArrayOutput) ToDomainSamlOptionsArrayOutput() DomainSamlOptionsArrayOutput {
@@ -314,15 +251,15 @@ func (o DomainSamlOptionsArrayOutput) ToDomainSamlOptionsArrayOutputWithContext(
 }
 
 func (o DomainSamlOptionsArrayOutput) Index(i pulumi.IntInput) DomainSamlOptionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainSamlOptions {
-		return vs[0].([]DomainSamlOptions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainSamlOptions {
+		return vs[0].([]*DomainSamlOptions)[vs[1].(int)]
 	}).(DomainSamlOptionsOutput)
 }
 
 type DomainSamlOptionsMapOutput struct{ *pulumi.OutputState }
 
 func (DomainSamlOptionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainSamlOptions)(nil))
+	return reflect.TypeOf((*map[string]*DomainSamlOptions)(nil)).Elem()
 }
 
 func (o DomainSamlOptionsMapOutput) ToDomainSamlOptionsMapOutput() DomainSamlOptionsMapOutput {
@@ -334,18 +271,16 @@ func (o DomainSamlOptionsMapOutput) ToDomainSamlOptionsMapOutputWithContext(ctx 
 }
 
 func (o DomainSamlOptionsMapOutput) MapIndex(k pulumi.StringInput) DomainSamlOptionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainSamlOptions {
-		return vs[0].(map[string]DomainSamlOptions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainSamlOptions {
+		return vs[0].(map[string]*DomainSamlOptions)[vs[1].(string)]
 	}).(DomainSamlOptionsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsInput)(nil)).Elem(), &DomainSamlOptions{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsPtrInput)(nil)).Elem(), &DomainSamlOptions{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsArrayInput)(nil)).Elem(), DomainSamlOptionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsMapInput)(nil)).Elem(), DomainSamlOptionsMap{})
 	pulumi.RegisterOutputType(DomainSamlOptionsOutput{})
-	pulumi.RegisterOutputType(DomainSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsArrayOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsMapOutput{})
 }

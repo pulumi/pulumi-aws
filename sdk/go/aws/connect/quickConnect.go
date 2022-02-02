@@ -196,7 +196,7 @@ type QuickConnectInput interface {
 }
 
 func (*QuickConnect) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnect)(nil))
+	return reflect.TypeOf((**QuickConnect)(nil)).Elem()
 }
 
 func (i *QuickConnect) ToQuickConnectOutput() QuickConnectOutput {
@@ -205,35 +205,6 @@ func (i *QuickConnect) ToQuickConnectOutput() QuickConnectOutput {
 
 func (i *QuickConnect) ToQuickConnectOutputWithContext(ctx context.Context) QuickConnectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectOutput)
-}
-
-func (i *QuickConnect) ToQuickConnectPtrOutput() QuickConnectPtrOutput {
-	return i.ToQuickConnectPtrOutputWithContext(context.Background())
-}
-
-func (i *QuickConnect) ToQuickConnectPtrOutputWithContext(ctx context.Context) QuickConnectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectPtrOutput)
-}
-
-type QuickConnectPtrInput interface {
-	pulumi.Input
-
-	ToQuickConnectPtrOutput() QuickConnectPtrOutput
-	ToQuickConnectPtrOutputWithContext(ctx context.Context) QuickConnectPtrOutput
-}
-
-type quickConnectPtrType QuickConnectArgs
-
-func (*quickConnectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QuickConnect)(nil))
-}
-
-func (i *quickConnectPtrType) ToQuickConnectPtrOutput() QuickConnectPtrOutput {
-	return i.ToQuickConnectPtrOutputWithContext(context.Background())
-}
-
-func (i *quickConnectPtrType) ToQuickConnectPtrOutputWithContext(ctx context.Context) QuickConnectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectPtrOutput)
 }
 
 // QuickConnectArrayInput is an input type that accepts QuickConnectArray and QuickConnectArrayOutput values.
@@ -289,7 +260,7 @@ func (i QuickConnectMap) ToQuickConnectMapOutputWithContext(ctx context.Context)
 type QuickConnectOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnect)(nil))
+	return reflect.TypeOf((**QuickConnect)(nil)).Elem()
 }
 
 func (o QuickConnectOutput) ToQuickConnectOutput() QuickConnectOutput {
@@ -300,44 +271,10 @@ func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o QuickConnectOutput) ToQuickConnectPtrOutput() QuickConnectPtrOutput {
-	return o.ToQuickConnectPtrOutputWithContext(context.Background())
-}
-
-func (o QuickConnectOutput) ToQuickConnectPtrOutputWithContext(ctx context.Context) QuickConnectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickConnect) *QuickConnect {
-		return &v
-	}).(QuickConnectPtrOutput)
-}
-
-type QuickConnectPtrOutput struct{ *pulumi.OutputState }
-
-func (QuickConnectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QuickConnect)(nil))
-}
-
-func (o QuickConnectPtrOutput) ToQuickConnectPtrOutput() QuickConnectPtrOutput {
-	return o
-}
-
-func (o QuickConnectPtrOutput) ToQuickConnectPtrOutputWithContext(ctx context.Context) QuickConnectPtrOutput {
-	return o
-}
-
-func (o QuickConnectPtrOutput) Elem() QuickConnectOutput {
-	return o.ApplyT(func(v *QuickConnect) QuickConnect {
-		if v != nil {
-			return *v
-		}
-		var ret QuickConnect
-		return ret
-	}).(QuickConnectOutput)
-}
-
 type QuickConnectArrayOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]QuickConnect)(nil))
+	return reflect.TypeOf((*[]*QuickConnect)(nil)).Elem()
 }
 
 func (o QuickConnectArrayOutput) ToQuickConnectArrayOutput() QuickConnectArrayOutput {
@@ -349,15 +286,15 @@ func (o QuickConnectArrayOutput) ToQuickConnectArrayOutputWithContext(ctx contex
 }
 
 func (o QuickConnectArrayOutput) Index(i pulumi.IntInput) QuickConnectOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QuickConnect {
-		return vs[0].([]QuickConnect)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QuickConnect {
+		return vs[0].([]*QuickConnect)[vs[1].(int)]
 	}).(QuickConnectOutput)
 }
 
 type QuickConnectMapOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]QuickConnect)(nil))
+	return reflect.TypeOf((*map[string]*QuickConnect)(nil)).Elem()
 }
 
 func (o QuickConnectMapOutput) ToQuickConnectMapOutput() QuickConnectMapOutput {
@@ -369,18 +306,16 @@ func (o QuickConnectMapOutput) ToQuickConnectMapOutputWithContext(ctx context.Co
 }
 
 func (o QuickConnectMapOutput) MapIndex(k pulumi.StringInput) QuickConnectOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) QuickConnect {
-		return vs[0].(map[string]QuickConnect)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *QuickConnect {
+		return vs[0].(map[string]*QuickConnect)[vs[1].(string)]
 	}).(QuickConnectOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectInput)(nil)).Elem(), &QuickConnect{})
-	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPtrInput)(nil)).Elem(), &QuickConnect{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectArrayInput)(nil)).Elem(), QuickConnectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectMapInput)(nil)).Elem(), QuickConnectMap{})
 	pulumi.RegisterOutputType(QuickConnectOutput{})
-	pulumi.RegisterOutputType(QuickConnectPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectMapOutput{})
 }

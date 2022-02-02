@@ -75,21 +75,19 @@ export class RegexPatternSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RegexPatternSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegexPatternSetArgs | RegexPatternSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegexPatternSetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["regexPatternStrings"] = state ? state.regexPatternStrings : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["regexPatternStrings"] = state ? state.regexPatternStrings : undefined;
         } else {
             const args = argsOrState as RegexPatternSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegexPatternSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegexPatternSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

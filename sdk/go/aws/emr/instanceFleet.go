@@ -217,7 +217,7 @@ type InstanceFleetInput interface {
 }
 
 func (*InstanceFleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFleet)(nil))
+	return reflect.TypeOf((**InstanceFleet)(nil)).Elem()
 }
 
 func (i *InstanceFleet) ToInstanceFleetOutput() InstanceFleetOutput {
@@ -226,35 +226,6 @@ func (i *InstanceFleet) ToInstanceFleetOutput() InstanceFleetOutput {
 
 func (i *InstanceFleet) ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetOutput)
-}
-
-func (i *InstanceFleet) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
-	return i.ToInstanceFleetPtrOutputWithContext(context.Background())
-}
-
-func (i *InstanceFleet) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetPtrOutput)
-}
-
-type InstanceFleetPtrInput interface {
-	pulumi.Input
-
-	ToInstanceFleetPtrOutput() InstanceFleetPtrOutput
-	ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput
-}
-
-type instanceFleetPtrType InstanceFleetArgs
-
-func (*instanceFleetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceFleet)(nil))
-}
-
-func (i *instanceFleetPtrType) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
-	return i.ToInstanceFleetPtrOutputWithContext(context.Background())
-}
-
-func (i *instanceFleetPtrType) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetPtrOutput)
 }
 
 // InstanceFleetArrayInput is an input type that accepts InstanceFleetArray and InstanceFleetArrayOutput values.
@@ -310,7 +281,7 @@ func (i InstanceFleetMap) ToInstanceFleetMapOutputWithContext(ctx context.Contex
 type InstanceFleetOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFleet)(nil))
+	return reflect.TypeOf((**InstanceFleet)(nil)).Elem()
 }
 
 func (o InstanceFleetOutput) ToInstanceFleetOutput() InstanceFleetOutput {
@@ -321,44 +292,10 @@ func (o InstanceFleetOutput) ToInstanceFleetOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o InstanceFleetOutput) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
-	return o.ToInstanceFleetPtrOutputWithContext(context.Background())
-}
-
-func (o InstanceFleetOutput) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleet) *InstanceFleet {
-		return &v
-	}).(InstanceFleetPtrOutput)
-}
-
-type InstanceFleetPtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceFleetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceFleet)(nil))
-}
-
-func (o InstanceFleetPtrOutput) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
-	return o
-}
-
-func (o InstanceFleetPtrOutput) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
-	return o
-}
-
-func (o InstanceFleetPtrOutput) Elem() InstanceFleetOutput {
-	return o.ApplyT(func(v *InstanceFleet) InstanceFleet {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFleet
-		return ret
-	}).(InstanceFleetOutput)
-}
-
 type InstanceFleetArrayOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InstanceFleet)(nil))
+	return reflect.TypeOf((*[]*InstanceFleet)(nil)).Elem()
 }
 
 func (o InstanceFleetArrayOutput) ToInstanceFleetArrayOutput() InstanceFleetArrayOutput {
@@ -370,15 +307,15 @@ func (o InstanceFleetArrayOutput) ToInstanceFleetArrayOutputWithContext(ctx cont
 }
 
 func (o InstanceFleetArrayOutput) Index(i pulumi.IntInput) InstanceFleetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleet {
-		return vs[0].([]InstanceFleet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceFleet {
+		return vs[0].([]*InstanceFleet)[vs[1].(int)]
 	}).(InstanceFleetOutput)
 }
 
 type InstanceFleetMapOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]InstanceFleet)(nil))
+	return reflect.TypeOf((*map[string]*InstanceFleet)(nil)).Elem()
 }
 
 func (o InstanceFleetMapOutput) ToInstanceFleetMapOutput() InstanceFleetMapOutput {
@@ -390,18 +327,16 @@ func (o InstanceFleetMapOutput) ToInstanceFleetMapOutputWithContext(ctx context.
 }
 
 func (o InstanceFleetMapOutput) MapIndex(k pulumi.StringInput) InstanceFleetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InstanceFleet {
-		return vs[0].(map[string]InstanceFleet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *InstanceFleet {
+		return vs[0].(map[string]*InstanceFleet)[vs[1].(string)]
 	}).(InstanceFleetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetInput)(nil)).Elem(), &InstanceFleet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetPtrInput)(nil)).Elem(), &InstanceFleet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetArrayInput)(nil)).Elem(), InstanceFleetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetMapInput)(nil)).Elem(), InstanceFleetMap{})
 	pulumi.RegisterOutputType(InstanceFleetOutput{})
-	pulumi.RegisterOutputType(InstanceFleetPtrOutput{})
 	pulumi.RegisterOutputType(InstanceFleetArrayOutput{})
 	pulumi.RegisterOutputType(InstanceFleetMapOutput{})
 }

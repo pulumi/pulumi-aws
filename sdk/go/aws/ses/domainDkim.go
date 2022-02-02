@@ -118,7 +118,7 @@ type DomainDkimInput interface {
 }
 
 func (*DomainDkim) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDkim)(nil))
+	return reflect.TypeOf((**DomainDkim)(nil)).Elem()
 }
 
 func (i *DomainDkim) ToDomainDkimOutput() DomainDkimOutput {
@@ -127,35 +127,6 @@ func (i *DomainDkim) ToDomainDkimOutput() DomainDkimOutput {
 
 func (i *DomainDkim) ToDomainDkimOutputWithContext(ctx context.Context) DomainDkimOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainDkimOutput)
-}
-
-func (i *DomainDkim) ToDomainDkimPtrOutput() DomainDkimPtrOutput {
-	return i.ToDomainDkimPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainDkim) ToDomainDkimPtrOutputWithContext(ctx context.Context) DomainDkimPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDkimPtrOutput)
-}
-
-type DomainDkimPtrInput interface {
-	pulumi.Input
-
-	ToDomainDkimPtrOutput() DomainDkimPtrOutput
-	ToDomainDkimPtrOutputWithContext(ctx context.Context) DomainDkimPtrOutput
-}
-
-type domainDkimPtrType DomainDkimArgs
-
-func (*domainDkimPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainDkim)(nil))
-}
-
-func (i *domainDkimPtrType) ToDomainDkimPtrOutput() DomainDkimPtrOutput {
-	return i.ToDomainDkimPtrOutputWithContext(context.Background())
-}
-
-func (i *domainDkimPtrType) ToDomainDkimPtrOutputWithContext(ctx context.Context) DomainDkimPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDkimPtrOutput)
 }
 
 // DomainDkimArrayInput is an input type that accepts DomainDkimArray and DomainDkimArrayOutput values.
@@ -211,7 +182,7 @@ func (i DomainDkimMap) ToDomainDkimMapOutputWithContext(ctx context.Context) Dom
 type DomainDkimOutput struct{ *pulumi.OutputState }
 
 func (DomainDkimOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDkim)(nil))
+	return reflect.TypeOf((**DomainDkim)(nil)).Elem()
 }
 
 func (o DomainDkimOutput) ToDomainDkimOutput() DomainDkimOutput {
@@ -222,44 +193,10 @@ func (o DomainDkimOutput) ToDomainDkimOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
-func (o DomainDkimOutput) ToDomainDkimPtrOutput() DomainDkimPtrOutput {
-	return o.ToDomainDkimPtrOutputWithContext(context.Background())
-}
-
-func (o DomainDkimOutput) ToDomainDkimPtrOutputWithContext(ctx context.Context) DomainDkimPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDkim) *DomainDkim {
-		return &v
-	}).(DomainDkimPtrOutput)
-}
-
-type DomainDkimPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainDkimPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainDkim)(nil))
-}
-
-func (o DomainDkimPtrOutput) ToDomainDkimPtrOutput() DomainDkimPtrOutput {
-	return o
-}
-
-func (o DomainDkimPtrOutput) ToDomainDkimPtrOutputWithContext(ctx context.Context) DomainDkimPtrOutput {
-	return o
-}
-
-func (o DomainDkimPtrOutput) Elem() DomainDkimOutput {
-	return o.ApplyT(func(v *DomainDkim) DomainDkim {
-		if v != nil {
-			return *v
-		}
-		var ret DomainDkim
-		return ret
-	}).(DomainDkimOutput)
-}
-
 type DomainDkimArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainDkimArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainDkim)(nil))
+	return reflect.TypeOf((*[]*DomainDkim)(nil)).Elem()
 }
 
 func (o DomainDkimArrayOutput) ToDomainDkimArrayOutput() DomainDkimArrayOutput {
@@ -271,15 +208,15 @@ func (o DomainDkimArrayOutput) ToDomainDkimArrayOutputWithContext(ctx context.Co
 }
 
 func (o DomainDkimArrayOutput) Index(i pulumi.IntInput) DomainDkimOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDkim {
-		return vs[0].([]DomainDkim)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainDkim {
+		return vs[0].([]*DomainDkim)[vs[1].(int)]
 	}).(DomainDkimOutput)
 }
 
 type DomainDkimMapOutput struct{ *pulumi.OutputState }
 
 func (DomainDkimMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainDkim)(nil))
+	return reflect.TypeOf((*map[string]*DomainDkim)(nil)).Elem()
 }
 
 func (o DomainDkimMapOutput) ToDomainDkimMapOutput() DomainDkimMapOutput {
@@ -291,18 +228,16 @@ func (o DomainDkimMapOutput) ToDomainDkimMapOutputWithContext(ctx context.Contex
 }
 
 func (o DomainDkimMapOutput) MapIndex(k pulumi.StringInput) DomainDkimOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainDkim {
-		return vs[0].(map[string]DomainDkim)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainDkim {
+		return vs[0].(map[string]*DomainDkim)[vs[1].(string)]
 	}).(DomainDkimOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimInput)(nil)).Elem(), &DomainDkim{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimPtrInput)(nil)).Elem(), &DomainDkim{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimArrayInput)(nil)).Elem(), DomainDkimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimMapInput)(nil)).Elem(), DomainDkimMap{})
 	pulumi.RegisterOutputType(DomainDkimOutput{})
-	pulumi.RegisterOutputType(DomainDkimPtrOutput{})
 	pulumi.RegisterOutputType(DomainDkimArrayOutput{})
 	pulumi.RegisterOutputType(DomainDkimMapOutput{})
 }

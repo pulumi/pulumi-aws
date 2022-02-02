@@ -78,23 +78,21 @@ export class AssessmentTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AssessmentTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentTargetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupArn"] = state ? state.resourceGroupArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupArn"] = state ? state.resourceGroupArn : undefined;
         } else {
             const args = argsOrState as AssessmentTargetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AssessmentTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AssessmentTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

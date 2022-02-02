@@ -82,30 +82,28 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpamOrganizationAdminAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpamOrganizationAdminAccountArgs | VpcIpamOrganizationAdminAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamOrganizationAdminAccountState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["delegatedAdminAccountId"] = state ? state.delegatedAdminAccountId : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["delegatedAdminAccountId"] = state ? state.delegatedAdminAccountId : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
         } else {
             const args = argsOrState as VpcIpamOrganizationAdminAccountArgs | undefined;
             if ((!args || args.delegatedAdminAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'delegatedAdminAccountId'");
             }
-            inputs["delegatedAdminAccountId"] = args ? args.delegatedAdminAccountId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["email"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["servicePrincipal"] = undefined /*out*/;
+            resourceInputs["delegatedAdminAccountId"] = args ? args.delegatedAdminAccountId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["servicePrincipal"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcIpamOrganizationAdminAccount.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcIpamOrganizationAdminAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

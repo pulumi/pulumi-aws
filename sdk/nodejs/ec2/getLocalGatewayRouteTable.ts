@@ -32,9 +32,7 @@ export function getLocalGatewayRouteTable(args?: GetLocalGatewayRouteTableArgs, 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", {
         "filters": args.filters,
         "localGatewayId": args.localGatewayId,

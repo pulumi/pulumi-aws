@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kinesis
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Aws.Kinesis
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a Kinesis Stream for use in other
@@ -74,7 +73,7 @@ namespace Pulumi.Aws.Kinesis
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
 
 

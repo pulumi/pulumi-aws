@@ -318,34 +318,34 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     constructor(name: string, args: MetricAlarmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MetricAlarmArgs | MetricAlarmState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricAlarmState | undefined;
-            inputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
-            inputs["alarmActions"] = state ? state.alarmActions : undefined;
-            inputs["alarmDescription"] = state ? state.alarmDescription : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["comparisonOperator"] = state ? state.comparisonOperator : undefined;
-            inputs["datapointsToAlarm"] = state ? state.datapointsToAlarm : undefined;
-            inputs["dimensions"] = state ? state.dimensions : undefined;
-            inputs["evaluateLowSampleCountPercentiles"] = state ? state.evaluateLowSampleCountPercentiles : undefined;
-            inputs["evaluationPeriods"] = state ? state.evaluationPeriods : undefined;
-            inputs["extendedStatistic"] = state ? state.extendedStatistic : undefined;
-            inputs["insufficientDataActions"] = state ? state.insufficientDataActions : undefined;
-            inputs["metricName"] = state ? state.metricName : undefined;
-            inputs["metricQueries"] = state ? state.metricQueries : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespace"] = state ? state.namespace : undefined;
-            inputs["okActions"] = state ? state.okActions : undefined;
-            inputs["period"] = state ? state.period : undefined;
-            inputs["statistic"] = state ? state.statistic : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["threshold"] = state ? state.threshold : undefined;
-            inputs["thresholdMetricId"] = state ? state.thresholdMetricId : undefined;
-            inputs["treatMissingData"] = state ? state.treatMissingData : undefined;
-            inputs["unit"] = state ? state.unit : undefined;
+            resourceInputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
+            resourceInputs["alarmActions"] = state ? state.alarmActions : undefined;
+            resourceInputs["alarmDescription"] = state ? state.alarmDescription : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["comparisonOperator"] = state ? state.comparisonOperator : undefined;
+            resourceInputs["datapointsToAlarm"] = state ? state.datapointsToAlarm : undefined;
+            resourceInputs["dimensions"] = state ? state.dimensions : undefined;
+            resourceInputs["evaluateLowSampleCountPercentiles"] = state ? state.evaluateLowSampleCountPercentiles : undefined;
+            resourceInputs["evaluationPeriods"] = state ? state.evaluationPeriods : undefined;
+            resourceInputs["extendedStatistic"] = state ? state.extendedStatistic : undefined;
+            resourceInputs["insufficientDataActions"] = state ? state.insufficientDataActions : undefined;
+            resourceInputs["metricName"] = state ? state.metricName : undefined;
+            resourceInputs["metricQueries"] = state ? state.metricQueries : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["okActions"] = state ? state.okActions : undefined;
+            resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["statistic"] = state ? state.statistic : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["threshold"] = state ? state.threshold : undefined;
+            resourceInputs["thresholdMetricId"] = state ? state.thresholdMetricId : undefined;
+            resourceInputs["treatMissingData"] = state ? state.treatMissingData : undefined;
+            resourceInputs["unit"] = state ? state.unit : undefined;
         } else {
             const args = argsOrState as MetricAlarmArgs | undefined;
             if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
@@ -354,35 +354,33 @@ export class MetricAlarm extends pulumi.CustomResource {
             if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            inputs["alarmActions"] = args ? args.alarmActions : undefined;
-            inputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            inputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            inputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            inputs["dimensions"] = args ? args.dimensions : undefined;
-            inputs["evaluateLowSampleCountPercentiles"] = args ? args.evaluateLowSampleCountPercentiles : undefined;
-            inputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            inputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
-            inputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["metricQueries"] = args ? args.metricQueries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["okActions"] = args ? args.okActions : undefined;
-            inputs["period"] = args ? args.period : undefined;
-            inputs["statistic"] = args ? args.statistic : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threshold"] = args ? args.threshold : undefined;
-            inputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
-            inputs["treatMissingData"] = args ? args.treatMissingData : undefined;
-            inputs["unit"] = args ? args.unit : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
+            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
+            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
+            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
+            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
+            resourceInputs["dimensions"] = args ? args.dimensions : undefined;
+            resourceInputs["evaluateLowSampleCountPercentiles"] = args ? args.evaluateLowSampleCountPercentiles : undefined;
+            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
+            resourceInputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
+            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["metricQueries"] = args ? args.metricQueries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["okActions"] = args ? args.okActions : undefined;
+            resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["statistic"] = args ? args.statistic : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
+            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
+            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MetricAlarm.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MetricAlarm.__pulumiType, name, resourceInputs, opts);
     }
 }
 

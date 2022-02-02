@@ -29,9 +29,7 @@ export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:globalaccelerator/getAccelerator:getAccelerator", {
         "arn": args.arn,
         "name": args.name,

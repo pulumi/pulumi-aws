@@ -273,7 +273,7 @@ type ProtectionGroupInput interface {
 }
 
 func (*ProtectionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionGroup)(nil))
+	return reflect.TypeOf((**ProtectionGroup)(nil)).Elem()
 }
 
 func (i *ProtectionGroup) ToProtectionGroupOutput() ProtectionGroupOutput {
@@ -282,35 +282,6 @@ func (i *ProtectionGroup) ToProtectionGroupOutput() ProtectionGroupOutput {
 
 func (i *ProtectionGroup) ToProtectionGroupOutputWithContext(ctx context.Context) ProtectionGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupOutput)
-}
-
-func (i *ProtectionGroup) ToProtectionGroupPtrOutput() ProtectionGroupPtrOutput {
-	return i.ToProtectionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ProtectionGroup) ToProtectionGroupPtrOutputWithContext(ctx context.Context) ProtectionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupPtrOutput)
-}
-
-type ProtectionGroupPtrInput interface {
-	pulumi.Input
-
-	ToProtectionGroupPtrOutput() ProtectionGroupPtrOutput
-	ToProtectionGroupPtrOutputWithContext(ctx context.Context) ProtectionGroupPtrOutput
-}
-
-type protectionGroupPtrType ProtectionGroupArgs
-
-func (*protectionGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionGroup)(nil))
-}
-
-func (i *protectionGroupPtrType) ToProtectionGroupPtrOutput() ProtectionGroupPtrOutput {
-	return i.ToProtectionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *protectionGroupPtrType) ToProtectionGroupPtrOutputWithContext(ctx context.Context) ProtectionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupPtrOutput)
 }
 
 // ProtectionGroupArrayInput is an input type that accepts ProtectionGroupArray and ProtectionGroupArrayOutput values.
@@ -366,7 +337,7 @@ func (i ProtectionGroupMap) ToProtectionGroupMapOutputWithContext(ctx context.Co
 type ProtectionGroupOutput struct{ *pulumi.OutputState }
 
 func (ProtectionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionGroup)(nil))
+	return reflect.TypeOf((**ProtectionGroup)(nil)).Elem()
 }
 
 func (o ProtectionGroupOutput) ToProtectionGroupOutput() ProtectionGroupOutput {
@@ -377,44 +348,10 @@ func (o ProtectionGroupOutput) ToProtectionGroupOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ProtectionGroupOutput) ToProtectionGroupPtrOutput() ProtectionGroupPtrOutput {
-	return o.ToProtectionGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionGroupOutput) ToProtectionGroupPtrOutputWithContext(ctx context.Context) ProtectionGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionGroup) *ProtectionGroup {
-		return &v
-	}).(ProtectionGroupPtrOutput)
-}
-
-type ProtectionGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ProtectionGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionGroup)(nil))
-}
-
-func (o ProtectionGroupPtrOutput) ToProtectionGroupPtrOutput() ProtectionGroupPtrOutput {
-	return o
-}
-
-func (o ProtectionGroupPtrOutput) ToProtectionGroupPtrOutputWithContext(ctx context.Context) ProtectionGroupPtrOutput {
-	return o
-}
-
-func (o ProtectionGroupPtrOutput) Elem() ProtectionGroupOutput {
-	return o.ApplyT(func(v *ProtectionGroup) ProtectionGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectionGroup
-		return ret
-	}).(ProtectionGroupOutput)
-}
-
 type ProtectionGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ProtectionGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectionGroup)(nil))
+	return reflect.TypeOf((*[]*ProtectionGroup)(nil)).Elem()
 }
 
 func (o ProtectionGroupArrayOutput) ToProtectionGroupArrayOutput() ProtectionGroupArrayOutput {
@@ -426,15 +363,15 @@ func (o ProtectionGroupArrayOutput) ToProtectionGroupArrayOutputWithContext(ctx 
 }
 
 func (o ProtectionGroupArrayOutput) Index(i pulumi.IntInput) ProtectionGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectionGroup {
-		return vs[0].([]ProtectionGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectionGroup {
+		return vs[0].([]*ProtectionGroup)[vs[1].(int)]
 	}).(ProtectionGroupOutput)
 }
 
 type ProtectionGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ProtectionGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProtectionGroup)(nil))
+	return reflect.TypeOf((*map[string]*ProtectionGroup)(nil)).Elem()
 }
 
 func (o ProtectionGroupMapOutput) ToProtectionGroupMapOutput() ProtectionGroupMapOutput {
@@ -446,18 +383,16 @@ func (o ProtectionGroupMapOutput) ToProtectionGroupMapOutputWithContext(ctx cont
 }
 
 func (o ProtectionGroupMapOutput) MapIndex(k pulumi.StringInput) ProtectionGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProtectionGroup {
-		return vs[0].(map[string]ProtectionGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProtectionGroup {
+		return vs[0].(map[string]*ProtectionGroup)[vs[1].(string)]
 	}).(ProtectionGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionGroupInput)(nil)).Elem(), &ProtectionGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionGroupPtrInput)(nil)).Elem(), &ProtectionGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionGroupArrayInput)(nil)).Elem(), ProtectionGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionGroupMapInput)(nil)).Elem(), ProtectionGroupMap{})
 	pulumi.RegisterOutputType(ProtectionGroupOutput{})
-	pulumi.RegisterOutputType(ProtectionGroupPtrOutput{})
 	pulumi.RegisterOutputType(ProtectionGroupArrayOutput{})
 	pulumi.RegisterOutputType(ProtectionGroupMapOutput{})
 }

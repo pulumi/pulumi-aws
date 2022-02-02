@@ -106,32 +106,30 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: MultiRegionAccessPointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MultiRegionAccessPointArgs | MultiRegionAccessPointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiRegionAccessPointState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["details"] = state ? state.details : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["details"] = state ? state.details : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as MultiRegionAccessPointArgs | undefined;
             if ((!args || args.details === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'details'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["details"] = args ? args.details : undefined;
-            inputs["alias"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MultiRegionAccessPoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MultiRegionAccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

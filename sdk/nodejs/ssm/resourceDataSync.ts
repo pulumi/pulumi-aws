@@ -107,24 +107,22 @@ export class ResourceDataSync extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceDataSyncState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["s3Destination"] = state ? state.s3Destination : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {
             const args = argsOrState as ResourceDataSyncArgs | undefined;
             if ((!args || args.s3Destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Destination'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["s3Destination"] = args ? args.s3Destination : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceDataSync.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceDataSync.__pulumiType, name, resourceInputs, opts);
     }
 }
 

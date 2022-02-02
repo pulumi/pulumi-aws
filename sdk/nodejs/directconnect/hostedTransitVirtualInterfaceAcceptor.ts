@@ -110,15 +110,15 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
      */
     constructor(name: string, args: HostedTransitVirtualInterfaceAcceptorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedTransitVirtualInterfaceAcceptorArgs | HostedTransitVirtualInterfaceAcceptorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedTransitVirtualInterfaceAcceptorState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
         } else {
             const args = argsOrState as HostedTransitVirtualInterfaceAcceptorArgs | undefined;
             if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
@@ -127,16 +127,14 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
             if ((!args || args.virtualInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HostedTransitVirtualInterfaceAcceptor.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HostedTransitVirtualInterfaceAcceptor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

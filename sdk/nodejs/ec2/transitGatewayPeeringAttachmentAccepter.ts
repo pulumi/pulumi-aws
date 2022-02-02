@@ -92,34 +92,32 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
      */
     constructor(name: string, args: TransitGatewayPeeringAttachmentAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TransitGatewayPeeringAttachmentAccepterArgs | TransitGatewayPeeringAttachmentAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitGatewayPeeringAttachmentAccepterState | undefined;
-            inputs["peerAccountId"] = state ? state.peerAccountId : undefined;
-            inputs["peerRegion"] = state ? state.peerRegion : undefined;
-            inputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["peerAccountId"] = state ? state.peerAccountId : undefined;
+            resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
+            resourceInputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as TransitGatewayPeeringAttachmentAccepterArgs | undefined;
             if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            inputs["peerAccountId"] = undefined /*out*/;
-            inputs["peerRegion"] = undefined /*out*/;
-            inputs["peerTransitGatewayId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["peerAccountId"] = undefined /*out*/;
+            resourceInputs["peerRegion"] = undefined /*out*/;
+            resourceInputs["peerTransitGatewayId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["transitGatewayId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayPeeringAttachmentAccepter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayPeeringAttachmentAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

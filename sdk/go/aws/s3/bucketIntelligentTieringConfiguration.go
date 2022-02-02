@@ -30,7 +30,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example_entire_bucket", &s3.BucketIntelligentTieringConfigurationArgs{
+// 		_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3.BucketIntelligentTieringConfigurationArgs{
 // 			Bucket: example.Bucket,
 // 			Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
 // 				&s3.BucketIntelligentTieringConfigurationTieringArgs{
@@ -66,7 +66,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example_filtered", &s3.BucketIntelligentTieringConfigurationArgs{
+// 		_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3.BucketIntelligentTieringConfigurationArgs{
 // 			Bucket: example.Bucket,
 // 			Status: pulumi.String("Disabled"),
 // 			Filter: &s3.BucketIntelligentTieringConfigurationFilterArgs{
@@ -216,7 +216,7 @@ type BucketIntelligentTieringConfigurationInput interface {
 }
 
 func (*BucketIntelligentTieringConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketIntelligentTieringConfiguration)(nil))
+	return reflect.TypeOf((**BucketIntelligentTieringConfiguration)(nil)).Elem()
 }
 
 func (i *BucketIntelligentTieringConfiguration) ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput {
@@ -225,35 +225,6 @@ func (i *BucketIntelligentTieringConfiguration) ToBucketIntelligentTieringConfig
 
 func (i *BucketIntelligentTieringConfiguration) ToBucketIntelligentTieringConfigurationOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationOutput)
-}
-
-func (i *BucketIntelligentTieringConfiguration) ToBucketIntelligentTieringConfigurationPtrOutput() BucketIntelligentTieringConfigurationPtrOutput {
-	return i.ToBucketIntelligentTieringConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *BucketIntelligentTieringConfiguration) ToBucketIntelligentTieringConfigurationPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationPtrOutput)
-}
-
-type BucketIntelligentTieringConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToBucketIntelligentTieringConfigurationPtrOutput() BucketIntelligentTieringConfigurationPtrOutput
-	ToBucketIntelligentTieringConfigurationPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationPtrOutput
-}
-
-type bucketIntelligentTieringConfigurationPtrType BucketIntelligentTieringConfigurationArgs
-
-func (*bucketIntelligentTieringConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketIntelligentTieringConfiguration)(nil))
-}
-
-func (i *bucketIntelligentTieringConfigurationPtrType) ToBucketIntelligentTieringConfigurationPtrOutput() BucketIntelligentTieringConfigurationPtrOutput {
-	return i.ToBucketIntelligentTieringConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketIntelligentTieringConfigurationPtrType) ToBucketIntelligentTieringConfigurationPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationPtrOutput)
 }
 
 // BucketIntelligentTieringConfigurationArrayInput is an input type that accepts BucketIntelligentTieringConfigurationArray and BucketIntelligentTieringConfigurationArrayOutput values.
@@ -309,7 +280,7 @@ func (i BucketIntelligentTieringConfigurationMap) ToBucketIntelligentTieringConf
 type BucketIntelligentTieringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketIntelligentTieringConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketIntelligentTieringConfiguration)(nil))
+	return reflect.TypeOf((**BucketIntelligentTieringConfiguration)(nil)).Elem()
 }
 
 func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput {
@@ -320,44 +291,10 @@ func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringC
 	return o
 }
 
-func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationPtrOutput() BucketIntelligentTieringConfigurationPtrOutput {
-	return o.ToBucketIntelligentTieringConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketIntelligentTieringConfiguration) *BucketIntelligentTieringConfiguration {
-		return &v
-	}).(BucketIntelligentTieringConfigurationPtrOutput)
-}
-
-type BucketIntelligentTieringConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketIntelligentTieringConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketIntelligentTieringConfiguration)(nil))
-}
-
-func (o BucketIntelligentTieringConfigurationPtrOutput) ToBucketIntelligentTieringConfigurationPtrOutput() BucketIntelligentTieringConfigurationPtrOutput {
-	return o
-}
-
-func (o BucketIntelligentTieringConfigurationPtrOutput) ToBucketIntelligentTieringConfigurationPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationPtrOutput {
-	return o
-}
-
-func (o BucketIntelligentTieringConfigurationPtrOutput) Elem() BucketIntelligentTieringConfigurationOutput {
-	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) BucketIntelligentTieringConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret BucketIntelligentTieringConfiguration
-		return ret
-	}).(BucketIntelligentTieringConfigurationOutput)
-}
-
 type BucketIntelligentTieringConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketIntelligentTieringConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketIntelligentTieringConfiguration)(nil))
+	return reflect.TypeOf((*[]*BucketIntelligentTieringConfiguration)(nil)).Elem()
 }
 
 func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTieringConfigurationArrayOutput() BucketIntelligentTieringConfigurationArrayOutput {
@@ -369,15 +306,15 @@ func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTie
 }
 
 func (o BucketIntelligentTieringConfigurationArrayOutput) Index(i pulumi.IntInput) BucketIntelligentTieringConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketIntelligentTieringConfiguration {
-		return vs[0].([]BucketIntelligentTieringConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketIntelligentTieringConfiguration {
+		return vs[0].([]*BucketIntelligentTieringConfiguration)[vs[1].(int)]
 	}).(BucketIntelligentTieringConfigurationOutput)
 }
 
 type BucketIntelligentTieringConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (BucketIntelligentTieringConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BucketIntelligentTieringConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*BucketIntelligentTieringConfiguration)(nil)).Elem()
 }
 
 func (o BucketIntelligentTieringConfigurationMapOutput) ToBucketIntelligentTieringConfigurationMapOutput() BucketIntelligentTieringConfigurationMapOutput {
@@ -389,18 +326,16 @@ func (o BucketIntelligentTieringConfigurationMapOutput) ToBucketIntelligentTieri
 }
 
 func (o BucketIntelligentTieringConfigurationMapOutput) MapIndex(k pulumi.StringInput) BucketIntelligentTieringConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketIntelligentTieringConfiguration {
-		return vs[0].(map[string]BucketIntelligentTieringConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BucketIntelligentTieringConfiguration {
+		return vs[0].(map[string]*BucketIntelligentTieringConfiguration)[vs[1].(string)]
 	}).(BucketIntelligentTieringConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationInput)(nil)).Elem(), &BucketIntelligentTieringConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationPtrInput)(nil)).Elem(), &BucketIntelligentTieringConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationArrayInput)(nil)).Elem(), BucketIntelligentTieringConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationMapInput)(nil)).Elem(), BucketIntelligentTieringConfigurationMap{})
 	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationOutput{})
-	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationMapOutput{})
 }

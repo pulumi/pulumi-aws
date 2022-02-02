@@ -111,26 +111,24 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryScanningConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryScanningConfigurationArgs | RegistryScanningConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryScanningConfigurationState | undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["scanType"] = state ? state.scanType : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["scanType"] = state ? state.scanType : undefined;
         } else {
             const args = argsOrState as RegistryScanningConfigurationArgs | undefined;
             if ((!args || args.scanType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scanType'");
             }
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["scanType"] = args ? args.scanType : undefined;
-            inputs["registryId"] = undefined /*out*/;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["scanType"] = args ? args.scanType : undefined;
+            resourceInputs["registryId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegistryScanningConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegistryScanningConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

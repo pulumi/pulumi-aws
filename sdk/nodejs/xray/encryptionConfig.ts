@@ -105,24 +105,22 @@ export class EncryptionConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: EncryptionConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EncryptionConfigArgs | EncryptionConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EncryptionConfigState | undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EncryptionConfigArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EncryptionConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EncryptionConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

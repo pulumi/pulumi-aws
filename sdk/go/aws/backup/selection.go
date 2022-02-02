@@ -26,7 +26,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/backup"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -340,7 +339,7 @@ type SelectionInput interface {
 }
 
 func (*Selection) ElementType() reflect.Type {
-	return reflect.TypeOf((*Selection)(nil))
+	return reflect.TypeOf((**Selection)(nil)).Elem()
 }
 
 func (i *Selection) ToSelectionOutput() SelectionOutput {
@@ -349,35 +348,6 @@ func (i *Selection) ToSelectionOutput() SelectionOutput {
 
 func (i *Selection) ToSelectionOutputWithContext(ctx context.Context) SelectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionOutput)
-}
-
-func (i *Selection) ToSelectionPtrOutput() SelectionPtrOutput {
-	return i.ToSelectionPtrOutputWithContext(context.Background())
-}
-
-func (i *Selection) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SelectionPtrOutput)
-}
-
-type SelectionPtrInput interface {
-	pulumi.Input
-
-	ToSelectionPtrOutput() SelectionPtrOutput
-	ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput
-}
-
-type selectionPtrType SelectionArgs
-
-func (*selectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Selection)(nil))
-}
-
-func (i *selectionPtrType) ToSelectionPtrOutput() SelectionPtrOutput {
-	return i.ToSelectionPtrOutputWithContext(context.Background())
-}
-
-func (i *selectionPtrType) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SelectionPtrOutput)
 }
 
 // SelectionArrayInput is an input type that accepts SelectionArray and SelectionArrayOutput values.
@@ -433,7 +403,7 @@ func (i SelectionMap) ToSelectionMapOutputWithContext(ctx context.Context) Selec
 type SelectionOutput struct{ *pulumi.OutputState }
 
 func (SelectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Selection)(nil))
+	return reflect.TypeOf((**Selection)(nil)).Elem()
 }
 
 func (o SelectionOutput) ToSelectionOutput() SelectionOutput {
@@ -444,44 +414,10 @@ func (o SelectionOutput) ToSelectionOutputWithContext(ctx context.Context) Selec
 	return o
 }
 
-func (o SelectionOutput) ToSelectionPtrOutput() SelectionPtrOutput {
-	return o.ToSelectionPtrOutputWithContext(context.Background())
-}
-
-func (o SelectionOutput) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Selection) *Selection {
-		return &v
-	}).(SelectionPtrOutput)
-}
-
-type SelectionPtrOutput struct{ *pulumi.OutputState }
-
-func (SelectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Selection)(nil))
-}
-
-func (o SelectionPtrOutput) ToSelectionPtrOutput() SelectionPtrOutput {
-	return o
-}
-
-func (o SelectionPtrOutput) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
-	return o
-}
-
-func (o SelectionPtrOutput) Elem() SelectionOutput {
-	return o.ApplyT(func(v *Selection) Selection {
-		if v != nil {
-			return *v
-		}
-		var ret Selection
-		return ret
-	}).(SelectionOutput)
-}
-
 type SelectionArrayOutput struct{ *pulumi.OutputState }
 
 func (SelectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Selection)(nil))
+	return reflect.TypeOf((*[]*Selection)(nil)).Elem()
 }
 
 func (o SelectionArrayOutput) ToSelectionArrayOutput() SelectionArrayOutput {
@@ -493,15 +429,15 @@ func (o SelectionArrayOutput) ToSelectionArrayOutputWithContext(ctx context.Cont
 }
 
 func (o SelectionArrayOutput) Index(i pulumi.IntInput) SelectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Selection {
-		return vs[0].([]Selection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Selection {
+		return vs[0].([]*Selection)[vs[1].(int)]
 	}).(SelectionOutput)
 }
 
 type SelectionMapOutput struct{ *pulumi.OutputState }
 
 func (SelectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Selection)(nil))
+	return reflect.TypeOf((*map[string]*Selection)(nil)).Elem()
 }
 
 func (o SelectionMapOutput) ToSelectionMapOutput() SelectionMapOutput {
@@ -513,18 +449,16 @@ func (o SelectionMapOutput) ToSelectionMapOutputWithContext(ctx context.Context)
 }
 
 func (o SelectionMapOutput) MapIndex(k pulumi.StringInput) SelectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Selection {
-		return vs[0].(map[string]Selection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Selection {
+		return vs[0].(map[string]*Selection)[vs[1].(string)]
 	}).(SelectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionInput)(nil)).Elem(), &Selection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SelectionPtrInput)(nil)).Elem(), &Selection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionArrayInput)(nil)).Elem(), SelectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionMapInput)(nil)).Elem(), SelectionMap{})
 	pulumi.RegisterOutputType(SelectionOutput{})
-	pulumi.RegisterOutputType(SelectionPtrOutput{})
 	pulumi.RegisterOutputType(SelectionArrayOutput{})
 	pulumi.RegisterOutputType(SelectionMapOutput{})
 }

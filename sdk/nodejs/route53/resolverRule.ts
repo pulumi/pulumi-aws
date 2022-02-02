@@ -128,20 +128,20 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResolverRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverRuleArgs | ResolverRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["resolverEndpointId"] = state ? state.resolverEndpointId : undefined;
-            inputs["ruleType"] = state ? state.ruleType : undefined;
-            inputs["shareStatus"] = state ? state.shareStatus : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetIps"] = state ? state.targetIps : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["resolverEndpointId"] = state ? state.resolverEndpointId : undefined;
+            resourceInputs["ruleType"] = state ? state.ruleType : undefined;
+            resourceInputs["shareStatus"] = state ? state.shareStatus : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetIps"] = state ? state.targetIps : undefined;
         } else {
             const args = argsOrState as ResolverRuleArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -150,21 +150,19 @@ export class ResolverRule extends pulumi.CustomResource {
             if ((!args || args.ruleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
-            inputs["ruleType"] = args ? args.ruleType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetIps"] = args ? args.targetIps : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["shareStatus"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
+            resourceInputs["ruleType"] = args ? args.ruleType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetIps"] = args ? args.targetIps : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["shareStatus"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

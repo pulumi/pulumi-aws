@@ -12,9 +12,7 @@ export function getClusters(opts?: pulumi.InvokeOptions): Promise<GetClustersRes
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:eks/getClusters:getClusters", {
     }, opts);
 }

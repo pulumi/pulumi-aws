@@ -209,7 +209,7 @@ type CustomDataIdentifierInput interface {
 }
 
 func (*CustomDataIdentifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataIdentifier)(nil))
+	return reflect.TypeOf((**CustomDataIdentifier)(nil)).Elem()
 }
 
 func (i *CustomDataIdentifier) ToCustomDataIdentifierOutput() CustomDataIdentifierOutput {
@@ -218,35 +218,6 @@ func (i *CustomDataIdentifier) ToCustomDataIdentifierOutput() CustomDataIdentifi
 
 func (i *CustomDataIdentifier) ToCustomDataIdentifierOutputWithContext(ctx context.Context) CustomDataIdentifierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierOutput)
-}
-
-func (i *CustomDataIdentifier) ToCustomDataIdentifierPtrOutput() CustomDataIdentifierPtrOutput {
-	return i.ToCustomDataIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i *CustomDataIdentifier) ToCustomDataIdentifierPtrOutputWithContext(ctx context.Context) CustomDataIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierPtrOutput)
-}
-
-type CustomDataIdentifierPtrInput interface {
-	pulumi.Input
-
-	ToCustomDataIdentifierPtrOutput() CustomDataIdentifierPtrOutput
-	ToCustomDataIdentifierPtrOutputWithContext(ctx context.Context) CustomDataIdentifierPtrOutput
-}
-
-type customDataIdentifierPtrType CustomDataIdentifierArgs
-
-func (*customDataIdentifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDataIdentifier)(nil))
-}
-
-func (i *customDataIdentifierPtrType) ToCustomDataIdentifierPtrOutput() CustomDataIdentifierPtrOutput {
-	return i.ToCustomDataIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i *customDataIdentifierPtrType) ToCustomDataIdentifierPtrOutputWithContext(ctx context.Context) CustomDataIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierPtrOutput)
 }
 
 // CustomDataIdentifierArrayInput is an input type that accepts CustomDataIdentifierArray and CustomDataIdentifierArrayOutput values.
@@ -302,7 +273,7 @@ func (i CustomDataIdentifierMap) ToCustomDataIdentifierMapOutputWithContext(ctx 
 type CustomDataIdentifierOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataIdentifier)(nil))
+	return reflect.TypeOf((**CustomDataIdentifier)(nil)).Elem()
 }
 
 func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutput() CustomDataIdentifierOutput {
@@ -313,44 +284,10 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx 
 	return o
 }
 
-func (o CustomDataIdentifierOutput) ToCustomDataIdentifierPtrOutput() CustomDataIdentifierPtrOutput {
-	return o.ToCustomDataIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (o CustomDataIdentifierOutput) ToCustomDataIdentifierPtrOutputWithContext(ctx context.Context) CustomDataIdentifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDataIdentifier) *CustomDataIdentifier {
-		return &v
-	}).(CustomDataIdentifierPtrOutput)
-}
-
-type CustomDataIdentifierPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomDataIdentifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDataIdentifier)(nil))
-}
-
-func (o CustomDataIdentifierPtrOutput) ToCustomDataIdentifierPtrOutput() CustomDataIdentifierPtrOutput {
-	return o
-}
-
-func (o CustomDataIdentifierPtrOutput) ToCustomDataIdentifierPtrOutputWithContext(ctx context.Context) CustomDataIdentifierPtrOutput {
-	return o
-}
-
-func (o CustomDataIdentifierPtrOutput) Elem() CustomDataIdentifierOutput {
-	return o.ApplyT(func(v *CustomDataIdentifier) CustomDataIdentifier {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDataIdentifier
-		return ret
-	}).(CustomDataIdentifierOutput)
-}
-
 type CustomDataIdentifierArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDataIdentifier)(nil))
+	return reflect.TypeOf((*[]*CustomDataIdentifier)(nil)).Elem()
 }
 
 func (o CustomDataIdentifierArrayOutput) ToCustomDataIdentifierArrayOutput() CustomDataIdentifierArrayOutput {
@@ -362,15 +299,15 @@ func (o CustomDataIdentifierArrayOutput) ToCustomDataIdentifierArrayOutputWithCo
 }
 
 func (o CustomDataIdentifierArrayOutput) Index(i pulumi.IntInput) CustomDataIdentifierOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDataIdentifier {
-		return vs[0].([]CustomDataIdentifier)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDataIdentifier {
+		return vs[0].([]*CustomDataIdentifier)[vs[1].(int)]
 	}).(CustomDataIdentifierOutput)
 }
 
 type CustomDataIdentifierMapOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomDataIdentifier)(nil))
+	return reflect.TypeOf((*map[string]*CustomDataIdentifier)(nil)).Elem()
 }
 
 func (o CustomDataIdentifierMapOutput) ToCustomDataIdentifierMapOutput() CustomDataIdentifierMapOutput {
@@ -382,18 +319,16 @@ func (o CustomDataIdentifierMapOutput) ToCustomDataIdentifierMapOutputWithContex
 }
 
 func (o CustomDataIdentifierMapOutput) MapIndex(k pulumi.StringInput) CustomDataIdentifierOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomDataIdentifier {
-		return vs[0].(map[string]CustomDataIdentifier)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CustomDataIdentifier {
+		return vs[0].(map[string]*CustomDataIdentifier)[vs[1].(string)]
 	}).(CustomDataIdentifierOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierInput)(nil)).Elem(), &CustomDataIdentifier{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierPtrInput)(nil)).Elem(), &CustomDataIdentifier{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierArrayInput)(nil)).Elem(), CustomDataIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierMapInput)(nil)).Elem(), CustomDataIdentifierMap{})
 	pulumi.RegisterOutputType(CustomDataIdentifierOutput{})
-	pulumi.RegisterOutputType(CustomDataIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(CustomDataIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(CustomDataIdentifierMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kms
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARN of a KMS key alias.
@@ -72,7 +71,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

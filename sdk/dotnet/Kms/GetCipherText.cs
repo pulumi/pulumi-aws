@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kms
 {
@@ -35,15 +34,15 @@ namespace Pulumi.Aws.Kms
         ///             Description = "oauth config",
         ///             IsEnabled = true,
         ///         });
-        ///         var oauth = oauthConfig.KeyId.Apply(keyId =&gt; Aws.Kms.GetCipherText.InvokeAsync(new Aws.Kms.GetCipherTextArgs
+        ///         var oauth = Aws.Kms.GetCipherText.Invoke(new Aws.Kms.GetCipherTextInvokeArgs
         ///         {
-        ///             KeyId = keyId,
+        ///             KeyId = oauthConfig.KeyId,
         ///             Plaintext = @"{
         ///   ""client_id"": ""e587dbae22222f55da22"",
         ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
         /// }
         /// ",
-        ///         }));
+        ///         });
         ///     }
         /// 
         /// }
@@ -52,7 +51,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCipherTextResult> InvokeAsync(GetCipherTextArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextArgs(), options.WithDefaults());
 
         /// <summary>
         /// The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
@@ -77,15 +76,15 @@ namespace Pulumi.Aws.Kms
         ///             Description = "oauth config",
         ///             IsEnabled = true,
         ///         });
-        ///         var oauth = oauthConfig.KeyId.Apply(keyId =&gt; Aws.Kms.GetCipherText.InvokeAsync(new Aws.Kms.GetCipherTextArgs
+        ///         var oauth = Aws.Kms.GetCipherText.Invoke(new Aws.Kms.GetCipherTextInvokeArgs
         ///         {
-        ///             KeyId = keyId,
+        ///             KeyId = oauthConfig.KeyId,
         ///             Plaintext = @"{
         ///   ""client_id"": ""e587dbae22222f55da22"",
         ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
         /// }
         /// ",
-        ///         }));
+        ///         });
         ///     }
         /// 
         /// }
@@ -94,7 +93,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCipherTextResult> Invoke(GetCipherTextInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextInvokeArgs(), options.WithDefaults());
     }
 
 

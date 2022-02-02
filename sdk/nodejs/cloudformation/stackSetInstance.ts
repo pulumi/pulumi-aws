@@ -150,36 +150,34 @@ export class StackSetInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: StackSetInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackSetInstanceArgs | StackSetInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackSetInstanceState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["deploymentTargets"] = state ? state.deploymentTargets : undefined;
-            inputs["organizationalUnitId"] = state ? state.organizationalUnitId : undefined;
-            inputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
-            inputs["region"] = state ? state.region : undefined;
-            inputs["retainStack"] = state ? state.retainStack : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["stackSetName"] = state ? state.stackSetName : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["deploymentTargets"] = state ? state.deploymentTargets : undefined;
+            resourceInputs["organizationalUnitId"] = state ? state.organizationalUnitId : undefined;
+            resourceInputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retainStack"] = state ? state.retainStack : undefined;
+            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
         } else {
             const args = argsOrState as StackSetInstanceArgs | undefined;
             if ((!args || args.stackSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackSetName'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["deploymentTargets"] = args ? args.deploymentTargets : undefined;
-            inputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["retainStack"] = args ? args.retainStack : undefined;
-            inputs["stackSetName"] = args ? args.stackSetName : undefined;
-            inputs["organizationalUnitId"] = undefined /*out*/;
-            inputs["stackId"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["deploymentTargets"] = args ? args.deploymentTargets : undefined;
+            resourceInputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retainStack"] = args ? args.retainStack : undefined;
+            resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
+            resourceInputs["organizationalUnitId"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StackSetInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StackSetInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

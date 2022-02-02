@@ -25,9 +25,7 @@ export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getUserSshKey:getUserSshKey", {
         "encoding": args.encoding,
         "sshPublicKeyId": args.sshPublicKeyId,

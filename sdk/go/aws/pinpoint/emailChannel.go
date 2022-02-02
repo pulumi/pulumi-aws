@@ -209,7 +209,7 @@ type EmailChannelInput interface {
 }
 
 func (*EmailChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailChannel)(nil))
+	return reflect.TypeOf((**EmailChannel)(nil)).Elem()
 }
 
 func (i *EmailChannel) ToEmailChannelOutput() EmailChannelOutput {
@@ -218,35 +218,6 @@ func (i *EmailChannel) ToEmailChannelOutput() EmailChannelOutput {
 
 func (i *EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelOutput)
-}
-
-func (i *EmailChannel) ToEmailChannelPtrOutput() EmailChannelPtrOutput {
-	return i.ToEmailChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *EmailChannel) ToEmailChannelPtrOutputWithContext(ctx context.Context) EmailChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelPtrOutput)
-}
-
-type EmailChannelPtrInput interface {
-	pulumi.Input
-
-	ToEmailChannelPtrOutput() EmailChannelPtrOutput
-	ToEmailChannelPtrOutputWithContext(ctx context.Context) EmailChannelPtrOutput
-}
-
-type emailChannelPtrType EmailChannelArgs
-
-func (*emailChannelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailChannel)(nil))
-}
-
-func (i *emailChannelPtrType) ToEmailChannelPtrOutput() EmailChannelPtrOutput {
-	return i.ToEmailChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *emailChannelPtrType) ToEmailChannelPtrOutputWithContext(ctx context.Context) EmailChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelPtrOutput)
 }
 
 // EmailChannelArrayInput is an input type that accepts EmailChannelArray and EmailChannelArrayOutput values.
@@ -302,7 +273,7 @@ func (i EmailChannelMap) ToEmailChannelMapOutputWithContext(ctx context.Context)
 type EmailChannelOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailChannel)(nil))
+	return reflect.TypeOf((**EmailChannel)(nil)).Elem()
 }
 
 func (o EmailChannelOutput) ToEmailChannelOutput() EmailChannelOutput {
@@ -313,44 +284,10 @@ func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o EmailChannelOutput) ToEmailChannelPtrOutput() EmailChannelPtrOutput {
-	return o.ToEmailChannelPtrOutputWithContext(context.Background())
-}
-
-func (o EmailChannelOutput) ToEmailChannelPtrOutputWithContext(ctx context.Context) EmailChannelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailChannel) *EmailChannel {
-		return &v
-	}).(EmailChannelPtrOutput)
-}
-
-type EmailChannelPtrOutput struct{ *pulumi.OutputState }
-
-func (EmailChannelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailChannel)(nil))
-}
-
-func (o EmailChannelPtrOutput) ToEmailChannelPtrOutput() EmailChannelPtrOutput {
-	return o
-}
-
-func (o EmailChannelPtrOutput) ToEmailChannelPtrOutputWithContext(ctx context.Context) EmailChannelPtrOutput {
-	return o
-}
-
-func (o EmailChannelPtrOutput) Elem() EmailChannelOutput {
-	return o.ApplyT(func(v *EmailChannel) EmailChannel {
-		if v != nil {
-			return *v
-		}
-		var ret EmailChannel
-		return ret
-	}).(EmailChannelOutput)
-}
-
 type EmailChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EmailChannel)(nil))
+	return reflect.TypeOf((*[]*EmailChannel)(nil)).Elem()
 }
 
 func (o EmailChannelArrayOutput) ToEmailChannelArrayOutput() EmailChannelArrayOutput {
@@ -362,15 +299,15 @@ func (o EmailChannelArrayOutput) ToEmailChannelArrayOutputWithContext(ctx contex
 }
 
 func (o EmailChannelArrayOutput) Index(i pulumi.IntInput) EmailChannelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailChannel {
-		return vs[0].([]EmailChannel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailChannel {
+		return vs[0].([]*EmailChannel)[vs[1].(int)]
 	}).(EmailChannelOutput)
 }
 
 type EmailChannelMapOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EmailChannel)(nil))
+	return reflect.TypeOf((*map[string]*EmailChannel)(nil)).Elem()
 }
 
 func (o EmailChannelMapOutput) ToEmailChannelMapOutput() EmailChannelMapOutput {
@@ -382,18 +319,16 @@ func (o EmailChannelMapOutput) ToEmailChannelMapOutputWithContext(ctx context.Co
 }
 
 func (o EmailChannelMapOutput) MapIndex(k pulumi.StringInput) EmailChannelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EmailChannel {
-		return vs[0].(map[string]EmailChannel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EmailChannel {
+		return vs[0].(map[string]*EmailChannel)[vs[1].(string)]
 	}).(EmailChannelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailChannelInput)(nil)).Elem(), &EmailChannel{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EmailChannelPtrInput)(nil)).Elem(), &EmailChannel{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailChannelArrayInput)(nil)).Elem(), EmailChannelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailChannelMapInput)(nil)).Elem(), EmailChannelMap{})
 	pulumi.RegisterOutputType(EmailChannelOutput{})
-	pulumi.RegisterOutputType(EmailChannelPtrOutput{})
 	pulumi.RegisterOutputType(EmailChannelArrayOutput{})
 	pulumi.RegisterOutputType(EmailChannelMapOutput{})
 }

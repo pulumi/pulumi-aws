@@ -233,33 +233,33 @@ export class Document extends pulumi.CustomResource {
      */
     constructor(name: string, args: DocumentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DocumentArgs | DocumentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DocumentState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attachmentsSources"] = state ? state.attachmentsSources : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["documentFormat"] = state ? state.documentFormat : undefined;
-            inputs["documentType"] = state ? state.documentType : undefined;
-            inputs["documentVersion"] = state ? state.documentVersion : undefined;
-            inputs["hash"] = state ? state.hash : undefined;
-            inputs["hashType"] = state ? state.hashType : undefined;
-            inputs["latestVersion"] = state ? state.latestVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["platformTypes"] = state ? state.platformTypes : undefined;
-            inputs["schemaVersion"] = state ? state.schemaVersion : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetType"] = state ? state.targetType : undefined;
-            inputs["versionName"] = state ? state.versionName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attachmentsSources"] = state ? state.attachmentsSources : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["defaultVersion"] = state ? state.defaultVersion : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["documentFormat"] = state ? state.documentFormat : undefined;
+            resourceInputs["documentType"] = state ? state.documentType : undefined;
+            resourceInputs["documentVersion"] = state ? state.documentVersion : undefined;
+            resourceInputs["hash"] = state ? state.hash : undefined;
+            resourceInputs["hashType"] = state ? state.hashType : undefined;
+            resourceInputs["latestVersion"] = state ? state.latestVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["platformTypes"] = state ? state.platformTypes : undefined;
+            resourceInputs["schemaVersion"] = state ? state.schemaVersion : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["versionName"] = state ? state.versionName : undefined;
         } else {
             const args = argsOrState as DocumentArgs | undefined;
             if ((!args || args.content === undefined) && !opts.urn) {
@@ -268,34 +268,32 @@ export class Document extends pulumi.CustomResource {
             if ((!args || args.documentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'documentType'");
             }
-            inputs["attachmentsSources"] = args ? args.attachmentsSources : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["documentFormat"] = args ? args.documentFormat : undefined;
-            inputs["documentType"] = args ? args.documentType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["versionName"] = args ? args.versionName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["defaultVersion"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["documentVersion"] = undefined /*out*/;
-            inputs["hash"] = undefined /*out*/;
-            inputs["hashType"] = undefined /*out*/;
-            inputs["latestVersion"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["platformTypes"] = undefined /*out*/;
-            inputs["schemaVersion"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["attachmentsSources"] = args ? args.attachmentsSources : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["documentFormat"] = args ? args.documentFormat : undefined;
+            resourceInputs["documentType"] = args ? args.documentType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["defaultVersion"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentVersion"] = undefined /*out*/;
+            resourceInputs["hash"] = undefined /*out*/;
+            resourceInputs["hashType"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["platformTypes"] = undefined /*out*/;
+            resourceInputs["schemaVersion"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Document.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Document.__pulumiType, name, resourceInputs, opts);
     }
 }
 

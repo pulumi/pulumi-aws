@@ -142,22 +142,22 @@ export class Route extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
-            inputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
-            inputs["authorizationType"] = state ? state.authorizationType : undefined;
-            inputs["authorizerId"] = state ? state.authorizerId : undefined;
-            inputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
-            inputs["operationName"] = state ? state.operationName : undefined;
-            inputs["requestModels"] = state ? state.requestModels : undefined;
-            inputs["requestParameters"] = state ? state.requestParameters : undefined;
-            inputs["routeKey"] = state ? state.routeKey : undefined;
-            inputs["routeResponseSelectionExpression"] = state ? state.routeResponseSelectionExpression : undefined;
-            inputs["target"] = state ? state.target : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
+            resourceInputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
+            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
+            resourceInputs["authorizerId"] = state ? state.authorizerId : undefined;
+            resourceInputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
+            resourceInputs["operationName"] = state ? state.operationName : undefined;
+            resourceInputs["requestModels"] = state ? state.requestModels : undefined;
+            resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
+            resourceInputs["routeKey"] = state ? state.routeKey : undefined;
+            resourceInputs["routeResponseSelectionExpression"] = state ? state.routeResponseSelectionExpression : undefined;
+            resourceInputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -166,23 +166,21 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.routeKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeKey'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
-            inputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
-            inputs["authorizationType"] = args ? args.authorizationType : undefined;
-            inputs["authorizerId"] = args ? args.authorizerId : undefined;
-            inputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            inputs["operationName"] = args ? args.operationName : undefined;
-            inputs["requestModels"] = args ? args.requestModels : undefined;
-            inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["routeKey"] = args ? args.routeKey : undefined;
-            inputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
-            inputs["target"] = args ? args.target : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
+            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
+            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
+            resourceInputs["operationName"] = args ? args.operationName : undefined;
+            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
+            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
+            resourceInputs["routeKey"] = args ? args.routeKey : undefined;
+            resourceInputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Route.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

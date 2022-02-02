@@ -192,7 +192,7 @@ type ResolverFirewallRuleGroupAssociationInput interface {
 }
 
 func (*ResolverFirewallRuleGroupAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverFirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((**ResolverFirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (i *ResolverFirewallRuleGroupAssociation) ToResolverFirewallRuleGroupAssociationOutput() ResolverFirewallRuleGroupAssociationOutput {
@@ -201,35 +201,6 @@ func (i *ResolverFirewallRuleGroupAssociation) ToResolverFirewallRuleGroupAssoci
 
 func (i *ResolverFirewallRuleGroupAssociation) ToResolverFirewallRuleGroupAssociationOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationOutput)
-}
-
-func (i *ResolverFirewallRuleGroupAssociation) ToResolverFirewallRuleGroupAssociationPtrOutput() ResolverFirewallRuleGroupAssociationPtrOutput {
-	return i.ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ResolverFirewallRuleGroupAssociation) ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationPtrOutput)
-}
-
-type ResolverFirewallRuleGroupAssociationPtrInput interface {
-	pulumi.Input
-
-	ToResolverFirewallRuleGroupAssociationPtrOutput() ResolverFirewallRuleGroupAssociationPtrOutput
-	ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationPtrOutput
-}
-
-type resolverFirewallRuleGroupAssociationPtrType ResolverFirewallRuleGroupAssociationArgs
-
-func (*resolverFirewallRuleGroupAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverFirewallRuleGroupAssociation)(nil))
-}
-
-func (i *resolverFirewallRuleGroupAssociationPtrType) ToResolverFirewallRuleGroupAssociationPtrOutput() ResolverFirewallRuleGroupAssociationPtrOutput {
-	return i.ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *resolverFirewallRuleGroupAssociationPtrType) ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationPtrOutput)
 }
 
 // ResolverFirewallRuleGroupAssociationArrayInput is an input type that accepts ResolverFirewallRuleGroupAssociationArray and ResolverFirewallRuleGroupAssociationArrayOutput values.
@@ -285,7 +256,7 @@ func (i ResolverFirewallRuleGroupAssociationMap) ToResolverFirewallRuleGroupAsso
 type ResolverFirewallRuleGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRuleGroupAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverFirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((**ResolverFirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupAssociationOutput() ResolverFirewallRuleGroupAssociationOutput {
@@ -296,44 +267,10 @@ func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupA
 	return o
 }
 
-func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupAssociationPtrOutput() ResolverFirewallRuleGroupAssociationPtrOutput {
-	return o.ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverFirewallRuleGroupAssociation) *ResolverFirewallRuleGroupAssociation {
-		return &v
-	}).(ResolverFirewallRuleGroupAssociationPtrOutput)
-}
-
-type ResolverFirewallRuleGroupAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ResolverFirewallRuleGroupAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverFirewallRuleGroupAssociation)(nil))
-}
-
-func (o ResolverFirewallRuleGroupAssociationPtrOutput) ToResolverFirewallRuleGroupAssociationPtrOutput() ResolverFirewallRuleGroupAssociationPtrOutput {
-	return o
-}
-
-func (o ResolverFirewallRuleGroupAssociationPtrOutput) ToResolverFirewallRuleGroupAssociationPtrOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationPtrOutput {
-	return o
-}
-
-func (o ResolverFirewallRuleGroupAssociationPtrOutput) Elem() ResolverFirewallRuleGroupAssociationOutput {
-	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) ResolverFirewallRuleGroupAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ResolverFirewallRuleGroupAssociation
-		return ret
-	}).(ResolverFirewallRuleGroupAssociationOutput)
-}
-
 type ResolverFirewallRuleGroupAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRuleGroupAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverFirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((*[]*ResolverFirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (o ResolverFirewallRuleGroupAssociationArrayOutput) ToResolverFirewallRuleGroupAssociationArrayOutput() ResolverFirewallRuleGroupAssociationArrayOutput {
@@ -345,15 +282,15 @@ func (o ResolverFirewallRuleGroupAssociationArrayOutput) ToResolverFirewallRuleG
 }
 
 func (o ResolverFirewallRuleGroupAssociationArrayOutput) Index(i pulumi.IntInput) ResolverFirewallRuleGroupAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverFirewallRuleGroupAssociation {
-		return vs[0].([]ResolverFirewallRuleGroupAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallRuleGroupAssociation {
+		return vs[0].([]*ResolverFirewallRuleGroupAssociation)[vs[1].(int)]
 	}).(ResolverFirewallRuleGroupAssociationOutput)
 }
 
 type ResolverFirewallRuleGroupAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRuleGroupAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResolverFirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ResolverFirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (o ResolverFirewallRuleGroupAssociationMapOutput) ToResolverFirewallRuleGroupAssociationMapOutput() ResolverFirewallRuleGroupAssociationMapOutput {
@@ -365,18 +302,16 @@ func (o ResolverFirewallRuleGroupAssociationMapOutput) ToResolverFirewallRuleGro
 }
 
 func (o ResolverFirewallRuleGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallRuleGroupAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverFirewallRuleGroupAssociation {
-		return vs[0].(map[string]ResolverFirewallRuleGroupAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResolverFirewallRuleGroupAssociation {
+		return vs[0].(map[string]*ResolverFirewallRuleGroupAssociation)[vs[1].(string)]
 	}).(ResolverFirewallRuleGroupAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationInput)(nil)).Elem(), &ResolverFirewallRuleGroupAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationPtrInput)(nil)).Elem(), &ResolverFirewallRuleGroupAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationArrayInput)(nil)).Elem(), ResolverFirewallRuleGroupAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationMapInput)(nil)).Elem(), ResolverFirewallRuleGroupAssociationMap{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleGroupAssociationOutput{})
-	pulumi.RegisterOutputType(ResolverFirewallRuleGroupAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleGroupAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleGroupAssociationMapOutput{})
 }

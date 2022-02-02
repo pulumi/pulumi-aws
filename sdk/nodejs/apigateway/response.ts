@@ -93,15 +93,15 @@ export class Response extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResponseArgs | ResponseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponseState | undefined;
-            inputs["responseParameters"] = state ? state.responseParameters : undefined;
-            inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
-            inputs["responseType"] = state ? state.responseType : undefined;
-            inputs["restApiId"] = state ? state.restApiId : undefined;
-            inputs["statusCode"] = state ? state.statusCode : undefined;
+            resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
+            resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
+            resourceInputs["responseType"] = state ? state.responseType : undefined;
+            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
+            resourceInputs["statusCode"] = state ? state.statusCode : undefined;
         } else {
             const args = argsOrState as ResponseArgs | undefined;
             if ((!args || args.responseType === undefined) && !opts.urn) {
@@ -110,16 +110,14 @@ export class Response extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            inputs["responseType"] = args ? args.responseType : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
+            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
+            resourceInputs["responseType"] = args ? args.responseType : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["statusCode"] = args ? args.statusCode : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Response.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Response.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -94,16 +94,16 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomDomainAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomDomainAssociationArgs | CustomDomainAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDomainAssociationState | undefined;
-            inputs["certificateValidationRecords"] = state ? state.certificateValidationRecords : undefined;
-            inputs["dnsTarget"] = state ? state.dnsTarget : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["enableWwwSubdomain"] = state ? state.enableWwwSubdomain : undefined;
-            inputs["serviceArn"] = state ? state.serviceArn : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["certificateValidationRecords"] = state ? state.certificateValidationRecords : undefined;
+            resourceInputs["dnsTarget"] = state ? state.dnsTarget : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["enableWwwSubdomain"] = state ? state.enableWwwSubdomain : undefined;
+            resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as CustomDomainAssociationArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -112,17 +112,15 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
             if ((!args || args.serviceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceArn'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["enableWwwSubdomain"] = args ? args.enableWwwSubdomain : undefined;
-            inputs["serviceArn"] = args ? args.serviceArn : undefined;
-            inputs["certificateValidationRecords"] = undefined /*out*/;
-            inputs["dnsTarget"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["enableWwwSubdomain"] = args ? args.enableWwwSubdomain : undefined;
+            resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
+            resourceInputs["certificateValidationRecords"] = undefined /*out*/;
+            resourceInputs["dnsTarget"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomDomainAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomDomainAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -24,9 +24,7 @@ export function getProxy(args: GetProxyArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getProxy:getProxy", {
         "name": args.name,
     }, opts);

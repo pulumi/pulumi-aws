@@ -186,67 +186,65 @@ export class Ami extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AmiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AmiArgs | AmiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AmiState | undefined;
-            inputs["architecture"] = state ? state.architecture : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = state ? state.enaSupport : undefined;
-            inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            inputs["hypervisor"] = state ? state.hypervisor : undefined;
-            inputs["imageLocation"] = state ? state.imageLocation : undefined;
-            inputs["imageOwnerAlias"] = state ? state.imageOwnerAlias : undefined;
-            inputs["imageType"] = state ? state.imageType : undefined;
-            inputs["kernelId"] = state ? state.kernelId : undefined;
-            inputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["platformDetails"] = state ? state.platformDetails : undefined;
-            inputs["public"] = state ? state.public : undefined;
-            inputs["ramdiskId"] = state ? state.ramdiskId : undefined;
-            inputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
-            inputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
-            inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["usageOperation"] = state ? state.usageOperation : undefined;
-            inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
+            resourceInputs["architecture"] = state ? state.architecture : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
+            resourceInputs["enaSupport"] = state ? state.enaSupport : undefined;
+            resourceInputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
+            resourceInputs["hypervisor"] = state ? state.hypervisor : undefined;
+            resourceInputs["imageLocation"] = state ? state.imageLocation : undefined;
+            resourceInputs["imageOwnerAlias"] = state ? state.imageOwnerAlias : undefined;
+            resourceInputs["imageType"] = state ? state.imageType : undefined;
+            resourceInputs["kernelId"] = state ? state.kernelId : undefined;
+            resourceInputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["platformDetails"] = state ? state.platformDetails : undefined;
+            resourceInputs["public"] = state ? state.public : undefined;
+            resourceInputs["ramdiskId"] = state ? state.ramdiskId : undefined;
+            resourceInputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
+            resourceInputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
+            resourceInputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["usageOperation"] = state ? state.usageOperation : undefined;
+            resourceInputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiArgs | undefined;
-            inputs["architecture"] = args ? args.architecture : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = args ? args.enaSupport : undefined;
-            inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            inputs["imageLocation"] = args ? args.imageLocation : undefined;
-            inputs["kernelId"] = args ? args.kernelId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ramdiskId"] = args ? args.ramdiskId : undefined;
-            inputs["rootDeviceName"] = args ? args.rootDeviceName : undefined;
-            inputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hypervisor"] = undefined /*out*/;
-            inputs["imageOwnerAlias"] = undefined /*out*/;
-            inputs["imageType"] = undefined /*out*/;
-            inputs["manageEbsSnapshots"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["platformDetails"] = undefined /*out*/;
-            inputs["public"] = undefined /*out*/;
-            inputs["rootSnapshotId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["usageOperation"] = undefined /*out*/;
+            resourceInputs["architecture"] = args ? args.architecture : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
+            resourceInputs["enaSupport"] = args ? args.enaSupport : undefined;
+            resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
+            resourceInputs["imageLocation"] = args ? args.imageLocation : undefined;
+            resourceInputs["kernelId"] = args ? args.kernelId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ramdiskId"] = args ? args.ramdiskId : undefined;
+            resourceInputs["rootDeviceName"] = args ? args.rootDeviceName : undefined;
+            resourceInputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualizationType"] = args ? args.virtualizationType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["hypervisor"] = undefined /*out*/;
+            resourceInputs["imageOwnerAlias"] = undefined /*out*/;
+            resourceInputs["imageType"] = undefined /*out*/;
+            resourceInputs["manageEbsSnapshots"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["platformDetails"] = undefined /*out*/;
+            resourceInputs["public"] = undefined /*out*/;
+            resourceInputs["rootSnapshotId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["usageOperation"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Ami.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Ami.__pulumiType, name, resourceInputs, opts);
     }
 }
 

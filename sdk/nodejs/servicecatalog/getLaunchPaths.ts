@@ -25,9 +25,7 @@ export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
         "acceptLanguage": args.acceptLanguage,
         "productId": args.productId,

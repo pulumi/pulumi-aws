@@ -74,12 +74,12 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: LambdaFunctionAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LambdaFunctionAssociationArgs | LambdaFunctionAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LambdaFunctionAssociationState | undefined;
-            inputs["functionArn"] = state ? state.functionArn : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["functionArn"] = state ? state.functionArn : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
         } else {
             const args = argsOrState as LambdaFunctionAssociationArgs | undefined;
             if ((!args || args.functionArn === undefined) && !opts.urn) {
@@ -88,13 +88,11 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
             if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            inputs["functionArn"] = args ? args.functionArn : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["functionArn"] = args ? args.functionArn : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LambdaFunctionAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LambdaFunctionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

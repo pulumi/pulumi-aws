@@ -84,15 +84,15 @@ export class Invocation extends pulumi.CustomResource {
      */
     constructor(name: string, args: InvocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InvocationArgs | InvocationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvocationState | undefined;
-            inputs["functionName"] = state ? state.functionName : undefined;
-            inputs["input"] = state ? state.input : undefined;
-            inputs["qualifier"] = state ? state.qualifier : undefined;
-            inputs["result"] = state ? state.result : undefined;
-            inputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["functionName"] = state ? state.functionName : undefined;
+            resourceInputs["input"] = state ? state.input : undefined;
+            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["result"] = state ? state.result : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as InvocationArgs | undefined;
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -101,16 +101,14 @@ export class Invocation extends pulumi.CustomResource {
             if ((!args || args.input === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["input"] = args ? args.input : undefined;
-            inputs["qualifier"] = args ? args.qualifier : undefined;
-            inputs["triggers"] = args ? args.triggers : undefined;
-            inputs["result"] = undefined /*out*/;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["input"] = args ? args.input : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["result"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Invocation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Invocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

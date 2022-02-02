@@ -24,9 +24,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:glue/getConnection:getConnection", {
         "id": args.id,
         "tags": args.tags,

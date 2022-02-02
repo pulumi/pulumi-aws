@@ -55,6 +55,7 @@ setup(name='pulumi_aws',
       package_data={
           'pulumi_aws': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

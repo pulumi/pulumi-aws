@@ -242,7 +242,7 @@ type MethodSettingsInput interface {
 }
 
 func (*MethodSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodSettings)(nil))
+	return reflect.TypeOf((**MethodSettings)(nil)).Elem()
 }
 
 func (i *MethodSettings) ToMethodSettingsOutput() MethodSettingsOutput {
@@ -251,35 +251,6 @@ func (i *MethodSettings) ToMethodSettingsOutput() MethodSettingsOutput {
 
 func (i *MethodSettings) ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsOutput)
-}
-
-func (i *MethodSettings) ToMethodSettingsPtrOutput() MethodSettingsPtrOutput {
-	return i.ToMethodSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *MethodSettings) ToMethodSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsPtrOutput)
-}
-
-type MethodSettingsPtrInput interface {
-	pulumi.Input
-
-	ToMethodSettingsPtrOutput() MethodSettingsPtrOutput
-	ToMethodSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsPtrOutput
-}
-
-type methodSettingsPtrType MethodSettingsArgs
-
-func (*methodSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MethodSettings)(nil))
-}
-
-func (i *methodSettingsPtrType) ToMethodSettingsPtrOutput() MethodSettingsPtrOutput {
-	return i.ToMethodSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *methodSettingsPtrType) ToMethodSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsPtrOutput)
 }
 
 // MethodSettingsArrayInput is an input type that accepts MethodSettingsArray and MethodSettingsArrayOutput values.
@@ -335,7 +306,7 @@ func (i MethodSettingsMap) ToMethodSettingsMapOutputWithContext(ctx context.Cont
 type MethodSettingsOutput struct{ *pulumi.OutputState }
 
 func (MethodSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodSettings)(nil))
+	return reflect.TypeOf((**MethodSettings)(nil)).Elem()
 }
 
 func (o MethodSettingsOutput) ToMethodSettingsOutput() MethodSettingsOutput {
@@ -346,44 +317,10 @@ func (o MethodSettingsOutput) ToMethodSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o MethodSettingsOutput) ToMethodSettingsPtrOutput() MethodSettingsPtrOutput {
-	return o.ToMethodSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o MethodSettingsOutput) ToMethodSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodSettings) *MethodSettings {
-		return &v
-	}).(MethodSettingsPtrOutput)
-}
-
-type MethodSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (MethodSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MethodSettings)(nil))
-}
-
-func (o MethodSettingsPtrOutput) ToMethodSettingsPtrOutput() MethodSettingsPtrOutput {
-	return o
-}
-
-func (o MethodSettingsPtrOutput) ToMethodSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsPtrOutput {
-	return o
-}
-
-func (o MethodSettingsPtrOutput) Elem() MethodSettingsOutput {
-	return o.ApplyT(func(v *MethodSettings) MethodSettings {
-		if v != nil {
-			return *v
-		}
-		var ret MethodSettings
-		return ret
-	}).(MethodSettingsOutput)
-}
-
 type MethodSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (MethodSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MethodSettings)(nil))
+	return reflect.TypeOf((*[]*MethodSettings)(nil)).Elem()
 }
 
 func (o MethodSettingsArrayOutput) ToMethodSettingsArrayOutput() MethodSettingsArrayOutput {
@@ -395,15 +332,15 @@ func (o MethodSettingsArrayOutput) ToMethodSettingsArrayOutputWithContext(ctx co
 }
 
 func (o MethodSettingsArrayOutput) Index(i pulumi.IntInput) MethodSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodSettings {
-		return vs[0].([]MethodSettings)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MethodSettings {
+		return vs[0].([]*MethodSettings)[vs[1].(int)]
 	}).(MethodSettingsOutput)
 }
 
 type MethodSettingsMapOutput struct{ *pulumi.OutputState }
 
 func (MethodSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MethodSettings)(nil))
+	return reflect.TypeOf((*map[string]*MethodSettings)(nil)).Elem()
 }
 
 func (o MethodSettingsMapOutput) ToMethodSettingsMapOutput() MethodSettingsMapOutput {
@@ -415,18 +352,16 @@ func (o MethodSettingsMapOutput) ToMethodSettingsMapOutputWithContext(ctx contex
 }
 
 func (o MethodSettingsMapOutput) MapIndex(k pulumi.StringInput) MethodSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MethodSettings {
-		return vs[0].(map[string]MethodSettings)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MethodSettings {
+		return vs[0].(map[string]*MethodSettings)[vs[1].(string)]
 	}).(MethodSettingsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsInput)(nil)).Elem(), &MethodSettings{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsPtrInput)(nil)).Elem(), &MethodSettings{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsArrayInput)(nil)).Elem(), MethodSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsMapInput)(nil)).Elem(), MethodSettingsMap{})
 	pulumi.RegisterOutputType(MethodSettingsOutput{})
-	pulumi.RegisterOutputType(MethodSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MethodSettingsArrayOutput{})
 	pulumi.RegisterOutputType(MethodSettingsMapOutput{})
 }

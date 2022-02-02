@@ -89,15 +89,15 @@ export class Member extends pulumi.CustomResource {
      */
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MemberArgs | MemberState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["invite"] = state ? state.invite : undefined;
-            inputs["masterId"] = state ? state.masterId : undefined;
-            inputs["memberStatus"] = state ? state.memberStatus : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["invite"] = state ? state.invite : undefined;
+            resourceInputs["masterId"] = state ? state.masterId : undefined;
+            resourceInputs["memberStatus"] = state ? state.memberStatus : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -106,16 +106,14 @@ export class Member extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["invite"] = args ? args.invite : undefined;
-            inputs["masterId"] = undefined /*out*/;
-            inputs["memberStatus"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["invite"] = args ? args.invite : undefined;
+            resourceInputs["masterId"] = undefined /*out*/;
+            resourceInputs["memberStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Member.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }
 

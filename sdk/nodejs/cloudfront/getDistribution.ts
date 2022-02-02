@@ -23,9 +23,7 @@ export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudfront/getDistribution:getDistribution", {
         "id": args.id,
         "tags": args.tags,

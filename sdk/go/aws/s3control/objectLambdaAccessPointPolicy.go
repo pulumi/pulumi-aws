@@ -192,7 +192,7 @@ type ObjectLambdaAccessPointPolicyInput interface {
 }
 
 func (*ObjectLambdaAccessPointPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectLambdaAccessPointPolicy)(nil))
+	return reflect.TypeOf((**ObjectLambdaAccessPointPolicy)(nil)).Elem()
 }
 
 func (i *ObjectLambdaAccessPointPolicy) ToObjectLambdaAccessPointPolicyOutput() ObjectLambdaAccessPointPolicyOutput {
@@ -201,35 +201,6 @@ func (i *ObjectLambdaAccessPointPolicy) ToObjectLambdaAccessPointPolicyOutput() 
 
 func (i *ObjectLambdaAccessPointPolicy) ToObjectLambdaAccessPointPolicyOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointPolicyOutput)
-}
-
-func (i *ObjectLambdaAccessPointPolicy) ToObjectLambdaAccessPointPolicyPtrOutput() ObjectLambdaAccessPointPolicyPtrOutput {
-	return i.ToObjectLambdaAccessPointPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ObjectLambdaAccessPointPolicy) ToObjectLambdaAccessPointPolicyPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointPolicyPtrOutput)
-}
-
-type ObjectLambdaAccessPointPolicyPtrInput interface {
-	pulumi.Input
-
-	ToObjectLambdaAccessPointPolicyPtrOutput() ObjectLambdaAccessPointPolicyPtrOutput
-	ToObjectLambdaAccessPointPolicyPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyPtrOutput
-}
-
-type objectLambdaAccessPointPolicyPtrType ObjectLambdaAccessPointPolicyArgs
-
-func (*objectLambdaAccessPointPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectLambdaAccessPointPolicy)(nil))
-}
-
-func (i *objectLambdaAccessPointPolicyPtrType) ToObjectLambdaAccessPointPolicyPtrOutput() ObjectLambdaAccessPointPolicyPtrOutput {
-	return i.ToObjectLambdaAccessPointPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *objectLambdaAccessPointPolicyPtrType) ToObjectLambdaAccessPointPolicyPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointPolicyPtrOutput)
 }
 
 // ObjectLambdaAccessPointPolicyArrayInput is an input type that accepts ObjectLambdaAccessPointPolicyArray and ObjectLambdaAccessPointPolicyArrayOutput values.
@@ -285,7 +256,7 @@ func (i ObjectLambdaAccessPointPolicyMap) ToObjectLambdaAccessPointPolicyMapOutp
 type ObjectLambdaAccessPointPolicyOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectLambdaAccessPointPolicy)(nil))
+	return reflect.TypeOf((**ObjectLambdaAccessPointPolicy)(nil)).Elem()
 }
 
 func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutput() ObjectLambdaAccessPointPolicyOutput {
@@ -296,44 +267,10 @@ func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutp
 	return o
 }
 
-func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyPtrOutput() ObjectLambdaAccessPointPolicyPtrOutput {
-	return o.ToObjectLambdaAccessPointPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectLambdaAccessPointPolicy) *ObjectLambdaAccessPointPolicy {
-		return &v
-	}).(ObjectLambdaAccessPointPolicyPtrOutput)
-}
-
-type ObjectLambdaAccessPointPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ObjectLambdaAccessPointPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectLambdaAccessPointPolicy)(nil))
-}
-
-func (o ObjectLambdaAccessPointPolicyPtrOutput) ToObjectLambdaAccessPointPolicyPtrOutput() ObjectLambdaAccessPointPolicyPtrOutput {
-	return o
-}
-
-func (o ObjectLambdaAccessPointPolicyPtrOutput) ToObjectLambdaAccessPointPolicyPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyPtrOutput {
-	return o
-}
-
-func (o ObjectLambdaAccessPointPolicyPtrOutput) Elem() ObjectLambdaAccessPointPolicyOutput {
-	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) ObjectLambdaAccessPointPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ObjectLambdaAccessPointPolicy
-		return ret
-	}).(ObjectLambdaAccessPointPolicyOutput)
-}
-
 type ObjectLambdaAccessPointPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObjectLambdaAccessPointPolicy)(nil))
+	return reflect.TypeOf((*[]*ObjectLambdaAccessPointPolicy)(nil)).Elem()
 }
 
 func (o ObjectLambdaAccessPointPolicyArrayOutput) ToObjectLambdaAccessPointPolicyArrayOutput() ObjectLambdaAccessPointPolicyArrayOutput {
@@ -345,15 +282,15 @@ func (o ObjectLambdaAccessPointPolicyArrayOutput) ToObjectLambdaAccessPointPolic
 }
 
 func (o ObjectLambdaAccessPointPolicyArrayOutput) Index(i pulumi.IntInput) ObjectLambdaAccessPointPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectLambdaAccessPointPolicy {
-		return vs[0].([]ObjectLambdaAccessPointPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObjectLambdaAccessPointPolicy {
+		return vs[0].([]*ObjectLambdaAccessPointPolicy)[vs[1].(int)]
 	}).(ObjectLambdaAccessPointPolicyOutput)
 }
 
 type ObjectLambdaAccessPointPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ObjectLambdaAccessPointPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ObjectLambdaAccessPointPolicy)(nil)).Elem()
 }
 
 func (o ObjectLambdaAccessPointPolicyMapOutput) ToObjectLambdaAccessPointPolicyMapOutput() ObjectLambdaAccessPointPolicyMapOutput {
@@ -365,18 +302,16 @@ func (o ObjectLambdaAccessPointPolicyMapOutput) ToObjectLambdaAccessPointPolicyM
 }
 
 func (o ObjectLambdaAccessPointPolicyMapOutput) MapIndex(k pulumi.StringInput) ObjectLambdaAccessPointPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ObjectLambdaAccessPointPolicy {
-		return vs[0].(map[string]ObjectLambdaAccessPointPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ObjectLambdaAccessPointPolicy {
+		return vs[0].(map[string]*ObjectLambdaAccessPointPolicy)[vs[1].(string)]
 	}).(ObjectLambdaAccessPointPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointPolicyInput)(nil)).Elem(), &ObjectLambdaAccessPointPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointPolicyPtrInput)(nil)).Elem(), &ObjectLambdaAccessPointPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointPolicyArrayInput)(nil)).Elem(), ObjectLambdaAccessPointPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointPolicyMapInput)(nil)).Elem(), ObjectLambdaAccessPointPolicyMap{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointPolicyOutput{})
-	pulumi.RegisterOutputType(ObjectLambdaAccessPointPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointPolicyMapOutput{})
 }

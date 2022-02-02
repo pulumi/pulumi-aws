@@ -189,7 +189,7 @@ type CustomPluginInput interface {
 }
 
 func (*CustomPlugin) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomPlugin)(nil))
+	return reflect.TypeOf((**CustomPlugin)(nil)).Elem()
 }
 
 func (i *CustomPlugin) ToCustomPluginOutput() CustomPluginOutput {
@@ -198,35 +198,6 @@ func (i *CustomPlugin) ToCustomPluginOutput() CustomPluginOutput {
 
 func (i *CustomPlugin) ToCustomPluginOutputWithContext(ctx context.Context) CustomPluginOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginOutput)
-}
-
-func (i *CustomPlugin) ToCustomPluginPtrOutput() CustomPluginPtrOutput {
-	return i.ToCustomPluginPtrOutputWithContext(context.Background())
-}
-
-func (i *CustomPlugin) ToCustomPluginPtrOutputWithContext(ctx context.Context) CustomPluginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginPtrOutput)
-}
-
-type CustomPluginPtrInput interface {
-	pulumi.Input
-
-	ToCustomPluginPtrOutput() CustomPluginPtrOutput
-	ToCustomPluginPtrOutputWithContext(ctx context.Context) CustomPluginPtrOutput
-}
-
-type customPluginPtrType CustomPluginArgs
-
-func (*customPluginPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomPlugin)(nil))
-}
-
-func (i *customPluginPtrType) ToCustomPluginPtrOutput() CustomPluginPtrOutput {
-	return i.ToCustomPluginPtrOutputWithContext(context.Background())
-}
-
-func (i *customPluginPtrType) ToCustomPluginPtrOutputWithContext(ctx context.Context) CustomPluginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginPtrOutput)
 }
 
 // CustomPluginArrayInput is an input type that accepts CustomPluginArray and CustomPluginArrayOutput values.
@@ -282,7 +253,7 @@ func (i CustomPluginMap) ToCustomPluginMapOutputWithContext(ctx context.Context)
 type CustomPluginOutput struct{ *pulumi.OutputState }
 
 func (CustomPluginOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomPlugin)(nil))
+	return reflect.TypeOf((**CustomPlugin)(nil)).Elem()
 }
 
 func (o CustomPluginOutput) ToCustomPluginOutput() CustomPluginOutput {
@@ -293,44 +264,10 @@ func (o CustomPluginOutput) ToCustomPluginOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o CustomPluginOutput) ToCustomPluginPtrOutput() CustomPluginPtrOutput {
-	return o.ToCustomPluginPtrOutputWithContext(context.Background())
-}
-
-func (o CustomPluginOutput) ToCustomPluginPtrOutputWithContext(ctx context.Context) CustomPluginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomPlugin) *CustomPlugin {
-		return &v
-	}).(CustomPluginPtrOutput)
-}
-
-type CustomPluginPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomPluginPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomPlugin)(nil))
-}
-
-func (o CustomPluginPtrOutput) ToCustomPluginPtrOutput() CustomPluginPtrOutput {
-	return o
-}
-
-func (o CustomPluginPtrOutput) ToCustomPluginPtrOutputWithContext(ctx context.Context) CustomPluginPtrOutput {
-	return o
-}
-
-func (o CustomPluginPtrOutput) Elem() CustomPluginOutput {
-	return o.ApplyT(func(v *CustomPlugin) CustomPlugin {
-		if v != nil {
-			return *v
-		}
-		var ret CustomPlugin
-		return ret
-	}).(CustomPluginOutput)
-}
-
 type CustomPluginArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomPluginArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomPlugin)(nil))
+	return reflect.TypeOf((*[]*CustomPlugin)(nil)).Elem()
 }
 
 func (o CustomPluginArrayOutput) ToCustomPluginArrayOutput() CustomPluginArrayOutput {
@@ -342,15 +279,15 @@ func (o CustomPluginArrayOutput) ToCustomPluginArrayOutputWithContext(ctx contex
 }
 
 func (o CustomPluginArrayOutput) Index(i pulumi.IntInput) CustomPluginOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomPlugin {
-		return vs[0].([]CustomPlugin)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomPlugin {
+		return vs[0].([]*CustomPlugin)[vs[1].(int)]
 	}).(CustomPluginOutput)
 }
 
 type CustomPluginMapOutput struct{ *pulumi.OutputState }
 
 func (CustomPluginMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomPlugin)(nil))
+	return reflect.TypeOf((*map[string]*CustomPlugin)(nil)).Elem()
 }
 
 func (o CustomPluginMapOutput) ToCustomPluginMapOutput() CustomPluginMapOutput {
@@ -362,18 +299,16 @@ func (o CustomPluginMapOutput) ToCustomPluginMapOutputWithContext(ctx context.Co
 }
 
 func (o CustomPluginMapOutput) MapIndex(k pulumi.StringInput) CustomPluginOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomPlugin {
-		return vs[0].(map[string]CustomPlugin)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CustomPlugin {
+		return vs[0].(map[string]*CustomPlugin)[vs[1].(string)]
 	}).(CustomPluginOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginInput)(nil)).Elem(), &CustomPlugin{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginPtrInput)(nil)).Elem(), &CustomPlugin{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginArrayInput)(nil)).Elem(), CustomPluginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginMapInput)(nil)).Elem(), CustomPluginMap{})
 	pulumi.RegisterOutputType(CustomPluginOutput{})
-	pulumi.RegisterOutputType(CustomPluginPtrOutput{})
 	pulumi.RegisterOutputType(CustomPluginArrayOutput{})
 	pulumi.RegisterOutputType(CustomPluginMapOutput{})
 }

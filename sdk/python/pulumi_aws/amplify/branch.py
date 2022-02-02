@@ -751,7 +751,7 @@ class Branch(pulumi.CustomResource):
                 input_template="\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
             ))
         # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid=f"Allow_Publish_Events {master_arn}",
             effect="Allow",
             actions=["SNS:Publish"],
@@ -864,7 +864,7 @@ class Branch(pulumi.CustomResource):
                 input_template="\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
             ))
         # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid=f"Allow_Publish_Events {master_arn}",
             effect="Allow",
             actions=["SNS:Publish"],

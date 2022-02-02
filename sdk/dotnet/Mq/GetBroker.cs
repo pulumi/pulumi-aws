@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Mq
 {
@@ -46,7 +45,7 @@ namespace Pulumi.Aws.Mq
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBrokerResult> InvokeAsync(GetBrokerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a MQ Broker.
@@ -82,7 +81,7 @@ namespace Pulumi.Aws.Mq
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
     }
 
 

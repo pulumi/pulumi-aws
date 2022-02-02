@@ -109,18 +109,18 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThreatIntelSetState | undefined;
-            inputs["activate"] = state ? state.activate : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
-            inputs["format"] = state ? state.format : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["activate"] = state ? state.activate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["format"] = state ? state.format : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ThreatIntelSetArgs | undefined;
             if ((!args || args.activate === undefined) && !opts.urn) {
@@ -135,19 +135,17 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            inputs["activate"] = args ? args.activate : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["activate"] = args ? args.activate : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ThreatIntelSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ThreatIntelSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

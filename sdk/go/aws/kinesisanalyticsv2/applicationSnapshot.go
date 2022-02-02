@@ -145,7 +145,7 @@ type ApplicationSnapshotInput interface {
 }
 
 func (*ApplicationSnapshot) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSnapshot)(nil))
+	return reflect.TypeOf((**ApplicationSnapshot)(nil)).Elem()
 }
 
 func (i *ApplicationSnapshot) ToApplicationSnapshotOutput() ApplicationSnapshotOutput {
@@ -154,35 +154,6 @@ func (i *ApplicationSnapshot) ToApplicationSnapshotOutput() ApplicationSnapshotO
 
 func (i *ApplicationSnapshot) ToApplicationSnapshotOutputWithContext(ctx context.Context) ApplicationSnapshotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotOutput)
-}
-
-func (i *ApplicationSnapshot) ToApplicationSnapshotPtrOutput() ApplicationSnapshotPtrOutput {
-	return i.ToApplicationSnapshotPtrOutputWithContext(context.Background())
-}
-
-func (i *ApplicationSnapshot) ToApplicationSnapshotPtrOutputWithContext(ctx context.Context) ApplicationSnapshotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotPtrOutput)
-}
-
-type ApplicationSnapshotPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSnapshotPtrOutput() ApplicationSnapshotPtrOutput
-	ToApplicationSnapshotPtrOutputWithContext(ctx context.Context) ApplicationSnapshotPtrOutput
-}
-
-type applicationSnapshotPtrType ApplicationSnapshotArgs
-
-func (*applicationSnapshotPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSnapshot)(nil))
-}
-
-func (i *applicationSnapshotPtrType) ToApplicationSnapshotPtrOutput() ApplicationSnapshotPtrOutput {
-	return i.ToApplicationSnapshotPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSnapshotPtrType) ToApplicationSnapshotPtrOutputWithContext(ctx context.Context) ApplicationSnapshotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotPtrOutput)
 }
 
 // ApplicationSnapshotArrayInput is an input type that accepts ApplicationSnapshotArray and ApplicationSnapshotArrayOutput values.
@@ -238,7 +209,7 @@ func (i ApplicationSnapshotMap) ToApplicationSnapshotMapOutputWithContext(ctx co
 type ApplicationSnapshotOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSnapshotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSnapshot)(nil))
+	return reflect.TypeOf((**ApplicationSnapshot)(nil)).Elem()
 }
 
 func (o ApplicationSnapshotOutput) ToApplicationSnapshotOutput() ApplicationSnapshotOutput {
@@ -249,44 +220,10 @@ func (o ApplicationSnapshotOutput) ToApplicationSnapshotOutputWithContext(ctx co
 	return o
 }
 
-func (o ApplicationSnapshotOutput) ToApplicationSnapshotPtrOutput() ApplicationSnapshotPtrOutput {
-	return o.ToApplicationSnapshotPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSnapshotOutput) ToApplicationSnapshotPtrOutputWithContext(ctx context.Context) ApplicationSnapshotPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSnapshot) *ApplicationSnapshot {
-		return &v
-	}).(ApplicationSnapshotPtrOutput)
-}
-
-type ApplicationSnapshotPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSnapshotPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSnapshot)(nil))
-}
-
-func (o ApplicationSnapshotPtrOutput) ToApplicationSnapshotPtrOutput() ApplicationSnapshotPtrOutput {
-	return o
-}
-
-func (o ApplicationSnapshotPtrOutput) ToApplicationSnapshotPtrOutputWithContext(ctx context.Context) ApplicationSnapshotPtrOutput {
-	return o
-}
-
-func (o ApplicationSnapshotPtrOutput) Elem() ApplicationSnapshotOutput {
-	return o.ApplyT(func(v *ApplicationSnapshot) ApplicationSnapshot {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSnapshot
-		return ret
-	}).(ApplicationSnapshotOutput)
-}
-
 type ApplicationSnapshotArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSnapshotArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSnapshot)(nil))
+	return reflect.TypeOf((*[]*ApplicationSnapshot)(nil)).Elem()
 }
 
 func (o ApplicationSnapshotArrayOutput) ToApplicationSnapshotArrayOutput() ApplicationSnapshotArrayOutput {
@@ -298,15 +235,15 @@ func (o ApplicationSnapshotArrayOutput) ToApplicationSnapshotArrayOutputWithCont
 }
 
 func (o ApplicationSnapshotArrayOutput) Index(i pulumi.IntInput) ApplicationSnapshotOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSnapshot {
-		return vs[0].([]ApplicationSnapshot)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationSnapshot {
+		return vs[0].([]*ApplicationSnapshot)[vs[1].(int)]
 	}).(ApplicationSnapshotOutput)
 }
 
 type ApplicationSnapshotMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSnapshotMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationSnapshot)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationSnapshot)(nil)).Elem()
 }
 
 func (o ApplicationSnapshotMapOutput) ToApplicationSnapshotMapOutput() ApplicationSnapshotMapOutput {
@@ -318,18 +255,16 @@ func (o ApplicationSnapshotMapOutput) ToApplicationSnapshotMapOutputWithContext(
 }
 
 func (o ApplicationSnapshotMapOutput) MapIndex(k pulumi.StringInput) ApplicationSnapshotOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationSnapshot {
-		return vs[0].(map[string]ApplicationSnapshot)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApplicationSnapshot {
+		return vs[0].(map[string]*ApplicationSnapshot)[vs[1].(string)]
 	}).(ApplicationSnapshotOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotInput)(nil)).Elem(), &ApplicationSnapshot{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotPtrInput)(nil)).Elem(), &ApplicationSnapshot{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotArrayInput)(nil)).Elem(), ApplicationSnapshotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotMapInput)(nil)).Elem(), ApplicationSnapshotMap{})
 	pulumi.RegisterOutputType(ApplicationSnapshotOutput{})
-	pulumi.RegisterOutputType(ApplicationSnapshotPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSnapshotArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationSnapshotMapOutput{})
 }

@@ -168,7 +168,7 @@ type DataSetInput interface {
 }
 
 func (*DataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSet)(nil))
+	return reflect.TypeOf((**DataSet)(nil)).Elem()
 }
 
 func (i *DataSet) ToDataSetOutput() DataSetOutput {
@@ -177,35 +177,6 @@ func (i *DataSet) ToDataSetOutput() DataSetOutput {
 
 func (i *DataSet) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutput)
-}
-
-func (i *DataSet) ToDataSetPtrOutput() DataSetPtrOutput {
-	return i.ToDataSetPtrOutputWithContext(context.Background())
-}
-
-func (i *DataSet) ToDataSetPtrOutputWithContext(ctx context.Context) DataSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetPtrOutput)
-}
-
-type DataSetPtrInput interface {
-	pulumi.Input
-
-	ToDataSetPtrOutput() DataSetPtrOutput
-	ToDataSetPtrOutputWithContext(ctx context.Context) DataSetPtrOutput
-}
-
-type dataSetPtrType DataSetArgs
-
-func (*dataSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSet)(nil))
-}
-
-func (i *dataSetPtrType) ToDataSetPtrOutput() DataSetPtrOutput {
-	return i.ToDataSetPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetPtrType) ToDataSetPtrOutputWithContext(ctx context.Context) DataSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetPtrOutput)
 }
 
 // DataSetArrayInput is an input type that accepts DataSetArray and DataSetArrayOutput values.
@@ -261,7 +232,7 @@ func (i DataSetMap) ToDataSetMapOutputWithContext(ctx context.Context) DataSetMa
 type DataSetOutput struct{ *pulumi.OutputState }
 
 func (DataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSet)(nil))
+	return reflect.TypeOf((**DataSet)(nil)).Elem()
 }
 
 func (o DataSetOutput) ToDataSetOutput() DataSetOutput {
@@ -272,44 +243,10 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 	return o
 }
 
-func (o DataSetOutput) ToDataSetPtrOutput() DataSetPtrOutput {
-	return o.ToDataSetPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetOutput) ToDataSetPtrOutputWithContext(ctx context.Context) DataSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSet) *DataSet {
-		return &v
-	}).(DataSetPtrOutput)
-}
-
-type DataSetPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSet)(nil))
-}
-
-func (o DataSetPtrOutput) ToDataSetPtrOutput() DataSetPtrOutput {
-	return o
-}
-
-func (o DataSetPtrOutput) ToDataSetPtrOutputWithContext(ctx context.Context) DataSetPtrOutput {
-	return o
-}
-
-func (o DataSetPtrOutput) Elem() DataSetOutput {
-	return o.ApplyT(func(v *DataSet) DataSet {
-		if v != nil {
-			return *v
-		}
-		var ret DataSet
-		return ret
-	}).(DataSetOutput)
-}
-
 type DataSetArrayOutput struct{ *pulumi.OutputState }
 
 func (DataSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSet)(nil))
+	return reflect.TypeOf((*[]*DataSet)(nil)).Elem()
 }
 
 func (o DataSetArrayOutput) ToDataSetArrayOutput() DataSetArrayOutput {
@@ -321,15 +258,15 @@ func (o DataSetArrayOutput) ToDataSetArrayOutputWithContext(ctx context.Context)
 }
 
 func (o DataSetArrayOutput) Index(i pulumi.IntInput) DataSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSet {
-		return vs[0].([]DataSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSet {
+		return vs[0].([]*DataSet)[vs[1].(int)]
 	}).(DataSetOutput)
 }
 
 type DataSetMapOutput struct{ *pulumi.OutputState }
 
 func (DataSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSet)(nil))
+	return reflect.TypeOf((*map[string]*DataSet)(nil)).Elem()
 }
 
 func (o DataSetMapOutput) ToDataSetMapOutput() DataSetMapOutput {
@@ -341,18 +278,16 @@ func (o DataSetMapOutput) ToDataSetMapOutputWithContext(ctx context.Context) Dat
 }
 
 func (o DataSetMapOutput) MapIndex(k pulumi.StringInput) DataSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataSet {
-		return vs[0].(map[string]DataSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataSet {
+		return vs[0].(map[string]*DataSet)[vs[1].(string)]
 	}).(DataSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetInput)(nil)).Elem(), &DataSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPtrInput)(nil)).Elem(), &DataSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetArrayInput)(nil)).Elem(), DataSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetMapInput)(nil)).Elem(), DataSetMap{})
 	pulumi.RegisterOutputType(DataSetOutput{})
-	pulumi.RegisterOutputType(DataSetPtrOutput{})
 	pulumi.RegisterOutputType(DataSetArrayOutput{})
 	pulumi.RegisterOutputType(DataSetMapOutput{})
 }

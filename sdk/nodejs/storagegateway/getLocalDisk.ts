@@ -24,9 +24,7 @@ export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskNode": args.diskNode,
         "diskPath": args.diskPath,

@@ -245,7 +245,7 @@ type OntapStorageVirtualMachineInput interface {
 }
 
 func (*OntapStorageVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapStorageVirtualMachine)(nil))
+	return reflect.TypeOf((**OntapStorageVirtualMachine)(nil)).Elem()
 }
 
 func (i *OntapStorageVirtualMachine) ToOntapStorageVirtualMachineOutput() OntapStorageVirtualMachineOutput {
@@ -254,35 +254,6 @@ func (i *OntapStorageVirtualMachine) ToOntapStorageVirtualMachineOutput() OntapS
 
 func (i *OntapStorageVirtualMachine) ToOntapStorageVirtualMachineOutputWithContext(ctx context.Context) OntapStorageVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineOutput)
-}
-
-func (i *OntapStorageVirtualMachine) ToOntapStorageVirtualMachinePtrOutput() OntapStorageVirtualMachinePtrOutput {
-	return i.ToOntapStorageVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *OntapStorageVirtualMachine) ToOntapStorageVirtualMachinePtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachinePtrOutput)
-}
-
-type OntapStorageVirtualMachinePtrInput interface {
-	pulumi.Input
-
-	ToOntapStorageVirtualMachinePtrOutput() OntapStorageVirtualMachinePtrOutput
-	ToOntapStorageVirtualMachinePtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachinePtrOutput
-}
-
-type ontapStorageVirtualMachinePtrType OntapStorageVirtualMachineArgs
-
-func (*ontapStorageVirtualMachinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OntapStorageVirtualMachine)(nil))
-}
-
-func (i *ontapStorageVirtualMachinePtrType) ToOntapStorageVirtualMachinePtrOutput() OntapStorageVirtualMachinePtrOutput {
-	return i.ToOntapStorageVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *ontapStorageVirtualMachinePtrType) ToOntapStorageVirtualMachinePtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachinePtrOutput)
 }
 
 // OntapStorageVirtualMachineArrayInput is an input type that accepts OntapStorageVirtualMachineArray and OntapStorageVirtualMachineArrayOutput values.
@@ -338,7 +309,7 @@ func (i OntapStorageVirtualMachineMap) ToOntapStorageVirtualMachineMapOutputWith
 type OntapStorageVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapStorageVirtualMachine)(nil))
+	return reflect.TypeOf((**OntapStorageVirtualMachine)(nil)).Elem()
 }
 
 func (o OntapStorageVirtualMachineOutput) ToOntapStorageVirtualMachineOutput() OntapStorageVirtualMachineOutput {
@@ -349,44 +320,10 @@ func (o OntapStorageVirtualMachineOutput) ToOntapStorageVirtualMachineOutputWith
 	return o
 }
 
-func (o OntapStorageVirtualMachineOutput) ToOntapStorageVirtualMachinePtrOutput() OntapStorageVirtualMachinePtrOutput {
-	return o.ToOntapStorageVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (o OntapStorageVirtualMachineOutput) ToOntapStorageVirtualMachinePtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapStorageVirtualMachine) *OntapStorageVirtualMachine {
-		return &v
-	}).(OntapStorageVirtualMachinePtrOutput)
-}
-
-type OntapStorageVirtualMachinePtrOutput struct{ *pulumi.OutputState }
-
-func (OntapStorageVirtualMachinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OntapStorageVirtualMachine)(nil))
-}
-
-func (o OntapStorageVirtualMachinePtrOutput) ToOntapStorageVirtualMachinePtrOutput() OntapStorageVirtualMachinePtrOutput {
-	return o
-}
-
-func (o OntapStorageVirtualMachinePtrOutput) ToOntapStorageVirtualMachinePtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachinePtrOutput {
-	return o
-}
-
-func (o OntapStorageVirtualMachinePtrOutput) Elem() OntapStorageVirtualMachineOutput {
-	return o.ApplyT(func(v *OntapStorageVirtualMachine) OntapStorageVirtualMachine {
-		if v != nil {
-			return *v
-		}
-		var ret OntapStorageVirtualMachine
-		return ret
-	}).(OntapStorageVirtualMachineOutput)
-}
-
 type OntapStorageVirtualMachineArrayOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OntapStorageVirtualMachine)(nil))
+	return reflect.TypeOf((*[]*OntapStorageVirtualMachine)(nil)).Elem()
 }
 
 func (o OntapStorageVirtualMachineArrayOutput) ToOntapStorageVirtualMachineArrayOutput() OntapStorageVirtualMachineArrayOutput {
@@ -398,15 +335,15 @@ func (o OntapStorageVirtualMachineArrayOutput) ToOntapStorageVirtualMachineArray
 }
 
 func (o OntapStorageVirtualMachineArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachine {
-		return vs[0].([]OntapStorageVirtualMachine)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OntapStorageVirtualMachine {
+		return vs[0].([]*OntapStorageVirtualMachine)[vs[1].(int)]
 	}).(OntapStorageVirtualMachineOutput)
 }
 
 type OntapStorageVirtualMachineMapOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OntapStorageVirtualMachine)(nil))
+	return reflect.TypeOf((*map[string]*OntapStorageVirtualMachine)(nil)).Elem()
 }
 
 func (o OntapStorageVirtualMachineMapOutput) ToOntapStorageVirtualMachineMapOutput() OntapStorageVirtualMachineMapOutput {
@@ -418,18 +355,16 @@ func (o OntapStorageVirtualMachineMapOutput) ToOntapStorageVirtualMachineMapOutp
 }
 
 func (o OntapStorageVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) OntapStorageVirtualMachineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OntapStorageVirtualMachine {
-		return vs[0].(map[string]OntapStorageVirtualMachine)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OntapStorageVirtualMachine {
+		return vs[0].(map[string]*OntapStorageVirtualMachine)[vs[1].(string)]
 	}).(OntapStorageVirtualMachineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineInput)(nil)).Elem(), &OntapStorageVirtualMachine{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachinePtrInput)(nil)).Elem(), &OntapStorageVirtualMachine{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineArrayInput)(nil)).Elem(), OntapStorageVirtualMachineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineMapInput)(nil)).Elem(), OntapStorageVirtualMachineMap{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineOutput{})
-	pulumi.RegisterOutputType(OntapStorageVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineMapOutput{})
 }

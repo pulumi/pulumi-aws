@@ -224,17 +224,17 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: LifecyclePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LifecyclePolicyArgs | LifecyclePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LifecyclePolicyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            inputs["policyDetails"] = state ? state.policyDetails : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["policyDetails"] = state ? state.policyDetails : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -246,18 +246,16 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             if ((!args || args.policyDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDetails'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["policyDetails"] = args ? args.policyDetails : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LifecyclePolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LifecyclePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -34,7 +34,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "us_east_1", &providers.awsArgs{
+// 		_, err := providers.Newaws(ctx, "us-east-1", &providers.awsArgs{
 // 			Region: "us-east-1",
 // 		})
 // 		if err != nil {
@@ -70,7 +70,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53_query_logging_policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
 // 			PolicyDocument: pulumi.String(route53_query_logging_policyPolicyDocument.Json),
 // 			PolicyName:     pulumi.String("route53-query-logging-policy"),
 // 		}, pulumi.Provider(aws.Us-east-1))
@@ -196,7 +196,7 @@ type QueryLogInput interface {
 }
 
 func (*QueryLog) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryLog)(nil))
+	return reflect.TypeOf((**QueryLog)(nil)).Elem()
 }
 
 func (i *QueryLog) ToQueryLogOutput() QueryLogOutput {
@@ -205,35 +205,6 @@ func (i *QueryLog) ToQueryLogOutput() QueryLogOutput {
 
 func (i *QueryLog) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLogOutput)
-}
-
-func (i *QueryLog) ToQueryLogPtrOutput() QueryLogPtrOutput {
-	return i.ToQueryLogPtrOutputWithContext(context.Background())
-}
-
-func (i *QueryLog) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryLogPtrOutput)
-}
-
-type QueryLogPtrInput interface {
-	pulumi.Input
-
-	ToQueryLogPtrOutput() QueryLogPtrOutput
-	ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput
-}
-
-type queryLogPtrType QueryLogArgs
-
-func (*queryLogPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryLog)(nil))
-}
-
-func (i *queryLogPtrType) ToQueryLogPtrOutput() QueryLogPtrOutput {
-	return i.ToQueryLogPtrOutputWithContext(context.Background())
-}
-
-func (i *queryLogPtrType) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryLogPtrOutput)
 }
 
 // QueryLogArrayInput is an input type that accepts QueryLogArray and QueryLogArrayOutput values.
@@ -289,7 +260,7 @@ func (i QueryLogMap) ToQueryLogMapOutputWithContext(ctx context.Context) QueryLo
 type QueryLogOutput struct{ *pulumi.OutputState }
 
 func (QueryLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryLog)(nil))
+	return reflect.TypeOf((**QueryLog)(nil)).Elem()
 }
 
 func (o QueryLogOutput) ToQueryLogOutput() QueryLogOutput {
@@ -300,44 +271,10 @@ func (o QueryLogOutput) ToQueryLogOutputWithContext(ctx context.Context) QueryLo
 	return o
 }
 
-func (o QueryLogOutput) ToQueryLogPtrOutput() QueryLogPtrOutput {
-	return o.ToQueryLogPtrOutputWithContext(context.Background())
-}
-
-func (o QueryLogOutput) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryLog) *QueryLog {
-		return &v
-	}).(QueryLogPtrOutput)
-}
-
-type QueryLogPtrOutput struct{ *pulumi.OutputState }
-
-func (QueryLogPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryLog)(nil))
-}
-
-func (o QueryLogPtrOutput) ToQueryLogPtrOutput() QueryLogPtrOutput {
-	return o
-}
-
-func (o QueryLogPtrOutput) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
-	return o
-}
-
-func (o QueryLogPtrOutput) Elem() QueryLogOutput {
-	return o.ApplyT(func(v *QueryLog) QueryLog {
-		if v != nil {
-			return *v
-		}
-		var ret QueryLog
-		return ret
-	}).(QueryLogOutput)
-}
-
 type QueryLogArrayOutput struct{ *pulumi.OutputState }
 
 func (QueryLogArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]QueryLog)(nil))
+	return reflect.TypeOf((*[]*QueryLog)(nil)).Elem()
 }
 
 func (o QueryLogArrayOutput) ToQueryLogArrayOutput() QueryLogArrayOutput {
@@ -349,15 +286,15 @@ func (o QueryLogArrayOutput) ToQueryLogArrayOutputWithContext(ctx context.Contex
 }
 
 func (o QueryLogArrayOutput) Index(i pulumi.IntInput) QueryLogOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryLog {
-		return vs[0].([]QueryLog)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QueryLog {
+		return vs[0].([]*QueryLog)[vs[1].(int)]
 	}).(QueryLogOutput)
 }
 
 type QueryLogMapOutput struct{ *pulumi.OutputState }
 
 func (QueryLogMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]QueryLog)(nil))
+	return reflect.TypeOf((*map[string]*QueryLog)(nil)).Elem()
 }
 
 func (o QueryLogMapOutput) ToQueryLogMapOutput() QueryLogMapOutput {
@@ -369,18 +306,16 @@ func (o QueryLogMapOutput) ToQueryLogMapOutputWithContext(ctx context.Context) Q
 }
 
 func (o QueryLogMapOutput) MapIndex(k pulumi.StringInput) QueryLogOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) QueryLog {
-		return vs[0].(map[string]QueryLog)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *QueryLog {
+		return vs[0].(map[string]*QueryLog)[vs[1].(string)]
 	}).(QueryLogOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogInput)(nil)).Elem(), &QueryLog{})
-	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogPtrInput)(nil)).Elem(), &QueryLog{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogArrayInput)(nil)).Elem(), QueryLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogMapInput)(nil)).Elem(), QueryLogMap{})
 	pulumi.RegisterOutputType(QueryLogOutput{})
-	pulumi.RegisterOutputType(QueryLogPtrOutput{})
 	pulumi.RegisterOutputType(QueryLogArrayOutput{})
 	pulumi.RegisterOutputType(QueryLogMapOutput{})
 }

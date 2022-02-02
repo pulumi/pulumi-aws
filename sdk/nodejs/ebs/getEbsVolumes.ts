@@ -16,9 +16,7 @@ export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOpti
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ebs/getEbsVolumes:getEbsVolumes", {
         "filters": args.filters,
         "tags": args.tags,

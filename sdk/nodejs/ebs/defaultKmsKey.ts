@@ -73,22 +73,20 @@ export class DefaultKmsKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: DefaultKmsKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefaultKmsKeyArgs | DefaultKmsKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultKmsKeyState | undefined;
-            inputs["keyArn"] = state ? state.keyArn : undefined;
+            resourceInputs["keyArn"] = state ? state.keyArn : undefined;
         } else {
             const args = argsOrState as DefaultKmsKeyArgs | undefined;
             if ((!args || args.keyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyArn'");
             }
-            inputs["keyArn"] = args ? args.keyArn : undefined;
+            resourceInputs["keyArn"] = args ? args.keyArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DefaultKmsKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DefaultKmsKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

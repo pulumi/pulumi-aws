@@ -196,7 +196,7 @@ type BgpPeerInput interface {
 }
 
 func (*BgpPeer) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpPeer)(nil))
+	return reflect.TypeOf((**BgpPeer)(nil)).Elem()
 }
 
 func (i *BgpPeer) ToBgpPeerOutput() BgpPeerOutput {
@@ -205,35 +205,6 @@ func (i *BgpPeer) ToBgpPeerOutput() BgpPeerOutput {
 
 func (i *BgpPeer) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerOutput)
-}
-
-func (i *BgpPeer) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
-	return i.ToBgpPeerPtrOutputWithContext(context.Background())
-}
-
-func (i *BgpPeer) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerPtrOutput)
-}
-
-type BgpPeerPtrInput interface {
-	pulumi.Input
-
-	ToBgpPeerPtrOutput() BgpPeerPtrOutput
-	ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput
-}
-
-type bgpPeerPtrType BgpPeerArgs
-
-func (*bgpPeerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BgpPeer)(nil))
-}
-
-func (i *bgpPeerPtrType) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
-	return i.ToBgpPeerPtrOutputWithContext(context.Background())
-}
-
-func (i *bgpPeerPtrType) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerPtrOutput)
 }
 
 // BgpPeerArrayInput is an input type that accepts BgpPeerArray and BgpPeerArrayOutput values.
@@ -289,7 +260,7 @@ func (i BgpPeerMap) ToBgpPeerMapOutputWithContext(ctx context.Context) BgpPeerMa
 type BgpPeerOutput struct{ *pulumi.OutputState }
 
 func (BgpPeerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpPeer)(nil))
+	return reflect.TypeOf((**BgpPeer)(nil)).Elem()
 }
 
 func (o BgpPeerOutput) ToBgpPeerOutput() BgpPeerOutput {
@@ -300,44 +271,10 @@ func (o BgpPeerOutput) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOu
 	return o
 }
 
-func (o BgpPeerOutput) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
-	return o.ToBgpPeerPtrOutputWithContext(context.Background())
-}
-
-func (o BgpPeerOutput) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BgpPeer) *BgpPeer {
-		return &v
-	}).(BgpPeerPtrOutput)
-}
-
-type BgpPeerPtrOutput struct{ *pulumi.OutputState }
-
-func (BgpPeerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BgpPeer)(nil))
-}
-
-func (o BgpPeerPtrOutput) ToBgpPeerPtrOutput() BgpPeerPtrOutput {
-	return o
-}
-
-func (o BgpPeerPtrOutput) ToBgpPeerPtrOutputWithContext(ctx context.Context) BgpPeerPtrOutput {
-	return o
-}
-
-func (o BgpPeerPtrOutput) Elem() BgpPeerOutput {
-	return o.ApplyT(func(v *BgpPeer) BgpPeer {
-		if v != nil {
-			return *v
-		}
-		var ret BgpPeer
-		return ret
-	}).(BgpPeerOutput)
-}
-
 type BgpPeerArrayOutput struct{ *pulumi.OutputState }
 
 func (BgpPeerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BgpPeer)(nil))
+	return reflect.TypeOf((*[]*BgpPeer)(nil)).Elem()
 }
 
 func (o BgpPeerArrayOutput) ToBgpPeerArrayOutput() BgpPeerArrayOutput {
@@ -349,15 +286,15 @@ func (o BgpPeerArrayOutput) ToBgpPeerArrayOutputWithContext(ctx context.Context)
 }
 
 func (o BgpPeerArrayOutput) Index(i pulumi.IntInput) BgpPeerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BgpPeer {
-		return vs[0].([]BgpPeer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BgpPeer {
+		return vs[0].([]*BgpPeer)[vs[1].(int)]
 	}).(BgpPeerOutput)
 }
 
 type BgpPeerMapOutput struct{ *pulumi.OutputState }
 
 func (BgpPeerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BgpPeer)(nil))
+	return reflect.TypeOf((*map[string]*BgpPeer)(nil)).Elem()
 }
 
 func (o BgpPeerMapOutput) ToBgpPeerMapOutput() BgpPeerMapOutput {
@@ -369,18 +306,16 @@ func (o BgpPeerMapOutput) ToBgpPeerMapOutputWithContext(ctx context.Context) Bgp
 }
 
 func (o BgpPeerMapOutput) MapIndex(k pulumi.StringInput) BgpPeerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BgpPeer {
-		return vs[0].(map[string]BgpPeer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BgpPeer {
+		return vs[0].(map[string]*BgpPeer)[vs[1].(string)]
 	}).(BgpPeerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerInput)(nil)).Elem(), &BgpPeer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerPtrInput)(nil)).Elem(), &BgpPeer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerArrayInput)(nil)).Elem(), BgpPeerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerMapInput)(nil)).Elem(), BgpPeerMap{})
 	pulumi.RegisterOutputType(BgpPeerOutput{})
-	pulumi.RegisterOutputType(BgpPeerPtrOutput{})
 	pulumi.RegisterOutputType(BgpPeerArrayOutput{})
 	pulumi.RegisterOutputType(BgpPeerMapOutput{})
 }

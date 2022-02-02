@@ -136,23 +136,23 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: GlobalReplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GlobalReplicationGroupArgs | GlobalReplicationGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalReplicationGroupState | undefined;
-            inputs["actualEngineVersion"] = state ? state.actualEngineVersion : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
-            inputs["authTokenEnabled"] = state ? state.authTokenEnabled : undefined;
-            inputs["cacheNodeType"] = state ? state.cacheNodeType : undefined;
-            inputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
-            inputs["globalReplicationGroupDescription"] = state ? state.globalReplicationGroupDescription : undefined;
-            inputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
-            inputs["globalReplicationGroupIdSuffix"] = state ? state.globalReplicationGroupIdSuffix : undefined;
-            inputs["primaryReplicationGroupId"] = state ? state.primaryReplicationGroupId : undefined;
-            inputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
+            resourceInputs["actualEngineVersion"] = state ? state.actualEngineVersion : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
+            resourceInputs["authTokenEnabled"] = state ? state.authTokenEnabled : undefined;
+            resourceInputs["cacheNodeType"] = state ? state.cacheNodeType : undefined;
+            resourceInputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
+            resourceInputs["globalReplicationGroupDescription"] = state ? state.globalReplicationGroupDescription : undefined;
+            resourceInputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
+            resourceInputs["globalReplicationGroupIdSuffix"] = state ? state.globalReplicationGroupIdSuffix : undefined;
+            resourceInputs["primaryReplicationGroupId"] = state ? state.primaryReplicationGroupId : undefined;
+            resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
         } else {
             const args = argsOrState as GlobalReplicationGroupArgs | undefined;
             if ((!args || args.globalReplicationGroupIdSuffix === undefined) && !opts.urn) {
@@ -161,24 +161,22 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             if ((!args || args.primaryReplicationGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryReplicationGroupId'");
             }
-            inputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
-            inputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
-            inputs["primaryReplicationGroupId"] = args ? args.primaryReplicationGroupId : undefined;
-            inputs["actualEngineVersion"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["atRestEncryptionEnabled"] = undefined /*out*/;
-            inputs["authTokenEnabled"] = undefined /*out*/;
-            inputs["cacheNodeType"] = undefined /*out*/;
-            inputs["clusterEnabled"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["engineVersionActual"] = undefined /*out*/;
-            inputs["globalReplicationGroupId"] = undefined /*out*/;
-            inputs["transitEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
+            resourceInputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
+            resourceInputs["primaryReplicationGroupId"] = args ? args.primaryReplicationGroupId : undefined;
+            resourceInputs["actualEngineVersion"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["authTokenEnabled"] = undefined /*out*/;
+            resourceInputs["cacheNodeType"] = undefined /*out*/;
+            resourceInputs["clusterEnabled"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineVersionActual"] = undefined /*out*/;
+            resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
+            resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GlobalReplicationGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GlobalReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -25,9 +25,7 @@ export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getInstanceProfile:getInstanceProfile", {
         "name": args.name,
     }, opts);

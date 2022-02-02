@@ -76,22 +76,20 @@ export class StandardsSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: StandardsSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StandardsSubscriptionArgs | StandardsSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsSubscriptionState | undefined;
-            inputs["standardsArn"] = state ? state.standardsArn : undefined;
+            resourceInputs["standardsArn"] = state ? state.standardsArn : undefined;
         } else {
             const args = argsOrState as StandardsSubscriptionArgs | undefined;
             if ((!args || args.standardsArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'standardsArn'");
             }
-            inputs["standardsArn"] = args ? args.standardsArn : undefined;
+            resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StandardsSubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StandardsSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

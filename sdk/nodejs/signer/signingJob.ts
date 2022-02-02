@@ -152,28 +152,28 @@ export class SigningJob extends pulumi.CustomResource {
      */
     constructor(name: string, args: SigningJobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SigningJobArgs | SigningJobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SigningJobState | undefined;
-            inputs["completedAt"] = state ? state.completedAt : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["ignoreSigningJobFailure"] = state ? state.ignoreSigningJobFailure : undefined;
-            inputs["jobId"] = state ? state.jobId : undefined;
-            inputs["jobInvoker"] = state ? state.jobInvoker : undefined;
-            inputs["jobOwner"] = state ? state.jobOwner : undefined;
-            inputs["platformDisplayName"] = state ? state.platformDisplayName : undefined;
-            inputs["platformId"] = state ? state.platformId : undefined;
-            inputs["profileName"] = state ? state.profileName : undefined;
-            inputs["profileVersion"] = state ? state.profileVersion : undefined;
-            inputs["requestedBy"] = state ? state.requestedBy : undefined;
-            inputs["revocationRecords"] = state ? state.revocationRecords : undefined;
-            inputs["signatureExpiresAt"] = state ? state.signatureExpiresAt : undefined;
-            inputs["signedObjects"] = state ? state.signedObjects : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["completedAt"] = state ? state.completedAt : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["ignoreSigningJobFailure"] = state ? state.ignoreSigningJobFailure : undefined;
+            resourceInputs["jobId"] = state ? state.jobId : undefined;
+            resourceInputs["jobInvoker"] = state ? state.jobInvoker : undefined;
+            resourceInputs["jobOwner"] = state ? state.jobOwner : undefined;
+            resourceInputs["platformDisplayName"] = state ? state.platformDisplayName : undefined;
+            resourceInputs["platformId"] = state ? state.platformId : undefined;
+            resourceInputs["profileName"] = state ? state.profileName : undefined;
+            resourceInputs["profileVersion"] = state ? state.profileVersion : undefined;
+            resourceInputs["requestedBy"] = state ? state.requestedBy : undefined;
+            resourceInputs["revocationRecords"] = state ? state.revocationRecords : undefined;
+            resourceInputs["signatureExpiresAt"] = state ? state.signatureExpiresAt : undefined;
+            resourceInputs["signedObjects"] = state ? state.signedObjects : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
         } else {
             const args = argsOrState as SigningJobArgs | undefined;
             if ((!args || args.destination === undefined) && !opts.urn) {
@@ -185,29 +185,27 @@ export class SigningJob extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["ignoreSigningJobFailure"] = args ? args.ignoreSigningJobFailure : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["completedAt"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["jobId"] = undefined /*out*/;
-            inputs["jobInvoker"] = undefined /*out*/;
-            inputs["jobOwner"] = undefined /*out*/;
-            inputs["platformDisplayName"] = undefined /*out*/;
-            inputs["platformId"] = undefined /*out*/;
-            inputs["profileVersion"] = undefined /*out*/;
-            inputs["requestedBy"] = undefined /*out*/;
-            inputs["revocationRecords"] = undefined /*out*/;
-            inputs["signatureExpiresAt"] = undefined /*out*/;
-            inputs["signedObjects"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusReason"] = undefined /*out*/;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["ignoreSigningJobFailure"] = args ? args.ignoreSigningJobFailure : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["completedAt"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["jobId"] = undefined /*out*/;
+            resourceInputs["jobInvoker"] = undefined /*out*/;
+            resourceInputs["jobOwner"] = undefined /*out*/;
+            resourceInputs["platformDisplayName"] = undefined /*out*/;
+            resourceInputs["platformId"] = undefined /*out*/;
+            resourceInputs["profileVersion"] = undefined /*out*/;
+            resourceInputs["requestedBy"] = undefined /*out*/;
+            resourceInputs["revocationRecords"] = undefined /*out*/;
+            resourceInputs["signatureExpiresAt"] = undefined /*out*/;
+            resourceInputs["signedObjects"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SigningJob.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SigningJob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

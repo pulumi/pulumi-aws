@@ -85,28 +85,26 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpv4CidrBlockAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpv4CidrBlockAssociationArgs | VpcIpv4CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
-            inputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
+            resourceInputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcIpv4CidrBlockAssociationArgs | undefined;
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            inputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
+            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcIpv4CidrBlockAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcIpv4CidrBlockAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

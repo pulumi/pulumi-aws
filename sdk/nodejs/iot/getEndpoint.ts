@@ -13,9 +13,7 @@ export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions)
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iot/getEndpoint:getEndpoint", {
         "endpointType": args.endpointType,
     }, opts);

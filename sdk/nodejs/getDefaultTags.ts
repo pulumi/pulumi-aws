@@ -10,9 +10,7 @@ export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getDefaultTags:getDefaultTags", {
         "tags": args.tags,
     }, opts);

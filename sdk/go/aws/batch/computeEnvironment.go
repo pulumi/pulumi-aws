@@ -28,7 +28,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/batch"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
@@ -338,7 +337,7 @@ type ComputeEnvironmentInput interface {
 }
 
 func (*ComputeEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironment)(nil))
+	return reflect.TypeOf((**ComputeEnvironment)(nil)).Elem()
 }
 
 func (i *ComputeEnvironment) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {
@@ -347,35 +346,6 @@ func (i *ComputeEnvironment) ToComputeEnvironmentOutput() ComputeEnvironmentOutp
 
 func (i *ComputeEnvironment) ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentOutput)
-}
-
-func (i *ComputeEnvironment) ToComputeEnvironmentPtrOutput() ComputeEnvironmentPtrOutput {
-	return i.ToComputeEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *ComputeEnvironment) ToComputeEnvironmentPtrOutputWithContext(ctx context.Context) ComputeEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentPtrOutput)
-}
-
-type ComputeEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToComputeEnvironmentPtrOutput() ComputeEnvironmentPtrOutput
-	ToComputeEnvironmentPtrOutputWithContext(ctx context.Context) ComputeEnvironmentPtrOutput
-}
-
-type computeEnvironmentPtrType ComputeEnvironmentArgs
-
-func (*computeEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeEnvironment)(nil))
-}
-
-func (i *computeEnvironmentPtrType) ToComputeEnvironmentPtrOutput() ComputeEnvironmentPtrOutput {
-	return i.ToComputeEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *computeEnvironmentPtrType) ToComputeEnvironmentPtrOutputWithContext(ctx context.Context) ComputeEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentPtrOutput)
 }
 
 // ComputeEnvironmentArrayInput is an input type that accepts ComputeEnvironmentArray and ComputeEnvironmentArrayOutput values.
@@ -431,7 +401,7 @@ func (i ComputeEnvironmentMap) ToComputeEnvironmentMapOutputWithContext(ctx cont
 type ComputeEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironment)(nil))
+	return reflect.TypeOf((**ComputeEnvironment)(nil)).Elem()
 }
 
 func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {
@@ -442,44 +412,10 @@ func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutputWithContext(ctx cont
 	return o
 }
 
-func (o ComputeEnvironmentOutput) ToComputeEnvironmentPtrOutput() ComputeEnvironmentPtrOutput {
-	return o.ToComputeEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o ComputeEnvironmentOutput) ToComputeEnvironmentPtrOutputWithContext(ctx context.Context) ComputeEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironment) *ComputeEnvironment {
-		return &v
-	}).(ComputeEnvironmentPtrOutput)
-}
-
-type ComputeEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeEnvironment)(nil))
-}
-
-func (o ComputeEnvironmentPtrOutput) ToComputeEnvironmentPtrOutput() ComputeEnvironmentPtrOutput {
-	return o
-}
-
-func (o ComputeEnvironmentPtrOutput) ToComputeEnvironmentPtrOutputWithContext(ctx context.Context) ComputeEnvironmentPtrOutput {
-	return o
-}
-
-func (o ComputeEnvironmentPtrOutput) Elem() ComputeEnvironmentOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeEnvironment
-		return ret
-	}).(ComputeEnvironmentOutput)
-}
-
 type ComputeEnvironmentArrayOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ComputeEnvironment)(nil))
+	return reflect.TypeOf((*[]*ComputeEnvironment)(nil)).Elem()
 }
 
 func (o ComputeEnvironmentArrayOutput) ToComputeEnvironmentArrayOutput() ComputeEnvironmentArrayOutput {
@@ -491,15 +427,15 @@ func (o ComputeEnvironmentArrayOutput) ToComputeEnvironmentArrayOutputWithContex
 }
 
 func (o ComputeEnvironmentArrayOutput) Index(i pulumi.IntInput) ComputeEnvironmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeEnvironment {
-		return vs[0].([]ComputeEnvironment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ComputeEnvironment {
+		return vs[0].([]*ComputeEnvironment)[vs[1].(int)]
 	}).(ComputeEnvironmentOutput)
 }
 
 type ComputeEnvironmentMapOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ComputeEnvironment)(nil))
+	return reflect.TypeOf((*map[string]*ComputeEnvironment)(nil)).Elem()
 }
 
 func (o ComputeEnvironmentMapOutput) ToComputeEnvironmentMapOutput() ComputeEnvironmentMapOutput {
@@ -511,18 +447,16 @@ func (o ComputeEnvironmentMapOutput) ToComputeEnvironmentMapOutputWithContext(ct
 }
 
 func (o ComputeEnvironmentMapOutput) MapIndex(k pulumi.StringInput) ComputeEnvironmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComputeEnvironment {
-		return vs[0].(map[string]ComputeEnvironment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ComputeEnvironment {
+		return vs[0].(map[string]*ComputeEnvironment)[vs[1].(string)]
 	}).(ComputeEnvironmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInput)(nil)).Elem(), &ComputeEnvironment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentPtrInput)(nil)).Elem(), &ComputeEnvironment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentArrayInput)(nil)).Elem(), ComputeEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentMapInput)(nil)).Elem(), ComputeEnvironmentMap{})
 	pulumi.RegisterOutputType(ComputeEnvironmentOutput{})
-	pulumi.RegisterOutputType(ComputeEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentMapOutput{})
 }

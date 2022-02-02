@@ -127,36 +127,34 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserPoolUICustomizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserPoolUICustomizationArgs | UserPoolUICustomizationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPoolUICustomizationState | undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["css"] = state ? state.css : undefined;
-            inputs["cssVersion"] = state ? state.cssVersion : undefined;
-            inputs["imageFile"] = state ? state.imageFile : undefined;
-            inputs["imageUrl"] = state ? state.imageUrl : undefined;
-            inputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
-            inputs["userPoolId"] = state ? state.userPoolId : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["css"] = state ? state.css : undefined;
+            resourceInputs["cssVersion"] = state ? state.cssVersion : undefined;
+            resourceInputs["imageFile"] = state ? state.imageFile : undefined;
+            resourceInputs["imageUrl"] = state ? state.imageUrl : undefined;
+            resourceInputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as UserPoolUICustomizationArgs | undefined;
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["css"] = args ? args.css : undefined;
-            inputs["imageFile"] = args ? args.imageFile : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["cssVersion"] = undefined /*out*/;
-            inputs["imageUrl"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["css"] = args ? args.css : undefined;
+            resourceInputs["imageFile"] = args ? args.imageFile : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["cssVersion"] = undefined /*out*/;
+            resourceInputs["imageUrl"] = undefined /*out*/;
+            resourceInputs["lastModifiedDate"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolUICustomization.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolUICustomization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

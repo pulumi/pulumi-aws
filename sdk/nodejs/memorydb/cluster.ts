@@ -180,38 +180,38 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["aclName"] = state ? state.aclName : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["clusterEndpoints"] = state ? state.clusterEndpoints : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enginePatchVersion"] = state ? state.enginePatchVersion : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["finalSnapshotName"] = state ? state.finalSnapshotName : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["nodeType"] = state ? state.nodeType : undefined;
-            inputs["numReplicasPerShard"] = state ? state.numReplicasPerShard : undefined;
-            inputs["numShards"] = state ? state.numShards : undefined;
-            inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["shards"] = state ? state.shards : undefined;
-            inputs["snapshotArns"] = state ? state.snapshotArns : undefined;
-            inputs["snapshotName"] = state ? state.snapshotName : undefined;
-            inputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
-            inputs["snapshotWindow"] = state ? state.snapshotWindow : undefined;
-            inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
-            inputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
+            resourceInputs["aclName"] = state ? state.aclName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
+            resourceInputs["clusterEndpoints"] = state ? state.clusterEndpoints : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enginePatchVersion"] = state ? state.enginePatchVersion : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["finalSnapshotName"] = state ? state.finalSnapshotName : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["nodeType"] = state ? state.nodeType : undefined;
+            resourceInputs["numReplicasPerShard"] = state ? state.numReplicasPerShard : undefined;
+            resourceInputs["numShards"] = state ? state.numShards : undefined;
+            resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["shards"] = state ? state.shards : undefined;
+            resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
+            resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
+            resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
+            resourceInputs["snapshotWindow"] = state ? state.snapshotWindow : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+            resourceInputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.aclName === undefined) && !opts.urn) {
@@ -220,39 +220,37 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.nodeType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            inputs["aclName"] = args ? args.aclName : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["nodeType"] = args ? args.nodeType : undefined;
-            inputs["numReplicasPerShard"] = args ? args.numReplicasPerShard : undefined;
-            inputs["numShards"] = args ? args.numShards : undefined;
-            inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["snapshotArns"] = args ? args.snapshotArns : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            inputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterEndpoints"] = undefined /*out*/;
-            inputs["enginePatchVersion"] = undefined /*out*/;
-            inputs["shards"] = undefined /*out*/;
+            resourceInputs["aclName"] = args ? args.aclName : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
+            resourceInputs["numReplicasPerShard"] = args ? args.numReplicasPerShard : undefined;
+            resourceInputs["numShards"] = args ? args.numShards : undefined;
+            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
+            resourceInputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterEndpoints"] = undefined /*out*/;
+            resourceInputs["enginePatchVersion"] = undefined /*out*/;
+            resourceInputs["shards"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

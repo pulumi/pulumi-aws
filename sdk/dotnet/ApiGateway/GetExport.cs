@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGateway
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

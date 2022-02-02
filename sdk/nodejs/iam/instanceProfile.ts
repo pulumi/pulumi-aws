@@ -117,35 +117,33 @@ export class InstanceProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args?: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceProfileArgs | InstanceProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceProfileState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createDate"] = state ? state.createDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createDate"] = state ? state.createDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as InstanceProfileArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createDate"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InstanceProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InstanceProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

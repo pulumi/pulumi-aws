@@ -35,9 +35,7 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
         "cidrBlock": args.cidrBlock,
         "filters": args.filters,

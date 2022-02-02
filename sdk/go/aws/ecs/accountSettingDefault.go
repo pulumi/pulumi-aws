@@ -135,7 +135,7 @@ type AccountSettingDefaultInput interface {
 }
 
 func (*AccountSettingDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountSettingDefault)(nil))
+	return reflect.TypeOf((**AccountSettingDefault)(nil)).Elem()
 }
 
 func (i *AccountSettingDefault) ToAccountSettingDefaultOutput() AccountSettingDefaultOutput {
@@ -144,35 +144,6 @@ func (i *AccountSettingDefault) ToAccountSettingDefaultOutput() AccountSettingDe
 
 func (i *AccountSettingDefault) ToAccountSettingDefaultOutputWithContext(ctx context.Context) AccountSettingDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingDefaultOutput)
-}
-
-func (i *AccountSettingDefault) ToAccountSettingDefaultPtrOutput() AccountSettingDefaultPtrOutput {
-	return i.ToAccountSettingDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *AccountSettingDefault) ToAccountSettingDefaultPtrOutputWithContext(ctx context.Context) AccountSettingDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingDefaultPtrOutput)
-}
-
-type AccountSettingDefaultPtrInput interface {
-	pulumi.Input
-
-	ToAccountSettingDefaultPtrOutput() AccountSettingDefaultPtrOutput
-	ToAccountSettingDefaultPtrOutputWithContext(ctx context.Context) AccountSettingDefaultPtrOutput
-}
-
-type accountSettingDefaultPtrType AccountSettingDefaultArgs
-
-func (*accountSettingDefaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountSettingDefault)(nil))
-}
-
-func (i *accountSettingDefaultPtrType) ToAccountSettingDefaultPtrOutput() AccountSettingDefaultPtrOutput {
-	return i.ToAccountSettingDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *accountSettingDefaultPtrType) ToAccountSettingDefaultPtrOutputWithContext(ctx context.Context) AccountSettingDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingDefaultPtrOutput)
 }
 
 // AccountSettingDefaultArrayInput is an input type that accepts AccountSettingDefaultArray and AccountSettingDefaultArrayOutput values.
@@ -228,7 +199,7 @@ func (i AccountSettingDefaultMap) ToAccountSettingDefaultMapOutputWithContext(ct
 type AccountSettingDefaultOutput struct{ *pulumi.OutputState }
 
 func (AccountSettingDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountSettingDefault)(nil))
+	return reflect.TypeOf((**AccountSettingDefault)(nil)).Elem()
 }
 
 func (o AccountSettingDefaultOutput) ToAccountSettingDefaultOutput() AccountSettingDefaultOutput {
@@ -239,44 +210,10 @@ func (o AccountSettingDefaultOutput) ToAccountSettingDefaultOutputWithContext(ct
 	return o
 }
 
-func (o AccountSettingDefaultOutput) ToAccountSettingDefaultPtrOutput() AccountSettingDefaultPtrOutput {
-	return o.ToAccountSettingDefaultPtrOutputWithContext(context.Background())
-}
-
-func (o AccountSettingDefaultOutput) ToAccountSettingDefaultPtrOutputWithContext(ctx context.Context) AccountSettingDefaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSettingDefault) *AccountSettingDefault {
-		return &v
-	}).(AccountSettingDefaultPtrOutput)
-}
-
-type AccountSettingDefaultPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountSettingDefaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountSettingDefault)(nil))
-}
-
-func (o AccountSettingDefaultPtrOutput) ToAccountSettingDefaultPtrOutput() AccountSettingDefaultPtrOutput {
-	return o
-}
-
-func (o AccountSettingDefaultPtrOutput) ToAccountSettingDefaultPtrOutputWithContext(ctx context.Context) AccountSettingDefaultPtrOutput {
-	return o
-}
-
-func (o AccountSettingDefaultPtrOutput) Elem() AccountSettingDefaultOutput {
-	return o.ApplyT(func(v *AccountSettingDefault) AccountSettingDefault {
-		if v != nil {
-			return *v
-		}
-		var ret AccountSettingDefault
-		return ret
-	}).(AccountSettingDefaultOutput)
-}
-
 type AccountSettingDefaultArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountSettingDefaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountSettingDefault)(nil))
+	return reflect.TypeOf((*[]*AccountSettingDefault)(nil)).Elem()
 }
 
 func (o AccountSettingDefaultArrayOutput) ToAccountSettingDefaultArrayOutput() AccountSettingDefaultArrayOutput {
@@ -288,15 +225,15 @@ func (o AccountSettingDefaultArrayOutput) ToAccountSettingDefaultArrayOutputWith
 }
 
 func (o AccountSettingDefaultArrayOutput) Index(i pulumi.IntInput) AccountSettingDefaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountSettingDefault {
-		return vs[0].([]AccountSettingDefault)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountSettingDefault {
+		return vs[0].([]*AccountSettingDefault)[vs[1].(int)]
 	}).(AccountSettingDefaultOutput)
 }
 
 type AccountSettingDefaultMapOutput struct{ *pulumi.OutputState }
 
 func (AccountSettingDefaultMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AccountSettingDefault)(nil))
+	return reflect.TypeOf((*map[string]*AccountSettingDefault)(nil)).Elem()
 }
 
 func (o AccountSettingDefaultMapOutput) ToAccountSettingDefaultMapOutput() AccountSettingDefaultMapOutput {
@@ -308,18 +245,16 @@ func (o AccountSettingDefaultMapOutput) ToAccountSettingDefaultMapOutputWithCont
 }
 
 func (o AccountSettingDefaultMapOutput) MapIndex(k pulumi.StringInput) AccountSettingDefaultOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountSettingDefault {
-		return vs[0].(map[string]AccountSettingDefault)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AccountSettingDefault {
+		return vs[0].(map[string]*AccountSettingDefault)[vs[1].(string)]
 	}).(AccountSettingDefaultOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingDefaultInput)(nil)).Elem(), &AccountSettingDefault{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingDefaultPtrInput)(nil)).Elem(), &AccountSettingDefault{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingDefaultArrayInput)(nil)).Elem(), AccountSettingDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingDefaultMapInput)(nil)).Elem(), AccountSettingDefaultMap{})
 	pulumi.RegisterOutputType(AccountSettingDefaultOutput{})
-	pulumi.RegisterOutputType(AccountSettingDefaultPtrOutput{})
 	pulumi.RegisterOutputType(AccountSettingDefaultArrayOutput{})
 	pulumi.RegisterOutputType(AccountSettingDefaultMapOutput{})
 }

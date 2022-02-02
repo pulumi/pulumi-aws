@@ -112,19 +112,19 @@ export class ApplicationVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationVersionArgs | ApplicationVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationVersionState | undefined;
-            inputs["application"] = state ? state.application : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceDelete"] = state ? state.forceDelete : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["application"] = state ? state.application : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ApplicationVersionArgs | undefined;
             if ((!args || args.application === undefined) && !opts.urn) {
@@ -136,20 +136,18 @@ export class ApplicationVersion extends pulumi.CustomResource {
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["application"] = args ? args.application : undefined;
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceDelete"] = args ? args.forceDelete : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["application"] = args ? args.application : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

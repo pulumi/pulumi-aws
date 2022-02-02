@@ -35,9 +35,7 @@ export function getVpcIamPool(args?: GetVpcIamPoolArgs, opts?: pulumi.InvokeOpti
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getVpcIamPool:getVpcIamPool", {
         "allocationResourceTags": args.allocationResourceTags,
         "filters": args.filters,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -113,7 +112,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticIpResult> InvokeAsync(GetElasticIpArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
@@ -216,7 +215,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetElasticIpResult> Invoke(GetElasticIpInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -113,13 +113,13 @@ export class QueryLog extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueryLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueryLogArgs | QueryLogState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueryLogState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as QueryLogArgs | undefined;
             if ((!args || args.cloudwatchLogGroupArn === undefined) && !opts.urn) {
@@ -128,14 +128,12 @@ export class QueryLog extends pulumi.CustomResource {
             if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
-            inputs["zoneId"] = args ? args.zoneId : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
+            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(QueryLog.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(QueryLog.__pulumiType, name, resourceInputs, opts);
     }
 }
 

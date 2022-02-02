@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudWatch
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogGroupsResult> InvokeAsync(GetLogGroupsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get a list of AWS Cloudwatch Log Groups
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLogGroupsResult> Invoke(GetLogGroupsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

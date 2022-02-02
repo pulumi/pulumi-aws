@@ -84,14 +84,14 @@ export class Ciphertext extends pulumi.CustomResource {
      */
     constructor(name: string, args: CiphertextArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CiphertextArgs | CiphertextState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CiphertextState | undefined;
-            inputs["ciphertextBlob"] = state ? state.ciphertextBlob : undefined;
-            inputs["context"] = state ? state.context : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["plaintext"] = state ? state.plaintext : undefined;
+            resourceInputs["ciphertextBlob"] = state ? state.ciphertextBlob : undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["plaintext"] = state ? state.plaintext : undefined;
         } else {
             const args = argsOrState as CiphertextArgs | undefined;
             if ((!args || args.keyId === undefined) && !opts.urn) {
@@ -100,15 +100,13 @@ export class Ciphertext extends pulumi.CustomResource {
             if ((!args || args.plaintext === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'plaintext'");
             }
-            inputs["context"] = args ? args.context : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["plaintext"] = args ? args.plaintext : undefined;
-            inputs["ciphertextBlob"] = undefined /*out*/;
+            resourceInputs["context"] = args ? args.context : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["plaintext"] = args ? args.plaintext : undefined;
+            resourceInputs["ciphertextBlob"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Ciphertext.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Ciphertext.__pulumiType, name, resourceInputs, opts);
     }
 }
 

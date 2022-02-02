@@ -175,31 +175,31 @@ export class Bot extends pulumi.CustomResource {
      */
     constructor(name: string, args: BotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BotArgs | BotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BotState | undefined;
-            inputs["abortStatement"] = state ? state.abortStatement : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["checksum"] = state ? state.checksum : undefined;
-            inputs["childDirected"] = state ? state.childDirected : undefined;
-            inputs["clarificationPrompt"] = state ? state.clarificationPrompt : undefined;
-            inputs["createVersion"] = state ? state.createVersion : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["detectSentiment"] = state ? state.detectSentiment : undefined;
-            inputs["enableModelImprovements"] = state ? state.enableModelImprovements : undefined;
-            inputs["failureReason"] = state ? state.failureReason : undefined;
-            inputs["idleSessionTtlInSeconds"] = state ? state.idleSessionTtlInSeconds : undefined;
-            inputs["intents"] = state ? state.intents : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["locale"] = state ? state.locale : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nluIntentConfidenceThreshold"] = state ? state.nluIntentConfidenceThreshold : undefined;
-            inputs["processBehavior"] = state ? state.processBehavior : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["voiceId"] = state ? state.voiceId : undefined;
+            resourceInputs["abortStatement"] = state ? state.abortStatement : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["checksum"] = state ? state.checksum : undefined;
+            resourceInputs["childDirected"] = state ? state.childDirected : undefined;
+            resourceInputs["clarificationPrompt"] = state ? state.clarificationPrompt : undefined;
+            resourceInputs["createVersion"] = state ? state.createVersion : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["detectSentiment"] = state ? state.detectSentiment : undefined;
+            resourceInputs["enableModelImprovements"] = state ? state.enableModelImprovements : undefined;
+            resourceInputs["failureReason"] = state ? state.failureReason : undefined;
+            resourceInputs["idleSessionTtlInSeconds"] = state ? state.idleSessionTtlInSeconds : undefined;
+            resourceInputs["intents"] = state ? state.intents : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["locale"] = state ? state.locale : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nluIntentConfidenceThreshold"] = state ? state.nluIntentConfidenceThreshold : undefined;
+            resourceInputs["processBehavior"] = state ? state.processBehavior : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["voiceId"] = state ? state.voiceId : undefined;
         } else {
             const args = argsOrState as BotArgs | undefined;
             if ((!args || args.abortStatement === undefined) && !opts.urn) {
@@ -211,32 +211,30 @@ export class Bot extends pulumi.CustomResource {
             if ((!args || args.intents === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'intents'");
             }
-            inputs["abortStatement"] = args ? args.abortStatement : undefined;
-            inputs["childDirected"] = args ? args.childDirected : undefined;
-            inputs["clarificationPrompt"] = args ? args.clarificationPrompt : undefined;
-            inputs["createVersion"] = args ? args.createVersion : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["detectSentiment"] = args ? args.detectSentiment : undefined;
-            inputs["enableModelImprovements"] = args ? args.enableModelImprovements : undefined;
-            inputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
-            inputs["intents"] = args ? args.intents : undefined;
-            inputs["locale"] = args ? args.locale : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nluIntentConfidenceThreshold"] = args ? args.nluIntentConfidenceThreshold : undefined;
-            inputs["processBehavior"] = args ? args.processBehavior : undefined;
-            inputs["voiceId"] = args ? args.voiceId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["checksum"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["failureReason"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["abortStatement"] = args ? args.abortStatement : undefined;
+            resourceInputs["childDirected"] = args ? args.childDirected : undefined;
+            resourceInputs["clarificationPrompt"] = args ? args.clarificationPrompt : undefined;
+            resourceInputs["createVersion"] = args ? args.createVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["detectSentiment"] = args ? args.detectSentiment : undefined;
+            resourceInputs["enableModelImprovements"] = args ? args.enableModelImprovements : undefined;
+            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
+            resourceInputs["intents"] = args ? args.intents : undefined;
+            resourceInputs["locale"] = args ? args.locale : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nluIntentConfidenceThreshold"] = args ? args.nluIntentConfidenceThreshold : undefined;
+            resourceInputs["processBehavior"] = args ? args.processBehavior : undefined;
+            resourceInputs["voiceId"] = args ? args.voiceId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["checksum"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Bot.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Bot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

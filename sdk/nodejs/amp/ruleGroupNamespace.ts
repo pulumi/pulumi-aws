@@ -83,13 +83,13 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
      */
     constructor(name: string, args: RuleGroupNamespaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleGroupNamespaceArgs | RuleGroupNamespaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleGroupNamespaceState | undefined;
-            inputs["data"] = state ? state.data : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["data"] = state ? state.data : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as RuleGroupNamespaceArgs | undefined;
             if ((!args || args.data === undefined) && !opts.urn) {
@@ -98,14 +98,12 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            inputs["data"] = args ? args.data : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RuleGroupNamespace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RuleGroupNamespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

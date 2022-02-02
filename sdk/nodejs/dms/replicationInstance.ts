@@ -188,29 +188,29 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicationInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationInstanceArgs | ReplicationInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationInstanceState | undefined;
-            inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
-            inputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["multiAz"] = state ? state.multiAz : undefined;
-            inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
-            inputs["replicationInstanceClass"] = state ? state.replicationInstanceClass : undefined;
-            inputs["replicationInstanceId"] = state ? state.replicationInstanceId : undefined;
-            inputs["replicationInstancePrivateIps"] = state ? state.replicationInstancePrivateIps : undefined;
-            inputs["replicationInstancePublicIps"] = state ? state.replicationInstancePublicIps : undefined;
-            inputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["multiAz"] = state ? state.multiAz : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
+            resourceInputs["replicationInstanceClass"] = state ? state.replicationInstanceClass : undefined;
+            resourceInputs["replicationInstanceId"] = state ? state.replicationInstanceId : undefined;
+            resourceInputs["replicationInstancePrivateIps"] = state ? state.replicationInstancePrivateIps : undefined;
+            resourceInputs["replicationInstancePublicIps"] = state ? state.replicationInstancePublicIps : undefined;
+            resourceInputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ReplicationInstanceArgs | undefined;
             if ((!args || args.replicationInstanceClass === undefined) && !opts.urn) {
@@ -219,30 +219,28 @@ export class ReplicationInstance extends pulumi.CustomResource {
             if ((!args || args.replicationInstanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationInstanceId'");
             }
-            inputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
-            inputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["multiAz"] = args ? args.multiAz : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
-            inputs["replicationInstanceId"] = args ? args.replicationInstanceId : undefined;
-            inputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["replicationInstanceArn"] = undefined /*out*/;
-            inputs["replicationInstancePrivateIps"] = undefined /*out*/;
-            inputs["replicationInstancePublicIps"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
+            resourceInputs["replicationInstanceId"] = args ? args.replicationInstanceId : undefined;
+            resourceInputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["replicationInstanceArn"] = undefined /*out*/;
+            resourceInputs["replicationInstancePrivateIps"] = undefined /*out*/;
+            resourceInputs["replicationInstancePublicIps"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicationInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicationInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

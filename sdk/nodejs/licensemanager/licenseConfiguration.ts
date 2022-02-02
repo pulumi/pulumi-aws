@@ -124,40 +124,38 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: LicenseConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LicenseConfigurationArgs | LicenseConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LicenseConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["licenseCount"] = state ? state.licenseCount : undefined;
-            inputs["licenseCountHardLimit"] = state ? state.licenseCountHardLimit : undefined;
-            inputs["licenseCountingType"] = state ? state.licenseCountingType : undefined;
-            inputs["licenseRules"] = state ? state.licenseRules : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["licenseCount"] = state ? state.licenseCount : undefined;
+            resourceInputs["licenseCountHardLimit"] = state ? state.licenseCountHardLimit : undefined;
+            resourceInputs["licenseCountingType"] = state ? state.licenseCountingType : undefined;
+            resourceInputs["licenseRules"] = state ? state.licenseRules : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LicenseConfigurationArgs | undefined;
             if ((!args || args.licenseCountingType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'licenseCountingType'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["licenseCount"] = args ? args.licenseCount : undefined;
-            inputs["licenseCountHardLimit"] = args ? args.licenseCountHardLimit : undefined;
-            inputs["licenseCountingType"] = args ? args.licenseCountingType : undefined;
-            inputs["licenseRules"] = args ? args.licenseRules : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerAccountId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["licenseCount"] = args ? args.licenseCount : undefined;
+            resourceInputs["licenseCountHardLimit"] = args ? args.licenseCountHardLimit : undefined;
+            resourceInputs["licenseCountingType"] = args ? args.licenseCountingType : undefined;
+            resourceInputs["licenseRules"] = args ? args.licenseRules : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LicenseConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LicenseConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

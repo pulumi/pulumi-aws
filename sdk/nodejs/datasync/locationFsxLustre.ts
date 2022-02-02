@@ -97,18 +97,18 @@ export class LocationFsxLustre extends pulumi.CustomResource {
      */
     constructor(name: string, args: LocationFsxLustreArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocationFsxLustreArgs | LocationFsxLustreState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationFsxLustreState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["creationTime"] = state ? state.creationTime : undefined;
-            inputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
-            inputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
-            inputs["subdirectory"] = state ? state.subdirectory : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
+            resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as LocationFsxLustreArgs | undefined;
             if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
@@ -117,19 +117,17 @@ export class LocationFsxLustre extends pulumi.CustomResource {
             if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            inputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
-            inputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
+            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationFsxLustre.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationFsxLustre.__pulumiType, name, resourceInputs, opts);
     }
 }
 

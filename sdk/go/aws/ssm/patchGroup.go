@@ -132,7 +132,7 @@ type PatchGroupInput interface {
 }
 
 func (*PatchGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchGroup)(nil))
+	return reflect.TypeOf((**PatchGroup)(nil)).Elem()
 }
 
 func (i *PatchGroup) ToPatchGroupOutput() PatchGroupOutput {
@@ -141,35 +141,6 @@ func (i *PatchGroup) ToPatchGroupOutput() PatchGroupOutput {
 
 func (i *PatchGroup) ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupOutput)
-}
-
-func (i *PatchGroup) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
-	return i.ToPatchGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *PatchGroup) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupPtrOutput)
-}
-
-type PatchGroupPtrInput interface {
-	pulumi.Input
-
-	ToPatchGroupPtrOutput() PatchGroupPtrOutput
-	ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput
-}
-
-type patchGroupPtrType PatchGroupArgs
-
-func (*patchGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PatchGroup)(nil))
-}
-
-func (i *patchGroupPtrType) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
-	return i.ToPatchGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *patchGroupPtrType) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupPtrOutput)
 }
 
 // PatchGroupArrayInput is an input type that accepts PatchGroupArray and PatchGroupArrayOutput values.
@@ -225,7 +196,7 @@ func (i PatchGroupMap) ToPatchGroupMapOutputWithContext(ctx context.Context) Pat
 type PatchGroupOutput struct{ *pulumi.OutputState }
 
 func (PatchGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchGroup)(nil))
+	return reflect.TypeOf((**PatchGroup)(nil)).Elem()
 }
 
 func (o PatchGroupOutput) ToPatchGroupOutput() PatchGroupOutput {
@@ -236,44 +207,10 @@ func (o PatchGroupOutput) ToPatchGroupOutputWithContext(ctx context.Context) Pat
 	return o
 }
 
-func (o PatchGroupOutput) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
-	return o.ToPatchGroupPtrOutputWithContext(context.Background())
-}
-
-func (o PatchGroupOutput) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchGroup) *PatchGroup {
-		return &v
-	}).(PatchGroupPtrOutput)
-}
-
-type PatchGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (PatchGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PatchGroup)(nil))
-}
-
-func (o PatchGroupPtrOutput) ToPatchGroupPtrOutput() PatchGroupPtrOutput {
-	return o
-}
-
-func (o PatchGroupPtrOutput) ToPatchGroupPtrOutputWithContext(ctx context.Context) PatchGroupPtrOutput {
-	return o
-}
-
-func (o PatchGroupPtrOutput) Elem() PatchGroupOutput {
-	return o.ApplyT(func(v *PatchGroup) PatchGroup {
-		if v != nil {
-			return *v
-		}
-		var ret PatchGroup
-		return ret
-	}).(PatchGroupOutput)
-}
-
 type PatchGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (PatchGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PatchGroup)(nil))
+	return reflect.TypeOf((*[]*PatchGroup)(nil)).Elem()
 }
 
 func (o PatchGroupArrayOutput) ToPatchGroupArrayOutput() PatchGroupArrayOutput {
@@ -285,15 +222,15 @@ func (o PatchGroupArrayOutput) ToPatchGroupArrayOutputWithContext(ctx context.Co
 }
 
 func (o PatchGroupArrayOutput) Index(i pulumi.IntInput) PatchGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchGroup {
-		return vs[0].([]PatchGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PatchGroup {
+		return vs[0].([]*PatchGroup)[vs[1].(int)]
 	}).(PatchGroupOutput)
 }
 
 type PatchGroupMapOutput struct{ *pulumi.OutputState }
 
 func (PatchGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PatchGroup)(nil))
+	return reflect.TypeOf((*map[string]*PatchGroup)(nil)).Elem()
 }
 
 func (o PatchGroupMapOutput) ToPatchGroupMapOutput() PatchGroupMapOutput {
@@ -305,18 +242,16 @@ func (o PatchGroupMapOutput) ToPatchGroupMapOutputWithContext(ctx context.Contex
 }
 
 func (o PatchGroupMapOutput) MapIndex(k pulumi.StringInput) PatchGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PatchGroup {
-		return vs[0].(map[string]PatchGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PatchGroup {
+		return vs[0].(map[string]*PatchGroup)[vs[1].(string)]
 	}).(PatchGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupInput)(nil)).Elem(), &PatchGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupPtrInput)(nil)).Elem(), &PatchGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupArrayInput)(nil)).Elem(), PatchGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupMapInput)(nil)).Elem(), PatchGroupMap{})
 	pulumi.RegisterOutputType(PatchGroupOutput{})
-	pulumi.RegisterOutputType(PatchGroupPtrOutput{})
 	pulumi.RegisterOutputType(PatchGroupArrayOutput{})
 	pulumi.RegisterOutputType(PatchGroupMapOutput{})
 }

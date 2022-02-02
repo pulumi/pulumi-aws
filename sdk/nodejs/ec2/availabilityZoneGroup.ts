@@ -75,12 +75,12 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: AvailabilityZoneGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AvailabilityZoneGroupArgs | AvailabilityZoneGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AvailabilityZoneGroupState | undefined;
-            inputs["groupName"] = state ? state.groupName : undefined;
-            inputs["optInStatus"] = state ? state.optInStatus : undefined;
+            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["optInStatus"] = state ? state.optInStatus : undefined;
         } else {
             const args = argsOrState as AvailabilityZoneGroupArgs | undefined;
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -89,13 +89,11 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
             if ((!args || args.optInStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'optInStatus'");
             }
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["optInStatus"] = args ? args.optInStatus : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["optInStatus"] = args ? args.optInStatus : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AvailabilityZoneGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AvailabilityZoneGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

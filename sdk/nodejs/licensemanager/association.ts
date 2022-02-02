@@ -88,12 +88,12 @@ export class Association extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssociationState | undefined;
-            inputs["licenseConfigurationArn"] = state ? state.licenseConfigurationArn : undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["licenseConfigurationArn"] = state ? state.licenseConfigurationArn : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
             if ((!args || args.licenseConfigurationArn === undefined) && !opts.urn) {
@@ -102,13 +102,11 @@ export class Association extends pulumi.CustomResource {
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            inputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Association.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Association.__pulumiType, name, resourceInputs, opts);
     }
 }
 

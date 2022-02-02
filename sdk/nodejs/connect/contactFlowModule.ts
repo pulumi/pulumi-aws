@@ -156,40 +156,38 @@ export class ContactFlowModule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContactFlowModuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContactFlowModuleArgs | ContactFlowModuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactFlowModuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["contactFlowModuleId"] = state ? state.contactFlowModuleId : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["contentHash"] = state ? state.contentHash : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["filename"] = state ? state.filename : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contactFlowModuleId"] = state ? state.contactFlowModuleId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentHash"] = state ? state.contentHash : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["filename"] = state ? state.filename : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ContactFlowModuleArgs | undefined;
             if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentHash"] = args ? args.contentHash : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["filename"] = args ? args.filename : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["contactFlowModuleId"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentHash"] = args ? args.contentHash : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["filename"] = args ? args.filename : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["contactFlowModuleId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ContactFlowModule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ContactFlowModule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

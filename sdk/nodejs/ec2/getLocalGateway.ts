@@ -29,9 +29,7 @@ export function getLocalGateway(args?: GetLocalGatewayArgs, opts?: pulumi.Invoke
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getLocalGateway:getLocalGateway", {
         "filters": args.filters,
         "id": args.id,

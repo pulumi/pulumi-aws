@@ -191,7 +191,7 @@ type PortfolioShareInput interface {
 }
 
 func (*PortfolioShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioShare)(nil))
+	return reflect.TypeOf((**PortfolioShare)(nil)).Elem()
 }
 
 func (i *PortfolioShare) ToPortfolioShareOutput() PortfolioShareOutput {
@@ -200,35 +200,6 @@ func (i *PortfolioShare) ToPortfolioShareOutput() PortfolioShareOutput {
 
 func (i *PortfolioShare) ToPortfolioShareOutputWithContext(ctx context.Context) PortfolioShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioShareOutput)
-}
-
-func (i *PortfolioShare) ToPortfolioSharePtrOutput() PortfolioSharePtrOutput {
-	return i.ToPortfolioSharePtrOutputWithContext(context.Background())
-}
-
-func (i *PortfolioShare) ToPortfolioSharePtrOutputWithContext(ctx context.Context) PortfolioSharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortfolioSharePtrOutput)
-}
-
-type PortfolioSharePtrInput interface {
-	pulumi.Input
-
-	ToPortfolioSharePtrOutput() PortfolioSharePtrOutput
-	ToPortfolioSharePtrOutputWithContext(ctx context.Context) PortfolioSharePtrOutput
-}
-
-type portfolioSharePtrType PortfolioShareArgs
-
-func (*portfolioSharePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortfolioShare)(nil))
-}
-
-func (i *portfolioSharePtrType) ToPortfolioSharePtrOutput() PortfolioSharePtrOutput {
-	return i.ToPortfolioSharePtrOutputWithContext(context.Background())
-}
-
-func (i *portfolioSharePtrType) ToPortfolioSharePtrOutputWithContext(ctx context.Context) PortfolioSharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortfolioSharePtrOutput)
 }
 
 // PortfolioShareArrayInput is an input type that accepts PortfolioShareArray and PortfolioShareArrayOutput values.
@@ -284,7 +255,7 @@ func (i PortfolioShareMap) ToPortfolioShareMapOutputWithContext(ctx context.Cont
 type PortfolioShareOutput struct{ *pulumi.OutputState }
 
 func (PortfolioShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioShare)(nil))
+	return reflect.TypeOf((**PortfolioShare)(nil)).Elem()
 }
 
 func (o PortfolioShareOutput) ToPortfolioShareOutput() PortfolioShareOutput {
@@ -295,44 +266,10 @@ func (o PortfolioShareOutput) ToPortfolioShareOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PortfolioShareOutput) ToPortfolioSharePtrOutput() PortfolioSharePtrOutput {
-	return o.ToPortfolioSharePtrOutputWithContext(context.Background())
-}
-
-func (o PortfolioShareOutput) ToPortfolioSharePtrOutputWithContext(ctx context.Context) PortfolioSharePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortfolioShare) *PortfolioShare {
-		return &v
-	}).(PortfolioSharePtrOutput)
-}
-
-type PortfolioSharePtrOutput struct{ *pulumi.OutputState }
-
-func (PortfolioSharePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortfolioShare)(nil))
-}
-
-func (o PortfolioSharePtrOutput) ToPortfolioSharePtrOutput() PortfolioSharePtrOutput {
-	return o
-}
-
-func (o PortfolioSharePtrOutput) ToPortfolioSharePtrOutputWithContext(ctx context.Context) PortfolioSharePtrOutput {
-	return o
-}
-
-func (o PortfolioSharePtrOutput) Elem() PortfolioShareOutput {
-	return o.ApplyT(func(v *PortfolioShare) PortfolioShare {
-		if v != nil {
-			return *v
-		}
-		var ret PortfolioShare
-		return ret
-	}).(PortfolioShareOutput)
-}
-
 type PortfolioShareArrayOutput struct{ *pulumi.OutputState }
 
 func (PortfolioShareArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PortfolioShare)(nil))
+	return reflect.TypeOf((*[]*PortfolioShare)(nil)).Elem()
 }
 
 func (o PortfolioShareArrayOutput) ToPortfolioShareArrayOutput() PortfolioShareArrayOutput {
@@ -344,15 +281,15 @@ func (o PortfolioShareArrayOutput) ToPortfolioShareArrayOutputWithContext(ctx co
 }
 
 func (o PortfolioShareArrayOutput) Index(i pulumi.IntInput) PortfolioShareOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PortfolioShare {
-		return vs[0].([]PortfolioShare)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PortfolioShare {
+		return vs[0].([]*PortfolioShare)[vs[1].(int)]
 	}).(PortfolioShareOutput)
 }
 
 type PortfolioShareMapOutput struct{ *pulumi.OutputState }
 
 func (PortfolioShareMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PortfolioShare)(nil))
+	return reflect.TypeOf((*map[string]*PortfolioShare)(nil)).Elem()
 }
 
 func (o PortfolioShareMapOutput) ToPortfolioShareMapOutput() PortfolioShareMapOutput {
@@ -364,18 +301,16 @@ func (o PortfolioShareMapOutput) ToPortfolioShareMapOutputWithContext(ctx contex
 }
 
 func (o PortfolioShareMapOutput) MapIndex(k pulumi.StringInput) PortfolioShareOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PortfolioShare {
-		return vs[0].(map[string]PortfolioShare)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PortfolioShare {
+		return vs[0].(map[string]*PortfolioShare)[vs[1].(string)]
 	}).(PortfolioShareOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareInput)(nil)).Elem(), &PortfolioShare{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioSharePtrInput)(nil)).Elem(), &PortfolioShare{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareArrayInput)(nil)).Elem(), PortfolioShareArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareMapInput)(nil)).Elem(), PortfolioShareMap{})
 	pulumi.RegisterOutputType(PortfolioShareOutput{})
-	pulumi.RegisterOutputType(PortfolioSharePtrOutput{})
 	pulumi.RegisterOutputType(PortfolioShareArrayOutput{})
 	pulumi.RegisterOutputType(PortfolioShareMapOutput{})
 }

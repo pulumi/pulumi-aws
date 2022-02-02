@@ -252,7 +252,7 @@ type ImageRecipeInput interface {
 }
 
 func (*ImageRecipe) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageRecipe)(nil))
+	return reflect.TypeOf((**ImageRecipe)(nil)).Elem()
 }
 
 func (i *ImageRecipe) ToImageRecipeOutput() ImageRecipeOutput {
@@ -261,35 +261,6 @@ func (i *ImageRecipe) ToImageRecipeOutput() ImageRecipeOutput {
 
 func (i *ImageRecipe) ToImageRecipeOutputWithContext(ctx context.Context) ImageRecipeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeOutput)
-}
-
-func (i *ImageRecipe) ToImageRecipePtrOutput() ImageRecipePtrOutput {
-	return i.ToImageRecipePtrOutputWithContext(context.Background())
-}
-
-func (i *ImageRecipe) ToImageRecipePtrOutputWithContext(ctx context.Context) ImageRecipePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipePtrOutput)
-}
-
-type ImageRecipePtrInput interface {
-	pulumi.Input
-
-	ToImageRecipePtrOutput() ImageRecipePtrOutput
-	ToImageRecipePtrOutputWithContext(ctx context.Context) ImageRecipePtrOutput
-}
-
-type imageRecipePtrType ImageRecipeArgs
-
-func (*imageRecipePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageRecipe)(nil))
-}
-
-func (i *imageRecipePtrType) ToImageRecipePtrOutput() ImageRecipePtrOutput {
-	return i.ToImageRecipePtrOutputWithContext(context.Background())
-}
-
-func (i *imageRecipePtrType) ToImageRecipePtrOutputWithContext(ctx context.Context) ImageRecipePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipePtrOutput)
 }
 
 // ImageRecipeArrayInput is an input type that accepts ImageRecipeArray and ImageRecipeArrayOutput values.
@@ -345,7 +316,7 @@ func (i ImageRecipeMap) ToImageRecipeMapOutputWithContext(ctx context.Context) I
 type ImageRecipeOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageRecipe)(nil))
+	return reflect.TypeOf((**ImageRecipe)(nil)).Elem()
 }
 
 func (o ImageRecipeOutput) ToImageRecipeOutput() ImageRecipeOutput {
@@ -356,44 +327,10 @@ func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) I
 	return o
 }
 
-func (o ImageRecipeOutput) ToImageRecipePtrOutput() ImageRecipePtrOutput {
-	return o.ToImageRecipePtrOutputWithContext(context.Background())
-}
-
-func (o ImageRecipeOutput) ToImageRecipePtrOutputWithContext(ctx context.Context) ImageRecipePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipe) *ImageRecipe {
-		return &v
-	}).(ImageRecipePtrOutput)
-}
-
-type ImageRecipePtrOutput struct{ *pulumi.OutputState }
-
-func (ImageRecipePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageRecipe)(nil))
-}
-
-func (o ImageRecipePtrOutput) ToImageRecipePtrOutput() ImageRecipePtrOutput {
-	return o
-}
-
-func (o ImageRecipePtrOutput) ToImageRecipePtrOutputWithContext(ctx context.Context) ImageRecipePtrOutput {
-	return o
-}
-
-func (o ImageRecipePtrOutput) Elem() ImageRecipeOutput {
-	return o.ApplyT(func(v *ImageRecipe) ImageRecipe {
-		if v != nil {
-			return *v
-		}
-		var ret ImageRecipe
-		return ret
-	}).(ImageRecipeOutput)
-}
-
 type ImageRecipeArrayOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageRecipe)(nil))
+	return reflect.TypeOf((*[]*ImageRecipe)(nil)).Elem()
 }
 
 func (o ImageRecipeArrayOutput) ToImageRecipeArrayOutput() ImageRecipeArrayOutput {
@@ -405,15 +342,15 @@ func (o ImageRecipeArrayOutput) ToImageRecipeArrayOutputWithContext(ctx context.
 }
 
 func (o ImageRecipeArrayOutput) Index(i pulumi.IntInput) ImageRecipeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRecipe {
-		return vs[0].([]ImageRecipe)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageRecipe {
+		return vs[0].([]*ImageRecipe)[vs[1].(int)]
 	}).(ImageRecipeOutput)
 }
 
 type ImageRecipeMapOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ImageRecipe)(nil))
+	return reflect.TypeOf((*map[string]*ImageRecipe)(nil)).Elem()
 }
 
 func (o ImageRecipeMapOutput) ToImageRecipeMapOutput() ImageRecipeMapOutput {
@@ -425,18 +362,16 @@ func (o ImageRecipeMapOutput) ToImageRecipeMapOutputWithContext(ctx context.Cont
 }
 
 func (o ImageRecipeMapOutput) MapIndex(k pulumi.StringInput) ImageRecipeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ImageRecipe {
-		return vs[0].(map[string]ImageRecipe)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ImageRecipe {
+		return vs[0].(map[string]*ImageRecipe)[vs[1].(string)]
 	}).(ImageRecipeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeInput)(nil)).Elem(), &ImageRecipe{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipePtrInput)(nil)).Elem(), &ImageRecipe{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeArrayInput)(nil)).Elem(), ImageRecipeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeMapInput)(nil)).Elem(), ImageRecipeMap{})
 	pulumi.RegisterOutputType(ImageRecipeOutput{})
-	pulumi.RegisterOutputType(ImageRecipePtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeArrayOutput{})
 	pulumi.RegisterOutputType(ImageRecipeMapOutput{})
 }

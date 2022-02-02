@@ -25,12 +25,12 @@ namespace Pulumi.Aws.Backup
     ///         var testTopic = new Aws.Sns.Topic("testTopic", new Aws.Sns.TopicArgs
     ///         {
     ///         });
-    ///         var testPolicyDocument = testTopic.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var testPolicyDocument = testTopic.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             PolicyId = "__default_policy_ID",
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Actions = 
     ///                     {
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Backup
     ///                     Effect = "Allow",
     ///                     Principals = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                         {
     ///                             Type = "Service",
     ///                             Identifiers = 

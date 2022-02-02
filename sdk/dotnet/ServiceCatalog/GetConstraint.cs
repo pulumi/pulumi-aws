@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConstraintResult> InvokeAsync(GetConstraintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information on a Service Catalog Constraint.
@@ -72,7 +71,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConstraintResult> Invoke(GetConstraintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintInvokeArgs(), options.WithDefaults());
     }
 
 

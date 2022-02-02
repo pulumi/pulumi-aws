@@ -171,27 +171,27 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     constructor(name: string, args: CachesIscsiVolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CachesIscsiVolumeArgs | CachesIscsiVolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CachesIscsiVolumeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["chapEnabled"] = state ? state.chapEnabled : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
-            inputs["kmsKey"] = state ? state.kmsKey : undefined;
-            inputs["lunNumber"] = state ? state.lunNumber : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
-            inputs["snapshotId"] = state ? state.snapshotId : undefined;
-            inputs["sourceVolumeArn"] = state ? state.sourceVolumeArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
-            inputs["targetName"] = state ? state.targetName : undefined;
-            inputs["volumeArn"] = state ? state.volumeArn : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
-            inputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["chapEnabled"] = state ? state.chapEnabled : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
+            resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
+            resourceInputs["lunNumber"] = state ? state.lunNumber : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
+            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
+            resourceInputs["sourceVolumeArn"] = state ? state.sourceVolumeArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
+            resourceInputs["targetName"] = state ? state.targetName : undefined;
+            resourceInputs["volumeArn"] = state ? state.volumeArn : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
         } else {
             const args = argsOrState as CachesIscsiVolumeArgs | undefined;
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
@@ -206,28 +206,26 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             if ((!args || args.volumeSizeInBytes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeSizeInBytes'");
             }
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
-            inputs["kmsKey"] = args ? args.kmsKey : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
-            inputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetName"] = args ? args.targetName : undefined;
-            inputs["volumeSizeInBytes"] = args ? args.volumeSizeInBytes : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["chapEnabled"] = undefined /*out*/;
-            inputs["lunNumber"] = undefined /*out*/;
-            inputs["networkInterfacePort"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["targetArn"] = undefined /*out*/;
-            inputs["volumeArn"] = undefined /*out*/;
-            inputs["volumeId"] = undefined /*out*/;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
+            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["volumeSizeInBytes"] = args ? args.volumeSizeInBytes : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["chapEnabled"] = undefined /*out*/;
+            resourceInputs["lunNumber"] = undefined /*out*/;
+            resourceInputs["networkInterfacePort"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["targetArn"] = undefined /*out*/;
+            resourceInputs["volumeArn"] = undefined /*out*/;
+            resourceInputs["volumeId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CachesIscsiVolume.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CachesIscsiVolume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

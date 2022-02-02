@@ -220,7 +220,7 @@ type InstanceInput interface {
 }
 
 func (*Instance) ElementType() reflect.Type {
-	return reflect.TypeOf((*Instance)(nil))
+	return reflect.TypeOf((**Instance)(nil)).Elem()
 }
 
 func (i *Instance) ToInstanceOutput() InstanceOutput {
@@ -229,35 +229,6 @@ func (i *Instance) ToInstanceOutput() InstanceOutput {
 
 func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceOutput)
-}
-
-func (i *Instance) ToInstancePtrOutput() InstancePtrOutput {
-	return i.ToInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *Instance) ToInstancePtrOutputWithContext(ctx context.Context) InstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstancePtrOutput)
-}
-
-type InstancePtrInput interface {
-	pulumi.Input
-
-	ToInstancePtrOutput() InstancePtrOutput
-	ToInstancePtrOutputWithContext(ctx context.Context) InstancePtrOutput
-}
-
-type instancePtrType InstanceArgs
-
-func (*instancePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Instance)(nil))
-}
-
-func (i *instancePtrType) ToInstancePtrOutput() InstancePtrOutput {
-	return i.ToInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *instancePtrType) ToInstancePtrOutputWithContext(ctx context.Context) InstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstancePtrOutput)
 }
 
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
@@ -313,7 +284,7 @@ func (i InstanceMap) ToInstanceMapOutputWithContext(ctx context.Context) Instanc
 type InstanceOutput struct{ *pulumi.OutputState }
 
 func (InstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Instance)(nil))
+	return reflect.TypeOf((**Instance)(nil)).Elem()
 }
 
 func (o InstanceOutput) ToInstanceOutput() InstanceOutput {
@@ -324,44 +295,10 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
-func (o InstanceOutput) ToInstancePtrOutput() InstancePtrOutput {
-	return o.ToInstancePtrOutputWithContext(context.Background())
-}
-
-func (o InstanceOutput) ToInstancePtrOutputWithContext(ctx context.Context) InstancePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Instance) *Instance {
-		return &v
-	}).(InstancePtrOutput)
-}
-
-type InstancePtrOutput struct{ *pulumi.OutputState }
-
-func (InstancePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Instance)(nil))
-}
-
-func (o InstancePtrOutput) ToInstancePtrOutput() InstancePtrOutput {
-	return o
-}
-
-func (o InstancePtrOutput) ToInstancePtrOutputWithContext(ctx context.Context) InstancePtrOutput {
-	return o
-}
-
-func (o InstancePtrOutput) Elem() InstanceOutput {
-	return o.ApplyT(func(v *Instance) Instance {
-		if v != nil {
-			return *v
-		}
-		var ret Instance
-		return ret
-	}).(InstanceOutput)
-}
-
 type InstanceArrayOutput struct{ *pulumi.OutputState }
 
 func (InstanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Instance)(nil))
+	return reflect.TypeOf((*[]*Instance)(nil)).Elem()
 }
 
 func (o InstanceArrayOutput) ToInstanceArrayOutput() InstanceArrayOutput {
@@ -373,15 +310,15 @@ func (o InstanceArrayOutput) ToInstanceArrayOutputWithContext(ctx context.Contex
 }
 
 func (o InstanceArrayOutput) Index(i pulumi.IntInput) InstanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Instance {
-		return vs[0].([]Instance)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Instance {
+		return vs[0].([]*Instance)[vs[1].(int)]
 	}).(InstanceOutput)
 }
 
 type InstanceMapOutput struct{ *pulumi.OutputState }
 
 func (InstanceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Instance)(nil))
+	return reflect.TypeOf((*map[string]*Instance)(nil)).Elem()
 }
 
 func (o InstanceMapOutput) ToInstanceMapOutput() InstanceMapOutput {
@@ -393,18 +330,16 @@ func (o InstanceMapOutput) ToInstanceMapOutputWithContext(ctx context.Context) I
 }
 
 func (o InstanceMapOutput) MapIndex(k pulumi.StringInput) InstanceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Instance {
-		return vs[0].(map[string]Instance)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Instance {
+		return vs[0].(map[string]*Instance)[vs[1].(string)]
 	}).(InstanceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInput)(nil)).Elem(), &Instance{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstancePtrInput)(nil)).Elem(), &Instance{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceArrayInput)(nil)).Elem(), InstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMapInput)(nil)).Elem(), InstanceMap{})
 	pulumi.RegisterOutputType(InstanceOutput{})
-	pulumi.RegisterOutputType(InstancePtrOutput{})
 	pulumi.RegisterOutputType(InstanceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceMapOutput{})
 }

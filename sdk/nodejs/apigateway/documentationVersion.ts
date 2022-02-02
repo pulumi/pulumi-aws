@@ -88,13 +88,13 @@ export class DocumentationVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DocumentationVersionArgs | DocumentationVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DocumentationVersionState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["restApiId"] = state ? state.restApiId : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as DocumentationVersionArgs | undefined;
             if ((!args || args.restApiId === undefined) && !opts.urn) {
@@ -103,14 +103,12 @@ export class DocumentationVersion extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["version"] = args ? args.version : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DocumentationVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DocumentationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

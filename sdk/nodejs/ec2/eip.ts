@@ -221,55 +221,53 @@ export class Eip extends pulumi.CustomResource {
      */
     constructor(name: string, args?: EipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EipArgs | EipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EipState | undefined;
-            inputs["address"] = state ? state.address : undefined;
-            inputs["allocationId"] = state ? state.allocationId : undefined;
-            inputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
-            inputs["associationId"] = state ? state.associationId : undefined;
-            inputs["carrierIp"] = state ? state.carrierIp : undefined;
-            inputs["customerOwnedIp"] = state ? state.customerOwnedIp : undefined;
-            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["instance"] = state ? state.instance : undefined;
-            inputs["networkBorderGroup"] = state ? state.networkBorderGroup : undefined;
-            inputs["networkInterface"] = state ? state.networkInterface : undefined;
-            inputs["privateDns"] = state ? state.privateDns : undefined;
-            inputs["privateIp"] = state ? state.privateIp : undefined;
-            inputs["publicDns"] = state ? state.publicDns : undefined;
-            inputs["publicIp"] = state ? state.publicIp : undefined;
-            inputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpc"] = state ? state.vpc : undefined;
+            resourceInputs["address"] = state ? state.address : undefined;
+            resourceInputs["allocationId"] = state ? state.allocationId : undefined;
+            resourceInputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["carrierIp"] = state ? state.carrierIp : undefined;
+            resourceInputs["customerOwnedIp"] = state ? state.customerOwnedIp : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["instance"] = state ? state.instance : undefined;
+            resourceInputs["networkBorderGroup"] = state ? state.networkBorderGroup : undefined;
+            resourceInputs["networkInterface"] = state ? state.networkInterface : undefined;
+            resourceInputs["privateDns"] = state ? state.privateDns : undefined;
+            resourceInputs["privateIp"] = state ? state.privateIp : undefined;
+            resourceInputs["publicDns"] = state ? state.publicDns : undefined;
+            resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpc"] = state ? state.vpc : undefined;
         } else {
             const args = argsOrState as EipArgs | undefined;
-            inputs["address"] = args ? args.address : undefined;
-            inputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
-            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            inputs["instance"] = args ? args.instance : undefined;
-            inputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
-            inputs["networkInterface"] = args ? args.networkInterface : undefined;
-            inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpc"] = args ? args.vpc : undefined;
-            inputs["allocationId"] = undefined /*out*/;
-            inputs["associationId"] = undefined /*out*/;
-            inputs["carrierIp"] = undefined /*out*/;
-            inputs["customerOwnedIp"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["privateDns"] = undefined /*out*/;
-            inputs["privateIp"] = undefined /*out*/;
-            inputs["publicDns"] = undefined /*out*/;
-            inputs["publicIp"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["address"] = args ? args.address : undefined;
+            resourceInputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            resourceInputs["instance"] = args ? args.instance : undefined;
+            resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
+            resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
+            resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpc"] = args ? args.vpc : undefined;
+            resourceInputs["allocationId"] = undefined /*out*/;
+            resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["carrierIp"] = undefined /*out*/;
+            resourceInputs["customerOwnedIp"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["privateDns"] = undefined /*out*/;
+            resourceInputs["privateIp"] = undefined /*out*/;
+            resourceInputs["publicDns"] = undefined /*out*/;
+            resourceInputs["publicIp"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Eip.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Eip.__pulumiType, name, resourceInputs, opts);
     }
 }
 

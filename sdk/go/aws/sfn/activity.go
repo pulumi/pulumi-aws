@@ -134,7 +134,7 @@ type ActivityInput interface {
 }
 
 func (*Activity) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activity)(nil))
+	return reflect.TypeOf((**Activity)(nil)).Elem()
 }
 
 func (i *Activity) ToActivityOutput() ActivityOutput {
@@ -143,35 +143,6 @@ func (i *Activity) ToActivityOutput() ActivityOutput {
 
 func (i *Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityOutput)
-}
-
-func (i *Activity) ToActivityPtrOutput() ActivityPtrOutput {
-	return i.ToActivityPtrOutputWithContext(context.Background())
-}
-
-func (i *Activity) ToActivityPtrOutputWithContext(ctx context.Context) ActivityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityPtrOutput)
-}
-
-type ActivityPtrInput interface {
-	pulumi.Input
-
-	ToActivityPtrOutput() ActivityPtrOutput
-	ToActivityPtrOutputWithContext(ctx context.Context) ActivityPtrOutput
-}
-
-type activityPtrType ActivityArgs
-
-func (*activityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Activity)(nil))
-}
-
-func (i *activityPtrType) ToActivityPtrOutput() ActivityPtrOutput {
-	return i.ToActivityPtrOutputWithContext(context.Background())
-}
-
-func (i *activityPtrType) ToActivityPtrOutputWithContext(ctx context.Context) ActivityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityPtrOutput)
 }
 
 // ActivityArrayInput is an input type that accepts ActivityArray and ActivityArrayOutput values.
@@ -227,7 +198,7 @@ func (i ActivityMap) ToActivityMapOutputWithContext(ctx context.Context) Activit
 type ActivityOutput struct{ *pulumi.OutputState }
 
 func (ActivityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activity)(nil))
+	return reflect.TypeOf((**Activity)(nil)).Elem()
 }
 
 func (o ActivityOutput) ToActivityOutput() ActivityOutput {
@@ -238,44 +209,10 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 	return o
 }
 
-func (o ActivityOutput) ToActivityPtrOutput() ActivityPtrOutput {
-	return o.ToActivityPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityOutput) ToActivityPtrOutputWithContext(ctx context.Context) ActivityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Activity) *Activity {
-		return &v
-	}).(ActivityPtrOutput)
-}
-
-type ActivityPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Activity)(nil))
-}
-
-func (o ActivityPtrOutput) ToActivityPtrOutput() ActivityPtrOutput {
-	return o
-}
-
-func (o ActivityPtrOutput) ToActivityPtrOutputWithContext(ctx context.Context) ActivityPtrOutput {
-	return o
-}
-
-func (o ActivityPtrOutput) Elem() ActivityOutput {
-	return o.ApplyT(func(v *Activity) Activity {
-		if v != nil {
-			return *v
-		}
-		var ret Activity
-		return ret
-	}).(ActivityOutput)
-}
-
 type ActivityArrayOutput struct{ *pulumi.OutputState }
 
 func (ActivityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Activity)(nil))
+	return reflect.TypeOf((*[]*Activity)(nil)).Elem()
 }
 
 func (o ActivityArrayOutput) ToActivityArrayOutput() ActivityArrayOutput {
@@ -287,15 +224,15 @@ func (o ActivityArrayOutput) ToActivityArrayOutputWithContext(ctx context.Contex
 }
 
 func (o ActivityArrayOutput) Index(i pulumi.IntInput) ActivityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Activity {
-		return vs[0].([]Activity)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Activity {
+		return vs[0].([]*Activity)[vs[1].(int)]
 	}).(ActivityOutput)
 }
 
 type ActivityMapOutput struct{ *pulumi.OutputState }
 
 func (ActivityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Activity)(nil))
+	return reflect.TypeOf((*map[string]*Activity)(nil)).Elem()
 }
 
 func (o ActivityMapOutput) ToActivityMapOutput() ActivityMapOutput {
@@ -307,18 +244,16 @@ func (o ActivityMapOutput) ToActivityMapOutputWithContext(ctx context.Context) A
 }
 
 func (o ActivityMapOutput) MapIndex(k pulumi.StringInput) ActivityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Activity {
-		return vs[0].(map[string]Activity)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Activity {
+		return vs[0].(map[string]*Activity)[vs[1].(string)]
 	}).(ActivityOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityInput)(nil)).Elem(), &Activity{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActivityPtrInput)(nil)).Elem(), &Activity{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityArrayInput)(nil)).Elem(), ActivityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityMapInput)(nil)).Elem(), ActivityMap{})
 	pulumi.RegisterOutputType(ActivityOutput{})
-	pulumi.RegisterOutputType(ActivityPtrOutput{})
 	pulumi.RegisterOutputType(ActivityArrayOutput{})
 	pulumi.RegisterOutputType(ActivityMapOutput{})
 }

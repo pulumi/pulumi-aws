@@ -121,17 +121,17 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPoolDomainState | undefined;
-            inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            inputs["userPoolId"] = state ? state.userPoolId : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as UserPoolDomainArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
@@ -140,18 +140,16 @@ export class UserPoolDomain extends pulumi.CustomResource {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["cloudfrontDistributionArn"] = undefined /*out*/;
-            inputs["s3Bucket"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["cloudfrontDistributionArn"] = undefined /*out*/;
+            resourceInputs["s3Bucket"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolDomain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

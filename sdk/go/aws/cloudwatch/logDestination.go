@@ -148,7 +148,7 @@ type LogDestinationInput interface {
 }
 
 func (*LogDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogDestination)(nil))
+	return reflect.TypeOf((**LogDestination)(nil)).Elem()
 }
 
 func (i *LogDestination) ToLogDestinationOutput() LogDestinationOutput {
@@ -157,35 +157,6 @@ func (i *LogDestination) ToLogDestinationOutput() LogDestinationOutput {
 
 func (i *LogDestination) ToLogDestinationOutputWithContext(ctx context.Context) LogDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationOutput)
-}
-
-func (i *LogDestination) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
-	return i.ToLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *LogDestination) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPtrOutput)
-}
-
-type LogDestinationPtrInput interface {
-	pulumi.Input
-
-	ToLogDestinationPtrOutput() LogDestinationPtrOutput
-	ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput
-}
-
-type logDestinationPtrType LogDestinationArgs
-
-func (*logDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogDestination)(nil))
-}
-
-func (i *logDestinationPtrType) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
-	return i.ToLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *logDestinationPtrType) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPtrOutput)
 }
 
 // LogDestinationArrayInput is an input type that accepts LogDestinationArray and LogDestinationArrayOutput values.
@@ -241,7 +212,7 @@ func (i LogDestinationMap) ToLogDestinationMapOutputWithContext(ctx context.Cont
 type LogDestinationOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogDestination)(nil))
+	return reflect.TypeOf((**LogDestination)(nil)).Elem()
 }
 
 func (o LogDestinationOutput) ToLogDestinationOutput() LogDestinationOutput {
@@ -252,44 +223,10 @@ func (o LogDestinationOutput) ToLogDestinationOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o LogDestinationOutput) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
-	return o.ToLogDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o LogDestinationOutput) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDestination) *LogDestination {
-		return &v
-	}).(LogDestinationPtrOutput)
-}
-
-type LogDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (LogDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogDestination)(nil))
-}
-
-func (o LogDestinationPtrOutput) ToLogDestinationPtrOutput() LogDestinationPtrOutput {
-	return o
-}
-
-func (o LogDestinationPtrOutput) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
-	return o
-}
-
-func (o LogDestinationPtrOutput) Elem() LogDestinationOutput {
-	return o.ApplyT(func(v *LogDestination) LogDestination {
-		if v != nil {
-			return *v
-		}
-		var ret LogDestination
-		return ret
-	}).(LogDestinationOutput)
-}
-
 type LogDestinationArrayOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogDestination)(nil))
+	return reflect.TypeOf((*[]*LogDestination)(nil)).Elem()
 }
 
 func (o LogDestinationArrayOutput) ToLogDestinationArrayOutput() LogDestinationArrayOutput {
@@ -301,15 +238,15 @@ func (o LogDestinationArrayOutput) ToLogDestinationArrayOutputWithContext(ctx co
 }
 
 func (o LogDestinationArrayOutput) Index(i pulumi.IntInput) LogDestinationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogDestination {
-		return vs[0].([]LogDestination)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogDestination {
+		return vs[0].([]*LogDestination)[vs[1].(int)]
 	}).(LogDestinationOutput)
 }
 
 type LogDestinationMapOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogDestination)(nil))
+	return reflect.TypeOf((*map[string]*LogDestination)(nil)).Elem()
 }
 
 func (o LogDestinationMapOutput) ToLogDestinationMapOutput() LogDestinationMapOutput {
@@ -321,18 +258,16 @@ func (o LogDestinationMapOutput) ToLogDestinationMapOutputWithContext(ctx contex
 }
 
 func (o LogDestinationMapOutput) MapIndex(k pulumi.StringInput) LogDestinationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogDestination {
-		return vs[0].(map[string]LogDestination)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogDestination {
+		return vs[0].(map[string]*LogDestination)[vs[1].(string)]
 	}).(LogDestinationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationInput)(nil)).Elem(), &LogDestination{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationPtrInput)(nil)).Elem(), &LogDestination{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationArrayInput)(nil)).Elem(), LogDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationMapInput)(nil)).Elem(), LogDestinationMap{})
 	pulumi.RegisterOutputType(LogDestinationOutput{})
-	pulumi.RegisterOutputType(LogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(LogDestinationArrayOutput{})
 	pulumi.RegisterOutputType(LogDestinationMapOutput{})
 }

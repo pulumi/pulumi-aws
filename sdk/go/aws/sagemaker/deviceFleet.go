@@ -196,7 +196,7 @@ type DeviceFleetInput interface {
 }
 
 func (*DeviceFleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceFleet)(nil))
+	return reflect.TypeOf((**DeviceFleet)(nil)).Elem()
 }
 
 func (i *DeviceFleet) ToDeviceFleetOutput() DeviceFleetOutput {
@@ -205,35 +205,6 @@ func (i *DeviceFleet) ToDeviceFleetOutput() DeviceFleetOutput {
 
 func (i *DeviceFleet) ToDeviceFleetOutputWithContext(ctx context.Context) DeviceFleetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutput)
-}
-
-func (i *DeviceFleet) ToDeviceFleetPtrOutput() DeviceFleetPtrOutput {
-	return i.ToDeviceFleetPtrOutputWithContext(context.Background())
-}
-
-func (i *DeviceFleet) ToDeviceFleetPtrOutputWithContext(ctx context.Context) DeviceFleetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetPtrOutput)
-}
-
-type DeviceFleetPtrInput interface {
-	pulumi.Input
-
-	ToDeviceFleetPtrOutput() DeviceFleetPtrOutput
-	ToDeviceFleetPtrOutputWithContext(ctx context.Context) DeviceFleetPtrOutput
-}
-
-type deviceFleetPtrType DeviceFleetArgs
-
-func (*deviceFleetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceFleet)(nil))
-}
-
-func (i *deviceFleetPtrType) ToDeviceFleetPtrOutput() DeviceFleetPtrOutput {
-	return i.ToDeviceFleetPtrOutputWithContext(context.Background())
-}
-
-func (i *deviceFleetPtrType) ToDeviceFleetPtrOutputWithContext(ctx context.Context) DeviceFleetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetPtrOutput)
 }
 
 // DeviceFleetArrayInput is an input type that accepts DeviceFleetArray and DeviceFleetArrayOutput values.
@@ -289,7 +260,7 @@ func (i DeviceFleetMap) ToDeviceFleetMapOutputWithContext(ctx context.Context) D
 type DeviceFleetOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceFleet)(nil))
+	return reflect.TypeOf((**DeviceFleet)(nil)).Elem()
 }
 
 func (o DeviceFleetOutput) ToDeviceFleetOutput() DeviceFleetOutput {
@@ -300,44 +271,10 @@ func (o DeviceFleetOutput) ToDeviceFleetOutputWithContext(ctx context.Context) D
 	return o
 }
 
-func (o DeviceFleetOutput) ToDeviceFleetPtrOutput() DeviceFleetPtrOutput {
-	return o.ToDeviceFleetPtrOutputWithContext(context.Background())
-}
-
-func (o DeviceFleetOutput) ToDeviceFleetPtrOutputWithContext(ctx context.Context) DeviceFleetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceFleet) *DeviceFleet {
-		return &v
-	}).(DeviceFleetPtrOutput)
-}
-
-type DeviceFleetPtrOutput struct{ *pulumi.OutputState }
-
-func (DeviceFleetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceFleet)(nil))
-}
-
-func (o DeviceFleetPtrOutput) ToDeviceFleetPtrOutput() DeviceFleetPtrOutput {
-	return o
-}
-
-func (o DeviceFleetPtrOutput) ToDeviceFleetPtrOutputWithContext(ctx context.Context) DeviceFleetPtrOutput {
-	return o
-}
-
-func (o DeviceFleetPtrOutput) Elem() DeviceFleetOutput {
-	return o.ApplyT(func(v *DeviceFleet) DeviceFleet {
-		if v != nil {
-			return *v
-		}
-		var ret DeviceFleet
-		return ret
-	}).(DeviceFleetOutput)
-}
-
 type DeviceFleetArrayOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeviceFleet)(nil))
+	return reflect.TypeOf((*[]*DeviceFleet)(nil)).Elem()
 }
 
 func (o DeviceFleetArrayOutput) ToDeviceFleetArrayOutput() DeviceFleetArrayOutput {
@@ -349,15 +286,15 @@ func (o DeviceFleetArrayOutput) ToDeviceFleetArrayOutputWithContext(ctx context.
 }
 
 func (o DeviceFleetArrayOutput) Index(i pulumi.IntInput) DeviceFleetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceFleet {
-		return vs[0].([]DeviceFleet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeviceFleet {
+		return vs[0].([]*DeviceFleet)[vs[1].(int)]
 	}).(DeviceFleetOutput)
 }
 
 type DeviceFleetMapOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DeviceFleet)(nil))
+	return reflect.TypeOf((*map[string]*DeviceFleet)(nil)).Elem()
 }
 
 func (o DeviceFleetMapOutput) ToDeviceFleetMapOutput() DeviceFleetMapOutput {
@@ -369,18 +306,16 @@ func (o DeviceFleetMapOutput) ToDeviceFleetMapOutputWithContext(ctx context.Cont
 }
 
 func (o DeviceFleetMapOutput) MapIndex(k pulumi.StringInput) DeviceFleetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DeviceFleet {
-		return vs[0].(map[string]DeviceFleet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DeviceFleet {
+		return vs[0].(map[string]*DeviceFleet)[vs[1].(string)]
 	}).(DeviceFleetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetInput)(nil)).Elem(), &DeviceFleet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetPtrInput)(nil)).Elem(), &DeviceFleet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetArrayInput)(nil)).Elem(), DeviceFleetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetMapInput)(nil)).Elem(), DeviceFleetMap{})
 	pulumi.RegisterOutputType(DeviceFleetOutput{})
-	pulumi.RegisterOutputType(DeviceFleetPtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetArrayOutput{})
 	pulumi.RegisterOutputType(DeviceFleetMapOutput{})
 }

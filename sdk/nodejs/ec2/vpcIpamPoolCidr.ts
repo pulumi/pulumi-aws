@@ -121,26 +121,24 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpamPoolCidrArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpamPoolCidrArgs | VpcIpamPoolCidrState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamPoolCidrState | undefined;
-            inputs["cidr"] = state ? state.cidr : undefined;
-            inputs["cidrAuthorizationContext"] = state ? state.cidrAuthorizationContext : undefined;
-            inputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
+            resourceInputs["cidr"] = state ? state.cidr : undefined;
+            resourceInputs["cidrAuthorizationContext"] = state ? state.cidrAuthorizationContext : undefined;
+            resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
         } else {
             const args = argsOrState as VpcIpamPoolCidrArgs | undefined;
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            inputs["cidr"] = args ? args.cidr : undefined;
-            inputs["cidrAuthorizationContext"] = args ? args.cidrAuthorizationContext : undefined;
-            inputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
+            resourceInputs["cidr"] = args ? args.cidr : undefined;
+            resourceInputs["cidrAuthorizationContext"] = args ? args.cidrAuthorizationContext : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcIpamPoolCidr.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcIpamPoolCidr.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -179,7 +179,7 @@ type MailFromInput interface {
 }
 
 func (*MailFrom) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailFrom)(nil))
+	return reflect.TypeOf((**MailFrom)(nil)).Elem()
 }
 
 func (i *MailFrom) ToMailFromOutput() MailFromOutput {
@@ -188,35 +188,6 @@ func (i *MailFrom) ToMailFromOutput() MailFromOutput {
 
 func (i *MailFrom) ToMailFromOutputWithContext(ctx context.Context) MailFromOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromOutput)
-}
-
-func (i *MailFrom) ToMailFromPtrOutput() MailFromPtrOutput {
-	return i.ToMailFromPtrOutputWithContext(context.Background())
-}
-
-func (i *MailFrom) ToMailFromPtrOutputWithContext(ctx context.Context) MailFromPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MailFromPtrOutput)
-}
-
-type MailFromPtrInput interface {
-	pulumi.Input
-
-	ToMailFromPtrOutput() MailFromPtrOutput
-	ToMailFromPtrOutputWithContext(ctx context.Context) MailFromPtrOutput
-}
-
-type mailFromPtrType MailFromArgs
-
-func (*mailFromPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MailFrom)(nil))
-}
-
-func (i *mailFromPtrType) ToMailFromPtrOutput() MailFromPtrOutput {
-	return i.ToMailFromPtrOutputWithContext(context.Background())
-}
-
-func (i *mailFromPtrType) ToMailFromPtrOutputWithContext(ctx context.Context) MailFromPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MailFromPtrOutput)
 }
 
 // MailFromArrayInput is an input type that accepts MailFromArray and MailFromArrayOutput values.
@@ -272,7 +243,7 @@ func (i MailFromMap) ToMailFromMapOutputWithContext(ctx context.Context) MailFro
 type MailFromOutput struct{ *pulumi.OutputState }
 
 func (MailFromOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailFrom)(nil))
+	return reflect.TypeOf((**MailFrom)(nil)).Elem()
 }
 
 func (o MailFromOutput) ToMailFromOutput() MailFromOutput {
@@ -283,44 +254,10 @@ func (o MailFromOutput) ToMailFromOutputWithContext(ctx context.Context) MailFro
 	return o
 }
 
-func (o MailFromOutput) ToMailFromPtrOutput() MailFromPtrOutput {
-	return o.ToMailFromPtrOutputWithContext(context.Background())
-}
-
-func (o MailFromOutput) ToMailFromPtrOutputWithContext(ctx context.Context) MailFromPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailFrom) *MailFrom {
-		return &v
-	}).(MailFromPtrOutput)
-}
-
-type MailFromPtrOutput struct{ *pulumi.OutputState }
-
-func (MailFromPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MailFrom)(nil))
-}
-
-func (o MailFromPtrOutput) ToMailFromPtrOutput() MailFromPtrOutput {
-	return o
-}
-
-func (o MailFromPtrOutput) ToMailFromPtrOutputWithContext(ctx context.Context) MailFromPtrOutput {
-	return o
-}
-
-func (o MailFromPtrOutput) Elem() MailFromOutput {
-	return o.ApplyT(func(v *MailFrom) MailFrom {
-		if v != nil {
-			return *v
-		}
-		var ret MailFrom
-		return ret
-	}).(MailFromOutput)
-}
-
 type MailFromArrayOutput struct{ *pulumi.OutputState }
 
 func (MailFromArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MailFrom)(nil))
+	return reflect.TypeOf((*[]*MailFrom)(nil)).Elem()
 }
 
 func (o MailFromArrayOutput) ToMailFromArrayOutput() MailFromArrayOutput {
@@ -332,15 +269,15 @@ func (o MailFromArrayOutput) ToMailFromArrayOutputWithContext(ctx context.Contex
 }
 
 func (o MailFromArrayOutput) Index(i pulumi.IntInput) MailFromOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MailFrom {
-		return vs[0].([]MailFrom)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MailFrom {
+		return vs[0].([]*MailFrom)[vs[1].(int)]
 	}).(MailFromOutput)
 }
 
 type MailFromMapOutput struct{ *pulumi.OutputState }
 
 func (MailFromMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MailFrom)(nil))
+	return reflect.TypeOf((*map[string]*MailFrom)(nil)).Elem()
 }
 
 func (o MailFromMapOutput) ToMailFromMapOutput() MailFromMapOutput {
@@ -352,18 +289,16 @@ func (o MailFromMapOutput) ToMailFromMapOutputWithContext(ctx context.Context) M
 }
 
 func (o MailFromMapOutput) MapIndex(k pulumi.StringInput) MailFromOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MailFrom {
-		return vs[0].(map[string]MailFrom)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MailFrom {
+		return vs[0].(map[string]*MailFrom)[vs[1].(string)]
 	}).(MailFromOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailFromInput)(nil)).Elem(), &MailFrom{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MailFromPtrInput)(nil)).Elem(), &MailFrom{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailFromArrayInput)(nil)).Elem(), MailFromArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailFromMapInput)(nil)).Elem(), MailFromMap{})
 	pulumi.RegisterOutputType(MailFromOutput{})
-	pulumi.RegisterOutputType(MailFromPtrOutput{})
 	pulumi.RegisterOutputType(MailFromArrayOutput{})
 	pulumi.RegisterOutputType(MailFromMapOutput{})
 }

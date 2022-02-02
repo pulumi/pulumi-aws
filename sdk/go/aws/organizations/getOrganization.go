@@ -33,8 +33,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = sns.NewTopicPolicy(ctx, "snsTopicPolicyTopicPolicy", &sns.TopicPolicyArgs{
-// 			Arn:    snsTopic.Arn,
-// 			Policy: pulumi.String(snsTopicPolicyPolicyDocument.Json),
+// 			Arn: snsTopic.Arn,
+// 			Policy: snsTopicPolicyPolicyDocument.ApplyT(func(snsTopicPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+// 				return snsTopicPolicyPolicyDocument.Json, nil
+// 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err

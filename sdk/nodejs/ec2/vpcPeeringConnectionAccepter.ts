@@ -155,42 +155,40 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcPeeringConnectionAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcPeeringConnectionAccepterArgs | VpcPeeringConnectionAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcPeeringConnectionAccepterState | undefined;
-            inputs["acceptStatus"] = state ? state.acceptStatus : undefined;
-            inputs["accepter"] = state ? state.accepter : undefined;
-            inputs["autoAccept"] = state ? state.autoAccept : undefined;
-            inputs["peerOwnerId"] = state ? state.peerOwnerId : undefined;
-            inputs["peerRegion"] = state ? state.peerRegion : undefined;
-            inputs["peerVpcId"] = state ? state.peerVpcId : undefined;
-            inputs["requester"] = state ? state.requester : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
+            resourceInputs["acceptStatus"] = state ? state.acceptStatus : undefined;
+            resourceInputs["accepter"] = state ? state.accepter : undefined;
+            resourceInputs["autoAccept"] = state ? state.autoAccept : undefined;
+            resourceInputs["peerOwnerId"] = state ? state.peerOwnerId : undefined;
+            resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
+            resourceInputs["peerVpcId"] = state ? state.peerVpcId : undefined;
+            resourceInputs["requester"] = state ? state.requester : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as VpcPeeringConnectionAccepterArgs | undefined;
             if ((!args || args.vpcPeeringConnectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcPeeringConnectionId'");
             }
-            inputs["accepter"] = args ? args.accepter : undefined;
-            inputs["autoAccept"] = args ? args.autoAccept : undefined;
-            inputs["requester"] = args ? args.requester : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
-            inputs["acceptStatus"] = undefined /*out*/;
-            inputs["peerOwnerId"] = undefined /*out*/;
-            inputs["peerRegion"] = undefined /*out*/;
-            inputs["peerVpcId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["accepter"] = args ? args.accepter : undefined;
+            resourceInputs["autoAccept"] = args ? args.autoAccept : undefined;
+            resourceInputs["requester"] = args ? args.requester : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            resourceInputs["acceptStatus"] = undefined /*out*/;
+            resourceInputs["peerOwnerId"] = undefined /*out*/;
+            resourceInputs["peerRegion"] = undefined /*out*/;
+            resourceInputs["peerVpcId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcPeeringConnectionAccepter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcPeeringConnectionAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

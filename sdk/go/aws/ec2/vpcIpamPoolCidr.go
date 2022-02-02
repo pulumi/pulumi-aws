@@ -120,7 +120,7 @@ type VpcIpamPoolCidrInput interface {
 }
 
 func (*VpcIpamPoolCidr) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamPoolCidr)(nil))
+	return reflect.TypeOf((**VpcIpamPoolCidr)(nil)).Elem()
 }
 
 func (i *VpcIpamPoolCidr) ToVpcIpamPoolCidrOutput() VpcIpamPoolCidrOutput {
@@ -129,35 +129,6 @@ func (i *VpcIpamPoolCidr) ToVpcIpamPoolCidrOutput() VpcIpamPoolCidrOutput {
 
 func (i *VpcIpamPoolCidr) ToVpcIpamPoolCidrOutputWithContext(ctx context.Context) VpcIpamPoolCidrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrOutput)
-}
-
-func (i *VpcIpamPoolCidr) ToVpcIpamPoolCidrPtrOutput() VpcIpamPoolCidrPtrOutput {
-	return i.ToVpcIpamPoolCidrPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcIpamPoolCidr) ToVpcIpamPoolCidrPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrPtrOutput)
-}
-
-type VpcIpamPoolCidrPtrInput interface {
-	pulumi.Input
-
-	ToVpcIpamPoolCidrPtrOutput() VpcIpamPoolCidrPtrOutput
-	ToVpcIpamPoolCidrPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrPtrOutput
-}
-
-type vpcIpamPoolCidrPtrType VpcIpamPoolCidrArgs
-
-func (*vpcIpamPoolCidrPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamPoolCidr)(nil))
-}
-
-func (i *vpcIpamPoolCidrPtrType) ToVpcIpamPoolCidrPtrOutput() VpcIpamPoolCidrPtrOutput {
-	return i.ToVpcIpamPoolCidrPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcIpamPoolCidrPtrType) ToVpcIpamPoolCidrPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrPtrOutput)
 }
 
 // VpcIpamPoolCidrArrayInput is an input type that accepts VpcIpamPoolCidrArray and VpcIpamPoolCidrArrayOutput values.
@@ -213,7 +184,7 @@ func (i VpcIpamPoolCidrMap) ToVpcIpamPoolCidrMapOutputWithContext(ctx context.Co
 type VpcIpamPoolCidrOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamPoolCidr)(nil))
+	return reflect.TypeOf((**VpcIpamPoolCidr)(nil)).Elem()
 }
 
 func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrOutput() VpcIpamPoolCidrOutput {
@@ -224,44 +195,10 @@ func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrPtrOutput() VpcIpamPoolCidrPtrOutput {
-	return o.ToVpcIpamPoolCidrPtrOutputWithContext(context.Background())
-}
-
-func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpamPoolCidr) *VpcIpamPoolCidr {
-		return &v
-	}).(VpcIpamPoolCidrPtrOutput)
-}
-
-type VpcIpamPoolCidrPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcIpamPoolCidrPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamPoolCidr)(nil))
-}
-
-func (o VpcIpamPoolCidrPtrOutput) ToVpcIpamPoolCidrPtrOutput() VpcIpamPoolCidrPtrOutput {
-	return o
-}
-
-func (o VpcIpamPoolCidrPtrOutput) ToVpcIpamPoolCidrPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrPtrOutput {
-	return o
-}
-
-func (o VpcIpamPoolCidrPtrOutput) Elem() VpcIpamPoolCidrOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidr) VpcIpamPoolCidr {
-		if v != nil {
-			return *v
-		}
-		var ret VpcIpamPoolCidr
-		return ret
-	}).(VpcIpamPoolCidrOutput)
-}
-
 type VpcIpamPoolCidrArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcIpamPoolCidr)(nil))
+	return reflect.TypeOf((*[]*VpcIpamPoolCidr)(nil)).Elem()
 }
 
 func (o VpcIpamPoolCidrArrayOutput) ToVpcIpamPoolCidrArrayOutput() VpcIpamPoolCidrArrayOutput {
@@ -273,15 +210,15 @@ func (o VpcIpamPoolCidrArrayOutput) ToVpcIpamPoolCidrArrayOutputWithContext(ctx 
 }
 
 func (o VpcIpamPoolCidrArrayOutput) Index(i pulumi.IntInput) VpcIpamPoolCidrOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamPoolCidr {
-		return vs[0].([]VpcIpamPoolCidr)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamPoolCidr {
+		return vs[0].([]*VpcIpamPoolCidr)[vs[1].(int)]
 	}).(VpcIpamPoolCidrOutput)
 }
 
 type VpcIpamPoolCidrMapOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcIpamPoolCidr)(nil))
+	return reflect.TypeOf((*map[string]*VpcIpamPoolCidr)(nil)).Elem()
 }
 
 func (o VpcIpamPoolCidrMapOutput) ToVpcIpamPoolCidrMapOutput() VpcIpamPoolCidrMapOutput {
@@ -293,18 +230,16 @@ func (o VpcIpamPoolCidrMapOutput) ToVpcIpamPoolCidrMapOutputWithContext(ctx cont
 }
 
 func (o VpcIpamPoolCidrMapOutput) MapIndex(k pulumi.StringInput) VpcIpamPoolCidrOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcIpamPoolCidr {
-		return vs[0].(map[string]VpcIpamPoolCidr)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcIpamPoolCidr {
+		return vs[0].(map[string]*VpcIpamPoolCidr)[vs[1].(string)]
 	}).(VpcIpamPoolCidrOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrInput)(nil)).Elem(), &VpcIpamPoolCidr{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrPtrInput)(nil)).Elem(), &VpcIpamPoolCidr{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrArrayInput)(nil)).Elem(), VpcIpamPoolCidrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrMapInput)(nil)).Elem(), VpcIpamPoolCidrMap{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrOutput{})
-	pulumi.RegisterOutputType(VpcIpamPoolCidrPtrOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrMapOutput{})
 }

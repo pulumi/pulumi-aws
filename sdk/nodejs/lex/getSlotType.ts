@@ -25,9 +25,7 @@ export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lex/getSlotType:getSlotType", {
         "name": args.name,
         "version": args.version,

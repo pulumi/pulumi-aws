@@ -164,7 +164,7 @@ type IdentityProviderConfigInput interface {
 }
 
 func (*IdentityProviderConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderConfig)(nil))
+	return reflect.TypeOf((**IdentityProviderConfig)(nil)).Elem()
 }
 
 func (i *IdentityProviderConfig) ToIdentityProviderConfigOutput() IdentityProviderConfigOutput {
@@ -173,35 +173,6 @@ func (i *IdentityProviderConfig) ToIdentityProviderConfigOutput() IdentityProvid
 
 func (i *IdentityProviderConfig) ToIdentityProviderConfigOutputWithContext(ctx context.Context) IdentityProviderConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOutput)
-}
-
-func (i *IdentityProviderConfig) ToIdentityProviderConfigPtrOutput() IdentityProviderConfigPtrOutput {
-	return i.ToIdentityProviderConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *IdentityProviderConfig) ToIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigPtrOutput)
-}
-
-type IdentityProviderConfigPtrInput interface {
-	pulumi.Input
-
-	ToIdentityProviderConfigPtrOutput() IdentityProviderConfigPtrOutput
-	ToIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigPtrOutput
-}
-
-type identityProviderConfigPtrType IdentityProviderConfigArgs
-
-func (*identityProviderConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityProviderConfig)(nil))
-}
-
-func (i *identityProviderConfigPtrType) ToIdentityProviderConfigPtrOutput() IdentityProviderConfigPtrOutput {
-	return i.ToIdentityProviderConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *identityProviderConfigPtrType) ToIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigPtrOutput)
 }
 
 // IdentityProviderConfigArrayInput is an input type that accepts IdentityProviderConfigArray and IdentityProviderConfigArrayOutput values.
@@ -257,7 +228,7 @@ func (i IdentityProviderConfigMap) ToIdentityProviderConfigMapOutputWithContext(
 type IdentityProviderConfigOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderConfig)(nil))
+	return reflect.TypeOf((**IdentityProviderConfig)(nil)).Elem()
 }
 
 func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutput() IdentityProviderConfigOutput {
@@ -268,44 +239,10 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutputWithContext(
 	return o
 }
 
-func (o IdentityProviderConfigOutput) ToIdentityProviderConfigPtrOutput() IdentityProviderConfigPtrOutput {
-	return o.ToIdentityProviderConfigPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityProviderConfigOutput) ToIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderConfig) *IdentityProviderConfig {
-		return &v
-	}).(IdentityProviderConfigPtrOutput)
-}
-
-type IdentityProviderConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityProviderConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityProviderConfig)(nil))
-}
-
-func (o IdentityProviderConfigPtrOutput) ToIdentityProviderConfigPtrOutput() IdentityProviderConfigPtrOutput {
-	return o
-}
-
-func (o IdentityProviderConfigPtrOutput) ToIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigPtrOutput {
-	return o
-}
-
-func (o IdentityProviderConfigPtrOutput) Elem() IdentityProviderConfigOutput {
-	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfig {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityProviderConfig
-		return ret
-	}).(IdentityProviderConfigOutput)
-}
-
 type IdentityProviderConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityProviderConfig)(nil))
+	return reflect.TypeOf((*[]*IdentityProviderConfig)(nil)).Elem()
 }
 
 func (o IdentityProviderConfigArrayOutput) ToIdentityProviderConfigArrayOutput() IdentityProviderConfigArrayOutput {
@@ -317,15 +254,15 @@ func (o IdentityProviderConfigArrayOutput) ToIdentityProviderConfigArrayOutputWi
 }
 
 func (o IdentityProviderConfigArrayOutput) Index(i pulumi.IntInput) IdentityProviderConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityProviderConfig {
-		return vs[0].([]IdentityProviderConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderConfig {
+		return vs[0].([]*IdentityProviderConfig)[vs[1].(int)]
 	}).(IdentityProviderConfigOutput)
 }
 
 type IdentityProviderConfigMapOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProviderConfig)(nil))
+	return reflect.TypeOf((*map[string]*IdentityProviderConfig)(nil)).Elem()
 }
 
 func (o IdentityProviderConfigMapOutput) ToIdentityProviderConfigMapOutput() IdentityProviderConfigMapOutput {
@@ -337,18 +274,16 @@ func (o IdentityProviderConfigMapOutput) ToIdentityProviderConfigMapOutputWithCo
 }
 
 func (o IdentityProviderConfigMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProviderConfig {
-		return vs[0].(map[string]IdentityProviderConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IdentityProviderConfig {
+		return vs[0].(map[string]*IdentityProviderConfig)[vs[1].(string)]
 	}).(IdentityProviderConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigInput)(nil)).Elem(), &IdentityProviderConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigPtrInput)(nil)).Elem(), &IdentityProviderConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigArrayInput)(nil)).Elem(), IdentityProviderConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigMapInput)(nil)).Elem(), IdentityProviderConfigMap{})
 	pulumi.RegisterOutputType(IdentityProviderConfigOutput{})
-	pulumi.RegisterOutputType(IdentityProviderConfigPtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderConfigArrayOutput{})
 	pulumi.RegisterOutputType(IdentityProviderConfigMapOutput{})
 }

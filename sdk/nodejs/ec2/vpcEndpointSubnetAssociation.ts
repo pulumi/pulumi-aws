@@ -81,12 +81,12 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcEndpointSubnetAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointSubnetAssociationArgs | VpcEndpointSubnetAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointSubnetAssociationState | undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as VpcEndpointSubnetAssociationArgs | undefined;
             if ((!args || args.subnetId === undefined) && !opts.urn) {
@@ -95,13 +95,11 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcEndpointSubnetAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcEndpointSubnetAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

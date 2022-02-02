@@ -30,9 +30,7 @@ export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOpti
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getVpnGateway:getVpnGateway", {
         "amazonSideAsn": args.amazonSideAsn,
         "attachedVpcId": args.attachedVpcId,

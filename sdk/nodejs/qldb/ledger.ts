@@ -90,32 +90,30 @@ export class Ledger extends pulumi.CustomResource {
      */
     constructor(name: string, args: LedgerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LedgerArgs | LedgerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LedgerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["permissionsMode"] = state ? state.permissionsMode : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["permissionsMode"] = state ? state.permissionsMode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LedgerArgs | undefined;
             if ((!args || args.permissionsMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionsMode'");
             }
-            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissionsMode"] = args ? args.permissionsMode : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissionsMode"] = args ? args.permissionsMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Ledger.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Ledger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

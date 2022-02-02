@@ -82,27 +82,25 @@ export class ResolverFirewallDomainList extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ResolverFirewallDomainListArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverFirewallDomainListArgs | ResolverFirewallDomainListState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverFirewallDomainListState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domains"] = state ? state.domains : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domains"] = state ? state.domains : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ResolverFirewallDomainListArgs | undefined;
-            inputs["domains"] = args ? args.domains : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["domains"] = args ? args.domains : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverFirewallDomainList.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverFirewallDomainList.__pulumiType, name, resourceInputs, opts);
     }
 }
 

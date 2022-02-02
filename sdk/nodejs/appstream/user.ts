@@ -99,18 +99,18 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authenticationType"] = state ? state.authenticationType : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["firstName"] = state ? state.firstName : undefined;
-            inputs["lastName"] = state ? state.lastName : undefined;
-            inputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["lastName"] = state ? state.lastName : undefined;
+            resourceInputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
@@ -119,19 +119,17 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["firstName"] = args ? args.firstName : undefined;
-            inputs["lastName"] = args ? args.lastName : undefined;
-            inputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

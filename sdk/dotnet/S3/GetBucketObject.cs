@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.S3
 {
@@ -84,7 +83,7 @@ namespace Pulumi.Aws.S3
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBucketObjectResult> InvokeAsync(GetBucketObjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// The S3 object data source allows access to the metadata and
@@ -158,7 +157,7 @@ namespace Pulumi.Aws.S3
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBucketObjectResult> Invoke(GetBucketObjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectInvokeArgs(), options.WithDefaults());
     }
 
 

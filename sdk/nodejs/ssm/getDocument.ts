@@ -39,9 +39,7 @@ export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
         "documentFormat": args.documentFormat,
         "documentVersion": args.documentVersion,

@@ -196,23 +196,23 @@ export class Trigger extends pulumi.CustomResource {
      */
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["predicate"] = state ? state.predicate : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["startOnCreation"] = state ? state.startOnCreation : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["workflowName"] = state ? state.workflowName : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["predicate"] = state ? state.predicate : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["startOnCreation"] = state ? state.startOnCreation : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["workflowName"] = state ? state.workflowName : undefined;
         } else {
             const args = argsOrState as TriggerArgs | undefined;
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -221,24 +221,22 @@ export class Trigger extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["predicate"] = args ? args.predicate : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["startOnCreation"] = args ? args.startOnCreation : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["workflowName"] = args ? args.workflowName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["predicate"] = args ? args.predicate : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["startOnCreation"] = args ? args.startOnCreation : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Trigger.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Trigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

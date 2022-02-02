@@ -250,7 +250,7 @@ type UserInput interface {
 }
 
 func (*User) ElementType() reflect.Type {
-	return reflect.TypeOf((*User)(nil))
+	return reflect.TypeOf((**User)(nil)).Elem()
 }
 
 func (i *User) ToUserOutput() UserOutput {
@@ -259,35 +259,6 @@ func (i *User) ToUserOutput() UserOutput {
 
 func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
-}
-
-func (i *User) ToUserPtrOutput() UserPtrOutput {
-	return i.ToUserPtrOutputWithContext(context.Background())
-}
-
-func (i *User) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPtrOutput)
-}
-
-type UserPtrInput interface {
-	pulumi.Input
-
-	ToUserPtrOutput() UserPtrOutput
-	ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput
-}
-
-type userPtrType UserArgs
-
-func (*userPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**User)(nil))
-}
-
-func (i *userPtrType) ToUserPtrOutput() UserPtrOutput {
-	return i.ToUserPtrOutputWithContext(context.Background())
-}
-
-func (i *userPtrType) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPtrOutput)
 }
 
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
@@ -343,7 +314,7 @@ func (i UserMap) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*User)(nil))
+	return reflect.TypeOf((**User)(nil)).Elem()
 }
 
 func (o UserOutput) ToUserOutput() UserOutput {
@@ -354,44 +325,10 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-func (o UserOutput) ToUserPtrOutput() UserPtrOutput {
-	return o.ToUserPtrOutputWithContext(context.Background())
-}
-
-func (o UserOutput) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v User) *User {
-		return &v
-	}).(UserPtrOutput)
-}
-
-type UserPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**User)(nil))
-}
-
-func (o UserPtrOutput) ToUserPtrOutput() UserPtrOutput {
-	return o
-}
-
-func (o UserPtrOutput) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
-	return o
-}
-
-func (o UserPtrOutput) Elem() UserOutput {
-	return o.ApplyT(func(v *User) User {
-		if v != nil {
-			return *v
-		}
-		var ret User
-		return ret
-	}).(UserOutput)
-}
-
 type UserArrayOutput struct{ *pulumi.OutputState }
 
 func (UserArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]User)(nil))
+	return reflect.TypeOf((*[]*User)(nil)).Elem()
 }
 
 func (o UserArrayOutput) ToUserArrayOutput() UserArrayOutput {
@@ -403,15 +340,15 @@ func (o UserArrayOutput) ToUserArrayOutputWithContext(ctx context.Context) UserA
 }
 
 func (o UserArrayOutput) Index(i pulumi.IntInput) UserOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) User {
-		return vs[0].([]User)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *User {
+		return vs[0].([]*User)[vs[1].(int)]
 	}).(UserOutput)
 }
 
 type UserMapOutput struct{ *pulumi.OutputState }
 
 func (UserMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]User)(nil))
+	return reflect.TypeOf((*map[string]*User)(nil)).Elem()
 }
 
 func (o UserMapOutput) ToUserMapOutput() UserMapOutput {
@@ -423,18 +360,16 @@ func (o UserMapOutput) ToUserMapOutputWithContext(ctx context.Context) UserMapOu
 }
 
 func (o UserMapOutput) MapIndex(k pulumi.StringInput) UserOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) User {
-		return vs[0].(map[string]User)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *User {
+		return vs[0].(map[string]*User)[vs[1].(string)]
 	}).(UserOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserInput)(nil)).Elem(), &User{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPtrInput)(nil)).Elem(), &User{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserArrayInput)(nil)).Elem(), UserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserMapInput)(nil)).Elem(), UserMap{})
 	pulumi.RegisterOutputType(UserOutput{})
-	pulumi.RegisterOutputType(UserPtrOutput{})
 	pulumi.RegisterOutputType(UserArrayOutput{})
 	pulumi.RegisterOutputType(UserMapOutput{})
 }

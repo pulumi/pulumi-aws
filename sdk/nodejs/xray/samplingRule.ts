@@ -137,25 +137,25 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: SamplingRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamplingRuleArgs | SamplingRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamplingRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["fixedRate"] = state ? state.fixedRate : undefined;
-            inputs["host"] = state ? state.host : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["reservoirSize"] = state ? state.reservoirSize : undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
-            inputs["ruleName"] = state ? state.ruleName : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["serviceType"] = state ? state.serviceType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["urlPath"] = state ? state.urlPath : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["fixedRate"] = state ? state.fixedRate : undefined;
+            resourceInputs["host"] = state ? state.host : undefined;
+            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["reservoirSize"] = state ? state.reservoirSize : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["ruleName"] = state ? state.ruleName : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["serviceType"] = state ? state.serviceType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["urlPath"] = state ? state.urlPath : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SamplingRuleArgs | undefined;
             if ((!args || args.fixedRate === undefined) && !opts.urn) {
@@ -188,26 +188,24 @@ export class SamplingRule extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["fixedRate"] = args ? args.fixedRate : undefined;
-            inputs["host"] = args ? args.host : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["reservoirSize"] = args ? args.reservoirSize : undefined;
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["serviceType"] = args ? args.serviceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["urlPath"] = args ? args.urlPath : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["fixedRate"] = args ? args.fixedRate : undefined;
+            resourceInputs["host"] = args ? args.host : undefined;
+            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["reservoirSize"] = args ? args.reservoirSize : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceType"] = args ? args.serviceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["urlPath"] = args ? args.urlPath : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SamplingRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SamplingRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

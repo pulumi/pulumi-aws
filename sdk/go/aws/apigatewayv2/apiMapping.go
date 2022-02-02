@@ -158,7 +158,7 @@ type ApiMappingInput interface {
 }
 
 func (*ApiMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiMapping)(nil))
+	return reflect.TypeOf((**ApiMapping)(nil)).Elem()
 }
 
 func (i *ApiMapping) ToApiMappingOutput() ApiMappingOutput {
@@ -167,35 +167,6 @@ func (i *ApiMapping) ToApiMappingOutput() ApiMappingOutput {
 
 func (i *ApiMapping) ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingOutput)
-}
-
-func (i *ApiMapping) ToApiMappingPtrOutput() ApiMappingPtrOutput {
-	return i.ToApiMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *ApiMapping) ToApiMappingPtrOutputWithContext(ctx context.Context) ApiMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingPtrOutput)
-}
-
-type ApiMappingPtrInput interface {
-	pulumi.Input
-
-	ToApiMappingPtrOutput() ApiMappingPtrOutput
-	ToApiMappingPtrOutputWithContext(ctx context.Context) ApiMappingPtrOutput
-}
-
-type apiMappingPtrType ApiMappingArgs
-
-func (*apiMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiMapping)(nil))
-}
-
-func (i *apiMappingPtrType) ToApiMappingPtrOutput() ApiMappingPtrOutput {
-	return i.ToApiMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *apiMappingPtrType) ToApiMappingPtrOutputWithContext(ctx context.Context) ApiMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingPtrOutput)
 }
 
 // ApiMappingArrayInput is an input type that accepts ApiMappingArray and ApiMappingArrayOutput values.
@@ -251,7 +222,7 @@ func (i ApiMappingMap) ToApiMappingMapOutputWithContext(ctx context.Context) Api
 type ApiMappingOutput struct{ *pulumi.OutputState }
 
 func (ApiMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiMapping)(nil))
+	return reflect.TypeOf((**ApiMapping)(nil)).Elem()
 }
 
 func (o ApiMappingOutput) ToApiMappingOutput() ApiMappingOutput {
@@ -262,44 +233,10 @@ func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) Api
 	return o
 }
 
-func (o ApiMappingOutput) ToApiMappingPtrOutput() ApiMappingPtrOutput {
-	return o.ToApiMappingPtrOutputWithContext(context.Background())
-}
-
-func (o ApiMappingOutput) ToApiMappingPtrOutputWithContext(ctx context.Context) ApiMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiMapping) *ApiMapping {
-		return &v
-	}).(ApiMappingPtrOutput)
-}
-
-type ApiMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiMapping)(nil))
-}
-
-func (o ApiMappingPtrOutput) ToApiMappingPtrOutput() ApiMappingPtrOutput {
-	return o
-}
-
-func (o ApiMappingPtrOutput) ToApiMappingPtrOutputWithContext(ctx context.Context) ApiMappingPtrOutput {
-	return o
-}
-
-func (o ApiMappingPtrOutput) Elem() ApiMappingOutput {
-	return o.ApplyT(func(v *ApiMapping) ApiMapping {
-		if v != nil {
-			return *v
-		}
-		var ret ApiMapping
-		return ret
-	}).(ApiMappingOutput)
-}
-
 type ApiMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiMapping)(nil))
+	return reflect.TypeOf((*[]*ApiMapping)(nil)).Elem()
 }
 
 func (o ApiMappingArrayOutput) ToApiMappingArrayOutput() ApiMappingArrayOutput {
@@ -311,15 +248,15 @@ func (o ApiMappingArrayOutput) ToApiMappingArrayOutputWithContext(ctx context.Co
 }
 
 func (o ApiMappingArrayOutput) Index(i pulumi.IntInput) ApiMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiMapping {
-		return vs[0].([]ApiMapping)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiMapping {
+		return vs[0].([]*ApiMapping)[vs[1].(int)]
 	}).(ApiMappingOutput)
 }
 
 type ApiMappingMapOutput struct{ *pulumi.OutputState }
 
 func (ApiMappingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiMapping)(nil))
+	return reflect.TypeOf((*map[string]*ApiMapping)(nil)).Elem()
 }
 
 func (o ApiMappingMapOutput) ToApiMappingMapOutput() ApiMappingMapOutput {
@@ -331,18 +268,16 @@ func (o ApiMappingMapOutput) ToApiMappingMapOutputWithContext(ctx context.Contex
 }
 
 func (o ApiMappingMapOutput) MapIndex(k pulumi.StringInput) ApiMappingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiMapping {
-		return vs[0].(map[string]ApiMapping)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiMapping {
+		return vs[0].(map[string]*ApiMapping)[vs[1].(string)]
 	}).(ApiMappingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiMappingInput)(nil)).Elem(), &ApiMapping{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiMappingPtrInput)(nil)).Elem(), &ApiMapping{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiMappingArrayInput)(nil)).Elem(), ApiMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiMappingMapInput)(nil)).Elem(), ApiMappingMap{})
 	pulumi.RegisterOutputType(ApiMappingOutput{})
-	pulumi.RegisterOutputType(ApiMappingPtrOutput{})
 	pulumi.RegisterOutputType(ApiMappingArrayOutput{})
 	pulumi.RegisterOutputType(ApiMappingMapOutput{})
 }

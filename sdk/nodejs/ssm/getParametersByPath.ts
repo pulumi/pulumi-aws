@@ -9,9 +9,7 @@ export function getParametersByPath(args: GetParametersByPathArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ssm/getParametersByPath:getParametersByPath", {
         "path": args.path,
         "recursive": args.recursive,

@@ -90,12 +90,12 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedScalingPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedScalingPolicyArgs | ManagedScalingPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedScalingPolicyState | undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["computeLimits"] = state ? state.computeLimits : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["computeLimits"] = state ? state.computeLimits : undefined;
         } else {
             const args = argsOrState as ManagedScalingPolicyArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -104,13 +104,11 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
             if ((!args || args.computeLimits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'computeLimits'");
             }
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["computeLimits"] = args ? args.computeLimits : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["computeLimits"] = args ? args.computeLimits : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedScalingPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedScalingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

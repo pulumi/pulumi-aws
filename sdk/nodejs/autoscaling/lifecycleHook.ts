@@ -127,18 +127,18 @@ export class LifecycleHook extends pulumi.CustomResource {
      */
     constructor(name: string, args: LifecycleHookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LifecycleHookArgs | LifecycleHookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LifecycleHookState | undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["defaultResult"] = state ? state.defaultResult : undefined;
-            inputs["heartbeatTimeout"] = state ? state.heartbeatTimeout : undefined;
-            inputs["lifecycleTransition"] = state ? state.lifecycleTransition : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationMetadata"] = state ? state.notificationMetadata : undefined;
-            inputs["notificationTargetArn"] = state ? state.notificationTargetArn : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["defaultResult"] = state ? state.defaultResult : undefined;
+            resourceInputs["heartbeatTimeout"] = state ? state.heartbeatTimeout : undefined;
+            resourceInputs["lifecycleTransition"] = state ? state.lifecycleTransition : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationMetadata"] = state ? state.notificationMetadata : undefined;
+            resourceInputs["notificationTargetArn"] = state ? state.notificationTargetArn : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LifecycleHookArgs | undefined;
             if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
@@ -147,19 +147,17 @@ export class LifecycleHook extends pulumi.CustomResource {
             if ((!args || args.lifecycleTransition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lifecycleTransition'");
             }
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["defaultResult"] = args ? args.defaultResult : undefined;
-            inputs["heartbeatTimeout"] = args ? args.heartbeatTimeout : undefined;
-            inputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
-            inputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["defaultResult"] = args ? args.defaultResult : undefined;
+            resourceInputs["heartbeatTimeout"] = args ? args.heartbeatTimeout : undefined;
+            resourceInputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
+            resourceInputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LifecycleHook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LifecycleHook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

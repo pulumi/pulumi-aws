@@ -136,20 +136,20 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduledActionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduledActionArgs | ScheduledActionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledActionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["scalableDimension"] = state ? state.scalableDimension : undefined;
-            inputs["scalableTargetAction"] = state ? state.scalableTargetAction : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
+            resourceInputs["scalableTargetAction"] = state ? state.scalableTargetAction : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as ScheduledActionArgs | undefined;
             if ((!args || args.resourceId === undefined) && !opts.urn) {
@@ -167,21 +167,19 @@ export class ScheduledAction extends pulumi.CustomResource {
             if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            inputs["scalableTargetAction"] = args ? args.scalableTargetAction : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
+            resourceInputs["scalableTargetAction"] = args ? args.scalableTargetAction : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScheduledAction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

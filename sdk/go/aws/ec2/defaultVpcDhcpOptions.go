@@ -35,7 +35,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultVpcDhcpOptions(ctx, "_default", &ec2.DefaultVpcDhcpOptionsArgs{
+// 		_, err := ec2.NewDefaultVpcDhcpOptions(ctx, "default", &ec2.DefaultVpcDhcpOptionsArgs{
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("Default DHCP Option Set"),
 // 			},
@@ -175,7 +175,7 @@ type DefaultVpcDhcpOptionsInput interface {
 }
 
 func (*DefaultVpcDhcpOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultVpcDhcpOptions)(nil))
+	return reflect.TypeOf((**DefaultVpcDhcpOptions)(nil)).Elem()
 }
 
 func (i *DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsOutput() DefaultVpcDhcpOptionsOutput {
@@ -184,35 +184,6 @@ func (i *DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsOutput() DefaultVpcDhcpOp
 
 func (i *DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsOutput)
-}
-
-func (i *DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsPtrOutput() DefaultVpcDhcpOptionsPtrOutput {
-	return i.ToDefaultVpcDhcpOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsPtrOutput)
-}
-
-type DefaultVpcDhcpOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDefaultVpcDhcpOptionsPtrOutput() DefaultVpcDhcpOptionsPtrOutput
-	ToDefaultVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsPtrOutput
-}
-
-type defaultVpcDhcpOptionsPtrType DefaultVpcDhcpOptionsArgs
-
-func (*defaultVpcDhcpOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DefaultVpcDhcpOptions)(nil))
-}
-
-func (i *defaultVpcDhcpOptionsPtrType) ToDefaultVpcDhcpOptionsPtrOutput() DefaultVpcDhcpOptionsPtrOutput {
-	return i.ToDefaultVpcDhcpOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *defaultVpcDhcpOptionsPtrType) ToDefaultVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsPtrOutput)
 }
 
 // DefaultVpcDhcpOptionsArrayInput is an input type that accepts DefaultVpcDhcpOptionsArray and DefaultVpcDhcpOptionsArrayOutput values.
@@ -268,7 +239,7 @@ func (i DefaultVpcDhcpOptionsMap) ToDefaultVpcDhcpOptionsMapOutputWithContext(ct
 type DefaultVpcDhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcDhcpOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultVpcDhcpOptions)(nil))
+	return reflect.TypeOf((**DefaultVpcDhcpOptions)(nil)).Elem()
 }
 
 func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsOutput() DefaultVpcDhcpOptionsOutput {
@@ -279,44 +250,10 @@ func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsOutputWithContext(ct
 	return o
 }
 
-func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsPtrOutput() DefaultVpcDhcpOptionsPtrOutput {
-	return o.ToDefaultVpcDhcpOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultVpcDhcpOptions) *DefaultVpcDhcpOptions {
-		return &v
-	}).(DefaultVpcDhcpOptionsPtrOutput)
-}
-
-type DefaultVpcDhcpOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DefaultVpcDhcpOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DefaultVpcDhcpOptions)(nil))
-}
-
-func (o DefaultVpcDhcpOptionsPtrOutput) ToDefaultVpcDhcpOptionsPtrOutput() DefaultVpcDhcpOptionsPtrOutput {
-	return o
-}
-
-func (o DefaultVpcDhcpOptionsPtrOutput) ToDefaultVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsPtrOutput {
-	return o
-}
-
-func (o DefaultVpcDhcpOptionsPtrOutput) Elem() DefaultVpcDhcpOptionsOutput {
-	return o.ApplyT(func(v *DefaultVpcDhcpOptions) DefaultVpcDhcpOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultVpcDhcpOptions
-		return ret
-	}).(DefaultVpcDhcpOptionsOutput)
-}
-
 type DefaultVpcDhcpOptionsArrayOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcDhcpOptionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DefaultVpcDhcpOptions)(nil))
+	return reflect.TypeOf((*[]*DefaultVpcDhcpOptions)(nil)).Elem()
 }
 
 func (o DefaultVpcDhcpOptionsArrayOutput) ToDefaultVpcDhcpOptionsArrayOutput() DefaultVpcDhcpOptionsArrayOutput {
@@ -328,15 +265,15 @@ func (o DefaultVpcDhcpOptionsArrayOutput) ToDefaultVpcDhcpOptionsArrayOutputWith
 }
 
 func (o DefaultVpcDhcpOptionsArrayOutput) Index(i pulumi.IntInput) DefaultVpcDhcpOptionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultVpcDhcpOptions {
-		return vs[0].([]DefaultVpcDhcpOptions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultVpcDhcpOptions {
+		return vs[0].([]*DefaultVpcDhcpOptions)[vs[1].(int)]
 	}).(DefaultVpcDhcpOptionsOutput)
 }
 
 type DefaultVpcDhcpOptionsMapOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcDhcpOptionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DefaultVpcDhcpOptions)(nil))
+	return reflect.TypeOf((*map[string]*DefaultVpcDhcpOptions)(nil)).Elem()
 }
 
 func (o DefaultVpcDhcpOptionsMapOutput) ToDefaultVpcDhcpOptionsMapOutput() DefaultVpcDhcpOptionsMapOutput {
@@ -348,18 +285,16 @@ func (o DefaultVpcDhcpOptionsMapOutput) ToDefaultVpcDhcpOptionsMapOutputWithCont
 }
 
 func (o DefaultVpcDhcpOptionsMapOutput) MapIndex(k pulumi.StringInput) DefaultVpcDhcpOptionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultVpcDhcpOptions {
-		return vs[0].(map[string]DefaultVpcDhcpOptions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DefaultVpcDhcpOptions {
+		return vs[0].(map[string]*DefaultVpcDhcpOptions)[vs[1].(string)]
 	}).(DefaultVpcDhcpOptionsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsInput)(nil)).Elem(), &DefaultVpcDhcpOptions{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsPtrInput)(nil)).Elem(), &DefaultVpcDhcpOptions{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsArrayInput)(nil)).Elem(), DefaultVpcDhcpOptionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsMapInput)(nil)).Elem(), DefaultVpcDhcpOptionsMap{})
 	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsOutput{})
-	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsArrayOutput{})
 	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsMapOutput{})
 }

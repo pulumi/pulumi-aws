@@ -196,27 +196,27 @@ export class Stage extends pulumi.CustomResource {
      */
     constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StageState | undefined;
-            inputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
-            inputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;
-            inputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
-            inputs["deployment"] = state ? state.deployment : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["documentationVersion"] = state ? state.documentationVersion : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["invokeUrl"] = state ? state.invokeUrl : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["stageName"] = state ? state.stageName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
-            inputs["webAclArn"] = state ? state.webAclArn : undefined;
-            inputs["xrayTracingEnabled"] = state ? state.xrayTracingEnabled : undefined;
+            resourceInputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
+            resourceInputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;
+            resourceInputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
+            resourceInputs["deployment"] = state ? state.deployment : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["documentationVersion"] = state ? state.documentationVersion : undefined;
+            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
+            resourceInputs["invokeUrl"] = state ? state.invokeUrl : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["stageName"] = state ? state.stageName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["webAclArn"] = state ? state.webAclArn : undefined;
+            resourceInputs["xrayTracingEnabled"] = state ? state.xrayTracingEnabled : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
             if ((!args || args.deployment === undefined) && !opts.urn) {
@@ -228,28 +228,26 @@ export class Stage extends pulumi.CustomResource {
             if ((!args || args.stageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stageName'");
             }
-            inputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
-            inputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
-            inputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
-            inputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            inputs["deployment"] = args ? args.deployment : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
-            inputs["xrayTracingEnabled"] = args ? args.xrayTracingEnabled : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["invokeUrl"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["webAclArn"] = undefined /*out*/;
+            resourceInputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
+            resourceInputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
+            resourceInputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
+            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
+            resourceInputs["deployment"] = args ? args.deployment : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["xrayTracingEnabled"] = args ? args.xrayTracingEnabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["executionArn"] = undefined /*out*/;
+            resourceInputs["invokeUrl"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["webAclArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -131,29 +131,27 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ResponseHeadersPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResponseHeadersPolicyArgs | ResponseHeadersPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponseHeadersPolicyState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["corsConfig"] = state ? state.corsConfig : undefined;
-            inputs["customHeadersConfig"] = state ? state.customHeadersConfig : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["securityHeadersConfig"] = state ? state.securityHeadersConfig : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["corsConfig"] = state ? state.corsConfig : undefined;
+            resourceInputs["customHeadersConfig"] = state ? state.customHeadersConfig : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["securityHeadersConfig"] = state ? state.securityHeadersConfig : undefined;
         } else {
             const args = argsOrState as ResponseHeadersPolicyArgs | undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["corsConfig"] = args ? args.corsConfig : undefined;
-            inputs["customHeadersConfig"] = args ? args.customHeadersConfig : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["securityHeadersConfig"] = args ? args.securityHeadersConfig : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["corsConfig"] = args ? args.corsConfig : undefined;
+            resourceInputs["customHeadersConfig"] = args ? args.customHeadersConfig : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityHeadersConfig"] = args ? args.securityHeadersConfig : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResponseHeadersPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResponseHeadersPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

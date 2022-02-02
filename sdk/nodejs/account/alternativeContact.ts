@@ -97,16 +97,16 @@ export class AlternativeContact extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlternativeContactArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlternativeContactArgs | AlternativeContactState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlternativeContactState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["alternateContactType"] = state ? state.alternateContactType : undefined;
-            inputs["emailAddress"] = state ? state.emailAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["phoneNumber"] = state ? state.phoneNumber : undefined;
-            inputs["title"] = state ? state.title : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alternateContactType"] = state ? state.alternateContactType : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as AlternativeContactArgs | undefined;
             if ((!args || args.alternateContactType === undefined) && !opts.urn) {
@@ -121,17 +121,15 @@ export class AlternativeContact extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["alternateContactType"] = args ? args.alternateContactType : undefined;
-            inputs["emailAddress"] = args ? args.emailAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            inputs["title"] = args ? args.title : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["alternateContactType"] = args ? args.alternateContactType : undefined;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlternativeContact.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlternativeContact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

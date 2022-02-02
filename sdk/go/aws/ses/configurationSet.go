@@ -184,7 +184,7 @@ type ConfigurationSetInput interface {
 }
 
 func (*ConfigurationSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSet)(nil))
+	return reflect.TypeOf((**ConfigurationSet)(nil)).Elem()
 }
 
 func (i *ConfigurationSet) ToConfigurationSetOutput() ConfigurationSetOutput {
@@ -193,35 +193,6 @@ func (i *ConfigurationSet) ToConfigurationSetOutput() ConfigurationSetOutput {
 
 func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetOutput)
-}
-
-func (i *ConfigurationSet) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
-	return i.ToConfigurationSetPtrOutputWithContext(context.Background())
-}
-
-func (i *ConfigurationSet) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetPtrOutput)
-}
-
-type ConfigurationSetPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput
-	ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput
-}
-
-type configurationSetPtrType ConfigurationSetArgs
-
-func (*configurationSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationSet)(nil))
-}
-
-func (i *configurationSetPtrType) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
-	return i.ToConfigurationSetPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationSetPtrType) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetPtrOutput)
 }
 
 // ConfigurationSetArrayInput is an input type that accepts ConfigurationSetArray and ConfigurationSetArrayOutput values.
@@ -277,7 +248,7 @@ func (i ConfigurationSetMap) ToConfigurationSetMapOutputWithContext(ctx context.
 type ConfigurationSetOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSet)(nil))
+	return reflect.TypeOf((**ConfigurationSet)(nil)).Elem()
 }
 
 func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutput {
@@ -288,44 +259,10 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
-func (o ConfigurationSetOutput) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
-	return o.ToConfigurationSetPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationSetOutput) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSet) *ConfigurationSet {
-		return &v
-	}).(ConfigurationSetPtrOutput)
-}
-
-type ConfigurationSetPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationSet)(nil))
-}
-
-func (o ConfigurationSetPtrOutput) ToConfigurationSetPtrOutput() ConfigurationSetPtrOutput {
-	return o
-}
-
-func (o ConfigurationSetPtrOutput) ToConfigurationSetPtrOutputWithContext(ctx context.Context) ConfigurationSetPtrOutput {
-	return o
-}
-
-func (o ConfigurationSetPtrOutput) Elem() ConfigurationSetOutput {
-	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSet {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationSet
-		return ret
-	}).(ConfigurationSetOutput)
-}
-
 type ConfigurationSetArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationSet)(nil))
+	return reflect.TypeOf((*[]*ConfigurationSet)(nil)).Elem()
 }
 
 func (o ConfigurationSetArrayOutput) ToConfigurationSetArrayOutput() ConfigurationSetArrayOutput {
@@ -337,15 +274,15 @@ func (o ConfigurationSetArrayOutput) ToConfigurationSetArrayOutputWithContext(ct
 }
 
 func (o ConfigurationSetArrayOutput) Index(i pulumi.IntInput) ConfigurationSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationSet {
-		return vs[0].([]ConfigurationSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationSet {
+		return vs[0].([]*ConfigurationSet)[vs[1].(int)]
 	}).(ConfigurationSetOutput)
 }
 
 type ConfigurationSetMapOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConfigurationSet)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationSet)(nil)).Elem()
 }
 
 func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutput() ConfigurationSetMapOutput {
@@ -357,18 +294,16 @@ func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutputWithContext(ctx co
 }
 
 func (o ConfigurationSetMapOutput) MapIndex(k pulumi.StringInput) ConfigurationSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationSet {
-		return vs[0].(map[string]ConfigurationSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConfigurationSet {
+		return vs[0].(map[string]*ConfigurationSet)[vs[1].(string)]
 	}).(ConfigurationSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetInput)(nil)).Elem(), &ConfigurationSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetPtrInput)(nil)).Elem(), &ConfigurationSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetArrayInput)(nil)).Elem(), ConfigurationSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetMapInput)(nil)).Elem(), ConfigurationSetMap{})
 	pulumi.RegisterOutputType(ConfigurationSetOutput{})
-	pulumi.RegisterOutputType(ConfigurationSetPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetMapOutput{})
 }

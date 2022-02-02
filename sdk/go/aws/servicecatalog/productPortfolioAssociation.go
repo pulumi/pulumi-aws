@@ -153,7 +153,7 @@ type ProductPortfolioAssociationInput interface {
 }
 
 func (*ProductPortfolioAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductPortfolioAssociation)(nil))
+	return reflect.TypeOf((**ProductPortfolioAssociation)(nil)).Elem()
 }
 
 func (i *ProductPortfolioAssociation) ToProductPortfolioAssociationOutput() ProductPortfolioAssociationOutput {
@@ -162,35 +162,6 @@ func (i *ProductPortfolioAssociation) ToProductPortfolioAssociationOutput() Prod
 
 func (i *ProductPortfolioAssociation) ToProductPortfolioAssociationOutputWithContext(ctx context.Context) ProductPortfolioAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPortfolioAssociationOutput)
-}
-
-func (i *ProductPortfolioAssociation) ToProductPortfolioAssociationPtrOutput() ProductPortfolioAssociationPtrOutput {
-	return i.ToProductPortfolioAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ProductPortfolioAssociation) ToProductPortfolioAssociationPtrOutputWithContext(ctx context.Context) ProductPortfolioAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductPortfolioAssociationPtrOutput)
-}
-
-type ProductPortfolioAssociationPtrInput interface {
-	pulumi.Input
-
-	ToProductPortfolioAssociationPtrOutput() ProductPortfolioAssociationPtrOutput
-	ToProductPortfolioAssociationPtrOutputWithContext(ctx context.Context) ProductPortfolioAssociationPtrOutput
-}
-
-type productPortfolioAssociationPtrType ProductPortfolioAssociationArgs
-
-func (*productPortfolioAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductPortfolioAssociation)(nil))
-}
-
-func (i *productPortfolioAssociationPtrType) ToProductPortfolioAssociationPtrOutput() ProductPortfolioAssociationPtrOutput {
-	return i.ToProductPortfolioAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *productPortfolioAssociationPtrType) ToProductPortfolioAssociationPtrOutputWithContext(ctx context.Context) ProductPortfolioAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductPortfolioAssociationPtrOutput)
 }
 
 // ProductPortfolioAssociationArrayInput is an input type that accepts ProductPortfolioAssociationArray and ProductPortfolioAssociationArrayOutput values.
@@ -246,7 +217,7 @@ func (i ProductPortfolioAssociationMap) ToProductPortfolioAssociationMapOutputWi
 type ProductPortfolioAssociationOutput struct{ *pulumi.OutputState }
 
 func (ProductPortfolioAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductPortfolioAssociation)(nil))
+	return reflect.TypeOf((**ProductPortfolioAssociation)(nil)).Elem()
 }
 
 func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationOutput() ProductPortfolioAssociationOutput {
@@ -257,44 +228,10 @@ func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationOutputWi
 	return o
 }
 
-func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationPtrOutput() ProductPortfolioAssociationPtrOutput {
-	return o.ToProductPortfolioAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationPtrOutputWithContext(ctx context.Context) ProductPortfolioAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductPortfolioAssociation) *ProductPortfolioAssociation {
-		return &v
-	}).(ProductPortfolioAssociationPtrOutput)
-}
-
-type ProductPortfolioAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ProductPortfolioAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductPortfolioAssociation)(nil))
-}
-
-func (o ProductPortfolioAssociationPtrOutput) ToProductPortfolioAssociationPtrOutput() ProductPortfolioAssociationPtrOutput {
-	return o
-}
-
-func (o ProductPortfolioAssociationPtrOutput) ToProductPortfolioAssociationPtrOutputWithContext(ctx context.Context) ProductPortfolioAssociationPtrOutput {
-	return o
-}
-
-func (o ProductPortfolioAssociationPtrOutput) Elem() ProductPortfolioAssociationOutput {
-	return o.ApplyT(func(v *ProductPortfolioAssociation) ProductPortfolioAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ProductPortfolioAssociation
-		return ret
-	}).(ProductPortfolioAssociationOutput)
-}
-
 type ProductPortfolioAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ProductPortfolioAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProductPortfolioAssociation)(nil))
+	return reflect.TypeOf((*[]*ProductPortfolioAssociation)(nil)).Elem()
 }
 
 func (o ProductPortfolioAssociationArrayOutput) ToProductPortfolioAssociationArrayOutput() ProductPortfolioAssociationArrayOutput {
@@ -306,15 +243,15 @@ func (o ProductPortfolioAssociationArrayOutput) ToProductPortfolioAssociationArr
 }
 
 func (o ProductPortfolioAssociationArrayOutput) Index(i pulumi.IntInput) ProductPortfolioAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductPortfolioAssociation {
-		return vs[0].([]ProductPortfolioAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProductPortfolioAssociation {
+		return vs[0].([]*ProductPortfolioAssociation)[vs[1].(int)]
 	}).(ProductPortfolioAssociationOutput)
 }
 
 type ProductPortfolioAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ProductPortfolioAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProductPortfolioAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ProductPortfolioAssociation)(nil)).Elem()
 }
 
 func (o ProductPortfolioAssociationMapOutput) ToProductPortfolioAssociationMapOutput() ProductPortfolioAssociationMapOutput {
@@ -326,18 +263,16 @@ func (o ProductPortfolioAssociationMapOutput) ToProductPortfolioAssociationMapOu
 }
 
 func (o ProductPortfolioAssociationMapOutput) MapIndex(k pulumi.StringInput) ProductPortfolioAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProductPortfolioAssociation {
-		return vs[0].(map[string]ProductPortfolioAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProductPortfolioAssociation {
+		return vs[0].(map[string]*ProductPortfolioAssociation)[vs[1].(string)]
 	}).(ProductPortfolioAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductPortfolioAssociationInput)(nil)).Elem(), &ProductPortfolioAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProductPortfolioAssociationPtrInput)(nil)).Elem(), &ProductPortfolioAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductPortfolioAssociationArrayInput)(nil)).Elem(), ProductPortfolioAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductPortfolioAssociationMapInput)(nil)).Elem(), ProductPortfolioAssociationMap{})
 	pulumi.RegisterOutputType(ProductPortfolioAssociationOutput{})
-	pulumi.RegisterOutputType(ProductPortfolioAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ProductPortfolioAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ProductPortfolioAssociationMapOutput{})
 }

@@ -108,21 +108,21 @@ export class ProxyEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProxyEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProxyEndpointArgs | ProxyEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyEndpointState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dbProxyEndpointName"] = state ? state.dbProxyEndpointName : undefined;
-            inputs["dbProxyName"] = state ? state.dbProxyName : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["isDefault"] = state ? state.isDefault : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetRole"] = state ? state.targetRole : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
-            inputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dbProxyEndpointName"] = state ? state.dbProxyEndpointName : undefined;
+            resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetRole"] = state ? state.targetRole : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
         } else {
             const args = argsOrState as ProxyEndpointArgs | undefined;
             if ((!args || args.dbProxyEndpointName === undefined) && !opts.urn) {
@@ -134,22 +134,20 @@ export class ProxyEndpoint extends pulumi.CustomResource {
             if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            inputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
-            inputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetRole"] = args ? args.targetRole : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
+            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRole"] = args ? args.targetRole : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProxyEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProxyEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

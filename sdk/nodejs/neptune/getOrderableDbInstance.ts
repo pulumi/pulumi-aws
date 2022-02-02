@@ -29,9 +29,7 @@ export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?:
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", {
         "engine": args.engine,
         "engineVersion": args.engineVersion,

@@ -159,27 +159,27 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            inputs["appSources"] = state ? state.appSources : undefined;
-            inputs["autoBundleOnDeploy"] = state ? state.autoBundleOnDeploy : undefined;
-            inputs["awsFlowRubySettings"] = state ? state.awsFlowRubySettings : undefined;
-            inputs["dataSourceArn"] = state ? state.dataSourceArn : undefined;
-            inputs["dataSourceDatabaseName"] = state ? state.dataSourceDatabaseName : undefined;
-            inputs["dataSourceType"] = state ? state.dataSourceType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["documentRoot"] = state ? state.documentRoot : undefined;
-            inputs["domains"] = state ? state.domains : undefined;
-            inputs["enableSsl"] = state ? state.enableSsl : undefined;
-            inputs["environments"] = state ? state.environments : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["railsEnv"] = state ? state.railsEnv : undefined;
-            inputs["shortName"] = state ? state.shortName : undefined;
-            inputs["sslConfigurations"] = state ? state.sslConfigurations : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["appSources"] = state ? state.appSources : undefined;
+            resourceInputs["autoBundleOnDeploy"] = state ? state.autoBundleOnDeploy : undefined;
+            resourceInputs["awsFlowRubySettings"] = state ? state.awsFlowRubySettings : undefined;
+            resourceInputs["dataSourceArn"] = state ? state.dataSourceArn : undefined;
+            resourceInputs["dataSourceDatabaseName"] = state ? state.dataSourceDatabaseName : undefined;
+            resourceInputs["dataSourceType"] = state ? state.dataSourceType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["documentRoot"] = state ? state.documentRoot : undefined;
+            resourceInputs["domains"] = state ? state.domains : undefined;
+            resourceInputs["enableSsl"] = state ? state.enableSsl : undefined;
+            resourceInputs["environments"] = state ? state.environments : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["railsEnv"] = state ? state.railsEnv : undefined;
+            resourceInputs["shortName"] = state ? state.shortName : undefined;
+            resourceInputs["sslConfigurations"] = state ? state.sslConfigurations : undefined;
+            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             if ((!args || args.stackId === undefined) && !opts.urn) {
@@ -188,28 +188,26 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["appSources"] = args ? args.appSources : undefined;
-            inputs["autoBundleOnDeploy"] = args ? args.autoBundleOnDeploy : undefined;
-            inputs["awsFlowRubySettings"] = args ? args.awsFlowRubySettings : undefined;
-            inputs["dataSourceArn"] = args ? args.dataSourceArn : undefined;
-            inputs["dataSourceDatabaseName"] = args ? args.dataSourceDatabaseName : undefined;
-            inputs["dataSourceType"] = args ? args.dataSourceType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["documentRoot"] = args ? args.documentRoot : undefined;
-            inputs["domains"] = args ? args.domains : undefined;
-            inputs["enableSsl"] = args ? args.enableSsl : undefined;
-            inputs["environments"] = args ? args.environments : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["railsEnv"] = args ? args.railsEnv : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["sslConfigurations"] = args ? args.sslConfigurations : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["appSources"] = args ? args.appSources : undefined;
+            resourceInputs["autoBundleOnDeploy"] = args ? args.autoBundleOnDeploy : undefined;
+            resourceInputs["awsFlowRubySettings"] = args ? args.awsFlowRubySettings : undefined;
+            resourceInputs["dataSourceArn"] = args ? args.dataSourceArn : undefined;
+            resourceInputs["dataSourceDatabaseName"] = args ? args.dataSourceDatabaseName : undefined;
+            resourceInputs["dataSourceType"] = args ? args.dataSourceType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["documentRoot"] = args ? args.documentRoot : undefined;
+            resourceInputs["domains"] = args ? args.domains : undefined;
+            resourceInputs["enableSsl"] = args ? args.enableSsl : undefined;
+            resourceInputs["environments"] = args ? args.environments : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["railsEnv"] = args ? args.railsEnv : undefined;
+            resourceInputs["shortName"] = args ? args.shortName : undefined;
+            resourceInputs["sslConfigurations"] = args ? args.sslConfigurations : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

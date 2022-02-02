@@ -120,12 +120,12 @@ export class WebAclAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAclAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclAssociationArgs | WebAclAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclAssociationState | undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
-            inputs["webAclArn"] = state ? state.webAclArn : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["webAclArn"] = state ? state.webAclArn : undefined;
         } else {
             const args = argsOrState as WebAclAssociationArgs | undefined;
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
@@ -134,13 +134,11 @@ export class WebAclAssociation extends pulumi.CustomResource {
             if ((!args || args.webAclArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webAclArn'");
             }
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["webAclArn"] = args ? args.webAclArn : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["webAclArn"] = args ? args.webAclArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WebAclAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WebAclAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

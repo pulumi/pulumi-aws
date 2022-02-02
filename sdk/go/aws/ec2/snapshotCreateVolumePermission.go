@@ -138,7 +138,7 @@ type SnapshotCreateVolumePermissionInput interface {
 }
 
 func (*SnapshotCreateVolumePermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCreateVolumePermission)(nil))
+	return reflect.TypeOf((**SnapshotCreateVolumePermission)(nil)).Elem()
 }
 
 func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput {
@@ -147,35 +147,6 @@ func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutput(
 
 func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionOutput)
-}
-
-func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionPtrOutput() SnapshotCreateVolumePermissionPtrOutput {
-	return i.ToSnapshotCreateVolumePermissionPtrOutputWithContext(context.Background())
-}
-
-func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionPtrOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionPtrOutput)
-}
-
-type SnapshotCreateVolumePermissionPtrInput interface {
-	pulumi.Input
-
-	ToSnapshotCreateVolumePermissionPtrOutput() SnapshotCreateVolumePermissionPtrOutput
-	ToSnapshotCreateVolumePermissionPtrOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionPtrOutput
-}
-
-type snapshotCreateVolumePermissionPtrType SnapshotCreateVolumePermissionArgs
-
-func (*snapshotCreateVolumePermissionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotCreateVolumePermission)(nil))
-}
-
-func (i *snapshotCreateVolumePermissionPtrType) ToSnapshotCreateVolumePermissionPtrOutput() SnapshotCreateVolumePermissionPtrOutput {
-	return i.ToSnapshotCreateVolumePermissionPtrOutputWithContext(context.Background())
-}
-
-func (i *snapshotCreateVolumePermissionPtrType) ToSnapshotCreateVolumePermissionPtrOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionPtrOutput)
 }
 
 // SnapshotCreateVolumePermissionArrayInput is an input type that accepts SnapshotCreateVolumePermissionArray and SnapshotCreateVolumePermissionArrayOutput values.
@@ -231,7 +202,7 @@ func (i SnapshotCreateVolumePermissionMap) ToSnapshotCreateVolumePermissionMapOu
 type SnapshotCreateVolumePermissionOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCreateVolumePermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotCreateVolumePermission)(nil))
+	return reflect.TypeOf((**SnapshotCreateVolumePermission)(nil)).Elem()
 }
 
 func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput {
@@ -242,44 +213,10 @@ func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOu
 	return o
 }
 
-func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionPtrOutput() SnapshotCreateVolumePermissionPtrOutput {
-	return o.ToSnapshotCreateVolumePermissionPtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionPtrOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotCreateVolumePermission) *SnapshotCreateVolumePermission {
-		return &v
-	}).(SnapshotCreateVolumePermissionPtrOutput)
-}
-
-type SnapshotCreateVolumePermissionPtrOutput struct{ *pulumi.OutputState }
-
-func (SnapshotCreateVolumePermissionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotCreateVolumePermission)(nil))
-}
-
-func (o SnapshotCreateVolumePermissionPtrOutput) ToSnapshotCreateVolumePermissionPtrOutput() SnapshotCreateVolumePermissionPtrOutput {
-	return o
-}
-
-func (o SnapshotCreateVolumePermissionPtrOutput) ToSnapshotCreateVolumePermissionPtrOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionPtrOutput {
-	return o
-}
-
-func (o SnapshotCreateVolumePermissionPtrOutput) Elem() SnapshotCreateVolumePermissionOutput {
-	return o.ApplyT(func(v *SnapshotCreateVolumePermission) SnapshotCreateVolumePermission {
-		if v != nil {
-			return *v
-		}
-		var ret SnapshotCreateVolumePermission
-		return ret
-	}).(SnapshotCreateVolumePermissionOutput)
-}
-
 type SnapshotCreateVolumePermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCreateVolumePermissionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SnapshotCreateVolumePermission)(nil))
+	return reflect.TypeOf((*[]*SnapshotCreateVolumePermission)(nil)).Elem()
 }
 
 func (o SnapshotCreateVolumePermissionArrayOutput) ToSnapshotCreateVolumePermissionArrayOutput() SnapshotCreateVolumePermissionArrayOutput {
@@ -291,15 +228,15 @@ func (o SnapshotCreateVolumePermissionArrayOutput) ToSnapshotCreateVolumePermiss
 }
 
 func (o SnapshotCreateVolumePermissionArrayOutput) Index(i pulumi.IntInput) SnapshotCreateVolumePermissionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotCreateVolumePermission {
-		return vs[0].([]SnapshotCreateVolumePermission)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotCreateVolumePermission {
+		return vs[0].([]*SnapshotCreateVolumePermission)[vs[1].(int)]
 	}).(SnapshotCreateVolumePermissionOutput)
 }
 
 type SnapshotCreateVolumePermissionMapOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCreateVolumePermissionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SnapshotCreateVolumePermission)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotCreateVolumePermission)(nil)).Elem()
 }
 
 func (o SnapshotCreateVolumePermissionMapOutput) ToSnapshotCreateVolumePermissionMapOutput() SnapshotCreateVolumePermissionMapOutput {
@@ -311,18 +248,16 @@ func (o SnapshotCreateVolumePermissionMapOutput) ToSnapshotCreateVolumePermissio
 }
 
 func (o SnapshotCreateVolumePermissionMapOutput) MapIndex(k pulumi.StringInput) SnapshotCreateVolumePermissionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnapshotCreateVolumePermission {
-		return vs[0].(map[string]SnapshotCreateVolumePermission)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SnapshotCreateVolumePermission {
+		return vs[0].(map[string]*SnapshotCreateVolumePermission)[vs[1].(string)]
 	}).(SnapshotCreateVolumePermissionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionInput)(nil)).Elem(), &SnapshotCreateVolumePermission{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionPtrInput)(nil)).Elem(), &SnapshotCreateVolumePermission{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionArrayInput)(nil)).Elem(), SnapshotCreateVolumePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionMapInput)(nil)).Elem(), SnapshotCreateVolumePermissionMap{})
 	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionOutput{})
-	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionArrayOutput{})
 	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionMapOutput{})
 }

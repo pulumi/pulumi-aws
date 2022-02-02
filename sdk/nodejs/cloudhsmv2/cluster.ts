@@ -108,20 +108,20 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["clusterCertificates"] = state ? state.clusterCertificates : undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["clusterState"] = state ? state.clusterState : undefined;
-            inputs["hsmType"] = state ? state.hsmType : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            inputs["sourceBackupIdentifier"] = state ? state.sourceBackupIdentifier : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["clusterCertificates"] = state ? state.clusterCertificates : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["clusterState"] = state ? state.clusterState : undefined;
+            resourceInputs["hsmType"] = state ? state.hsmType : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["sourceBackupIdentifier"] = state ? state.sourceBackupIdentifier : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.hsmType === undefined) && !opts.urn) {
@@ -130,21 +130,19 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["hsmType"] = args ? args.hsmType : undefined;
-            inputs["sourceBackupIdentifier"] = args ? args.sourceBackupIdentifier : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["clusterCertificates"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["securityGroupId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["hsmType"] = args ? args.hsmType : undefined;
+            resourceInputs["sourceBackupIdentifier"] = args ? args.sourceBackupIdentifier : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterCertificates"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterState"] = undefined /*out*/;
+            resourceInputs["securityGroupId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

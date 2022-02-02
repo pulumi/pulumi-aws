@@ -144,21 +144,21 @@ export class RemediationConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: RemediationConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RemediationConfigurationArgs | RemediationConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RemediationConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["automatic"] = state ? state.automatic : undefined;
-            inputs["configRuleName"] = state ? state.configRuleName : undefined;
-            inputs["executionControls"] = state ? state.executionControls : undefined;
-            inputs["maximumAutomaticAttempts"] = state ? state.maximumAutomaticAttempts : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceType"] = state ? state.resourceType : undefined;
-            inputs["retryAttemptSeconds"] = state ? state.retryAttemptSeconds : undefined;
-            inputs["targetId"] = state ? state.targetId : undefined;
-            inputs["targetType"] = state ? state.targetType : undefined;
-            inputs["targetVersion"] = state ? state.targetVersion : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["automatic"] = state ? state.automatic : undefined;
+            resourceInputs["configRuleName"] = state ? state.configRuleName : undefined;
+            resourceInputs["executionControls"] = state ? state.executionControls : undefined;
+            resourceInputs["maximumAutomaticAttempts"] = state ? state.maximumAutomaticAttempts : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["retryAttemptSeconds"] = state ? state.retryAttemptSeconds : undefined;
+            resourceInputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["targetVersion"] = state ? state.targetVersion : undefined;
         } else {
             const args = argsOrState as RemediationConfigurationArgs | undefined;
             if ((!args || args.configRuleName === undefined) && !opts.urn) {
@@ -170,22 +170,20 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            inputs["automatic"] = args ? args.automatic : undefined;
-            inputs["configRuleName"] = args ? args.configRuleName : undefined;
-            inputs["executionControls"] = args ? args.executionControls : undefined;
-            inputs["maximumAutomaticAttempts"] = args ? args.maximumAutomaticAttempts : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["retryAttemptSeconds"] = args ? args.retryAttemptSeconds : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["targetVersion"] = args ? args.targetVersion : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["automatic"] = args ? args.automatic : undefined;
+            resourceInputs["configRuleName"] = args ? args.configRuleName : undefined;
+            resourceInputs["executionControls"] = args ? args.executionControls : undefined;
+            resourceInputs["maximumAutomaticAttempts"] = args ? args.maximumAutomaticAttempts : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["retryAttemptSeconds"] = args ? args.retryAttemptSeconds : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["targetVersion"] = args ? args.targetVersion : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RemediationConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RemediationConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

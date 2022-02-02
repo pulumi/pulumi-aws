@@ -154,7 +154,7 @@ type ImageVersionInput interface {
 }
 
 func (*ImageVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageVersion)(nil))
+	return reflect.TypeOf((**ImageVersion)(nil)).Elem()
 }
 
 func (i *ImageVersion) ToImageVersionOutput() ImageVersionOutput {
@@ -163,35 +163,6 @@ func (i *ImageVersion) ToImageVersionOutput() ImageVersionOutput {
 
 func (i *ImageVersion) ToImageVersionOutputWithContext(ctx context.Context) ImageVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionOutput)
-}
-
-func (i *ImageVersion) ToImageVersionPtrOutput() ImageVersionPtrOutput {
-	return i.ToImageVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *ImageVersion) ToImageVersionPtrOutputWithContext(ctx context.Context) ImageVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionPtrOutput)
-}
-
-type ImageVersionPtrInput interface {
-	pulumi.Input
-
-	ToImageVersionPtrOutput() ImageVersionPtrOutput
-	ToImageVersionPtrOutputWithContext(ctx context.Context) ImageVersionPtrOutput
-}
-
-type imageVersionPtrType ImageVersionArgs
-
-func (*imageVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageVersion)(nil))
-}
-
-func (i *imageVersionPtrType) ToImageVersionPtrOutput() ImageVersionPtrOutput {
-	return i.ToImageVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *imageVersionPtrType) ToImageVersionPtrOutputWithContext(ctx context.Context) ImageVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionPtrOutput)
 }
 
 // ImageVersionArrayInput is an input type that accepts ImageVersionArray and ImageVersionArrayOutput values.
@@ -247,7 +218,7 @@ func (i ImageVersionMap) ToImageVersionMapOutputWithContext(ctx context.Context)
 type ImageVersionOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageVersion)(nil))
+	return reflect.TypeOf((**ImageVersion)(nil)).Elem()
 }
 
 func (o ImageVersionOutput) ToImageVersionOutput() ImageVersionOutput {
@@ -258,44 +229,10 @@ func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ImageVersionOutput) ToImageVersionPtrOutput() ImageVersionPtrOutput {
-	return o.ToImageVersionPtrOutputWithContext(context.Background())
-}
-
-func (o ImageVersionOutput) ToImageVersionPtrOutputWithContext(ctx context.Context) ImageVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageVersion) *ImageVersion {
-		return &v
-	}).(ImageVersionPtrOutput)
-}
-
-type ImageVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (ImageVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageVersion)(nil))
-}
-
-func (o ImageVersionPtrOutput) ToImageVersionPtrOutput() ImageVersionPtrOutput {
-	return o
-}
-
-func (o ImageVersionPtrOutput) ToImageVersionPtrOutputWithContext(ctx context.Context) ImageVersionPtrOutput {
-	return o
-}
-
-func (o ImageVersionPtrOutput) Elem() ImageVersionOutput {
-	return o.ApplyT(func(v *ImageVersion) ImageVersion {
-		if v != nil {
-			return *v
-		}
-		var ret ImageVersion
-		return ret
-	}).(ImageVersionOutput)
-}
-
 type ImageVersionArrayOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageVersion)(nil))
+	return reflect.TypeOf((*[]*ImageVersion)(nil)).Elem()
 }
 
 func (o ImageVersionArrayOutput) ToImageVersionArrayOutput() ImageVersionArrayOutput {
@@ -307,15 +244,15 @@ func (o ImageVersionArrayOutput) ToImageVersionArrayOutputWithContext(ctx contex
 }
 
 func (o ImageVersionArrayOutput) Index(i pulumi.IntInput) ImageVersionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageVersion {
-		return vs[0].([]ImageVersion)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageVersion {
+		return vs[0].([]*ImageVersion)[vs[1].(int)]
 	}).(ImageVersionOutput)
 }
 
 type ImageVersionMapOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ImageVersion)(nil))
+	return reflect.TypeOf((*map[string]*ImageVersion)(nil)).Elem()
 }
 
 func (o ImageVersionMapOutput) ToImageVersionMapOutput() ImageVersionMapOutput {
@@ -327,18 +264,16 @@ func (o ImageVersionMapOutput) ToImageVersionMapOutputWithContext(ctx context.Co
 }
 
 func (o ImageVersionMapOutput) MapIndex(k pulumi.StringInput) ImageVersionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ImageVersion {
-		return vs[0].(map[string]ImageVersion)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ImageVersion {
+		return vs[0].(map[string]*ImageVersion)[vs[1].(string)]
 	}).(ImageVersionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionInput)(nil)).Elem(), &ImageVersion{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionPtrInput)(nil)).Elem(), &ImageVersion{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionArrayInput)(nil)).Elem(), ImageVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionMapInput)(nil)).Elem(), ImageVersionMap{})
 	pulumi.RegisterOutputType(ImageVersionOutput{})
-	pulumi.RegisterOutputType(ImageVersionPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionArrayOutput{})
 	pulumi.RegisterOutputType(ImageVersionMapOutput{})
 }

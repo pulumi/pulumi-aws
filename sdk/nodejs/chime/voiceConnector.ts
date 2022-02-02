@@ -81,28 +81,26 @@ export class VoiceConnector extends pulumi.CustomResource {
      */
     constructor(name: string, args: VoiceConnectorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VoiceConnectorArgs | VoiceConnectorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorState | undefined;
-            inputs["awsRegion"] = state ? state.awsRegion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outboundHostName"] = state ? state.outboundHostName : undefined;
-            inputs["requireEncryption"] = state ? state.requireEncryption : undefined;
+            resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outboundHostName"] = state ? state.outboundHostName : undefined;
+            resourceInputs["requireEncryption"] = state ? state.requireEncryption : undefined;
         } else {
             const args = argsOrState as VoiceConnectorArgs | undefined;
             if ((!args || args.requireEncryption === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'requireEncryption'");
             }
-            inputs["awsRegion"] = args ? args.awsRegion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["requireEncryption"] = args ? args.requireEncryption : undefined;
-            inputs["outboundHostName"] = undefined /*out*/;
+            resourceInputs["awsRegion"] = args ? args.awsRegion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["requireEncryption"] = args ? args.requireEncryption : undefined;
+            resourceInputs["outboundHostName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VoiceConnector.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VoiceConnector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

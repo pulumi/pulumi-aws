@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Eks
         /// Retrieve EKS Clusters list
         /// </summary>
         public static Task<GetClustersResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

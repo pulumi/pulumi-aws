@@ -358,7 +358,7 @@ type MaintenanceWindowTaskInput interface {
 }
 
 func (*MaintenanceWindowTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceWindowTask)(nil))
+	return reflect.TypeOf((**MaintenanceWindowTask)(nil)).Elem()
 }
 
 func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskOutput() MaintenanceWindowTaskOutput {
@@ -367,35 +367,6 @@ func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskOutput() MaintenanceWindo
 
 func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskOutputWithContext(ctx context.Context) MaintenanceWindowTaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskOutput)
-}
-
-func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskPtrOutput() MaintenanceWindowTaskPtrOutput {
-	return i.ToMaintenanceWindowTaskPtrOutputWithContext(context.Background())
-}
-
-func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskPtrOutput)
-}
-
-type MaintenanceWindowTaskPtrInput interface {
-	pulumi.Input
-
-	ToMaintenanceWindowTaskPtrOutput() MaintenanceWindowTaskPtrOutput
-	ToMaintenanceWindowTaskPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskPtrOutput
-}
-
-type maintenanceWindowTaskPtrType MaintenanceWindowTaskArgs
-
-func (*maintenanceWindowTaskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaintenanceWindowTask)(nil))
-}
-
-func (i *maintenanceWindowTaskPtrType) ToMaintenanceWindowTaskPtrOutput() MaintenanceWindowTaskPtrOutput {
-	return i.ToMaintenanceWindowTaskPtrOutputWithContext(context.Background())
-}
-
-func (i *maintenanceWindowTaskPtrType) ToMaintenanceWindowTaskPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskPtrOutput)
 }
 
 // MaintenanceWindowTaskArrayInput is an input type that accepts MaintenanceWindowTaskArray and MaintenanceWindowTaskArrayOutput values.
@@ -451,7 +422,7 @@ func (i MaintenanceWindowTaskMap) ToMaintenanceWindowTaskMapOutputWithContext(ct
 type MaintenanceWindowTaskOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceWindowTask)(nil))
+	return reflect.TypeOf((**MaintenanceWindowTask)(nil)).Elem()
 }
 
 func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutput() MaintenanceWindowTaskOutput {
@@ -462,44 +433,10 @@ func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutputWithContext(ct
 	return o
 }
 
-func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskPtrOutput() MaintenanceWindowTaskPtrOutput {
-	return o.ToMaintenanceWindowTaskPtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTask) *MaintenanceWindowTask {
-		return &v
-	}).(MaintenanceWindowTaskPtrOutput)
-}
-
-type MaintenanceWindowTaskPtrOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceWindowTaskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaintenanceWindowTask)(nil))
-}
-
-func (o MaintenanceWindowTaskPtrOutput) ToMaintenanceWindowTaskPtrOutput() MaintenanceWindowTaskPtrOutput {
-	return o
-}
-
-func (o MaintenanceWindowTaskPtrOutput) ToMaintenanceWindowTaskPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskPtrOutput {
-	return o
-}
-
-func (o MaintenanceWindowTaskPtrOutput) Elem() MaintenanceWindowTaskOutput {
-	return o.ApplyT(func(v *MaintenanceWindowTask) MaintenanceWindowTask {
-		if v != nil {
-			return *v
-		}
-		var ret MaintenanceWindowTask
-		return ret
-	}).(MaintenanceWindowTaskOutput)
-}
-
 type MaintenanceWindowTaskArrayOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MaintenanceWindowTask)(nil))
+	return reflect.TypeOf((*[]*MaintenanceWindowTask)(nil)).Elem()
 }
 
 func (o MaintenanceWindowTaskArrayOutput) ToMaintenanceWindowTaskArrayOutput() MaintenanceWindowTaskArrayOutput {
@@ -511,15 +448,15 @@ func (o MaintenanceWindowTaskArrayOutput) ToMaintenanceWindowTaskArrayOutputWith
 }
 
 func (o MaintenanceWindowTaskArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTask {
-		return vs[0].([]MaintenanceWindowTask)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaintenanceWindowTask {
+		return vs[0].([]*MaintenanceWindowTask)[vs[1].(int)]
 	}).(MaintenanceWindowTaskOutput)
 }
 
 type MaintenanceWindowTaskMapOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MaintenanceWindowTask)(nil))
+	return reflect.TypeOf((*map[string]*MaintenanceWindowTask)(nil)).Elem()
 }
 
 func (o MaintenanceWindowTaskMapOutput) ToMaintenanceWindowTaskMapOutput() MaintenanceWindowTaskMapOutput {
@@ -531,18 +468,16 @@ func (o MaintenanceWindowTaskMapOutput) ToMaintenanceWindowTaskMapOutputWithCont
 }
 
 func (o MaintenanceWindowTaskMapOutput) MapIndex(k pulumi.StringInput) MaintenanceWindowTaskOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MaintenanceWindowTask {
-		return vs[0].(map[string]MaintenanceWindowTask)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MaintenanceWindowTask {
+		return vs[0].(map[string]*MaintenanceWindowTask)[vs[1].(string)]
 	}).(MaintenanceWindowTaskOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskInput)(nil)).Elem(), &MaintenanceWindowTask{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskPtrInput)(nil)).Elem(), &MaintenanceWindowTask{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskArrayInput)(nil)).Elem(), MaintenanceWindowTaskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskMapInput)(nil)).Elem(), MaintenanceWindowTaskMap{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskOutput{})
-	pulumi.RegisterOutputType(MaintenanceWindowTaskPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskArrayOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskMapOutput{})
 }

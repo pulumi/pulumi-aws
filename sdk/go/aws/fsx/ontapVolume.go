@@ -274,7 +274,7 @@ type OntapVolumeInput interface {
 }
 
 func (*OntapVolume) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapVolume)(nil))
+	return reflect.TypeOf((**OntapVolume)(nil)).Elem()
 }
 
 func (i *OntapVolume) ToOntapVolumeOutput() OntapVolumeOutput {
@@ -283,35 +283,6 @@ func (i *OntapVolume) ToOntapVolumeOutput() OntapVolumeOutput {
 
 func (i *OntapVolume) ToOntapVolumeOutputWithContext(ctx context.Context) OntapVolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeOutput)
-}
-
-func (i *OntapVolume) ToOntapVolumePtrOutput() OntapVolumePtrOutput {
-	return i.ToOntapVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *OntapVolume) ToOntapVolumePtrOutputWithContext(ctx context.Context) OntapVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumePtrOutput)
-}
-
-type OntapVolumePtrInput interface {
-	pulumi.Input
-
-	ToOntapVolumePtrOutput() OntapVolumePtrOutput
-	ToOntapVolumePtrOutputWithContext(ctx context.Context) OntapVolumePtrOutput
-}
-
-type ontapVolumePtrType OntapVolumeArgs
-
-func (*ontapVolumePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OntapVolume)(nil))
-}
-
-func (i *ontapVolumePtrType) ToOntapVolumePtrOutput() OntapVolumePtrOutput {
-	return i.ToOntapVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *ontapVolumePtrType) ToOntapVolumePtrOutputWithContext(ctx context.Context) OntapVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumePtrOutput)
 }
 
 // OntapVolumeArrayInput is an input type that accepts OntapVolumeArray and OntapVolumeArrayOutput values.
@@ -367,7 +338,7 @@ func (i OntapVolumeMap) ToOntapVolumeMapOutputWithContext(ctx context.Context) O
 type OntapVolumeOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapVolume)(nil))
+	return reflect.TypeOf((**OntapVolume)(nil)).Elem()
 }
 
 func (o OntapVolumeOutput) ToOntapVolumeOutput() OntapVolumeOutput {
@@ -378,44 +349,10 @@ func (o OntapVolumeOutput) ToOntapVolumeOutputWithContext(ctx context.Context) O
 	return o
 }
 
-func (o OntapVolumeOutput) ToOntapVolumePtrOutput() OntapVolumePtrOutput {
-	return o.ToOntapVolumePtrOutputWithContext(context.Background())
-}
-
-func (o OntapVolumeOutput) ToOntapVolumePtrOutputWithContext(ctx context.Context) OntapVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolume) *OntapVolume {
-		return &v
-	}).(OntapVolumePtrOutput)
-}
-
-type OntapVolumePtrOutput struct{ *pulumi.OutputState }
-
-func (OntapVolumePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OntapVolume)(nil))
-}
-
-func (o OntapVolumePtrOutput) ToOntapVolumePtrOutput() OntapVolumePtrOutput {
-	return o
-}
-
-func (o OntapVolumePtrOutput) ToOntapVolumePtrOutputWithContext(ctx context.Context) OntapVolumePtrOutput {
-	return o
-}
-
-func (o OntapVolumePtrOutput) Elem() OntapVolumeOutput {
-	return o.ApplyT(func(v *OntapVolume) OntapVolume {
-		if v != nil {
-			return *v
-		}
-		var ret OntapVolume
-		return ret
-	}).(OntapVolumeOutput)
-}
-
 type OntapVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OntapVolume)(nil))
+	return reflect.TypeOf((*[]*OntapVolume)(nil)).Elem()
 }
 
 func (o OntapVolumeArrayOutput) ToOntapVolumeArrayOutput() OntapVolumeArrayOutput {
@@ -427,15 +364,15 @@ func (o OntapVolumeArrayOutput) ToOntapVolumeArrayOutputWithContext(ctx context.
 }
 
 func (o OntapVolumeArrayOutput) Index(i pulumi.IntInput) OntapVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapVolume {
-		return vs[0].([]OntapVolume)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OntapVolume {
+		return vs[0].([]*OntapVolume)[vs[1].(int)]
 	}).(OntapVolumeOutput)
 }
 
 type OntapVolumeMapOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OntapVolume)(nil))
+	return reflect.TypeOf((*map[string]*OntapVolume)(nil)).Elem()
 }
 
 func (o OntapVolumeMapOutput) ToOntapVolumeMapOutput() OntapVolumeMapOutput {
@@ -447,18 +384,16 @@ func (o OntapVolumeMapOutput) ToOntapVolumeMapOutputWithContext(ctx context.Cont
 }
 
 func (o OntapVolumeMapOutput) MapIndex(k pulumi.StringInput) OntapVolumeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OntapVolume {
-		return vs[0].(map[string]OntapVolume)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OntapVolume {
+		return vs[0].(map[string]*OntapVolume)[vs[1].(string)]
 	}).(OntapVolumeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeInput)(nil)).Elem(), &OntapVolume{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumePtrInput)(nil)).Elem(), &OntapVolume{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeArrayInput)(nil)).Elem(), OntapVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeMapInput)(nil)).Elem(), OntapVolumeMap{})
 	pulumi.RegisterOutputType(OntapVolumeOutput{})
-	pulumi.RegisterOutputType(OntapVolumePtrOutput{})
 	pulumi.RegisterOutputType(OntapVolumeArrayOutput{})
 	pulumi.RegisterOutputType(OntapVolumeMapOutput{})
 }

@@ -160,7 +160,7 @@ type VpcEndpointConnectionAccepterInput interface {
 }
 
 func (*VpcEndpointConnectionAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointConnectionAccepter)(nil))
+	return reflect.TypeOf((**VpcEndpointConnectionAccepter)(nil)).Elem()
 }
 
 func (i *VpcEndpointConnectionAccepter) ToVpcEndpointConnectionAccepterOutput() VpcEndpointConnectionAccepterOutput {
@@ -169,35 +169,6 @@ func (i *VpcEndpointConnectionAccepter) ToVpcEndpointConnectionAccepterOutput() 
 
 func (i *VpcEndpointConnectionAccepter) ToVpcEndpointConnectionAccepterOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionAccepterOutput)
-}
-
-func (i *VpcEndpointConnectionAccepter) ToVpcEndpointConnectionAccepterPtrOutput() VpcEndpointConnectionAccepterPtrOutput {
-	return i.ToVpcEndpointConnectionAccepterPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcEndpointConnectionAccepter) ToVpcEndpointConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionAccepterPtrOutput)
-}
-
-type VpcEndpointConnectionAccepterPtrInput interface {
-	pulumi.Input
-
-	ToVpcEndpointConnectionAccepterPtrOutput() VpcEndpointConnectionAccepterPtrOutput
-	ToVpcEndpointConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterPtrOutput
-}
-
-type vpcEndpointConnectionAccepterPtrType VpcEndpointConnectionAccepterArgs
-
-func (*vpcEndpointConnectionAccepterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcEndpointConnectionAccepter)(nil))
-}
-
-func (i *vpcEndpointConnectionAccepterPtrType) ToVpcEndpointConnectionAccepterPtrOutput() VpcEndpointConnectionAccepterPtrOutput {
-	return i.ToVpcEndpointConnectionAccepterPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcEndpointConnectionAccepterPtrType) ToVpcEndpointConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionAccepterPtrOutput)
 }
 
 // VpcEndpointConnectionAccepterArrayInput is an input type that accepts VpcEndpointConnectionAccepterArray and VpcEndpointConnectionAccepterArrayOutput values.
@@ -253,7 +224,7 @@ func (i VpcEndpointConnectionAccepterMap) ToVpcEndpointConnectionAccepterMapOutp
 type VpcEndpointConnectionAccepterOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointConnectionAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointConnectionAccepter)(nil))
+	return reflect.TypeOf((**VpcEndpointConnectionAccepter)(nil)).Elem()
 }
 
 func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterOutput() VpcEndpointConnectionAccepterOutput {
@@ -264,44 +235,10 @@ func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterOutp
 	return o
 }
 
-func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterPtrOutput() VpcEndpointConnectionAccepterPtrOutput {
-	return o.ToVpcEndpointConnectionAccepterPtrOutputWithContext(context.Background())
-}
-
-func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointConnectionAccepter) *VpcEndpointConnectionAccepter {
-		return &v
-	}).(VpcEndpointConnectionAccepterPtrOutput)
-}
-
-type VpcEndpointConnectionAccepterPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcEndpointConnectionAccepterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcEndpointConnectionAccepter)(nil))
-}
-
-func (o VpcEndpointConnectionAccepterPtrOutput) ToVpcEndpointConnectionAccepterPtrOutput() VpcEndpointConnectionAccepterPtrOutput {
-	return o
-}
-
-func (o VpcEndpointConnectionAccepterPtrOutput) ToVpcEndpointConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterPtrOutput {
-	return o
-}
-
-func (o VpcEndpointConnectionAccepterPtrOutput) Elem() VpcEndpointConnectionAccepterOutput {
-	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) VpcEndpointConnectionAccepter {
-		if v != nil {
-			return *v
-		}
-		var ret VpcEndpointConnectionAccepter
-		return ret
-	}).(VpcEndpointConnectionAccepterOutput)
-}
-
 type VpcEndpointConnectionAccepterArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointConnectionAccepterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcEndpointConnectionAccepter)(nil))
+	return reflect.TypeOf((*[]*VpcEndpointConnectionAccepter)(nil)).Elem()
 }
 
 func (o VpcEndpointConnectionAccepterArrayOutput) ToVpcEndpointConnectionAccepterArrayOutput() VpcEndpointConnectionAccepterArrayOutput {
@@ -313,15 +250,15 @@ func (o VpcEndpointConnectionAccepterArrayOutput) ToVpcEndpointConnectionAccepte
 }
 
 func (o VpcEndpointConnectionAccepterArrayOutput) Index(i pulumi.IntInput) VpcEndpointConnectionAccepterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointConnectionAccepter {
-		return vs[0].([]VpcEndpointConnectionAccepter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointConnectionAccepter {
+		return vs[0].([]*VpcEndpointConnectionAccepter)[vs[1].(int)]
 	}).(VpcEndpointConnectionAccepterOutput)
 }
 
 type VpcEndpointConnectionAccepterMapOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointConnectionAccepterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcEndpointConnectionAccepter)(nil))
+	return reflect.TypeOf((*map[string]*VpcEndpointConnectionAccepter)(nil)).Elem()
 }
 
 func (o VpcEndpointConnectionAccepterMapOutput) ToVpcEndpointConnectionAccepterMapOutput() VpcEndpointConnectionAccepterMapOutput {
@@ -333,18 +270,16 @@ func (o VpcEndpointConnectionAccepterMapOutput) ToVpcEndpointConnectionAccepterM
 }
 
 func (o VpcEndpointConnectionAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointConnectionAccepterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcEndpointConnectionAccepter {
-		return vs[0].(map[string]VpcEndpointConnectionAccepter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcEndpointConnectionAccepter {
+		return vs[0].(map[string]*VpcEndpointConnectionAccepter)[vs[1].(string)]
 	}).(VpcEndpointConnectionAccepterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionAccepterInput)(nil)).Elem(), &VpcEndpointConnectionAccepter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionAccepterPtrInput)(nil)).Elem(), &VpcEndpointConnectionAccepter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionAccepterArrayInput)(nil)).Elem(), VpcEndpointConnectionAccepterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionAccepterMapInput)(nil)).Elem(), VpcEndpointConnectionAccepterMap{})
 	pulumi.RegisterOutputType(VpcEndpointConnectionAccepterOutput{})
-	pulumi.RegisterOutputType(VpcEndpointConnectionAccepterPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointConnectionAccepterArrayOutput{})
 	pulumi.RegisterOutputType(VpcEndpointConnectionAccepterMapOutput{})
 }

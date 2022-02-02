@@ -113,15 +113,15 @@ export class CodeRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: CodeRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CodeRepositoryArgs | CodeRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CodeRepositoryState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["codeRepositoryName"] = state ? state.codeRepositoryName : undefined;
-            inputs["gitConfig"] = state ? state.gitConfig : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["codeRepositoryName"] = state ? state.codeRepositoryName : undefined;
+            resourceInputs["gitConfig"] = state ? state.gitConfig : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CodeRepositoryArgs | undefined;
             if ((!args || args.codeRepositoryName === undefined) && !opts.urn) {
@@ -130,16 +130,14 @@ export class CodeRepository extends pulumi.CustomResource {
             if ((!args || args.gitConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gitConfig'");
             }
-            inputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
-            inputs["gitConfig"] = args ? args.gitConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
+            resourceInputs["gitConfig"] = args ? args.gitConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CodeRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CodeRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

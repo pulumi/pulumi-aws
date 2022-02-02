@@ -341,7 +341,7 @@ type ApiInput interface {
 }
 
 func (*Api) ElementType() reflect.Type {
-	return reflect.TypeOf((*Api)(nil))
+	return reflect.TypeOf((**Api)(nil)).Elem()
 }
 
 func (i *Api) ToApiOutput() ApiOutput {
@@ -350,35 +350,6 @@ func (i *Api) ToApiOutput() ApiOutput {
 
 func (i *Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOutput)
-}
-
-func (i *Api) ToApiPtrOutput() ApiPtrOutput {
-	return i.ToApiPtrOutputWithContext(context.Background())
-}
-
-func (i *Api) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPtrOutput)
-}
-
-type ApiPtrInput interface {
-	pulumi.Input
-
-	ToApiPtrOutput() ApiPtrOutput
-	ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput
-}
-
-type apiPtrType ApiArgs
-
-func (*apiPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Api)(nil))
-}
-
-func (i *apiPtrType) ToApiPtrOutput() ApiPtrOutput {
-	return i.ToApiPtrOutputWithContext(context.Background())
-}
-
-func (i *apiPtrType) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPtrOutput)
 }
 
 // ApiArrayInput is an input type that accepts ApiArray and ApiArrayOutput values.
@@ -434,7 +405,7 @@ func (i ApiMap) ToApiMapOutputWithContext(ctx context.Context) ApiMapOutput {
 type ApiOutput struct{ *pulumi.OutputState }
 
 func (ApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Api)(nil))
+	return reflect.TypeOf((**Api)(nil)).Elem()
 }
 
 func (o ApiOutput) ToApiOutput() ApiOutput {
@@ -445,44 +416,10 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return o
 }
 
-func (o ApiOutput) ToApiPtrOutput() ApiPtrOutput {
-	return o.ToApiPtrOutputWithContext(context.Background())
-}
-
-func (o ApiOutput) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Api) *Api {
-		return &v
-	}).(ApiPtrOutput)
-}
-
-type ApiPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Api)(nil))
-}
-
-func (o ApiPtrOutput) ToApiPtrOutput() ApiPtrOutput {
-	return o
-}
-
-func (o ApiPtrOutput) ToApiPtrOutputWithContext(ctx context.Context) ApiPtrOutput {
-	return o
-}
-
-func (o ApiPtrOutput) Elem() ApiOutput {
-	return o.ApplyT(func(v *Api) Api {
-		if v != nil {
-			return *v
-		}
-		var ret Api
-		return ret
-	}).(ApiOutput)
-}
-
 type ApiArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Api)(nil))
+	return reflect.TypeOf((*[]*Api)(nil)).Elem()
 }
 
 func (o ApiArrayOutput) ToApiArrayOutput() ApiArrayOutput {
@@ -494,15 +431,15 @@ func (o ApiArrayOutput) ToApiArrayOutputWithContext(ctx context.Context) ApiArra
 }
 
 func (o ApiArrayOutput) Index(i pulumi.IntInput) ApiOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Api {
-		return vs[0].([]Api)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Api {
+		return vs[0].([]*Api)[vs[1].(int)]
 	}).(ApiOutput)
 }
 
 type ApiMapOutput struct{ *pulumi.OutputState }
 
 func (ApiMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Api)(nil))
+	return reflect.TypeOf((*map[string]*Api)(nil)).Elem()
 }
 
 func (o ApiMapOutput) ToApiMapOutput() ApiMapOutput {
@@ -514,18 +451,16 @@ func (o ApiMapOutput) ToApiMapOutputWithContext(ctx context.Context) ApiMapOutpu
 }
 
 func (o ApiMapOutput) MapIndex(k pulumi.StringInput) ApiOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Api {
-		return vs[0].(map[string]Api)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Api {
+		return vs[0].(map[string]*Api)[vs[1].(string)]
 	}).(ApiOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiInput)(nil)).Elem(), &Api{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiPtrInput)(nil)).Elem(), &Api{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiArrayInput)(nil)).Elem(), ApiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiMapInput)(nil)).Elem(), ApiMap{})
 	pulumi.RegisterOutputType(ApiOutput{})
-	pulumi.RegisterOutputType(ApiPtrOutput{})
 	pulumi.RegisterOutputType(ApiArrayOutput{})
 	pulumi.RegisterOutputType(ApiMapOutput{})
 }

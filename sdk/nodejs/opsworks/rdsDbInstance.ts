@@ -75,14 +75,14 @@ export class RdsDbInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: RdsDbInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RdsDbInstanceArgs | RdsDbInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RdsDbInstanceState | undefined;
-            inputs["dbPassword"] = state ? state.dbPassword : undefined;
-            inputs["dbUser"] = state ? state.dbUser : undefined;
-            inputs["rdsDbInstanceArn"] = state ? state.rdsDbInstanceArn : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["dbPassword"] = state ? state.dbPassword : undefined;
+            resourceInputs["dbUser"] = state ? state.dbUser : undefined;
+            resourceInputs["rdsDbInstanceArn"] = state ? state.rdsDbInstanceArn : undefined;
+            resourceInputs["stackId"] = state ? state.stackId : undefined;
         } else {
             const args = argsOrState as RdsDbInstanceArgs | undefined;
             if ((!args || args.dbPassword === undefined) && !opts.urn) {
@@ -97,15 +97,13 @@ export class RdsDbInstance extends pulumi.CustomResource {
             if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            inputs["dbPassword"] = args ? args.dbPassword : undefined;
-            inputs["dbUser"] = args ? args.dbUser : undefined;
-            inputs["rdsDbInstanceArn"] = args ? args.rdsDbInstanceArn : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["dbPassword"] = args ? args.dbPassword : undefined;
+            resourceInputs["dbUser"] = args ? args.dbUser : undefined;
+            resourceInputs["rdsDbInstanceArn"] = args ? args.rdsDbInstanceArn : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RdsDbInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RdsDbInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

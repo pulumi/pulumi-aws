@@ -310,7 +310,7 @@ type StoredIscsiVolumeInput interface {
 }
 
 func (*StoredIscsiVolume) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoredIscsiVolume)(nil))
+	return reflect.TypeOf((**StoredIscsiVolume)(nil)).Elem()
 }
 
 func (i *StoredIscsiVolume) ToStoredIscsiVolumeOutput() StoredIscsiVolumeOutput {
@@ -319,35 +319,6 @@ func (i *StoredIscsiVolume) ToStoredIscsiVolumeOutput() StoredIscsiVolumeOutput 
 
 func (i *StoredIscsiVolume) ToStoredIscsiVolumeOutputWithContext(ctx context.Context) StoredIscsiVolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StoredIscsiVolumeOutput)
-}
-
-func (i *StoredIscsiVolume) ToStoredIscsiVolumePtrOutput() StoredIscsiVolumePtrOutput {
-	return i.ToStoredIscsiVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *StoredIscsiVolume) ToStoredIscsiVolumePtrOutputWithContext(ctx context.Context) StoredIscsiVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StoredIscsiVolumePtrOutput)
-}
-
-type StoredIscsiVolumePtrInput interface {
-	pulumi.Input
-
-	ToStoredIscsiVolumePtrOutput() StoredIscsiVolumePtrOutput
-	ToStoredIscsiVolumePtrOutputWithContext(ctx context.Context) StoredIscsiVolumePtrOutput
-}
-
-type storedIscsiVolumePtrType StoredIscsiVolumeArgs
-
-func (*storedIscsiVolumePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StoredIscsiVolume)(nil))
-}
-
-func (i *storedIscsiVolumePtrType) ToStoredIscsiVolumePtrOutput() StoredIscsiVolumePtrOutput {
-	return i.ToStoredIscsiVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *storedIscsiVolumePtrType) ToStoredIscsiVolumePtrOutputWithContext(ctx context.Context) StoredIscsiVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StoredIscsiVolumePtrOutput)
 }
 
 // StoredIscsiVolumeArrayInput is an input type that accepts StoredIscsiVolumeArray and StoredIscsiVolumeArrayOutput values.
@@ -403,7 +374,7 @@ func (i StoredIscsiVolumeMap) ToStoredIscsiVolumeMapOutputWithContext(ctx contex
 type StoredIscsiVolumeOutput struct{ *pulumi.OutputState }
 
 func (StoredIscsiVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoredIscsiVolume)(nil))
+	return reflect.TypeOf((**StoredIscsiVolume)(nil)).Elem()
 }
 
 func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutput() StoredIscsiVolumeOutput {
@@ -414,44 +385,10 @@ func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutputWithContext(ctx contex
 	return o
 }
 
-func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumePtrOutput() StoredIscsiVolumePtrOutput {
-	return o.ToStoredIscsiVolumePtrOutputWithContext(context.Background())
-}
-
-func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumePtrOutputWithContext(ctx context.Context) StoredIscsiVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StoredIscsiVolume) *StoredIscsiVolume {
-		return &v
-	}).(StoredIscsiVolumePtrOutput)
-}
-
-type StoredIscsiVolumePtrOutput struct{ *pulumi.OutputState }
-
-func (StoredIscsiVolumePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StoredIscsiVolume)(nil))
-}
-
-func (o StoredIscsiVolumePtrOutput) ToStoredIscsiVolumePtrOutput() StoredIscsiVolumePtrOutput {
-	return o
-}
-
-func (o StoredIscsiVolumePtrOutput) ToStoredIscsiVolumePtrOutputWithContext(ctx context.Context) StoredIscsiVolumePtrOutput {
-	return o
-}
-
-func (o StoredIscsiVolumePtrOutput) Elem() StoredIscsiVolumeOutput {
-	return o.ApplyT(func(v *StoredIscsiVolume) StoredIscsiVolume {
-		if v != nil {
-			return *v
-		}
-		var ret StoredIscsiVolume
-		return ret
-	}).(StoredIscsiVolumeOutput)
-}
-
 type StoredIscsiVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (StoredIscsiVolumeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StoredIscsiVolume)(nil))
+	return reflect.TypeOf((*[]*StoredIscsiVolume)(nil)).Elem()
 }
 
 func (o StoredIscsiVolumeArrayOutput) ToStoredIscsiVolumeArrayOutput() StoredIscsiVolumeArrayOutput {
@@ -463,15 +400,15 @@ func (o StoredIscsiVolumeArrayOutput) ToStoredIscsiVolumeArrayOutputWithContext(
 }
 
 func (o StoredIscsiVolumeArrayOutput) Index(i pulumi.IntInput) StoredIscsiVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StoredIscsiVolume {
-		return vs[0].([]StoredIscsiVolume)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StoredIscsiVolume {
+		return vs[0].([]*StoredIscsiVolume)[vs[1].(int)]
 	}).(StoredIscsiVolumeOutput)
 }
 
 type StoredIscsiVolumeMapOutput struct{ *pulumi.OutputState }
 
 func (StoredIscsiVolumeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StoredIscsiVolume)(nil))
+	return reflect.TypeOf((*map[string]*StoredIscsiVolume)(nil)).Elem()
 }
 
 func (o StoredIscsiVolumeMapOutput) ToStoredIscsiVolumeMapOutput() StoredIscsiVolumeMapOutput {
@@ -483,18 +420,16 @@ func (o StoredIscsiVolumeMapOutput) ToStoredIscsiVolumeMapOutputWithContext(ctx 
 }
 
 func (o StoredIscsiVolumeMapOutput) MapIndex(k pulumi.StringInput) StoredIscsiVolumeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StoredIscsiVolume {
-		return vs[0].(map[string]StoredIscsiVolume)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StoredIscsiVolume {
+		return vs[0].(map[string]*StoredIscsiVolume)[vs[1].(string)]
 	}).(StoredIscsiVolumeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumeInput)(nil)).Elem(), &StoredIscsiVolume{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumePtrInput)(nil)).Elem(), &StoredIscsiVolume{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumeArrayInput)(nil)).Elem(), StoredIscsiVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumeMapInput)(nil)).Elem(), StoredIscsiVolumeMap{})
 	pulumi.RegisterOutputType(StoredIscsiVolumeOutput{})
-	pulumi.RegisterOutputType(StoredIscsiVolumePtrOutput{})
 	pulumi.RegisterOutputType(StoredIscsiVolumeArrayOutput{})
 	pulumi.RegisterOutputType(StoredIscsiVolumeMapOutput{})
 }

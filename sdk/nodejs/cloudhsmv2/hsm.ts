@@ -98,34 +98,32 @@ export class Hsm extends pulumi.CustomResource {
      */
     constructor(name: string, args: HsmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HsmArgs | HsmState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HsmState | undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["hsmEniId"] = state ? state.hsmEniId : undefined;
-            inputs["hsmId"] = state ? state.hsmId : undefined;
-            inputs["hsmState"] = state ? state.hsmState : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["hsmEniId"] = state ? state.hsmEniId : undefined;
+            resourceInputs["hsmId"] = state ? state.hsmId : undefined;
+            resourceInputs["hsmState"] = state ? state.hsmState : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as HsmArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["hsmEniId"] = undefined /*out*/;
-            inputs["hsmId"] = undefined /*out*/;
-            inputs["hsmState"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["hsmEniId"] = undefined /*out*/;
+            resourceInputs["hsmId"] = undefined /*out*/;
+            resourceInputs["hsmState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Hsm.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Hsm.__pulumiType, name, resourceInputs, opts);
     }
 }
 

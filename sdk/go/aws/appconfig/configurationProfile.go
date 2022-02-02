@@ -210,7 +210,7 @@ type ConfigurationProfileInput interface {
 }
 
 func (*ConfigurationProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfile)(nil))
+	return reflect.TypeOf((**ConfigurationProfile)(nil)).Elem()
 }
 
 func (i *ConfigurationProfile) ToConfigurationProfileOutput() ConfigurationProfileOutput {
@@ -219,35 +219,6 @@ func (i *ConfigurationProfile) ToConfigurationProfileOutput() ConfigurationProfi
 
 func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileOutput)
-}
-
-func (i *ConfigurationProfile) ToConfigurationProfilePtrOutput() ConfigurationProfilePtrOutput {
-	return i.ToConfigurationProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *ConfigurationProfile) ToConfigurationProfilePtrOutputWithContext(ctx context.Context) ConfigurationProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePtrOutput)
-}
-
-type ConfigurationProfilePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePtrOutput() ConfigurationProfilePtrOutput
-	ToConfigurationProfilePtrOutputWithContext(ctx context.Context) ConfigurationProfilePtrOutput
-}
-
-type configurationProfilePtrType ConfigurationProfileArgs
-
-func (*configurationProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfile)(nil))
-}
-
-func (i *configurationProfilePtrType) ToConfigurationProfilePtrOutput() ConfigurationProfilePtrOutput {
-	return i.ToConfigurationProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfilePtrType) ToConfigurationProfilePtrOutputWithContext(ctx context.Context) ConfigurationProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePtrOutput)
 }
 
 // ConfigurationProfileArrayInput is an input type that accepts ConfigurationProfileArray and ConfigurationProfileArrayOutput values.
@@ -303,7 +274,7 @@ func (i ConfigurationProfileMap) ToConfigurationProfileMapOutputWithContext(ctx 
 type ConfigurationProfileOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfile)(nil))
+	return reflect.TypeOf((**ConfigurationProfile)(nil)).Elem()
 }
 
 func (o ConfigurationProfileOutput) ToConfigurationProfileOutput() ConfigurationProfileOutput {
@@ -314,44 +285,10 @@ func (o ConfigurationProfileOutput) ToConfigurationProfileOutputWithContext(ctx 
 	return o
 }
 
-func (o ConfigurationProfileOutput) ToConfigurationProfilePtrOutput() ConfigurationProfilePtrOutput {
-	return o.ToConfigurationProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfileOutput) ToConfigurationProfilePtrOutputWithContext(ctx context.Context) ConfigurationProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfile) *ConfigurationProfile {
-		return &v
-	}).(ConfigurationProfilePtrOutput)
-}
-
-type ConfigurationProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfile)(nil))
-}
-
-func (o ConfigurationProfilePtrOutput) ToConfigurationProfilePtrOutput() ConfigurationProfilePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfilePtrOutput) ToConfigurationProfilePtrOutputWithContext(ctx context.Context) ConfigurationProfilePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfilePtrOutput) Elem() ConfigurationProfileOutput {
-	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfile
-		return ret
-	}).(ConfigurationProfileOutput)
-}
-
 type ConfigurationProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationProfile)(nil))
+	return reflect.TypeOf((*[]*ConfigurationProfile)(nil)).Elem()
 }
 
 func (o ConfigurationProfileArrayOutput) ToConfigurationProfileArrayOutput() ConfigurationProfileArrayOutput {
@@ -363,15 +300,15 @@ func (o ConfigurationProfileArrayOutput) ToConfigurationProfileArrayOutputWithCo
 }
 
 func (o ConfigurationProfileArrayOutput) Index(i pulumi.IntInput) ConfigurationProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationProfile {
-		return vs[0].([]ConfigurationProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationProfile {
+		return vs[0].([]*ConfigurationProfile)[vs[1].(int)]
 	}).(ConfigurationProfileOutput)
 }
 
 type ConfigurationProfileMapOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConfigurationProfile)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationProfile)(nil)).Elem()
 }
 
 func (o ConfigurationProfileMapOutput) ToConfigurationProfileMapOutput() ConfigurationProfileMapOutput {
@@ -383,18 +320,16 @@ func (o ConfigurationProfileMapOutput) ToConfigurationProfileMapOutputWithContex
 }
 
 func (o ConfigurationProfileMapOutput) MapIndex(k pulumi.StringInput) ConfigurationProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationProfile {
-		return vs[0].(map[string]ConfigurationProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConfigurationProfile {
+		return vs[0].(map[string]*ConfigurationProfile)[vs[1].(string)]
 	}).(ConfigurationProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileInput)(nil)).Elem(), &ConfigurationProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfilePtrInput)(nil)).Elem(), &ConfigurationProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileArrayInput)(nil)).Elem(), ConfigurationProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileMapInput)(nil)).Elem(), ConfigurationProfileMap{})
 	pulumi.RegisterOutputType(ConfigurationProfileOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileMapOutput{})
 }

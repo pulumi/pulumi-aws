@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFront
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResponseHeadersPolicyResult> InvokeAsync(GetResponseHeadersPolicyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront cache policy.
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResponseHeadersPolicyResult> Invoke(GetResponseHeadersPolicyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

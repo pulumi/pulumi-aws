@@ -23,9 +23,7 @@ export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", {
         "name": args.name,
     }, opts);

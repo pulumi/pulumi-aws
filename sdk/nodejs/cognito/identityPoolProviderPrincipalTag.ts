@@ -65,14 +65,14 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityPoolProviderPrincipalTagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityPoolProviderPrincipalTagArgs | IdentityPoolProviderPrincipalTagState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolProviderPrincipalTagState | undefined;
-            inputs["identityPoolId"] = state ? state.identityPoolId : undefined;
-            inputs["identityProviderName"] = state ? state.identityProviderName : undefined;
-            inputs["principalTags"] = state ? state.principalTags : undefined;
-            inputs["useDefaults"] = state ? state.useDefaults : undefined;
+            resourceInputs["identityPoolId"] = state ? state.identityPoolId : undefined;
+            resourceInputs["identityProviderName"] = state ? state.identityProviderName : undefined;
+            resourceInputs["principalTags"] = state ? state.principalTags : undefined;
+            resourceInputs["useDefaults"] = state ? state.useDefaults : undefined;
         } else {
             const args = argsOrState as IdentityPoolProviderPrincipalTagArgs | undefined;
             if ((!args || args.identityPoolId === undefined) && !opts.urn) {
@@ -81,15 +81,13 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
             if ((!args || args.identityProviderName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderName'");
             }
-            inputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            inputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            inputs["principalTags"] = args ? args.principalTags : undefined;
-            inputs["useDefaults"] = args ? args.useDefaults : undefined;
+            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
+            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
+            resourceInputs["principalTags"] = args ? args.principalTags : undefined;
+            resourceInputs["useDefaults"] = args ? args.useDefaults : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IdentityPoolProviderPrincipalTag.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IdentityPoolProviderPrincipalTag.__pulumiType, name, resourceInputs, opts);
     }
 }
 

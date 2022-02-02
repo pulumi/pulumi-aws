@@ -88,24 +88,22 @@ export class RegionSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegionSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegionSettingsArgs | RegionSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegionSettingsState | undefined;
-            inputs["resourceTypeManagementPreference"] = state ? state.resourceTypeManagementPreference : undefined;
-            inputs["resourceTypeOptInPreference"] = state ? state.resourceTypeOptInPreference : undefined;
+            resourceInputs["resourceTypeManagementPreference"] = state ? state.resourceTypeManagementPreference : undefined;
+            resourceInputs["resourceTypeOptInPreference"] = state ? state.resourceTypeOptInPreference : undefined;
         } else {
             const args = argsOrState as RegionSettingsArgs | undefined;
             if ((!args || args.resourceTypeOptInPreference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypeOptInPreference'");
             }
-            inputs["resourceTypeManagementPreference"] = args ? args.resourceTypeManagementPreference : undefined;
-            inputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;
+            resourceInputs["resourceTypeManagementPreference"] = args ? args.resourceTypeManagementPreference : undefined;
+            resourceInputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegionSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegionSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

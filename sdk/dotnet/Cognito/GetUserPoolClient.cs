@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Cognito
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.Cognito
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserPoolClientResult> InvokeAsync(GetUserPoolClientArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a Cognito User Pool Client resource.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.Cognito
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserPoolClientResult> Invoke(GetUserPoolClientInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientInvokeArgs(), options.WithDefaults());
     }
 
 

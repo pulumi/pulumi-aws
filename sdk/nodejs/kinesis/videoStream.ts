@@ -114,37 +114,35 @@ export class VideoStream extends pulumi.CustomResource {
      */
     constructor(name: string, args?: VideoStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VideoStreamArgs | VideoStreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VideoStreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["creationTime"] = state ? state.creationTime : undefined;
-            inputs["dataRetentionInHours"] = state ? state.dataRetentionInHours : undefined;
-            inputs["deviceName"] = state ? state.deviceName : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["mediaType"] = state ? state.mediaType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["dataRetentionInHours"] = state ? state.dataRetentionInHours : undefined;
+            resourceInputs["deviceName"] = state ? state.deviceName : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["mediaType"] = state ? state.mediaType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as VideoStreamArgs | undefined;
-            inputs["dataRetentionInHours"] = args ? args.dataRetentionInHours : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["mediaType"] = args ? args.mediaType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["dataRetentionInHours"] = args ? args.dataRetentionInHours : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["mediaType"] = args ? args.mediaType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VideoStream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VideoStream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -32,9 +32,7 @@ export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pul
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getServerCertificate:getServerCertificate", {
         "latest": args.latest,
         "name": args.name,

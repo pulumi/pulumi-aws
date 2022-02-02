@@ -170,20 +170,20 @@ export class Webhook extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authentication"] = state ? state.authentication : undefined;
-            inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetAction"] = state ? state.targetAction : undefined;
-            inputs["targetPipeline"] = state ? state.targetPipeline : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authentication"] = state ? state.authentication : undefined;
+            resourceInputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetAction"] = state ? state.targetAction : undefined;
+            resourceInputs["targetPipeline"] = state ? state.targetPipeline : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
             if ((!args || args.authentication === undefined) && !opts.urn) {
@@ -198,21 +198,19 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.targetPipeline === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetPipeline'");
             }
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetAction"] = args ? args.targetAction : undefined;
-            inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetAction"] = args ? args.targetAction : undefined;
+            resourceInputs["targetPipeline"] = args ? args.targetPipeline : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Webhook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

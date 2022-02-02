@@ -253,7 +253,7 @@ type ScheduledActionInput interface {
 }
 
 func (*ScheduledAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAction)(nil))
+	return reflect.TypeOf((**ScheduledAction)(nil)).Elem()
 }
 
 func (i *ScheduledAction) ToScheduledActionOutput() ScheduledActionOutput {
@@ -262,35 +262,6 @@ func (i *ScheduledAction) ToScheduledActionOutput() ScheduledActionOutput {
 
 func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
-}
-
-func (i *ScheduledAction) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
-	return i.ToScheduledActionPtrOutputWithContext(context.Background())
-}
-
-func (i *ScheduledAction) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionPtrOutput)
-}
-
-type ScheduledActionPtrInput interface {
-	pulumi.Input
-
-	ToScheduledActionPtrOutput() ScheduledActionPtrOutput
-	ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput
-}
-
-type scheduledActionPtrType ScheduledActionArgs
-
-func (*scheduledActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledAction)(nil))
-}
-
-func (i *scheduledActionPtrType) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
-	return i.ToScheduledActionPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledActionPtrType) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionPtrOutput)
 }
 
 // ScheduledActionArrayInput is an input type that accepts ScheduledActionArray and ScheduledActionArrayOutput values.
@@ -346,7 +317,7 @@ func (i ScheduledActionMap) ToScheduledActionMapOutputWithContext(ctx context.Co
 type ScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAction)(nil))
+	return reflect.TypeOf((**ScheduledAction)(nil)).Elem()
 }
 
 func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {
@@ -357,44 +328,10 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ScheduledActionOutput) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
-	return o.ToScheduledActionPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledActionOutput) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledAction) *ScheduledAction {
-		return &v
-	}).(ScheduledActionPtrOutput)
-}
-
-type ScheduledActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledAction)(nil))
-}
-
-func (o ScheduledActionPtrOutput) ToScheduledActionPtrOutput() ScheduledActionPtrOutput {
-	return o
-}
-
-func (o ScheduledActionPtrOutput) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
-	return o
-}
-
-func (o ScheduledActionPtrOutput) Elem() ScheduledActionOutput {
-	return o.ApplyT(func(v *ScheduledAction) ScheduledAction {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledAction
-		return ret
-	}).(ScheduledActionOutput)
-}
-
 type ScheduledActionArrayOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduledAction)(nil))
+	return reflect.TypeOf((*[]*ScheduledAction)(nil)).Elem()
 }
 
 func (o ScheduledActionArrayOutput) ToScheduledActionArrayOutput() ScheduledActionArrayOutput {
@@ -406,15 +343,15 @@ func (o ScheduledActionArrayOutput) ToScheduledActionArrayOutputWithContext(ctx 
 }
 
 func (o ScheduledActionArrayOutput) Index(i pulumi.IntInput) ScheduledActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledAction {
-		return vs[0].([]ScheduledAction)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduledAction {
+		return vs[0].([]*ScheduledAction)[vs[1].(int)]
 	}).(ScheduledActionOutput)
 }
 
 type ScheduledActionMapOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ScheduledAction)(nil))
+	return reflect.TypeOf((*map[string]*ScheduledAction)(nil)).Elem()
 }
 
 func (o ScheduledActionMapOutput) ToScheduledActionMapOutput() ScheduledActionMapOutput {
@@ -426,18 +363,16 @@ func (o ScheduledActionMapOutput) ToScheduledActionMapOutputWithContext(ctx cont
 }
 
 func (o ScheduledActionMapOutput) MapIndex(k pulumi.StringInput) ScheduledActionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScheduledAction {
-		return vs[0].(map[string]ScheduledAction)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ScheduledAction {
+		return vs[0].(map[string]*ScheduledAction)[vs[1].(string)]
 	}).(ScheduledActionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionInput)(nil)).Elem(), &ScheduledAction{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionPtrInput)(nil)).Elem(), &ScheduledAction{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionArrayInput)(nil)).Elem(), ScheduledActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionMapInput)(nil)).Elem(), ScheduledActionMap{})
 	pulumi.RegisterOutputType(ScheduledActionOutput{})
-	pulumi.RegisterOutputType(ScheduledActionPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledActionArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledActionMapOutput{})
 }

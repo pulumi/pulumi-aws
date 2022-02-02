@@ -39,9 +39,7 @@ export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulum
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
         "resolverEndpointId": args.resolverEndpointId,

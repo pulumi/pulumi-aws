@@ -149,23 +149,23 @@ export class Parameter extends pulumi.CustomResource {
      */
     constructor(name: string, args: ParameterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ParameterState | undefined;
-            inputs["allowedPattern"] = state ? state.allowedPattern : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dataType"] = state ? state.dataType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["overwrite"] = state ? state.overwrite : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["tier"] = state ? state.tier : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["value"] = state ? state.value : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["allowedPattern"] = state ? state.allowedPattern : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dataType"] = state ? state.dataType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["overwrite"] = state ? state.overwrite : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ParameterArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
@@ -174,24 +174,22 @@ export class Parameter extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["allowedPattern"] = args ? args.allowedPattern : undefined;
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["dataType"] = args ? args.dataType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overwrite"] = args ? args.overwrite : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["allowedPattern"] = args ? args.allowedPattern : undefined;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["dataType"] = args ? args.dataType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overwrite"] = args ? args.overwrite : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Parameter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Parameter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

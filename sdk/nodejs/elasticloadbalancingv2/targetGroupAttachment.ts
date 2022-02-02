@@ -112,14 +112,14 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     /** @deprecated aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment */
     constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TargetGroupAttachment is deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["targetGroupArn"] = state ? state.targetGroupArn : undefined;
-            inputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["targetGroupArn"] = state ? state.targetGroupArn : undefined;
+            resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as TargetGroupAttachmentArgs | undefined;
             if ((!args || args.targetGroupArn === undefined) && !opts.urn) {
@@ -128,15 +128,13 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TargetGroupAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TargetGroupAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

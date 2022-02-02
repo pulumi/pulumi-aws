@@ -28,9 +28,7 @@ export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulum
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:redshift/getOrderableCluster:getOrderableCluster", {
         "clusterType": args.clusterType,
         "clusterVersion": args.clusterVersion,

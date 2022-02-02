@@ -215,66 +215,64 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
-            inputs["accessLogs"] = state ? state.accessLogs : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["connectionDraining"] = state ? state.connectionDraining : undefined;
-            inputs["connectionDrainingTimeout"] = state ? state.connectionDrainingTimeout : undefined;
-            inputs["crossZoneLoadBalancing"] = state ? state.crossZoneLoadBalancing : undefined;
-            inputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["healthCheck"] = state ? state.healthCheck : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["instances"] = state ? state.instances : undefined;
-            inputs["internal"] = state ? state.internal : undefined;
-            inputs["listeners"] = state ? state.listeners : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["sourceSecurityGroup"] = state ? state.sourceSecurityGroup : undefined;
-            inputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
-            inputs["subnets"] = state ? state.subnets : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["accessLogs"] = state ? state.accessLogs : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["connectionDraining"] = state ? state.connectionDraining : undefined;
+            resourceInputs["connectionDrainingTimeout"] = state ? state.connectionDrainingTimeout : undefined;
+            resourceInputs["crossZoneLoadBalancing"] = state ? state.crossZoneLoadBalancing : undefined;
+            resourceInputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["healthCheck"] = state ? state.healthCheck : undefined;
+            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
+            resourceInputs["instances"] = state ? state.instances : undefined;
+            resourceInputs["internal"] = state ? state.internal : undefined;
+            resourceInputs["listeners"] = state ? state.listeners : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["sourceSecurityGroup"] = state ? state.sourceSecurityGroup : undefined;
+            resourceInputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
+            resourceInputs["subnets"] = state ? state.subnets : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
             if ((!args || args.listeners === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listeners'");
             }
-            inputs["accessLogs"] = args ? args.accessLogs : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["connectionDraining"] = args ? args.connectionDraining : undefined;
-            inputs["connectionDrainingTimeout"] = args ? args.connectionDrainingTimeout : undefined;
-            inputs["crossZoneLoadBalancing"] = args ? args.crossZoneLoadBalancing : undefined;
-            inputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
-            inputs["healthCheck"] = args ? args.healthCheck : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["instances"] = args ? args.instances : undefined;
-            inputs["internal"] = args ? args.internal : undefined;
-            inputs["listeners"] = args ? args.listeners : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["sourceSecurityGroup"] = args ? args.sourceSecurityGroup : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["sourceSecurityGroupId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["zoneId"] = undefined /*out*/;
+            resourceInputs["accessLogs"] = args ? args.accessLogs : undefined;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["connectionDraining"] = args ? args.connectionDraining : undefined;
+            resourceInputs["connectionDrainingTimeout"] = args ? args.connectionDrainingTimeout : undefined;
+            resourceInputs["crossZoneLoadBalancing"] = args ? args.crossZoneLoadBalancing : undefined;
+            resourceInputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
+            resourceInputs["healthCheck"] = args ? args.healthCheck : undefined;
+            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
+            resourceInputs["instances"] = args ? args.instances : undefined;
+            resourceInputs["internal"] = args ? args.internal : undefined;
+            resourceInputs["listeners"] = args ? args.listeners : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["sourceSecurityGroup"] = args ? args.sourceSecurityGroup : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["zoneId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancer:LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

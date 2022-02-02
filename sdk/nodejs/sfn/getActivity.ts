@@ -24,9 +24,7 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:sfn/getActivity:getActivity", {
         "arn": args.arn,
         "name": args.name,

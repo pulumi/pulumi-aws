@@ -35,7 +35,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := elb.NewLoadBalancer(ctx, "wu_tang", &elb.LoadBalancerArgs{
+// 		_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-east-1a"),
 // 			},
@@ -55,7 +55,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_ca_pubkey_policy", &elb.LoadBalancerPolicyArgs{
+// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ca-pubkey-policy", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			PolicyName:       pulumi.String("wu-tang-ca-pubkey-policy"),
 // 			PolicyTypeName:   pulumi.String("PublicKeyPolicyType"),
@@ -69,7 +69,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_root_ca_backend_auth_policy", &elb.LoadBalancerPolicyArgs{
+// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-root-ca-backend-auth-policy", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			PolicyName:       pulumi.String("wu-tang-root-ca-backend-auth-policy"),
 // 			PolicyTypeName:   pulumi.String("BackendServerAuthenticationPolicyType"),
@@ -83,7 +83,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_ssl", &elb.LoadBalancerPolicyArgs{
+// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			PolicyName:       pulumi.String("wu-tang-ssl"),
 // 			PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
@@ -101,7 +101,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_ssl_tls_1_1", &elb.LoadBalancerPolicyArgs{
+// 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			PolicyName:       pulumi.String("wu-tang-ssl"),
 // 			PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
@@ -115,7 +115,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewLoadBalancerBackendServerPolicy(ctx, "wu_tang_backend_auth_policies_443", &elb.LoadBalancerBackendServerPolicyArgs{
+// 		_, err = elb.NewLoadBalancerBackendServerPolicy(ctx, "wu-tang-backend-auth-policies-443", &elb.LoadBalancerBackendServerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			InstancePort:     pulumi.Int(443),
 // 			PolicyNames: pulumi.StringArray{
@@ -125,7 +125,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = elb.NewListenerPolicy(ctx, "wu_tang_listener_policies_443", &elb.ListenerPolicyArgs{
+// 		_, err = elb.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb.ListenerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
 // 			LoadBalancerPort: pulumi.Int(443),
 // 			PolicyNames: pulumi.StringArray{
@@ -256,7 +256,7 @@ type LoadBalancerPolicyInput interface {
 }
 
 func (*LoadBalancerPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerPolicy)(nil))
+	return reflect.TypeOf((**LoadBalancerPolicy)(nil)).Elem()
 }
 
 func (i *LoadBalancerPolicy) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput {
@@ -265,35 +265,6 @@ func (i *LoadBalancerPolicy) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutp
 
 func (i *LoadBalancerPolicy) ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyOutput)
-}
-
-func (i *LoadBalancerPolicy) ToLoadBalancerPolicyPtrOutput() LoadBalancerPolicyPtrOutput {
-	return i.ToLoadBalancerPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *LoadBalancerPolicy) ToLoadBalancerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyPtrOutput)
-}
-
-type LoadBalancerPolicyPtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerPolicyPtrOutput() LoadBalancerPolicyPtrOutput
-	ToLoadBalancerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerPolicyPtrOutput
-}
-
-type loadBalancerPolicyPtrType LoadBalancerPolicyArgs
-
-func (*loadBalancerPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerPolicy)(nil))
-}
-
-func (i *loadBalancerPolicyPtrType) ToLoadBalancerPolicyPtrOutput() LoadBalancerPolicyPtrOutput {
-	return i.ToLoadBalancerPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerPolicyPtrType) ToLoadBalancerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyPtrOutput)
 }
 
 // LoadBalancerPolicyArrayInput is an input type that accepts LoadBalancerPolicyArray and LoadBalancerPolicyArrayOutput values.
@@ -349,7 +320,7 @@ func (i LoadBalancerPolicyMap) ToLoadBalancerPolicyMapOutputWithContext(ctx cont
 type LoadBalancerPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerPolicy)(nil))
+	return reflect.TypeOf((**LoadBalancerPolicy)(nil)).Elem()
 }
 
 func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyOutput() LoadBalancerPolicyOutput {
@@ -360,44 +331,10 @@ func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyOutputWithContext(ctx cont
 	return o
 }
 
-func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyPtrOutput() LoadBalancerPolicyPtrOutput {
-	return o.ToLoadBalancerPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerPolicy) *LoadBalancerPolicy {
-		return &v
-	}).(LoadBalancerPolicyPtrOutput)
-}
-
-type LoadBalancerPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerPolicy)(nil))
-}
-
-func (o LoadBalancerPolicyPtrOutput) ToLoadBalancerPolicyPtrOutput() LoadBalancerPolicyPtrOutput {
-	return o
-}
-
-func (o LoadBalancerPolicyPtrOutput) ToLoadBalancerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerPolicyPtrOutput {
-	return o
-}
-
-func (o LoadBalancerPolicyPtrOutput) Elem() LoadBalancerPolicyOutput {
-	return o.ApplyT(func(v *LoadBalancerPolicy) LoadBalancerPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerPolicy
-		return ret
-	}).(LoadBalancerPolicyOutput)
-}
-
 type LoadBalancerPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerPolicy)(nil))
+	return reflect.TypeOf((*[]*LoadBalancerPolicy)(nil)).Elem()
 }
 
 func (o LoadBalancerPolicyArrayOutput) ToLoadBalancerPolicyArrayOutput() LoadBalancerPolicyArrayOutput {
@@ -409,15 +346,15 @@ func (o LoadBalancerPolicyArrayOutput) ToLoadBalancerPolicyArrayOutputWithContex
 }
 
 func (o LoadBalancerPolicyArrayOutput) Index(i pulumi.IntInput) LoadBalancerPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerPolicy {
-		return vs[0].([]LoadBalancerPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerPolicy {
+		return vs[0].([]*LoadBalancerPolicy)[vs[1].(int)]
 	}).(LoadBalancerPolicyOutput)
 }
 
 type LoadBalancerPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LoadBalancerPolicy)(nil))
+	return reflect.TypeOf((*map[string]*LoadBalancerPolicy)(nil)).Elem()
 }
 
 func (o LoadBalancerPolicyMapOutput) ToLoadBalancerPolicyMapOutput() LoadBalancerPolicyMapOutput {
@@ -429,18 +366,16 @@ func (o LoadBalancerPolicyMapOutput) ToLoadBalancerPolicyMapOutputWithContext(ct
 }
 
 func (o LoadBalancerPolicyMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LoadBalancerPolicy {
-		return vs[0].(map[string]LoadBalancerPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LoadBalancerPolicy {
+		return vs[0].(map[string]*LoadBalancerPolicy)[vs[1].(string)]
 	}).(LoadBalancerPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyInput)(nil)).Elem(), &LoadBalancerPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyPtrInput)(nil)).Elem(), &LoadBalancerPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyArrayInput)(nil)).Elem(), LoadBalancerPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyMapInput)(nil)).Elem(), LoadBalancerPolicyMap{})
 	pulumi.RegisterOutputType(LoadBalancerPolicyOutput{})
-	pulumi.RegisterOutputType(LoadBalancerPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPolicyArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPolicyMapOutput{})
 }

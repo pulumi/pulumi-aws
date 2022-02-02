@@ -92,14 +92,14 @@ export class RoleAlias extends pulumi.CustomResource {
      */
     constructor(name: string, args: RoleAliasArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RoleAliasArgs | RoleAliasState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleAliasState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["credentialDuration"] = state ? state.credentialDuration : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["credentialDuration"] = state ? state.credentialDuration : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as RoleAliasArgs | undefined;
             if ((!args || args.alias === undefined) && !opts.urn) {
@@ -108,15 +108,13 @@ export class RoleAlias extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["credentialDuration"] = args ? args.credentialDuration : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["credentialDuration"] = args ? args.credentialDuration : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RoleAlias.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RoleAlias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

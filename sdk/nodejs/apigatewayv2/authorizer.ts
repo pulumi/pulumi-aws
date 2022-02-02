@@ -138,20 +138,20 @@ export class Authorizer extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["authorizerCredentialsArn"] = state ? state.authorizerCredentialsArn : undefined;
-            inputs["authorizerPayloadFormatVersion"] = state ? state.authorizerPayloadFormatVersion : undefined;
-            inputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerType"] = state ? state.authorizerType : undefined;
-            inputs["authorizerUri"] = state ? state.authorizerUri : undefined;
-            inputs["enableSimpleResponses"] = state ? state.enableSimpleResponses : undefined;
-            inputs["identitySources"] = state ? state.identitySources : undefined;
-            inputs["jwtConfiguration"] = state ? state.jwtConfiguration : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["authorizerCredentialsArn"] = state ? state.authorizerCredentialsArn : undefined;
+            resourceInputs["authorizerPayloadFormatVersion"] = state ? state.authorizerPayloadFormatVersion : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerType"] = state ? state.authorizerType : undefined;
+            resourceInputs["authorizerUri"] = state ? state.authorizerUri : undefined;
+            resourceInputs["enableSimpleResponses"] = state ? state.enableSimpleResponses : undefined;
+            resourceInputs["identitySources"] = state ? state.identitySources : undefined;
+            resourceInputs["jwtConfiguration"] = state ? state.jwtConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -160,21 +160,19 @@ export class Authorizer extends pulumi.CustomResource {
             if ((!args || args.authorizerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["authorizerCredentialsArn"] = args ? args.authorizerCredentialsArn : undefined;
-            inputs["authorizerPayloadFormatVersion"] = args ? args.authorizerPayloadFormatVersion : undefined;
-            inputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerType"] = args ? args.authorizerType : undefined;
-            inputs["authorizerUri"] = args ? args.authorizerUri : undefined;
-            inputs["enableSimpleResponses"] = args ? args.enableSimpleResponses : undefined;
-            inputs["identitySources"] = args ? args.identitySources : undefined;
-            inputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["authorizerCredentialsArn"] = args ? args.authorizerCredentialsArn : undefined;
+            resourceInputs["authorizerPayloadFormatVersion"] = args ? args.authorizerPayloadFormatVersion : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerType"] = args ? args.authorizerType : undefined;
+            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
+            resourceInputs["enableSimpleResponses"] = args ? args.enableSimpleResponses : undefined;
+            resourceInputs["identitySources"] = args ? args.identitySources : undefined;
+            resourceInputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Authorizer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

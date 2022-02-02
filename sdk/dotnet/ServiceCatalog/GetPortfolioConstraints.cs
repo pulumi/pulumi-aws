@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPortfolioConstraintsResult> InvokeAsync(GetPortfolioConstraintsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information on Service Catalog Portfolio Constraints.
@@ -70,7 +69,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPortfolioConstraintsResult> Invoke(GetPortfolioConstraintsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsInvokeArgs(), options.WithDefaults());
     }
 
 

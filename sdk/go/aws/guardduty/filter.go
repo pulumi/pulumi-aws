@@ -227,7 +227,7 @@ type FilterInput interface {
 }
 
 func (*Filter) ElementType() reflect.Type {
-	return reflect.TypeOf((*Filter)(nil))
+	return reflect.TypeOf((**Filter)(nil)).Elem()
 }
 
 func (i *Filter) ToFilterOutput() FilterOutput {
@@ -236,35 +236,6 @@ func (i *Filter) ToFilterOutput() FilterOutput {
 
 func (i *Filter) ToFilterOutputWithContext(ctx context.Context) FilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterOutput)
-}
-
-func (i *Filter) ToFilterPtrOutput() FilterPtrOutput {
-	return i.ToFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *Filter) ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterPtrOutput)
-}
-
-type FilterPtrInput interface {
-	pulumi.Input
-
-	ToFilterPtrOutput() FilterPtrOutput
-	ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput
-}
-
-type filterPtrType FilterArgs
-
-func (*filterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Filter)(nil))
-}
-
-func (i *filterPtrType) ToFilterPtrOutput() FilterPtrOutput {
-	return i.ToFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *filterPtrType) ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterPtrOutput)
 }
 
 // FilterArrayInput is an input type that accepts FilterArray and FilterArrayOutput values.
@@ -320,7 +291,7 @@ func (i FilterMap) ToFilterMapOutputWithContext(ctx context.Context) FilterMapOu
 type FilterOutput struct{ *pulumi.OutputState }
 
 func (FilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Filter)(nil))
+	return reflect.TypeOf((**Filter)(nil)).Elem()
 }
 
 func (o FilterOutput) ToFilterOutput() FilterOutput {
@@ -331,44 +302,10 @@ func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutpu
 	return o
 }
 
-func (o FilterOutput) ToFilterPtrOutput() FilterPtrOutput {
-	return o.ToFilterPtrOutputWithContext(context.Background())
-}
-
-func (o FilterOutput) ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Filter) *Filter {
-		return &v
-	}).(FilterPtrOutput)
-}
-
-type FilterPtrOutput struct{ *pulumi.OutputState }
-
-func (FilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Filter)(nil))
-}
-
-func (o FilterPtrOutput) ToFilterPtrOutput() FilterPtrOutput {
-	return o
-}
-
-func (o FilterPtrOutput) ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput {
-	return o
-}
-
-func (o FilterPtrOutput) Elem() FilterOutput {
-	return o.ApplyT(func(v *Filter) Filter {
-		if v != nil {
-			return *v
-		}
-		var ret Filter
-		return ret
-	}).(FilterOutput)
-}
-
 type FilterArrayOutput struct{ *pulumi.OutputState }
 
 func (FilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Filter)(nil))
+	return reflect.TypeOf((*[]*Filter)(nil)).Elem()
 }
 
 func (o FilterArrayOutput) ToFilterArrayOutput() FilterArrayOutput {
@@ -380,15 +317,15 @@ func (o FilterArrayOutput) ToFilterArrayOutputWithContext(ctx context.Context) F
 }
 
 func (o FilterArrayOutput) Index(i pulumi.IntInput) FilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Filter {
-		return vs[0].([]Filter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Filter {
+		return vs[0].([]*Filter)[vs[1].(int)]
 	}).(FilterOutput)
 }
 
 type FilterMapOutput struct{ *pulumi.OutputState }
 
 func (FilterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Filter)(nil))
+	return reflect.TypeOf((*map[string]*Filter)(nil)).Elem()
 }
 
 func (o FilterMapOutput) ToFilterMapOutput() FilterMapOutput {
@@ -400,18 +337,16 @@ func (o FilterMapOutput) ToFilterMapOutputWithContext(ctx context.Context) Filte
 }
 
 func (o FilterMapOutput) MapIndex(k pulumi.StringInput) FilterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Filter {
-		return vs[0].(map[string]Filter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Filter {
+		return vs[0].(map[string]*Filter)[vs[1].(string)]
 	}).(FilterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterInput)(nil)).Elem(), &Filter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterPtrInput)(nil)).Elem(), &Filter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterArrayInput)(nil)).Elem(), FilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterMapInput)(nil)).Elem(), FilterMap{})
 	pulumi.RegisterOutputType(FilterOutput{})
-	pulumi.RegisterOutputType(FilterPtrOutput{})
 	pulumi.RegisterOutputType(FilterArrayOutput{})
 	pulumi.RegisterOutputType(FilterMapOutput{})
 }

@@ -78,23 +78,21 @@ export class DelegationSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DelegationSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DelegationSetArgs | DelegationSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DelegationSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["nameServers"] = state ? state.nameServers : undefined;
-            inputs["referenceName"] = state ? state.referenceName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
+            resourceInputs["referenceName"] = state ? state.referenceName : undefined;
         } else {
             const args = argsOrState as DelegationSetArgs | undefined;
-            inputs["referenceName"] = args ? args.referenceName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
+            resourceInputs["referenceName"] = args ? args.referenceName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DelegationSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DelegationSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

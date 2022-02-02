@@ -23,9 +23,7 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:datapipeline/getPipeline:getPipeline", {
         "pipelineId": args.pipelineId,
         "tags": args.tags,

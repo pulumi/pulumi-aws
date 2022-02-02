@@ -35,9 +35,7 @@ export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", {
         "filters": args.filters,
         "locationType": args.locationType,

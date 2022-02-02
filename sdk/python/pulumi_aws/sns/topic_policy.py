@@ -124,7 +124,7 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sns.Topic("test")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document(policy_id="__default_policy_ID",
+        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
                     "SNS:Subscribe",
@@ -186,7 +186,7 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sns.Topic("test")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document(policy_id="__default_policy_ID",
+        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[aws.iam.GetPolicyDocumentStatementArgs(
                 actions=[
                     "SNS:Subscribe",

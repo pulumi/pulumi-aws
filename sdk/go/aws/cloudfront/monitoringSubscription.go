@@ -136,7 +136,7 @@ type MonitoringSubscriptionInput interface {
 }
 
 func (*MonitoringSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringSubscription)(nil))
+	return reflect.TypeOf((**MonitoringSubscription)(nil)).Elem()
 }
 
 func (i *MonitoringSubscription) ToMonitoringSubscriptionOutput() MonitoringSubscriptionOutput {
@@ -145,35 +145,6 @@ func (i *MonitoringSubscription) ToMonitoringSubscriptionOutput() MonitoringSubs
 
 func (i *MonitoringSubscription) ToMonitoringSubscriptionOutputWithContext(ctx context.Context) MonitoringSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionOutput)
-}
-
-func (i *MonitoringSubscription) ToMonitoringSubscriptionPtrOutput() MonitoringSubscriptionPtrOutput {
-	return i.ToMonitoringSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *MonitoringSubscription) ToMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionPtrOutput)
-}
-
-type MonitoringSubscriptionPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringSubscriptionPtrOutput() MonitoringSubscriptionPtrOutput
-	ToMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionPtrOutput
-}
-
-type monitoringSubscriptionPtrType MonitoringSubscriptionArgs
-
-func (*monitoringSubscriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringSubscription)(nil))
-}
-
-func (i *monitoringSubscriptionPtrType) ToMonitoringSubscriptionPtrOutput() MonitoringSubscriptionPtrOutput {
-	return i.ToMonitoringSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringSubscriptionPtrType) ToMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionPtrOutput)
 }
 
 // MonitoringSubscriptionArrayInput is an input type that accepts MonitoringSubscriptionArray and MonitoringSubscriptionArrayOutput values.
@@ -229,7 +200,7 @@ func (i MonitoringSubscriptionMap) ToMonitoringSubscriptionMapOutputWithContext(
 type MonitoringSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (MonitoringSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringSubscription)(nil))
+	return reflect.TypeOf((**MonitoringSubscription)(nil)).Elem()
 }
 
 func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutput() MonitoringSubscriptionOutput {
@@ -240,44 +211,10 @@ func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutputWithContext(
 	return o
 }
 
-func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionPtrOutput() MonitoringSubscriptionPtrOutput {
-	return o.ToMonitoringSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSubscription) *MonitoringSubscription {
-		return &v
-	}).(MonitoringSubscriptionPtrOutput)
-}
-
-type MonitoringSubscriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringSubscriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringSubscription)(nil))
-}
-
-func (o MonitoringSubscriptionPtrOutput) ToMonitoringSubscriptionPtrOutput() MonitoringSubscriptionPtrOutput {
-	return o
-}
-
-func (o MonitoringSubscriptionPtrOutput) ToMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionPtrOutput {
-	return o
-}
-
-func (o MonitoringSubscriptionPtrOutput) Elem() MonitoringSubscriptionOutput {
-	return o.ApplyT(func(v *MonitoringSubscription) MonitoringSubscription {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringSubscription
-		return ret
-	}).(MonitoringSubscriptionOutput)
-}
-
 type MonitoringSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
 func (MonitoringSubscriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitoringSubscription)(nil))
+	return reflect.TypeOf((*[]*MonitoringSubscription)(nil)).Elem()
 }
 
 func (o MonitoringSubscriptionArrayOutput) ToMonitoringSubscriptionArrayOutput() MonitoringSubscriptionArrayOutput {
@@ -289,15 +226,15 @@ func (o MonitoringSubscriptionArrayOutput) ToMonitoringSubscriptionArrayOutputWi
 }
 
 func (o MonitoringSubscriptionArrayOutput) Index(i pulumi.IntInput) MonitoringSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoringSubscription {
-		return vs[0].([]MonitoringSubscription)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitoringSubscription {
+		return vs[0].([]*MonitoringSubscription)[vs[1].(int)]
 	}).(MonitoringSubscriptionOutput)
 }
 
 type MonitoringSubscriptionMapOutput struct{ *pulumi.OutputState }
 
 func (MonitoringSubscriptionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MonitoringSubscription)(nil))
+	return reflect.TypeOf((*map[string]*MonitoringSubscription)(nil)).Elem()
 }
 
 func (o MonitoringSubscriptionMapOutput) ToMonitoringSubscriptionMapOutput() MonitoringSubscriptionMapOutput {
@@ -309,18 +246,16 @@ func (o MonitoringSubscriptionMapOutput) ToMonitoringSubscriptionMapOutputWithCo
 }
 
 func (o MonitoringSubscriptionMapOutput) MapIndex(k pulumi.StringInput) MonitoringSubscriptionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MonitoringSubscription {
-		return vs[0].(map[string]MonitoringSubscription)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MonitoringSubscription {
+		return vs[0].(map[string]*MonitoringSubscription)[vs[1].(string)]
 	}).(MonitoringSubscriptionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionInput)(nil)).Elem(), &MonitoringSubscription{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionPtrInput)(nil)).Elem(), &MonitoringSubscription{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionArrayInput)(nil)).Elem(), MonitoringSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMapInput)(nil)).Elem(), MonitoringSubscriptionMap{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionOutput{})
-	pulumi.RegisterOutputType(MonitoringSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMapOutput{})
 }

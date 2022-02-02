@@ -144,7 +144,7 @@ type UserProfileInput interface {
 }
 
 func (*UserProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfile)(nil))
+	return reflect.TypeOf((**UserProfile)(nil)).Elem()
 }
 
 func (i *UserProfile) ToUserProfileOutput() UserProfileOutput {
@@ -153,35 +153,6 @@ func (i *UserProfile) ToUserProfileOutput() UserProfileOutput {
 
 func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileOutput)
-}
-
-func (i *UserProfile) ToUserProfilePtrOutput() UserProfilePtrOutput {
-	return i.ToUserProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *UserProfile) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserProfilePtrOutput)
-}
-
-type UserProfilePtrInput interface {
-	pulumi.Input
-
-	ToUserProfilePtrOutput() UserProfilePtrOutput
-	ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput
-}
-
-type userProfilePtrType UserProfileArgs
-
-func (*userProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserProfile)(nil))
-}
-
-func (i *userProfilePtrType) ToUserProfilePtrOutput() UserProfilePtrOutput {
-	return i.ToUserProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *userProfilePtrType) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserProfilePtrOutput)
 }
 
 // UserProfileArrayInput is an input type that accepts UserProfileArray and UserProfileArrayOutput values.
@@ -237,7 +208,7 @@ func (i UserProfileMap) ToUserProfileMapOutputWithContext(ctx context.Context) U
 type UserProfileOutput struct{ *pulumi.OutputState }
 
 func (UserProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfile)(nil))
+	return reflect.TypeOf((**UserProfile)(nil)).Elem()
 }
 
 func (o UserProfileOutput) ToUserProfileOutput() UserProfileOutput {
@@ -248,44 +219,10 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
-func (o UserProfileOutput) ToUserProfilePtrOutput() UserProfilePtrOutput {
-	return o.ToUserProfilePtrOutputWithContext(context.Background())
-}
-
-func (o UserProfileOutput) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfile) *UserProfile {
-		return &v
-	}).(UserProfilePtrOutput)
-}
-
-type UserProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (UserProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserProfile)(nil))
-}
-
-func (o UserProfilePtrOutput) ToUserProfilePtrOutput() UserProfilePtrOutput {
-	return o
-}
-
-func (o UserProfilePtrOutput) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
-	return o
-}
-
-func (o UserProfilePtrOutput) Elem() UserProfileOutput {
-	return o.ApplyT(func(v *UserProfile) UserProfile {
-		if v != nil {
-			return *v
-		}
-		var ret UserProfile
-		return ret
-	}).(UserProfileOutput)
-}
-
 type UserProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (UserProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserProfile)(nil))
+	return reflect.TypeOf((*[]*UserProfile)(nil)).Elem()
 }
 
 func (o UserProfileArrayOutput) ToUserProfileArrayOutput() UserProfileArrayOutput {
@@ -297,15 +234,15 @@ func (o UserProfileArrayOutput) ToUserProfileArrayOutputWithContext(ctx context.
 }
 
 func (o UserProfileArrayOutput) Index(i pulumi.IntInput) UserProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfile {
-		return vs[0].([]UserProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserProfile {
+		return vs[0].([]*UserProfile)[vs[1].(int)]
 	}).(UserProfileOutput)
 }
 
 type UserProfileMapOutput struct{ *pulumi.OutputState }
 
 func (UserProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserProfile)(nil))
+	return reflect.TypeOf((*map[string]*UserProfile)(nil)).Elem()
 }
 
 func (o UserProfileMapOutput) ToUserProfileMapOutput() UserProfileMapOutput {
@@ -317,18 +254,16 @@ func (o UserProfileMapOutput) ToUserProfileMapOutputWithContext(ctx context.Cont
 }
 
 func (o UserProfileMapOutput) MapIndex(k pulumi.StringInput) UserProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserProfile {
-		return vs[0].(map[string]UserProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserProfile {
+		return vs[0].(map[string]*UserProfile)[vs[1].(string)]
 	}).(UserProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileInput)(nil)).Elem(), &UserProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserProfilePtrInput)(nil)).Elem(), &UserProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileArrayInput)(nil)).Elem(), UserProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMapInput)(nil)).Elem(), UserProfileMap{})
 	pulumi.RegisterOutputType(UserProfileOutput{})
-	pulumi.RegisterOutputType(UserProfilePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileMapOutput{})
 }

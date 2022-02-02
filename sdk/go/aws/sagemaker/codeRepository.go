@@ -207,7 +207,7 @@ type CodeRepositoryInput interface {
 }
 
 func (*CodeRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeRepository)(nil))
+	return reflect.TypeOf((**CodeRepository)(nil)).Elem()
 }
 
 func (i *CodeRepository) ToCodeRepositoryOutput() CodeRepositoryOutput {
@@ -216,35 +216,6 @@ func (i *CodeRepository) ToCodeRepositoryOutput() CodeRepositoryOutput {
 
 func (i *CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryOutput)
-}
-
-func (i *CodeRepository) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
-	return i.ToCodeRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *CodeRepository) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryPtrOutput)
-}
-
-type CodeRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput
-	ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput
-}
-
-type codeRepositoryPtrType CodeRepositoryArgs
-
-func (*codeRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeRepository)(nil))
-}
-
-func (i *codeRepositoryPtrType) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
-	return i.ToCodeRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *codeRepositoryPtrType) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryPtrOutput)
 }
 
 // CodeRepositoryArrayInput is an input type that accepts CodeRepositoryArray and CodeRepositoryArrayOutput values.
@@ -300,7 +271,7 @@ func (i CodeRepositoryMap) ToCodeRepositoryMapOutputWithContext(ctx context.Cont
 type CodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeRepository)(nil))
+	return reflect.TypeOf((**CodeRepository)(nil)).Elem()
 }
 
 func (o CodeRepositoryOutput) ToCodeRepositoryOutput() CodeRepositoryOutput {
@@ -311,44 +282,10 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
-	return o.ToCodeRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepository) *CodeRepository {
-		return &v
-	}).(CodeRepositoryPtrOutput)
-}
-
-type CodeRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (CodeRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeRepository)(nil))
-}
-
-func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutput {
-	return o
-}
-
-func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return o
-}
-
-func (o CodeRepositoryPtrOutput) Elem() CodeRepositoryOutput {
-	return o.ApplyT(func(v *CodeRepository) CodeRepository {
-		if v != nil {
-			return *v
-		}
-		var ret CodeRepository
-		return ret
-	}).(CodeRepositoryOutput)
-}
-
 type CodeRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CodeRepository)(nil))
+	return reflect.TypeOf((*[]*CodeRepository)(nil)).Elem()
 }
 
 func (o CodeRepositoryArrayOutput) ToCodeRepositoryArrayOutput() CodeRepositoryArrayOutput {
@@ -360,15 +297,15 @@ func (o CodeRepositoryArrayOutput) ToCodeRepositoryArrayOutputWithContext(ctx co
 }
 
 func (o CodeRepositoryArrayOutput) Index(i pulumi.IntInput) CodeRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeRepository {
-		return vs[0].([]CodeRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CodeRepository {
+		return vs[0].([]*CodeRepository)[vs[1].(int)]
 	}).(CodeRepositoryOutput)
 }
 
 type CodeRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CodeRepository)(nil))
+	return reflect.TypeOf((*map[string]*CodeRepository)(nil)).Elem()
 }
 
 func (o CodeRepositoryMapOutput) ToCodeRepositoryMapOutput() CodeRepositoryMapOutput {
@@ -380,18 +317,16 @@ func (o CodeRepositoryMapOutput) ToCodeRepositoryMapOutputWithContext(ctx contex
 }
 
 func (o CodeRepositoryMapOutput) MapIndex(k pulumi.StringInput) CodeRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CodeRepository {
-		return vs[0].(map[string]CodeRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CodeRepository {
+		return vs[0].(map[string]*CodeRepository)[vs[1].(string)]
 	}).(CodeRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryInput)(nil)).Elem(), &CodeRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryPtrInput)(nil)).Elem(), &CodeRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryArrayInput)(nil)).Elem(), CodeRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryMapInput)(nil)).Elem(), CodeRepositoryMap{})
 	pulumi.RegisterOutputType(CodeRepositoryOutput{})
-	pulumi.RegisterOutputType(CodeRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryMapOutput{})
 }

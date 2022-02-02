@@ -163,7 +163,7 @@ type EnvironmentMembershipInput interface {
 }
 
 func (*EnvironmentMembership) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentMembership)(nil))
+	return reflect.TypeOf((**EnvironmentMembership)(nil)).Elem()
 }
 
 func (i *EnvironmentMembership) ToEnvironmentMembershipOutput() EnvironmentMembershipOutput {
@@ -172,35 +172,6 @@ func (i *EnvironmentMembership) ToEnvironmentMembershipOutput() EnvironmentMembe
 
 func (i *EnvironmentMembership) ToEnvironmentMembershipOutputWithContext(ctx context.Context) EnvironmentMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMembershipOutput)
-}
-
-func (i *EnvironmentMembership) ToEnvironmentMembershipPtrOutput() EnvironmentMembershipPtrOutput {
-	return i.ToEnvironmentMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *EnvironmentMembership) ToEnvironmentMembershipPtrOutputWithContext(ctx context.Context) EnvironmentMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMembershipPtrOutput)
-}
-
-type EnvironmentMembershipPtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentMembershipPtrOutput() EnvironmentMembershipPtrOutput
-	ToEnvironmentMembershipPtrOutputWithContext(ctx context.Context) EnvironmentMembershipPtrOutput
-}
-
-type environmentMembershipPtrType EnvironmentMembershipArgs
-
-func (*environmentMembershipPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentMembership)(nil))
-}
-
-func (i *environmentMembershipPtrType) ToEnvironmentMembershipPtrOutput() EnvironmentMembershipPtrOutput {
-	return i.ToEnvironmentMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *environmentMembershipPtrType) ToEnvironmentMembershipPtrOutputWithContext(ctx context.Context) EnvironmentMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMembershipPtrOutput)
 }
 
 // EnvironmentMembershipArrayInput is an input type that accepts EnvironmentMembershipArray and EnvironmentMembershipArrayOutput values.
@@ -256,7 +227,7 @@ func (i EnvironmentMembershipMap) ToEnvironmentMembershipMapOutputWithContext(ct
 type EnvironmentMembershipOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentMembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentMembership)(nil))
+	return reflect.TypeOf((**EnvironmentMembership)(nil)).Elem()
 }
 
 func (o EnvironmentMembershipOutput) ToEnvironmentMembershipOutput() EnvironmentMembershipOutput {
@@ -267,44 +238,10 @@ func (o EnvironmentMembershipOutput) ToEnvironmentMembershipOutputWithContext(ct
 	return o
 }
 
-func (o EnvironmentMembershipOutput) ToEnvironmentMembershipPtrOutput() EnvironmentMembershipPtrOutput {
-	return o.ToEnvironmentMembershipPtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentMembershipOutput) ToEnvironmentMembershipPtrOutputWithContext(ctx context.Context) EnvironmentMembershipPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentMembership) *EnvironmentMembership {
-		return &v
-	}).(EnvironmentMembershipPtrOutput)
-}
-
-type EnvironmentMembershipPtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentMembershipPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentMembership)(nil))
-}
-
-func (o EnvironmentMembershipPtrOutput) ToEnvironmentMembershipPtrOutput() EnvironmentMembershipPtrOutput {
-	return o
-}
-
-func (o EnvironmentMembershipPtrOutput) ToEnvironmentMembershipPtrOutputWithContext(ctx context.Context) EnvironmentMembershipPtrOutput {
-	return o
-}
-
-func (o EnvironmentMembershipPtrOutput) Elem() EnvironmentMembershipOutput {
-	return o.ApplyT(func(v *EnvironmentMembership) EnvironmentMembership {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentMembership
-		return ret
-	}).(EnvironmentMembershipOutput)
-}
-
 type EnvironmentMembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentMembershipArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentMembership)(nil))
+	return reflect.TypeOf((*[]*EnvironmentMembership)(nil)).Elem()
 }
 
 func (o EnvironmentMembershipArrayOutput) ToEnvironmentMembershipArrayOutput() EnvironmentMembershipArrayOutput {
@@ -316,15 +253,15 @@ func (o EnvironmentMembershipArrayOutput) ToEnvironmentMembershipArrayOutputWith
 }
 
 func (o EnvironmentMembershipArrayOutput) Index(i pulumi.IntInput) EnvironmentMembershipOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentMembership {
-		return vs[0].([]EnvironmentMembership)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentMembership {
+		return vs[0].([]*EnvironmentMembership)[vs[1].(int)]
 	}).(EnvironmentMembershipOutput)
 }
 
 type EnvironmentMembershipMapOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentMembershipMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EnvironmentMembership)(nil))
+	return reflect.TypeOf((*map[string]*EnvironmentMembership)(nil)).Elem()
 }
 
 func (o EnvironmentMembershipMapOutput) ToEnvironmentMembershipMapOutput() EnvironmentMembershipMapOutput {
@@ -336,18 +273,16 @@ func (o EnvironmentMembershipMapOutput) ToEnvironmentMembershipMapOutputWithCont
 }
 
 func (o EnvironmentMembershipMapOutput) MapIndex(k pulumi.StringInput) EnvironmentMembershipOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EnvironmentMembership {
-		return vs[0].(map[string]EnvironmentMembership)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EnvironmentMembership {
+		return vs[0].(map[string]*EnvironmentMembership)[vs[1].(string)]
 	}).(EnvironmentMembershipOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMembershipInput)(nil)).Elem(), &EnvironmentMembership{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMembershipPtrInput)(nil)).Elem(), &EnvironmentMembership{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMembershipArrayInput)(nil)).Elem(), EnvironmentMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMembershipMapInput)(nil)).Elem(), EnvironmentMembershipMap{})
 	pulumi.RegisterOutputType(EnvironmentMembershipOutput{})
-	pulumi.RegisterOutputType(EnvironmentMembershipPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentMembershipArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentMembershipMapOutput{})
 }

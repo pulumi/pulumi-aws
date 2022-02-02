@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ebs
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEncryptionByDefaultResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Efs
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Aws.Efs
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about an Elastic File System Mount Target (EFS).
@@ -72,7 +71,7 @@ namespace Pulumi.Aws.Efs
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMountTargetResult> Invoke(GetMountTargetInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithDefaults());
     }
 
 

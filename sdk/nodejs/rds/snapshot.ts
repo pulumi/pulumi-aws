@@ -155,31 +155,31 @@ export class Snapshot extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
-            inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
-            inputs["dbSnapshotArn"] = state ? state.dbSnapshotArn : undefined;
-            inputs["dbSnapshotIdentifier"] = state ? state.dbSnapshotIdentifier : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["iops"] = state ? state.iops : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["licenseModel"] = state ? state.licenseModel : undefined;
-            inputs["optionGroupName"] = state ? state.optionGroupName : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["snapshotType"] = state ? state.snapshotType : undefined;
-            inputs["sourceDbSnapshotIdentifier"] = state ? state.sourceDbSnapshotIdentifier : undefined;
-            inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
+            resourceInputs["dbSnapshotArn"] = state ? state.dbSnapshotArn : undefined;
+            resourceInputs["dbSnapshotIdentifier"] = state ? state.dbSnapshotIdentifier : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["iops"] = state ? state.iops : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
+            resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
+            resourceInputs["sourceDbSnapshotIdentifier"] = state ? state.sourceDbSnapshotIdentifier : undefined;
+            resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
             if ((!args || args.dbInstanceIdentifier === undefined) && !opts.urn) {
@@ -188,32 +188,30 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.dbSnapshotIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbSnapshotIdentifier'");
             }
-            inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
-            inputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["allocatedStorage"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["dbSnapshotArn"] = undefined /*out*/;
-            inputs["encrypted"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["iops"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["licenseModel"] = undefined /*out*/;
-            inputs["optionGroupName"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["snapshotType"] = undefined /*out*/;
-            inputs["sourceDbSnapshotIdentifier"] = undefined /*out*/;
-            inputs["sourceRegion"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["storageType"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
+            resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocatedStorage"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["dbSnapshotArn"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["iops"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["licenseModel"] = undefined /*out*/;
+            resourceInputs["optionGroupName"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["snapshotType"] = undefined /*out*/;
+            resourceInputs["sourceDbSnapshotIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceRegion"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Snapshot.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

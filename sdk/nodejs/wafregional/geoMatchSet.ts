@@ -82,21 +82,19 @@ export class GeoMatchSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GeoMatchSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GeoMatchSetArgs | GeoMatchSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GeoMatchSetState | undefined;
-            inputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as GeoMatchSetArgs | undefined;
-            inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GeoMatchSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GeoMatchSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

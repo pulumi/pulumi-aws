@@ -195,26 +195,26 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
-            inputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["identities"] = state ? state.identities : undefined;
-            inputs["kubernetesNetworkConfig"] = state ? state.kubernetesNetworkConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platformVersion"] = state ? state.platformVersion : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
+            resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["identities"] = state ? state.identities : undefined;
+            resourceInputs["kubernetesNetworkConfig"] = state ? state.kubernetesNetworkConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.roleArn === undefined) && !opts.urn) {
@@ -223,27 +223,25 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.vpcConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
-            inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
-            inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            inputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateAuthority"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["identities"] = undefined /*out*/;
-            inputs["platformVersion"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
+            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateAuthority"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["identities"] = undefined /*out*/;
+            resourceInputs["platformVersion"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

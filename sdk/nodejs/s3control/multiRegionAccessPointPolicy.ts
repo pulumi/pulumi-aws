@@ -103,28 +103,26 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: MultiRegionAccessPointPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MultiRegionAccessPointPolicyArgs | MultiRegionAccessPointPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiRegionAccessPointPolicyState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["details"] = state ? state.details : undefined;
-            inputs["established"] = state ? state.established : undefined;
-            inputs["proposed"] = state ? state.proposed : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["details"] = state ? state.details : undefined;
+            resourceInputs["established"] = state ? state.established : undefined;
+            resourceInputs["proposed"] = state ? state.proposed : undefined;
         } else {
             const args = argsOrState as MultiRegionAccessPointPolicyArgs | undefined;
             if ((!args || args.details === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'details'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["details"] = args ? args.details : undefined;
-            inputs["established"] = undefined /*out*/;
-            inputs["proposed"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["established"] = undefined /*out*/;
+            resourceInputs["proposed"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MultiRegionAccessPointPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MultiRegionAccessPointPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

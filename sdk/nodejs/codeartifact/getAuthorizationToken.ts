@@ -23,9 +23,7 @@ export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", {
         "domain": args.domain,
         "domainOwner": args.domainOwner,

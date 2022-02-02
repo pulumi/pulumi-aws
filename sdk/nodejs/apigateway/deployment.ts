@@ -174,38 +174,36 @@ export class Deployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["invokeUrl"] = state ? state.invokeUrl : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["stageDescription"] = state ? state.stageDescription : undefined;
-            inputs["stageName"] = state ? state.stageName : undefined;
-            inputs["triggers"] = state ? state.triggers : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
+            resourceInputs["invokeUrl"] = state ? state.invokeUrl : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["stageDescription"] = state ? state.stageDescription : undefined;
+            resourceInputs["stageName"] = state ? state.stageName : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
             if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["stageDescription"] = args ? args.stageDescription : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
-            inputs["triggers"] = args ? args.triggers : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["invokeUrl"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["stageDescription"] = args ? args.stageDescription : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["executionArn"] = undefined /*out*/;
+            resourceInputs["invokeUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Deployment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

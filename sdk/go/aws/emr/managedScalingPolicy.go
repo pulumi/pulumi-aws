@@ -152,7 +152,7 @@ type ManagedScalingPolicyInput interface {
 }
 
 func (*ManagedScalingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedScalingPolicy)(nil))
+	return reflect.TypeOf((**ManagedScalingPolicy)(nil)).Elem()
 }
 
 func (i *ManagedScalingPolicy) ToManagedScalingPolicyOutput() ManagedScalingPolicyOutput {
@@ -161,35 +161,6 @@ func (i *ManagedScalingPolicy) ToManagedScalingPolicyOutput() ManagedScalingPoli
 
 func (i *ManagedScalingPolicy) ToManagedScalingPolicyOutputWithContext(ctx context.Context) ManagedScalingPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyOutput)
-}
-
-func (i *ManagedScalingPolicy) ToManagedScalingPolicyPtrOutput() ManagedScalingPolicyPtrOutput {
-	return i.ToManagedScalingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedScalingPolicy) ToManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ManagedScalingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyPtrOutput)
-}
-
-type ManagedScalingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToManagedScalingPolicyPtrOutput() ManagedScalingPolicyPtrOutput
-	ToManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ManagedScalingPolicyPtrOutput
-}
-
-type managedScalingPolicyPtrType ManagedScalingPolicyArgs
-
-func (*managedScalingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedScalingPolicy)(nil))
-}
-
-func (i *managedScalingPolicyPtrType) ToManagedScalingPolicyPtrOutput() ManagedScalingPolicyPtrOutput {
-	return i.ToManagedScalingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *managedScalingPolicyPtrType) ToManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ManagedScalingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyPtrOutput)
 }
 
 // ManagedScalingPolicyArrayInput is an input type that accepts ManagedScalingPolicyArray and ManagedScalingPolicyArrayOutput values.
@@ -245,7 +216,7 @@ func (i ManagedScalingPolicyMap) ToManagedScalingPolicyMapOutputWithContext(ctx 
 type ManagedScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedScalingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedScalingPolicy)(nil))
+	return reflect.TypeOf((**ManagedScalingPolicy)(nil)).Elem()
 }
 
 func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyOutput() ManagedScalingPolicyOutput {
@@ -256,44 +227,10 @@ func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyOutputWithContext(ctx 
 	return o
 }
 
-func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyPtrOutput() ManagedScalingPolicyPtrOutput {
-	return o.ToManagedScalingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ManagedScalingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedScalingPolicy) *ManagedScalingPolicy {
-		return &v
-	}).(ManagedScalingPolicyPtrOutput)
-}
-
-type ManagedScalingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedScalingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedScalingPolicy)(nil))
-}
-
-func (o ManagedScalingPolicyPtrOutput) ToManagedScalingPolicyPtrOutput() ManagedScalingPolicyPtrOutput {
-	return o
-}
-
-func (o ManagedScalingPolicyPtrOutput) ToManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ManagedScalingPolicyPtrOutput {
-	return o
-}
-
-func (o ManagedScalingPolicyPtrOutput) Elem() ManagedScalingPolicyOutput {
-	return o.ApplyT(func(v *ManagedScalingPolicy) ManagedScalingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedScalingPolicy
-		return ret
-	}).(ManagedScalingPolicyOutput)
-}
-
 type ManagedScalingPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedScalingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedScalingPolicy)(nil))
+	return reflect.TypeOf((*[]*ManagedScalingPolicy)(nil)).Elem()
 }
 
 func (o ManagedScalingPolicyArrayOutput) ToManagedScalingPolicyArrayOutput() ManagedScalingPolicyArrayOutput {
@@ -305,15 +242,15 @@ func (o ManagedScalingPolicyArrayOutput) ToManagedScalingPolicyArrayOutputWithCo
 }
 
 func (o ManagedScalingPolicyArrayOutput) Index(i pulumi.IntInput) ManagedScalingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedScalingPolicy {
-		return vs[0].([]ManagedScalingPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedScalingPolicy {
+		return vs[0].([]*ManagedScalingPolicy)[vs[1].(int)]
 	}).(ManagedScalingPolicyOutput)
 }
 
 type ManagedScalingPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedScalingPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedScalingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ManagedScalingPolicy)(nil)).Elem()
 }
 
 func (o ManagedScalingPolicyMapOutput) ToManagedScalingPolicyMapOutput() ManagedScalingPolicyMapOutput {
@@ -325,18 +262,16 @@ func (o ManagedScalingPolicyMapOutput) ToManagedScalingPolicyMapOutputWithContex
 }
 
 func (o ManagedScalingPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagedScalingPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedScalingPolicy {
-		return vs[0].(map[string]ManagedScalingPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedScalingPolicy {
+		return vs[0].(map[string]*ManagedScalingPolicy)[vs[1].(string)]
 	}).(ManagedScalingPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyInput)(nil)).Elem(), &ManagedScalingPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyPtrInput)(nil)).Elem(), &ManagedScalingPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyArrayInput)(nil)).Elem(), ManagedScalingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyMapInput)(nil)).Elem(), ManagedScalingPolicyMap{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyOutput{})
-	pulumi.RegisterOutputType(ManagedScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyMapOutput{})
 }

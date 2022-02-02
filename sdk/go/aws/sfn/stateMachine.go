@@ -267,7 +267,7 @@ type StateMachineInput interface {
 }
 
 func (*StateMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachine)(nil))
+	return reflect.TypeOf((**StateMachine)(nil)).Elem()
 }
 
 func (i *StateMachine) ToStateMachineOutput() StateMachineOutput {
@@ -276,35 +276,6 @@ func (i *StateMachine) ToStateMachineOutput() StateMachineOutput {
 
 func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
-}
-
-func (i *StateMachine) ToStateMachinePtrOutput() StateMachinePtrOutput {
-	return i.ToStateMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *StateMachine) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StateMachinePtrOutput)
-}
-
-type StateMachinePtrInput interface {
-	pulumi.Input
-
-	ToStateMachinePtrOutput() StateMachinePtrOutput
-	ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput
-}
-
-type stateMachinePtrType StateMachineArgs
-
-func (*stateMachinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StateMachine)(nil))
-}
-
-func (i *stateMachinePtrType) ToStateMachinePtrOutput() StateMachinePtrOutput {
-	return i.ToStateMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *stateMachinePtrType) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StateMachinePtrOutput)
 }
 
 // StateMachineArrayInput is an input type that accepts StateMachineArray and StateMachineArrayOutput values.
@@ -360,7 +331,7 @@ func (i StateMachineMap) ToStateMachineMapOutputWithContext(ctx context.Context)
 type StateMachineOutput struct{ *pulumi.OutputState }
 
 func (StateMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachine)(nil))
+	return reflect.TypeOf((**StateMachine)(nil)).Elem()
 }
 
 func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {
@@ -371,44 +342,10 @@ func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o StateMachineOutput) ToStateMachinePtrOutput() StateMachinePtrOutput {
-	return o.ToStateMachinePtrOutputWithContext(context.Background())
-}
-
-func (o StateMachineOutput) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachine) *StateMachine {
-		return &v
-	}).(StateMachinePtrOutput)
-}
-
-type StateMachinePtrOutput struct{ *pulumi.OutputState }
-
-func (StateMachinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StateMachine)(nil))
-}
-
-func (o StateMachinePtrOutput) ToStateMachinePtrOutput() StateMachinePtrOutput {
-	return o
-}
-
-func (o StateMachinePtrOutput) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
-	return o
-}
-
-func (o StateMachinePtrOutput) Elem() StateMachineOutput {
-	return o.ApplyT(func(v *StateMachine) StateMachine {
-		if v != nil {
-			return *v
-		}
-		var ret StateMachine
-		return ret
-	}).(StateMachineOutput)
-}
-
 type StateMachineArrayOutput struct{ *pulumi.OutputState }
 
 func (StateMachineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StateMachine)(nil))
+	return reflect.TypeOf((*[]*StateMachine)(nil)).Elem()
 }
 
 func (o StateMachineArrayOutput) ToStateMachineArrayOutput() StateMachineArrayOutput {
@@ -420,15 +357,15 @@ func (o StateMachineArrayOutput) ToStateMachineArrayOutputWithContext(ctx contex
 }
 
 func (o StateMachineArrayOutput) Index(i pulumi.IntInput) StateMachineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StateMachine {
-		return vs[0].([]StateMachine)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StateMachine {
+		return vs[0].([]*StateMachine)[vs[1].(int)]
 	}).(StateMachineOutput)
 }
 
 type StateMachineMapOutput struct{ *pulumi.OutputState }
 
 func (StateMachineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StateMachine)(nil))
+	return reflect.TypeOf((*map[string]*StateMachine)(nil)).Elem()
 }
 
 func (o StateMachineMapOutput) ToStateMachineMapOutput() StateMachineMapOutput {
@@ -440,18 +377,16 @@ func (o StateMachineMapOutput) ToStateMachineMapOutputWithContext(ctx context.Co
 }
 
 func (o StateMachineMapOutput) MapIndex(k pulumi.StringInput) StateMachineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StateMachine {
-		return vs[0].(map[string]StateMachine)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StateMachine {
+		return vs[0].(map[string]*StateMachine)[vs[1].(string)]
 	}).(StateMachineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineInput)(nil)).Elem(), &StateMachine{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StateMachinePtrInput)(nil)).Elem(), &StateMachine{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineArrayInput)(nil)).Elem(), StateMachineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineMapInput)(nil)).Elem(), StateMachineMap{})
 	pulumi.RegisterOutputType(StateMachineOutput{})
-	pulumi.RegisterOutputType(StateMachinePtrOutput{})
 	pulumi.RegisterOutputType(StateMachineArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineMapOutput{})
 }

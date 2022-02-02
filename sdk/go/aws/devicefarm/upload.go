@@ -182,7 +182,7 @@ type UploadInput interface {
 }
 
 func (*Upload) ElementType() reflect.Type {
-	return reflect.TypeOf((*Upload)(nil))
+	return reflect.TypeOf((**Upload)(nil)).Elem()
 }
 
 func (i *Upload) ToUploadOutput() UploadOutput {
@@ -191,35 +191,6 @@ func (i *Upload) ToUploadOutput() UploadOutput {
 
 func (i *Upload) ToUploadOutputWithContext(ctx context.Context) UploadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UploadOutput)
-}
-
-func (i *Upload) ToUploadPtrOutput() UploadPtrOutput {
-	return i.ToUploadPtrOutputWithContext(context.Background())
-}
-
-func (i *Upload) ToUploadPtrOutputWithContext(ctx context.Context) UploadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadPtrOutput)
-}
-
-type UploadPtrInput interface {
-	pulumi.Input
-
-	ToUploadPtrOutput() UploadPtrOutput
-	ToUploadPtrOutputWithContext(ctx context.Context) UploadPtrOutput
-}
-
-type uploadPtrType UploadArgs
-
-func (*uploadPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Upload)(nil))
-}
-
-func (i *uploadPtrType) ToUploadPtrOutput() UploadPtrOutput {
-	return i.ToUploadPtrOutputWithContext(context.Background())
-}
-
-func (i *uploadPtrType) ToUploadPtrOutputWithContext(ctx context.Context) UploadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadPtrOutput)
 }
 
 // UploadArrayInput is an input type that accepts UploadArray and UploadArrayOutput values.
@@ -275,7 +246,7 @@ func (i UploadMap) ToUploadMapOutputWithContext(ctx context.Context) UploadMapOu
 type UploadOutput struct{ *pulumi.OutputState }
 
 func (UploadOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Upload)(nil))
+	return reflect.TypeOf((**Upload)(nil)).Elem()
 }
 
 func (o UploadOutput) ToUploadOutput() UploadOutput {
@@ -286,44 +257,10 @@ func (o UploadOutput) ToUploadOutputWithContext(ctx context.Context) UploadOutpu
 	return o
 }
 
-func (o UploadOutput) ToUploadPtrOutput() UploadPtrOutput {
-	return o.ToUploadPtrOutputWithContext(context.Background())
-}
-
-func (o UploadOutput) ToUploadPtrOutputWithContext(ctx context.Context) UploadPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Upload) *Upload {
-		return &v
-	}).(UploadPtrOutput)
-}
-
-type UploadPtrOutput struct{ *pulumi.OutputState }
-
-func (UploadPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Upload)(nil))
-}
-
-func (o UploadPtrOutput) ToUploadPtrOutput() UploadPtrOutput {
-	return o
-}
-
-func (o UploadPtrOutput) ToUploadPtrOutputWithContext(ctx context.Context) UploadPtrOutput {
-	return o
-}
-
-func (o UploadPtrOutput) Elem() UploadOutput {
-	return o.ApplyT(func(v *Upload) Upload {
-		if v != nil {
-			return *v
-		}
-		var ret Upload
-		return ret
-	}).(UploadOutput)
-}
-
 type UploadArrayOutput struct{ *pulumi.OutputState }
 
 func (UploadArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Upload)(nil))
+	return reflect.TypeOf((*[]*Upload)(nil)).Elem()
 }
 
 func (o UploadArrayOutput) ToUploadArrayOutput() UploadArrayOutput {
@@ -335,15 +272,15 @@ func (o UploadArrayOutput) ToUploadArrayOutputWithContext(ctx context.Context) U
 }
 
 func (o UploadArrayOutput) Index(i pulumi.IntInput) UploadOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Upload {
-		return vs[0].([]Upload)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Upload {
+		return vs[0].([]*Upload)[vs[1].(int)]
 	}).(UploadOutput)
 }
 
 type UploadMapOutput struct{ *pulumi.OutputState }
 
 func (UploadMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Upload)(nil))
+	return reflect.TypeOf((*map[string]*Upload)(nil)).Elem()
 }
 
 func (o UploadMapOutput) ToUploadMapOutput() UploadMapOutput {
@@ -355,18 +292,16 @@ func (o UploadMapOutput) ToUploadMapOutputWithContext(ctx context.Context) Uploa
 }
 
 func (o UploadMapOutput) MapIndex(k pulumi.StringInput) UploadOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Upload {
-		return vs[0].(map[string]Upload)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Upload {
+		return vs[0].(map[string]*Upload)[vs[1].(string)]
 	}).(UploadOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UploadInput)(nil)).Elem(), &Upload{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UploadPtrInput)(nil)).Elem(), &Upload{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UploadArrayInput)(nil)).Elem(), UploadArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UploadMapInput)(nil)).Elem(), UploadMap{})
 	pulumi.RegisterOutputType(UploadOutput{})
-	pulumi.RegisterOutputType(UploadPtrOutput{})
 	pulumi.RegisterOutputType(UploadArrayOutput{})
 	pulumi.RegisterOutputType(UploadMapOutput{})
 }

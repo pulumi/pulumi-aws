@@ -26,9 +26,7 @@ export function getMountTarget(args?: GetMountTargetArgs, opts?: pulumi.InvokeOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {
         "accessPointId": args.accessPointId,
         "fileSystemId": args.fileSystemId,

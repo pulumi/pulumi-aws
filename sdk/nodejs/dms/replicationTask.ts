@@ -123,22 +123,22 @@ export class ReplicationTask extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicationTaskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationTaskArgs | ReplicationTaskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationTaskState | undefined;
-            inputs["cdcStartPosition"] = state ? state.cdcStartPosition : undefined;
-            inputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
-            inputs["migrationType"] = state ? state.migrationType : undefined;
-            inputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
-            inputs["replicationTaskArn"] = state ? state.replicationTaskArn : undefined;
-            inputs["replicationTaskId"] = state ? state.replicationTaskId : undefined;
-            inputs["replicationTaskSettings"] = state ? state.replicationTaskSettings : undefined;
-            inputs["sourceEndpointArn"] = state ? state.sourceEndpointArn : undefined;
-            inputs["tableMappings"] = state ? state.tableMappings : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetEndpointArn"] = state ? state.targetEndpointArn : undefined;
+            resourceInputs["cdcStartPosition"] = state ? state.cdcStartPosition : undefined;
+            resourceInputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
+            resourceInputs["migrationType"] = state ? state.migrationType : undefined;
+            resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
+            resourceInputs["replicationTaskArn"] = state ? state.replicationTaskArn : undefined;
+            resourceInputs["replicationTaskId"] = state ? state.replicationTaskId : undefined;
+            resourceInputs["replicationTaskSettings"] = state ? state.replicationTaskSettings : undefined;
+            resourceInputs["sourceEndpointArn"] = state ? state.sourceEndpointArn : undefined;
+            resourceInputs["tableMappings"] = state ? state.tableMappings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetEndpointArn"] = state ? state.targetEndpointArn : undefined;
         } else {
             const args = argsOrState as ReplicationTaskArgs | undefined;
             if ((!args || args.migrationType === undefined) && !opts.urn) {
@@ -159,23 +159,21 @@ export class ReplicationTask extends pulumi.CustomResource {
             if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
-            inputs["cdcStartPosition"] = args ? args.cdcStartPosition : undefined;
-            inputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
-            inputs["migrationType"] = args ? args.migrationType : undefined;
-            inputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
-            inputs["replicationTaskId"] = args ? args.replicationTaskId : undefined;
-            inputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
-            inputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
-            inputs["tableMappings"] = args ? args.tableMappings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
-            inputs["replicationTaskArn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["cdcStartPosition"] = args ? args.cdcStartPosition : undefined;
+            resourceInputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
+            resourceInputs["migrationType"] = args ? args.migrationType : undefined;
+            resourceInputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
+            resourceInputs["replicationTaskId"] = args ? args.replicationTaskId : undefined;
+            resourceInputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
+            resourceInputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
+            resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
+            resourceInputs["replicationTaskArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicationTask.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicationTask.__pulumiType, name, resourceInputs, opts);
     }
 }
 

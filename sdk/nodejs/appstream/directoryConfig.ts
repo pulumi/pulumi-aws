@@ -86,14 +86,14 @@ export class DirectoryConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: DirectoryConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DirectoryConfigArgs | DirectoryConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryConfigState | undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["directoryName"] = state ? state.directoryName : undefined;
-            inputs["organizationalUnitDistinguishedNames"] = state ? state.organizationalUnitDistinguishedNames : undefined;
-            inputs["serviceAccountCredentials"] = state ? state.serviceAccountCredentials : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["directoryName"] = state ? state.directoryName : undefined;
+            resourceInputs["organizationalUnitDistinguishedNames"] = state ? state.organizationalUnitDistinguishedNames : undefined;
+            resourceInputs["serviceAccountCredentials"] = state ? state.serviceAccountCredentials : undefined;
         } else {
             const args = argsOrState as DirectoryConfigArgs | undefined;
             if ((!args || args.directoryName === undefined) && !opts.urn) {
@@ -105,15 +105,13 @@ export class DirectoryConfig extends pulumi.CustomResource {
             if ((!args || args.serviceAccountCredentials === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountCredentials'");
             }
-            inputs["directoryName"] = args ? args.directoryName : undefined;
-            inputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
-            inputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
-            inputs["createdTime"] = undefined /*out*/;
+            resourceInputs["directoryName"] = args ? args.directoryName : undefined;
+            resourceInputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
+            resourceInputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DirectoryConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DirectoryConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -166,33 +166,33 @@ export class Canary extends pulumi.CustomResource {
      */
     constructor(name: string, args: CanaryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CanaryArgs | CanaryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CanaryState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["artifactConfig"] = state ? state.artifactConfig : undefined;
-            inputs["artifactS3Location"] = state ? state.artifactS3Location : undefined;
-            inputs["engineArn"] = state ? state.engineArn : undefined;
-            inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            inputs["failureRetentionPeriod"] = state ? state.failureRetentionPeriod : undefined;
-            inputs["handler"] = state ? state.handler : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["runConfig"] = state ? state.runConfig : undefined;
-            inputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
-            inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            inputs["s3Key"] = state ? state.s3Key : undefined;
-            inputs["s3Version"] = state ? state.s3Version : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
-            inputs["startCanary"] = state ? state.startCanary : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["successRetentionPeriod"] = state ? state.successRetentionPeriod : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["timelines"] = state ? state.timelines : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
-            inputs["zipFile"] = state ? state.zipFile : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["artifactConfig"] = state ? state.artifactConfig : undefined;
+            resourceInputs["artifactS3Location"] = state ? state.artifactS3Location : undefined;
+            resourceInputs["engineArn"] = state ? state.engineArn : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["failureRetentionPeriod"] = state ? state.failureRetentionPeriod : undefined;
+            resourceInputs["handler"] = state ? state.handler : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["runConfig"] = state ? state.runConfig : undefined;
+            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["s3Key"] = state ? state.s3Key : undefined;
+            resourceInputs["s3Version"] = state ? state.s3Version : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
+            resourceInputs["startCanary"] = state ? state.startCanary : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["successRetentionPeriod"] = state ? state.successRetentionPeriod : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timelines"] = state ? state.timelines : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["zipFile"] = state ? state.zipFile : undefined;
         } else {
             const args = argsOrState as CanaryArgs | undefined;
             if ((!args || args.artifactS3Location === undefined) && !opts.urn) {
@@ -210,34 +210,32 @@ export class Canary extends pulumi.CustomResource {
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            inputs["artifactConfig"] = args ? args.artifactConfig : undefined;
-            inputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
-            inputs["handler"] = args ? args.handler : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["runConfig"] = args ? args.runConfig : undefined;
-            inputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
-            inputs["s3Key"] = args ? args.s3Key : undefined;
-            inputs["s3Version"] = args ? args.s3Version : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["startCanary"] = args ? args.startCanary : undefined;
-            inputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["zipFile"] = args ? args.zipFile : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["engineArn"] = undefined /*out*/;
-            inputs["sourceLocationArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["timelines"] = undefined /*out*/;
+            resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
+            resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
+            resourceInputs["handler"] = args ? args.handler : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["runConfig"] = args ? args.runConfig : undefined;
+            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
+            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
+            resourceInputs["s3Key"] = args ? args.s3Key : undefined;
+            resourceInputs["s3Version"] = args ? args.s3Version : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["startCanary"] = args ? args.startCanary : undefined;
+            resourceInputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["zipFile"] = args ? args.zipFile : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["engineArn"] = undefined /*out*/;
+            resourceInputs["sourceLocationArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["timelines"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Canary.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Canary.__pulumiType, name, resourceInputs, opts);
     }
 }
 

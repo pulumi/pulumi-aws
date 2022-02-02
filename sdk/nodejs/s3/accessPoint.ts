@@ -139,44 +139,42 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessPointArgs | AccessPointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPointState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["endpoints"] = state ? state.endpoints : undefined;
-            inputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkOrigin"] = state ? state.networkOrigin : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["publicAccessBlockConfiguration"] = state ? state.publicAccessBlockConfiguration : undefined;
-            inputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkOrigin"] = state ? state.networkOrigin : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["publicAccessBlockConfiguration"] = state ? state.publicAccessBlockConfiguration : undefined;
+            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            inputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
-            inputs["alias"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["hasPublicAccessPolicy"] = undefined /*out*/;
-            inputs["networkOrigin"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
+            resourceInputs["networkOrigin"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccessPoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

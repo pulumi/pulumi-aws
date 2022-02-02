@@ -146,7 +146,7 @@ type FleetStackAssociationInput interface {
 }
 
 func (*FleetStackAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetStackAssociation)(nil))
+	return reflect.TypeOf((**FleetStackAssociation)(nil)).Elem()
 }
 
 func (i *FleetStackAssociation) ToFleetStackAssociationOutput() FleetStackAssociationOutput {
@@ -155,35 +155,6 @@ func (i *FleetStackAssociation) ToFleetStackAssociationOutput() FleetStackAssoci
 
 func (i *FleetStackAssociation) ToFleetStackAssociationOutputWithContext(ctx context.Context) FleetStackAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetStackAssociationOutput)
-}
-
-func (i *FleetStackAssociation) ToFleetStackAssociationPtrOutput() FleetStackAssociationPtrOutput {
-	return i.ToFleetStackAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *FleetStackAssociation) ToFleetStackAssociationPtrOutputWithContext(ctx context.Context) FleetStackAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetStackAssociationPtrOutput)
-}
-
-type FleetStackAssociationPtrInput interface {
-	pulumi.Input
-
-	ToFleetStackAssociationPtrOutput() FleetStackAssociationPtrOutput
-	ToFleetStackAssociationPtrOutputWithContext(ctx context.Context) FleetStackAssociationPtrOutput
-}
-
-type fleetStackAssociationPtrType FleetStackAssociationArgs
-
-func (*fleetStackAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetStackAssociation)(nil))
-}
-
-func (i *fleetStackAssociationPtrType) ToFleetStackAssociationPtrOutput() FleetStackAssociationPtrOutput {
-	return i.ToFleetStackAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *fleetStackAssociationPtrType) ToFleetStackAssociationPtrOutputWithContext(ctx context.Context) FleetStackAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetStackAssociationPtrOutput)
 }
 
 // FleetStackAssociationArrayInput is an input type that accepts FleetStackAssociationArray and FleetStackAssociationArrayOutput values.
@@ -239,7 +210,7 @@ func (i FleetStackAssociationMap) ToFleetStackAssociationMapOutputWithContext(ct
 type FleetStackAssociationOutput struct{ *pulumi.OutputState }
 
 func (FleetStackAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetStackAssociation)(nil))
+	return reflect.TypeOf((**FleetStackAssociation)(nil)).Elem()
 }
 
 func (o FleetStackAssociationOutput) ToFleetStackAssociationOutput() FleetStackAssociationOutput {
@@ -250,44 +221,10 @@ func (o FleetStackAssociationOutput) ToFleetStackAssociationOutputWithContext(ct
 	return o
 }
 
-func (o FleetStackAssociationOutput) ToFleetStackAssociationPtrOutput() FleetStackAssociationPtrOutput {
-	return o.ToFleetStackAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o FleetStackAssociationOutput) ToFleetStackAssociationPtrOutputWithContext(ctx context.Context) FleetStackAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetStackAssociation) *FleetStackAssociation {
-		return &v
-	}).(FleetStackAssociationPtrOutput)
-}
-
-type FleetStackAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (FleetStackAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetStackAssociation)(nil))
-}
-
-func (o FleetStackAssociationPtrOutput) ToFleetStackAssociationPtrOutput() FleetStackAssociationPtrOutput {
-	return o
-}
-
-func (o FleetStackAssociationPtrOutput) ToFleetStackAssociationPtrOutputWithContext(ctx context.Context) FleetStackAssociationPtrOutput {
-	return o
-}
-
-func (o FleetStackAssociationPtrOutput) Elem() FleetStackAssociationOutput {
-	return o.ApplyT(func(v *FleetStackAssociation) FleetStackAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret FleetStackAssociation
-		return ret
-	}).(FleetStackAssociationOutput)
-}
-
 type FleetStackAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (FleetStackAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FleetStackAssociation)(nil))
+	return reflect.TypeOf((*[]*FleetStackAssociation)(nil)).Elem()
 }
 
 func (o FleetStackAssociationArrayOutput) ToFleetStackAssociationArrayOutput() FleetStackAssociationArrayOutput {
@@ -299,15 +236,15 @@ func (o FleetStackAssociationArrayOutput) ToFleetStackAssociationArrayOutputWith
 }
 
 func (o FleetStackAssociationArrayOutput) Index(i pulumi.IntInput) FleetStackAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetStackAssociation {
-		return vs[0].([]FleetStackAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FleetStackAssociation {
+		return vs[0].([]*FleetStackAssociation)[vs[1].(int)]
 	}).(FleetStackAssociationOutput)
 }
 
 type FleetStackAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (FleetStackAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FleetStackAssociation)(nil))
+	return reflect.TypeOf((*map[string]*FleetStackAssociation)(nil)).Elem()
 }
 
 func (o FleetStackAssociationMapOutput) ToFleetStackAssociationMapOutput() FleetStackAssociationMapOutput {
@@ -319,18 +256,16 @@ func (o FleetStackAssociationMapOutput) ToFleetStackAssociationMapOutputWithCont
 }
 
 func (o FleetStackAssociationMapOutput) MapIndex(k pulumi.StringInput) FleetStackAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FleetStackAssociation {
-		return vs[0].(map[string]FleetStackAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FleetStackAssociation {
+		return vs[0].(map[string]*FleetStackAssociation)[vs[1].(string)]
 	}).(FleetStackAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetStackAssociationInput)(nil)).Elem(), &FleetStackAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetStackAssociationPtrInput)(nil)).Elem(), &FleetStackAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetStackAssociationArrayInput)(nil)).Elem(), FleetStackAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetStackAssociationMapInput)(nil)).Elem(), FleetStackAssociationMap{})
 	pulumi.RegisterOutputType(FleetStackAssociationOutput{})
-	pulumi.RegisterOutputType(FleetStackAssociationPtrOutput{})
 	pulumi.RegisterOutputType(FleetStackAssociationArrayOutput{})
 	pulumi.RegisterOutputType(FleetStackAssociationMapOutput{})
 }

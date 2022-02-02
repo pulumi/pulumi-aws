@@ -104,28 +104,26 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
      */
     constructor(name: string, args: HostedPublicVirtualInterfaceAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedPublicVirtualInterfaceAccepterArgs | HostedPublicVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedPublicVirtualInterfaceAccepterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
         } else {
             const args = argsOrState as HostedPublicVirtualInterfaceAccepterArgs | undefined;
             if ((!args || args.virtualInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HostedPublicVirtualInterfaceAccepter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HostedPublicVirtualInterfaceAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

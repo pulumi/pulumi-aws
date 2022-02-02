@@ -21,7 +21,6 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/dms"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -49,39 +48,39 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRole(ctx, "dms_access_for_endpoint", &iam.RoleArgs{
+// 		_, err = iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms_access_for_endpoint_AmazonDMSRedshiftS3Role", &iam.RolePolicyAttachmentArgs{
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms-access-for-endpoint-AmazonDMSRedshiftS3Role", &iam.RolePolicyAttachmentArgs{
 // 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role"),
 // 			Role:      dms_access_for_endpoint.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRole(ctx, "dms_cloudwatch_logs_role", &iam.RoleArgs{
+// 		_, err = iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole", &iam.RolePolicyAttachmentArgs{
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", &iam.RolePolicyAttachmentArgs{
 // 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole"),
 // 			Role:      dms_cloudwatch_logs_role.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRole(ctx, "dms_vpc_role", &iam.RoleArgs{
+// 		_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms_vpc_role_AmazonDMSVPCManagementRole", &iam.RolePolicyAttachmentArgs{
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "dms-vpc-role-AmazonDMSVPCManagementRole", &iam.RolePolicyAttachmentArgs{
 // 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
 // 			Role:      dms_vpc_role.Name,
 // 		})
@@ -369,7 +368,7 @@ type ReplicationInstanceInput interface {
 }
 
 func (*ReplicationInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationInstance)(nil))
+	return reflect.TypeOf((**ReplicationInstance)(nil)).Elem()
 }
 
 func (i *ReplicationInstance) ToReplicationInstanceOutput() ReplicationInstanceOutput {
@@ -378,35 +377,6 @@ func (i *ReplicationInstance) ToReplicationInstanceOutput() ReplicationInstanceO
 
 func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
-}
-
-func (i *ReplicationInstance) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
-	return i.ToReplicationInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *ReplicationInstance) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstancePtrOutput)
-}
-
-type ReplicationInstancePtrInput interface {
-	pulumi.Input
-
-	ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput
-	ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput
-}
-
-type replicationInstancePtrType ReplicationInstanceArgs
-
-func (*replicationInstancePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationInstance)(nil))
-}
-
-func (i *replicationInstancePtrType) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
-	return i.ToReplicationInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *replicationInstancePtrType) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstancePtrOutput)
 }
 
 // ReplicationInstanceArrayInput is an input type that accepts ReplicationInstanceArray and ReplicationInstanceArrayOutput values.
@@ -462,7 +432,7 @@ func (i ReplicationInstanceMap) ToReplicationInstanceMapOutputWithContext(ctx co
 type ReplicationInstanceOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationInstance)(nil))
+	return reflect.TypeOf((**ReplicationInstance)(nil)).Elem()
 }
 
 func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInstanceOutput {
@@ -473,44 +443,10 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx co
 	return o
 }
 
-func (o ReplicationInstanceOutput) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
-	return o.ToReplicationInstancePtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationInstanceOutput) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationInstance) *ReplicationInstance {
-		return &v
-	}).(ReplicationInstancePtrOutput)
-}
-
-type ReplicationInstancePtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationInstancePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationInstance)(nil))
-}
-
-func (o ReplicationInstancePtrOutput) ToReplicationInstancePtrOutput() ReplicationInstancePtrOutput {
-	return o
-}
-
-func (o ReplicationInstancePtrOutput) ToReplicationInstancePtrOutputWithContext(ctx context.Context) ReplicationInstancePtrOutput {
-	return o
-}
-
-func (o ReplicationInstancePtrOutput) Elem() ReplicationInstanceOutput {
-	return o.ApplyT(func(v *ReplicationInstance) ReplicationInstance {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationInstance
-		return ret
-	}).(ReplicationInstanceOutput)
-}
-
 type ReplicationInstanceArrayOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationInstance)(nil))
+	return reflect.TypeOf((*[]*ReplicationInstance)(nil)).Elem()
 }
 
 func (o ReplicationInstanceArrayOutput) ToReplicationInstanceArrayOutput() ReplicationInstanceArrayOutput {
@@ -522,15 +458,15 @@ func (o ReplicationInstanceArrayOutput) ToReplicationInstanceArrayOutputWithCont
 }
 
 func (o ReplicationInstanceArrayOutput) Index(i pulumi.IntInput) ReplicationInstanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationInstance {
-		return vs[0].([]ReplicationInstance)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationInstance {
+		return vs[0].([]*ReplicationInstance)[vs[1].(int)]
 	}).(ReplicationInstanceOutput)
 }
 
 type ReplicationInstanceMapOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReplicationInstance)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationInstance)(nil)).Elem()
 }
 
 func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutput() ReplicationInstanceMapOutput {
@@ -542,18 +478,16 @@ func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutputWithContext(
 }
 
 func (o ReplicationInstanceMapOutput) MapIndex(k pulumi.StringInput) ReplicationInstanceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicationInstance {
-		return vs[0].(map[string]ReplicationInstance)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReplicationInstance {
+		return vs[0].(map[string]*ReplicationInstance)[vs[1].(string)]
 	}).(ReplicationInstanceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceInput)(nil)).Elem(), &ReplicationInstance{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstancePtrInput)(nil)).Elem(), &ReplicationInstance{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceArrayInput)(nil)).Elem(), ReplicationInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceMapInput)(nil)).Elem(), ReplicationInstanceMap{})
 	pulumi.RegisterOutputType(ReplicationInstanceOutput{})
-	pulumi.RegisterOutputType(ReplicationInstancePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationInstanceArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationInstanceMapOutput{})
 }

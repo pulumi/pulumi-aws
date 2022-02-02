@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleVault = new aws.glacier.Vault("exampleVault", {});
- * const examplePolicyDocument = exampleVault.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["glacier:DeleteArchive"],
  *         effect: "Deny",
- *         resources: [arn],
+ *         resources: [exampleVault.arn],
  *         conditions: [{
  *             test: "NumericLessThanEquals",
  *             variable: "glacier:ArchiveAgeinDays",
  *             values: ["365"],
  *         }],
  *     }],
- * }));
+ * });
  * const exampleVaultLock = new aws.glacier.VaultLock("exampleVaultLock", {
  *     completeLock: false,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
@@ -112,14 +112,14 @@ export class VaultLock extends pulumi.CustomResource {
      */
     constructor(name: string, args: VaultLockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultLockArgs | VaultLockState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultLockState | undefined;
-            inputs["completeLock"] = state ? state.completeLock : undefined;
-            inputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["vaultName"] = state ? state.vaultName : undefined;
+            resourceInputs["completeLock"] = state ? state.completeLock : undefined;
+            resourceInputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as VaultLockArgs | undefined;
             if ((!args || args.completeLock === undefined) && !opts.urn) {
@@ -131,15 +131,13 @@ export class VaultLock extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["completeLock"] = args ? args.completeLock : undefined;
-            inputs["ignoreDeletionError"] = args ? args.ignoreDeletionError : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["completeLock"] = args ? args.completeLock : undefined;
+            resourceInputs["ignoreDeletionError"] = args ? args.ignoreDeletionError : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VaultLock.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VaultLock.__pulumiType, name, resourceInputs, opts);
     }
 }
 

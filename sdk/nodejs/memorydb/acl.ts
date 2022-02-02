@@ -94,31 +94,29 @@ export class Acl extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AclArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AclArgs | AclState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AclState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["minimumEngineVersion"] = state ? state.minimumEngineVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userNames"] = state ? state.userNames : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["minimumEngineVersion"] = state ? state.minimumEngineVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userNames"] = state ? state.userNames : undefined;
         } else {
             const args = argsOrState as AclArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["userNames"] = args ? args.userNames : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["minimumEngineVersion"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["userNames"] = args ? args.userNames : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["minimumEngineVersion"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Acl.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Acl.__pulumiType, name, resourceInputs, opts);
     }
 }
 

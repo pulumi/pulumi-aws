@@ -185,7 +185,7 @@ type MultiRegionAccessPointInput interface {
 }
 
 func (*MultiRegionAccessPoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiRegionAccessPoint)(nil))
+	return reflect.TypeOf((**MultiRegionAccessPoint)(nil)).Elem()
 }
 
 func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutput() MultiRegionAccessPointOutput {
@@ -194,35 +194,6 @@ func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutput() MultiRegionAcc
 
 func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutputWithContext(ctx context.Context) MultiRegionAccessPointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointOutput)
-}
-
-func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointPtrOutput() MultiRegionAccessPointPtrOutput {
-	return i.ToMultiRegionAccessPointPtrOutputWithContext(context.Background())
-}
-
-func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPtrOutput)
-}
-
-type MultiRegionAccessPointPtrInput interface {
-	pulumi.Input
-
-	ToMultiRegionAccessPointPtrOutput() MultiRegionAccessPointPtrOutput
-	ToMultiRegionAccessPointPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPtrOutput
-}
-
-type multiRegionAccessPointPtrType MultiRegionAccessPointArgs
-
-func (*multiRegionAccessPointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultiRegionAccessPoint)(nil))
-}
-
-func (i *multiRegionAccessPointPtrType) ToMultiRegionAccessPointPtrOutput() MultiRegionAccessPointPtrOutput {
-	return i.ToMultiRegionAccessPointPtrOutputWithContext(context.Background())
-}
-
-func (i *multiRegionAccessPointPtrType) ToMultiRegionAccessPointPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPtrOutput)
 }
 
 // MultiRegionAccessPointArrayInput is an input type that accepts MultiRegionAccessPointArray and MultiRegionAccessPointArrayOutput values.
@@ -278,7 +249,7 @@ func (i MultiRegionAccessPointMap) ToMultiRegionAccessPointMapOutputWithContext(
 type MultiRegionAccessPointOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiRegionAccessPoint)(nil))
+	return reflect.TypeOf((**MultiRegionAccessPoint)(nil)).Elem()
 }
 
 func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutput() MultiRegionAccessPointOutput {
@@ -289,44 +260,10 @@ func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutputWithContext(
 	return o
 }
 
-func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointPtrOutput() MultiRegionAccessPointPtrOutput {
-	return o.ToMultiRegionAccessPointPtrOutputWithContext(context.Background())
-}
-
-func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPoint) *MultiRegionAccessPoint {
-		return &v
-	}).(MultiRegionAccessPointPtrOutput)
-}
-
-type MultiRegionAccessPointPtrOutput struct{ *pulumi.OutputState }
-
-func (MultiRegionAccessPointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultiRegionAccessPoint)(nil))
-}
-
-func (o MultiRegionAccessPointPtrOutput) ToMultiRegionAccessPointPtrOutput() MultiRegionAccessPointPtrOutput {
-	return o
-}
-
-func (o MultiRegionAccessPointPtrOutput) ToMultiRegionAccessPointPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPtrOutput {
-	return o
-}
-
-func (o MultiRegionAccessPointPtrOutput) Elem() MultiRegionAccessPointOutput {
-	return o.ApplyT(func(v *MultiRegionAccessPoint) MultiRegionAccessPoint {
-		if v != nil {
-			return *v
-		}
-		var ret MultiRegionAccessPoint
-		return ret
-	}).(MultiRegionAccessPointOutput)
-}
-
 type MultiRegionAccessPointArrayOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MultiRegionAccessPoint)(nil))
+	return reflect.TypeOf((*[]*MultiRegionAccessPoint)(nil)).Elem()
 }
 
 func (o MultiRegionAccessPointArrayOutput) ToMultiRegionAccessPointArrayOutput() MultiRegionAccessPointArrayOutput {
@@ -338,15 +275,15 @@ func (o MultiRegionAccessPointArrayOutput) ToMultiRegionAccessPointArrayOutputWi
 }
 
 func (o MultiRegionAccessPointArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiRegionAccessPoint {
-		return vs[0].([]MultiRegionAccessPoint)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MultiRegionAccessPoint {
+		return vs[0].([]*MultiRegionAccessPoint)[vs[1].(int)]
 	}).(MultiRegionAccessPointOutput)
 }
 
 type MultiRegionAccessPointMapOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MultiRegionAccessPoint)(nil))
+	return reflect.TypeOf((*map[string]*MultiRegionAccessPoint)(nil)).Elem()
 }
 
 func (o MultiRegionAccessPointMapOutput) ToMultiRegionAccessPointMapOutput() MultiRegionAccessPointMapOutput {
@@ -358,18 +295,16 @@ func (o MultiRegionAccessPointMapOutput) ToMultiRegionAccessPointMapOutputWithCo
 }
 
 func (o MultiRegionAccessPointMapOutput) MapIndex(k pulumi.StringInput) MultiRegionAccessPointOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MultiRegionAccessPoint {
-		return vs[0].(map[string]MultiRegionAccessPoint)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MultiRegionAccessPoint {
+		return vs[0].(map[string]*MultiRegionAccessPoint)[vs[1].(string)]
 	}).(MultiRegionAccessPointOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointInput)(nil)).Elem(), &MultiRegionAccessPoint{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPtrInput)(nil)).Elem(), &MultiRegionAccessPoint{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointArrayInput)(nil)).Elem(), MultiRegionAccessPointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointMapInput)(nil)).Elem(), MultiRegionAccessPointMap{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointOutput{})
-	pulumi.RegisterOutputType(MultiRegionAccessPointPtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointArrayOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointMapOutput{})
 }

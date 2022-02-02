@@ -366,7 +366,7 @@ type HaproxyLayerInput interface {
 }
 
 func (*HaproxyLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*HaproxyLayer)(nil))
+	return reflect.TypeOf((**HaproxyLayer)(nil)).Elem()
 }
 
 func (i *HaproxyLayer) ToHaproxyLayerOutput() HaproxyLayerOutput {
@@ -375,35 +375,6 @@ func (i *HaproxyLayer) ToHaproxyLayerOutput() HaproxyLayerOutput {
 
 func (i *HaproxyLayer) ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerOutput)
-}
-
-func (i *HaproxyLayer) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
-	return i.ToHaproxyLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *HaproxyLayer) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerPtrOutput)
-}
-
-type HaproxyLayerPtrInput interface {
-	pulumi.Input
-
-	ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput
-	ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput
-}
-
-type haproxyLayerPtrType HaproxyLayerArgs
-
-func (*haproxyLayerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HaproxyLayer)(nil))
-}
-
-func (i *haproxyLayerPtrType) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
-	return i.ToHaproxyLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *haproxyLayerPtrType) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerPtrOutput)
 }
 
 // HaproxyLayerArrayInput is an input type that accepts HaproxyLayerArray and HaproxyLayerArrayOutput values.
@@ -459,7 +430,7 @@ func (i HaproxyLayerMap) ToHaproxyLayerMapOutputWithContext(ctx context.Context)
 type HaproxyLayerOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HaproxyLayer)(nil))
+	return reflect.TypeOf((**HaproxyLayer)(nil)).Elem()
 }
 
 func (o HaproxyLayerOutput) ToHaproxyLayerOutput() HaproxyLayerOutput {
@@ -470,44 +441,10 @@ func (o HaproxyLayerOutput) ToHaproxyLayerOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o HaproxyLayerOutput) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
-	return o.ToHaproxyLayerPtrOutputWithContext(context.Background())
-}
-
-func (o HaproxyLayerOutput) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayer) *HaproxyLayer {
-		return &v
-	}).(HaproxyLayerPtrOutput)
-}
-
-type HaproxyLayerPtrOutput struct{ *pulumi.OutputState }
-
-func (HaproxyLayerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HaproxyLayer)(nil))
-}
-
-func (o HaproxyLayerPtrOutput) ToHaproxyLayerPtrOutput() HaproxyLayerPtrOutput {
-	return o
-}
-
-func (o HaproxyLayerPtrOutput) ToHaproxyLayerPtrOutputWithContext(ctx context.Context) HaproxyLayerPtrOutput {
-	return o
-}
-
-func (o HaproxyLayerPtrOutput) Elem() HaproxyLayerOutput {
-	return o.ApplyT(func(v *HaproxyLayer) HaproxyLayer {
-		if v != nil {
-			return *v
-		}
-		var ret HaproxyLayer
-		return ret
-	}).(HaproxyLayerOutput)
-}
-
 type HaproxyLayerArrayOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HaproxyLayer)(nil))
+	return reflect.TypeOf((*[]*HaproxyLayer)(nil)).Elem()
 }
 
 func (o HaproxyLayerArrayOutput) ToHaproxyLayerArrayOutput() HaproxyLayerArrayOutput {
@@ -519,15 +456,15 @@ func (o HaproxyLayerArrayOutput) ToHaproxyLayerArrayOutputWithContext(ctx contex
 }
 
 func (o HaproxyLayerArrayOutput) Index(i pulumi.IntInput) HaproxyLayerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HaproxyLayer {
-		return vs[0].([]HaproxyLayer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HaproxyLayer {
+		return vs[0].([]*HaproxyLayer)[vs[1].(int)]
 	}).(HaproxyLayerOutput)
 }
 
 type HaproxyLayerMapOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]HaproxyLayer)(nil))
+	return reflect.TypeOf((*map[string]*HaproxyLayer)(nil)).Elem()
 }
 
 func (o HaproxyLayerMapOutput) ToHaproxyLayerMapOutput() HaproxyLayerMapOutput {
@@ -539,18 +476,16 @@ func (o HaproxyLayerMapOutput) ToHaproxyLayerMapOutputWithContext(ctx context.Co
 }
 
 func (o HaproxyLayerMapOutput) MapIndex(k pulumi.StringInput) HaproxyLayerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HaproxyLayer {
-		return vs[0].(map[string]HaproxyLayer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *HaproxyLayer {
+		return vs[0].(map[string]*HaproxyLayer)[vs[1].(string)]
 	}).(HaproxyLayerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerInput)(nil)).Elem(), &HaproxyLayer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerPtrInput)(nil)).Elem(), &HaproxyLayer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerArrayInput)(nil)).Elem(), HaproxyLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerMapInput)(nil)).Elem(), HaproxyLayerMap{})
 	pulumi.RegisterOutputType(HaproxyLayerOutput{})
-	pulumi.RegisterOutputType(HaproxyLayerPtrOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerArrayOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerMapOutput{})
 }

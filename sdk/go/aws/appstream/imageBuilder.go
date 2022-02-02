@@ -274,7 +274,7 @@ type ImageBuilderInput interface {
 }
 
 func (*ImageBuilder) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageBuilder)(nil))
+	return reflect.TypeOf((**ImageBuilder)(nil)).Elem()
 }
 
 func (i *ImageBuilder) ToImageBuilderOutput() ImageBuilderOutput {
@@ -283,35 +283,6 @@ func (i *ImageBuilder) ToImageBuilderOutput() ImageBuilderOutput {
 
 func (i *ImageBuilder) ToImageBuilderOutputWithContext(ctx context.Context) ImageBuilderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderOutput)
-}
-
-func (i *ImageBuilder) ToImageBuilderPtrOutput() ImageBuilderPtrOutput {
-	return i.ToImageBuilderPtrOutputWithContext(context.Background())
-}
-
-func (i *ImageBuilder) ToImageBuilderPtrOutputWithContext(ctx context.Context) ImageBuilderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderPtrOutput)
-}
-
-type ImageBuilderPtrInput interface {
-	pulumi.Input
-
-	ToImageBuilderPtrOutput() ImageBuilderPtrOutput
-	ToImageBuilderPtrOutputWithContext(ctx context.Context) ImageBuilderPtrOutput
-}
-
-type imageBuilderPtrType ImageBuilderArgs
-
-func (*imageBuilderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageBuilder)(nil))
-}
-
-func (i *imageBuilderPtrType) ToImageBuilderPtrOutput() ImageBuilderPtrOutput {
-	return i.ToImageBuilderPtrOutputWithContext(context.Background())
-}
-
-func (i *imageBuilderPtrType) ToImageBuilderPtrOutputWithContext(ctx context.Context) ImageBuilderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderPtrOutput)
 }
 
 // ImageBuilderArrayInput is an input type that accepts ImageBuilderArray and ImageBuilderArrayOutput values.
@@ -367,7 +338,7 @@ func (i ImageBuilderMap) ToImageBuilderMapOutputWithContext(ctx context.Context)
 type ImageBuilderOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageBuilder)(nil))
+	return reflect.TypeOf((**ImageBuilder)(nil)).Elem()
 }
 
 func (o ImageBuilderOutput) ToImageBuilderOutput() ImageBuilderOutput {
@@ -378,44 +349,10 @@ func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ImageBuilderOutput) ToImageBuilderPtrOutput() ImageBuilderPtrOutput {
-	return o.ToImageBuilderPtrOutputWithContext(context.Background())
-}
-
-func (o ImageBuilderOutput) ToImageBuilderPtrOutputWithContext(ctx context.Context) ImageBuilderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageBuilder) *ImageBuilder {
-		return &v
-	}).(ImageBuilderPtrOutput)
-}
-
-type ImageBuilderPtrOutput struct{ *pulumi.OutputState }
-
-func (ImageBuilderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageBuilder)(nil))
-}
-
-func (o ImageBuilderPtrOutput) ToImageBuilderPtrOutput() ImageBuilderPtrOutput {
-	return o
-}
-
-func (o ImageBuilderPtrOutput) ToImageBuilderPtrOutputWithContext(ctx context.Context) ImageBuilderPtrOutput {
-	return o
-}
-
-func (o ImageBuilderPtrOutput) Elem() ImageBuilderOutput {
-	return o.ApplyT(func(v *ImageBuilder) ImageBuilder {
-		if v != nil {
-			return *v
-		}
-		var ret ImageBuilder
-		return ret
-	}).(ImageBuilderOutput)
-}
-
 type ImageBuilderArrayOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageBuilder)(nil))
+	return reflect.TypeOf((*[]*ImageBuilder)(nil)).Elem()
 }
 
 func (o ImageBuilderArrayOutput) ToImageBuilderArrayOutput() ImageBuilderArrayOutput {
@@ -427,15 +364,15 @@ func (o ImageBuilderArrayOutput) ToImageBuilderArrayOutputWithContext(ctx contex
 }
 
 func (o ImageBuilderArrayOutput) Index(i pulumi.IntInput) ImageBuilderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageBuilder {
-		return vs[0].([]ImageBuilder)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageBuilder {
+		return vs[0].([]*ImageBuilder)[vs[1].(int)]
 	}).(ImageBuilderOutput)
 }
 
 type ImageBuilderMapOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ImageBuilder)(nil))
+	return reflect.TypeOf((*map[string]*ImageBuilder)(nil)).Elem()
 }
 
 func (o ImageBuilderMapOutput) ToImageBuilderMapOutput() ImageBuilderMapOutput {
@@ -447,18 +384,16 @@ func (o ImageBuilderMapOutput) ToImageBuilderMapOutputWithContext(ctx context.Co
 }
 
 func (o ImageBuilderMapOutput) MapIndex(k pulumi.StringInput) ImageBuilderOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ImageBuilder {
-		return vs[0].(map[string]ImageBuilder)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ImageBuilder {
+		return vs[0].(map[string]*ImageBuilder)[vs[1].(string)]
 	}).(ImageBuilderOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderInput)(nil)).Elem(), &ImageBuilder{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderPtrInput)(nil)).Elem(), &ImageBuilder{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderArrayInput)(nil)).Elem(), ImageBuilderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderMapInput)(nil)).Elem(), ImageBuilderMap{})
 	pulumi.RegisterOutputType(ImageBuilderOutput{})
-	pulumi.RegisterOutputType(ImageBuilderPtrOutput{})
 	pulumi.RegisterOutputType(ImageBuilderArrayOutput{})
 	pulumi.RegisterOutputType(ImageBuilderMapOutput{})
 }

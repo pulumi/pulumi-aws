@@ -205,7 +205,7 @@ type FindingAggregatorInput interface {
 }
 
 func (*FindingAggregator) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingAggregator)(nil))
+	return reflect.TypeOf((**FindingAggregator)(nil)).Elem()
 }
 
 func (i *FindingAggregator) ToFindingAggregatorOutput() FindingAggregatorOutput {
@@ -214,35 +214,6 @@ func (i *FindingAggregator) ToFindingAggregatorOutput() FindingAggregatorOutput 
 
 func (i *FindingAggregator) ToFindingAggregatorOutputWithContext(ctx context.Context) FindingAggregatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FindingAggregatorOutput)
-}
-
-func (i *FindingAggregator) ToFindingAggregatorPtrOutput() FindingAggregatorPtrOutput {
-	return i.ToFindingAggregatorPtrOutputWithContext(context.Background())
-}
-
-func (i *FindingAggregator) ToFindingAggregatorPtrOutputWithContext(ctx context.Context) FindingAggregatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingAggregatorPtrOutput)
-}
-
-type FindingAggregatorPtrInput interface {
-	pulumi.Input
-
-	ToFindingAggregatorPtrOutput() FindingAggregatorPtrOutput
-	ToFindingAggregatorPtrOutputWithContext(ctx context.Context) FindingAggregatorPtrOutput
-}
-
-type findingAggregatorPtrType FindingAggregatorArgs
-
-func (*findingAggregatorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingAggregator)(nil))
-}
-
-func (i *findingAggregatorPtrType) ToFindingAggregatorPtrOutput() FindingAggregatorPtrOutput {
-	return i.ToFindingAggregatorPtrOutputWithContext(context.Background())
-}
-
-func (i *findingAggregatorPtrType) ToFindingAggregatorPtrOutputWithContext(ctx context.Context) FindingAggregatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingAggregatorPtrOutput)
 }
 
 // FindingAggregatorArrayInput is an input type that accepts FindingAggregatorArray and FindingAggregatorArrayOutput values.
@@ -298,7 +269,7 @@ func (i FindingAggregatorMap) ToFindingAggregatorMapOutputWithContext(ctx contex
 type FindingAggregatorOutput struct{ *pulumi.OutputState }
 
 func (FindingAggregatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingAggregator)(nil))
+	return reflect.TypeOf((**FindingAggregator)(nil)).Elem()
 }
 
 func (o FindingAggregatorOutput) ToFindingAggregatorOutput() FindingAggregatorOutput {
@@ -309,44 +280,10 @@ func (o FindingAggregatorOutput) ToFindingAggregatorOutputWithContext(ctx contex
 	return o
 }
 
-func (o FindingAggregatorOutput) ToFindingAggregatorPtrOutput() FindingAggregatorPtrOutput {
-	return o.ToFindingAggregatorPtrOutputWithContext(context.Background())
-}
-
-func (o FindingAggregatorOutput) ToFindingAggregatorPtrOutputWithContext(ctx context.Context) FindingAggregatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingAggregator) *FindingAggregator {
-		return &v
-	}).(FindingAggregatorPtrOutput)
-}
-
-type FindingAggregatorPtrOutput struct{ *pulumi.OutputState }
-
-func (FindingAggregatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingAggregator)(nil))
-}
-
-func (o FindingAggregatorPtrOutput) ToFindingAggregatorPtrOutput() FindingAggregatorPtrOutput {
-	return o
-}
-
-func (o FindingAggregatorPtrOutput) ToFindingAggregatorPtrOutputWithContext(ctx context.Context) FindingAggregatorPtrOutput {
-	return o
-}
-
-func (o FindingAggregatorPtrOutput) Elem() FindingAggregatorOutput {
-	return o.ApplyT(func(v *FindingAggregator) FindingAggregator {
-		if v != nil {
-			return *v
-		}
-		var ret FindingAggregator
-		return ret
-	}).(FindingAggregatorOutput)
-}
-
 type FindingAggregatorArrayOutput struct{ *pulumi.OutputState }
 
 func (FindingAggregatorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FindingAggregator)(nil))
+	return reflect.TypeOf((*[]*FindingAggregator)(nil)).Elem()
 }
 
 func (o FindingAggregatorArrayOutput) ToFindingAggregatorArrayOutput() FindingAggregatorArrayOutput {
@@ -358,15 +295,15 @@ func (o FindingAggregatorArrayOutput) ToFindingAggregatorArrayOutputWithContext(
 }
 
 func (o FindingAggregatorArrayOutput) Index(i pulumi.IntInput) FindingAggregatorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FindingAggregator {
-		return vs[0].([]FindingAggregator)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FindingAggregator {
+		return vs[0].([]*FindingAggregator)[vs[1].(int)]
 	}).(FindingAggregatorOutput)
 }
 
 type FindingAggregatorMapOutput struct{ *pulumi.OutputState }
 
 func (FindingAggregatorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FindingAggregator)(nil))
+	return reflect.TypeOf((*map[string]*FindingAggregator)(nil)).Elem()
 }
 
 func (o FindingAggregatorMapOutput) ToFindingAggregatorMapOutput() FindingAggregatorMapOutput {
@@ -378,18 +315,16 @@ func (o FindingAggregatorMapOutput) ToFindingAggregatorMapOutputWithContext(ctx 
 }
 
 func (o FindingAggregatorMapOutput) MapIndex(k pulumi.StringInput) FindingAggregatorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FindingAggregator {
-		return vs[0].(map[string]FindingAggregator)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FindingAggregator {
+		return vs[0].(map[string]*FindingAggregator)[vs[1].(string)]
 	}).(FindingAggregatorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorInput)(nil)).Elem(), &FindingAggregator{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorPtrInput)(nil)).Elem(), &FindingAggregator{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorArrayInput)(nil)).Elem(), FindingAggregatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorMapInput)(nil)).Elem(), FindingAggregatorMap{})
 	pulumi.RegisterOutputType(FindingAggregatorOutput{})
-	pulumi.RegisterOutputType(FindingAggregatorPtrOutput{})
 	pulumi.RegisterOutputType(FindingAggregatorArrayOutput{})
 	pulumi.RegisterOutputType(FindingAggregatorMapOutput{})
 }

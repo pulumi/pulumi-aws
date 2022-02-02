@@ -213,7 +213,7 @@ type VirtualRouterInput interface {
 }
 
 func (*VirtualRouter) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouter)(nil))
+	return reflect.TypeOf((**VirtualRouter)(nil)).Elem()
 }
 
 func (i *VirtualRouter) ToVirtualRouterOutput() VirtualRouterOutput {
@@ -222,35 +222,6 @@ func (i *VirtualRouter) ToVirtualRouterOutput() VirtualRouterOutput {
 
 func (i *VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
-}
-
-func (i *VirtualRouter) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
-	return i.ToVirtualRouterPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualRouter) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPtrOutput)
-}
-
-type VirtualRouterPtrInput interface {
-	pulumi.Input
-
-	ToVirtualRouterPtrOutput() VirtualRouterPtrOutput
-	ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput
-}
-
-type virtualRouterPtrType VirtualRouterArgs
-
-func (*virtualRouterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouter)(nil))
-}
-
-func (i *virtualRouterPtrType) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
-	return i.ToVirtualRouterPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualRouterPtrType) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPtrOutput)
 }
 
 // VirtualRouterArrayInput is an input type that accepts VirtualRouterArray and VirtualRouterArrayOutput values.
@@ -306,7 +277,7 @@ func (i VirtualRouterMap) ToVirtualRouterMapOutputWithContext(ctx context.Contex
 type VirtualRouterOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouter)(nil))
+	return reflect.TypeOf((**VirtualRouter)(nil)).Elem()
 }
 
 func (o VirtualRouterOutput) ToVirtualRouterOutput() VirtualRouterOutput {
@@ -317,44 +288,10 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o VirtualRouterOutput) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
-	return o.ToVirtualRouterPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualRouterOutput) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouter) *VirtualRouter {
-		return &v
-	}).(VirtualRouterPtrOutput)
-}
-
-type VirtualRouterPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualRouterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouter)(nil))
-}
-
-func (o VirtualRouterPtrOutput) ToVirtualRouterPtrOutput() VirtualRouterPtrOutput {
-	return o
-}
-
-func (o VirtualRouterPtrOutput) ToVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualRouterPtrOutput {
-	return o
-}
-
-func (o VirtualRouterPtrOutput) Elem() VirtualRouterOutput {
-	return o.ApplyT(func(v *VirtualRouter) VirtualRouter {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualRouter
-		return ret
-	}).(VirtualRouterOutput)
-}
-
 type VirtualRouterArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualRouter)(nil))
+	return reflect.TypeOf((*[]*VirtualRouter)(nil)).Elem()
 }
 
 func (o VirtualRouterArrayOutput) ToVirtualRouterArrayOutput() VirtualRouterArrayOutput {
@@ -366,15 +303,15 @@ func (o VirtualRouterArrayOutput) ToVirtualRouterArrayOutputWithContext(ctx cont
 }
 
 func (o VirtualRouterArrayOutput) Index(i pulumi.IntInput) VirtualRouterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRouter {
-		return vs[0].([]VirtualRouter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualRouter {
+		return vs[0].([]*VirtualRouter)[vs[1].(int)]
 	}).(VirtualRouterOutput)
 }
 
 type VirtualRouterMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualRouter)(nil))
+	return reflect.TypeOf((*map[string]*VirtualRouter)(nil)).Elem()
 }
 
 func (o VirtualRouterMapOutput) ToVirtualRouterMapOutput() VirtualRouterMapOutput {
@@ -386,18 +323,16 @@ func (o VirtualRouterMapOutput) ToVirtualRouterMapOutputWithContext(ctx context.
 }
 
 func (o VirtualRouterMapOutput) MapIndex(k pulumi.StringInput) VirtualRouterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualRouter {
-		return vs[0].(map[string]VirtualRouter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualRouter {
+		return vs[0].(map[string]*VirtualRouter)[vs[1].(string)]
 	}).(VirtualRouterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterInput)(nil)).Elem(), &VirtualRouter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterPtrInput)(nil)).Elem(), &VirtualRouter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterArrayInput)(nil)).Elem(), VirtualRouterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterMapInput)(nil)).Elem(), VirtualRouterMap{})
 	pulumi.RegisterOutputType(VirtualRouterOutput{})
-	pulumi.RegisterOutputType(VirtualRouterPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRouterArrayOutput{})
 	pulumi.RegisterOutputType(VirtualRouterMapOutput{})
 }

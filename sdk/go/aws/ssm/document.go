@@ -351,7 +351,7 @@ type DocumentInput interface {
 }
 
 func (*Document) ElementType() reflect.Type {
-	return reflect.TypeOf((*Document)(nil))
+	return reflect.TypeOf((**Document)(nil)).Elem()
 }
 
 func (i *Document) ToDocumentOutput() DocumentOutput {
@@ -360,35 +360,6 @@ func (i *Document) ToDocumentOutput() DocumentOutput {
 
 func (i *Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentOutput)
-}
-
-func (i *Document) ToDocumentPtrOutput() DocumentPtrOutput {
-	return i.ToDocumentPtrOutputWithContext(context.Background())
-}
-
-func (i *Document) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentPtrOutput)
-}
-
-type DocumentPtrInput interface {
-	pulumi.Input
-
-	ToDocumentPtrOutput() DocumentPtrOutput
-	ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput
-}
-
-type documentPtrType DocumentArgs
-
-func (*documentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Document)(nil))
-}
-
-func (i *documentPtrType) ToDocumentPtrOutput() DocumentPtrOutput {
-	return i.ToDocumentPtrOutputWithContext(context.Background())
-}
-
-func (i *documentPtrType) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentPtrOutput)
 }
 
 // DocumentArrayInput is an input type that accepts DocumentArray and DocumentArrayOutput values.
@@ -444,7 +415,7 @@ func (i DocumentMap) ToDocumentMapOutputWithContext(ctx context.Context) Documen
 type DocumentOutput struct{ *pulumi.OutputState }
 
 func (DocumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Document)(nil))
+	return reflect.TypeOf((**Document)(nil)).Elem()
 }
 
 func (o DocumentOutput) ToDocumentOutput() DocumentOutput {
@@ -455,44 +426,10 @@ func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) Documen
 	return o
 }
 
-func (o DocumentOutput) ToDocumentPtrOutput() DocumentPtrOutput {
-	return o.ToDocumentPtrOutputWithContext(context.Background())
-}
-
-func (o DocumentOutput) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Document) *Document {
-		return &v
-	}).(DocumentPtrOutput)
-}
-
-type DocumentPtrOutput struct{ *pulumi.OutputState }
-
-func (DocumentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Document)(nil))
-}
-
-func (o DocumentPtrOutput) ToDocumentPtrOutput() DocumentPtrOutput {
-	return o
-}
-
-func (o DocumentPtrOutput) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
-	return o
-}
-
-func (o DocumentPtrOutput) Elem() DocumentOutput {
-	return o.ApplyT(func(v *Document) Document {
-		if v != nil {
-			return *v
-		}
-		var ret Document
-		return ret
-	}).(DocumentOutput)
-}
-
 type DocumentArrayOutput struct{ *pulumi.OutputState }
 
 func (DocumentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Document)(nil))
+	return reflect.TypeOf((*[]*Document)(nil)).Elem()
 }
 
 func (o DocumentArrayOutput) ToDocumentArrayOutput() DocumentArrayOutput {
@@ -504,15 +441,15 @@ func (o DocumentArrayOutput) ToDocumentArrayOutputWithContext(ctx context.Contex
 }
 
 func (o DocumentArrayOutput) Index(i pulumi.IntInput) DocumentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Document {
-		return vs[0].([]Document)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Document {
+		return vs[0].([]*Document)[vs[1].(int)]
 	}).(DocumentOutput)
 }
 
 type DocumentMapOutput struct{ *pulumi.OutputState }
 
 func (DocumentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Document)(nil))
+	return reflect.TypeOf((*map[string]*Document)(nil)).Elem()
 }
 
 func (o DocumentMapOutput) ToDocumentMapOutput() DocumentMapOutput {
@@ -524,18 +461,16 @@ func (o DocumentMapOutput) ToDocumentMapOutputWithContext(ctx context.Context) D
 }
 
 func (o DocumentMapOutput) MapIndex(k pulumi.StringInput) DocumentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Document {
-		return vs[0].(map[string]Document)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Document {
+		return vs[0].(map[string]*Document)[vs[1].(string)]
 	}).(DocumentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentInput)(nil)).Elem(), &Document{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentPtrInput)(nil)).Elem(), &Document{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentArrayInput)(nil)).Elem(), DocumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentMapInput)(nil)).Elem(), DocumentMap{})
 	pulumi.RegisterOutputType(DocumentOutput{})
-	pulumi.RegisterOutputType(DocumentPtrOutput{})
 	pulumi.RegisterOutputType(DocumentArrayOutput{})
 	pulumi.RegisterOutputType(DocumentMapOutput{})
 }

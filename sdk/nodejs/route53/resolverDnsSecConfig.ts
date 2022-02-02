@@ -83,28 +83,26 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResolverDnsSecConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverDnsSecConfigArgs | ResolverDnsSecConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverDnsSecConfigState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["validationStatus"] = state ? state.validationStatus : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["validationStatus"] = state ? state.validationStatus : undefined;
         } else {
             const args = argsOrState as ResolverDnsSecConfigArgs | undefined;
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["validationStatus"] = undefined /*out*/;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["validationStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverDnsSecConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverDnsSecConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

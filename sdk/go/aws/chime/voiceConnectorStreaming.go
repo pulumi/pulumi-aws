@@ -163,7 +163,7 @@ type VoiceConnectorStreamingInput interface {
 }
 
 func (*VoiceConnectorStreaming) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorStreaming)(nil))
+	return reflect.TypeOf((**VoiceConnectorStreaming)(nil)).Elem()
 }
 
 func (i *VoiceConnectorStreaming) ToVoiceConnectorStreamingOutput() VoiceConnectorStreamingOutput {
@@ -172,35 +172,6 @@ func (i *VoiceConnectorStreaming) ToVoiceConnectorStreamingOutput() VoiceConnect
 
 func (i *VoiceConnectorStreaming) ToVoiceConnectorStreamingOutputWithContext(ctx context.Context) VoiceConnectorStreamingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingOutput)
-}
-
-func (i *VoiceConnectorStreaming) ToVoiceConnectorStreamingPtrOutput() VoiceConnectorStreamingPtrOutput {
-	return i.ToVoiceConnectorStreamingPtrOutputWithContext(context.Background())
-}
-
-func (i *VoiceConnectorStreaming) ToVoiceConnectorStreamingPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingPtrOutput)
-}
-
-type VoiceConnectorStreamingPtrInput interface {
-	pulumi.Input
-
-	ToVoiceConnectorStreamingPtrOutput() VoiceConnectorStreamingPtrOutput
-	ToVoiceConnectorStreamingPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingPtrOutput
-}
-
-type voiceConnectorStreamingPtrType VoiceConnectorStreamingArgs
-
-func (*voiceConnectorStreamingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorStreaming)(nil))
-}
-
-func (i *voiceConnectorStreamingPtrType) ToVoiceConnectorStreamingPtrOutput() VoiceConnectorStreamingPtrOutput {
-	return i.ToVoiceConnectorStreamingPtrOutputWithContext(context.Background())
-}
-
-func (i *voiceConnectorStreamingPtrType) ToVoiceConnectorStreamingPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingPtrOutput)
 }
 
 // VoiceConnectorStreamingArrayInput is an input type that accepts VoiceConnectorStreamingArray and VoiceConnectorStreamingArrayOutput values.
@@ -256,7 +227,7 @@ func (i VoiceConnectorStreamingMap) ToVoiceConnectorStreamingMapOutputWithContex
 type VoiceConnectorStreamingOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorStreamingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorStreaming)(nil))
+	return reflect.TypeOf((**VoiceConnectorStreaming)(nil)).Elem()
 }
 
 func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingOutput() VoiceConnectorStreamingOutput {
@@ -267,44 +238,10 @@ func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingOutputWithContex
 	return o
 }
 
-func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingPtrOutput() VoiceConnectorStreamingPtrOutput {
-	return o.ToVoiceConnectorStreamingPtrOutputWithContext(context.Background())
-}
-
-func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VoiceConnectorStreaming) *VoiceConnectorStreaming {
-		return &v
-	}).(VoiceConnectorStreamingPtrOutput)
-}
-
-type VoiceConnectorStreamingPtrOutput struct{ *pulumi.OutputState }
-
-func (VoiceConnectorStreamingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorStreaming)(nil))
-}
-
-func (o VoiceConnectorStreamingPtrOutput) ToVoiceConnectorStreamingPtrOutput() VoiceConnectorStreamingPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorStreamingPtrOutput) ToVoiceConnectorStreamingPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorStreamingPtrOutput) Elem() VoiceConnectorStreamingOutput {
-	return o.ApplyT(func(v *VoiceConnectorStreaming) VoiceConnectorStreaming {
-		if v != nil {
-			return *v
-		}
-		var ret VoiceConnectorStreaming
-		return ret
-	}).(VoiceConnectorStreamingOutput)
-}
-
 type VoiceConnectorStreamingArrayOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorStreamingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceConnectorStreaming)(nil))
+	return reflect.TypeOf((*[]*VoiceConnectorStreaming)(nil)).Elem()
 }
 
 func (o VoiceConnectorStreamingArrayOutput) ToVoiceConnectorStreamingArrayOutput() VoiceConnectorStreamingArrayOutput {
@@ -316,15 +253,15 @@ func (o VoiceConnectorStreamingArrayOutput) ToVoiceConnectorStreamingArrayOutput
 }
 
 func (o VoiceConnectorStreamingArrayOutput) Index(i pulumi.IntInput) VoiceConnectorStreamingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorStreaming {
-		return vs[0].([]VoiceConnectorStreaming)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorStreaming {
+		return vs[0].([]*VoiceConnectorStreaming)[vs[1].(int)]
 	}).(VoiceConnectorStreamingOutput)
 }
 
 type VoiceConnectorStreamingMapOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorStreamingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VoiceConnectorStreaming)(nil))
+	return reflect.TypeOf((*map[string]*VoiceConnectorStreaming)(nil)).Elem()
 }
 
 func (o VoiceConnectorStreamingMapOutput) ToVoiceConnectorStreamingMapOutput() VoiceConnectorStreamingMapOutput {
@@ -336,18 +273,16 @@ func (o VoiceConnectorStreamingMapOutput) ToVoiceConnectorStreamingMapOutputWith
 }
 
 func (o VoiceConnectorStreamingMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorStreamingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VoiceConnectorStreaming {
-		return vs[0].(map[string]VoiceConnectorStreaming)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VoiceConnectorStreaming {
+		return vs[0].(map[string]*VoiceConnectorStreaming)[vs[1].(string)]
 	}).(VoiceConnectorStreamingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingInput)(nil)).Elem(), &VoiceConnectorStreaming{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingPtrInput)(nil)).Elem(), &VoiceConnectorStreaming{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingArrayInput)(nil)).Elem(), VoiceConnectorStreamingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMapInput)(nil)).Elem(), VoiceConnectorStreamingMap{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingOutput{})
-	pulumi.RegisterOutputType(VoiceConnectorStreamingPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingMapOutput{})
 }

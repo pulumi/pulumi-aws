@@ -111,28 +111,26 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: AnalyticsConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsConfigurationArgs | AnalyticsConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsConfigurationState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageClassAnalysis"] = state ? state.storageClassAnalysis : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageClassAnalysis"] = state ? state.storageClassAnalysis : undefined;
         } else {
             const args = argsOrState as AnalyticsConfigurationArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageClassAnalysis"] = args ? args.storageClassAnalysis : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageClassAnalysis"] = args ? args.storageClassAnalysis : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AnalyticsConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AnalyticsConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

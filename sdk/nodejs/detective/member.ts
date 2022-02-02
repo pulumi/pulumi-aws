@@ -110,21 +110,21 @@ export class Member extends pulumi.CustomResource {
      */
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MemberArgs | MemberState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["administratorId"] = state ? state.administratorId : undefined;
-            inputs["disableEmailNotification"] = state ? state.disableEmailNotification : undefined;
-            inputs["disabledReason"] = state ? state.disabledReason : undefined;
-            inputs["emailAddress"] = state ? state.emailAddress : undefined;
-            inputs["graphArn"] = state ? state.graphArn : undefined;
-            inputs["invitedTime"] = state ? state.invitedTime : undefined;
-            inputs["message"] = state ? state.message : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["updatedTime"] = state ? state.updatedTime : undefined;
-            inputs["volumeUsageInBytes"] = state ? state.volumeUsageInBytes : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["administratorId"] = state ? state.administratorId : undefined;
+            resourceInputs["disableEmailNotification"] = state ? state.disableEmailNotification : undefined;
+            resourceInputs["disabledReason"] = state ? state.disabledReason : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["graphArn"] = state ? state.graphArn : undefined;
+            resourceInputs["invitedTime"] = state ? state.invitedTime : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
+            resourceInputs["volumeUsageInBytes"] = state ? state.volumeUsageInBytes : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -136,22 +136,20 @@ export class Member extends pulumi.CustomResource {
             if ((!args || args.graphArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'graphArn'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            inputs["emailAddress"] = args ? args.emailAddress : undefined;
-            inputs["graphArn"] = args ? args.graphArn : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["administratorId"] = undefined /*out*/;
-            inputs["disabledReason"] = undefined /*out*/;
-            inputs["invitedTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["updatedTime"] = undefined /*out*/;
-            inputs["volumeUsageInBytes"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["graphArn"] = args ? args.graphArn : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["administratorId"] = undefined /*out*/;
+            resourceInputs["disabledReason"] = undefined /*out*/;
+            resourceInputs["invitedTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
+            resourceInputs["volumeUsageInBytes"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Member.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }
 

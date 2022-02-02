@@ -133,7 +133,7 @@ type RegexPatternSetInput interface {
 }
 
 func (*RegexPatternSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSet)(nil))
+	return reflect.TypeOf((**RegexPatternSet)(nil)).Elem()
 }
 
 func (i *RegexPatternSet) ToRegexPatternSetOutput() RegexPatternSetOutput {
@@ -142,35 +142,6 @@ func (i *RegexPatternSet) ToRegexPatternSetOutput() RegexPatternSetOutput {
 
 func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
-}
-
-func (i *RegexPatternSet) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
-	return i.ToRegexPatternSetPtrOutputWithContext(context.Background())
-}
-
-func (i *RegexPatternSet) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetPtrOutput)
-}
-
-type RegexPatternSetPtrInput interface {
-	pulumi.Input
-
-	ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput
-	ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput
-}
-
-type regexPatternSetPtrType RegexPatternSetArgs
-
-func (*regexPatternSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegexPatternSet)(nil))
-}
-
-func (i *regexPatternSetPtrType) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
-	return i.ToRegexPatternSetPtrOutputWithContext(context.Background())
-}
-
-func (i *regexPatternSetPtrType) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetPtrOutput)
 }
 
 // RegexPatternSetArrayInput is an input type that accepts RegexPatternSetArray and RegexPatternSetArrayOutput values.
@@ -226,7 +197,7 @@ func (i RegexPatternSetMap) ToRegexPatternSetMapOutputWithContext(ctx context.Co
 type RegexPatternSetOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSet)(nil))
+	return reflect.TypeOf((**RegexPatternSet)(nil)).Elem()
 }
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
@@ -237,44 +208,10 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o RegexPatternSetOutput) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
-	return o.ToRegexPatternSetPtrOutputWithContext(context.Background())
-}
-
-func (o RegexPatternSetOutput) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegexPatternSet) *RegexPatternSet {
-		return &v
-	}).(RegexPatternSetPtrOutput)
-}
-
-type RegexPatternSetPtrOutput struct{ *pulumi.OutputState }
-
-func (RegexPatternSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegexPatternSet)(nil))
-}
-
-func (o RegexPatternSetPtrOutput) ToRegexPatternSetPtrOutput() RegexPatternSetPtrOutput {
-	return o
-}
-
-func (o RegexPatternSetPtrOutput) ToRegexPatternSetPtrOutputWithContext(ctx context.Context) RegexPatternSetPtrOutput {
-	return o
-}
-
-func (o RegexPatternSetPtrOutput) Elem() RegexPatternSetOutput {
-	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSet {
-		if v != nil {
-			return *v
-		}
-		var ret RegexPatternSet
-		return ret
-	}).(RegexPatternSetOutput)
-}
-
 type RegexPatternSetArrayOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegexPatternSet)(nil))
+	return reflect.TypeOf((*[]*RegexPatternSet)(nil)).Elem()
 }
 
 func (o RegexPatternSetArrayOutput) ToRegexPatternSetArrayOutput() RegexPatternSetArrayOutput {
@@ -286,15 +223,15 @@ func (o RegexPatternSetArrayOutput) ToRegexPatternSetArrayOutputWithContext(ctx 
 }
 
 func (o RegexPatternSetArrayOutput) Index(i pulumi.IntInput) RegexPatternSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegexPatternSet {
-		return vs[0].([]RegexPatternSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegexPatternSet {
+		return vs[0].([]*RegexPatternSet)[vs[1].(int)]
 	}).(RegexPatternSetOutput)
 }
 
 type RegexPatternSetMapOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RegexPatternSet)(nil))
+	return reflect.TypeOf((*map[string]*RegexPatternSet)(nil)).Elem()
 }
 
 func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutput() RegexPatternSetMapOutput {
@@ -306,18 +243,16 @@ func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutputWithContext(ctx cont
 }
 
 func (o RegexPatternSetMapOutput) MapIndex(k pulumi.StringInput) RegexPatternSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegexPatternSet {
-		return vs[0].(map[string]RegexPatternSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RegexPatternSet {
+		return vs[0].(map[string]*RegexPatternSet)[vs[1].(string)]
 	}).(RegexPatternSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetInput)(nil)).Elem(), &RegexPatternSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetPtrInput)(nil)).Elem(), &RegexPatternSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetArrayInput)(nil)).Elem(), RegexPatternSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetMapInput)(nil)).Elem(), RegexPatternSetMap{})
 	pulumi.RegisterOutputType(RegexPatternSetOutput{})
-	pulumi.RegisterOutputType(RegexPatternSetPtrOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetArrayOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetMapOutput{})
 }

@@ -101,15 +101,15 @@ export class DomainPermissions extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainPermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainPermissionsArgs | DomainPermissionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainPermissionsState | undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["domainOwner"] = state ? state.domainOwner : undefined;
-            inputs["policyDocument"] = state ? state.policyDocument : undefined;
-            inputs["policyRevision"] = state ? state.policyRevision : undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["policyRevision"] = state ? state.policyRevision : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as DomainPermissionsArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
@@ -118,16 +118,14 @@ export class DomainPermissions extends pulumi.CustomResource {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["domainOwner"] = args ? args.domainOwner : undefined;
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
-            inputs["policyRevision"] = args ? args.policyRevision : undefined;
-            inputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["policyRevision"] = args ? args.policyRevision : undefined;
+            resourceInputs["resourceArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainPermissions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainPermissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

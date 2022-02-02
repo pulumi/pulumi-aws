@@ -52,7 +52,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch_log_publishing_policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch-log-publishing-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
 // 			PolicyDocument: pulumi.String(elasticsearch_log_publishing_policyPolicyDocument.Json),
 // 			PolicyName:     pulumi.String("elasticsearch-log-publishing-policy"),
 // 		})
@@ -100,7 +100,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53_query_logging_policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
 // 			PolicyDocument: pulumi.String(route53_query_logging_policyPolicyDocument.Json),
 // 			PolicyName:     pulumi.String("route53-query-logging-policy"),
 // 		})
@@ -207,7 +207,7 @@ type LogResourcePolicyInput interface {
 }
 
 func (*LogResourcePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogResourcePolicy)(nil))
+	return reflect.TypeOf((**LogResourcePolicy)(nil)).Elem()
 }
 
 func (i *LogResourcePolicy) ToLogResourcePolicyOutput() LogResourcePolicyOutput {
@@ -216,35 +216,6 @@ func (i *LogResourcePolicy) ToLogResourcePolicyOutput() LogResourcePolicyOutput 
 
 func (i *LogResourcePolicy) ToLogResourcePolicyOutputWithContext(ctx context.Context) LogResourcePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyOutput)
-}
-
-func (i *LogResourcePolicy) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
-	return i.ToLogResourcePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *LogResourcePolicy) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyPtrOutput)
-}
-
-type LogResourcePolicyPtrInput interface {
-	pulumi.Input
-
-	ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput
-	ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput
-}
-
-type logResourcePolicyPtrType LogResourcePolicyArgs
-
-func (*logResourcePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogResourcePolicy)(nil))
-}
-
-func (i *logResourcePolicyPtrType) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
-	return i.ToLogResourcePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *logResourcePolicyPtrType) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyPtrOutput)
 }
 
 // LogResourcePolicyArrayInput is an input type that accepts LogResourcePolicyArray and LogResourcePolicyArrayOutput values.
@@ -300,7 +271,7 @@ func (i LogResourcePolicyMap) ToLogResourcePolicyMapOutputWithContext(ctx contex
 type LogResourcePolicyOutput struct{ *pulumi.OutputState }
 
 func (LogResourcePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogResourcePolicy)(nil))
+	return reflect.TypeOf((**LogResourcePolicy)(nil)).Elem()
 }
 
 func (o LogResourcePolicyOutput) ToLogResourcePolicyOutput() LogResourcePolicyOutput {
@@ -311,44 +282,10 @@ func (o LogResourcePolicyOutput) ToLogResourcePolicyOutputWithContext(ctx contex
 	return o
 }
 
-func (o LogResourcePolicyOutput) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
-	return o.ToLogResourcePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o LogResourcePolicyOutput) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogResourcePolicy) *LogResourcePolicy {
-		return &v
-	}).(LogResourcePolicyPtrOutput)
-}
-
-type LogResourcePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (LogResourcePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogResourcePolicy)(nil))
-}
-
-func (o LogResourcePolicyPtrOutput) ToLogResourcePolicyPtrOutput() LogResourcePolicyPtrOutput {
-	return o
-}
-
-func (o LogResourcePolicyPtrOutput) ToLogResourcePolicyPtrOutputWithContext(ctx context.Context) LogResourcePolicyPtrOutput {
-	return o
-}
-
-func (o LogResourcePolicyPtrOutput) Elem() LogResourcePolicyOutput {
-	return o.ApplyT(func(v *LogResourcePolicy) LogResourcePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret LogResourcePolicy
-		return ret
-	}).(LogResourcePolicyOutput)
-}
-
 type LogResourcePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (LogResourcePolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogResourcePolicy)(nil))
+	return reflect.TypeOf((*[]*LogResourcePolicy)(nil)).Elem()
 }
 
 func (o LogResourcePolicyArrayOutput) ToLogResourcePolicyArrayOutput() LogResourcePolicyArrayOutput {
@@ -360,15 +297,15 @@ func (o LogResourcePolicyArrayOutput) ToLogResourcePolicyArrayOutputWithContext(
 }
 
 func (o LogResourcePolicyArrayOutput) Index(i pulumi.IntInput) LogResourcePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogResourcePolicy {
-		return vs[0].([]LogResourcePolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogResourcePolicy {
+		return vs[0].([]*LogResourcePolicy)[vs[1].(int)]
 	}).(LogResourcePolicyOutput)
 }
 
 type LogResourcePolicyMapOutput struct{ *pulumi.OutputState }
 
 func (LogResourcePolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogResourcePolicy)(nil))
+	return reflect.TypeOf((*map[string]*LogResourcePolicy)(nil)).Elem()
 }
 
 func (o LogResourcePolicyMapOutput) ToLogResourcePolicyMapOutput() LogResourcePolicyMapOutput {
@@ -380,18 +317,16 @@ func (o LogResourcePolicyMapOutput) ToLogResourcePolicyMapOutputWithContext(ctx 
 }
 
 func (o LogResourcePolicyMapOutput) MapIndex(k pulumi.StringInput) LogResourcePolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogResourcePolicy {
-		return vs[0].(map[string]LogResourcePolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogResourcePolicy {
+		return vs[0].(map[string]*LogResourcePolicy)[vs[1].(string)]
 	}).(LogResourcePolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyInput)(nil)).Elem(), &LogResourcePolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyPtrInput)(nil)).Elem(), &LogResourcePolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyArrayInput)(nil)).Elem(), LogResourcePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyMapInput)(nil)).Elem(), LogResourcePolicyMap{})
 	pulumi.RegisterOutputType(LogResourcePolicyOutput{})
-	pulumi.RegisterOutputType(LogResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(LogResourcePolicyArrayOutput{})
 	pulumi.RegisterOutputType(LogResourcePolicyMapOutput{})
 }

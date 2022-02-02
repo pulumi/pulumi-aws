@@ -114,35 +114,33 @@ export class Mesh extends pulumi.CustomResource {
      */
     constructor(name: string, args?: MeshArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MeshArgs | MeshState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MeshState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["meshOwner"] = state ? state.meshOwner : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceOwner"] = state ? state.resourceOwner : undefined;
-            inputs["spec"] = state ? state.spec : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["meshOwner"] = state ? state.meshOwner : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
+            resourceInputs["spec"] = state ? state.spec : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MeshArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["spec"] = args ? args.spec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["meshOwner"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["meshOwner"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Mesh.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Mesh.__pulumiType, name, resourceInputs, opts);
     }
 }
 

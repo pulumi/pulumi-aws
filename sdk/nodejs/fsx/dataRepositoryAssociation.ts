@@ -134,21 +134,21 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataRepositoryAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataRepositoryAssociationArgs | DataRepositoryAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataRepositoryAssociationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["associationId"] = state ? state.associationId : undefined;
-            inputs["batchImportMetaDataOnCreate"] = state ? state.batchImportMetaDataOnCreate : undefined;
-            inputs["dataRepositoryPath"] = state ? state.dataRepositoryPath : undefined;
-            inputs["deleteDataInFilesystem"] = state ? state.deleteDataInFilesystem : undefined;
-            inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            inputs["fileSystemPath"] = state ? state.fileSystemPath : undefined;
-            inputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
-            inputs["s3"] = state ? state.s3 : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["batchImportMetaDataOnCreate"] = state ? state.batchImportMetaDataOnCreate : undefined;
+            resourceInputs["dataRepositoryPath"] = state ? state.dataRepositoryPath : undefined;
+            resourceInputs["deleteDataInFilesystem"] = state ? state.deleteDataInFilesystem : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["fileSystemPath"] = state ? state.fileSystemPath : undefined;
+            resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
+            resourceInputs["s3"] = state ? state.s3 : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DataRepositoryAssociationArgs | undefined;
             if ((!args || args.dataRepositoryPath === undefined) && !opts.urn) {
@@ -160,22 +160,20 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             if ((!args || args.fileSystemPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemPath'");
             }
-            inputs["batchImportMetaDataOnCreate"] = args ? args.batchImportMetaDataOnCreate : undefined;
-            inputs["dataRepositoryPath"] = args ? args.dataRepositoryPath : undefined;
-            inputs["deleteDataInFilesystem"] = args ? args.deleteDataInFilesystem : undefined;
-            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            inputs["fileSystemPath"] = args ? args.fileSystemPath : undefined;
-            inputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
-            inputs["s3"] = args ? args.s3 : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["associationId"] = undefined /*out*/;
+            resourceInputs["batchImportMetaDataOnCreate"] = args ? args.batchImportMetaDataOnCreate : undefined;
+            resourceInputs["dataRepositoryPath"] = args ? args.dataRepositoryPath : undefined;
+            resourceInputs["deleteDataInFilesystem"] = args ? args.deleteDataInFilesystem : undefined;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["fileSystemPath"] = args ? args.fileSystemPath : undefined;
+            resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
+            resourceInputs["s3"] = args ? args.s3 : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associationId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataRepositoryAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataRepositoryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

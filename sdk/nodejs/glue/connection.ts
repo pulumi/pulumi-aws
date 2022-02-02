@@ -131,37 +131,35 @@ export class Connection extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["connectionProperties"] = state ? state.connectionProperties : undefined;
-            inputs["connectionType"] = state ? state.connectionType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["matchCriterias"] = state ? state.matchCriterias : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["physicalConnectionRequirements"] = state ? state.physicalConnectionRequirements : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["connectionProperties"] = state ? state.connectionProperties : undefined;
+            resourceInputs["connectionType"] = state ? state.connectionType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["matchCriterias"] = state ? state.matchCriterias : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["physicalConnectionRequirements"] = state ? state.physicalConnectionRequirements : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["connectionProperties"] = args ? args.connectionProperties : undefined;
-            inputs["connectionType"] = args ? args.connectionType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["matchCriterias"] = args ? args.matchCriterias : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["physicalConnectionRequirements"] = args ? args.physicalConnectionRequirements : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["connectionProperties"] = args ? args.connectionProperties : undefined;
+            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["matchCriterias"] = args ? args.matchCriterias : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["physicalConnectionRequirements"] = args ? args.physicalConnectionRequirements : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Connection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

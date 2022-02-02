@@ -24,9 +24,7 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:workspaces/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
         "tags": args.tags,

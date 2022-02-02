@@ -87,30 +87,28 @@ export class WorkerConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkerConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkerConfigurationArgs | WorkerConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkerConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["latestRevision"] = state ? state.latestRevision : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["propertiesFileContent"] = state ? state.propertiesFileContent : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["latestRevision"] = state ? state.latestRevision : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["propertiesFileContent"] = state ? state.propertiesFileContent : undefined;
         } else {
             const args = argsOrState as WorkerConfigurationArgs | undefined;
             if ((!args || args.propertiesFileContent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'propertiesFileContent'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["propertiesFileContent"] = args ? args.propertiesFileContent : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["latestRevision"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["propertiesFileContent"] = args ? args.propertiesFileContent : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestRevision"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WorkerConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WorkerConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

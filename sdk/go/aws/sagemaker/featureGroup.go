@@ -236,7 +236,7 @@ type FeatureGroupInput interface {
 }
 
 func (*FeatureGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeatureGroup)(nil))
+	return reflect.TypeOf((**FeatureGroup)(nil)).Elem()
 }
 
 func (i *FeatureGroup) ToFeatureGroupOutput() FeatureGroupOutput {
@@ -245,35 +245,6 @@ func (i *FeatureGroup) ToFeatureGroupOutput() FeatureGroupOutput {
 
 func (i *FeatureGroup) ToFeatureGroupOutputWithContext(ctx context.Context) FeatureGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOutput)
-}
-
-func (i *FeatureGroup) ToFeatureGroupPtrOutput() FeatureGroupPtrOutput {
-	return i.ToFeatureGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *FeatureGroup) ToFeatureGroupPtrOutputWithContext(ctx context.Context) FeatureGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupPtrOutput)
-}
-
-type FeatureGroupPtrInput interface {
-	pulumi.Input
-
-	ToFeatureGroupPtrOutput() FeatureGroupPtrOutput
-	ToFeatureGroupPtrOutputWithContext(ctx context.Context) FeatureGroupPtrOutput
-}
-
-type featureGroupPtrType FeatureGroupArgs
-
-func (*featureGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FeatureGroup)(nil))
-}
-
-func (i *featureGroupPtrType) ToFeatureGroupPtrOutput() FeatureGroupPtrOutput {
-	return i.ToFeatureGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *featureGroupPtrType) ToFeatureGroupPtrOutputWithContext(ctx context.Context) FeatureGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupPtrOutput)
 }
 
 // FeatureGroupArrayInput is an input type that accepts FeatureGroupArray and FeatureGroupArrayOutput values.
@@ -329,7 +300,7 @@ func (i FeatureGroupMap) ToFeatureGroupMapOutputWithContext(ctx context.Context)
 type FeatureGroupOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeatureGroup)(nil))
+	return reflect.TypeOf((**FeatureGroup)(nil)).Elem()
 }
 
 func (o FeatureGroupOutput) ToFeatureGroupOutput() FeatureGroupOutput {
@@ -340,44 +311,10 @@ func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o FeatureGroupOutput) ToFeatureGroupPtrOutput() FeatureGroupPtrOutput {
-	return o.ToFeatureGroupPtrOutputWithContext(context.Background())
-}
-
-func (o FeatureGroupOutput) ToFeatureGroupPtrOutputWithContext(ctx context.Context) FeatureGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroup) *FeatureGroup {
-		return &v
-	}).(FeatureGroupPtrOutput)
-}
-
-type FeatureGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (FeatureGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FeatureGroup)(nil))
-}
-
-func (o FeatureGroupPtrOutput) ToFeatureGroupPtrOutput() FeatureGroupPtrOutput {
-	return o
-}
-
-func (o FeatureGroupPtrOutput) ToFeatureGroupPtrOutputWithContext(ctx context.Context) FeatureGroupPtrOutput {
-	return o
-}
-
-func (o FeatureGroupPtrOutput) Elem() FeatureGroupOutput {
-	return o.ApplyT(func(v *FeatureGroup) FeatureGroup {
-		if v != nil {
-			return *v
-		}
-		var ret FeatureGroup
-		return ret
-	}).(FeatureGroupOutput)
-}
-
 type FeatureGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FeatureGroup)(nil))
+	return reflect.TypeOf((*[]*FeatureGroup)(nil)).Elem()
 }
 
 func (o FeatureGroupArrayOutput) ToFeatureGroupArrayOutput() FeatureGroupArrayOutput {
@@ -389,15 +326,15 @@ func (o FeatureGroupArrayOutput) ToFeatureGroupArrayOutputWithContext(ctx contex
 }
 
 func (o FeatureGroupArrayOutput) Index(i pulumi.IntInput) FeatureGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureGroup {
-		return vs[0].([]FeatureGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FeatureGroup {
+		return vs[0].([]*FeatureGroup)[vs[1].(int)]
 	}).(FeatureGroupOutput)
 }
 
 type FeatureGroupMapOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FeatureGroup)(nil))
+	return reflect.TypeOf((*map[string]*FeatureGroup)(nil)).Elem()
 }
 
 func (o FeatureGroupMapOutput) ToFeatureGroupMapOutput() FeatureGroupMapOutput {
@@ -409,18 +346,16 @@ func (o FeatureGroupMapOutput) ToFeatureGroupMapOutputWithContext(ctx context.Co
 }
 
 func (o FeatureGroupMapOutput) MapIndex(k pulumi.StringInput) FeatureGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FeatureGroup {
-		return vs[0].(map[string]FeatureGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FeatureGroup {
+		return vs[0].(map[string]*FeatureGroup)[vs[1].(string)]
 	}).(FeatureGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupInput)(nil)).Elem(), &FeatureGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupPtrInput)(nil)).Elem(), &FeatureGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupArrayInput)(nil)).Elem(), FeatureGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupMapInput)(nil)).Elem(), FeatureGroupMap{})
 	pulumi.RegisterOutputType(FeatureGroupOutput{})
-	pulumi.RegisterOutputType(FeatureGroupPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupArrayOutput{})
 	pulumi.RegisterOutputType(FeatureGroupMapOutput{})
 }

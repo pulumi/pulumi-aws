@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Outposts
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSitesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

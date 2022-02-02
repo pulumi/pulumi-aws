@@ -176,7 +176,7 @@ type BuildInput interface {
 }
 
 func (*Build) ElementType() reflect.Type {
-	return reflect.TypeOf((*Build)(nil))
+	return reflect.TypeOf((**Build)(nil)).Elem()
 }
 
 func (i *Build) ToBuildOutput() BuildOutput {
@@ -185,35 +185,6 @@ func (i *Build) ToBuildOutput() BuildOutput {
 
 func (i *Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildOutput)
-}
-
-func (i *Build) ToBuildPtrOutput() BuildPtrOutput {
-	return i.ToBuildPtrOutputWithContext(context.Background())
-}
-
-func (i *Build) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildPtrOutput)
-}
-
-type BuildPtrInput interface {
-	pulumi.Input
-
-	ToBuildPtrOutput() BuildPtrOutput
-	ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput
-}
-
-type buildPtrType BuildArgs
-
-func (*buildPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Build)(nil))
-}
-
-func (i *buildPtrType) ToBuildPtrOutput() BuildPtrOutput {
-	return i.ToBuildPtrOutputWithContext(context.Background())
-}
-
-func (i *buildPtrType) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildPtrOutput)
 }
 
 // BuildArrayInput is an input type that accepts BuildArray and BuildArrayOutput values.
@@ -269,7 +240,7 @@ func (i BuildMap) ToBuildMapOutputWithContext(ctx context.Context) BuildMapOutpu
 type BuildOutput struct{ *pulumi.OutputState }
 
 func (BuildOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Build)(nil))
+	return reflect.TypeOf((**Build)(nil)).Elem()
 }
 
 func (o BuildOutput) ToBuildOutput() BuildOutput {
@@ -280,44 +251,10 @@ func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return o
 }
 
-func (o BuildOutput) ToBuildPtrOutput() BuildPtrOutput {
-	return o.ToBuildPtrOutputWithContext(context.Background())
-}
-
-func (o BuildOutput) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Build) *Build {
-		return &v
-	}).(BuildPtrOutput)
-}
-
-type BuildPtrOutput struct{ *pulumi.OutputState }
-
-func (BuildPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Build)(nil))
-}
-
-func (o BuildPtrOutput) ToBuildPtrOutput() BuildPtrOutput {
-	return o
-}
-
-func (o BuildPtrOutput) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
-	return o
-}
-
-func (o BuildPtrOutput) Elem() BuildOutput {
-	return o.ApplyT(func(v *Build) Build {
-		if v != nil {
-			return *v
-		}
-		var ret Build
-		return ret
-	}).(BuildOutput)
-}
-
 type BuildArrayOutput struct{ *pulumi.OutputState }
 
 func (BuildArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Build)(nil))
+	return reflect.TypeOf((*[]*Build)(nil)).Elem()
 }
 
 func (o BuildArrayOutput) ToBuildArrayOutput() BuildArrayOutput {
@@ -329,15 +266,15 @@ func (o BuildArrayOutput) ToBuildArrayOutputWithContext(ctx context.Context) Bui
 }
 
 func (o BuildArrayOutput) Index(i pulumi.IntInput) BuildOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Build {
-		return vs[0].([]Build)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Build {
+		return vs[0].([]*Build)[vs[1].(int)]
 	}).(BuildOutput)
 }
 
 type BuildMapOutput struct{ *pulumi.OutputState }
 
 func (BuildMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Build)(nil))
+	return reflect.TypeOf((*map[string]*Build)(nil)).Elem()
 }
 
 func (o BuildMapOutput) ToBuildMapOutput() BuildMapOutput {
@@ -349,18 +286,16 @@ func (o BuildMapOutput) ToBuildMapOutputWithContext(ctx context.Context) BuildMa
 }
 
 func (o BuildMapOutput) MapIndex(k pulumi.StringInput) BuildOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Build {
-		return vs[0].(map[string]Build)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Build {
+		return vs[0].(map[string]*Build)[vs[1].(string)]
 	}).(BuildOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildInput)(nil)).Elem(), &Build{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BuildPtrInput)(nil)).Elem(), &Build{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildArrayInput)(nil)).Elem(), BuildArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildMapInput)(nil)).Elem(), BuildMap{})
 	pulumi.RegisterOutputType(BuildOutput{})
-	pulumi.RegisterOutputType(BuildPtrOutput{})
 	pulumi.RegisterOutputType(BuildArrayOutput{})
 	pulumi.RegisterOutputType(BuildMapOutput{})
 }

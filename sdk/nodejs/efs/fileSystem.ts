@@ -147,49 +147,47 @@ export class FileSystem extends pulumi.CustomResource {
      */
     constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FileSystemArgs | FileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileSystemState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
-            inputs["availabilityZoneName"] = state ? state.availabilityZoneName : undefined;
-            inputs["creationToken"] = state ? state.creationToken : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
-            inputs["numberOfMountTargets"] = state ? state.numberOfMountTargets : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["performanceMode"] = state ? state.performanceMode : undefined;
-            inputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
-            inputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["throughputMode"] = state ? state.throughputMode : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
+            resourceInputs["availabilityZoneName"] = state ? state.availabilityZoneName : undefined;
+            resourceInputs["creationToken"] = state ? state.creationToken : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
+            resourceInputs["numberOfMountTargets"] = state ? state.numberOfMountTargets : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["performanceMode"] = state ? state.performanceMode : undefined;
+            resourceInputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
+            resourceInputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughputMode"] = state ? state.throughputMode : undefined;
         } else {
             const args = argsOrState as FileSystemArgs | undefined;
-            inputs["availabilityZoneName"] = args ? args.availabilityZoneName : undefined;
-            inputs["creationToken"] = args ? args.creationToken : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            inputs["performanceMode"] = args ? args.performanceMode : undefined;
-            inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputMode"] = args ? args.throughputMode : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["availabilityZoneId"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["numberOfMountTargets"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["availabilityZoneName"] = args ? args.availabilityZoneName : undefined;
+            resourceInputs["creationToken"] = args ? args.creationToken : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
+            resourceInputs["performanceMode"] = args ? args.performanceMode : undefined;
+            resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputMode"] = args ? args.throughputMode : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["availabilityZoneId"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["numberOfMountTargets"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FileSystem.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

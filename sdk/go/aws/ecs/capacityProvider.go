@@ -171,7 +171,7 @@ type CapacityProviderInput interface {
 }
 
 func (*CapacityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProvider)(nil))
+	return reflect.TypeOf((**CapacityProvider)(nil)).Elem()
 }
 
 func (i *CapacityProvider) ToCapacityProviderOutput() CapacityProviderOutput {
@@ -180,35 +180,6 @@ func (i *CapacityProvider) ToCapacityProviderOutput() CapacityProviderOutput {
 
 func (i *CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderOutput)
-}
-
-func (i *CapacityProvider) ToCapacityProviderPtrOutput() CapacityProviderPtrOutput {
-	return i.ToCapacityProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *CapacityProvider) ToCapacityProviderPtrOutputWithContext(ctx context.Context) CapacityProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPtrOutput)
-}
-
-type CapacityProviderPtrInput interface {
-	pulumi.Input
-
-	ToCapacityProviderPtrOutput() CapacityProviderPtrOutput
-	ToCapacityProviderPtrOutputWithContext(ctx context.Context) CapacityProviderPtrOutput
-}
-
-type capacityProviderPtrType CapacityProviderArgs
-
-func (*capacityProviderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityProvider)(nil))
-}
-
-func (i *capacityProviderPtrType) ToCapacityProviderPtrOutput() CapacityProviderPtrOutput {
-	return i.ToCapacityProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *capacityProviderPtrType) ToCapacityProviderPtrOutputWithContext(ctx context.Context) CapacityProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPtrOutput)
 }
 
 // CapacityProviderArrayInput is an input type that accepts CapacityProviderArray and CapacityProviderArrayOutput values.
@@ -264,7 +235,7 @@ func (i CapacityProviderMap) ToCapacityProviderMapOutputWithContext(ctx context.
 type CapacityProviderOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProvider)(nil))
+	return reflect.TypeOf((**CapacityProvider)(nil)).Elem()
 }
 
 func (o CapacityProviderOutput) ToCapacityProviderOutput() CapacityProviderOutput {
@@ -275,44 +246,10 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 	return o
 }
 
-func (o CapacityProviderOutput) ToCapacityProviderPtrOutput() CapacityProviderPtrOutput {
-	return o.ToCapacityProviderPtrOutputWithContext(context.Background())
-}
-
-func (o CapacityProviderOutput) ToCapacityProviderPtrOutputWithContext(ctx context.Context) CapacityProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProvider) *CapacityProvider {
-		return &v
-	}).(CapacityProviderPtrOutput)
-}
-
-type CapacityProviderPtrOutput struct{ *pulumi.OutputState }
-
-func (CapacityProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityProvider)(nil))
-}
-
-func (o CapacityProviderPtrOutput) ToCapacityProviderPtrOutput() CapacityProviderPtrOutput {
-	return o
-}
-
-func (o CapacityProviderPtrOutput) ToCapacityProviderPtrOutputWithContext(ctx context.Context) CapacityProviderPtrOutput {
-	return o
-}
-
-func (o CapacityProviderPtrOutput) Elem() CapacityProviderOutput {
-	return o.ApplyT(func(v *CapacityProvider) CapacityProvider {
-		if v != nil {
-			return *v
-		}
-		var ret CapacityProvider
-		return ret
-	}).(CapacityProviderOutput)
-}
-
 type CapacityProviderArrayOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CapacityProvider)(nil))
+	return reflect.TypeOf((*[]*CapacityProvider)(nil)).Elem()
 }
 
 func (o CapacityProviderArrayOutput) ToCapacityProviderArrayOutput() CapacityProviderArrayOutput {
@@ -324,15 +261,15 @@ func (o CapacityProviderArrayOutput) ToCapacityProviderArrayOutputWithContext(ct
 }
 
 func (o CapacityProviderArrayOutput) Index(i pulumi.IntInput) CapacityProviderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProvider {
-		return vs[0].([]CapacityProvider)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CapacityProvider {
+		return vs[0].([]*CapacityProvider)[vs[1].(int)]
 	}).(CapacityProviderOutput)
 }
 
 type CapacityProviderMapOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CapacityProvider)(nil))
+	return reflect.TypeOf((*map[string]*CapacityProvider)(nil)).Elem()
 }
 
 func (o CapacityProviderMapOutput) ToCapacityProviderMapOutput() CapacityProviderMapOutput {
@@ -344,18 +281,16 @@ func (o CapacityProviderMapOutput) ToCapacityProviderMapOutputWithContext(ctx co
 }
 
 func (o CapacityProviderMapOutput) MapIndex(k pulumi.StringInput) CapacityProviderOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CapacityProvider {
-		return vs[0].(map[string]CapacityProvider)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CapacityProvider {
+		return vs[0].(map[string]*CapacityProvider)[vs[1].(string)]
 	}).(CapacityProviderOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInput)(nil)).Elem(), &CapacityProvider{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPtrInput)(nil)).Elem(), &CapacityProvider{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArrayInput)(nil)).Elem(), CapacityProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderMapInput)(nil)).Elem(), CapacityProviderMap{})
 	pulumi.RegisterOutputType(CapacityProviderOutput{})
-	pulumi.RegisterOutputType(CapacityProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderArrayOutput{})
 	pulumi.RegisterOutputType(CapacityProviderMapOutput{})
 }

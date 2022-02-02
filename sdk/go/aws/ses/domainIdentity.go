@@ -161,7 +161,7 @@ type DomainIdentityInput interface {
 }
 
 func (*DomainIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainIdentity)(nil))
+	return reflect.TypeOf((**DomainIdentity)(nil)).Elem()
 }
 
 func (i *DomainIdentity) ToDomainIdentityOutput() DomainIdentityOutput {
@@ -170,35 +170,6 @@ func (i *DomainIdentity) ToDomainIdentityOutput() DomainIdentityOutput {
 
 func (i *DomainIdentity) ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityOutput)
-}
-
-func (i *DomainIdentity) ToDomainIdentityPtrOutput() DomainIdentityPtrOutput {
-	return i.ToDomainIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainIdentity) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityPtrOutput)
-}
-
-type DomainIdentityPtrInput interface {
-	pulumi.Input
-
-	ToDomainIdentityPtrOutput() DomainIdentityPtrOutput
-	ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput
-}
-
-type domainIdentityPtrType DomainIdentityArgs
-
-func (*domainIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainIdentity)(nil))
-}
-
-func (i *domainIdentityPtrType) ToDomainIdentityPtrOutput() DomainIdentityPtrOutput {
-	return i.ToDomainIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *domainIdentityPtrType) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityPtrOutput)
 }
 
 // DomainIdentityArrayInput is an input type that accepts DomainIdentityArray and DomainIdentityArrayOutput values.
@@ -254,7 +225,7 @@ func (i DomainIdentityMap) ToDomainIdentityMapOutputWithContext(ctx context.Cont
 type DomainIdentityOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainIdentity)(nil))
+	return reflect.TypeOf((**DomainIdentity)(nil)).Elem()
 }
 
 func (o DomainIdentityOutput) ToDomainIdentityOutput() DomainIdentityOutput {
@@ -265,44 +236,10 @@ func (o DomainIdentityOutput) ToDomainIdentityOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o DomainIdentityOutput) ToDomainIdentityPtrOutput() DomainIdentityPtrOutput {
-	return o.ToDomainIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o DomainIdentityOutput) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentity) *DomainIdentity {
-		return &v
-	}).(DomainIdentityPtrOutput)
-}
-
-type DomainIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainIdentity)(nil))
-}
-
-func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutput() DomainIdentityPtrOutput {
-	return o
-}
-
-func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
-	return o
-}
-
-func (o DomainIdentityPtrOutput) Elem() DomainIdentityOutput {
-	return o.ApplyT(func(v *DomainIdentity) DomainIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret DomainIdentity
-		return ret
-	}).(DomainIdentityOutput)
-}
-
 type DomainIdentityArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainIdentity)(nil))
+	return reflect.TypeOf((*[]*DomainIdentity)(nil)).Elem()
 }
 
 func (o DomainIdentityArrayOutput) ToDomainIdentityArrayOutput() DomainIdentityArrayOutput {
@@ -314,15 +251,15 @@ func (o DomainIdentityArrayOutput) ToDomainIdentityArrayOutputWithContext(ctx co
 }
 
 func (o DomainIdentityArrayOutput) Index(i pulumi.IntInput) DomainIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainIdentity {
-		return vs[0].([]DomainIdentity)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainIdentity {
+		return vs[0].([]*DomainIdentity)[vs[1].(int)]
 	}).(DomainIdentityOutput)
 }
 
 type DomainIdentityMapOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainIdentity)(nil))
+	return reflect.TypeOf((*map[string]*DomainIdentity)(nil)).Elem()
 }
 
 func (o DomainIdentityMapOutput) ToDomainIdentityMapOutput() DomainIdentityMapOutput {
@@ -334,18 +271,16 @@ func (o DomainIdentityMapOutput) ToDomainIdentityMapOutputWithContext(ctx contex
 }
 
 func (o DomainIdentityMapOutput) MapIndex(k pulumi.StringInput) DomainIdentityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainIdentity {
-		return vs[0].(map[string]DomainIdentity)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainIdentity {
+		return vs[0].(map[string]*DomainIdentity)[vs[1].(string)]
 	}).(DomainIdentityOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityInput)(nil)).Elem(), &DomainIdentity{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityPtrInput)(nil)).Elem(), &DomainIdentity{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityArrayInput)(nil)).Elem(), DomainIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityMapInput)(nil)).Elem(), DomainIdentityMap{})
 	pulumi.RegisterOutputType(DomainIdentityOutput{})
-	pulumi.RegisterOutputType(DomainIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdentityArrayOutput{})
 	pulumi.RegisterOutputType(DomainIdentityMapOutput{})
 }

@@ -135,7 +135,7 @@ type BudgetResourceAssociationInput interface {
 }
 
 func (*BudgetResourceAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetResourceAssociation)(nil))
+	return reflect.TypeOf((**BudgetResourceAssociation)(nil)).Elem()
 }
 
 func (i *BudgetResourceAssociation) ToBudgetResourceAssociationOutput() BudgetResourceAssociationOutput {
@@ -144,35 +144,6 @@ func (i *BudgetResourceAssociation) ToBudgetResourceAssociationOutput() BudgetRe
 
 func (i *BudgetResourceAssociation) ToBudgetResourceAssociationOutputWithContext(ctx context.Context) BudgetResourceAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceAssociationOutput)
-}
-
-func (i *BudgetResourceAssociation) ToBudgetResourceAssociationPtrOutput() BudgetResourceAssociationPtrOutput {
-	return i.ToBudgetResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *BudgetResourceAssociation) ToBudgetResourceAssociationPtrOutputWithContext(ctx context.Context) BudgetResourceAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceAssociationPtrOutput)
-}
-
-type BudgetResourceAssociationPtrInput interface {
-	pulumi.Input
-
-	ToBudgetResourceAssociationPtrOutput() BudgetResourceAssociationPtrOutput
-	ToBudgetResourceAssociationPtrOutputWithContext(ctx context.Context) BudgetResourceAssociationPtrOutput
-}
-
-type budgetResourceAssociationPtrType BudgetResourceAssociationArgs
-
-func (*budgetResourceAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetResourceAssociation)(nil))
-}
-
-func (i *budgetResourceAssociationPtrType) ToBudgetResourceAssociationPtrOutput() BudgetResourceAssociationPtrOutput {
-	return i.ToBudgetResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetResourceAssociationPtrType) ToBudgetResourceAssociationPtrOutputWithContext(ctx context.Context) BudgetResourceAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceAssociationPtrOutput)
 }
 
 // BudgetResourceAssociationArrayInput is an input type that accepts BudgetResourceAssociationArray and BudgetResourceAssociationArrayOutput values.
@@ -228,7 +199,7 @@ func (i BudgetResourceAssociationMap) ToBudgetResourceAssociationMapOutputWithCo
 type BudgetResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetResourceAssociation)(nil))
+	return reflect.TypeOf((**BudgetResourceAssociation)(nil)).Elem()
 }
 
 func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationOutput() BudgetResourceAssociationOutput {
@@ -239,44 +210,10 @@ func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationOutputWithCo
 	return o
 }
 
-func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationPtrOutput() BudgetResourceAssociationPtrOutput {
-	return o.ToBudgetResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationPtrOutputWithContext(ctx context.Context) BudgetResourceAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceAssociation) *BudgetResourceAssociation {
-		return &v
-	}).(BudgetResourceAssociationPtrOutput)
-}
-
-type BudgetResourceAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetResourceAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetResourceAssociation)(nil))
-}
-
-func (o BudgetResourceAssociationPtrOutput) ToBudgetResourceAssociationPtrOutput() BudgetResourceAssociationPtrOutput {
-	return o
-}
-
-func (o BudgetResourceAssociationPtrOutput) ToBudgetResourceAssociationPtrOutputWithContext(ctx context.Context) BudgetResourceAssociationPtrOutput {
-	return o
-}
-
-func (o BudgetResourceAssociationPtrOutput) Elem() BudgetResourceAssociationOutput {
-	return o.ApplyT(func(v *BudgetResourceAssociation) BudgetResourceAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetResourceAssociation
-		return ret
-	}).(BudgetResourceAssociationOutput)
-}
-
 type BudgetResourceAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BudgetResourceAssociation)(nil))
+	return reflect.TypeOf((*[]*BudgetResourceAssociation)(nil)).Elem()
 }
 
 func (o BudgetResourceAssociationArrayOutput) ToBudgetResourceAssociationArrayOutput() BudgetResourceAssociationArrayOutput {
@@ -288,15 +225,15 @@ func (o BudgetResourceAssociationArrayOutput) ToBudgetResourceAssociationArrayOu
 }
 
 func (o BudgetResourceAssociationArrayOutput) Index(i pulumi.IntInput) BudgetResourceAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetResourceAssociation {
-		return vs[0].([]BudgetResourceAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetResourceAssociation {
+		return vs[0].([]*BudgetResourceAssociation)[vs[1].(int)]
 	}).(BudgetResourceAssociationOutput)
 }
 
 type BudgetResourceAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BudgetResourceAssociation)(nil))
+	return reflect.TypeOf((*map[string]*BudgetResourceAssociation)(nil)).Elem()
 }
 
 func (o BudgetResourceAssociationMapOutput) ToBudgetResourceAssociationMapOutput() BudgetResourceAssociationMapOutput {
@@ -308,18 +245,16 @@ func (o BudgetResourceAssociationMapOutput) ToBudgetResourceAssociationMapOutput
 }
 
 func (o BudgetResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) BudgetResourceAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BudgetResourceAssociation {
-		return vs[0].(map[string]BudgetResourceAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BudgetResourceAssociation {
+		return vs[0].(map[string]*BudgetResourceAssociation)[vs[1].(string)]
 	}).(BudgetResourceAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationInput)(nil)).Elem(), &BudgetResourceAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationPtrInput)(nil)).Elem(), &BudgetResourceAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationArrayInput)(nil)).Elem(), BudgetResourceAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationMapInput)(nil)).Elem(), BudgetResourceAssociationMap{})
 	pulumi.RegisterOutputType(BudgetResourceAssociationOutput{})
-	pulumi.RegisterOutputType(BudgetResourceAssociationPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceAssociationArrayOutput{})
 	pulumi.RegisterOutputType(BudgetResourceAssociationMapOutput{})
 }

@@ -169,7 +169,7 @@ type LogMetricFilterInput interface {
 }
 
 func (*LogMetricFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogMetricFilter)(nil))
+	return reflect.TypeOf((**LogMetricFilter)(nil)).Elem()
 }
 
 func (i *LogMetricFilter) ToLogMetricFilterOutput() LogMetricFilterOutput {
@@ -178,35 +178,6 @@ func (i *LogMetricFilter) ToLogMetricFilterOutput() LogMetricFilterOutput {
 
 func (i *LogMetricFilter) ToLogMetricFilterOutputWithContext(ctx context.Context) LogMetricFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterOutput)
-}
-
-func (i *LogMetricFilter) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
-	return i.ToLogMetricFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *LogMetricFilter) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterPtrOutput)
-}
-
-type LogMetricFilterPtrInput interface {
-	pulumi.Input
-
-	ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput
-	ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput
-}
-
-type logMetricFilterPtrType LogMetricFilterArgs
-
-func (*logMetricFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogMetricFilter)(nil))
-}
-
-func (i *logMetricFilterPtrType) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
-	return i.ToLogMetricFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *logMetricFilterPtrType) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterPtrOutput)
 }
 
 // LogMetricFilterArrayInput is an input type that accepts LogMetricFilterArray and LogMetricFilterArrayOutput values.
@@ -262,7 +233,7 @@ func (i LogMetricFilterMap) ToLogMetricFilterMapOutputWithContext(ctx context.Co
 type LogMetricFilterOutput struct{ *pulumi.OutputState }
 
 func (LogMetricFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogMetricFilter)(nil))
+	return reflect.TypeOf((**LogMetricFilter)(nil)).Elem()
 }
 
 func (o LogMetricFilterOutput) ToLogMetricFilterOutput() LogMetricFilterOutput {
@@ -273,44 +244,10 @@ func (o LogMetricFilterOutput) ToLogMetricFilterOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LogMetricFilterOutput) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
-	return o.ToLogMetricFilterPtrOutputWithContext(context.Background())
-}
-
-func (o LogMetricFilterOutput) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricFilter) *LogMetricFilter {
-		return &v
-	}).(LogMetricFilterPtrOutput)
-}
-
-type LogMetricFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (LogMetricFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogMetricFilter)(nil))
-}
-
-func (o LogMetricFilterPtrOutput) ToLogMetricFilterPtrOutput() LogMetricFilterPtrOutput {
-	return o
-}
-
-func (o LogMetricFilterPtrOutput) ToLogMetricFilterPtrOutputWithContext(ctx context.Context) LogMetricFilterPtrOutput {
-	return o
-}
-
-func (o LogMetricFilterPtrOutput) Elem() LogMetricFilterOutput {
-	return o.ApplyT(func(v *LogMetricFilter) LogMetricFilter {
-		if v != nil {
-			return *v
-		}
-		var ret LogMetricFilter
-		return ret
-	}).(LogMetricFilterOutput)
-}
-
 type LogMetricFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (LogMetricFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogMetricFilter)(nil))
+	return reflect.TypeOf((*[]*LogMetricFilter)(nil)).Elem()
 }
 
 func (o LogMetricFilterArrayOutput) ToLogMetricFilterArrayOutput() LogMetricFilterArrayOutput {
@@ -322,15 +259,15 @@ func (o LogMetricFilterArrayOutput) ToLogMetricFilterArrayOutputWithContext(ctx 
 }
 
 func (o LogMetricFilterArrayOutput) Index(i pulumi.IntInput) LogMetricFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogMetricFilter {
-		return vs[0].([]LogMetricFilter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogMetricFilter {
+		return vs[0].([]*LogMetricFilter)[vs[1].(int)]
 	}).(LogMetricFilterOutput)
 }
 
 type LogMetricFilterMapOutput struct{ *pulumi.OutputState }
 
 func (LogMetricFilterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogMetricFilter)(nil))
+	return reflect.TypeOf((*map[string]*LogMetricFilter)(nil)).Elem()
 }
 
 func (o LogMetricFilterMapOutput) ToLogMetricFilterMapOutput() LogMetricFilterMapOutput {
@@ -342,18 +279,16 @@ func (o LogMetricFilterMapOutput) ToLogMetricFilterMapOutputWithContext(ctx cont
 }
 
 func (o LogMetricFilterMapOutput) MapIndex(k pulumi.StringInput) LogMetricFilterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogMetricFilter {
-		return vs[0].(map[string]LogMetricFilter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogMetricFilter {
+		return vs[0].(map[string]*LogMetricFilter)[vs[1].(string)]
 	}).(LogMetricFilterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterInput)(nil)).Elem(), &LogMetricFilter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterPtrInput)(nil)).Elem(), &LogMetricFilter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterArrayInput)(nil)).Elem(), LogMetricFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMapInput)(nil)).Elem(), LogMetricFilterMap{})
 	pulumi.RegisterOutputType(LogMetricFilterOutput{})
-	pulumi.RegisterOutputType(LogMetricFilterPtrOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterArrayOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMapOutput{})
 }

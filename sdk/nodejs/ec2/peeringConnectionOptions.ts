@@ -169,26 +169,24 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      */
     constructor(name: string, args: PeeringConnectionOptionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PeeringConnectionOptionsArgs | PeeringConnectionOptionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PeeringConnectionOptionsState | undefined;
-            inputs["accepter"] = state ? state.accepter : undefined;
-            inputs["requester"] = state ? state.requester : undefined;
-            inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
+            resourceInputs["accepter"] = state ? state.accepter : undefined;
+            resourceInputs["requester"] = state ? state.requester : undefined;
+            resourceInputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as PeeringConnectionOptionsArgs | undefined;
             if ((!args || args.vpcPeeringConnectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcPeeringConnectionId'");
             }
-            inputs["accepter"] = args ? args.accepter : undefined;
-            inputs["requester"] = args ? args.requester : undefined;
-            inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            resourceInputs["accepter"] = args ? args.accepter : undefined;
+            resourceInputs["requester"] = args ? args.requester : undefined;
+            resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PeeringConnectionOptions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PeeringConnectionOptions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

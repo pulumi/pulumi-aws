@@ -208,26 +208,26 @@ export class MLTransform extends pulumi.CustomResource {
      */
     constructor(name: string, args: MLTransformArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MLTransformArgs | MLTransformState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MLTransformState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["glueVersion"] = state ? state.glueVersion : undefined;
-            inputs["inputRecordTables"] = state ? state.inputRecordTables : undefined;
-            inputs["labelCount"] = state ? state.labelCount : undefined;
-            inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
-            inputs["maxRetries"] = state ? state.maxRetries : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["schemas"] = state ? state.schemas : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
-            inputs["workerType"] = state ? state.workerType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
+            resourceInputs["inputRecordTables"] = state ? state.inputRecordTables : undefined;
+            resourceInputs["labelCount"] = state ? state.labelCount : undefined;
+            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
+            resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["schemas"] = state ? state.schemas : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["workerType"] = state ? state.workerType : undefined;
         } else {
             const args = argsOrState as MLTransformArgs | undefined;
             if ((!args || args.inputRecordTables === undefined) && !opts.urn) {
@@ -239,27 +239,25 @@ export class MLTransform extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["glueVersion"] = args ? args.glueVersion : undefined;
-            inputs["inputRecordTables"] = args ? args.inputRecordTables : undefined;
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["maxRetries"] = args ? args.maxRetries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["workerType"] = args ? args.workerType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["labelCount"] = undefined /*out*/;
-            inputs["schemas"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["inputRecordTables"] = args ? args.inputRecordTables : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["labelCount"] = undefined /*out*/;
+            resourceInputs["schemas"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MLTransform.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MLTransform.__pulumiType, name, resourceInputs, opts);
     }
 }
 

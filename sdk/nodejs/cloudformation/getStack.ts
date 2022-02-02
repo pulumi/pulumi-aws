@@ -32,9 +32,7 @@ export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
         "tags": args.tags,

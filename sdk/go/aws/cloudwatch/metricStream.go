@@ -282,7 +282,7 @@ type MetricStreamInput interface {
 }
 
 func (*MetricStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStream)(nil))
+	return reflect.TypeOf((**MetricStream)(nil)).Elem()
 }
 
 func (i *MetricStream) ToMetricStreamOutput() MetricStreamOutput {
@@ -291,35 +291,6 @@ func (i *MetricStream) ToMetricStreamOutput() MetricStreamOutput {
 
 func (i *MetricStream) ToMetricStreamOutputWithContext(ctx context.Context) MetricStreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamOutput)
-}
-
-func (i *MetricStream) ToMetricStreamPtrOutput() MetricStreamPtrOutput {
-	return i.ToMetricStreamPtrOutputWithContext(context.Background())
-}
-
-func (i *MetricStream) ToMetricStreamPtrOutputWithContext(ctx context.Context) MetricStreamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamPtrOutput)
-}
-
-type MetricStreamPtrInput interface {
-	pulumi.Input
-
-	ToMetricStreamPtrOutput() MetricStreamPtrOutput
-	ToMetricStreamPtrOutputWithContext(ctx context.Context) MetricStreamPtrOutput
-}
-
-type metricStreamPtrType MetricStreamArgs
-
-func (*metricStreamPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricStream)(nil))
-}
-
-func (i *metricStreamPtrType) ToMetricStreamPtrOutput() MetricStreamPtrOutput {
-	return i.ToMetricStreamPtrOutputWithContext(context.Background())
-}
-
-func (i *metricStreamPtrType) ToMetricStreamPtrOutputWithContext(ctx context.Context) MetricStreamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamPtrOutput)
 }
 
 // MetricStreamArrayInput is an input type that accepts MetricStreamArray and MetricStreamArrayOutput values.
@@ -375,7 +346,7 @@ func (i MetricStreamMap) ToMetricStreamMapOutputWithContext(ctx context.Context)
 type MetricStreamOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStream)(nil))
+	return reflect.TypeOf((**MetricStream)(nil)).Elem()
 }
 
 func (o MetricStreamOutput) ToMetricStreamOutput() MetricStreamOutput {
@@ -386,44 +357,10 @@ func (o MetricStreamOutput) ToMetricStreamOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o MetricStreamOutput) ToMetricStreamPtrOutput() MetricStreamPtrOutput {
-	return o.ToMetricStreamPtrOutputWithContext(context.Background())
-}
-
-func (o MetricStreamOutput) ToMetricStreamPtrOutputWithContext(ctx context.Context) MetricStreamPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricStream) *MetricStream {
-		return &v
-	}).(MetricStreamPtrOutput)
-}
-
-type MetricStreamPtrOutput struct{ *pulumi.OutputState }
-
-func (MetricStreamPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricStream)(nil))
-}
-
-func (o MetricStreamPtrOutput) ToMetricStreamPtrOutput() MetricStreamPtrOutput {
-	return o
-}
-
-func (o MetricStreamPtrOutput) ToMetricStreamPtrOutputWithContext(ctx context.Context) MetricStreamPtrOutput {
-	return o
-}
-
-func (o MetricStreamPtrOutput) Elem() MetricStreamOutput {
-	return o.ApplyT(func(v *MetricStream) MetricStream {
-		if v != nil {
-			return *v
-		}
-		var ret MetricStream
-		return ret
-	}).(MetricStreamOutput)
-}
-
 type MetricStreamArrayOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricStream)(nil))
+	return reflect.TypeOf((*[]*MetricStream)(nil)).Elem()
 }
 
 func (o MetricStreamArrayOutput) ToMetricStreamArrayOutput() MetricStreamArrayOutput {
@@ -435,15 +372,15 @@ func (o MetricStreamArrayOutput) ToMetricStreamArrayOutputWithContext(ctx contex
 }
 
 func (o MetricStreamArrayOutput) Index(i pulumi.IntInput) MetricStreamOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStream {
-		return vs[0].([]MetricStream)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricStream {
+		return vs[0].([]*MetricStream)[vs[1].(int)]
 	}).(MetricStreamOutput)
 }
 
 type MetricStreamMapOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MetricStream)(nil))
+	return reflect.TypeOf((*map[string]*MetricStream)(nil)).Elem()
 }
 
 func (o MetricStreamMapOutput) ToMetricStreamMapOutput() MetricStreamMapOutput {
@@ -455,18 +392,16 @@ func (o MetricStreamMapOutput) ToMetricStreamMapOutputWithContext(ctx context.Co
 }
 
 func (o MetricStreamMapOutput) MapIndex(k pulumi.StringInput) MetricStreamOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MetricStream {
-		return vs[0].(map[string]MetricStream)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MetricStream {
+		return vs[0].(map[string]*MetricStream)[vs[1].(string)]
 	}).(MetricStreamOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamInput)(nil)).Elem(), &MetricStream{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamPtrInput)(nil)).Elem(), &MetricStream{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamArrayInput)(nil)).Elem(), MetricStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamMapInput)(nil)).Elem(), MetricStreamMap{})
 	pulumi.RegisterOutputType(MetricStreamOutput{})
-	pulumi.RegisterOutputType(MetricStreamPtrOutput{})
 	pulumi.RegisterOutputType(MetricStreamArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamMapOutput{})
 }

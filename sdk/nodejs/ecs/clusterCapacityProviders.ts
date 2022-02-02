@@ -64,26 +64,24 @@ export class ClusterCapacityProviders extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterCapacityProvidersArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterCapacityProvidersArgs | ClusterCapacityProvidersState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterCapacityProvidersState | undefined;
-            inputs["capacityProviders"] = state ? state.capacityProviders : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["defaultCapacityProviderStrategies"] = state ? state.defaultCapacityProviderStrategies : undefined;
+            resourceInputs["capacityProviders"] = state ? state.capacityProviders : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["defaultCapacityProviderStrategies"] = state ? state.defaultCapacityProviderStrategies : undefined;
         } else {
             const args = argsOrState as ClusterCapacityProvidersArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            inputs["capacityProviders"] = args ? args.capacityProviders : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
+            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClusterCapacityProviders.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClusterCapacityProviders.__pulumiType, name, resourceInputs, opts);
     }
 }
 

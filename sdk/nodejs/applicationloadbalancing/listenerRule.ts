@@ -251,17 +251,17 @@ export class ListenerRule extends pulumi.CustomResource {
     /** @deprecated aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule */
     constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ListenerRule is deprecated: aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerRuleState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["conditions"] = state ? state.conditions : undefined;
-            inputs["listenerArn"] = state ? state.listenerArn : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["conditions"] = state ? state.conditions : undefined;
+            resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ListenerRuleArgs | undefined;
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -273,18 +273,16 @@ export class ListenerRule extends pulumi.CustomResource {
             if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["conditions"] = args ? args.conditions : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ListenerRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ListenerRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

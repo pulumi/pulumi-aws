@@ -73,12 +73,12 @@ export class ConnectionAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionAssociationArgs | ConnectionAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionAssociationState | undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["lagId"] = state ? state.lagId : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["lagId"] = state ? state.lagId : undefined;
         } else {
             const args = argsOrState as ConnectionAssociationArgs | undefined;
             if ((!args || args.connectionId === undefined) && !opts.urn) {
@@ -87,13 +87,11 @@ export class ConnectionAssociation extends pulumi.CustomResource {
             if ((!args || args.lagId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lagId'");
             }
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["lagId"] = args ? args.lagId : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["lagId"] = args ? args.lagId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConnectionAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConnectionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

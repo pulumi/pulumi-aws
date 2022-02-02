@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // SNS Topic for Amplify notifications
- * const amplifyAppMasterPolicyDocument = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocument({
+ * const amplifyAppMasterPolicyDocument = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: `Allow_Publish_Events ${masterArn}`,
  *         effect: "Allow",
@@ -244,33 +244,33 @@ export class Branch extends pulumi.CustomResource {
      */
     constructor(name: string, args: BranchArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchArgs | BranchState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["associatedResources"] = state ? state.associatedResources : undefined;
-            inputs["backendEnvironmentArn"] = state ? state.backendEnvironmentArn : undefined;
-            inputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
-            inputs["branchName"] = state ? state.branchName : undefined;
-            inputs["customDomains"] = state ? state.customDomains : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["destinationBranch"] = state ? state.destinationBranch : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["enableAutoBuild"] = state ? state.enableAutoBuild : undefined;
-            inputs["enableBasicAuth"] = state ? state.enableBasicAuth : undefined;
-            inputs["enableNotification"] = state ? state.enableNotification : undefined;
-            inputs["enablePerformanceMode"] = state ? state.enablePerformanceMode : undefined;
-            inputs["enablePullRequestPreview"] = state ? state.enablePullRequestPreview : undefined;
-            inputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            inputs["framework"] = state ? state.framework : undefined;
-            inputs["pullRequestEnvironmentName"] = state ? state.pullRequestEnvironmentName : undefined;
-            inputs["sourceBranch"] = state ? state.sourceBranch : undefined;
-            inputs["stage"] = state ? state.stage : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associatedResources"] = state ? state.associatedResources : undefined;
+            resourceInputs["backendEnvironmentArn"] = state ? state.backendEnvironmentArn : undefined;
+            resourceInputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
+            resourceInputs["branchName"] = state ? state.branchName : undefined;
+            resourceInputs["customDomains"] = state ? state.customDomains : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["destinationBranch"] = state ? state.destinationBranch : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enableAutoBuild"] = state ? state.enableAutoBuild : undefined;
+            resourceInputs["enableBasicAuth"] = state ? state.enableBasicAuth : undefined;
+            resourceInputs["enableNotification"] = state ? state.enableNotification : undefined;
+            resourceInputs["enablePerformanceMode"] = state ? state.enablePerformanceMode : undefined;
+            resourceInputs["enablePullRequestPreview"] = state ? state.enablePullRequestPreview : undefined;
+            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
+            resourceInputs["framework"] = state ? state.framework : undefined;
+            resourceInputs["pullRequestEnvironmentName"] = state ? state.pullRequestEnvironmentName : undefined;
+            resourceInputs["sourceBranch"] = state ? state.sourceBranch : undefined;
+            resourceInputs["stage"] = state ? state.stage : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
         } else {
             const args = argsOrState as BranchArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -279,34 +279,32 @@ export class Branch extends pulumi.CustomResource {
             if ((!args || args.branchName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'branchName'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["backendEnvironmentArn"] = args ? args.backendEnvironmentArn : undefined;
-            inputs["basicAuthCredentials"] = args ? args.basicAuthCredentials : undefined;
-            inputs["branchName"] = args ? args.branchName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
-            inputs["enableBasicAuth"] = args ? args.enableBasicAuth : undefined;
-            inputs["enableNotification"] = args ? args.enableNotification : undefined;
-            inputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
-            inputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
-            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            inputs["framework"] = args ? args.framework : undefined;
-            inputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
-            inputs["stage"] = args ? args.stage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["associatedResources"] = undefined /*out*/;
-            inputs["customDomains"] = undefined /*out*/;
-            inputs["destinationBranch"] = undefined /*out*/;
-            inputs["sourceBranch"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["backendEnvironmentArn"] = args ? args.backendEnvironmentArn : undefined;
+            resourceInputs["basicAuthCredentials"] = args ? args.basicAuthCredentials : undefined;
+            resourceInputs["branchName"] = args ? args.branchName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
+            resourceInputs["enableBasicAuth"] = args ? args.enableBasicAuth : undefined;
+            resourceInputs["enableNotification"] = args ? args.enableNotification : undefined;
+            resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
+            resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["framework"] = args ? args.framework : undefined;
+            resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
+            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associatedResources"] = undefined /*out*/;
+            resourceInputs["customDomains"] = undefined /*out*/;
+            resourceInputs["destinationBranch"] = undefined /*out*/;
+            resourceInputs["sourceBranch"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Branch.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Branch.__pulumiType, name, resourceInputs, opts);
     }
 }
 

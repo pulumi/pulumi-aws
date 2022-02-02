@@ -26,9 +26,7 @@ export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", {
         "arn": args.arn,
     }, opts);

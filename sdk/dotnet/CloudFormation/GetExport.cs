@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFormation
 {
@@ -48,7 +47,7 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// The CloudFormation Export data source allows access to stack
@@ -86,7 +85,7 @@ namespace Pulumi.Aws.CloudFormation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

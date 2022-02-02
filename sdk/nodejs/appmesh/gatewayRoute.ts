@@ -129,21 +129,21 @@ export class GatewayRoute extends pulumi.CustomResource {
      */
     constructor(name: string, args: GatewayRouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayRouteArgs | GatewayRouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayRouteState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["meshName"] = state ? state.meshName : undefined;
-            inputs["meshOwner"] = state ? state.meshOwner : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceOwner"] = state ? state.resourceOwner : undefined;
-            inputs["spec"] = state ? state.spec : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["virtualGatewayName"] = state ? state.virtualGatewayName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["meshName"] = state ? state.meshName : undefined;
+            resourceInputs["meshOwner"] = state ? state.meshOwner : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
+            resourceInputs["spec"] = state ? state.spec : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["virtualGatewayName"] = state ? state.virtualGatewayName : undefined;
         } else {
             const args = argsOrState as GatewayRouteArgs | undefined;
             if ((!args || args.meshName === undefined) && !opts.urn) {
@@ -155,22 +155,20 @@ export class GatewayRoute extends pulumi.CustomResource {
             if ((!args || args.virtualGatewayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualGatewayName'");
             }
-            inputs["meshName"] = args ? args.meshName : undefined;
-            inputs["meshOwner"] = args ? args.meshOwner : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["spec"] = args ? args.spec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualGatewayName"] = args ? args.virtualGatewayName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["meshName"] = args ? args.meshName : undefined;
+            resourceInputs["meshOwner"] = args ? args.meshOwner : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualGatewayName"] = args ? args.virtualGatewayName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GatewayRoute.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GatewayRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

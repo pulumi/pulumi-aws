@@ -130,26 +130,26 @@ export class Fleet extends pulumi.CustomResource {
      */
     constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["buildId"] = state ? state.buildId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ec2InboundPermissions"] = state ? state.ec2InboundPermissions : undefined;
-            inputs["ec2InstanceType"] = state ? state.ec2InstanceType : undefined;
-            inputs["fleetType"] = state ? state.fleetType : undefined;
-            inputs["instanceRoleArn"] = state ? state.instanceRoleArn : undefined;
-            inputs["logPaths"] = state ? state.logPaths : undefined;
-            inputs["metricGroups"] = state ? state.metricGroups : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["newGameSessionProtectionPolicy"] = state ? state.newGameSessionProtectionPolicy : undefined;
-            inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            inputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
-            inputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["buildId"] = state ? state.buildId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ec2InboundPermissions"] = state ? state.ec2InboundPermissions : undefined;
+            resourceInputs["ec2InstanceType"] = state ? state.ec2InstanceType : undefined;
+            resourceInputs["fleetType"] = state ? state.fleetType : undefined;
+            resourceInputs["instanceRoleArn"] = state ? state.instanceRoleArn : undefined;
+            resourceInputs["logPaths"] = state ? state.logPaths : undefined;
+            resourceInputs["metricGroups"] = state ? state.metricGroups : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["newGameSessionProtectionPolicy"] = state ? state.newGameSessionProtectionPolicy : undefined;
+            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
+            resourceInputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
             if ((!args || args.buildId === undefined) && !opts.urn) {
@@ -158,27 +158,25 @@ export class Fleet extends pulumi.CustomResource {
             if ((!args || args.ec2InstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ec2InstanceType'");
             }
-            inputs["buildId"] = args ? args.buildId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
-            inputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
-            inputs["fleetType"] = args ? args.fleetType : undefined;
-            inputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
-            inputs["metricGroups"] = args ? args.metricGroups : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
-            inputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
-            inputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["logPaths"] = undefined /*out*/;
-            inputs["operatingSystem"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["buildId"] = args ? args.buildId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
+            resourceInputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
+            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
+            resourceInputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
+            resourceInputs["metricGroups"] = args ? args.metricGroups : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
+            resourceInputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
+            resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["logPaths"] = undefined /*out*/;
+            resourceInputs["operatingSystem"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Fleet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

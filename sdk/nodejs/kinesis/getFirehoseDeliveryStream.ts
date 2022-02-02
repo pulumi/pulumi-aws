@@ -25,9 +25,7 @@ export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,
     }, opts);

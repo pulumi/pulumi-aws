@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Rds
 {
@@ -42,11 +41,11 @@ namespace Pulumi.Aws.Rds
         ///             DbSubnetGroupName = "my_database_subnet_group",
         ///             ParameterGroupName = "default.mysql5.6",
         ///         });
-        ///         var latestProdSnapshot = prod.Id.Apply(id =&gt; Aws.Rds.GetSnapshot.InvokeAsync(new Aws.Rds.GetSnapshotArgs
+        ///         var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new Aws.Rds.GetSnapshotInvokeArgs
         ///         {
-        ///             DbInstanceIdentifier = id,
+        ///             DbInstanceIdentifier = prod.Id,
         ///             MostRecent = true,
-        ///         }));
+        ///         });
         ///         // Use the latest production snapshot to create a dev instance.
         ///         var dev = new Aws.Rds.Instance("dev", new Aws.Rds.InstanceArgs
         ///         {
@@ -62,7 +61,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a DB Snapshot for use when provisioning DB instances
@@ -94,11 +93,11 @@ namespace Pulumi.Aws.Rds
         ///             DbSubnetGroupName = "my_database_subnet_group",
         ///             ParameterGroupName = "default.mysql5.6",
         ///         });
-        ///         var latestProdSnapshot = prod.Id.Apply(id =&gt; Aws.Rds.GetSnapshot.InvokeAsync(new Aws.Rds.GetSnapshotArgs
+        ///         var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new Aws.Rds.GetSnapshotInvokeArgs
         ///         {
-        ///             DbInstanceIdentifier = id,
+        ///             DbInstanceIdentifier = prod.Id,
         ///             MostRecent = true,
-        ///         }));
+        ///         });
         ///         // Use the latest production snapshot to create a dev instance.
         ///         var dev = new Aws.Rds.Instance("dev", new Aws.Rds.InstanceArgs
         ///         {
@@ -114,7 +113,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

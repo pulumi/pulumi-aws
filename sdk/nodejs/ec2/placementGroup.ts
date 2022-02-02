@@ -96,34 +96,32 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PlacementGroupArgs | PlacementGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partitionCount"] = state ? state.partitionCount : undefined;
-            inputs["placementGroupId"] = state ? state.placementGroupId : undefined;
-            inputs["strategy"] = state ? state.strategy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
+            resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
+            resourceInputs["strategy"] = state ? state.strategy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PlacementGroupArgs | undefined;
             if ((!args || args.strategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partitionCount"] = args ? args.partitionCount : undefined;
-            inputs["strategy"] = args ? args.strategy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["placementGroupId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
+            resourceInputs["strategy"] = args ? args.strategy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["placementGroupId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PlacementGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

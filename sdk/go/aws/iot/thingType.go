@@ -154,7 +154,7 @@ type ThingTypeInput interface {
 }
 
 func (*ThingType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingType)(nil))
+	return reflect.TypeOf((**ThingType)(nil)).Elem()
 }
 
 func (i *ThingType) ToThingTypeOutput() ThingTypeOutput {
@@ -163,35 +163,6 @@ func (i *ThingType) ToThingTypeOutput() ThingTypeOutput {
 
 func (i *ThingType) ToThingTypeOutputWithContext(ctx context.Context) ThingTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeOutput)
-}
-
-func (i *ThingType) ToThingTypePtrOutput() ThingTypePtrOutput {
-	return i.ToThingTypePtrOutputWithContext(context.Background())
-}
-
-func (i *ThingType) ToThingTypePtrOutputWithContext(ctx context.Context) ThingTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePtrOutput)
-}
-
-type ThingTypePtrInput interface {
-	pulumi.Input
-
-	ToThingTypePtrOutput() ThingTypePtrOutput
-	ToThingTypePtrOutputWithContext(ctx context.Context) ThingTypePtrOutput
-}
-
-type thingTypePtrType ThingTypeArgs
-
-func (*thingTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingType)(nil))
-}
-
-func (i *thingTypePtrType) ToThingTypePtrOutput() ThingTypePtrOutput {
-	return i.ToThingTypePtrOutputWithContext(context.Background())
-}
-
-func (i *thingTypePtrType) ToThingTypePtrOutputWithContext(ctx context.Context) ThingTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePtrOutput)
 }
 
 // ThingTypeArrayInput is an input type that accepts ThingTypeArray and ThingTypeArrayOutput values.
@@ -247,7 +218,7 @@ func (i ThingTypeMap) ToThingTypeMapOutputWithContext(ctx context.Context) Thing
 type ThingTypeOutput struct{ *pulumi.OutputState }
 
 func (ThingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingType)(nil))
+	return reflect.TypeOf((**ThingType)(nil)).Elem()
 }
 
 func (o ThingTypeOutput) ToThingTypeOutput() ThingTypeOutput {
@@ -258,44 +229,10 @@ func (o ThingTypeOutput) ToThingTypeOutputWithContext(ctx context.Context) Thing
 	return o
 }
 
-func (o ThingTypeOutput) ToThingTypePtrOutput() ThingTypePtrOutput {
-	return o.ToThingTypePtrOutputWithContext(context.Background())
-}
-
-func (o ThingTypeOutput) ToThingTypePtrOutputWithContext(ctx context.Context) ThingTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingType) *ThingType {
-		return &v
-	}).(ThingTypePtrOutput)
-}
-
-type ThingTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ThingTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingType)(nil))
-}
-
-func (o ThingTypePtrOutput) ToThingTypePtrOutput() ThingTypePtrOutput {
-	return o
-}
-
-func (o ThingTypePtrOutput) ToThingTypePtrOutputWithContext(ctx context.Context) ThingTypePtrOutput {
-	return o
-}
-
-func (o ThingTypePtrOutput) Elem() ThingTypeOutput {
-	return o.ApplyT(func(v *ThingType) ThingType {
-		if v != nil {
-			return *v
-		}
-		var ret ThingType
-		return ret
-	}).(ThingTypeOutput)
-}
-
 type ThingTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (ThingTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThingType)(nil))
+	return reflect.TypeOf((*[]*ThingType)(nil)).Elem()
 }
 
 func (o ThingTypeArrayOutput) ToThingTypeArrayOutput() ThingTypeArrayOutput {
@@ -307,15 +244,15 @@ func (o ThingTypeArrayOutput) ToThingTypeArrayOutputWithContext(ctx context.Cont
 }
 
 func (o ThingTypeArrayOutput) Index(i pulumi.IntInput) ThingTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingType {
-		return vs[0].([]ThingType)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingType {
+		return vs[0].([]*ThingType)[vs[1].(int)]
 	}).(ThingTypeOutput)
 }
 
 type ThingTypeMapOutput struct{ *pulumi.OutputState }
 
 func (ThingTypeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ThingType)(nil))
+	return reflect.TypeOf((*map[string]*ThingType)(nil)).Elem()
 }
 
 func (o ThingTypeMapOutput) ToThingTypeMapOutput() ThingTypeMapOutput {
@@ -327,18 +264,16 @@ func (o ThingTypeMapOutput) ToThingTypeMapOutputWithContext(ctx context.Context)
 }
 
 func (o ThingTypeMapOutput) MapIndex(k pulumi.StringInput) ThingTypeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThingType {
-		return vs[0].(map[string]ThingType)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ThingType {
+		return vs[0].(map[string]*ThingType)[vs[1].(string)]
 	}).(ThingTypeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypeInput)(nil)).Elem(), &ThingType{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePtrInput)(nil)).Elem(), &ThingType{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypeArrayInput)(nil)).Elem(), ThingTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypeMapInput)(nil)).Elem(), ThingTypeMap{})
 	pulumi.RegisterOutputType(ThingTypeOutput{})
-	pulumi.RegisterOutputType(ThingTypePtrOutput{})
 	pulumi.RegisterOutputType(ThingTypeArrayOutput{})
 	pulumi.RegisterOutputType(ThingTypeMapOutput{})
 }

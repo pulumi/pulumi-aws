@@ -110,32 +110,30 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecretVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretVersionArgs | SecretVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretVersionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["secretBinary"] = state ? state.secretBinary : undefined;
-            inputs["secretId"] = state ? state.secretId : undefined;
-            inputs["secretString"] = state ? state.secretString : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
-            inputs["versionStages"] = state ? state.versionStages : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["secretBinary"] = state ? state.secretBinary : undefined;
+            resourceInputs["secretId"] = state ? state.secretId : undefined;
+            resourceInputs["secretString"] = state ? state.secretString : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["versionStages"] = state ? state.versionStages : undefined;
         } else {
             const args = argsOrState as SecretVersionArgs | undefined;
             if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            inputs["secretBinary"] = args ? args.secretBinary : undefined;
-            inputs["secretId"] = args ? args.secretId : undefined;
-            inputs["secretString"] = args ? args.secretString : undefined;
-            inputs["versionStages"] = args ? args.versionStages : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["secretBinary"] = args ? args.secretBinary : undefined;
+            resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["secretString"] = args ? args.secretString : undefined;
+            resourceInputs["versionStages"] = args ? args.versionStages : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecretVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecretVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

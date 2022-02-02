@@ -145,7 +145,7 @@ type VoiceConnectorInput interface {
 }
 
 func (*VoiceConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnector)(nil))
+	return reflect.TypeOf((**VoiceConnector)(nil)).Elem()
 }
 
 func (i *VoiceConnector) ToVoiceConnectorOutput() VoiceConnectorOutput {
@@ -154,35 +154,6 @@ func (i *VoiceConnector) ToVoiceConnectorOutput() VoiceConnectorOutput {
 
 func (i *VoiceConnector) ToVoiceConnectorOutputWithContext(ctx context.Context) VoiceConnectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOutput)
-}
-
-func (i *VoiceConnector) ToVoiceConnectorPtrOutput() VoiceConnectorPtrOutput {
-	return i.ToVoiceConnectorPtrOutputWithContext(context.Background())
-}
-
-func (i *VoiceConnector) ToVoiceConnectorPtrOutputWithContext(ctx context.Context) VoiceConnectorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorPtrOutput)
-}
-
-type VoiceConnectorPtrInput interface {
-	pulumi.Input
-
-	ToVoiceConnectorPtrOutput() VoiceConnectorPtrOutput
-	ToVoiceConnectorPtrOutputWithContext(ctx context.Context) VoiceConnectorPtrOutput
-}
-
-type voiceConnectorPtrType VoiceConnectorArgs
-
-func (*voiceConnectorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnector)(nil))
-}
-
-func (i *voiceConnectorPtrType) ToVoiceConnectorPtrOutput() VoiceConnectorPtrOutput {
-	return i.ToVoiceConnectorPtrOutputWithContext(context.Background())
-}
-
-func (i *voiceConnectorPtrType) ToVoiceConnectorPtrOutputWithContext(ctx context.Context) VoiceConnectorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorPtrOutput)
 }
 
 // VoiceConnectorArrayInput is an input type that accepts VoiceConnectorArray and VoiceConnectorArrayOutput values.
@@ -238,7 +209,7 @@ func (i VoiceConnectorMap) ToVoiceConnectorMapOutputWithContext(ctx context.Cont
 type VoiceConnectorOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnector)(nil))
+	return reflect.TypeOf((**VoiceConnector)(nil)).Elem()
 }
 
 func (o VoiceConnectorOutput) ToVoiceConnectorOutput() VoiceConnectorOutput {
@@ -249,44 +220,10 @@ func (o VoiceConnectorOutput) ToVoiceConnectorOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o VoiceConnectorOutput) ToVoiceConnectorPtrOutput() VoiceConnectorPtrOutput {
-	return o.ToVoiceConnectorPtrOutputWithContext(context.Background())
-}
-
-func (o VoiceConnectorOutput) ToVoiceConnectorPtrOutputWithContext(ctx context.Context) VoiceConnectorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VoiceConnector) *VoiceConnector {
-		return &v
-	}).(VoiceConnectorPtrOutput)
-}
-
-type VoiceConnectorPtrOutput struct{ *pulumi.OutputState }
-
-func (VoiceConnectorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnector)(nil))
-}
-
-func (o VoiceConnectorPtrOutput) ToVoiceConnectorPtrOutput() VoiceConnectorPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorPtrOutput) ToVoiceConnectorPtrOutputWithContext(ctx context.Context) VoiceConnectorPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorPtrOutput) Elem() VoiceConnectorOutput {
-	return o.ApplyT(func(v *VoiceConnector) VoiceConnector {
-		if v != nil {
-			return *v
-		}
-		var ret VoiceConnector
-		return ret
-	}).(VoiceConnectorOutput)
-}
-
 type VoiceConnectorArrayOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceConnector)(nil))
+	return reflect.TypeOf((*[]*VoiceConnector)(nil)).Elem()
 }
 
 func (o VoiceConnectorArrayOutput) ToVoiceConnectorArrayOutput() VoiceConnectorArrayOutput {
@@ -298,15 +235,15 @@ func (o VoiceConnectorArrayOutput) ToVoiceConnectorArrayOutputWithContext(ctx co
 }
 
 func (o VoiceConnectorArrayOutput) Index(i pulumi.IntInput) VoiceConnectorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnector {
-		return vs[0].([]VoiceConnector)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnector {
+		return vs[0].([]*VoiceConnector)[vs[1].(int)]
 	}).(VoiceConnectorOutput)
 }
 
 type VoiceConnectorMapOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VoiceConnector)(nil))
+	return reflect.TypeOf((*map[string]*VoiceConnector)(nil)).Elem()
 }
 
 func (o VoiceConnectorMapOutput) ToVoiceConnectorMapOutput() VoiceConnectorMapOutput {
@@ -318,18 +255,16 @@ func (o VoiceConnectorMapOutput) ToVoiceConnectorMapOutputWithContext(ctx contex
 }
 
 func (o VoiceConnectorMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VoiceConnector {
-		return vs[0].(map[string]VoiceConnector)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VoiceConnector {
+		return vs[0].(map[string]*VoiceConnector)[vs[1].(string)]
 	}).(VoiceConnectorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorInput)(nil)).Elem(), &VoiceConnector{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorPtrInput)(nil)).Elem(), &VoiceConnector{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorArrayInput)(nil)).Elem(), VoiceConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorMapInput)(nil)).Elem(), VoiceConnectorMap{})
 	pulumi.RegisterOutputType(VoiceConnectorOutput{})
-	pulumi.RegisterOutputType(VoiceConnectorPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorMapOutput{})
 }

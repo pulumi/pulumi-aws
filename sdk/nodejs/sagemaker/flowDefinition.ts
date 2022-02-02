@@ -182,19 +182,19 @@ export class FlowDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlowDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlowDefinitionArgs | FlowDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlowDefinitionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["flowDefinitionName"] = state ? state.flowDefinitionName : undefined;
-            inputs["humanLoopActivationConfig"] = state ? state.humanLoopActivationConfig : undefined;
-            inputs["humanLoopConfig"] = state ? state.humanLoopConfig : undefined;
-            inputs["humanLoopRequestSource"] = state ? state.humanLoopRequestSource : undefined;
-            inputs["outputConfig"] = state ? state.outputConfig : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["flowDefinitionName"] = state ? state.flowDefinitionName : undefined;
+            resourceInputs["humanLoopActivationConfig"] = state ? state.humanLoopActivationConfig : undefined;
+            resourceInputs["humanLoopConfig"] = state ? state.humanLoopConfig : undefined;
+            resourceInputs["humanLoopRequestSource"] = state ? state.humanLoopRequestSource : undefined;
+            resourceInputs["outputConfig"] = state ? state.outputConfig : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FlowDefinitionArgs | undefined;
             if ((!args || args.flowDefinitionName === undefined) && !opts.urn) {
@@ -209,20 +209,18 @@ export class FlowDefinition extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["flowDefinitionName"] = args ? args.flowDefinitionName : undefined;
-            inputs["humanLoopActivationConfig"] = args ? args.humanLoopActivationConfig : undefined;
-            inputs["humanLoopConfig"] = args ? args.humanLoopConfig : undefined;
-            inputs["humanLoopRequestSource"] = args ? args.humanLoopRequestSource : undefined;
-            inputs["outputConfig"] = args ? args.outputConfig : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["flowDefinitionName"] = args ? args.flowDefinitionName : undefined;
+            resourceInputs["humanLoopActivationConfig"] = args ? args.humanLoopActivationConfig : undefined;
+            resourceInputs["humanLoopConfig"] = args ? args.humanLoopConfig : undefined;
+            resourceInputs["humanLoopRequestSource"] = args ? args.humanLoopRequestSource : undefined;
+            resourceInputs["outputConfig"] = args ? args.outputConfig : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FlowDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FlowDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

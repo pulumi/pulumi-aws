@@ -24,9 +24,7 @@ export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionS
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", {
         "catalogId": args.catalogId,
     }, opts);

@@ -133,7 +133,7 @@ type LambdaFunctionAssociationInput interface {
 }
 
 func (*LambdaFunctionAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*LambdaFunctionAssociation)(nil))
+	return reflect.TypeOf((**LambdaFunctionAssociation)(nil)).Elem()
 }
 
 func (i *LambdaFunctionAssociation) ToLambdaFunctionAssociationOutput() LambdaFunctionAssociationOutput {
@@ -142,35 +142,6 @@ func (i *LambdaFunctionAssociation) ToLambdaFunctionAssociationOutput() LambdaFu
 
 func (i *LambdaFunctionAssociation) ToLambdaFunctionAssociationOutputWithContext(ctx context.Context) LambdaFunctionAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LambdaFunctionAssociationOutput)
-}
-
-func (i *LambdaFunctionAssociation) ToLambdaFunctionAssociationPtrOutput() LambdaFunctionAssociationPtrOutput {
-	return i.ToLambdaFunctionAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *LambdaFunctionAssociation) ToLambdaFunctionAssociationPtrOutputWithContext(ctx context.Context) LambdaFunctionAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LambdaFunctionAssociationPtrOutput)
-}
-
-type LambdaFunctionAssociationPtrInput interface {
-	pulumi.Input
-
-	ToLambdaFunctionAssociationPtrOutput() LambdaFunctionAssociationPtrOutput
-	ToLambdaFunctionAssociationPtrOutputWithContext(ctx context.Context) LambdaFunctionAssociationPtrOutput
-}
-
-type lambdaFunctionAssociationPtrType LambdaFunctionAssociationArgs
-
-func (*lambdaFunctionAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LambdaFunctionAssociation)(nil))
-}
-
-func (i *lambdaFunctionAssociationPtrType) ToLambdaFunctionAssociationPtrOutput() LambdaFunctionAssociationPtrOutput {
-	return i.ToLambdaFunctionAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *lambdaFunctionAssociationPtrType) ToLambdaFunctionAssociationPtrOutputWithContext(ctx context.Context) LambdaFunctionAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LambdaFunctionAssociationPtrOutput)
 }
 
 // LambdaFunctionAssociationArrayInput is an input type that accepts LambdaFunctionAssociationArray and LambdaFunctionAssociationArrayOutput values.
@@ -226,7 +197,7 @@ func (i LambdaFunctionAssociationMap) ToLambdaFunctionAssociationMapOutputWithCo
 type LambdaFunctionAssociationOutput struct{ *pulumi.OutputState }
 
 func (LambdaFunctionAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LambdaFunctionAssociation)(nil))
+	return reflect.TypeOf((**LambdaFunctionAssociation)(nil)).Elem()
 }
 
 func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationOutput() LambdaFunctionAssociationOutput {
@@ -237,44 +208,10 @@ func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationOutputWithCo
 	return o
 }
 
-func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationPtrOutput() LambdaFunctionAssociationPtrOutput {
-	return o.ToLambdaFunctionAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationPtrOutputWithContext(ctx context.Context) LambdaFunctionAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaFunctionAssociation) *LambdaFunctionAssociation {
-		return &v
-	}).(LambdaFunctionAssociationPtrOutput)
-}
-
-type LambdaFunctionAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (LambdaFunctionAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LambdaFunctionAssociation)(nil))
-}
-
-func (o LambdaFunctionAssociationPtrOutput) ToLambdaFunctionAssociationPtrOutput() LambdaFunctionAssociationPtrOutput {
-	return o
-}
-
-func (o LambdaFunctionAssociationPtrOutput) ToLambdaFunctionAssociationPtrOutputWithContext(ctx context.Context) LambdaFunctionAssociationPtrOutput {
-	return o
-}
-
-func (o LambdaFunctionAssociationPtrOutput) Elem() LambdaFunctionAssociationOutput {
-	return o.ApplyT(func(v *LambdaFunctionAssociation) LambdaFunctionAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret LambdaFunctionAssociation
-		return ret
-	}).(LambdaFunctionAssociationOutput)
-}
-
 type LambdaFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (LambdaFunctionAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LambdaFunctionAssociation)(nil))
+	return reflect.TypeOf((*[]*LambdaFunctionAssociation)(nil)).Elem()
 }
 
 func (o LambdaFunctionAssociationArrayOutput) ToLambdaFunctionAssociationArrayOutput() LambdaFunctionAssociationArrayOutput {
@@ -286,15 +223,15 @@ func (o LambdaFunctionAssociationArrayOutput) ToLambdaFunctionAssociationArrayOu
 }
 
 func (o LambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInput) LambdaFunctionAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LambdaFunctionAssociation {
-		return vs[0].([]LambdaFunctionAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LambdaFunctionAssociation {
+		return vs[0].([]*LambdaFunctionAssociation)[vs[1].(int)]
 	}).(LambdaFunctionAssociationOutput)
 }
 
 type LambdaFunctionAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (LambdaFunctionAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LambdaFunctionAssociation)(nil))
+	return reflect.TypeOf((*map[string]*LambdaFunctionAssociation)(nil)).Elem()
 }
 
 func (o LambdaFunctionAssociationMapOutput) ToLambdaFunctionAssociationMapOutput() LambdaFunctionAssociationMapOutput {
@@ -306,18 +243,16 @@ func (o LambdaFunctionAssociationMapOutput) ToLambdaFunctionAssociationMapOutput
 }
 
 func (o LambdaFunctionAssociationMapOutput) MapIndex(k pulumi.StringInput) LambdaFunctionAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LambdaFunctionAssociation {
-		return vs[0].(map[string]LambdaFunctionAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LambdaFunctionAssociation {
+		return vs[0].(map[string]*LambdaFunctionAssociation)[vs[1].(string)]
 	}).(LambdaFunctionAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LambdaFunctionAssociationInput)(nil)).Elem(), &LambdaFunctionAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LambdaFunctionAssociationPtrInput)(nil)).Elem(), &LambdaFunctionAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LambdaFunctionAssociationArrayInput)(nil)).Elem(), LambdaFunctionAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LambdaFunctionAssociationMapInput)(nil)).Elem(), LambdaFunctionAssociationMap{})
 	pulumi.RegisterOutputType(LambdaFunctionAssociationOutput{})
-	pulumi.RegisterOutputType(LambdaFunctionAssociationPtrOutput{})
 	pulumi.RegisterOutputType(LambdaFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(LambdaFunctionAssociationMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Aws.GuardDuty
 {
@@ -36,7 +35,7 @@ namespace Pulumi.Aws.GuardDuty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDetectorResult> InvokeAsync(GetDetectorArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? new GetDetectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? new GetDetectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a GuardDuty detector.
@@ -62,7 +61,7 @@ namespace Pulumi.Aws.GuardDuty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDetectorResult> Invoke(GetDetectorInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

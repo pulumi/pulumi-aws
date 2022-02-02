@@ -142,7 +142,7 @@ type InstancePublicPortsInput interface {
 }
 
 func (*InstancePublicPorts) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstancePublicPorts)(nil))
+	return reflect.TypeOf((**InstancePublicPorts)(nil)).Elem()
 }
 
 func (i *InstancePublicPorts) ToInstancePublicPortsOutput() InstancePublicPortsOutput {
@@ -151,35 +151,6 @@ func (i *InstancePublicPorts) ToInstancePublicPortsOutput() InstancePublicPortsO
 
 func (i *InstancePublicPorts) ToInstancePublicPortsOutputWithContext(ctx context.Context) InstancePublicPortsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsOutput)
-}
-
-func (i *InstancePublicPorts) ToInstancePublicPortsPtrOutput() InstancePublicPortsPtrOutput {
-	return i.ToInstancePublicPortsPtrOutputWithContext(context.Background())
-}
-
-func (i *InstancePublicPorts) ToInstancePublicPortsPtrOutputWithContext(ctx context.Context) InstancePublicPortsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsPtrOutput)
-}
-
-type InstancePublicPortsPtrInput interface {
-	pulumi.Input
-
-	ToInstancePublicPortsPtrOutput() InstancePublicPortsPtrOutput
-	ToInstancePublicPortsPtrOutputWithContext(ctx context.Context) InstancePublicPortsPtrOutput
-}
-
-type instancePublicPortsPtrType InstancePublicPortsArgs
-
-func (*instancePublicPortsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstancePublicPorts)(nil))
-}
-
-func (i *instancePublicPortsPtrType) ToInstancePublicPortsPtrOutput() InstancePublicPortsPtrOutput {
-	return i.ToInstancePublicPortsPtrOutputWithContext(context.Background())
-}
-
-func (i *instancePublicPortsPtrType) ToInstancePublicPortsPtrOutputWithContext(ctx context.Context) InstancePublicPortsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsPtrOutput)
 }
 
 // InstancePublicPortsArrayInput is an input type that accepts InstancePublicPortsArray and InstancePublicPortsArrayOutput values.
@@ -235,7 +206,7 @@ func (i InstancePublicPortsMap) ToInstancePublicPortsMapOutputWithContext(ctx co
 type InstancePublicPortsOutput struct{ *pulumi.OutputState }
 
 func (InstancePublicPortsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstancePublicPorts)(nil))
+	return reflect.TypeOf((**InstancePublicPorts)(nil)).Elem()
 }
 
 func (o InstancePublicPortsOutput) ToInstancePublicPortsOutput() InstancePublicPortsOutput {
@@ -246,44 +217,10 @@ func (o InstancePublicPortsOutput) ToInstancePublicPortsOutputWithContext(ctx co
 	return o
 }
 
-func (o InstancePublicPortsOutput) ToInstancePublicPortsPtrOutput() InstancePublicPortsPtrOutput {
-	return o.ToInstancePublicPortsPtrOutputWithContext(context.Background())
-}
-
-func (o InstancePublicPortsOutput) ToInstancePublicPortsPtrOutputWithContext(ctx context.Context) InstancePublicPortsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstancePublicPorts) *InstancePublicPorts {
-		return &v
-	}).(InstancePublicPortsPtrOutput)
-}
-
-type InstancePublicPortsPtrOutput struct{ *pulumi.OutputState }
-
-func (InstancePublicPortsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstancePublicPorts)(nil))
-}
-
-func (o InstancePublicPortsPtrOutput) ToInstancePublicPortsPtrOutput() InstancePublicPortsPtrOutput {
-	return o
-}
-
-func (o InstancePublicPortsPtrOutput) ToInstancePublicPortsPtrOutputWithContext(ctx context.Context) InstancePublicPortsPtrOutput {
-	return o
-}
-
-func (o InstancePublicPortsPtrOutput) Elem() InstancePublicPortsOutput {
-	return o.ApplyT(func(v *InstancePublicPorts) InstancePublicPorts {
-		if v != nil {
-			return *v
-		}
-		var ret InstancePublicPorts
-		return ret
-	}).(InstancePublicPortsOutput)
-}
-
 type InstancePublicPortsArrayOutput struct{ *pulumi.OutputState }
 
 func (InstancePublicPortsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InstancePublicPorts)(nil))
+	return reflect.TypeOf((*[]*InstancePublicPorts)(nil)).Elem()
 }
 
 func (o InstancePublicPortsArrayOutput) ToInstancePublicPortsArrayOutput() InstancePublicPortsArrayOutput {
@@ -295,15 +232,15 @@ func (o InstancePublicPortsArrayOutput) ToInstancePublicPortsArrayOutputWithCont
 }
 
 func (o InstancePublicPortsArrayOutput) Index(i pulumi.IntInput) InstancePublicPortsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstancePublicPorts {
-		return vs[0].([]InstancePublicPorts)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstancePublicPorts {
+		return vs[0].([]*InstancePublicPorts)[vs[1].(int)]
 	}).(InstancePublicPortsOutput)
 }
 
 type InstancePublicPortsMapOutput struct{ *pulumi.OutputState }
 
 func (InstancePublicPortsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]InstancePublicPorts)(nil))
+	return reflect.TypeOf((*map[string]*InstancePublicPorts)(nil)).Elem()
 }
 
 func (o InstancePublicPortsMapOutput) ToInstancePublicPortsMapOutput() InstancePublicPortsMapOutput {
@@ -315,18 +252,16 @@ func (o InstancePublicPortsMapOutput) ToInstancePublicPortsMapOutputWithContext(
 }
 
 func (o InstancePublicPortsMapOutput) MapIndex(k pulumi.StringInput) InstancePublicPortsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InstancePublicPorts {
-		return vs[0].(map[string]InstancePublicPorts)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *InstancePublicPorts {
+		return vs[0].(map[string]*InstancePublicPorts)[vs[1].(string)]
 	}).(InstancePublicPortsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsInput)(nil)).Elem(), &InstancePublicPorts{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPtrInput)(nil)).Elem(), &InstancePublicPorts{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsArrayInput)(nil)).Elem(), InstancePublicPortsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsMapInput)(nil)).Elem(), InstancePublicPortsMap{})
 	pulumi.RegisterOutputType(InstancePublicPortsOutput{})
-	pulumi.RegisterOutputType(InstancePublicPortsPtrOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsArrayOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsMapOutput{})
 }

@@ -24,9 +24,7 @@ export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:batch/getSchedulingPolicy:getSchedulingPolicy", {
         "arn": args.arn,
         "tags": args.tags,

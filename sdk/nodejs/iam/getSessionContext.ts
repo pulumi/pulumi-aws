@@ -9,9 +9,7 @@ export function getSessionContext(args: GetSessionContextArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getSessionContext:getSessionContext", {
         "arn": args.arn,
     }, opts);

@@ -143,38 +143,36 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpamPoolCidrAllocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpamPoolCidrAllocationArgs | VpcIpamPoolCidrAllocationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamPoolCidrAllocationState | undefined;
-            inputs["cidr"] = state ? state.cidr : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
-            inputs["ipamPoolAllocationId"] = state ? state.ipamPoolAllocationId : undefined;
-            inputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
-            inputs["netmaskLength"] = state ? state.netmaskLength : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["resourceOwner"] = state ? state.resourceOwner : undefined;
-            inputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["cidr"] = state ? state.cidr : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
+            resourceInputs["ipamPoolAllocationId"] = state ? state.ipamPoolAllocationId : undefined;
+            resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
+            resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
         } else {
             const args = argsOrState as VpcIpamPoolCidrAllocationArgs | undefined;
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            inputs["cidr"] = args ? args.cidr : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
-            inputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            inputs["netmaskLength"] = args ? args.netmaskLength : undefined;
-            inputs["ipamPoolAllocationId"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
+            resourceInputs["cidr"] = args ? args.cidr : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
+            resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["ipamPoolAllocationId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcIpamPoolCidrAllocation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcIpamPoolCidrAllocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

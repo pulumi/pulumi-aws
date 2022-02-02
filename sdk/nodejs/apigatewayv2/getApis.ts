@@ -24,9 +24,7 @@ export function getApis(args?: GetApisArgs, opts?: pulumi.InvokeOptions): Promis
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:apigatewayv2/getApis:getApis", {
         "name": args.name,
         "protocolType": args.protocolType,

@@ -24,9 +24,7 @@ export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getImagePipeline:getImagePipeline", {
         "arn": args.arn,
         "tags": args.tags,

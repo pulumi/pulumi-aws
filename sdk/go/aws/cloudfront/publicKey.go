@@ -171,7 +171,7 @@ type PublicKeyInput interface {
 }
 
 func (*PublicKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKey)(nil))
+	return reflect.TypeOf((**PublicKey)(nil)).Elem()
 }
 
 func (i *PublicKey) ToPublicKeyOutput() PublicKeyOutput {
@@ -180,35 +180,6 @@ func (i *PublicKey) ToPublicKeyOutput() PublicKeyOutput {
 
 func (i *PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyOutput)
-}
-
-func (i *PublicKey) ToPublicKeyPtrOutput() PublicKeyPtrOutput {
-	return i.ToPublicKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *PublicKey) ToPublicKeyPtrOutputWithContext(ctx context.Context) PublicKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPtrOutput)
-}
-
-type PublicKeyPtrInput interface {
-	pulumi.Input
-
-	ToPublicKeyPtrOutput() PublicKeyPtrOutput
-	ToPublicKeyPtrOutputWithContext(ctx context.Context) PublicKeyPtrOutput
-}
-
-type publicKeyPtrType PublicKeyArgs
-
-func (*publicKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicKey)(nil))
-}
-
-func (i *publicKeyPtrType) ToPublicKeyPtrOutput() PublicKeyPtrOutput {
-	return i.ToPublicKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *publicKeyPtrType) ToPublicKeyPtrOutputWithContext(ctx context.Context) PublicKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPtrOutput)
 }
 
 // PublicKeyArrayInput is an input type that accepts PublicKeyArray and PublicKeyArrayOutput values.
@@ -264,7 +235,7 @@ func (i PublicKeyMap) ToPublicKeyMapOutputWithContext(ctx context.Context) Publi
 type PublicKeyOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKey)(nil))
+	return reflect.TypeOf((**PublicKey)(nil)).Elem()
 }
 
 func (o PublicKeyOutput) ToPublicKeyOutput() PublicKeyOutput {
@@ -275,44 +246,10 @@ func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) Publi
 	return o
 }
 
-func (o PublicKeyOutput) ToPublicKeyPtrOutput() PublicKeyPtrOutput {
-	return o.ToPublicKeyPtrOutputWithContext(context.Background())
-}
-
-func (o PublicKeyOutput) ToPublicKeyPtrOutputWithContext(ctx context.Context) PublicKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicKey) *PublicKey {
-		return &v
-	}).(PublicKeyPtrOutput)
-}
-
-type PublicKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (PublicKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicKey)(nil))
-}
-
-func (o PublicKeyPtrOutput) ToPublicKeyPtrOutput() PublicKeyPtrOutput {
-	return o
-}
-
-func (o PublicKeyPtrOutput) ToPublicKeyPtrOutputWithContext(ctx context.Context) PublicKeyPtrOutput {
-	return o
-}
-
-func (o PublicKeyPtrOutput) Elem() PublicKeyOutput {
-	return o.ApplyT(func(v *PublicKey) PublicKey {
-		if v != nil {
-			return *v
-		}
-		var ret PublicKey
-		return ret
-	}).(PublicKeyOutput)
-}
-
 type PublicKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublicKey)(nil))
+	return reflect.TypeOf((*[]*PublicKey)(nil)).Elem()
 }
 
 func (o PublicKeyArrayOutput) ToPublicKeyArrayOutput() PublicKeyArrayOutput {
@@ -324,15 +261,15 @@ func (o PublicKeyArrayOutput) ToPublicKeyArrayOutputWithContext(ctx context.Cont
 }
 
 func (o PublicKeyArrayOutput) Index(i pulumi.IntInput) PublicKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicKey {
-		return vs[0].([]PublicKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicKey {
+		return vs[0].([]*PublicKey)[vs[1].(int)]
 	}).(PublicKeyOutput)
 }
 
 type PublicKeyMapOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PublicKey)(nil))
+	return reflect.TypeOf((*map[string]*PublicKey)(nil)).Elem()
 }
 
 func (o PublicKeyMapOutput) ToPublicKeyMapOutput() PublicKeyMapOutput {
@@ -344,18 +281,16 @@ func (o PublicKeyMapOutput) ToPublicKeyMapOutputWithContext(ctx context.Context)
 }
 
 func (o PublicKeyMapOutput) MapIndex(k pulumi.StringInput) PublicKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublicKey {
-		return vs[0].(map[string]PublicKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PublicKey {
+		return vs[0].(map[string]*PublicKey)[vs[1].(string)]
 	}).(PublicKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyInput)(nil)).Elem(), &PublicKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyPtrInput)(nil)).Elem(), &PublicKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyArrayInput)(nil)).Elem(), PublicKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyMapInput)(nil)).Elem(), PublicKeyMap{})
 	pulumi.RegisterOutputType(PublicKeyOutput{})
-	pulumi.RegisterOutputType(PublicKeyPtrOutput{})
 	pulumi.RegisterOutputType(PublicKeyArrayOutput{})
 	pulumi.RegisterOutputType(PublicKeyMapOutput{})
 }

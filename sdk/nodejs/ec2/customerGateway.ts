@@ -102,18 +102,18 @@ export class CustomerGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomerGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomerGatewayArgs | CustomerGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomerGatewayState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["deviceName"] = state ? state.deviceName : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["deviceName"] = state ? state.deviceName : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CustomerGatewayArgs | undefined;
             if ((!args || args.bgpAsn === undefined) && !opts.urn) {
@@ -125,19 +125,17 @@ export class CustomerGateway extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomerGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomerGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

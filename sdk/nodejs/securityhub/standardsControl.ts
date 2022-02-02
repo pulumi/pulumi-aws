@@ -82,20 +82,20 @@ export class StandardsControl extends pulumi.CustomResource {
      */
     constructor(name: string, args: StandardsControlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StandardsControlArgs | StandardsControlState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsControlState | undefined;
-            inputs["controlId"] = state ? state.controlId : undefined;
-            inputs["controlStatus"] = state ? state.controlStatus : undefined;
-            inputs["controlStatusUpdatedAt"] = state ? state.controlStatusUpdatedAt : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["disabledReason"] = state ? state.disabledReason : undefined;
-            inputs["relatedRequirements"] = state ? state.relatedRequirements : undefined;
-            inputs["remediationUrl"] = state ? state.remediationUrl : undefined;
-            inputs["severityRating"] = state ? state.severityRating : undefined;
-            inputs["standardsControlArn"] = state ? state.standardsControlArn : undefined;
-            inputs["title"] = state ? state.title : undefined;
+            resourceInputs["controlId"] = state ? state.controlId : undefined;
+            resourceInputs["controlStatus"] = state ? state.controlStatus : undefined;
+            resourceInputs["controlStatusUpdatedAt"] = state ? state.controlStatusUpdatedAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disabledReason"] = state ? state.disabledReason : undefined;
+            resourceInputs["relatedRequirements"] = state ? state.relatedRequirements : undefined;
+            resourceInputs["remediationUrl"] = state ? state.remediationUrl : undefined;
+            resourceInputs["severityRating"] = state ? state.severityRating : undefined;
+            resourceInputs["standardsControlArn"] = state ? state.standardsControlArn : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as StandardsControlArgs | undefined;
             if ((!args || args.controlStatus === undefined) && !opts.urn) {
@@ -104,21 +104,19 @@ export class StandardsControl extends pulumi.CustomResource {
             if ((!args || args.standardsControlArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'standardsControlArn'");
             }
-            inputs["controlStatus"] = args ? args.controlStatus : undefined;
-            inputs["disabledReason"] = args ? args.disabledReason : undefined;
-            inputs["standardsControlArn"] = args ? args.standardsControlArn : undefined;
-            inputs["controlId"] = undefined /*out*/;
-            inputs["controlStatusUpdatedAt"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["relatedRequirements"] = undefined /*out*/;
-            inputs["remediationUrl"] = undefined /*out*/;
-            inputs["severityRating"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
+            resourceInputs["controlStatus"] = args ? args.controlStatus : undefined;
+            resourceInputs["disabledReason"] = args ? args.disabledReason : undefined;
+            resourceInputs["standardsControlArn"] = args ? args.standardsControlArn : undefined;
+            resourceInputs["controlId"] = undefined /*out*/;
+            resourceInputs["controlStatusUpdatedAt"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["relatedRequirements"] = undefined /*out*/;
+            resourceInputs["remediationUrl"] = undefined /*out*/;
+            resourceInputs["severityRating"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StandardsControl.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StandardsControl.__pulumiType, name, resourceInputs, opts);
     }
 }
 
