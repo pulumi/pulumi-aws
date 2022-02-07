@@ -1,5 +1,7 @@
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PULUMI_EXTRA_MAPPING_ERROR: false
+  PULUMI_MISSING_MAPPING_ERROR: false
 jobs:
   update_bridge:
     name: update-bridge
@@ -70,6 +72,7 @@ jobs:
         - 14.x
         pythonversion:
         - "3.7"
+name: Update pulumi-terraform-bridge
 "on":
   workflow_dispatch:
     inputs:
