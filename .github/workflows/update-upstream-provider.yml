@@ -7,12 +7,14 @@ env:
   PROVIDER: aws
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_API: https://api.pulumi-staging.io
+  PULUMI_EXTRA_MAPPING_ERROR: true
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  PULUMI_PROVIDER_MAP_ERROR: true
+  PULUMI_MISSING_MAPPING_ERROR: true
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
+  UPSTREAM_PROVIDER_MAJOR_VERSION: ""
   UPSTREAM_PROVIDER_ORG: pulumi
   UPSTREAM_PROVIDER_REPO: terraform-provider-aws
 jobs:
@@ -54,12 +56,12 @@ jobs:
     - if: ${{ hashFiles('provider/shim/go.mod') != '' }}
       name: Update shim/go.mod
       run: cd provider/shim && go mod edit -require github.com/${{ env.UPSTREAM_PROVIDER_ORG
-        }}/${{ env.UPSTREAM_PROVIDER_REPO }}@${{ env.UPSTREAM_PROVIDER_SHA }} && go
-        mod tidy
+        }}/${{ env.UPSTREAM_PROVIDER_REPO }}${{ env.UPSTREAM_PROVIDER_MAJOR_VERSION
+        }}@${{ env.UPSTREAM_PROVIDER_SHA }} && go mod tidy
     - name: Update go.mod
       run: cd provider && go mod edit -require github.com/${{ env.UPSTREAM_PROVIDER_ORG
-        }}/${{ env.UPSTREAM_PROVIDER_REPO }}@${{ env.UPSTREAM_PROVIDER_SHA }} && go
-        mod tidy
+        }}/${{ env.UPSTREAM_PROVIDER_REPO }}${{ env.UPSTREAM_PROVIDER_MAJOR_VERSION
+        }}@${{ env.UPSTREAM_PROVIDER_SHA }} && go mod tidy
     - run: make tfgen
     - run: make build_sdks
     - if: ${{ !github.event.inputs.linked_issue_number }}

@@ -24,6 +24,7 @@ builds:
   - darwin
   - windows
   - linux
+  ignore: []
   ldflags:
   - -X github.com/pulumi/pulumi-aws/provider/v4/pkg/version.Version={{.Tag}}
   - -X github.com/terraform-providers/terraform-provider-aws/version.ProviderVersion={{.Tag}}
@@ -33,6 +34,9 @@ changelog:
     exclude:
     - Merge branch
     - Merge pull request
+    - '[internal]'
+    - '[ci]'
+    - '[chore]'
   sort: asc
   use: git
 release:

@@ -208,7 +208,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: us-east-2
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 7200
+        role-duration-seconds: 3600
         role-external-id: upload-pulumi-release
         role-session-name: ${{ env.PROVIDER }}@githubActions
         role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
@@ -220,6 +220,13 @@ jobs:
       with:
         args: -p 1 release --rm-dist --timeout 90m0s
         version: latest
+    - if: failure() && github.event_name == 'push'
+      name: Notify Slack
+      uses: 8398a7/action-slack@v3
+      with:
+        author_name: Failure in publishing binaries
+        fields: repo,commit,author,action
+        status: ${{ job.status }}
     strategy:
       fail-fast: true
       matrix:
@@ -379,7 +386,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 7200
+        role-duration-seconds: 3600
         role-session-name: ${{ env.PROVIDER }}@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Install dependencies
