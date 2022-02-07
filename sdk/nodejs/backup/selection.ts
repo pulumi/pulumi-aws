@@ -156,7 +156,7 @@ export class Selection extends pulumi.CustomResource {
     /**
      * A list of conditions that you define to assign resources to your backup plans using tags.
      */
-    public readonly conditions!: pulumi.Output<outputs.backup.SelectionCondition[] | undefined>;
+    public readonly conditions!: pulumi.Output<outputs.backup.SelectionCondition[]>;
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
@@ -168,7 +168,7 @@ export class Selection extends pulumi.CustomResource {
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
      */
-    public readonly notResources!: pulumi.Output<string[] | undefined>;
+    public readonly notResources!: pulumi.Output<string[]>;
     /**
      * The backup plan ID to be associated with the selection of resources.
      */
