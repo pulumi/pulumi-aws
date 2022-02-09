@@ -13,8 +13,6 @@ Please read about our [contribution guidelines here.](https://github.com/pulumi/
 
 ## Setting up your development environment
 
-This repository holds the source code for the [Pulumi AWS provider](https://www.pulumi.com/registry/packages/aws/). The Provider SDK code in this repository is generated via the [Pulumi Terraform Bridge](https://github.com/pulumi/pulumi-terraform-bridge), so keep that in mind as you work in this repository.
-
 ### Pulumi prerequisites
 
 Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CONTRIBUTING.md file](
@@ -22,13 +20,11 @@ https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md#developing) for det
 
 ## Committing Generated Code
 
-Code generated for Pulumi SDKs should be checked in as part of the pull request containing a
-particular change. To generate code after making changes, run `make` from the root of this
-repository.
+You must generate and check in the SDKs on each pull request containing a code change, e.g. adding a new resource to `resources.go`.
 
-If a large number of seemingly-unrelated diffs are produced by `make` (for example, lots of changes
-to comments unrelated to the change you are making), ensure that the latest dependencies for the
-provider are installed by running `make ensure` in the root of the repository.
+1. Run `make build_sdks` from the root of this repository
+1. Open a pull request containing all changes
+1. *Note:* If a large number of seemingly-unrelated diffs are produced by `make build_sdks` (for example, lots of changes to comments unrelated to the change you are making), ensure that the latest dependencies for the provider are installed by running `go mod tidy` in the `provider/` directory of this repository.
 
 ## Running Integration Tests
 
@@ -42,4 +38,4 @@ The integration tests do try to clean up after themselves by deleting everything
 created, but in the event of bugs or test failures you may need to go into the AWS Console
 and delete resources yourself.
 
-Once you have set `AWS_REGION` and configured your AWS credentials, `make test_all` will run all integration tests.
+Once you have set `AWS_REGION` and configured your AWS credentials, `make test` will run your integration tests.
