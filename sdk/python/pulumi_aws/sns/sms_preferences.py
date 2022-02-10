@@ -17,7 +17,7 @@ class SmsPreferencesArgs:
                  default_sms_type: Optional[pulumi.Input[str]] = None,
                  delivery_status_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[str]] = None,
+                 monthly_spend_limit: Optional[pulumi.Input[int]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SmsPreferences resource.
@@ -25,7 +25,7 @@ class SmsPreferencesArgs:
         :param pulumi.Input[str] default_sms_type: The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         :param pulumi.Input[str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        :param pulumi.Input[str] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         if default_sender_id is not None:
@@ -91,14 +91,14 @@ class SmsPreferencesArgs:
 
     @property
     @pulumi.getter(name="monthlySpendLimit")
-    def monthly_spend_limit(self) -> Optional[pulumi.Input[str]]:
+    def monthly_spend_limit(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """
         return pulumi.get(self, "monthly_spend_limit")
 
     @monthly_spend_limit.setter
-    def monthly_spend_limit(self, value: Optional[pulumi.Input[str]]):
+    def monthly_spend_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "monthly_spend_limit", value)
 
     @property
@@ -121,7 +121,7 @@ class _SmsPreferencesState:
                  default_sms_type: Optional[pulumi.Input[str]] = None,
                  delivery_status_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[str]] = None,
+                 monthly_spend_limit: Optional[pulumi.Input[int]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SmsPreferences resources.
@@ -129,7 +129,7 @@ class _SmsPreferencesState:
         :param pulumi.Input[str] default_sms_type: The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         :param pulumi.Input[str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        :param pulumi.Input[str] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         if default_sender_id is not None:
@@ -195,14 +195,14 @@ class _SmsPreferencesState:
 
     @property
     @pulumi.getter(name="monthlySpendLimit")
-    def monthly_spend_limit(self) -> Optional[pulumi.Input[str]]:
+    def monthly_spend_limit(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """
         return pulumi.get(self, "monthly_spend_limit")
 
     @monthly_spend_limit.setter
-    def monthly_spend_limit(self, value: Optional[pulumi.Input[str]]):
+    def monthly_spend_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "monthly_spend_limit", value)
 
     @property
@@ -227,7 +227,7 @@ class SmsPreferences(pulumi.CustomResource):
                  default_sms_type: Optional[pulumi.Input[str]] = None,
                  delivery_status_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[str]] = None,
+                 monthly_spend_limit: Optional[pulumi.Input[int]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -248,7 +248,7 @@ class SmsPreferences(pulumi.CustomResource):
         :param pulumi.Input[str] default_sms_type: The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         :param pulumi.Input[str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        :param pulumi.Input[str] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         ...
@@ -288,7 +288,7 @@ class SmsPreferences(pulumi.CustomResource):
                  default_sms_type: Optional[pulumi.Input[str]] = None,
                  delivery_status_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[str]] = None,
+                 monthly_spend_limit: Optional[pulumi.Input[int]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -322,7 +322,7 @@ class SmsPreferences(pulumi.CustomResource):
             default_sms_type: Optional[pulumi.Input[str]] = None,
             delivery_status_iam_role_arn: Optional[pulumi.Input[str]] = None,
             delivery_status_success_sampling_rate: Optional[pulumi.Input[str]] = None,
-            monthly_spend_limit: Optional[pulumi.Input[str]] = None,
+            monthly_spend_limit: Optional[pulumi.Input[int]] = None,
             usage_report_s3_bucket: Optional[pulumi.Input[str]] = None) -> 'SmsPreferences':
         """
         Get an existing SmsPreferences resource's state with the given name, id, and optional extra
@@ -335,7 +335,7 @@ class SmsPreferences(pulumi.CustomResource):
         :param pulumi.Input[str] default_sms_type: The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         :param pulumi.Input[str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        :param pulumi.Input[str] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -384,7 +384,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlySpendLimit")
-    def monthly_spend_limit(self) -> pulumi.Output[str]:
+    def monthly_spend_limit(self) -> pulumi.Output[int]:
         """
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """

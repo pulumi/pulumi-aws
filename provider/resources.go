@@ -2598,14 +2598,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
-			"aws_sns_sms_preferences": {
-				Tok: awsResource(snsMod, "SmsPreferences"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"monthly_spend_limit": {
-						Type: "string",
-					},
-				},
-			},
+			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},
 			"aws_sns_topic": {
 				Tok: awsResource(snsMod, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
