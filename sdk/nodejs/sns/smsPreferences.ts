@@ -63,7 +63,7 @@ export class SmsPreferences extends pulumi.CustomResource {
     /**
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      */
-    public readonly monthlySpendLimit!: pulumi.Output<string>;
+    public readonly monthlySpendLimit!: pulumi.Output<number>;
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */
@@ -125,7 +125,7 @@ export interface SmsPreferencesState {
     /**
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      */
-    monthlySpendLimit?: pulumi.Input<string>;
+    monthlySpendLimit?: pulumi.Input<number>;
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */
@@ -155,7 +155,7 @@ export interface SmsPreferencesArgs {
     /**
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      */
-    monthlySpendLimit?: pulumi.Input<string>;
+    monthlySpendLimit?: pulumi.Input<number>;
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */
