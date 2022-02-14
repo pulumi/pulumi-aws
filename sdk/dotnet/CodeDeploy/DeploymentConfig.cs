@@ -181,7 +181,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DeploymentConfig(string name, DeploymentConfigArgs args, CustomResourceOptions? options = null)
+        public DeploymentConfig(string name, DeploymentConfigArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:codedeploy/deploymentConfig:DeploymentConfig", name, args ?? new DeploymentConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -228,8 +228,8 @@ namespace Pulumi.Aws.CodeDeploy
         /// <summary>
         /// The name of the deployment config.
         /// </summary>
-        [Input("deploymentConfigName", required: true)]
-        public Input<string> DeploymentConfigName { get; set; } = null!;
+        [Input("deploymentConfigName")]
+        public Input<string>? DeploymentConfigName { get; set; }
 
         /// <summary>
         /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
