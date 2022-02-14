@@ -144,7 +144,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeploymentConfigArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: DeploymentConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentConfigArgs | DeploymentConfigState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -157,9 +157,6 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
         } else {
             const args = argsOrState as DeploymentConfigArgs | undefined;
-            if ((!args || args.deploymentConfigName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'deploymentConfigName'");
-            }
             resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
             resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
@@ -208,7 +205,7 @@ export interface DeploymentConfigArgs {
     /**
      * The name of the deployment config.
      */
-    deploymentConfigName: pulumi.Input<string>;
+    deploymentConfigName?: pulumi.Input<string>;
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */

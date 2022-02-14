@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -155,12 +154,9 @@ type DeploymentConfig struct {
 func NewDeploymentConfig(ctx *pulumi.Context,
 	name string, args *DeploymentConfigArgs, opts ...pulumi.ResourceOption) (*DeploymentConfig, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DeploymentConfigArgs{}
 	}
 
-	if args.DeploymentConfigName == nil {
-		return nil, errors.New("invalid value for required argument 'DeploymentConfigName'")
-	}
 	var resource DeploymentConfig
 	err := ctx.RegisterResource("aws:codedeploy/deploymentConfig:DeploymentConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -216,7 +212,7 @@ type deploymentConfigArgs struct {
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The name of the deployment config.
-	DeploymentConfigName string `pulumi:"deploymentConfigName"`
+	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
@@ -228,7 +224,7 @@ type DeploymentConfigArgs struct {
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
 	// The name of the deployment config.
-	DeploymentConfigName pulumi.StringInput
+	DeploymentConfigName pulumi.StringPtrInput
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.

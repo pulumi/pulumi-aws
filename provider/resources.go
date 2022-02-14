@@ -862,9 +862,24 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codebuild_report_group":      {Tok: awsResource(codebuildMod, "ReportGroup")},
 			"aws_codebuild_resource_policy":   {Tok: awsResource(codebuildMod, "ResourcePolicy")},
 			// CodeDeploy
-			"aws_codedeploy_app":               {Tok: awsResource(codedeployMod, "Application")},
-			"aws_codedeploy_deployment_config": {Tok: awsResource(codedeployMod, "DeploymentConfig")},
-			"aws_codedeploy_deployment_group":  {Tok: awsResource(codedeployMod, "DeploymentGroup")},
+			"aws_codedeploy_app": {Tok: awsResource(codedeployMod, "Application")},
+			"aws_codedeploy_deployment_config": {
+				Tok: awsResource(codedeployMod, "DeploymentConfig"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"deployment_config_name": {
+						Default: &tfbridge.DefaultInfo{
+							// This is taken from
+							// https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Separator: "_",
+								Maxlen:    100,
+								Randlen:   7,
+							}),
+						},
+					},
+				},
+			},
+			"aws_codedeploy_deployment_group": {Tok: awsResource(codedeployMod, "DeploymentGroup")},
 			// CodeCommit
 			"aws_codecommit_repository": {
 				Tok: awsResource(codecommitMod, "Repository"),
