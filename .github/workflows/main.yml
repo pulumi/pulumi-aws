@@ -469,7 +469,7 @@ name: main
     branches:
     - main
     paths-ignore:
-    - '*.md'
+    - '**.md'
     tags-ignore:
     - v*
     - sdk/*

@@ -108,13 +108,13 @@ jobs:
     name: comment-notification
     runs-on: ubuntu-latest
     steps:
-    - id: var
+    - id: run-url
       name: Create URL to the run output
       run: echo ::set-output name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: Update with Result
       uses: peter-evans/create-or-update-comment@v1
       with:
-        body: Please view the PR build - ${{ steps.vars.outputs.run-url }}
+        body: 'Please view the PR build: ${{ steps.run-url.outputs.run-url }}'
         issue-number: ${{ github.event.client_payload.github.payload.issue.number
           }}
         repository: ${{ github.event.client_payload.github.payload.repository.full_name

@@ -22,6 +22,9 @@ jobs:
     name: update-upstream_provider
     runs-on: ubuntu-latest
     steps:
+    - id: run-url
+      name: Create URL to the run output
+      run: echo ::set-output name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: Checkout Repo
       uses: actions/checkout@v2
     - name: Unshallow clone for tags
@@ -100,6 +103,17 @@ jobs:
         title: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{ github.event.inputs.version
           }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
+    - if: ${{ failure() && github.event.inputs.linked_issue_number }}
+      name: Comment on failed attempt
+      uses: jungwinter/comment@v1
+      with:
+        body: |-
+          Failed to automatically update upstream provider (probably beacuse of new resources or data sources, which must be mapped manually).
+
+          For more details, see: ${{ steps.run-url.outputs.run-url }}
+        issue_number: ${{ github.event.inputs.linked_issue_number }}
+        token: ${{ secrets.PULUMI_BOT_TOKEN }}
+        type: create
     strategy:
       fail-fast: true
       matrix:
