@@ -100,7 +100,7 @@ jobs:
         - "3.7"
   create_docs_build:
     name: create_docs_build
-    needs: publish_sdk
+    needs: tag_sdk
     runs-on: ubuntu-latest
     steps:
     - name: Install pulumictl
@@ -308,10 +308,6 @@ jobs:
         author_name: Failure in publishing SDK
         fields: repo,commit,author,action
         status: ${{ job.status }}
-    - if: success() && github.event_name == 'push'
-      name: Add SDK version tag
-      run: git tag sdk/${{ github.ref_name }} && git push origin sdk/${{ github.ref_name
-        }}
     strategy:
       fail-fast: true
       matrix:
@@ -323,6 +319,20 @@ jobs:
         - 14.x
         pythonversion:
         - "3.7"
+  tag_sdk:
+    name: tag_sdk
+    needs: publish_sdk
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@v1.2.0
+      with:
+        repo: pulumi/pulumictl
+    - name: Add SDK version tag
+      run: git tag sdk/$(pulumictl get version --language generic) && git push origin
+        sdk/$(pulumictl get version --language generic)
   test:
     name: test
     needs: build_sdk
