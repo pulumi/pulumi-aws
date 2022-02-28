@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Lambda
 
         public static Runtime DotnetCore2d1 { get; } = new Runtime("dotnetcore2.1");
         public static Runtime DotnetCore3d1 { get; } = new Runtime("dotnetcore3.1");
+        public static Runtime Dotnet6 { get; } = new Runtime("dotnet6");
         public static Runtime Go1dx { get; } = new Runtime("go1.x");
         public static Runtime Java8 { get; } = new Runtime("java8");
         public static Runtime Java8AL2 { get; } = new Runtime("java8.al2");

@@ -15,6 +15,7 @@ class Runtime(str, Enum):
     """
     DOTNET_CORE2D1 = "dotnetcore2.1"
     DOTNET_CORE3D1 = "dotnetcore3.1"
+    DOTNET6 = "dotnet6"
     GO1DX = "go1.x"
     JAVA8 = "java8"
     JAVA8_AL2 = "java8.al2"
