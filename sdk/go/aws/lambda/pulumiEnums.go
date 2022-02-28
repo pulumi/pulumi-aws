@@ -16,6 +16,7 @@ type Runtime string
 const (
 	RuntimeDotnetCore2d1 = Runtime("dotnetcore2.1")
 	RuntimeDotnetCore3d1 = Runtime("dotnetcore3.1")
+	RuntimeDotnet6       = Runtime("dotnet6")
 	RuntimeGo1dx         = Runtime("go1.x")
 	RuntimeJava8         = Runtime("java8")
 	RuntimeJava8AL2      = Runtime("java8.al2")
