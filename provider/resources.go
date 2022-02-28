@@ -3822,6 +3822,7 @@ func Provider() tfbridge.ProviderInfo {
 				Enum: []schema.EnumValueSpec{
 					{Value: "dotnetcore2.1", Name: "DotnetCore2d1"},
 					{Value: "dotnetcore3.1", Name: "DotnetCore3d1"},
+					{Value: "dotnet6", Name: "Dotnet6"},
 					{Value: "go1.x", Name: "Go1dx"},
 					{Value: "java8", Name: "Java8"},
 					{Value: "java8.al2", Name: "Java8AL2"},
