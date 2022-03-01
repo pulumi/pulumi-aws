@@ -6,6 +6,33 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * Basic usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.ManagedPrefixList("example", {
+ *     addressFamily: "IPv4",
+ *     maxEntries: 5,
+ *     entries: [
+ *         {
+ *             cidr: aws_vpc.example.cidr_block,
+ *             description: "Primary",
+ *         },
+ *         {
+ *             cidr: aws_vpc_ipv4_cidr_block_association.example.cidr_block,
+ *             description: "Secondary",
+ *         },
+ *     ],
+ *     tags: {
+ *         Env: "live",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Prefix Lists can be imported using the `id`, e.g.,

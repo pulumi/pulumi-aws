@@ -113,6 +113,37 @@ class AccessPointPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
+            bucket=example_bucket.id,
+            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
+                block_public_acls=True,
+                block_public_policy=False,
+                ignore_public_acls=True,
+                restrict_public_buckets=False,
+            ))
+        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+            access_point_arn=example_access_point.arn,
+            policy=example_access_point.arn.apply(lambda arn: json.dumps({
+                "Version": "2008-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "s3:GetObjectTagging",
+                    "Principal": {
+                        "AWS": "*",
+                    },
+                    "Resource": f"{arn}/object/*",
+                }],
+            })))
+        ```
+
         ## Import
 
         Access Point policies can be imported using the `access_point_arn`, e.g.
@@ -133,6 +164,37 @@ class AccessPointPolicy(pulumi.CustomResource):
                  args: AccessPointPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
+            bucket=example_bucket.id,
+            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
+                block_public_acls=True,
+                block_public_policy=False,
+                ignore_public_acls=True,
+                restrict_public_buckets=False,
+            ))
+        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+            access_point_arn=example_access_point.arn,
+            policy=example_access_point.arn.apply(lambda arn: json.dumps({
+                "Version": "2008-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "s3:GetObjectTagging",
+                    "Principal": {
+                        "AWS": "*",
+                    },
+                    "Resource": f"{arn}/object/*",
+                }],
+            })))
+        ```
+
         ## Import
 
         Access Point policies can be imported using the `access_point_arn`, e.g.

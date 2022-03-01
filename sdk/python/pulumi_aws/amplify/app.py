@@ -693,6 +693,91 @@ class App(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            build_spec=\"\"\"  version: 0.1
+          frontend:
+            phases:
+              preBuild:
+                commands:
+                  - yarn install
+              build:
+                commands:
+                  - yarn run build
+            artifacts:
+              baseDirectory: build
+              files:
+                - '**/*'
+            cache:
+              paths:
+                - node_modules/**/*
+
+        \"\"\",
+            custom_rules=[aws.amplify.AppCustomRuleArgs(
+                source="/<*>",
+                status="404",
+                target="/index.html",
+            )],
+            environment_variables={
+                "ENV": "test",
+            },
+            repository="https://github.com/example/app")
+        ```
+        ### Repository with Tokens
+
+        If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            access_token="...",
+            repository="https://github.com/example/app")
+        ```
+
+        You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+        ### Auto Branch Creation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
+                enable_auto_build=True,
+            ),
+            auto_branch_creation_patterns=[
+                "*",
+                "*/**",
+            ],
+            enable_auto_branch_creation=True)
+        ```
+        ### Rewrites and Redirects
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example", custom_rules=[
+            aws.amplify.AppCustomRuleArgs(
+                source="/api/<*>",
+                status="200",
+                target="https://api.example.com/api/<*>",
+            ),
+            aws.amplify.AppCustomRuleArgs(
+                source="</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+                status="200",
+                target="/index.html",
+            ),
+        ])
+        ```
+
         ## Import
 
         Amplify App can be imported using Amplify App ID (appId), e.g.,
@@ -731,6 +816,91 @@ class App(pulumi.CustomResource):
                  args: Optional[AppArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            build_spec=\"\"\"  version: 0.1
+          frontend:
+            phases:
+              preBuild:
+                commands:
+                  - yarn install
+              build:
+                commands:
+                  - yarn run build
+            artifacts:
+              baseDirectory: build
+              files:
+                - '**/*'
+            cache:
+              paths:
+                - node_modules/**/*
+
+        \"\"\",
+            custom_rules=[aws.amplify.AppCustomRuleArgs(
+                source="/<*>",
+                status="404",
+                target="/index.html",
+            )],
+            environment_variables={
+                "ENV": "test",
+            },
+            repository="https://github.com/example/app")
+        ```
+        ### Repository with Tokens
+
+        If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            access_token="...",
+            repository="https://github.com/example/app")
+        ```
+
+        You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+        ### Auto Branch Creation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
+                enable_auto_build=True,
+            ),
+            auto_branch_creation_patterns=[
+                "*",
+                "*/**",
+            ],
+            enable_auto_branch_creation=True)
+        ```
+        ### Rewrites and Redirects
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example", custom_rules=[
+            aws.amplify.AppCustomRuleArgs(
+                source="/api/<*>",
+                status="200",
+                target="https://api.example.com/api/<*>",
+            ),
+            aws.amplify.AppCustomRuleArgs(
+                source="</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+                status="200",
+                target="/index.html",
+            ),
+        ])
+        ```
+
         ## Import
 
         Amplify App can be imported using Amplify App ID (appId), e.g.,

@@ -47,9 +47,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := ".*project.*"
 // 		_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-// 			NameRegex: &opt0,
+// 			NameRegex: pulumi.StringRef(".*project.*"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -70,9 +69,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "/custom-path"
 // 		_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-// 			PathPrefix: &opt0,
+// 			PathPrefix: pulumi.StringRef("/custom-path"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -95,9 +93,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "/aws-reserved/sso.amazonaws.com/"
 // 		_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-// 			PathPrefix: &opt0,
+// 			PathPrefix: pulumi.StringRef("/aws-reserved/sso.amazonaws.com/"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -119,11 +116,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "AWSReservedSSO_permission_set_name_.*"
-// 		opt1 := "/aws-reserved/sso.amazonaws.com/"
 // 		_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-// 			NameRegex:  &opt0,
-// 			PathPrefix: &opt1,
+// 			NameRegex:  pulumi.StringRef("AWSReservedSSO_permission_set_name_.*"),
+// 			PathPrefix: pulumi.StringRef("/aws-reserved/sso.amazonaws.com/"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

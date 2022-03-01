@@ -30,11 +30,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "test.com."
-// 		opt1 := true
 // 		selected, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-// 			Name:        &opt0,
-// 			PrivateZone: &opt1,
+// 			Name:        pulumi.StringRef("test.com."),
+// 			PrivateZone: pulumi.BoolRef(true),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

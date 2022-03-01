@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "SERVICE PRINCIPAL"
 // 		_, err := organizations.GetDelegatedAdministrators(ctx, &organizations.GetDelegatedAdministratorsArgs{
-// 			ServicePrincipal: &opt0,
+// 			ServicePrincipal: pulumi.StringRef("SERVICE PRINCIPAL"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

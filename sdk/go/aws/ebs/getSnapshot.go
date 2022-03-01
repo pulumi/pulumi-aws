@@ -24,7 +24,6 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
 // 		_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
 // 			Filters: []ebs.GetSnapshotFilter{
 // 				ebs.GetSnapshotFilter{
@@ -40,7 +39,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			Owners: []string{
 // 				"self",
 // 			},

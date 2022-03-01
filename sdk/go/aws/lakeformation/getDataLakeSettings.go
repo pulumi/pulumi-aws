@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "14916253649"
 // 		_, err := lakeformation.LookupDataLakeSettings(ctx, &lakeformation.LookupDataLakeSettingsArgs{
-// 			CatalogId: &opt0,
+// 			CatalogId: pulumi.StringRef("14916253649"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

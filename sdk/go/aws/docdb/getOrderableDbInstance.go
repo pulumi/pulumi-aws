@@ -24,13 +24,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "docdb"
-// 		opt1 := "3.6.0"
-// 		opt2 := "na"
 // 		_, err := docdb.GetOrderableDbInstance(ctx, &docdb.GetOrderableDbInstanceArgs{
-// 			Engine:        &opt0,
-// 			EngineVersion: &opt1,
-// 			LicenseModel:  &opt2,
+// 			Engine:        pulumi.StringRef("docdb"),
+// 			EngineVersion: pulumi.StringRef("3.6.0"),
+// 			LicenseModel:  pulumi.StringRef("na"),
 // 			PreferredInstanceClasses: []string{
 // 				"db.r5.large",
 // 				"db.r4.large",

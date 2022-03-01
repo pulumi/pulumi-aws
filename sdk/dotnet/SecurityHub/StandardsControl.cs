@@ -9,6 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.SecurityHub.Account("example", new Aws.SecurityHub.AccountArgs
+    ///         {
+    ///         });
+    ///         var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cisAwsFoundationsBenchmark", new Aws.SecurityHub.StandardsSubscriptionArgs
+    ///         {
+    ///             StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 example,
+    ///             },
+    ///         });
+    ///         var ensureIamPasswordPolicyPreventsPasswordReuse = new Aws.SecurityHub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", new Aws.SecurityHub.StandardsControlArgs
+    ///         {
+    ///             StandardsControlArn = "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
+    ///             ControlStatus = "DISABLED",
+    ///             DisabledReason = "We handle password policies within Okta",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 cisAwsFoundationsBenchmark,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:securityhub/standardsControl:StandardsControl")]
     public partial class StandardsControl : Pulumi.CustomResource
     {

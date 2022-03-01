@@ -26,9 +26,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
 // 		_, err := elasticbeanstalk.GetSolutionStack(ctx, &elasticbeanstalk.GetSolutionStackArgs{
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			NameRegex:  fmt.Sprintf("%v%v", "^64bit Amazon Linux (.*) Multi-container Docker (.*)", "$"),
 // 		}, nil)
 // 		if err != nil {

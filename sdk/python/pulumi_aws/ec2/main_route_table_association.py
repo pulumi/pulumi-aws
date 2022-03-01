@@ -117,7 +117,29 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a MainRouteTableAssociation resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
+            vpc_id=aws_vpc["foo"]["id"],
+            route_table_id=aws_route_table["bar"]["id"])
+        ```
+        ## Notes
+
+        On VPC creation, the AWS API always creates an initial Main Route Table. This
+        resource records the ID of that Route Table under `original_route_table_id`.
+        The "Delete" action for a `main_route_table_association` consists of resetting
+        this original table as the Main Route Table for the VPC. You'll see this
+        additional Route Table in the AWS console; it must remain intact in order for
+        the `main_route_table_association` delete to work properly.
+
+        [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
+        [tf-route-tables]: /docs/providers/aws/r/route_table.html
+        [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
@@ -131,7 +153,29 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                  args: MainRouteTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MainRouteTableAssociation resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
+            vpc_id=aws_vpc["foo"]["id"],
+            route_table_id=aws_route_table["bar"]["id"])
+        ```
+        ## Notes
+
+        On VPC creation, the AWS API always creates an initial Main Route Table. This
+        resource records the ID of that Route Table under `original_route_table_id`.
+        The "Delete" action for a `main_route_table_association` consists of resetting
+        this original table as the Main Route Table for the VPC. You'll see this
+        additional Route Table in the AWS console; it must remain intact in order for
+        the `main_route_table_association` delete to work properly.
+
+        [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
+        [tf-route-tables]: /docs/providers/aws/r/route_table.html
+        [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
+
         :param str resource_name: The name of the resource.
         :param MainRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

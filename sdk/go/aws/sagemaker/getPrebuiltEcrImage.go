@@ -28,9 +28,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "2.2-1.0.11.0"
 // 		_, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
-// 			ImageTag:       &opt0,
+// 			ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
 // 			RepositoryName: "sagemaker-scikit-learn",
 // 		}, nil)
 // 		if err != nil {

@@ -27,9 +27,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "PYTHON"
 // 		example, err := glue.GetScript(ctx, &glue.GetScriptArgs{
-// 			Language: &opt0,
+// 			Language: pulumi.StringRef("PYTHON"),
 // 			DagEdges: []glue.GetScriptDagEdge{
 // 				glue.GetScriptDagEdge{
 // 					Source: "datasource0",
@@ -139,9 +138,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "SCALA"
 // 		example, err := glue.GetScript(ctx, &glue.GetScriptArgs{
-// 			Language: &opt0,
+// 			Language: pulumi.StringRef("SCALA"),
 // 			DagEdges: []glue.GetScriptDagEdge{
 // 				glue.GetScriptDagEdge{
 // 					Source: "datasource0",

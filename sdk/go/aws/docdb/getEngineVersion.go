@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "3.6.0"
 // 		_, err := docdb.GetEngineVersion(ctx, &docdb.GetEngineVersionArgs{
-// 			Version: &opt0,
+// 			Version: pulumi.StringRef("3.6.0"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

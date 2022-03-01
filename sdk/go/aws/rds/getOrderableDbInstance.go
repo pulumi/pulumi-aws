@@ -24,19 +24,16 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "5.7.22"
-// 		opt1 := "general-public-license"
-// 		opt2 := "standard"
 // 		_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
 // 			Engine:        "mysql",
-// 			EngineVersion: &opt0,
-// 			LicenseModel:  &opt1,
+// 			EngineVersion: pulumi.StringRef("5.7.22"),
+// 			LicenseModel:  pulumi.StringRef("general-public-license"),
 // 			PreferredInstanceClasses: []string{
 // 				"db.r6.xlarge",
 // 				"db.m4.large",
 // 				"db.t3.small",
 // 			},
-// 			StorageType: &opt2,
+// 			StorageType: pulumi.StringRef("standard"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -58,10 +55,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "general-public-license"
 // 		_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
 // 			Engine:       "mysql",
-// 			LicenseModel: &opt0,
+// 			LicenseModel: pulumi.StringRef("general-public-license"),
 // 			PreferredEngineVersions: []string{
 // 				"5.6.35",
 // 				"5.6.41",

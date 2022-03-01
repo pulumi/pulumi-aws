@@ -6,6 +6,43 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ecs.Cluster("foo", {
+ *     settings: [{
+ *         name: "containerInsights",
+ *         value: "enabled",
+ *     }],
+ * });
+ * ```
+ * ### Example W/Log Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleKey = new aws.kms.Key("exampleKey", {
+ *     description: "example",
+ *     deletionWindowInDays: 7,
+ * });
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const test = new aws.ecs.Cluster("test", {configuration: {
+ *     executeCommandConfiguration: {
+ *         kmsKeyId: exampleKey.arn,
+ *         logging: "OVERRIDE",
+ *         logConfiguration: {
+ *             cloudWatchEncryptionEnabled: true,
+ *             cloudWatchLogGroupName: exampleLogGroup.name,
+ *         },
+ *     },
+ * }});
+ * ```
+ *
  * ## Import
  *
  * ECS clusters can be imported using the `name`, e.g.,

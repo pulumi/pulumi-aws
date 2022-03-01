@@ -33,9 +33,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := fmt.Sprintf("%v%v%v", "com.amazonaws.", current.Name, ".dynamodb")
 // 		_, err = ec2.LookupManagedPrefixList(ctx, &ec2.LookupManagedPrefixListArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef(fmt.Sprintf("%v%v%v", "com.amazonaws.", current.Name, ".dynamodb")),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

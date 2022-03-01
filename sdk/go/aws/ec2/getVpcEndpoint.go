@@ -25,11 +25,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := aws_vpc.Foo.Id
-// 		opt1 := "com.amazonaws.us-west-2.s3"
 // 		s3, err := ec2.LookupVpcEndpoint(ctx, &ec2.LookupVpcEndpointArgs{
-// 			VpcId:       &opt0,
-// 			ServiceName: &opt1,
+// 			VpcId:       pulumi.StringRef(aws_vpc.Foo.Id),
+// 			ServiceName: pulumi.StringRef("com.amazonaws.us-west-2.s3"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

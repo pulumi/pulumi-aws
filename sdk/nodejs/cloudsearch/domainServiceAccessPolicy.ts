@@ -5,6 +5,32 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleDomain = new aws.cloudsearch.Domain("exampleDomain", {});
+ * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", {
+ *     domainName: exampleDomain.id,
+ *     accessPolicy: `{
+ *   "Version":"2012-10-17",
+ *   "Statement":[{
+ *     "Sid":"search_only",
+ *     "Effect":"Allow",
+ *     "Principal":"*",
+ *     "Action":[
+ *       "cloudsearch:search",
+ *       "cloudsearch:document"
+ *     ],
+ *     "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
+ *   }]
+ * }
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * CloudSearch domain service access policies can be imported using the domain name, e.g.,

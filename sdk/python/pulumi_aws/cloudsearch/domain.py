@@ -264,6 +264,37 @@ class Domain(pulumi.CustomResource):
                  scaling_parameters: Optional[pulumi.Input[pulumi.InputType['DomainScalingParametersArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudsearch.Domain("example",
+            index_fields=[
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    analysis_scheme="_en_default_",
+                    highlight=False,
+                    name="headline",
+                    return_=True,
+                    search=True,
+                    sort=True,
+                    type="text",
+                ),
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    facet=True,
+                    name="price",
+                    return_=True,
+                    search=True,
+                    sort=True,
+                    type="double",
+                ),
+            ],
+            scaling_parameters=aws.cloudsearch.DomainScalingParametersArgs(
+                desired_instance_type="search.medium",
+            ))
+        ```
+
         ## Import
 
         CloudSearch Domains can be imported using the `name`, e.g.,
@@ -287,6 +318,37 @@ class Domain(pulumi.CustomResource):
                  args: Optional[DomainArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudsearch.Domain("example",
+            index_fields=[
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    analysis_scheme="_en_default_",
+                    highlight=False,
+                    name="headline",
+                    return_=True,
+                    search=True,
+                    sort=True,
+                    type="text",
+                ),
+                aws.cloudsearch.DomainIndexFieldArgs(
+                    facet=True,
+                    name="price",
+                    return_=True,
+                    search=True,
+                    sort=True,
+                    type="double",
+                ),
+            ],
+            scaling_parameters=aws.cloudsearch.DomainScalingParametersArgs(
+                desired_instance_type="search.medium",
+            ))
+        ```
+
         ## Import
 
         CloudSearch Domains can be imported using the `name`, e.g.,

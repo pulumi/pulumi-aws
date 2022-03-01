@@ -11,9 +11,53 @@ namespace Pulumi.Aws
 {
     public static class GetDefaultTags
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.GetDefaultTags.InvokeAsync());
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDefaultTagsResult> InvokeAsync(GetDefaultTagsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultTagsResult>("aws:index/getDefaultTags:getDefaultTags", args ?? new GetDefaultTagsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.GetDefaultTags.InvokeAsync());
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetDefaultTagsResult> Invoke(GetDefaultTagsInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDefaultTagsResult>("aws:index/getDefaultTags:getDefaultTags", args ?? new GetDefaultTagsInvokeArgs(), options.WithDefaults());
     }

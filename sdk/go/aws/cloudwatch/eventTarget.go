@@ -314,7 +314,7 @@ import (
 // 		eventBusInvokeRemoteEventBusPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Effect: "Allow",
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Actions: []string{
 // 						"events.PutEvents",
 // 					},

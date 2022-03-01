@@ -107,7 +107,22 @@ class Trigger(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
                  __props__=None):
         """
-        Create a Trigger resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
+        test_trigger = aws.codecommit.Trigger("testTrigger",
+            repository_name=test_repository.repository_name,
+            triggers=[aws.codecommit.TriggerTriggerArgs(
+                name="all",
+                events=["all"],
+                destination_arn=aws_sns_topic["test"]["arn"],
+            )])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
@@ -119,7 +134,22 @@ class Trigger(pulumi.CustomResource):
                  args: TriggerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Trigger resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
+        test_trigger = aws.codecommit.Trigger("testTrigger",
+            repository_name=test_repository.repository_name,
+            triggers=[aws.codecommit.TriggerTriggerArgs(
+                name="all",
+                events=["all"],
+                destination_arn=aws_sns_topic["test"]["arn"],
+            )])
+        ```
+
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

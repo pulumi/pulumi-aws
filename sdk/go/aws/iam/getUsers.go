@@ -47,9 +47,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := ".*abc.*"
 // 		_, err := iam.GetUsers(ctx, &iam.GetUsersArgs{
-// 			NameRegex: &opt0,
+// 			NameRegex: pulumi.StringRef(".*abc.*"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -70,9 +69,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "/custom-path"
 // 		_, err := iam.GetUsers(ctx, &iam.GetUsersArgs{
-// 			PathPrefix: &opt0,
+// 			PathPrefix: pulumi.StringRef("/custom-path"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

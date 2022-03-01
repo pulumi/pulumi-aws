@@ -58,7 +58,16 @@ class AwaitableGetDefaultTagsResult(GetDefaultTagsResult):
 def get_default_tags(tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultTagsResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.get_default_tags()
+    ```
+
 
     :param Mapping[str, str] tags: Blocks of default tags set on the provider. See details below.
     """
@@ -79,7 +88,16 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
 def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultTagsResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.get_default_tags()
+    ```
+
 
     :param Mapping[str, str] tags: Blocks of default tags set on the provider. See details below.
     """

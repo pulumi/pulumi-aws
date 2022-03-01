@@ -37,7 +37,7 @@ import (
 // 					Actions: []string{
 // 						"sts:AssumeRole",
 // 					},
-// 					Effect: "Allow",
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Identifiers: []string{

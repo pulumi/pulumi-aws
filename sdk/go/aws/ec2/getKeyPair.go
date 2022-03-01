@@ -26,9 +26,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "test"
 // 		example, err := ec2.LookupKeyPair(ctx, &ec2.LookupKeyPairArgs{
-// 			KeyName: &opt0,
+// 			KeyName: pulumi.StringRef("test"),
 // 			Filters: []ec2.GetKeyPairFilter{
 // 				ec2.GetKeyPairFilter{
 // 					Name: "tag:Component",

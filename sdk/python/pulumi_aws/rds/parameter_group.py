@@ -268,6 +268,26 @@ class ParameterGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.ParameterGroup("default",
+            family="mysql5.6",
+            parameters=[
+                aws.rds.ParameterGroupParameterArgs(
+                    name="character_set_server",
+                    value="utf8",
+                ),
+                aws.rds.ParameterGroupParameterArgs(
+                    name="character_set_client",
+                    value="utf8",
+                ),
+            ])
+        ```
+
         ## Import
 
         DB Parameter groups can be imported using the `name`, e.g.,
@@ -292,6 +312,26 @@ class ParameterGroup(pulumi.CustomResource):
                  args: ParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.ParameterGroup("default",
+            family="mysql5.6",
+            parameters=[
+                aws.rds.ParameterGroupParameterArgs(
+                    name="character_set_server",
+                    value="utf8",
+                ),
+                aws.rds.ParameterGroupParameterArgs(
+                    name="character_set_client",
+                    value="utf8",
+                ),
+            ])
+        ```
+
         ## Import
 
         DB Parameter groups can be imported using the `name`, e.g.,

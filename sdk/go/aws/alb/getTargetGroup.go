@@ -40,11 +40,9 @@ import (
 // 		if param := cfg.Get("lbTgName"); param != "" {
 // 			lbTgName = param
 // 		}
-// 		opt0 := lbTgArn
-// 		opt1 := lbTgName
 // 		_, err := lb.LookupTargetGroup(ctx, &lb.LookupTargetGroupArgs{
-// 			Arn:  &opt0,
-// 			Name: &opt1,
+// 			Arn:  pulumi.StringRef(lbTgArn),
+// 			Name: pulumi.StringRef(lbTgName),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

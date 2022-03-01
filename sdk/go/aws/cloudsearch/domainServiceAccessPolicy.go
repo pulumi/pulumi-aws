@@ -11,6 +11,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudsearch"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDomain, err := cloudsearch.NewDomain(ctx, "exampleDomain", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "exampleDomainServiceAccessPolicy", &cloudsearch.DomainServiceAccessPolicyArgs{
+// 			DomainName:   exampleDomain.ID(),
+// 			AccessPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\":\"2012-10-17\",\n", "  \"Statement\":[{\n", "    \"Sid\":\"search_only\",\n", "    \"Effect\":\"Allow\",\n", "    \"Principal\":\"*\",\n", "    \"Action\":[\n", "      \"cloudsearch:search\",\n", "      \"cloudsearch:document\"\n", "    ],\n", "    \"Condition\":{\"IpAddress\":{\"aws:SourceIp\":\"192.0.2.0/32\"}}\n", "  }]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // CloudSearch domain service access policies can be imported using the domain name, e.g.,

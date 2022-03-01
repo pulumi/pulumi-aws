@@ -97,6 +97,47 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
+            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
+                scram=True,
+            ),
+        ))
+        example_key = aws.kms.Key("exampleKey", description="Example Key for MSK Cluster Scram Secret Association")
+        example_secret = aws.secretsmanager.Secret("exampleSecret", kms_key_id=example_key.key_id)
+        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+            secret_id=example_secret.id,
+            secret_string=json.dumps({
+                "username": "user",
+                "password": "pass",
+            }))
+        example_scram_secret_association = aws.msk.ScramSecretAssociation("exampleScramSecretAssociation",
+            cluster_arn=example_cluster.arn,
+            secret_arn_lists=[example_secret.arn],
+            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+            secret_arn=example_secret.arn,
+            policy=example_secret.arn.apply(lambda arn: f\"\"\"{{
+          "Version" : "2012-10-17",
+          "Statement" : [ {{
+            "Sid": "AWSKafkaResourcePolicy",
+            "Effect" : "Allow",
+            "Principal" : {{
+              "Service" : "kafka.amazonaws.com"
+            }},
+            "Action" : "secretsmanager:getSecretValue",
+            "Resource" : "{arn}"
+          }} ]
+        }}
+        \"\"\"))
+        ```
+
         ## Import
 
         MSK SCRAM Secret Associations can be imported using the `id` e.g.,
@@ -117,6 +158,47 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  args: ScramSecretAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
+            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
+                scram=True,
+            ),
+        ))
+        example_key = aws.kms.Key("exampleKey", description="Example Key for MSK Cluster Scram Secret Association")
+        example_secret = aws.secretsmanager.Secret("exampleSecret", kms_key_id=example_key.key_id)
+        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+            secret_id=example_secret.id,
+            secret_string=json.dumps({
+                "username": "user",
+                "password": "pass",
+            }))
+        example_scram_secret_association = aws.msk.ScramSecretAssociation("exampleScramSecretAssociation",
+            cluster_arn=example_cluster.arn,
+            secret_arn_lists=[example_secret.arn],
+            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+            secret_arn=example_secret.arn,
+            policy=example_secret.arn.apply(lambda arn: f\"\"\"{{
+          "Version" : "2012-10-17",
+          "Statement" : [ {{
+            "Sid": "AWSKafkaResourcePolicy",
+            "Effect" : "Allow",
+            "Principal" : {{
+              "Service" : "kafka.amazonaws.com"
+            }},
+            "Action" : "secretsmanager:getSecretValue",
+            "Resource" : "{arn}"
+          }} ]
+        }}
+        \"\"\"))
+        ```
+
         ## Import
 
         MSK SCRAM Secret Associations can be imported using the `id` e.g.,

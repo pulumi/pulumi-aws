@@ -10,6 +10,133 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/amplify"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+// 			BuildSpec: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  version: 0.1\n", "  frontend:\n", "    phases:\n", "      preBuild:\n", "        commands:\n", "          - yarn install\n", "      build:\n", "        commands:\n", "          - yarn run build\n", "    artifacts:\n", "      baseDirectory: build\n", "      files:\n", "        - '**/*'\n", "    cache:\n", "      paths:\n", "        - node_modules/**/*\n", "\n")),
+// 			CustomRules: amplify.AppCustomRuleArray{
+// 				&amplify.AppCustomRuleArgs{
+// 					Source: pulumi.String("/<*>"),
+// 					Status: pulumi.String("404"),
+// 					Target: pulumi.String("/index.html"),
+// 				},
+// 			},
+// 			EnvironmentVariables: pulumi.StringMap{
+// 				"ENV": pulumi.String("test"),
+// 			},
+// 			Repository: pulumi.String("https://github.com/example/app"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Repository with Tokens
+//
+// If you create a new Amplify App with the `repository` argument, you also need to set `oauthToken` or `accessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `accessToken` as follows:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/amplify"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+// 			AccessToken: pulumi.String("..."),
+// 			Repository:  pulumi.String("https://github.com/example/app"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+// ### Auto Branch Creation
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/amplify"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+// 			AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
+// 				EnableAutoBuild: pulumi.Bool(true),
+// 			},
+// 			AutoBranchCreationPatterns: pulumi.StringArray{
+// 				pulumi.String("*"),
+// 				pulumi.String("*/**"),
+// 			},
+// 			EnableAutoBranchCreation: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Rewrites and Redirects
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/amplify"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+// 			CustomRules: amplify.AppCustomRuleArray{
+// 				&amplify.AppCustomRuleArgs{
+// 					Source: pulumi.String("/api/<*>"),
+// 					Status: pulumi.String("200"),
+// 					Target: pulumi.String("https://api.example.com/api/<*>"),
+// 				},
+// 				&amplify.AppCustomRuleArgs{
+// 					Source: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "</^[^.]+", "$", "|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)", "$", ")([^.]+", "$", ")/>")),
+// 					Status: pulumi.String("200"),
+// 					Target: pulumi.String("/index.html"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Amplify App can be imported using Amplify App ID (appId), e.g.,

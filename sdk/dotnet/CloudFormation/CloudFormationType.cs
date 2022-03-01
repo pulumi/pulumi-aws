@@ -10,6 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudFormation.CloudFormationType("example", new Aws.CloudFormation.CloudFormationTypeArgs
+    ///         {
+    ///             SchemaHandlerPackage = $"s3://{aws_s3_bucket_object.Example.Bucket}/{aws_s3_bucket_object.Example.Key}",
+    ///             Type = "RESOURCE",
+    ///             TypeName = "ExampleCompany::ExampleService::ExampleResource",
+    ///             LoggingConfig = new Aws.CloudFormation.Inputs.CloudFormationTypeLoggingConfigArgs
+    ///             {
+    ///                 LogGroupName = aws_cloudwatch_log_group.Example.Name,
+    ///                 LogRoleArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_cloudformation_type` can be imported with their type version Amazon Resource Name (ARN), e.g.,

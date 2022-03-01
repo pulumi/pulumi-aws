@@ -60,9 +60,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "tgw-rtb-12345678"
 // 		_, err := ec2transitgateway.LookupRouteTable(ctx, &ec2transitgateway.LookupRouteTableArgs{
-// 			Id: &opt0,
+// 			Id: pulumi.StringRef("tgw-rtb-12345678"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -51,11 +51,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := current.AccountId
 // 		_, err = appmesh.LookupVirtualService(ctx, &appmesh.LookupVirtualServiceArgs{
 // 			Name:      "example.mesh.local",
 // 			MeshName:  "example-mesh",
-// 			MeshOwner: &opt0,
+// 			MeshOwner: pulumi.StringRef(current.AccountId),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

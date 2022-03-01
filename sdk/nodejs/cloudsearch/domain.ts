@@ -6,6 +6,38 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudsearch.Domain("example", {
+ *     indexFields: [
+ *         {
+ *             analysisScheme: "_en_default_",
+ *             highlight: false,
+ *             name: "headline",
+ *             return: true,
+ *             search: true,
+ *             sort: true,
+ *             type: "text",
+ *         },
+ *         {
+ *             facet: true,
+ *             name: "price",
+ *             return: true,
+ *             search: true,
+ *             sort: true,
+ *             type: "double",
+ *         },
+ *     ],
+ *     scalingParameters: {
+ *         desiredInstanceType: "search.medium",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * CloudSearch Domains can be imported using the `name`, e.g.,

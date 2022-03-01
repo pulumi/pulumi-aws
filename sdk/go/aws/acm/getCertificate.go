@@ -35,10 +35,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := true
 // 		_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
 // 			Domain:     "tf.example.com",
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			Types: []string{
 // 				"AMAZON_ISSUED",
 // 			},

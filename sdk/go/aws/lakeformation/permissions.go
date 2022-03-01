@@ -11,6 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Grant Permissions For A Lake Formation S3 Resource
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lakeformation"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
+// 			Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+// 			Permissions: pulumi.StringArray{
+// 				pulumi.String("ALL"),
+// 			},
+// 			DataLocation: &lakeformation.PermissionsDataLocationArgs{
+// 				Arn: pulumi.Any(aws_lakeformation_resource.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Permissions struct {
 	pulumi.CustomResourceState
 

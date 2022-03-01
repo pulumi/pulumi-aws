@@ -25,7 +25,6 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "i-instanceid"
 // 		_, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
 // 			Filters: []ec2.GetInstanceFilter{
 // 				ec2.GetInstanceFilter{
@@ -41,7 +40,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			InstanceId: &opt0,
+// 			InstanceId: pulumi.StringRef("i-instanceid"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

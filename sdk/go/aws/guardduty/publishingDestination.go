@@ -89,7 +89,7 @@ import (
 // 		kmsPol, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "Allow GuardDuty to encrypt findings",
+// 					Sid: pulumi.StringRef("Allow GuardDuty to encrypt findings"),
 // 					Actions: []string{
 // 						"kms:GenerateDataKey",
 // 					},
@@ -106,7 +106,7 @@ import (
 // 					},
 // 				},
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "Allow all users to modify/delete key (test only)",
+// 					Sid: pulumi.StringRef("Allow all users to modify/delete key (test only)"),
 // 					Actions: []string{
 // 						"kms:*",
 // 					},

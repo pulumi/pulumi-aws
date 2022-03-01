@@ -10,6 +10,50 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudSearch
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudSearch.Domain("example", new Aws.CloudSearch.DomainArgs
+    ///         {
+    ///             IndexFields = 
+    ///             {
+    ///                 new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
+    ///                 {
+    ///                     AnalysisScheme = "_en_default_",
+    ///                     Highlight = false,
+    ///                     Name = "headline",
+    ///                     Return = true,
+    ///                     Search = true,
+    ///                     Sort = true,
+    ///                     Type = "text",
+    ///                 },
+    ///                 new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
+    ///                 {
+    ///                     Facet = true,
+    ///                     Name = "price",
+    ///                     Return = true,
+    ///                     Search = true,
+    ///                     Sort = true,
+    ///                     Type = "double",
+    ///                 },
+    ///             },
+    ///             ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
+    ///             {
+    ///                 DesiredInstanceType = "search.medium",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CloudSearch Domains can be imported using the `name`, e.g.,

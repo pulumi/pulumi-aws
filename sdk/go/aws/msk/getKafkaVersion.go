@@ -34,9 +34,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "2.8.0"
 // 		_, err = msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
-// 			Version: &opt0,
+// 			Version: pulumi.StringRef("2.8.0"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -26,9 +26,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials"
 // 		_, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
-// 			Arn: &opt0,
+// 			Arn: pulumi.StringRef("arn:aws:iam::123456789012:policy/UsersManageOwnCredentials"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -49,9 +48,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "test_policy"
 // 		_, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("test_policy"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -35,9 +35,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "test.com."
 // 		testZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("test.com."),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

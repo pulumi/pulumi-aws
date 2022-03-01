@@ -25,11 +25,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := aws_vpc.Foo.Id
-// 		opt1 := "10.0.1.0/22"
 // 		pc, err := ec2.LookupVpcPeeringConnection(ctx, &ec2.LookupVpcPeeringConnectionArgs{
-// 			VpcId:         &opt0,
-// 			PeerCidrBlock: &opt1,
+// 			VpcId:         pulumi.StringRef(aws_vpc.Foo.Id),
+// 			PeerCidrBlock: pulumi.StringRef("10.0.1.0/22"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

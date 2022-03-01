@@ -330,7 +330,21 @@ class Permissions(pulumi.CustomResource):
                  table_with_columns: Optional[pulumi.Input[pulumi.InputType['PermissionsTableWithColumnsArgs']]] = None,
                  __props__=None):
         """
-        Create a Permissions resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Grant Permissions For A Lake Formation S3 Resource
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lakeformation.Permissions("example",
+            principal=aws_iam_role["workflow_role"]["arn"],
+            permissions=["ALL"],
+            data_location=aws.lakeformation.PermissionsDataLocationArgs(
+                arn=aws_lakeformation_resource["example"]["arn"],
+            ))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -350,7 +364,21 @@ class Permissions(pulumi.CustomResource):
                  args: PermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Permissions resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Grant Permissions For A Lake Formation S3 Resource
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lakeformation.Permissions("example",
+            principal=aws_iam_role["workflow_role"]["arn"],
+            permissions=["ALL"],
+            data_location=aws.lakeformation.PermissionsDataLocationArgs(
+                arn=aws_lakeformation_resource["example"]["arn"],
+            ))
+        ```
+
         :param str resource_name: The name of the resource.
         :param PermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

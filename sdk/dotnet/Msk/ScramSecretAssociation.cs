@@ -10,6 +10,81 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleCluster = new Aws.Msk.Cluster("exampleCluster", new Aws.Msk.ClusterArgs
+    ///         {
+    ///             ClientAuthentication = new Aws.Msk.Inputs.ClusterClientAuthenticationArgs
+    ///             {
+    ///                 Sasl = new Aws.Msk.Inputs.ClusterClientAuthenticationSaslArgs
+    ///                 {
+    ///                     Scram = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "Example Key for MSK Cluster Scram Secret Association",
+    ///         });
+    ///         var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new Aws.SecretsManager.SecretArgs
+    ///         {
+    ///             KmsKeyId = exampleKey.KeyId,
+    ///         });
+    ///         var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new Aws.SecretsManager.SecretVersionArgs
+    ///         {
+    ///             SecretId = exampleSecret.Id,
+    ///             SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "username", "user" },
+    ///                 { "password", "pass" },
+    ///             }),
+    ///         });
+    ///         var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("exampleScramSecretAssociation", new Aws.Msk.ScramSecretAssociationArgs
+    ///         {
+    ///             ClusterArn = exampleCluster.Arn,
+    ///             SecretArnLists = 
+    ///             {
+    ///                 exampleSecret.Arn,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleSecretVersion,
+    ///             },
+    ///         });
+    ///         var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new Aws.SecretsManager.SecretPolicyArgs
+    ///         {
+    ///             SecretArn = exampleSecret.Arn,
+    ///             Policy = exampleSecret.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"" : ""2012-10-17"",
+    ///   ""Statement"" : [ {{
+    ///     ""Sid"": ""AWSKafkaResourcePolicy"",
+    ///     ""Effect"" : ""Allow"",
+    ///     ""Principal"" : {{
+    ///       ""Service"" : ""kafka.amazonaws.com""
+    ///     }},
+    ///     ""Action"" : ""secretsmanager:getSecretValue"",
+    ///     ""Resource"" : ""{arn}""
+    ///   }} ]
+    /// }}
+    /// "),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// MSK SCRAM Secret Associations can be imported using the `id` e.g.,

@@ -87,7 +87,21 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
                                netmask_length: Optional[int] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamPreviewNextCidrResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    Basic usage:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
+        netmask_length=28)
+    test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
+        ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
+        cidr=test_ipam_preview_next_cidr.cidr)
+    ```
+
 
     :param Sequence[str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
     :param str ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
@@ -117,7 +131,21 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
                                       netmask_length: Optional[pulumi.Input[Optional[int]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPreviewNextCidrResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    Basic usage:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
+        netmask_length=28)
+    test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
+        ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
+        cidr=test_ipam_preview_next_cidr.cidr)
+    ```
+
 
     :param Sequence[str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
     :param str ipam_pool_id: The ID of the pool to which you want to assign a CIDR.

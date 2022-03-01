@@ -129,6 +129,22 @@ class Tag(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_compute_environment = aws.batch.ComputeEnvironment("exampleComputeEnvironment",
+            compute_environment_name="example",
+            service_role=aws_iam_role["example"]["arn"],
+            type="UNMANAGED")
+        example_tag = aws.ecs.Tag("exampleTag",
+            resource_arn=example_compute_environment.ecs_cluster_arn,
+            key="Name",
+            value="Hello World")
+        ```
+
         ## Import
 
         `aws_ecs_tag` can be imported by using the ECS resource identifier and key, separated by a comma (`,`), e.g.,
@@ -150,6 +166,22 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_compute_environment = aws.batch.ComputeEnvironment("exampleComputeEnvironment",
+            compute_environment_name="example",
+            service_role=aws_iam_role["example"]["arn"],
+            type="UNMANAGED")
+        example_tag = aws.ecs.Tag("exampleTag",
+            resource_arn=example_compute_environment.ecs_cluster_arn,
+            key="Name",
+            value="Hello World")
+        ```
+
         ## Import
 
         `aws_ecs_tag` can be imported by using the ECS resource identifier and key, separated by a comma (`,`), e.g.,

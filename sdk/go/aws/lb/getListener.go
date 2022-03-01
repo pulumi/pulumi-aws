@@ -31,25 +31,21 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		cfg := config.New(ctx, "")
 // 		listenerArn := cfg.Require("listenerArn")
-// 		opt0 := listenerArn
 // 		_, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
-// 			Arn: &opt0,
+// 			Arn: pulumi.StringRef(listenerArn),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := "default-public"
 // 		selected, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-// 			Name: &opt1,
+// 			Name: pulumi.StringRef("default-public"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt2 := selected.Arn
-// 		opt3 := 443
 // 		_, err = lb.LookupListener(ctx, &lb.LookupListenerArgs{
-// 			LoadBalancerArn: &opt2,
-// 			Port:            &opt3,
+// 			LoadBalancerArn: pulumi.StringRef(selected.Arn),
+// 			Port:            pulumi.IntRef(443),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

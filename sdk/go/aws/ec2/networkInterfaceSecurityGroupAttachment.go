@@ -40,9 +40,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
 // 		ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			Filters: []ec2.GetAmiFilter{
 // 				ec2.GetAmiFilter{
 // 					Name: "name",
@@ -102,9 +101,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "i-1234567890abcdef0"
 // 		instance, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
-// 			InstanceId: &opt0,
+// 			InstanceId: pulumi.StringRef("i-1234567890abcdef0"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

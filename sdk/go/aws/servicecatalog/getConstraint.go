@@ -25,9 +25,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "en"
 // 		_, err := servicecatalog.LookupConstraint(ctx, &servicecatalog.LookupConstraintArgs{
-// 			AcceptLanguage: &opt0,
+// 			AcceptLanguage: pulumi.StringRef("en"),
 // 			Id:             "cons-hrvy0335",
 // 		}, nil)
 // 		if err != nil {

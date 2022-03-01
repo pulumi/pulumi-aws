@@ -10,6 +10,42 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudSearch
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDomain = new Aws.CloudSearch.Domain("exampleDomain", new Aws.CloudSearch.DomainArgs
+    ///         {
+    ///         });
+    ///         var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", new Aws.CloudSearch.DomainServiceAccessPolicyArgs
+    ///         {
+    ///             DomainName = exampleDomain.Id,
+    ///             AccessPolicy = @"{
+    ///   ""Version"":""2012-10-17"",
+    ///   ""Statement"":[{
+    ///     ""Sid"":""search_only"",
+    ///     ""Effect"":""Allow"",
+    ///     ""Principal"":""*"",
+    ///     ""Action"":[
+    ///       ""cloudsearch:search"",
+    ///       ""cloudsearch:document""
+    ///     ],
+    ///     ""Condition"":{""IpAddress"":{""aws:SourceIp"":""192.0.2.0/32""}}
+    ///   }]
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CloudSearch domain service access policies can be imported using the domain name, e.g.,

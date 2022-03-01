@@ -37,7 +37,7 @@ import (
 // 					Resources: []string{
 // 						fmt.Sprintf("%v%v%v", "arn:", current.Partition, ":s3:::my-bucket"),
 // 					},
-// 					Sid: "1",
+// 					Sid: pulumi.StringRef("1"),
 // 				},
 // 			},
 // 		}, nil)
