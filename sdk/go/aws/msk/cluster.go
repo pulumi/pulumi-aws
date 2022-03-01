@@ -40,9 +40,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "available"
 // 		azs, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
-// 			State: &opt0,
+// 			State: pulumi.StringRef("available"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

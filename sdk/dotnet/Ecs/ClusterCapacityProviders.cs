@@ -10,6 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleCluster = new Aws.Ecs.Cluster("exampleCluster", new Aws.Ecs.ClusterArgs
+    ///         {
+    ///         });
+    ///         var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new Aws.Ecs.ClusterCapacityProvidersArgs
+    ///         {
+    ///             ClusterName = exampleCluster.Name,
+    ///             CapacityProviders = 
+    ///             {
+    ///                 "FARGATE",
+    ///             },
+    ///             DefaultCapacityProviderStrategies = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
+    ///                 {
+    ///                     Base = 1,
+    ///                     Weight = 100,
+    ///                     CapacityProvider = "FARGATE",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example

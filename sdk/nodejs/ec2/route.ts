@@ -5,6 +5,38 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const route = new aws.ec2.Route("route", {
+ *     routeTableId: "rtb-4fbb3ac4",
+ *     destinationCidrBlock: "10.0.1.0/22",
+ *     vpcPeeringConnectionId: "pcx-45ff3dc1",
+ * }, {
+ *     dependsOn: [aws_route_table.testing],
+ * });
+ * ```
+ * ## Example IPv6 Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const vpc = new aws.ec2.Vpc("vpc", {
+ *     cidrBlock: "10.1.0.0/16",
+ *     assignGeneratedIpv6CidrBlock: true,
+ * });
+ * const egress = new aws.ec2.EgressOnlyInternetGateway("egress", {vpcId: vpc.id});
+ * const route = new aws.ec2.Route("route", {
+ *     routeTableId: "rtb-4fbb3ac4",
+ *     destinationIpv6CidrBlock: "::/0",
+ *     egressOnlyGatewayId: egress.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole

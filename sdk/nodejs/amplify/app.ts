@@ -6,6 +6,104 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {
+ *     // The default build_spec added by the Amplify Console for React.
+ *     buildSpec: `  version: 0.1
+ *   frontend:
+ *     phases:
+ *       preBuild:
+ *         commands:
+ *           - yarn install
+ *       build:
+ *         commands:
+ *           - yarn run build
+ *     artifacts:
+ *       baseDirectory: build
+ *       files:
+ *         - '**&#47;*'
+ *     cache:
+ *       paths:
+ *         - node_modules/**&#47;*
+ * `,
+ *     // The default rewrites and redirects added by the Amplify Console.
+ *     customRules: [{
+ *         source: "/<*>",
+ *         status: "404",
+ *         target: "/index.html",
+ *     }],
+ *     environmentVariables: {
+ *         ENV: "test",
+ *     },
+ *     repository: "https://github.com/example/app",
+ * });
+ * ```
+ * ### Repository with Tokens
+ *
+ * If you create a new Amplify App with the `repository` argument, you also need to set `oauthToken` or `accessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `accessToken` as follows:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {
+ *     // GitHub personal access token
+ *     accessToken: "...",
+ *     repository: "https://github.com/example/app",
+ * });
+ * ```
+ *
+ * You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+ * ### Auto Branch Creation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {
+ *     autoBranchCreationConfig: {
+ *         // Enable auto build for the created branch.
+ *         enableAutoBuild: true,
+ *     },
+ *     // The default patterns added by the Amplify Console.
+ *     autoBranchCreationPatterns: [
+ *         "*",
+ *         "*&#47;**",
+ *     ],
+ *     enableAutoBranchCreation: true,
+ * });
+ * ```
+ * ### Rewrites and Redirects
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {
+ *     customRules: [
+ *         // Reverse Proxy Rewrite for API requests
+ *         // https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#reverse-proxy-rewrite
+ *         {
+ *             source: "/api/<*>",
+ *             status: "200",
+ *             target: "https://api.example.com/api/<*>",
+ *         },
+ *         // Redirects for Single Page Web Apps (SPA)
+ *         // https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa
+ *         {
+ *             source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+ *             status: "200",
+ *             target: "/index.html",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Amplify App can be imported using Amplify App ID (appId), e.g.,

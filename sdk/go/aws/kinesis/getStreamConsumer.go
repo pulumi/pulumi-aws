@@ -26,9 +26,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "example-consumer"
 // 		_, err := kinesis.LookupStreamConsumer(ctx, &kinesis.LookupStreamConsumerArgs{
-// 			Name:      &opt0,
+// 			Name:      pulumi.StringRef("example-consumer"),
 // 			StreamArn: aws_kinesis_stream.Example.Arn,
 // 		}, nil)
 // 		if err != nil {

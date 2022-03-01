@@ -11,6 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
+// 			CompatibleRuntimes: pulumi.StringArray{
+// 				pulumi.String("nodejs12.x"),
+// 			},
+// 			Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
+// 			LayerName: pulumi.String("lambda_layer_name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Lambda Layer with Compatible Architectures
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
+// 			CompatibleArchitectures: pulumi.StringArray{
+// 				pulumi.String("arm64"),
+// 				pulumi.String("x86_64"),
+// 			},
+// 			CompatibleRuntimes: pulumi.StringArray{
+// 				pulumi.String("nodejs12.x"),
+// 			},
+// 			Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
+// 			LayerName: pulumi.String("lambda_layer_name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Specifying the Deployment Package
+//
+// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.
+// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatibleRuntimes`.
+//
+// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+// indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
+// package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
+//
+// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
+//
 // ## Import
 //
 // Lambda Layers can be imported using `arn`.

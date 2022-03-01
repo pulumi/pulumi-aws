@@ -499,6 +499,44 @@ class LayerVersion(pulumi.CustomResource):
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_runtimes=["nodejs12.x"],
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="lambda_layer_name")
+        ```
+        ### Lambda Layer with Compatible Architectures
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_architectures=[
+                "arm64",
+                "x86_64",
+            ],
+            compatible_runtimes=["nodejs12.x"],
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="lambda_layer_name")
+        ```
+        ## Specifying the Deployment Package
+
+        AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
+        See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
+
+        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+        indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
+        package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
+
+        For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
+
         ## Import
 
         Lambda Layers can be imported using `arn`.
@@ -531,6 +569,44 @@ class LayerVersion(pulumi.CustomResource):
                  args: LayerVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_runtimes=["nodejs12.x"],
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="lambda_layer_name")
+        ```
+        ### Lambda Layer with Compatible Architectures
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_architectures=[
+                "arm64",
+                "x86_64",
+            ],
+            compatible_runtimes=["nodejs12.x"],
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="lambda_layer_name")
+        ```
+        ## Specifying the Deployment Package
+
+        AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
+        See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
+
+        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+        indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
+        package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
+
+        For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
+
         ## Import
 
         Lambda Layers can be imported using `arn`.

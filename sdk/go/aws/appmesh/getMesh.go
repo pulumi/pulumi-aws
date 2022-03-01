@@ -50,10 +50,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := current.AccountId
 // 		_, err = appmesh.LookupMesh(ctx, &appmesh.LookupMeshArgs{
 // 			Name:      "simpleapp",
-// 			MeshOwner: &opt0,
+// 			MeshOwner: pulumi.StringRef(current.AccountId),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

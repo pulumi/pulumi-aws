@@ -25,9 +25,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef"
 // 		exampleLocalGatewayRouteTable, err := ec2.GetLocalGatewayRouteTable(ctx, &ec2.GetLocalGatewayRouteTableArgs{
-// 			OutpostArn: &opt0,
+// 			OutpostArn: pulumi.StringRef("arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -24,10 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "us-west-2a"
-// 		opt1 := "t3.medium"
 // 		_, err := ec2.GetSpotPrice(ctx, &ec2.GetSpotPriceArgs{
-// 			AvailabilityZone: &opt0,
+// 			AvailabilityZone: pulumi.StringRef("us-west-2a"),
 // 			Filters: []ec2.GetSpotPriceFilter{
 // 				ec2.GetSpotPriceFilter{
 // 					Name: "product-description",
@@ -36,7 +34,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			InstanceType: &opt1,
+// 			InstanceType: pulumi.StringRef("t3.medium"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

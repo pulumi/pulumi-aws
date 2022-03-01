@@ -27,11 +27,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "development_cluster"
-// 		opt1 := true
 // 		developmentFinalSnapshot, err := rds.LookupClusterSnapshot(ctx, &rds.LookupClusterSnapshotArgs{
-// 			DbClusterIdentifier: &opt0,
-// 			MostRecent:          &opt1,
+// 			DbClusterIdentifier: pulumi.StringRef("development_cluster"),
+// 			MostRecent:          pulumi.BoolRef(true),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

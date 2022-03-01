@@ -11,6 +11,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
+// 			ClusterName: exampleCluster.Name,
+// 			CapacityProviders: pulumi.StringArray{
+// 				pulumi.String("FARGATE"),
+// 			},
+// 			DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
+// 				&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
+// 					Base:             pulumi.Int(1),
+// 					Weight:           pulumi.Int(100),
+// 					CapacityProvider: pulumi.String("FARGATE"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example

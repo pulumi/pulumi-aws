@@ -5,6 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
+ *     compatibleRuntimes: ["nodejs12.x"],
+ *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
+ *     layerName: "lambda_layer_name",
+ * });
+ * ```
+ * ### Lambda Layer with Compatible Architectures
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
+ *     compatibleArchitectures: [
+ *         "arm64",
+ *         "x86_64",
+ *     ],
+ *     compatibleRuntimes: ["nodejs12.x"],
+ *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
+ *     layerName: "lambda_layer_name",
+ * });
+ * ```
+ * ## Specifying the Deployment Package
+ *
+ * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.
+ * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatibleRuntimes`.
+ *
+ * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+ * indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
+ * package via S3 it may be useful to use the `aws.s3.BucketObject` resource to upload it.
+ *
+ * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
+ *
  * ## Import
  *
  * Lambda Layers can be imported using `arn`.

@@ -130,6 +130,26 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  prefix_list_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.ManagedPrefixList("example",
+            address_family="IPv4",
+            max_entries=5,
+            tags={
+                "Env": "live",
+            })
+        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
+            cidr=aws_vpc["example"]["cidr_block"],
+            description="Primary",
+            prefix_list_id=aws_ec2_managed_prefix_list["entry"]["id"])
+        ```
+
         ## Import
 
         Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
@@ -151,6 +171,26 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  args: ManagedPrefixListEntryInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.ManagedPrefixList("example",
+            address_family="IPv4",
+            max_entries=5,
+            tags={
+                "Env": "live",
+            })
+        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
+            cidr=aws_vpc["example"]["cidr_block"],
+            description="Primary",
+            prefix_list_id=aws_ec2_managed_prefix_list["entry"]["id"])
+        ```
+
         ## Import
 
         Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,

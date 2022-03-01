@@ -11,6 +11,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/batch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleComputeEnvironment, err := batch.NewComputeEnvironment(ctx, "exampleComputeEnvironment", &batch.ComputeEnvironmentArgs{
+// 			ComputeEnvironmentName: pulumi.String("example"),
+// 			ServiceRole:            pulumi.Any(aws_iam_role.Example.Arn),
+// 			Type:                   pulumi.String("UNMANAGED"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewTag(ctx, "exampleTag", &ecs.TagArgs{
+// 			ResourceArn: exampleComputeEnvironment.EcsClusterArn,
+// 			Key:         pulumi.String("Name"),
+// 			Value:       pulumi.String("Hello World"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_ecs_tag` can be imported by using the ECS resource identifier and key, separated by a comma (`,`), e.g.,

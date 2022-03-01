@@ -32,7 +32,7 @@ import (
 // 		examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "1",
+// 					Sid: pulumi.StringRef("1"),
 // 					Actions: []string{
 // 						"s3:ListAllMyBuckets",
 // 						"s3:GetBucketLocation",
@@ -108,7 +108,7 @@ import (
 // 					},
 // 				},
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverride",
+// 					Sid: pulumi.StringRef("SidToOverride"),
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
@@ -121,12 +121,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := source.Json
 // 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			SourceJson: &opt0,
+// 			SourceJson: pulumi.StringRef(source.Json),
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverride",
+// 					Sid: pulumi.StringRef("SidToOverride"),
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
@@ -175,7 +174,7 @@ import (
 // 		override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverride",
+// 					Sid: pulumi.StringRef("SidToOverride"),
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
@@ -188,9 +187,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := override.Json
 // 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			OverrideJson: &opt0,
+// 			OverrideJson: pulumi.StringRef(override.Json),
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
 // 					Actions: []string{
@@ -201,7 +199,7 @@ import (
 // 					},
 // 				},
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "SidToOverride",
+// 					Sid: pulumi.StringRef("SidToOverride"),
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
@@ -252,7 +250,7 @@ import (
 // 		source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "OverridePlaceholder",
+// 					Sid: pulumi.StringRef("OverridePlaceholder"),
 // 					Actions: []string{
 // 						"ec2:DescribeAccountAttributes",
 // 					},
@@ -268,7 +266,7 @@ import (
 // 		override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid: "OverridePlaceholder",
+// 					Sid: pulumi.StringRef("OverridePlaceholder"),
 // 					Actions: []string{
 // 						"s3:GetObject",
 // 					},
@@ -281,11 +279,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := source.Json
-// 		opt1 := override.Json
 // 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			SourceJson:   &opt0,
-// 			OverrideJson: &opt1,
+// 			SourceJson:   pulumi.StringRef(source.Json),
+// 			OverrideJson: pulumi.StringRef(override.Json),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

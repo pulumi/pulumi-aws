@@ -24,11 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "RESOURCE"
-// 		opt1 := "AWS::Athena::WorkGroup"
 // 		_, err := cloudformation.LookupCloudFormationType(ctx, &cloudformation.LookupCloudFormationTypeArgs{
-// 			Type:     &opt0,
-// 			TypeName: &opt1,
+// 			Type:     pulumi.StringRef("RESOURCE"),
+// 			TypeName: pulumi.StringRef("AWS::Athena::WorkGroup"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

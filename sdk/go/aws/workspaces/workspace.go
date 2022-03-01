@@ -27,9 +27,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "wsb-bh8rsxt14"
 // 		valueWindows10, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-// 			BundleId: &opt0,
+// 			BundleId: pulumi.StringRef("wsb-bh8rsxt14"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

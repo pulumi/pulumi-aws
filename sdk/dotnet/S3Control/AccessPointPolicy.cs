@@ -10,6 +10,59 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
+    ///         {
+    ///             Bucket = exampleBucket.Id,
+    ///             PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
+    ///             {
+    ///                 BlockPublicAcls = true,
+    ///                 BlockPublicPolicy = false,
+    ///                 IgnorePublicAcls = true,
+    ///                 RestrictPublicBuckets = false,
+    ///             },
+    ///         });
+    ///         var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("exampleAccessPointPolicy", new Aws.S3Control.AccessPointPolicyArgs
+    ///         {
+    ///             AccessPointArn = exampleAccessPoint.Arn,
+    ///             Policy = exampleAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Version", "2008-10-17" },
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Effect", "Allow" },
+    ///                             { "Action", "s3:GetObjectTagging" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "AWS", "*" },
+    ///                             } },
+    ///                             { "Resource", $"{arn}/object/*" },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///             })),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Access Point policies can be imported using the `access_point_arn`, e.g.

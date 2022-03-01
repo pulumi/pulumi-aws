@@ -133,6 +133,23 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.ecs.Cluster("exampleCluster")
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
+            cluster_name=example_cluster.name,
+            capacity_providers=["FARGATE"],
+            default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
+                base=1,
+                weight=100,
+                capacity_provider="FARGATE",
+            )])
+        ```
+
         ## Import
 
         ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example
@@ -154,6 +171,23 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                  args: ClusterCapacityProvidersArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.ecs.Cluster("exampleCluster")
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
+            cluster_name=example_cluster.name,
+            capacity_providers=["FARGATE"],
+            default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
+                base=1,
+                weight=100,
+                capacity_provider="FARGATE",
+            )])
+        ```
+
         ## Import
 
         ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example

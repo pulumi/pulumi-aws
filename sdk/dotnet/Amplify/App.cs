@@ -10,6 +10,138 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amplify
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
+    ///         {
+    ///             BuildSpec = @"  version: 0.1
+    ///   frontend:
+    ///     phases:
+    ///       preBuild:
+    ///         commands:
+    ///           - yarn install
+    ///       build:
+    ///         commands:
+    ///           - yarn run build
+    ///     artifacts:
+    ///       baseDirectory: build
+    ///       files:
+    ///         - '**/*'
+    ///     cache:
+    ///       paths:
+    ///         - node_modules/**/*
+    /// 
+    /// ",
+    ///             CustomRules = 
+    ///             {
+    ///                 new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///                 {
+    ///                     Source = "/&lt;*&gt;",
+    ///                     Status = "404",
+    ///                     Target = "/index.html",
+    ///                 },
+    ///             },
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "ENV", "test" },
+    ///             },
+    ///             Repository = "https://github.com/example/app",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Repository with Tokens
+    /// 
+    /// If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
+    ///         {
+    ///             AccessToken = "...",
+    ///             Repository = "https://github.com/example/app",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+    /// ### Auto Branch Creation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
+    ///         {
+    ///             AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
+    ///             {
+    ///                 EnableAutoBuild = true,
+    ///             },
+    ///             AutoBranchCreationPatterns = 
+    ///             {
+    ///                 "*",
+    ///                 "*/**",
+    ///             },
+    ///             EnableAutoBranchCreation = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Rewrites and Redirects
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
+    ///         {
+    ///             CustomRules = 
+    ///             {
+    ///                 new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///                 {
+    ///                     Source = "/api/&lt;*&gt;",
+    ///                     Status = "200",
+    ///                     Target = "https://api.example.com/api/&lt;*&gt;",
+    ///                 },
+    ///                 new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///                 {
+    ///                     Source = "&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;",
+    ///                     Status = "200",
+    ///                     Target = "/index.html",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Amplify App can be imported using Amplify App ID (appId), e.g.,

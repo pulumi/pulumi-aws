@@ -11,6 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudformation"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudformation.NewCloudFormationType(ctx, "example", &cloudformation.CloudFormationTypeArgs{
+// 			SchemaHandlerPackage: pulumi.String(fmt.Sprintf("%v%v%v%v", "s3://", aws_s3_bucket_object.Example.Bucket, "/", aws_s3_bucket_object.Example.Key)),
+// 			Type:                 pulumi.String("RESOURCE"),
+// 			TypeName:             pulumi.String("ExampleCompany::ExampleService::ExampleResource"),
+// 			LoggingConfig: &cloudformation.CloudFormationTypeLoggingConfigArgs{
+// 				LogGroupName: pulumi.Any(aws_cloudwatch_log_group.Example.Name),
+// 				LogRoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_cloudformation_type` can be imported with their type version Amazon Resource Name (ARN), e.g.,

@@ -10,6 +10,71 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Basic Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ecs.Cluster("foo", new Aws.Ecs.ClusterArgs
+    ///         {
+    ///             Settings = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ClusterSettingArgs
+    ///                 {
+    ///                     Name = "containerInsights",
+    ///                     Value = "enabled",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Example W/Log Configuration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "example",
+    ///             DeletionWindowInDays = 7,
+    ///         });
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var test = new Aws.Ecs.Cluster("test", new Aws.Ecs.ClusterArgs
+    ///         {
+    ///             Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
+    ///             {
+    ///                 ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
+    ///                 {
+    ///                     KmsKeyId = exampleKey.Arn,
+    ///                     Logging = "OVERRIDE",
+    ///                     LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
+    ///                     {
+    ///                         CloudWatchEncryptionEnabled = true,
+    ///                         CloudWatchLogGroupName = exampleLogGroup.Name,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ECS clusters can be imported using the `name`, e.g.,

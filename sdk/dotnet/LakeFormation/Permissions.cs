@@ -9,6 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Grant Permissions For A Lake Formation S3 Resource
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.LakeFormation.Permissions("example", new Aws.LakeFormation.PermissionsArgs
+    ///         {
+    ///             Principal = aws_iam_role.Workflow_role.Arn,
+    ///             Permissions = 
+    ///             {
+    ///                 "ALL",
+    ///             },
+    ///             DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
+    ///             {
+    ///                 Arn = aws_lakeformation_resource.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lakeformation/permissions:Permissions")]
     public partial class Permissions : Pulumi.CustomResource
     {

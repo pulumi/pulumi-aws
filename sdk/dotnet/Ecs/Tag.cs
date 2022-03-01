@@ -10,6 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("exampleComputeEnvironment", new Aws.Batch.ComputeEnvironmentArgs
+    ///         {
+    ///             ComputeEnvironmentName = "example",
+    ///             ServiceRole = aws_iam_role.Example.Arn,
+    ///             Type = "UNMANAGED",
+    ///         });
+    ///         var exampleTag = new Aws.Ecs.Tag("exampleTag", new Aws.Ecs.TagArgs
+    ///         {
+    ///             ResourceArn = exampleComputeEnvironment.EcsClusterArn,
+    ///             Key = "Name",
+    ///             Value = "Hello World",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_ecs_tag` can be imported by using the ECS resource identifier and key, separated by a comma (`,`), e.g.,

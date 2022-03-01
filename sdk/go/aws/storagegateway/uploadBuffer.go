@@ -28,9 +28,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := aws_volume_attachment.Test.Device_name
 // 		testLocalDisk, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
-// 			DiskNode:   &opt0,
+// 			DiskNode:   pulumi.StringRef(aws_volume_attachment.Test.Device_name),
 // 			GatewayArn: aws_storagegateway_gateway.Test.Arn,
 // 		}, nil)
 // 		if err != nil {
@@ -59,9 +58,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := aws_volume_attachment.Test.Device_name
 // 		_, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
-// 			DiskNode:   &opt0,
+// 			DiskNode:   pulumi.StringRef(aws_volume_attachment.Test.Device_name),
 // 			GatewayArn: aws_storagegateway_gateway.Test.Arn,
 // 		}, nil)
 // 		if err != nil {

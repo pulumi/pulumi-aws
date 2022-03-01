@@ -34,8 +34,8 @@ import (
 // 		testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid:    "DevAccountAccess",
-// 					Effect: "Allow",
+// 					Sid:    pulumi.StringRef("DevAccountAccess"),
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Actions: []string{
 // 						"events:PutEvents",
 // 					},
@@ -83,8 +83,8 @@ import (
 // 		testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid:    "OrganizationAccess",
-// 					Effect: "Allow",
+// 					Sid:    pulumi.StringRef("OrganizationAccess"),
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Actions: []string{
 // 						"events:DescribeRule",
 // 						"events:ListRules",
@@ -143,8 +143,8 @@ import (
 // 		testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid:    "DevAccountAccess",
-// 					Effect: "Allow",
+// 					Sid:    pulumi.StringRef("DevAccountAccess"),
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Actions: []string{
 // 						"events:PutEvents",
 // 					},
@@ -161,8 +161,8 @@ import (
 // 					},
 // 				},
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid:    "OrganizationAccess",
-// 					Effect: "Allow",
+// 					Sid:    pulumi.StringRef("OrganizationAccess"),
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Actions: []string{
 // 						"events:DescribeRule",
 // 						"events:ListRules",

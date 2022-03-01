@@ -26,10 +26,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Test"
 // 		_, err := connect.LookupContactFlow(ctx, &connect.LookupContactFlowArgs{
 // 			InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-// 			Name:       &opt0,
+// 			Name:       pulumi.StringRef("Test"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -51,9 +50,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "cccccccc-bbbb-cccc-dddd-111111111111"
 // 		_, err := connect.LookupContactFlow(ctx, &connect.LookupContactFlowArgs{
-// 			ContactFlowId: &opt0,
+// 			ContactFlowId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 // 			InstanceId:    "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 // 		}, nil)
 // 		if err != nil {

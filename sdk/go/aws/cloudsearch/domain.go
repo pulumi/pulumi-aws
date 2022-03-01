@@ -10,6 +10,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudsearch"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
+// 			IndexFields: cloudsearch.DomainIndexFieldArray{
+// 				&cloudsearch.DomainIndexFieldArgs{
+// 					AnalysisScheme: pulumi.String("_en_default_"),
+// 					Highlight:      pulumi.Bool(false),
+// 					Name:           pulumi.String("headline"),
+// 					Return:         pulumi.Bool(true),
+// 					Search:         pulumi.Bool(true),
+// 					Sort:           pulumi.Bool(true),
+// 					Type:           pulumi.String("text"),
+// 				},
+// 				&cloudsearch.DomainIndexFieldArgs{
+// 					Facet:  pulumi.Bool(true),
+// 					Name:   pulumi.String("price"),
+// 					Return: pulumi.Bool(true),
+// 					Search: pulumi.Bool(true),
+// 					Sort:   pulumi.Bool(true),
+// 					Type:   pulumi.String("double"),
+// 				},
+// 			},
+// 			ScalingParameters: &cloudsearch.DomainScalingParametersArgs{
+// 				DesiredInstanceType: pulumi.String("search.medium"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // CloudSearch Domains can be imported using the `name`, e.g.,

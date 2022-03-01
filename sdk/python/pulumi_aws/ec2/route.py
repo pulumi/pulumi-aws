@@ -542,6 +542,34 @@ class Route(pulumi.CustomResource):
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        route = aws.ec2.Route("route",
+            route_table_id="rtb-4fbb3ac4",
+            destination_cidr_block="10.0.1.0/22",
+            vpc_peering_connection_id="pcx-45ff3dc1",
+            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
+        ```
+        ## Example IPv6 Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc = aws.ec2.Vpc("vpc",
+            cidr_block="10.1.0.0/16",
+            assign_generated_ipv6_cidr_block=True)
+        egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
+        route = aws.ec2.Route("route",
+            route_table_id="rtb-4fbb3ac4",
+            destination_ipv6_cidr_block="::/0",
+            egress_only_gateway_id=egress.id)
+        ```
+
         ## Import
 
         Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
@@ -586,6 +614,34 @@ class Route(pulumi.CustomResource):
                  args: RouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        route = aws.ec2.Route("route",
+            route_table_id="rtb-4fbb3ac4",
+            destination_cidr_block="10.0.1.0/22",
+            vpc_peering_connection_id="pcx-45ff3dc1",
+            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
+        ```
+        ## Example IPv6 Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc = aws.ec2.Vpc("vpc",
+            cidr_block="10.1.0.0/16",
+            assign_generated_ipv6_cidr_block=True)
+        egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
+        route = aws.ec2.Route("route",
+            route_table_id="rtb-4fbb3ac4",
+            destination_ipv6_cidr_block="::/0",
+            egress_only_gateway_id=egress.id)
+        ```
+
         ## Import
 
         Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole

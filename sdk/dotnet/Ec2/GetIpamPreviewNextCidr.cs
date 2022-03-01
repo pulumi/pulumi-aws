@@ -11,9 +11,73 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetIpamPreviewNextCidr
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Basic usage:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var testIpamPreviewNextCidr = Output.Create(Aws.Ec2.GetIpamPreviewNextCidr.InvokeAsync(new Aws.Ec2.GetIpamPreviewNextCidrArgs
+        ///         {
+        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///             NetmaskLength = 28,
+        ///         }));
+        ///         var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new Aws.Ec2.VpcIpamPoolCidrAllocationArgs
+        ///         {
+        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///             Cidr = testIpamPreviewNextCidr.Apply(testIpamPreviewNextCidr =&gt; testIpamPreviewNextCidr.Cidr),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetIpamPreviewNextCidrResult> InvokeAsync(GetIpamPreviewNextCidrArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Basic usage:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var testIpamPreviewNextCidr = Output.Create(Aws.Ec2.GetIpamPreviewNextCidr.InvokeAsync(new Aws.Ec2.GetIpamPreviewNextCidrArgs
+        ///         {
+        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///             NetmaskLength = 28,
+        ///         }));
+        ///         var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new Aws.Ec2.VpcIpamPoolCidrAllocationArgs
+        ///         {
+        ///             IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///             Cidr = testIpamPreviewNextCidr.Apply(testIpamPreviewNextCidr =&gt; testIpamPreviewNextCidr.Cidr),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetIpamPreviewNextCidrResult> Invoke(GetIpamPreviewNextCidrInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrInvokeArgs(), options.WithDefaults());
     }

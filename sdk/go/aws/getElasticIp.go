@@ -25,9 +25,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "eipalloc-12345678"
 // 		_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
-// 			Id: &opt0,
+// 			Id: pulumi.StringRef("eipalloc-12345678"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -77,9 +76,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "1.2.3.4"
 // 		_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
-// 			PublicIp: &opt0,
+// 			PublicIp: pulumi.StringRef("1.2.3.4"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

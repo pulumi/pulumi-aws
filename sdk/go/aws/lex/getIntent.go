@@ -26,10 +26,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := fmt.Sprintf("%v%v", "$", "LATEST")
 // 		_, err := lex.LookupIntent(ctx, &lex.LookupIntentArgs{
 // 			Name:    "OrderFlowers",
-// 			Version: &opt0,
+// 			Version: pulumi.StringRef(fmt.Sprintf("%v%v", "$", "LATEST")),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

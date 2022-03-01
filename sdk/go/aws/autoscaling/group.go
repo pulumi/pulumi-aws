@@ -257,9 +257,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
 // 		exampleAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			Owners: []string{
 // 				"amazon",
 // 			},

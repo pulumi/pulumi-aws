@@ -11,6 +11,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3control"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
+// 			Bucket: exampleBucket.ID(),
+// 			PublicAccessBlockConfiguration: &s3.AccessPointPublicAccessBlockConfigurationArgs{
+// 				BlockPublicAcls:       pulumi.Bool(true),
+// 				BlockPublicPolicy:     pulumi.Bool(false),
+// 				IgnorePublicAcls:      pulumi.Bool(true),
+// 				RestrictPublicBuckets: pulumi.Bool(false),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3control.NewAccessPointPolicy(ctx, "exampleAccessPointPolicy", &s3control.AccessPointPolicyArgs{
+// 			AccessPointArn: exampleAccessPoint.Arn,
+// 			Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+// 				var _zero pulumi.String
+// 				tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 					"Version": "2008-10-17",
+// 					"Statement": []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"Effect": "Allow",
+// 							"Action": "s3:GetObjectTagging",
+// 							"Principal": map[string]interface{}{
+// 								"AWS": "*",
+// 							},
+// 							"Resource": fmt.Sprintf("%v%v", arn, "/object/*"),
+// 						},
+// 					},
+// 				})
+// 				if err != nil {
+// 					return _zero, err
+// 				}
+// 				json0 := string(tmpJSON0)
+// 				return json0, nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Access Point policies can be imported using the `access_point_arn`, e.g.

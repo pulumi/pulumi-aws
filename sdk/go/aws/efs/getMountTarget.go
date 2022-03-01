@@ -30,9 +30,8 @@ import (
 // 		if param := cfg.Get("mountTargetId"); param != "" {
 // 			mountTargetId = param
 // 		}
-// 		opt0 := mountTargetId
 // 		_, err := efs.LookupMountTarget(ctx, &efs.LookupMountTargetArgs{
-// 			MountTargetId: &opt0,
+// 			MountTargetId: pulumi.StringRef(mountTargetId),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -24,7 +24,6 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Self"
 // 		_, err := imagebuilder.GetImageRecipes(ctx, &imagebuilder.GetImageRecipesArgs{
 // 			Filters: []imagebuilder.GetImageRecipesFilter{
 // 				imagebuilder.GetImageRecipesFilter{
@@ -34,7 +33,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Owner: &opt0,
+// 			Owner: pulumi.StringRef("Self"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

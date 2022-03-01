@@ -123,9 +123,8 @@ import (
 // 		if param := cfg.GetBool("sqs"); param != nil {
 // 			sqs = param
 // 		}
-// 		opt0 := "__default_policy_ID"
 // 		sns_topic_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			PolicyId: &opt0,
+// 			PolicyId: pulumi.StringRef("__default_policy_ID"),
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
 // 					Actions: []string{
@@ -147,7 +146,7 @@ import (
 // 							},
 // 						},
 // 					},
-// 					Effect: "Allow",
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Type: "AWS",
@@ -159,7 +158,7 @@ import (
 // 					Resources: []string{
 // 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
 // 					},
-// 					Sid: "__default_statement_ID",
+// 					Sid: pulumi.StringRef("__default_statement_ID"),
 // 				},
 // 				iam.GetPolicyDocumentStatement{
 // 					Actions: []string{
@@ -175,7 +174,7 @@ import (
 // 							},
 // 						},
 // 					},
-// 					Effect: "Allow",
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Type: "AWS",
@@ -187,20 +186,19 @@ import (
 // 					Resources: []string{
 // 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
 // 					},
-// 					Sid: "__console_sub_0",
+// 					Sid: pulumi.StringRef("__console_sub_0"),
 // 				},
 // 			},
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := fmt.Sprintf("%v%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name, "/SQSDefaultPolicy")
 // 		sqs_queue_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			PolicyId: &opt1,
+// 			PolicyId: pulumi.StringRef(fmt.Sprintf("%v%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name, "/SQSDefaultPolicy")),
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
-// 					Sid:    "example-sns-topic",
-// 					Effect: "Allow",
+// 					Sid:    pulumi.StringRef("example-sns-topic"),
+// 					Effect: pulumi.StringRef("Allow"),
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Type: "AWS",

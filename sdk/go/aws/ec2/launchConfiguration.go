@@ -25,9 +25,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
 // 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			Filters: []ec2.GetAmiFilter{
 // 				ec2.GetAmiFilter{
 // 					Name: "name",
@@ -81,9 +80,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
 // 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			Filters: []ec2.GetAmiFilter{
 // 				ec2.GetAmiFilter{
 // 					Name: "name",
@@ -150,9 +148,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
 // 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: &opt0,
+// 			MostRecent: pulumi.BoolRef(true),
 // 			Filters: []ec2.GetAmiFilter{
 // 				ec2.GetAmiFilter{
 // 					Name: "name",

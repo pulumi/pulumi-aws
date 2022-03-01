@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "example-policy"
 // 		_, err := cloudfront.LookupOriginRequestPolicy(ctx, &cloudfront.LookupOriginRequestPolicyArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("example-policy"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

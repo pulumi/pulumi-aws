@@ -26,9 +26,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "rslvr-in-1abc2345ef678g91h"
 // 		_, err := route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
-// 			ResolverEndpointId: &opt0,
+// 			ResolverEndpointId: pulumi.StringRef("rslvr-in-1abc2345ef678g91h"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

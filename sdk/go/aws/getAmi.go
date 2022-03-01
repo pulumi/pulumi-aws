@@ -25,8 +25,6 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
-// 		opt1 := "^myami-\\d{3}"
 // 		_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 // 			ExecutableUsers: []string{
 // 				"self",
@@ -51,8 +49,8 @@ import (
 // 					},
 // 				},
 // 			},
-// 			MostRecent: &opt0,
-// 			NameRegex:  &opt1,
+// 			MostRecent: pulumi.BoolRef(true),
+// 			NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
 // 			Owners: []string{
 // 				"self",
 // 			},

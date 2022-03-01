@@ -5,6 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testRepository = new aws.codecommit.Repository("testRepository", {repositoryName: "test"});
+ * const testTrigger = new aws.codecommit.Trigger("testTrigger", {
+ *     repositoryName: testRepository.repositoryName,
+ *     triggers: [{
+ *         name: "all",
+ *         events: ["all"],
+ *         destinationArn: aws_sns_topic.test.arn,
+ *     }],
+ * });
+ * ```
+ */
 export class Trigger extends pulumi.CustomResource {
     /**
      * Get an existing Trigger resource's state with the given name, ID, and optional extra

@@ -40,11 +40,9 @@ import (
 // 		if param := cfg.Get("lbName"); param != "" {
 // 			lbName = param
 // 		}
-// 		opt0 := lbArn
-// 		opt1 := lbName
 // 		_, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-// 			Arn:  &opt0,
-// 			Name: &opt1,
+// 			Arn:  pulumi.StringRef(lbArn),
+// 			Name: pulumi.StringRef(lbName),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

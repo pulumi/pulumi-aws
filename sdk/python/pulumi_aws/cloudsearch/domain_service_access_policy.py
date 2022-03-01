@@ -97,6 +97,31 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain = aws.cloudsearch.Domain("exampleDomain")
+        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy",
+            domain_name=example_domain.id,
+            access_policy=\"\"\"{
+          "Version":"2012-10-17",
+          "Statement":[{
+            "Sid":"search_only",
+            "Effect":"Allow",
+            "Principal":"*",
+            "Action":[
+              "cloudsearch:search",
+              "cloudsearch:document"
+            ],
+            "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
+          }]
+        }
+        \"\"\")
+        ```
+
         ## Import
 
         CloudSearch domain service access policies can be imported using the domain name, e.g.,
@@ -117,6 +142,31 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  args: DomainServiceAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain = aws.cloudsearch.Domain("exampleDomain")
+        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy",
+            domain_name=example_domain.id,
+            access_policy=\"\"\"{
+          "Version":"2012-10-17",
+          "Statement":[{
+            "Sid":"search_only",
+            "Effect":"Allow",
+            "Principal":"*",
+            "Action":[
+              "cloudsearch:search",
+              "cloudsearch:document"
+            ],
+            "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
+          }]
+        }
+        \"\"\")
+        ```
+
         ## Import
 
         CloudSearch domain service access policies can be imported using the domain name, e.g.,

@@ -27,9 +27,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		cfg := config.New(ctx, "")
 // 		subnetId := cfg.RequireObject("subnetId")
-// 		opt0 := aws_subnet.Public.Id
 // 		_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
-// 			SubnetId: &opt0,
+// 			SubnetId: pulumi.StringRef(aws_subnet.Public.Id),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -51,9 +50,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := aws_subnet.Public.Id
 // 		_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
-// 			SubnetId: &opt0,
+// 			SubnetId: pulumi.StringRef(aws_subnet.Public.Id),
 // 			Tags: map[string]interface{}{
 // 				"Name": "gw NAT",
 // 			},

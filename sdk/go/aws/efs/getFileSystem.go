@@ -30,9 +30,8 @@ import (
 // 		if param := cfg.Get("fileSystemId"); param != "" {
 // 			fileSystemId = param
 // 		}
-// 		opt0 := fileSystemId
 // 		_, err := efs.LookupFileSystem(ctx, &efs.LookupFileSystemArgs{
-// 			FileSystemId: &opt0,
+// 			FileSystemId: pulumi.StringRef(fileSystemId),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -10,6 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// Basic usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.ManagedPrefixList("example", new Aws.Ec2.ManagedPrefixListArgs
+    ///         {
+    ///             AddressFamily = "IPv4",
+    ///             MaxEntries = 5,
+    ///             Entries = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
+    ///                 {
+    ///                     Cidr = aws_vpc.Example.Cidr_block,
+    ///                     Description = "Primary",
+    ///                 },
+    ///                 new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
+    ///                 {
+    ///                     Cidr = aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
+    ///                     Description = "Secondary",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Env", "live" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Prefix Lists can be imported using the `id`, e.g.,

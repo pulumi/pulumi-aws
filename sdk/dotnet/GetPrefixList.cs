@@ -12,9 +12,157 @@ namespace Pulumi.Aws
     [Obsolete(@"aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList")]
     public static class GetPrefixList
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("privateS3VpcEndpoint", new Aws.Ec2.VpcEndpointArgs
+        ///         {
+        ///             VpcId = aws_vpc.Foo.Id,
+        ///             ServiceName = "com.amazonaws.us-west-2.s3",
+        ///         });
+        ///         var privateS3PrefixList = Aws.Ec2.GetPrefixList.Invoke(new Aws.Ec2.GetPrefixListInvokeArgs
+        ///         {
+        ///             PrefixListId = privateS3VpcEndpoint.PrefixListId,
+        ///         });
+        ///         var bar = new Aws.Ec2.NetworkAcl("bar", new Aws.Ec2.NetworkAclArgs
+        ///         {
+        ///             VpcId = aws_vpc.Foo.Id,
+        ///         });
+        ///         var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("privateS3NetworkAclRule", new Aws.Ec2.NetworkAclRuleArgs
+        ///         {
+        ///             NetworkAclId = bar.Id,
+        ///             RuleNumber = 200,
+        ///             Egress = false,
+        ///             Protocol = "tcp",
+        ///             RuleAction = "allow",
+        ///             CidrBlock = privateS3PrefixList.Apply(privateS3PrefixList =&gt; privateS3PrefixList.CidrBlocks?[0]),
+        ///             FromPort = 443,
+        ///             ToPort = 443,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetPrefixListFilterArgs
+        ///                 {
+        ///                     Name = "prefix-list-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "pl-68a54001",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetPrefixListResult> InvokeAsync(GetPrefixListArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:index/getPrefixList:getPrefixList", args ?? new GetPrefixListArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("privateS3VpcEndpoint", new Aws.Ec2.VpcEndpointArgs
+        ///         {
+        ///             VpcId = aws_vpc.Foo.Id,
+        ///             ServiceName = "com.amazonaws.us-west-2.s3",
+        ///         });
+        ///         var privateS3PrefixList = Aws.Ec2.GetPrefixList.Invoke(new Aws.Ec2.GetPrefixListInvokeArgs
+        ///         {
+        ///             PrefixListId = privateS3VpcEndpoint.PrefixListId,
+        ///         });
+        ///         var bar = new Aws.Ec2.NetworkAcl("bar", new Aws.Ec2.NetworkAclArgs
+        ///         {
+        ///             VpcId = aws_vpc.Foo.Id,
+        ///         });
+        ///         var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("privateS3NetworkAclRule", new Aws.Ec2.NetworkAclRuleArgs
+        ///         {
+        ///             NetworkAclId = bar.Id,
+        ///             RuleNumber = 200,
+        ///             Egress = false,
+        ///             Protocol = "tcp",
+        ///             RuleAction = "allow",
+        ///             CidrBlock = privateS3PrefixList.Apply(privateS3PrefixList =&gt; privateS3PrefixList.CidrBlocks?[0]),
+        ///             FromPort = 443,
+        ///             ToPort = 443,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetPrefixListFilterArgs
+        ///                 {
+        ///                     Name = "prefix-list-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "pl-68a54001",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetPrefixListResult> Invoke(GetPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrefixListResult>("aws:index/getPrefixList:getPrefixList", args ?? new GetPrefixListInvokeArgs(), options.WithDefaults());
     }

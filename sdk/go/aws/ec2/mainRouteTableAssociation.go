@@ -11,6 +11,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewMainRouteTableAssociation(ctx, "mainRouteTableAssociation", &ec2.MainRouteTableAssociationArgs{
+// 			VpcId:        pulumi.Any(aws_vpc.Foo.Id),
+// 			RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Notes
+//
+// On VPC creation, the AWS API always creates an initial Main Route Table. This
+// resource records the ID of that Route Table under `originalRouteTableId`.
+// The "Delete" action for a `mainRouteTableAssociation` consists of resetting
+// this original table as the Main Route Table for the VPC. You'll see this
+// additional Route Table in the AWS console; it must remain intact in order for
+// the `mainRouteTableAssociation` delete to work properly.
+//
+// [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
+// [tf-route-tables]: /docs/providers/aws/r/route_table.html
+// [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
 type MainRouteTableAssociation struct {
 	pulumi.CustomResourceState
 

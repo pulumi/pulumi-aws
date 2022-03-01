@@ -258,6 +258,32 @@ class ManagedPrefixList(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.ManagedPrefixList("example",
+            address_family="IPv4",
+            max_entries=5,
+            entries=[
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc["example"]["cidr_block"],
+                    description="Primary",
+                ),
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    description="Secondary",
+                ),
+            ],
+            tags={
+                "Env": "live",
+            })
+        ```
+
         ## Import
 
         Prefix Lists can be imported using the `id`, e.g.,
@@ -281,6 +307,32 @@ class ManagedPrefixList(pulumi.CustomResource):
                  args: ManagedPrefixListArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.ManagedPrefixList("example",
+            address_family="IPv4",
+            max_entries=5,
+            entries=[
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc["example"]["cidr_block"],
+                    description="Primary",
+                ),
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    description="Secondary",
+                ),
+            ],
+            tags={
+                "Env": "live",
+            })
+        ```
+
         ## Import
 
         Prefix Lists can be imported using the `id`, e.g.,

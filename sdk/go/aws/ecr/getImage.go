@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "latest"
 // 		_, err := ecr.GetImage(ctx, &ecr.GetImageArgs{
-// 			ImageTag:       &opt0,
+// 			ImageTag:       pulumi.StringRef("latest"),
 // 			RepositoryName: "my/service",
 // 		}, nil)
 // 		if err != nil {

@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "my-activity"
 // 		_, err := sfn.LookupActivity(ctx, &sfn.LookupActivityArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("my-activity"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
