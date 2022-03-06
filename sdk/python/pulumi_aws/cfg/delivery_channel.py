@@ -262,7 +262,7 @@ class DeliveryChannel(pulumi.CustomResource):
         opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
-            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
+            policy=bucket.arn.apply(lambda bucket_arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -272,7 +272,7 @@ class DeliveryChannel(pulumi.CustomResource):
               "Effect": "Allow",
               "Resource": [
                 "{bucket_arn}",
-                "{bucket_arn1}/*"
+                "{bucket_arn}/*"
               ]
             }}
           ]
