@@ -34,9 +34,9 @@ changelog:
     exclude:
     - Merge branch
     - Merge pull request
-    - '[internal]'
-    - '[ci]'
-    - '[chore]'
+    - \Winternal\W
+    - \Wci\W
+    - \Wchore\W
   sort: asc
   use: git
 release:
