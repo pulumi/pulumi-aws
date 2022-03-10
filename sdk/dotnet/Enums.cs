@@ -24,6 +24,7 @@ namespace Pulumi.Aws
         public static Region APEast1 { get; } = new Region("ap-east-1");
         public static Region APNortheast1 { get; } = new Region("ap-northeast-1");
         public static Region APNortheast2 { get; } = new Region("ap-northeast-2");
+        public static Region APNortheast3 { get; } = new Region("ap-northeast-3");
         public static Region APSouth1 { get; } = new Region("ap-south-1");
         public static Region APSoutheast2 { get; } = new Region("ap-southeast-2");
         public static Region APSoutheast1 { get; } = new Region("ap-southeast-1");

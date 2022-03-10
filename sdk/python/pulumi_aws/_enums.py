@@ -17,6 +17,7 @@ class Region(str, Enum):
     AP_EAST1 = "ap-east-1"
     AP_NORTHEAST1 = "ap-northeast-1"
     AP_NORTHEAST2 = "ap-northeast-2"
+    AP_NORTHEAST3 = "ap-northeast-3"
     AP_SOUTH1 = "ap-south-1"
     AP_SOUTHEAST2 = "ap-southeast-2"
     AP_SOUTHEAST1 = "ap-southeast-1"

@@ -280,6 +280,7 @@ const (
 	ManagedPolicyReadOnlyAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/ReadOnlyAccess")
 	ManagedPolicyResourceGroupsandTagEditorFullAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess")
 	ManagedPolicyResourceGroupsandTagEditorReadOnlyAccess              = ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess")
+	ManagedPolicySecretsManagerReadWrite                               = ManagedPolicy("arn:aws:iam::aws:policy/SecretsManagerReadWrite")
 	ManagedPolicySecurityAudit                                         = ManagedPolicy("arn:aws:iam::aws:policy/SecurityAudit")
 	ManagedPolicyServerMigrationConnector                              = ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationConnector")
 	ManagedPolicyServerMigrationServiceRole                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole")
