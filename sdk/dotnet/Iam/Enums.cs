@@ -284,6 +284,7 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy ReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ReadOnlyAccess");
         public static ManagedPolicy ResourceGroupsandTagEditorFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess");
         public static ManagedPolicy ResourceGroupsandTagEditorReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess");
+        public static ManagedPolicy SecretsManagerReadWrite { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/SecretsManagerReadWrite");
         public static ManagedPolicy SecurityAudit { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/SecurityAudit");
         public static ManagedPolicy ServerMigrationConnector { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationConnector");
         public static ManagedPolicy ServerMigrationServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole");

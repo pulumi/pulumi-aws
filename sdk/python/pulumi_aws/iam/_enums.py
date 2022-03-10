@@ -274,6 +274,7 @@ class ManagedPolicy(str, Enum):
     READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/ReadOnlyAccess"
     RESOURCE_GROUPSAND_TAG_EDITOR_FULL_ACCESS = "arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess"
     RESOURCE_GROUPSAND_TAG_EDITOR_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess"
+    SECRETS_MANAGER_READ_WRITE = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
     SECURITY_AUDIT = "arn:aws:iam::aws:policy/SecurityAudit"
     SERVER_MIGRATION_CONNECTOR = "arn:aws:iam::aws:policy/ServerMigrationConnector"
     SERVER_MIGRATION_SERVICE_ROLE = "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole"

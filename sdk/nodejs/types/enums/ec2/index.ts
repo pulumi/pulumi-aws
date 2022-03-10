@@ -118,6 +118,8 @@ export const InstanceType = {
     G3_8XLarge: "g3.8xlarge",
     G3s_XLarge: "g3s.xlarge",
     G4ad_16XLarge: "g4ad.16xlarge",
+    G4ad_XLarge: "g4ad.xlarge",
+    G4ad_2XLarge: "g4ad.2xlarge",
     G4ad_4XLarge: "g4ad.4xlarge",
     G4ad_8XLarge: "g4ad.8xlarge",
     G4dn_12XLarge: "g4dn.12xlarge",

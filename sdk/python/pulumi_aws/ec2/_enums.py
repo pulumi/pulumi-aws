@@ -127,6 +127,8 @@ class InstanceType(str, Enum):
     G3_8_X_LARGE = "g3.8xlarge"
     G3S_X_LARGE = "g3s.xlarge"
     G4AD_16_X_LARGE = "g4ad.16xlarge"
+    G4AD_X_LARGE = "g4ad.xlarge"
+    G4AD_2_X_LARGE = "g4ad.2xlarge"
     G4AD_4_X_LARGE = "g4ad.4xlarge"
     G4AD_8_X_LARGE = "g4ad.8xlarge"
     G4DN_12_X_LARGE = "g4dn.12xlarge"
