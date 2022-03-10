@@ -3790,6 +3790,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ReadOnlyAccess"},
 					{Name: "ResourceGroupsandTagEditorFullAccess", Value: "arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess"},
 					{Name: "ResourceGroupsandTagEditorReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess"},
+					{Name: "SecretsManagerReadWrite", Value: "arn:aws:iam::aws:policy/SecretsManagerReadWrite"},
 					{Name: "SecurityAudit", Value: "arn:aws:iam::aws:policy/SecurityAudit"},
 					{Name: "ServerMigrationConnector", Value: "arn:aws:iam::aws:policy/ServerMigrationConnector"},
 					{Name: "ServerMigrationServiceRole", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole"},
