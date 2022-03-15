@@ -172,6 +172,7 @@ export interface Device {
 export interface LogConfiguration {
     logDriver:  LogDriver;
     options?: { [key: string]: pulumi.Input<string> };
+    secretOptions?: { name: pulumi.Input<string>, valueFrom: pulumi.Input<string> }[];
 }
 
 // See `logdriver` at http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html
