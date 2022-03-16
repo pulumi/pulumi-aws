@@ -197,6 +197,7 @@ class _AmiCopyState:
     def __init__(__self__, *,
                  architecture: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 boot_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
@@ -229,6 +230,7 @@ class _AmiCopyState:
         Input properties used for looking up and filtering AmiCopy resources.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
+        :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
@@ -264,6 +266,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "architecture", architecture)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if boot_mode is not None:
+            pulumi.set(__self__, "boot_mode", boot_mode)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if destination_outpost_arn is not None:
@@ -344,6 +348,18 @@ class _AmiCopyState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="bootMode")
+    def boot_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "boot_mode")
+
+    @boot_mode.setter
+    def boot_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "boot_mode", value)
 
     @property
     @pulumi.getter
@@ -813,6 +829,7 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["architecture"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["boot_mode"] = None
             __props__.__dict__["ena_support"] = None
             __props__.__dict__["hypervisor"] = None
             __props__.__dict__["image_location"] = None
@@ -843,6 +860,7 @@ class AmiCopy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             architecture: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            boot_mode: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             destination_outpost_arn: Optional[pulumi.Input[str]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
@@ -880,6 +898,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
+        :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
@@ -917,6 +936,7 @@ class AmiCopy(pulumi.CustomResource):
 
         __props__.__dict__["architecture"] = architecture
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["boot_mode"] = boot_mode
         __props__.__dict__["description"] = description
         __props__.__dict__["destination_outpost_arn"] = destination_outpost_arn
         __props__.__dict__["ebs_block_devices"] = ebs_block_devices
@@ -962,6 +982,14 @@ class AmiCopy(pulumi.CustomResource):
         The ARN of the AMI.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bootMode")
+    def boot_mode(self) -> pulumi.Output[str]:
+        """
+        The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "boot_mode")
 
     @property
     @pulumi.getter

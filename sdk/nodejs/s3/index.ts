@@ -9,19 +9,33 @@ export * from "./accessPoint";
 export * from "./accountPublicAccessBlock";
 export * from "./analyticsConfiguration";
 export * from "./bucket";
+export * from "./bucketAccelerateConfigurationV2";
+export * from "./bucketAclV2";
+export * from "./bucketCorsConfigurationV2";
 export * from "./bucketIntelligentTieringConfiguration";
+export * from "./bucketLifecycleConfigurationV2";
+export * from "./bucketLoggingV2";
 export * from "./bucketMetric";
 export * from "./bucketNotification";
 export * from "./bucketObject";
+export * from "./bucketObjectLockConfigurationV2";
+export * from "./bucketObjectv2";
 export * from "./bucketOwnershipControls";
 export * from "./bucketPolicy";
 export * from "./bucketPublicAccessBlock";
 export * from "./bucketReplicationConfig";
+export * from "./bucketRequestPaymentConfigurationV2";
+export * from "./bucketServerSideEncryptionConfigurationV2";
+export * from "./bucketV2";
+export * from "./bucketVersioningV2";
+export * from "./bucketWebsiteConfigurationV2";
 export * from "./cannedAcl";
 export * from "./getBucket";
 export * from "./getBucketObject";
 export * from "./getBucketObjects";
 export * from "./getCanonicalUserId";
+export * from "./getObject";
+export * from "./getObjects";
 export * from "./inventory";
 export * from "./objectCopy";
 export * from "./routingRules";
@@ -35,14 +49,26 @@ import { AccessPoint } from "./accessPoint";
 import { AccountPublicAccessBlock } from "./accountPublicAccessBlock";
 import { AnalyticsConfiguration } from "./analyticsConfiguration";
 import { Bucket } from "./bucket";
+import { BucketAccelerateConfigurationV2 } from "./bucketAccelerateConfigurationV2";
+import { BucketAclV2 } from "./bucketAclV2";
+import { BucketCorsConfigurationV2 } from "./bucketCorsConfigurationV2";
 import { BucketIntelligentTieringConfiguration } from "./bucketIntelligentTieringConfiguration";
+import { BucketLifecycleConfigurationV2 } from "./bucketLifecycleConfigurationV2";
+import { BucketLoggingV2 } from "./bucketLoggingV2";
 import { BucketMetric } from "./bucketMetric";
 import { BucketNotification } from "./bucketNotification";
 import { BucketObject } from "./bucketObject";
+import { BucketObjectLockConfigurationV2 } from "./bucketObjectLockConfigurationV2";
+import { BucketObjectv2 } from "./bucketObjectv2";
 import { BucketOwnershipControls } from "./bucketOwnershipControls";
 import { BucketPolicy } from "./bucketPolicy";
 import { BucketPublicAccessBlock } from "./bucketPublicAccessBlock";
 import { BucketReplicationConfig } from "./bucketReplicationConfig";
+import { BucketRequestPaymentConfigurationV2 } from "./bucketRequestPaymentConfigurationV2";
+import { BucketServerSideEncryptionConfigurationV2 } from "./bucketServerSideEncryptionConfigurationV2";
+import { BucketV2 } from "./bucketV2";
+import { BucketVersioningV2 } from "./bucketVersioningV2";
+import { BucketWebsiteConfigurationV2 } from "./bucketWebsiteConfigurationV2";
 import { Inventory } from "./inventory";
 import { ObjectCopy } from "./objectCopy";
 
@@ -58,14 +84,28 @@ const _module = {
                 return new AnalyticsConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
+                return new BucketAccelerateConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketAclV2:BucketAclV2":
+                return new BucketAclV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2":
+                return new BucketCorsConfigurationV2(name, <any>undefined, { urn })
             case "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration":
                 return new BucketIntelligentTieringConfiguration(name, <any>undefined, { urn })
+            case "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2":
+                return new BucketLifecycleConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketLoggingV2:BucketLoggingV2":
+                return new BucketLoggingV2(name, <any>undefined, { urn })
             case "aws:s3/bucketMetric:BucketMetric":
                 return new BucketMetric(name, <any>undefined, { urn })
             case "aws:s3/bucketNotification:BucketNotification":
                 return new BucketNotification(name, <any>undefined, { urn })
             case "aws:s3/bucketObject:BucketObject":
                 return new BucketObject(name, <any>undefined, { urn })
+            case "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2":
+                return new BucketObjectLockConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketObjectv2:BucketObjectv2":
+                return new BucketObjectv2(name, <any>undefined, { urn })
             case "aws:s3/bucketOwnershipControls:BucketOwnershipControls":
                 return new BucketOwnershipControls(name, <any>undefined, { urn })
             case "aws:s3/bucketPolicy:BucketPolicy":
@@ -74,6 +114,16 @@ const _module = {
                 return new BucketPublicAccessBlock(name, <any>undefined, { urn })
             case "aws:s3/bucketReplicationConfig:BucketReplicationConfig":
                 return new BucketReplicationConfig(name, <any>undefined, { urn })
+            case "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2":
+                return new BucketRequestPaymentConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2":
+                return new BucketServerSideEncryptionConfigurationV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketV2:BucketV2":
+                return new BucketV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketVersioningV2:BucketVersioningV2":
+                return new BucketVersioningV2(name, <any>undefined, { urn })
+            case "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2":
+                return new BucketWebsiteConfigurationV2(name, <any>undefined, { urn })
             case "aws:s3/inventory:Inventory":
                 return new Inventory(name, <any>undefined, { urn })
             case "aws:s3/objectCopy:ObjectCopy":
@@ -87,13 +137,25 @@ pulumi.runtime.registerResourceModule("aws", "s3/accessPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/accountPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/analyticsConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucket", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketAccelerateConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketAclV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketCorsConfigurationV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketIntelligentTieringConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketLifecycleConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketLoggingV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketMetric", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketNotification", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketObject", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketObjectLockConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketObjectv2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketOwnershipControls", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketReplicationConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketRequestPaymentConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketServerSideEncryptionConfigurationV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketVersioningV2", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfigurationV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)

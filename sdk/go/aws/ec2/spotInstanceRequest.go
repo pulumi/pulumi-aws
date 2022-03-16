@@ -39,7 +39,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -103,12 +103,8 @@ type SpotInstanceRequest struct {
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
-	InstanceInterruptionBehavior pulumi.StringOutput `pulumi:"instanceInterruptionBehavior"`
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-	//
-	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
-	InstanceInterruptionBehaviour pulumi.StringOutput `pulumi:"instanceInterruptionBehaviour"`
-	InstanceState                 pulumi.StringOutput `pulumi:"instanceState"`
+	InstanceInterruptionBehavior pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehavior"`
+	InstanceState                pulumi.StringOutput    `pulumi:"instanceState"`
 	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -267,11 +263,7 @@ type spotInstanceRequestState struct {
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-	//
-	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
-	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	InstanceState                 *string `pulumi:"instanceState"`
+	InstanceState                *string `pulumi:"instanceState"`
 	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -402,11 +394,7 @@ type SpotInstanceRequestState struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrInput
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-	//
-	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
-	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	InstanceState                 pulumi.StringPtrInput
+	InstanceState                pulumi.StringPtrInput
 	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -540,10 +528,6 @@ type spotInstanceRequestArgs struct {
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-	//
-	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
-	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -649,10 +633,6 @@ type SpotInstanceRequestArgs struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrInput
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-	//
-	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
-	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.

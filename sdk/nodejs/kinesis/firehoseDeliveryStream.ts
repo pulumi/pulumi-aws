@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "tf-test-bucket"});
  * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -69,6 +69,10 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
+ * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ *     bucket: bucket.id,
+ *     acl: "private",
+ * });
  * ```
  * ### S3 Destination (deprecated)
  *
@@ -76,7 +80,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "tf-test-bucket"});
+ * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ *     bucket: bucket.id,
+ *     acl: "private",
+ * });
  * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

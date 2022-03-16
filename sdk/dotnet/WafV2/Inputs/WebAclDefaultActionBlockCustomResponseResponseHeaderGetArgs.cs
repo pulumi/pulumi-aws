@@ -13,13 +13,13 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclDefaultActionBlockCustomResponseResponseHeaderGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The label string.
+        /// Label string.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of the custom header.
+        /// Value of the custom header.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

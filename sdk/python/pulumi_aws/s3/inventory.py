@@ -304,10 +304,10 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.s3.Bucket("testBucket")
-        inventory = aws.s3.Bucket("inventory")
+        test_bucket_v2 = aws.s3.BucketV2("testBucketV2", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("testInventory",
-            bucket=test_bucket.id,
+            bucket=test_bucket_v2.id,
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -319,14 +319,14 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### Add inventory configuration with S3 bucket object prefix
+        ### Add inventory configuration with S3 object prefix
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.Bucket("test")
-        inventory = aws.s3.Bucket("inventory")
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
             included_object_versions="All",
@@ -380,10 +380,10 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.s3.Bucket("testBucket")
-        inventory = aws.s3.Bucket("inventory")
+        test_bucket_v2 = aws.s3.BucketV2("testBucketV2", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("testInventory",
-            bucket=test_bucket.id,
+            bucket=test_bucket_v2.id,
             included_object_versions="All",
             schedule=aws.s3.InventoryScheduleArgs(
                 frequency="Daily",
@@ -395,14 +395,14 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### Add inventory configuration with S3 bucket object prefix
+        ### Add inventory configuration with S3 object prefix
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.Bucket("test")
-        inventory = aws.s3.Bucket("inventory")
+        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
             included_object_versions="All",

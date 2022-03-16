@@ -104,8 +104,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const sourceJsonExample = source.then(source => aws.iam.getPolicyDocument({
- *     sourceJson: source.json,
+ * const sourceDocumentExample = source.then(source => aws.iam.getPolicyDocument({
+ *     sourcePolicyDocuments: [source.json],
  *     statements: [{
  *         sid: "SidToOverride",
  *         actions: ["s3:*"],
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  * }));
  * ```
  *
- * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
+ * `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -135,8 +135,8 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const overrideJsonExample = override.then(override => aws.iam.getPolicyDocument({
- *     overrideJson: override.json,
+ * const overridePolicyDocumentExample = override.then(override => aws.iam.getPolicyDocument({
+ *     overridePolicyDocuments: [override.json],
  *     statements: [
  *         {
  *             actions: ["ec2:*"],
@@ -154,14 +154,14 @@ import * as utilities from "../utilities";
  * }));
  * ```
  *
- * `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
+ * `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
  * ### Example with Both Source and Override Documents
  *
- * You can also combine `sourceJson` and `overrideJson` in the same document.
+ * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -182,8 +182,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const politik = Promise.all([source, override]).then(([source, override]) => aws.iam.getPolicyDocument({
- *     sourceJson: source.json,
- *     overrideJson: override.json,
+ *     sourcePolicyDocuments: [source.json],
+ *     overridePolicyDocuments: [override.json],
  * }));
  * ```
  *
@@ -320,7 +320,9 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
  */
 export interface GetPolicyDocumentArgs {
     /**
-     * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
+     * - IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
+     *
+     * @deprecated Use the attribute "override_policy_documents" instead.
      */
     overrideJson?: string;
     /**
@@ -332,7 +334,9 @@ export interface GetPolicyDocumentArgs {
      */
     policyId?: string;
     /**
-     * IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+     * - IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+     *
+     * @deprecated Use the attribute "source_policy_documents" instead.
      */
     sourceJson?: string;
     /**
@@ -361,9 +365,15 @@ export interface GetPolicyDocumentResult {
      * Standard JSON policy document rendered based on the arguments above.
      */
     readonly json: string;
+    /**
+     * @deprecated Use the attribute "override_policy_documents" instead.
+     */
     readonly overrideJson?: string;
     readonly overridePolicyDocuments?: string[];
     readonly policyId?: string;
+    /**
+     * @deprecated Use the attribute "source_policy_documents" instead.
+     */
     readonly sourceJson?: string;
     readonly sourcePolicyDocuments?: string[];
     readonly statements?: outputs.iam.GetPolicyDocumentStatement[];
@@ -379,7 +389,9 @@ export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts
  */
 export interface GetPolicyDocumentOutputArgs {
     /**
-     * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
+     * - IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
+     *
+     * @deprecated Use the attribute "override_policy_documents" instead.
      */
     overrideJson?: pulumi.Input<string>;
     /**
@@ -391,7 +403,9 @@ export interface GetPolicyDocumentOutputArgs {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+     * - IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+     *
+     * @deprecated Use the attribute "source_policy_documents" instead.
      */
     sourceJson?: pulumi.Input<string>;
     /**

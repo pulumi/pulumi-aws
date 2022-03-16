@@ -42,6 +42,19 @@ namespace Pulumi.Aws.ImageBuilder
     ///                 new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
     ///                 {
     ///                     ComponentArn = aws_imagebuilder_component.Example.Arn,
+    ///                     Parameters = 
+    ///                     {
+    ///                         new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
+    ///                         {
+    ///                             Name = "Parameter1",
+    ///                             Value = "Value1",
+    ///                         },
+    ///                         new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
+    ///                         {
+    ///                             Name = "Parameter2",
+    ///                             Value = "Value2",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///             ParentImage = $"arn:{data.Aws_partition.Current.Partition}:imagebuilder:{data.Aws_region.Current.Name}:aws:image/amazon-linux-2-x86/x.x.x",
@@ -94,7 +107,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the image recipe.
+        /// The name of the component parameter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -224,7 +237,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the image recipe.
+        /// The name of the component parameter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -315,7 +328,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the image recipe.
+        /// The name of the component parameter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

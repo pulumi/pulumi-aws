@@ -24,8 +24,9 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     public MyStack()
     ///     {
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example-awsconfig",
     ///             ForceDestroy = true,
     ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
@@ -51,7 +52,7 @@ namespace Pulumi.Aws.Cfg
     ///         });
     ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
     ///         {
-    ///             S3BucketName = bucket.BucketName,
+    ///             S3BucketName = bucketV2.Bucket,
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
@@ -62,10 +63,10 @@ namespace Pulumi.Aws.Cfg
     ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
     ///             Role = role.Id,
-    ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
+    ///             Policy = Output.Tuple(bucketV2.Arn, bucketV2.Arn).Apply(values =&gt;
     ///             {
-    ///                 var bucketArn = values.Item1;
-    ///                 var bucketArn1 = values.Item2;
+    ///                 var bucketV2Arn = values.Item1;
+    ///                 var bucketV2Arn1 = values.Item2;
     ///                 return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -75,8 +76,8 @@ namespace Pulumi.Aws.Cfg
     ///       ],
     ///       ""Effect"": ""Allow"",
     ///       ""Resource"": [
-    ///         ""{bucketArn}"",
-    ///         ""{bucketArn1}/*""
+    ///         ""{bucketV2Arn}"",
+    ///         ""{bucketV2Arn1}/*""
     ///       ]
     ///     }}
     ///   ]

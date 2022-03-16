@@ -22,8 +22,9 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     public MyStack()
     ///     {
-    ///         var hogeBucket = new Aws.S3.Bucket("hogeBucket", new Aws.S3.BucketArgs
+    ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "tf-test",
     ///         });
     ///         var testKey = new Aws.Kms.Key("testKey", new Aws.Kms.KeyArgs
     ///         {
@@ -47,7 +48,7 @@ namespace Pulumi.Aws.Athena
     ///         var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new Aws.Athena.DatabaseArgs
     ///         {
     ///             Name = "users",
-    ///             Bucket = hogeBucket.Id,
+    ///             Bucket = hogeBucketV2.Id,
     ///         });
     ///         var foo = new Aws.Athena.NamedQuery("foo", new Aws.Athena.NamedQueryArgs
     ///         {

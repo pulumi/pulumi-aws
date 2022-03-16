@@ -132,6 +132,7 @@ class HoursOfOperationArgs:
 @pulumi.input_type
 class _HoursOfOperationState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  configs: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hours_of_operation_arn: Optional[pulumi.Input[str]] = None,
@@ -143,9 +144,10 @@ class _HoursOfOperationState:
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering HoursOfOperation resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
-        :param pulumi.Input[str] hours_of_operation_arn: The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[str] hours_of_operation_arn: (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
@@ -153,10 +155,15 @@ class _HoursOfOperationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] time_zone: Specifies the time zone of the Hours of Operation.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if configs is not None:
             pulumi.set(__self__, "configs", configs)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if hours_of_operation_arn is not None:
+            warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
         if hours_of_operation_arn is not None:
             pulumi.set(__self__, "hours_of_operation_arn", hours_of_operation_arn)
         if hours_of_operation_id is not None:
@@ -171,6 +178,18 @@ class _HoursOfOperationState:
             pulumi.set(__self__, "tags_all", tags_all)
         if time_zone is not None:
             pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Hours of Operation.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -200,7 +219,7 @@ class _HoursOfOperationState:
     @pulumi.getter(name="hoursOfOperationArn")
     def hours_of_operation_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the Hours of Operation.
+        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         """
         return pulumi.get(self, "hours_of_operation_arn")
 
@@ -459,6 +478,7 @@ class HoursOfOperation(pulumi.CustomResource):
             if time_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone'")
             __props__.__dict__["time_zone"] = time_zone
+            __props__.__dict__["arn"] = None
             __props__.__dict__["hours_of_operation_arn"] = None
             __props__.__dict__["hours_of_operation_id"] = None
         super(HoursOfOperation, __self__).__init__(
@@ -471,6 +491,7 @@ class HoursOfOperation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             hours_of_operation_arn: Optional[pulumi.Input[str]] = None,
@@ -487,9 +508,10 @@ class HoursOfOperation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
-        :param pulumi.Input[str] hours_of_operation_arn: The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[str] hours_of_operation_arn: (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
@@ -501,6 +523,7 @@ class HoursOfOperation(pulumi.CustomResource):
 
         __props__ = _HoursOfOperationState.__new__(_HoursOfOperationState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["configs"] = configs
         __props__.__dict__["description"] = description
         __props__.__dict__["hours_of_operation_arn"] = hours_of_operation_arn
@@ -511,6 +534,14 @@ class HoursOfOperation(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["time_zone"] = time_zone
         return HoursOfOperation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Hours of Operation.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -532,7 +563,7 @@ class HoursOfOperation(pulumi.CustomResource):
     @pulumi.getter(name="hoursOfOperationArn")
     def hours_of_operation_arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the Hours of Operation.
+        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         """
         return pulumi.get(self, "hours_of_operation_arn")
 

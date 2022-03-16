@@ -236,9 +236,13 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 
 type ReplicationGroupClusterMode struct {
 	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	//
+	// Deprecated: Use root-level num_node_groups instead
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
+	//
+	// Deprecated: Use root-level replicas_per_node_group instead
+	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 }
 
 // ReplicationGroupClusterModeInput is an input type that accepts ReplicationGroupClusterModeArgs and ReplicationGroupClusterModeOutput values.
@@ -254,9 +258,13 @@ type ReplicationGroupClusterModeInput interface {
 
 type ReplicationGroupClusterModeArgs struct {
 	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	//
+	// Deprecated: Use root-level num_node_groups instead
 	NumNodeGroups pulumi.IntPtrInput `pulumi:"numNodeGroups"`
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	ReplicasPerNodeGroup pulumi.IntInput `pulumi:"replicasPerNodeGroup"`
+	//
+	// Deprecated: Use root-level replicas_per_node_group instead
+	ReplicasPerNodeGroup pulumi.IntPtrInput `pulumi:"replicasPerNodeGroup"`
 }
 
 func (ReplicationGroupClusterModeArgs) ElementType() reflect.Type {
@@ -337,13 +345,17 @@ func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutpu
 }
 
 // Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+//
+// Deprecated: Use root-level num_node_groups instead
 func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
 }
 
 // Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
+//
+// Deprecated: Use root-level replicas_per_node_group instead
+func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
 }
 
 type ReplicationGroupClusterModePtrOutput struct{ *pulumi.OutputState }
@@ -371,6 +383,8 @@ func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterMode
 }
 
 // Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+//
+// Deprecated: Use root-level num_node_groups instead
 func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
 		if v == nil {
@@ -381,12 +395,14 @@ func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutpu
 }
 
 // Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+//
+// Deprecated: Use root-level replicas_per_node_group instead
 func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.ReplicasPerNodeGroup
+		return v.ReplicasPerNodeGroup
 	}).(pulumi.IntPtrOutput)
 }
 

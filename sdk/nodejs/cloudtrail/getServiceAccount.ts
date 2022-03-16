@@ -14,10 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = pulumi.output(aws.cloudtrail.getServiceAccount());
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const main = aws.cloudtrail.getServiceAccount({});
+ * const bucket = new aws.s3.BucketV2("bucket", {
+ *     bucket: "tf-cloudtrail-logging-test-bucket",
  *     forceDestroy: true,
- *     policy: pulumi.interpolate`{
+ * });
+ * const allowCloudtrailLogging = new aws.s3.BucketPolicy("allowCloudtrailLogging", {
+ *     bucket: bucket.id,
+ *     policy: Promise.all([main, main]).then(([main, main1]) => `{
  *   "Version": "2008-10-17",
  *   "Statement": [
  *     {
@@ -33,14 +37,14 @@ import * as utilities from "../utilities";
  *       "Sid": "Get bucket policy needed for trails",
  *       "Effect": "Allow",
  *       "Principal": {
- *         "AWS": "${main.arn}"
+ *         "AWS": "${main1.arn}"
  *       },
  *       "Action": "s3:GetBucketAcl",
  *       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket"
  *     }
  *   ]
  * }
- * `,
+ * `),
  * });
  * ```
  */

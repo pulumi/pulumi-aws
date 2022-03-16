@@ -24,8 +24,13 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "my-bucket",
+    ///         });
+    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = exampleBucketV2.Id,
     ///             Acl = "private",
     ///         });
     ///         var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new Aws.Fsx.LustreFileSystemArgs
@@ -41,7 +46,7 @@ namespace Pulumi.Aws.Fsx
     ///         var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", new Aws.Fsx.DataRepositoryAssociationArgs
     ///         {
     ///             FileSystemId = exampleLustreFileSystem.Id,
-    ///             DataRepositoryPath = exampleBucket.Id.Apply(id =&gt; $"s3://{id}"),
+    ///             DataRepositoryPath = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}"),
     ///             FileSystemPath = "/my-bucket",
     ///             S3 = new Aws.Fsx.Inputs.DataRepositoryAssociationS3Args
     ///             {

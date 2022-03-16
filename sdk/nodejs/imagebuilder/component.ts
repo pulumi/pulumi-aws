@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.imagebuilder.Component("example", {
  *     platform: "Linux",
- *     uri: pulumi.interpolate`s3://${aws_s3_bucket_object_example.bucket}/${aws_s3_bucket_object_example.key}`,
+ *     uri: pulumi.interpolate`s3://${aws_s3_object_example.bucket}/${aws_s3_object_example.key}`,
  *     version: "1.0.0",
  * });
  * ```

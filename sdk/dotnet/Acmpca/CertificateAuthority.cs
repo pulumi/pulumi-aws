@@ -52,8 +52,9 @@ namespace Pulumi.Aws.Acmpca
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var acmpcaBucketAccess = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
@@ -70,8 +71,8 @@ namespace Pulumi.Aws.Acmpca
     ///                     },
     ///                     Resources = 
     ///                     {
-    ///                         exampleBucket.Arn,
-    ///                         exampleBucket.Arn.Apply(arn =&gt; $"{arn}/*"),
+    ///                         exampleBucketV2.Arn,
+    ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
     ///                     },
     ///                     Principals = 
     ///                     {
@@ -89,7 +90,7 @@ namespace Pulumi.Aws.Acmpca
     ///         });
     ///         var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {
-    ///             Bucket = exampleBucket.Id,
+    ///             Bucket = exampleBucketV2.Id,
     ///             Policy = acmpcaBucketAccess.Apply(acmpcaBucketAccess =&gt; acmpcaBucketAccess.Json),
     ///         });
     ///         var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new Aws.Acmpca.CertificateAuthorityArgs
@@ -110,7 +111,7 @@ namespace Pulumi.Aws.Acmpca
     ///                     CustomCname = "crl.example.com",
     ///                     Enabled = true,
     ///                     ExpirationInDays = 7,
-    ///                     S3BucketName = exampleBucket.Id,
+    ///                     S3BucketName = exampleBucketV2.Id,
     ///                 },
     ///             },
     ///         }, new CustomResourceOptions
@@ -203,7 +204,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> Serial { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the certificate authority.
+        /// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -215,7 +216,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -388,7 +389,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? Serial { get; set; }
 
         /// <summary>
-        /// Status of the certificate authority.
+        /// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -409,7 +410,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -86,7 +86,7 @@ export interface GetNetworkInterfacesResult {
      */
     readonly id: string;
     /**
-     * A list of all the network interface ids found. This data source will fail if none are found.
+     * A list of all the network interface ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};

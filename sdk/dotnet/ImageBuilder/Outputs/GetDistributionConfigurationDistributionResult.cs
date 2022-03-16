@@ -18,6 +18,14 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult> AmiDistributionConfigurations;
         /// <summary>
+        /// Nested list of container distribution configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult> ContainerDistributionConfigurations;
+        /// <summary>
+        /// Nested list of launch template configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult> LaunchTemplateConfigurations;
+        /// <summary>
         /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
@@ -30,11 +38,17 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         private GetDistributionConfigurationDistributionResult(
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult> amiDistributionConfigurations,
 
+            ImmutableArray<Outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult> containerDistributionConfigurations,
+
+            ImmutableArray<Outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult> launchTemplateConfigurations,
+
             ImmutableArray<string> licenseConfigurationArns,
 
             string region)
         {
             AmiDistributionConfigurations = amiDistributionConfigurations;
+            ContainerDistributionConfigurations = containerDistributionConfigurations;
+            LaunchTemplateConfigurations = launchTemplateConfigurations;
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
         }

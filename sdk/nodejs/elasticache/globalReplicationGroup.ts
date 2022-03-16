@@ -73,12 +73,6 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     }
 
     /**
-     * (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
-     *
-     * @deprecated Use engine_version_actual instead
-     */
-    public /*out*/ readonly actualEngineVersion!: pulumi.Output<string>;
-    /**
      * The ARN of the ElastiCache Global Replication Group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -140,7 +134,6 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalReplicationGroupState | undefined;
-            resourceInputs["actualEngineVersion"] = state ? state.actualEngineVersion : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
             resourceInputs["authTokenEnabled"] = state ? state.authTokenEnabled : undefined;
@@ -164,7 +157,6 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
             resourceInputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
             resourceInputs["primaryReplicationGroupId"] = args ? args.primaryReplicationGroupId : undefined;
-            resourceInputs["actualEngineVersion"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["authTokenEnabled"] = undefined /*out*/;
@@ -184,12 +176,6 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GlobalReplicationGroup resources.
  */
 export interface GlobalReplicationGroupState {
-    /**
-     * (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
-     *
-     * @deprecated Use engine_version_actual instead
-     */
-    actualEngineVersion?: pulumi.Input<string>;
     /**
      * The ARN of the ElastiCache Global Replication Group.
      */

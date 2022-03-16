@@ -28,9 +28,14 @@ namespace Pulumi.Aws.CloudTrail
         ///     public MyStack()
         ///     {
         ///         var main = Output.Create(Aws.CloudTrail.GetServiceAccount.InvokeAsync());
-        ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+        ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
         ///         {
+        ///             Bucket = "tf-cloudtrail-logging-test-bucket",
         ///             ForceDestroy = true,
+        ///         });
+        ///         var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new Aws.S3.BucketPolicyArgs
+        ///         {
+        ///             Bucket = bucket.Id,
         ///             Policy = Output.Tuple(main, main).Apply(values =&gt;
         ///             {
         ///                 var main = values.Item1;
@@ -58,7 +63,6 @@ namespace Pulumi.Aws.CloudTrail
         ///     }}
         ///   ]
         /// }}
-        /// 
         /// ";
         ///             }),
         ///         });
@@ -89,9 +93,14 @@ namespace Pulumi.Aws.CloudTrail
         ///     public MyStack()
         ///     {
         ///         var main = Output.Create(Aws.CloudTrail.GetServiceAccount.InvokeAsync());
-        ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+        ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
         ///         {
+        ///             Bucket = "tf-cloudtrail-logging-test-bucket",
         ///             ForceDestroy = true,
+        ///         });
+        ///         var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new Aws.S3.BucketPolicyArgs
+        ///         {
+        ///             Bucket = bucket.Id,
         ///             Policy = Output.Tuple(main, main).Apply(values =&gt;
         ///             {
         ///                 var main = values.Item1;
@@ -119,7 +128,6 @@ namespace Pulumi.Aws.CloudTrail
         ///     }}
         ///   ]
         /// }}
-        /// 
         /// ";
         ///             }),
         ///         });

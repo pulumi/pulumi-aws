@@ -108,9 +108,9 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket = aws.s3.Bucket("hogeBucket")
+        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2", bucket="tf-test-bucket-1234")
         hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
-            bucket=hoge_bucket.bucket,
+            bucket=hoge_bucket_v2.bucket,
             policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
@@ -141,8 +141,8 @@ class ResourceDataSync(pulumi.CustomResource):
         }
         \"\"\")
         foo = aws.ssm.ResourceDataSync("foo", s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
-            bucket_name=hoge_bucket.bucket,
-            region=hoge_bucket.region,
+            bucket_name=hoge_bucket_v2.bucket,
+            region=hoge_bucket_v2.region,
         ))
         ```
 
@@ -174,9 +174,9 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket = aws.s3.Bucket("hogeBucket")
+        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2", bucket="tf-test-bucket-1234")
         hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
-            bucket=hoge_bucket.bucket,
+            bucket=hoge_bucket_v2.bucket,
             policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
@@ -207,8 +207,8 @@ class ResourceDataSync(pulumi.CustomResource):
         }
         \"\"\")
         foo = aws.ssm.ResourceDataSync("foo", s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
-            bucket_name=hoge_bucket.bucket,
-            region=hoge_bucket.region,
+            bucket_name=hoge_bucket_v2.bucket,
+            region=hoge_bucket_v2.region,
         ))
         ```
 

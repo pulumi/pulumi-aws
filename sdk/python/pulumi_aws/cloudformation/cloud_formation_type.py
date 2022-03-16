@@ -397,7 +397,7 @@ class CloudFormationType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{aws_s3_bucket_object['example']['bucket']}/{aws_s3_bucket_object['example']['key']}",
+            schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
             logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
@@ -436,7 +436,7 @@ class CloudFormationType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{aws_s3_bucket_object['example']['bucket']}/{aws_s3_bucket_object['example']['key']}",
+            schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
             logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(

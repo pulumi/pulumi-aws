@@ -21,9 +21,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

@@ -25,12 +25,13 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var defaultBucket = new Aws.S3.Bucket("defaultBucket", new Aws.S3.BucketArgs
+    ///         var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "tf-spot-datafeed",
     ///         });
     ///         var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new Aws.Ec2.SpotDatafeedSubscriptionArgs
     ///         {
-    ///             Bucket = defaultBucket.BucketName,
+    ///             Bucket = defaultBucketV2.Bucket,
     ///             Prefix = "my_subdirectory",
     ///         });
     ///     }

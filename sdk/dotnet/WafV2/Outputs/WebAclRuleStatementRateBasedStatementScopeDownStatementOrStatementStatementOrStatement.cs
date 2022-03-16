@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatement
     {
         /// <summary>
-        /// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        /// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatement> Statements;
 

@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudhsmv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudhsmv2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -60,9 +60,9 @@ type LookupClusterResult struct {
 	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
 	//   The number of available cluster certificates may vary depending on state of the cluster.
-	ClusterCertificates GetClusterClusterCertificates `pulumi:"clusterCertificates"`
-	ClusterId           string                        `pulumi:"clusterId"`
-	ClusterState        string                        `pulumi:"clusterState"`
+	ClusterCertificates []GetClusterClusterCertificate `pulumi:"clusterCertificates"`
+	ClusterId           string                         `pulumi:"clusterId"`
+	ClusterState        string                         `pulumi:"clusterState"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the security group associated with the CloudHSM cluster.
@@ -116,8 +116,8 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 // * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 // * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
 //   The number of available cluster certificates may vary depending on state of the cluster.
-func (o LookupClusterResultOutput) ClusterCertificates() GetClusterClusterCertificatesOutput {
-	return o.ApplyT(func(v LookupClusterResult) GetClusterClusterCertificates { return v.ClusterCertificates }).(GetClusterClusterCertificatesOutput)
+func (o LookupClusterResultOutput) ClusterCertificates() GetClusterClusterCertificateArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterCertificate { return v.ClusterCertificates }).(GetClusterClusterCertificateArrayOutput)
 }
 
 func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {

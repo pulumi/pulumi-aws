@@ -72,7 +72,7 @@ class GetDistributionConfigurationResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Description to apply to distributed AMI.
+        Description of the container distribution configuration.
         """
         return pulumi.get(self, "description")
 

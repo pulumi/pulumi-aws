@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -133,6 +134,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     */
+    public readonly logConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration>;
+    /**
      * The value to be used when mounting the filesystem.
      */
     public /*out*/ readonly mountName!: pulumi.Output<string>;
@@ -209,6 +214,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["importPath"] = state ? state.importPath : undefined;
             resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["mountName"] = state ? state.mountName : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
@@ -239,6 +245,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["importPath"] = args ? args.importPath : undefined;
             resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
@@ -323,6 +330,10 @@ export interface LustreFileSystemState {
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     */
+    logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
     /**
      * The value to be used when mounting the filesystem.
      */
@@ -429,6 +440,10 @@ export interface LustreFileSystemArgs {
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     */
+    logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
     /**
      * - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and ` SSD` storageType are 125, 250, 500, 1000.
      */

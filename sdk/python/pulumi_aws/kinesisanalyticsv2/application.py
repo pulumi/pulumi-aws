@@ -438,11 +438,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
-            bucket=example_bucket.bucket,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
+            source="flink-app.jar")
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],
@@ -450,8 +450,8 @@ class Application(pulumi.CustomResource):
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket.arn,
-                            file_key=example_bucket_object.key,
+                            bucket_arn=example_bucket_v2.arn,
+                            file_key=example_bucket_objectv2.key,
                         ),
                     ),
                     code_content_type="ZIPFILE",
@@ -598,11 +598,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
-            bucket=example_bucket.bucket,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
+            source="flink-app.jar")
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],
@@ -610,8 +610,8 @@ class Application(pulumi.CustomResource):
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket.arn,
-                            file_key=example_bucket_object.key,
+                            bucket_arn=example_bucket_v2.arn,
+                            file_key=example_bucket_objectv2.key,
                         ),
                     ),
                     code_content_type="ZIPFILE",
@@ -665,11 +665,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
-            bucket=example_bucket.bucket,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
+            source="flink-app.jar")
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],
@@ -677,8 +677,8 @@ class Application(pulumi.CustomResource):
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket.arn,
-                            file_key=example_bucket_object.key,
+                            bucket_arn=example_bucket_v2.arn,
+                            file_key=example_bucket_objectv2.key,
                         ),
                     ),
                     code_content_type="ZIPFILE",
@@ -825,11 +825,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
-            bucket=example_bucket.bucket,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
+            source="flink-app.jar")
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],
@@ -837,8 +837,8 @@ class Application(pulumi.CustomResource):
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket.arn,
-                            file_key=example_bucket_object.key,
+                            bucket_arn=example_bucket_v2.arn,
+                            file_key=example_bucket_objectv2.key,
                         ),
                     ),
                     code_content_type="ZIPFILE",

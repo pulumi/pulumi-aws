@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  *
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentRegion = aws.getRegion({});
- * const gdBucket = new aws.s3.Bucket("gdBucket", {
- *     acl: "private",
+ * const gdBucket = new aws.s3.BucketV2("gdBucket", {
+ *     bucket: "example",
  *     forceDestroy: true,
  * });
  * const bucketPol = aws.iam.getPolicyDocumentOutput({
@@ -64,6 +64,10 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * const testGd = new aws.guardduty.Detector("testGd", {enable: true});
+ * const gdBucketAcl = new aws.s3.BucketAclV2("gdBucketAcl", {
+ *     bucket: gdBucket.id,
+ *     acl: "private",
+ * });
  * const gdBucketPolicy = new aws.s3.BucketPolicy("gdBucketPolicy", {
  *     bucket: gdBucket.id,
  *     policy: bucketPol.apply(bucketPol => bucketPol.json),

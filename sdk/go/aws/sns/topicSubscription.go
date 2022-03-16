@@ -31,7 +31,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -56,8 +56,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sqs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -92,11 +92,11 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/config"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sqs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/config"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 // )

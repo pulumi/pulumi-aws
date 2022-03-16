@@ -64,12 +64,6 @@ namespace Pulumi.Aws.ElastiCache
     public partial class GlobalReplicationGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
-        /// </summary>
-        [Output("actualEngineVersion")]
-        public Output<string> ActualEngineVersion { get; private set; } = null!;
-
-        /// <summary>
         /// The ARN of the ElastiCache Global Replication Group.
         /// </summary>
         [Output("arn")]
@@ -212,12 +206,6 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GlobalReplicationGroupState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
-        /// </summary>
-        [Input("actualEngineVersion")]
-        public Input<string>? ActualEngineVersion { get; set; }
-
         /// <summary>
         /// The ARN of the ElastiCache Global Replication Group.
         /// </summary>

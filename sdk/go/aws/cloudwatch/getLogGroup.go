@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -53,7 +53,7 @@ type LookupLogGroupArgs struct {
 
 // A collection of values returned by getLogGroup.
 type LookupLogGroupResult struct {
-	// The ARN of the Cloudwatch log group
+	// The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 	Arn string `pulumi:"arn"`
 	// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 	CreationTime int `pulumi:"creationTime"`
@@ -104,7 +104,7 @@ func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the Cloudwatch log group
+// The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 func (o LookupLogGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

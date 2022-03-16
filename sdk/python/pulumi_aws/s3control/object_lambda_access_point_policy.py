@@ -148,8 +148,8 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket.id)
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
         example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
             supporting_access_point=example_access_point.arn,
             transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
@@ -203,8 +203,8 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket.id)
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
         example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
             supporting_access_point=example_access_point.arn,
             transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(

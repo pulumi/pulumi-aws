@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -30,13 +30,22 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucket(ctx, "exampleBucket", &s3.BucketArgs{
-// 			Grants: s3.BucketGrantArray{
-// 				&s3.BucketGrantArgs{
-// 					Id:   pulumi.String(exampleLogDeliveryCanonicalUserId.Id),
-// 					Type: pulumi.String("CanonicalUser"),
-// 					Permissions: pulumi.StringArray{
-// 						pulumi.String("FULL_CONTROL"),
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+// 			Bucket: exampleBucketV2.ID(),
+// 			AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
+// 				Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
+// 					&s3.BucketAclV2AccessControlPolicyGrantArgs{
+// 						Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
+// 							Id:   pulumi.String(exampleLogDeliveryCanonicalUserId.Id),
+// 							Type: pulumi.String("CanonicalUser"),
+// 						},
+// 						Permission: pulumi.String("FULL_CONTROL"),
 // 					},
 // 				},
 // 			},

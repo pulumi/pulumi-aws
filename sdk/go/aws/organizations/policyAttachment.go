@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/organizations"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -43,7 +43,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/organizations"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -66,7 +66,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/organizations"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

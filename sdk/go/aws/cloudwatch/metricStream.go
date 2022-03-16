@@ -21,10 +21,10 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -36,8 +36,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("metric-stream-test-bucket"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -79,6 +79,13 @@ import (
 // 			Policy: s3Stream.Arn.ApplyT(func(arn string) (string, error) {
 // 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Effect\": \"Allow\",\n", "            \"Action\": [\n", "                \"firehose:PutRecord\",\n", "                \"firehose:PutRecordBatch\"\n", "            ],\n", "            \"Resource\": \"", arn, "\"\n", "        }\n", "    ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+// 			Bucket: bucket.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err

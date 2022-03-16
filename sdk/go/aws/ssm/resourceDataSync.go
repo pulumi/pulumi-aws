@@ -21,19 +21,21 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		hogeBucket, err := s3.NewBucket(ctx, "hogeBucket", nil)
+// 		hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("tf-test-bucket-1234"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketPolicy(ctx, "hogeBucketPolicy", &s3.BucketPolicyArgs{
-// 			Bucket: hogeBucket.Bucket,
+// 			Bucket: hogeBucketV2.Bucket,
 // 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Sid\": \"SSMBucketPermissionsCheck\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": {\n", "                \"Service\": \"ssm.amazonaws.com\"\n", "            },\n", "            \"Action\": \"s3:GetBucketAcl\",\n", "            \"Resource\": \"arn:aws:s3:::tf-test-bucket-1234\"\n", "        },\n", "        {\n", "            \"Sid\": \" SSMBucketDelivery\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": {\n", "                \"Service\": \"ssm.amazonaws.com\"\n", "            },\n", "            \"Action\": \"s3:PutObject\",\n", "            \"Resource\": [\"arn:aws:s3:::tf-test-bucket-1234/*\"],\n", "            \"Condition\": {\n", "                \"StringEquals\": {\n", "                    \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n", "                }\n", "            }\n", "        }\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
@@ -41,8 +43,8 @@ import (
 // 		}
 // 		_, err = ssm.NewResourceDataSync(ctx, "foo", &ssm.ResourceDataSyncArgs{
 // 			S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
-// 				BucketName: hogeBucket.Bucket,
-// 				Region:     hogeBucket.Region,
+// 				BucketName: hogeBucketV2.Bucket,
+// 				Region:     hogeBucketV2.Region,
 // 			},
 // 		})
 // 		if err != nil {

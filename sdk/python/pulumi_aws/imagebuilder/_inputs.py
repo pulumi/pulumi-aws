@@ -14,6 +14,7 @@ __all__ = [
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs',
     'DistributionConfigurationDistributionContainerDistributionConfigurationArgs',
     'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs',
+    'DistributionConfigurationDistributionLaunchTemplateConfigurationArgs',
     'ImageImageTestsConfigurationArgs',
     'ImageOutputResourceArgs',
     'ImageOutputResourceAmiArgs',
@@ -22,6 +23,7 @@ __all__ = [
     'ImageRecipeBlockDeviceMappingArgs',
     'ImageRecipeBlockDeviceMappingEbsArgs',
     'ImageRecipeComponentArgs',
+    'ImageRecipeComponentParameterArgs',
     'InfrastructureConfigurationLoggingArgs',
     'InfrastructureConfigurationLoggingS3LogsArgs',
     'GetComponentsFilterArgs',
@@ -36,11 +38,13 @@ class DistributionConfigurationDistributionArgs:
                  region: pulumi.Input[str],
                  ami_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgs']] = None,
                  container_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgs']] = None,
+                 launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]]] = None,
                  license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] region: AWS Region for the distribution.
         :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         :param pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
         pulumi.set(__self__, "region", region)
@@ -48,6 +52,8 @@ class DistributionConfigurationDistributionArgs:
             pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
         if container_distribution_configuration is not None:
             pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
+        if launch_template_configurations is not None:
+            pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
 
@@ -86,6 +92,18 @@ class DistributionConfigurationDistributionArgs:
     @container_distribution_configuration.setter
     def container_distribution_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgs']]):
         pulumi.set(self, "container_distribution_configuration", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateConfigurations")
+    def launch_template_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]]]:
+        """
+        Set of launch template configuration settings that apply to image distribution. Detailed below.
+        """
+        return pulumi.get(self, "launch_template_configurations")
+
+    @launch_template_configurations.setter
+    def launch_template_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]]]):
+        pulumi.set(self, "launch_template_configurations", value)
 
     @property
     @pulumi.getter(name="licenseConfigurationArns")
@@ -331,6 +349,44 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
     @service.setter
     def service(self, value: pulumi.Input[str]):
         pulumi.set(self, "service", value)
+
+
+@pulumi.input_type
+class DistributionConfigurationDistributionLaunchTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 launch_template_id: pulumi.Input[str],
+                 default: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] launch_template_id: The ID of the Amazon EC2 launch template to use.
+        :param pulumi.Input[bool] default: Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+        """
+        pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon EC2 launch template to use.
+        """
+        return pulumi.get(self, "launch_template_id")
+
+    @launch_template_id.setter
+    def launch_template_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "launch_template_id", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default", value)
 
 
 @pulumi.input_type
@@ -752,11 +808,15 @@ class ImageRecipeBlockDeviceMappingEbsArgs:
 @pulumi.input_type
 class ImageRecipeComponentArgs:
     def __init__(__self__, *,
-                 component_arn: pulumi.Input[str]):
+                 component_arn: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
         pulumi.set(__self__, "component_arn", component_arn)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -769,6 +829,55 @@ class ImageRecipeComponentArgs:
     @component_arn.setter
     def component_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "component_arn", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]]]:
+        """
+        Configuration block(s) for parameters to configure the component. Detailed below.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class ImageRecipeComponentParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the component parameter.
+        :param pulumi.Input[str] value: The value for the named component parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the component parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the named component parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

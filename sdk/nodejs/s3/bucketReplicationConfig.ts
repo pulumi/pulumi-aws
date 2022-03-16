@@ -30,15 +30,8 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `});
- * const destination = new aws.s3.Bucket("destination", {versioning: {
- *     enabled: true,
- * }});
- * const source = new aws.s3.Bucket("source", {
- *     acl: "private",
- *     versioning: {
- *         enabled: true,
- *     },
- * }, {
+ * const destinationBucketV2 = new aws.s3.BucketV2("destinationBucketV2", {bucket: "tf-test-bucket-destination-12345"});
+ * const sourceBucketV2 = new aws.s3.BucketV2("sourceBucketV2", {bucket: "tf-test-bucket-source-12345"}, {
  *     provider: aws.central,
  * });
  * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: pulumi.interpolate`{
@@ -51,7 +44,7 @@ import * as utilities from "../utilities";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${source.arn}"
+ *         "${sourceBucketV2.arn}"
  *       ]
  *     },
  *     {
@@ -62,7 +55,7 @@ import * as utilities from "../utilities";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${source.arn}/*"
+ *         "${sourceBucketV2.arn}/*"
  *       ]
  *     },
  *     {
@@ -72,7 +65,7 @@ import * as utilities from "../utilities";
  *         "s3:ReplicateTags"
  *       ],
  *       "Effect": "Allow",
- *       "Resource": "${destination.arn}/*"
+ *       "Resource": "${destinationBucketV2.arn}/*"
  *     }
  *   ]
  * }
@@ -81,38 +74,96 @@ import * as utilities from "../utilities";
  *     role: replicationRole.name,
  *     policyArn: replicationPolicy.arn,
  * });
+ * const destinationBucketVersioningV2 = new aws.s3.BucketVersioningV2("destinationBucketVersioningV2", {
+ *     bucket: destinationBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * });
+ * const sourceBucketAcl = new aws.s3.BucketAclV2("sourceBucketAcl", {
+ *     bucket: sourceBucketV2.id,
+ *     acl: "private",
+ * });
+ * const sourceBucketVersioningV2 = new aws.s3.BucketVersioningV2("sourceBucketVersioningV2", {
+ *     bucket: sourceBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * }, {
+ *     provider: aws.central,
+ * });
  * const replicationBucketReplicationConfig = new aws.s3.BucketReplicationConfig("replicationBucketReplicationConfig", {
  *     role: replicationRole.arn,
- *     bucket: source.id,
+ *     bucket: sourceBucketV2.id,
  *     rules: [{
  *         id: "foobar",
  *         prefix: "foo",
  *         status: "Enabled",
  *         destination: {
- *             bucket: destination.arn,
+ *             bucket: destinationBucketV2.arn,
  *             storageClass: "STANDARD",
  *         },
  *     }],
+ * }, {
+ *     dependsOn: [sourceBucketVersioningV2],
  * });
  * ```
- * ## Usage Notes
- *
- * > **NOTE:** To avoid conflicts always add the following lifecycle object to the `aws.s3.Bucket` resource of the source bucket.
- *
- * This resource implements the same features that are provided by the `replicationConfiguration` object of the `aws.s3.Bucket` resource. To avoid conflicts or unexpected apply results, a lifecycle configuration is needed on the `aws.s3.Bucket` to ignore changes to the internal `replicationConfiguration` object.  Failure to add the `lifecycle` configuration to the `aws.s3.Bucket` will result in conflicting state results.
+ * ### Bi-Directional Replication
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration ...
+ * const eastBucketV2 = new aws.s3.BucketV2("eastBucketV2", {bucket: "tf-test-bucket-east-12345"});
+ * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("eastBucketVersioningV2", {
+ *     bucket: eastBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * });
+ * const westBucketV2 = new aws.s3.BucketV2("westBucketV2", {bucket: "tf-test-bucket-west-12345"}, {
+ *     provider: west,
+ * });
+ * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("westBucketVersioningV2", {
+ *     bucket: westBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * }, {
+ *     provider: west,
+ * });
+ * const eastToWest = new aws.s3.BucketReplicationConfig("eastToWest", {
+ *     role: aws_iam_role.east_replication.arn,
+ *     bucket: eastBucketV2.id,
+ *     rules: [{
+ *         id: "foobar",
+ *         prefix: "foo",
+ *         status: "Enabled",
+ *         destination: {
+ *             bucket: westBucketV2.arn,
+ *             storageClass: "STANDARD",
+ *         },
+ *     }],
+ * }, {
+ *     dependsOn: [eastBucketVersioningV2],
+ * });
+ * const westToEast = new aws.s3.BucketReplicationConfig("westToEast", {
+ *     role: aws_iam_role.west_replication.arn,
+ *     bucket: westBucketV2.id,
+ *     rules: [{
+ *         id: "foobar",
+ *         prefix: "foo",
+ *         status: "Enabled",
+ *         destination: {
+ *             bucket: eastBucketV2.arn,
+ *             storageClass: "STANDARD",
+ *         },
+ *     }],
+ * }, {
+ *     dependsOn: [westBucketVersioningV2],
+ * });
  * ```
- *
- * The `aws.s3.BucketReplicationConfig` resource provides the following features that are not available in the `aws.s3.Bucket` resource:
- *
- * * `replicaModifications` - Added to the `sourceSelectionCriteria` configuration object documented below
- * * `metrics` - Added to the `destination` configuration object documented below
- * * `replicationTime` - Added to the `destination` configuration object documented below
- * * `existingObjectReplication` - Added to the replication rule object documented below
- *
- * Replication for existing objects requires activation by AWS Support.  See [userguide/replication-what-is-isnot-replicated](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-what-is-isnot-replicated.html#existing-object-replication).
  *
  * ## Import
  *

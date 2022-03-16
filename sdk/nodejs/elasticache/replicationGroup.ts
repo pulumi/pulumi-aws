@@ -38,15 +38,15 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
+ *     description: "example description",
  *     nodeType: "cache.m4.large",
  *     numberCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
- *     replicationGroupDescription: "test description",
+ *     preferredCacheClusterAzs: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *     ],
  * });
  * ```
  *
@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
- *     availabilityZones: [
+ *     preferredCacheClusterAzs: [
  *         "us-west-2a",
  *         "us-west-2b",
  *     ],
- *     replicationGroupDescription: "test description",
+ *     description: "example description",
  *     nodeType: "cache.m4.large",
  *     numberCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
@@ -86,14 +86,12 @@ import * as utilities from "../utilities";
  *
  * const baz = new aws.elasticache.ReplicationGroup("baz", {
  *     automaticFailoverEnabled: true,
- *     clusterMode: {
- *         numNodeGroups: 2,
- *         replicasPerNodeGroup: 1,
- *     },
+ *     description: "example description",
  *     nodeType: "cache.t2.small",
+ *     numNodeGroups: 2,
  *     parameterGroupName: "default.redis3.2.cluster.on",
  *     port: 6379,
- *     replicationGroupDescription: "test description",
+ *     replicasPerNodeGroup: 1,
  * });
  * ```
  *
@@ -111,7 +109,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     replicationGroupDescription: "primary replication group",
+ *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
  *     nodeType: "cache.m5.large",
@@ -126,7 +124,7 @@ import * as utilities from "../utilities";
  *     provider: aws.other_region,
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
- *     replicationGroupDescription: "secondary replication group",
+ *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numberCacheClusters: 1,
  * });
@@ -193,7 +191,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
@@ -202,6 +200,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
     /**
      * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     *
+     * @deprecated Use num_node_groups and replicas_per_node_group instead
      */
     public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -212,6 +212,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      */
     public readonly dataTieringEnabled!: pulumi.Output<boolean>;
+    /**
+     * User-created description for the replication group.
+     */
+    public readonly description!: pulumi.Output<string>;
     /**
      * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
@@ -229,7 +233,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
      */
     public readonly globalReplicationGroupId!: pulumi.Output<string>;
     /**
@@ -257,7 +261,17 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
+     */
+    public readonly numCacheClusters!: pulumi.Output<number>;
+    /**
+     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+     */
+    public readonly numNodeGroups!: pulumi.Output<number>;
+    /**
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
+     *
+     * @deprecated Use num_cache_clusters instead
      */
     public readonly numberCacheClusters!: pulumi.Output<number>;
     /**
@@ -269,6 +283,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
+     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
+     */
+    public readonly preferredCacheClusterAzs!: pulumi.Output<string[] | undefined>;
+    /**
      * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      */
     public /*out*/ readonly primaryEndpointAddress!: pulumi.Output<string>;
@@ -277,7 +295,13 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string>;
     /**
+     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     */
+    public readonly replicasPerNodeGroup!: pulumi.Output<number>;
+    /**
      * User-created description for the replication group.
+     *
+     * @deprecated Use description instead
      */
     public readonly replicationGroupDescription!: pulumi.Output<string>;
     /**
@@ -330,7 +354,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ReplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationGroupArgs | ReplicationGroupState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -347,6 +371,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["clusterMode"] = state ? state.clusterMode : undefined;
             resourceInputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
             resourceInputs["dataTieringEnabled"] = state ? state.dataTieringEnabled : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
@@ -358,11 +383,15 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["multiAzEnabled"] = state ? state.multiAzEnabled : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
             resourceInputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
+            resourceInputs["numCacheClusters"] = state ? state.numCacheClusters : undefined;
+            resourceInputs["numNodeGroups"] = state ? state.numNodeGroups : undefined;
             resourceInputs["numberCacheClusters"] = state ? state.numberCacheClusters : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["preferredCacheClusterAzs"] = state ? state.preferredCacheClusterAzs : undefined;
             resourceInputs["primaryEndpointAddress"] = state ? state.primaryEndpointAddress : undefined;
             resourceInputs["readerEndpointAddress"] = state ? state.readerEndpointAddress : undefined;
+            resourceInputs["replicasPerNodeGroup"] = state ? state.replicasPerNodeGroup : undefined;
             resourceInputs["replicationGroupDescription"] = state ? state.replicationGroupDescription : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
@@ -378,9 +407,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["userGroupIds"] = state ? state.userGroupIds : undefined;
         } else {
             const args = argsOrState as ReplicationGroupArgs | undefined;
-            if ((!args || args.replicationGroupDescription === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'replicationGroupDescription'");
-            }
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
             resourceInputs["authToken"] = args ? args.authToken : undefined;
@@ -389,6 +415,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["clusterMode"] = args ? args.clusterMode : undefined;
             resourceInputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
@@ -398,9 +425,13 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["multiAzEnabled"] = args ? args.multiAzEnabled : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
+            resourceInputs["numCacheClusters"] = args ? args.numCacheClusters : undefined;
+            resourceInputs["numNodeGroups"] = args ? args.numNodeGroups : undefined;
             resourceInputs["numberCacheClusters"] = args ? args.numberCacheClusters : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["preferredCacheClusterAzs"] = args ? args.preferredCacheClusterAzs : undefined;
+            resourceInputs["replicasPerNodeGroup"] = args ? args.replicasPerNodeGroup : undefined;
             resourceInputs["replicationGroupDescription"] = args ? args.replicationGroupDescription : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -456,7 +487,7 @@ export interface ReplicationGroupState {
      */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -465,6 +496,8 @@ export interface ReplicationGroupState {
     clusterEnabled?: pulumi.Input<boolean>;
     /**
      * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     *
+     * @deprecated Use num_node_groups and replicas_per_node_group instead
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -475,6 +508,10 @@ export interface ReplicationGroupState {
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      */
     dataTieringEnabled?: pulumi.Input<boolean>;
+    /**
+     * User-created description for the replication group.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
@@ -492,7 +529,7 @@ export interface ReplicationGroupState {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**
@@ -520,7 +557,17 @@ export interface ReplicationGroupState {
      */
     notificationTopicArn?: pulumi.Input<string>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
+     */
+    numCacheClusters?: pulumi.Input<number>;
+    /**
+     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+     */
+    numNodeGroups?: pulumi.Input<number>;
+    /**
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
+     *
+     * @deprecated Use num_cache_clusters instead
      */
     numberCacheClusters?: pulumi.Input<number>;
     /**
@@ -532,6 +579,10 @@ export interface ReplicationGroupState {
      */
     port?: pulumi.Input<number>;
     /**
+     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
+     */
+    preferredCacheClusterAzs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      */
     primaryEndpointAddress?: pulumi.Input<string>;
@@ -540,7 +591,13 @@ export interface ReplicationGroupState {
      */
     readerEndpointAddress?: pulumi.Input<string>;
     /**
+     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     */
+    replicasPerNodeGroup?: pulumi.Input<number>;
+    /**
      * User-created description for the replication group.
+     *
+     * @deprecated Use description instead
      */
     replicationGroupDescription?: pulumi.Input<string>;
     /**
@@ -612,17 +669,23 @@ export interface ReplicationGroupArgs {
      */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     *
+     * @deprecated Use num_node_groups and replicas_per_node_group instead
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      */
     dataTieringEnabled?: pulumi.Input<boolean>;
+    /**
+     * User-created description for the replication group.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
@@ -636,7 +699,7 @@ export interface ReplicationGroupArgs {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**
@@ -660,7 +723,17 @@ export interface ReplicationGroupArgs {
      */
     notificationTopicArn?: pulumi.Input<string>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
+     */
+    numCacheClusters?: pulumi.Input<number>;
+    /**
+     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+     */
+    numNodeGroups?: pulumi.Input<number>;
+    /**
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
+     *
+     * @deprecated Use num_cache_clusters instead
      */
     numberCacheClusters?: pulumi.Input<number>;
     /**
@@ -672,9 +745,19 @@ export interface ReplicationGroupArgs {
      */
     port?: pulumi.Input<number>;
     /**
-     * User-created description for the replication group.
+     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
      */
-    replicationGroupDescription: pulumi.Input<string>;
+    preferredCacheClusterAzs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     */
+    replicasPerNodeGroup?: pulumi.Input<number>;
+    /**
+     * User-created description for the replication group.
+     *
+     * @deprecated Use description instead
+     */
+    replicationGroupDescription?: pulumi.Input<string>;
     /**
      * Replication group identifier. This parameter is stored as a lowercase string.
      */

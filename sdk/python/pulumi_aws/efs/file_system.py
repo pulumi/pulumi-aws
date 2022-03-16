@@ -19,7 +19,7 @@ class FileSystemArgs:
                  creation_token: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 lifecycle_policy: Optional[pulumi.Input['FileSystemLifecyclePolicyArgs']] = None,
+                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,7 +33,7 @@ class FileSystemArgs:
                (http://docs.aws.amazon.com/efs/latest/ug/) user guide for more information.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input['FileSystemLifecyclePolicyArgs'] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -47,8 +47,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if lifecycle_policy is not None:
-            pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
+        if lifecycle_policies is not None:
+            pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
         if performance_mode is not None:
             pulumi.set(__self__, "performance_mode", performance_mode)
         if provisioned_throughput_in_mibps is not None:
@@ -110,16 +110,16 @@ class FileSystemArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
-    @pulumi.getter(name="lifecyclePolicy")
-    def lifecycle_policy(self) -> Optional[pulumi.Input['FileSystemLifecyclePolicyArgs']]:
+    @pulumi.getter(name="lifecyclePolicies")
+    def lifecycle_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]:
         """
         A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         """
-        return pulumi.get(self, "lifecycle_policy")
+        return pulumi.get(self, "lifecycle_policies")
 
-    @lifecycle_policy.setter
-    def lifecycle_policy(self, value: Optional[pulumi.Input['FileSystemLifecyclePolicyArgs']]):
-        pulumi.set(self, "lifecycle_policy", value)
+    @lifecycle_policies.setter
+    def lifecycle_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]):
+        pulumi.set(self, "lifecycle_policies", value)
 
     @property
     @pulumi.getter(name="performanceMode")
@@ -180,7 +180,7 @@ class _FileSystemState:
                  dns_name: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 lifecycle_policy: Optional[pulumi.Input['FileSystemLifecyclePolicyArgs']] = None,
+                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
                  number_of_mount_targets: Optional[pulumi.Input[int]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
@@ -201,7 +201,7 @@ class _FileSystemState:
         :param pulumi.Input[str] dns_name: The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input['FileSystemLifecyclePolicyArgs'] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
@@ -225,8 +225,8 @@ class _FileSystemState:
             pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if lifecycle_policy is not None:
-            pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
+        if lifecycle_policies is not None:
+            pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
         if number_of_mount_targets is not None:
             pulumi.set(__self__, "number_of_mount_targets", number_of_mount_targets)
         if owner_id is not None:
@@ -332,16 +332,16 @@ class _FileSystemState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
-    @pulumi.getter(name="lifecyclePolicy")
-    def lifecycle_policy(self) -> Optional[pulumi.Input['FileSystemLifecyclePolicyArgs']]:
+    @pulumi.getter(name="lifecyclePolicies")
+    def lifecycle_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]:
         """
         A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         """
-        return pulumi.get(self, "lifecycle_policy")
+        return pulumi.get(self, "lifecycle_policies")
 
-    @lifecycle_policy.setter
-    def lifecycle_policy(self, value: Optional[pulumi.Input['FileSystemLifecyclePolicyArgs']]):
-        pulumi.set(self, "lifecycle_policy", value)
+    @lifecycle_policies.setter
+    def lifecycle_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]):
+        pulumi.set(self, "lifecycle_policies", value)
 
     @property
     @pulumi.getter(name="numberOfMountTargets")
@@ -449,7 +449,7 @@ class FileSystem(pulumi.CustomResource):
                  creation_token: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]] = None,
+                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -475,9 +475,9 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_with_lifecyle_policy = aws.efs.FileSystem("fooWithLifecylePolicy", lifecycle_policy=aws.efs.FileSystemLifecyclePolicyArgs(
+        foo_with_lifecyle_policy = aws.efs.FileSystem("fooWithLifecylePolicy", lifecycle_policies=[aws.efs.FileSystemLifecyclePolicyArgs(
             transition_to_ia="AFTER_30_DAYS",
-        ))
+        )])
         ```
 
         ## Import
@@ -497,7 +497,7 @@ class FileSystem(pulumi.CustomResource):
                (http://docs.aws.amazon.com/efs/latest/ug/) user guide for more information.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -529,9 +529,9 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_with_lifecyle_policy = aws.efs.FileSystem("fooWithLifecylePolicy", lifecycle_policy=aws.efs.FileSystemLifecyclePolicyArgs(
+        foo_with_lifecyle_policy = aws.efs.FileSystem("fooWithLifecylePolicy", lifecycle_policies=[aws.efs.FileSystemLifecyclePolicyArgs(
             transition_to_ia="AFTER_30_DAYS",
-        ))
+        )])
         ```
 
         ## Import
@@ -561,7 +561,7 @@ class FileSystem(pulumi.CustomResource):
                  creation_token: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]] = None,
+                 lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -582,7 +582,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["creation_token"] = creation_token
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["kms_key_id"] = kms_key_id
-            __props__.__dict__["lifecycle_policy"] = lifecycle_policy
+            __props__.__dict__["lifecycle_policies"] = lifecycle_policies
             __props__.__dict__["performance_mode"] = performance_mode
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
             __props__.__dict__["tags"] = tags
@@ -611,7 +611,7 @@ class FileSystem(pulumi.CustomResource):
             dns_name: Optional[pulumi.Input[str]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
-            lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]] = None,
+            lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
             number_of_mount_targets: Optional[pulumi.Input[int]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             performance_mode: Optional[pulumi.Input[str]] = None,
@@ -637,7 +637,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name: The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
@@ -658,7 +658,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["encrypted"] = encrypted
         __props__.__dict__["kms_key_id"] = kms_key_id
-        __props__.__dict__["lifecycle_policy"] = lifecycle_policy
+        __props__.__dict__["lifecycle_policies"] = lifecycle_policies
         __props__.__dict__["number_of_mount_targets"] = number_of_mount_targets
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["performance_mode"] = performance_mode
@@ -729,12 +729,12 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
-    @pulumi.getter(name="lifecyclePolicy")
-    def lifecycle_policy(self) -> pulumi.Output[Optional['outputs.FileSystemLifecyclePolicy']]:
+    @pulumi.getter(name="lifecyclePolicies")
+    def lifecycle_policies(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemLifecyclePolicy']]]:
         """
         A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         """
-        return pulumi.get(self, "lifecycle_policy")
+        return pulumi.get(self, "lifecycle_policies")
 
     @property
     @pulumi.getter(name="numberOfMountTargets")

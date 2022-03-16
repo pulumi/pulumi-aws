@@ -80,6 +80,10 @@ export class Ami extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    public readonly bootMode!: pulumi.Output<string | undefined>;
+    /**
      * A longer, human-readable description for the AMI.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -192,6 +196,7 @@ export class Ami extends pulumi.CustomResource {
             const state = argsOrState as AmiState | undefined;
             resourceInputs["architecture"] = state ? state.architecture : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bootMode"] = state ? state.bootMode : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             resourceInputs["enaSupport"] = state ? state.enaSupport : undefined;
@@ -218,6 +223,7 @@ export class Ami extends pulumi.CustomResource {
         } else {
             const args = argsOrState as AmiArgs | undefined;
             resourceInputs["architecture"] = args ? args.architecture : undefined;
+            resourceInputs["bootMode"] = args ? args.bootMode : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
             resourceInputs["enaSupport"] = args ? args.enaSupport : undefined;
@@ -260,6 +266,10 @@ export interface AmiState {
      * The ARN of the AMI.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    bootMode?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */
@@ -367,6 +377,10 @@ export interface AmiArgs {
      * Machine architecture for created instances. Defaults to "x8664".
      */
     architecture?: pulumi.Input<string>;
+    /**
+     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    bootMode?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclVisibilityConfig
     {
         /// <summary>
-        /// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+        /// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
         /// </summary>
         public readonly bool CloudwatchMetricsEnabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string MetricName;
         /// <summary>
-        /// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+        /// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         /// </summary>
         public readonly bool SampledRequestsEnabled;
 

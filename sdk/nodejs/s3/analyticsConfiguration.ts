@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.Bucket("example", {});
- * const analytics = new aws.s3.Bucket("analytics", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const analytics = new aws.s3.BucketV2("analytics", {bucket: "analytics destination"});
  * const example_entire_bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
  *     bucket: example.bucket,
  *     storageClassAnalysis: {
@@ -30,13 +30,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Add analytics configuration with S3 bucket object filter
+ * ### Add analytics configuration with S3 object filter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.Bucket("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_filtered = new aws.s3.AnalyticsConfiguration("example-filtered", {
  *     bucket: example.bucket,
  *     filter: {

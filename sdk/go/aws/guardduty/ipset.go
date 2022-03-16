@@ -23,8 +23,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/guardduty"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -36,13 +36,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
-// 		})
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		myIPSet, err := s3.NewBucketObject(ctx, "myIPSet", &s3.BucketObjectArgs{
+// 		myIPSet, err := s3.NewBucketObjectv2(ctx, "myIPSet", &s3.BucketObjectv2Args{
 // 			Acl:     pulumi.String("public-read"),
 // 			Content: pulumi.String("10.0.0.0/8\n"),
 // 			Bucket:  bucket.ID(),
@@ -60,6 +58,13 @@ import (
 // 				key := _args[1].(string)
 // 				return fmt.Sprintf("%v%v%v%v", "https://s3.amazonaws.com/", bucket, "/", key), nil
 // 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+// 			Bucket: bucket.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err

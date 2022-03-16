@@ -26,16 +26,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
+ *     bucket: "mybucket",
  *     tags: {
  *         Name: "My bucket",
  *     },
  * });
+ * const bAcl = new aws.s3.BucketAclV2("bAcl", {
+ *     bucket: bucketV2.id,
+ *     acl: "private",
+ * });
  * const s3OriginId = "myS3Origin";
  * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
  *     origins: [{
- *         domainName: bucket.bucketRegionalDomainName,
+ *         domainName: bucketV2.bucketRegionalDomainName,
  *         originId: s3OriginId,
  *         s3OriginConfig: {
  *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",

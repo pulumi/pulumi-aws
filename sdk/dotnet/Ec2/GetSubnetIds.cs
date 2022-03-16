@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
         /// 
         /// This resource can be useful for getting back a set of subnet ids for a vpc.
+        /// 
+        /// &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
         /// </summary>
         public static Task<GetSubnetIdsResult> InvokeAsync(GetSubnetIdsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
         /// 
         /// This resource can be useful for getting back a set of subnet ids for a vpc.
+        /// 
+        /// &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
         /// </summary>
         public static Output<GetSubnetIdsResult> Invoke(GetSubnetIdsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsInvokeArgs(), options.WithDefaults());

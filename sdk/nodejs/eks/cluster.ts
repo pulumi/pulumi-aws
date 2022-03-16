@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * export const endpoint = example.endpoint;
- * export const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
+ * export const kubeconfig_certificate_authority_data = example.certificateAuthorities.apply(certificateAuthorities => certificateAuthorities[0].data);
  * ```
  * ### Example IAM Role for EKS Cluster
  *
@@ -128,7 +128,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
+    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
@@ -200,7 +200,7 @@ export class Cluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
+            resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
@@ -232,7 +232,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["certificateAuthority"] = undefined /*out*/;
+            resourceInputs["certificateAuthorities"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["identities"] = undefined /*out*/;
@@ -256,7 +256,7 @@ export interface ClusterState {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
+    certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */

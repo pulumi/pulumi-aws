@@ -82,6 +82,8 @@ export class Attachment extends pulumi.CustomResource {
 
     /**
      * The ARN of an ALB Target Group.
+     *
+     * @deprecated Use lb_target_group_arn instead
      */
     public readonly albTargetGroupArn!: pulumi.Output<string | undefined>;
     /**
@@ -92,6 +94,10 @@ export class Attachment extends pulumi.CustomResource {
      * The name of the ELB.
      */
     public readonly elb!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of a load balancer target group.
+     */
+    public readonly lbTargetGroupArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Attachment resource with the given unique name, arguments, and options.
@@ -109,6 +115,7 @@ export class Attachment extends pulumi.CustomResource {
             resourceInputs["albTargetGroupArn"] = state ? state.albTargetGroupArn : undefined;
             resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             resourceInputs["elb"] = state ? state.elb : undefined;
+            resourceInputs["lbTargetGroupArn"] = state ? state.lbTargetGroupArn : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
             if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
@@ -117,6 +124,7 @@ export class Attachment extends pulumi.CustomResource {
             resourceInputs["albTargetGroupArn"] = args ? args.albTargetGroupArn : undefined;
             resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
             resourceInputs["elb"] = args ? args.elb : undefined;
+            resourceInputs["lbTargetGroupArn"] = args ? args.lbTargetGroupArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Attachment.__pulumiType, name, resourceInputs, opts);
@@ -129,6 +137,8 @@ export class Attachment extends pulumi.CustomResource {
 export interface AttachmentState {
     /**
      * The ARN of an ALB Target Group.
+     *
+     * @deprecated Use lb_target_group_arn instead
      */
     albTargetGroupArn?: pulumi.Input<string>;
     /**
@@ -139,6 +149,10 @@ export interface AttachmentState {
      * The name of the ELB.
      */
     elb?: pulumi.Input<string>;
+    /**
+     * The ARN of a load balancer target group.
+     */
+    lbTargetGroupArn?: pulumi.Input<string>;
 }
 
 /**
@@ -147,6 +161,8 @@ export interface AttachmentState {
 export interface AttachmentArgs {
     /**
      * The ARN of an ALB Target Group.
+     *
+     * @deprecated Use lb_target_group_arn instead
      */
     albTargetGroupArn?: pulumi.Input<string>;
     /**
@@ -157,4 +173,8 @@ export interface AttachmentArgs {
      * The name of the ELB.
      */
     elb?: pulumi.Input<string>;
+    /**
+     * The ARN of a load balancer target group.
+     */
+    lbTargetGroupArn?: pulumi.Input<string>;
 }

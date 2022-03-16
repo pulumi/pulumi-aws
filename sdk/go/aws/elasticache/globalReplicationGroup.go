@@ -22,7 +22,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -68,10 +68,6 @@ import (
 type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState
 
-	// (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
-	//
-	// Deprecated: Use engine_version_actual instead
-	ActualEngineVersion pulumi.StringOutput `pulumi:"actualEngineVersion"`
 	// The ARN of the ElastiCache Global Replication Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A flag that indicate whether the encryption at rest is enabled.
@@ -133,10 +129,6 @@ func GetGlobalReplicationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalReplicationGroup resources.
 type globalReplicationGroupState struct {
-	// (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
-	//
-	// Deprecated: Use engine_version_actual instead
-	ActualEngineVersion *string `pulumi:"actualEngineVersion"`
 	// The ARN of the ElastiCache Global Replication Group.
 	Arn *string `pulumi:"arn"`
 	// A flag that indicate whether the encryption at rest is enabled.
@@ -164,10 +156,6 @@ type globalReplicationGroupState struct {
 }
 
 type GlobalReplicationGroupState struct {
-	// (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
-	//
-	// Deprecated: Use engine_version_actual instead
-	ActualEngineVersion pulumi.StringPtrInput
 	// The ARN of the ElastiCache Global Replication Group.
 	Arn pulumi.StringPtrInput
 	// A flag that indicate whether the encryption at rest is enabled.

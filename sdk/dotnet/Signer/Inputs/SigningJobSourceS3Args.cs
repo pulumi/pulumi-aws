@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Signer.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Key name of the bucket object that contains your unsigned code.
+        /// Key name of the object that contains your unsigned code.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

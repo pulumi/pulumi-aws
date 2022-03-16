@@ -862,7 +862,10 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket", acl="private")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            acl="private")
         example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -878,7 +881,7 @@ class Project(pulumi.CustomResource):
         \"\"\")
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.name,
-            policy=pulumi.Output.all(example_bucket.arn, example_bucket.arn).apply(lambda exampleBucketArn, exampleBucketArn1: f\"\"\"{{
+            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -929,8 +932,8 @@ class Project(pulumi.CustomResource):
                 "s3:*"
               ],
               "Resource": [
-                "{example_bucket_arn}",
-                "{example_bucket_arn1}/*"
+                "{example_bucket_v2_arn}",
+                "{example_bucket_v2_arn1}/*"
               ]
             }}
           ]
@@ -945,7 +948,7 @@ class Project(pulumi.CustomResource):
             ),
             cache=aws.codebuild.ProjectCacheArgs(
                 type="S3",
-                location=example_bucket.bucket,
+                location=example_bucket_v2.bucket,
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
@@ -971,7 +974,7 @@ class Project(pulumi.CustomResource):
                 ),
                 s3_logs=aws.codebuild.ProjectLogsConfigS3LogsArgs(
                     status="ENABLED",
-                    location=example_bucket.id.apply(lambda id: f"{id}/build-log"),
+                    location=example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
                 ),
             ),
             source=aws.codebuild.ProjectSourceArgs(
@@ -1081,7 +1084,10 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket", acl="private")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            acl="private")
         example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -1097,7 +1103,7 @@ class Project(pulumi.CustomResource):
         \"\"\")
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.name,
-            policy=pulumi.Output.all(example_bucket.arn, example_bucket.arn).apply(lambda exampleBucketArn, exampleBucketArn1: f\"\"\"{{
+            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -1148,8 +1154,8 @@ class Project(pulumi.CustomResource):
                 "s3:*"
               ],
               "Resource": [
-                "{example_bucket_arn}",
-                "{example_bucket_arn1}/*"
+                "{example_bucket_v2_arn}",
+                "{example_bucket_v2_arn1}/*"
               ]
             }}
           ]
@@ -1164,7 +1170,7 @@ class Project(pulumi.CustomResource):
             ),
             cache=aws.codebuild.ProjectCacheArgs(
                 type="S3",
-                location=example_bucket.bucket,
+                location=example_bucket_v2.bucket,
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
@@ -1190,7 +1196,7 @@ class Project(pulumi.CustomResource):
                 ),
                 s3_logs=aws.codebuild.ProjectLogsConfigS3LogsArgs(
                     status="ENABLED",
-                    location=example_bucket.id.apply(lambda id: f"{id}/build-log"),
+                    location=example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
                 ),
             ),
             source=aws.codebuild.ProjectSourceArgs(

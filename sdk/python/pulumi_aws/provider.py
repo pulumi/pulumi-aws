@@ -18,6 +18,8 @@ class ProviderArgs:
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
+                 ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
+                 ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
@@ -27,18 +29,27 @@ class ProviderArgs:
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  s3_force_path_style: Optional[pulumi.Input[bool]] = None,
+                 s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
+                 shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shared_credentials_file: Optional[pulumi.Input[str]] = None,
+                 shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
-                 token: Optional[pulumi.Input[str]] = None):
+                 token: Optional[pulumi.Input[str]] = None,
+                 use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
+                 use_fips_endpoint: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with settings to default resource tags across all resources.
+        :param pulumi.Input[str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
+               `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        :param pulumi.Input[str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+               `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
                `HTTPS_PROXY` environment variables.
         :param pulumi.Input['ProviderIgnoreTagsArgs'] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
@@ -46,18 +57,26 @@ class ProviderArgs:
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        :param pulumi.Input[bool] s3_force_path_style: Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-               default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+        :param pulumi.Input[bool] s3_force_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+               Specific to the Amazon S3 service.
+        :param pulumi.Input[bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
                Specific to the Amazon S3 service.
         :param pulumi.Input[str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-        :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_config_files: List of paths to shared config files. If not set, defaults to [~/.aws/config].
+        :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_credentials_files: List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
         :param pulumi.Input[bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
                available/implemented.
         :param pulumi.Input[bool] skip_get_ec2_platforms: Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
+        :param pulumi.Input[bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
+        :param pulumi.Input[bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
+        :param pulumi.Input[bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
         """
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
@@ -67,6 +86,10 @@ class ProviderArgs:
             pulumi.set(__self__, "assume_role", assume_role)
         if default_tags is not None:
             pulumi.set(__self__, "default_tags", default_tags)
+        if ec2_metadata_service_endpoint is not None:
+            pulumi.set(__self__, "ec2_metadata_service_endpoint", ec2_metadata_service_endpoint)
+        if ec2_metadata_service_endpoint_mode is not None:
+            pulumi.set(__self__, "ec2_metadata_service_endpoint_mode", ec2_metadata_service_endpoint_mode)
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
         if forbidden_account_ids is not None:
@@ -88,11 +111,23 @@ class ProviderArgs:
         if region is not None:
             pulumi.set(__self__, "region", region)
         if s3_force_path_style is not None:
+            warnings.warn("""Use s3_use_path_style instead.""", DeprecationWarning)
+            pulumi.log.warn("""s3_force_path_style is deprecated: Use s3_use_path_style instead.""")
+        if s3_force_path_style is not None:
             pulumi.set(__self__, "s3_force_path_style", s3_force_path_style)
+        if s3_use_path_style is not None:
+            pulumi.set(__self__, "s3_use_path_style", s3_use_path_style)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
+        if shared_config_files is not None:
+            pulumi.set(__self__, "shared_config_files", shared_config_files)
+        if shared_credentials_file is not None:
+            warnings.warn("""Use shared_credentials_files instead.""", DeprecationWarning)
+            pulumi.log.warn("""shared_credentials_file is deprecated: Use shared_credentials_files instead.""")
         if shared_credentials_file is not None:
             pulumi.set(__self__, "shared_credentials_file", shared_credentials_file)
+        if shared_credentials_files is not None:
+            pulumi.set(__self__, "shared_credentials_files", shared_credentials_files)
         if skip_credentials_validation is None:
             skip_credentials_validation = True
         if skip_credentials_validation is not None:
@@ -113,6 +148,10 @@ class ProviderArgs:
             pulumi.set(__self__, "skip_requesting_account_id", skip_requesting_account_id)
         if token is not None:
             pulumi.set(__self__, "token", token)
+        if use_dualstack_endpoint is not None:
+            pulumi.set(__self__, "use_dualstack_endpoint", use_dualstack_endpoint)
+        if use_fips_endpoint is not None:
+            pulumi.set(__self__, "use_fips_endpoint", use_fips_endpoint)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -155,6 +194,32 @@ class ProviderArgs:
     @default_tags.setter
     def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArgs']]):
         pulumi.set(self, "default_tags", value)
+
+    @property
+    @pulumi.getter(name="ec2MetadataServiceEndpoint")
+    def ec2_metadata_service_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address of the EC2 metadata service endpoint to use. Can also be configured using the
+        `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        """
+        return pulumi.get(self, "ec2_metadata_service_endpoint")
+
+    @ec2_metadata_service_endpoint.setter
+    def ec2_metadata_service_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_metadata_service_endpoint", value)
+
+    @property
+    @pulumi.getter(name="ec2MetadataServiceEndpointMode")
+    def ec2_metadata_service_endpoint_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+        `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        """
+        return pulumi.get(self, "ec2_metadata_service_endpoint_mode")
+
+    @ec2_metadata_service_endpoint_mode.setter
+    def ec2_metadata_service_endpoint_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_metadata_service_endpoint_mode", value)
 
     @property
     @pulumi.getter
@@ -251,8 +316,8 @@ class ProviderArgs:
     @pulumi.getter(name="s3ForcePathStyle")
     def s3_force_path_style(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-        default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+        Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
         Specific to the Amazon S3 service.
         """
         return pulumi.get(self, "s3_force_path_style")
@@ -260,6 +325,20 @@ class ProviderArgs:
     @s3_force_path_style.setter
     def s3_force_path_style(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "s3_force_path_style", value)
+
+    @property
+    @pulumi.getter(name="s3UsePathStyle")
+    def s3_use_path_style(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+        Specific to the Amazon S3 service.
+        """
+        return pulumi.get(self, "s3_use_path_style")
+
+    @s3_use_path_style.setter
+    def s3_use_path_style(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "s3_use_path_style", value)
 
     @property
     @pulumi.getter(name="secretKey")
@@ -274,16 +353,40 @@ class ProviderArgs:
         pulumi.set(self, "secret_key", value)
 
     @property
+    @pulumi.getter(name="sharedConfigFiles")
+    def shared_config_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of paths to shared config files. If not set, defaults to [~/.aws/config].
+        """
+        return pulumi.get(self, "shared_config_files")
+
+    @shared_config_files.setter
+    def shared_config_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_config_files", value)
+
+    @property
     @pulumi.getter(name="sharedCredentialsFile")
     def shared_credentials_file(self) -> Optional[pulumi.Input[str]]:
         """
-        The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         """
         return pulumi.get(self, "shared_credentials_file")
 
     @shared_credentials_file.setter
     def shared_credentials_file(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_credentials_file", value)
+
+    @property
+    @pulumi.getter(name="sharedCredentialsFiles")
+    def shared_credentials_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+        """
+        return pulumi.get(self, "shared_credentials_files")
+
+    @shared_credentials_files.setter
+    def shared_credentials_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_credentials_files", value)
 
     @property
     @pulumi.getter(name="skipCredentialsValidation")
@@ -313,6 +416,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="skipMetadataApiCheck")
     def skip_metadata_api_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        """
         return pulumi.get(self, "skip_metadata_api_check")
 
     @skip_metadata_api_check.setter
@@ -356,6 +462,30 @@ class ProviderArgs:
     def token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token", value)
 
+    @property
+    @pulumi.getter(name="useDualstackEndpoint")
+    def use_dualstack_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Resolve an endpoint with DualStack capability
+        """
+        return pulumi.get(self, "use_dualstack_endpoint")
+
+    @use_dualstack_endpoint.setter
+    def use_dualstack_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_dualstack_endpoint", value)
+
+    @property
+    @pulumi.getter(name="useFipsEndpoint")
+    def use_fips_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Resolve an endpoint with FIPS capability
+        """
+        return pulumi.get(self, "use_fips_endpoint")
+
+    @use_fips_endpoint.setter
+    def use_fips_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_fips_endpoint", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -366,6 +496,8 @@ class Provider(pulumi.ProviderResource):
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
+                 ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
+                 ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
@@ -375,14 +507,19 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  s3_force_path_style: Optional[pulumi.Input[bool]] = None,
+                 s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
+                 shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shared_credentials_file: Optional[pulumi.Input[str]] = None,
+                 shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
+                 use_fips_endpoint: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         The provider type for the aws package. By default, resources use package-wide configuration
@@ -394,6 +531,10 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with settings to default resource tags across all resources.
+        :param pulumi.Input[str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
+               `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        :param pulumi.Input[str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+               `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
                `HTTPS_PROXY` environment variables.
         :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
@@ -401,18 +542,26 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        :param pulumi.Input[bool] s3_force_path_style: Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-               default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+        :param pulumi.Input[bool] s3_force_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+               Specific to the Amazon S3 service.
+        :param pulumi.Input[bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
                Specific to the Amazon S3 service.
         :param pulumi.Input[str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-        :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_config_files: List of paths to shared config files. If not set, defaults to [~/.aws/config].
+        :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_credentials_files: List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
         :param pulumi.Input[bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
                available/implemented.
         :param pulumi.Input[bool] skip_get_ec2_platforms: Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
+        :param pulumi.Input[bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
+        :param pulumi.Input[bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
+        :param pulumi.Input[bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
         """
         ...
     @overload
@@ -445,6 +594,8 @@ class Provider(pulumi.ProviderResource):
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
+                 ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
+                 ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
@@ -454,14 +605,19 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  s3_force_path_style: Optional[pulumi.Input[bool]] = None,
+                 s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
+                 shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shared_credentials_file: Optional[pulumi.Input[str]] = None,
+                 shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
+                 use_fips_endpoint: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -478,6 +634,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
+            __props__.__dict__["ec2_metadata_service_endpoint"] = ec2_metadata_service_endpoint
+            __props__.__dict__["ec2_metadata_service_endpoint_mode"] = ec2_metadata_service_endpoint_mode
             __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
             __props__.__dict__["forbidden_account_ids"] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None
             __props__.__dict__["http_proxy"] = http_proxy
@@ -490,9 +648,18 @@ class Provider(pulumi.ProviderResource):
             if region is None:
                 region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
             __props__.__dict__["region"] = region
+            if s3_force_path_style is not None and not opts.urn:
+                warnings.warn("""Use s3_use_path_style instead.""", DeprecationWarning)
+                pulumi.log.warn("""s3_force_path_style is deprecated: Use s3_use_path_style instead.""")
             __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
+            __props__.__dict__["s3_use_path_style"] = pulumi.Output.from_input(s3_use_path_style).apply(pulumi.runtime.to_json) if s3_use_path_style is not None else None
             __props__.__dict__["secret_key"] = secret_key
+            __props__.__dict__["shared_config_files"] = pulumi.Output.from_input(shared_config_files).apply(pulumi.runtime.to_json) if shared_config_files is not None else None
+            if shared_credentials_file is not None and not opts.urn:
+                warnings.warn("""Use shared_credentials_files instead.""", DeprecationWarning)
+                pulumi.log.warn("""shared_credentials_file is deprecated: Use shared_credentials_files instead.""")
             __props__.__dict__["shared_credentials_file"] = shared_credentials_file
+            __props__.__dict__["shared_credentials_files"] = pulumi.Output.from_input(shared_credentials_files).apply(pulumi.runtime.to_json) if shared_credentials_files is not None else None
             if skip_credentials_validation is None:
                 skip_credentials_validation = True
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
@@ -507,6 +674,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
             __props__.__dict__["token"] = token
+            __props__.__dict__["use_dualstack_endpoint"] = pulumi.Output.from_input(use_dualstack_endpoint).apply(pulumi.runtime.to_json) if use_dualstack_endpoint is not None else None
+            __props__.__dict__["use_fips_endpoint"] = pulumi.Output.from_input(use_fips_endpoint).apply(pulumi.runtime.to_json) if use_fips_endpoint is not None else None
         super(Provider, __self__).__init__(
             'aws',
             resource_name,
@@ -520,6 +689,24 @@ class Provider(pulumi.ProviderResource):
         The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="ec2MetadataServiceEndpoint")
+    def ec2_metadata_service_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        Address of the EC2 metadata service endpoint to use. Can also be configured using the
+        `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        """
+        return pulumi.get(self, "ec2_metadata_service_endpoint")
+
+    @property
+    @pulumi.getter(name="ec2MetadataServiceEndpointMode")
+    def ec2_metadata_service_endpoint_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+        `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        """
+        return pulumi.get(self, "ec2_metadata_service_endpoint_mode")
 
     @property
     @pulumi.getter(name="httpProxy")
@@ -558,7 +745,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="sharedCredentialsFile")
     def shared_credentials_file(self) -> pulumi.Output[Optional[str]]:
         """
-        The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         """
         return pulumi.get(self, "shared_credentials_file")
 

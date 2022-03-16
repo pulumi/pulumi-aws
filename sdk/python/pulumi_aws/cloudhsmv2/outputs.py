@@ -10,7 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ClusterClusterCertificate',
-    'GetClusterClusterCertificatesResult',
+    'GetClusterClusterCertificateResult',
 ]
 
 @pulumi.output_type
@@ -84,7 +84,7 @@ class ClusterClusterCertificate(dict):
 
 
 @pulumi.output_type
-class GetClusterClusterCertificatesResult(dict):
+class GetClusterClusterCertificateResult(dict):
     def __init__(__self__, *,
                  aws_hardware_certificate: str,
                  cluster_certificate: str,

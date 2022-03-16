@@ -329,7 +329,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                     Effect = "Allow",
     ///                     Actions = 
     ///                     {
-    ///                         "events.PutEvents",
+    ///                         "events:PutEvents",
     ///                     },
     ///                     Resources = 
     ///                     {

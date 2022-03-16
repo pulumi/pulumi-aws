@@ -12,6 +12,7 @@ __all__ = [
     'DataRepositoryAssociationS3Args',
     'DataRepositoryAssociationS3AutoExportPolicyArgs',
     'DataRepositoryAssociationS3AutoImportPolicyArgs',
+    'LustreFileSystemLogConfigurationArgs',
     'OntapFileSystemDiskIopsConfigurationArgs',
     'OntapFileSystemEndpointArgs',
     'OntapFileSystemEndpointInterclusterArgs',
@@ -120,6 +121,45 @@ class DataRepositoryAssociationS3AutoImportPolicyArgs:
     @events.setter
     def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "events", value)
+
+
+@pulumi.input_type
+class LustreFileSystemLogConfigurationArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] destination: The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        :param pulumi.Input[str] level: Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
 
 
 @pulumi.input_type
@@ -321,7 +361,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
                  file_system_administrators_group: Optional[pulumi.Input[str]] = None,
-                 organizational_unit_distinguidshed_name: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
@@ -337,11 +376,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
         pulumi.set(__self__, "username", username)
         if file_system_administrators_group is not None:
             pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
-        if organizational_unit_distinguidshed_name is not None:
-            warnings.warn("""use 'organizational_unit_distinguished_name' instead""", DeprecationWarning)
-            pulumi.log.warn("""organizational_unit_distinguidshed_name is deprecated: use 'organizational_unit_distinguished_name' instead""")
-        if organizational_unit_distinguidshed_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguidshed_name", organizational_unit_distinguidshed_name)
         if organizational_unit_distinguished_name is not None:
             pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
@@ -404,15 +438,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @file_system_administrators_group.setter
     def file_system_administrators_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system_administrators_group", value)
-
-    @property
-    @pulumi.getter(name="organizationalUnitDistinguidshedName")
-    def organizational_unit_distinguidshed_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "organizational_unit_distinguidshed_name")
-
-    @organizational_unit_distinguidshed_name.setter
-    def organizational_unit_distinguidshed_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "organizational_unit_distinguidshed_name", value)
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")

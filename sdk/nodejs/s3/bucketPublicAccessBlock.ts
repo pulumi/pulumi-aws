@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example"});
  * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
- *     bucket: exampleBucket.id,
+ *     bucket: exampleBucketV2.id,
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
  * });

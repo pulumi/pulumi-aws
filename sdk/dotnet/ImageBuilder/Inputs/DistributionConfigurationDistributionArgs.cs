@@ -24,6 +24,18 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         [Input("containerDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationArgs>? ContainerDistributionConfiguration { get; set; }
 
+        [Input("launchTemplateConfigurations")]
+        private InputList<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>? _launchTemplateConfigurations;
+
+        /// <summary>
+        /// Set of launch template configuration settings that apply to image distribution. Detailed below.
+        /// </summary>
+        public InputList<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs> LaunchTemplateConfigurations
+        {
+            get => _launchTemplateConfigurations ?? (_launchTemplateConfigurations = new InputList<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>());
+            set => _launchTemplateConfigurations = value;
+        }
+
         [Input("licenseConfigurationArns")]
         private InputList<string>? _licenseConfigurationArns;
 

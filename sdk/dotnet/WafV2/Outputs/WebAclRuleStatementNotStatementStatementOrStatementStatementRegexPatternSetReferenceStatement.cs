@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        /// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch? FieldToMatch;
         /// <summary>

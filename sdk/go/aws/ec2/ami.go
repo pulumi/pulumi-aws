@@ -25,7 +25,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -64,6 +64,8 @@ type Ami struct {
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// The ARN of the AMI.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode pulumi.StringPtrOutput `pulumi:"bootMode"`
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
@@ -152,6 +154,8 @@ type amiState struct {
 	Architecture *string `pulumi:"architecture"`
 	// The ARN of the AMI.
 	Arn *string `pulumi:"arn"`
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode *string `pulumi:"bootMode"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
@@ -212,6 +216,8 @@ type AmiState struct {
 	Architecture pulumi.StringPtrInput
 	// The ARN of the AMI.
 	Arn pulumi.StringPtrInput
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be
@@ -274,6 +280,8 @@ func (AmiState) ElementType() reflect.Type {
 type amiArgs struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture *string `pulumi:"architecture"`
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode *string `pulumi:"bootMode"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
@@ -312,6 +320,8 @@ type amiArgs struct {
 type AmiArgs struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture pulumi.StringPtrInput
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be

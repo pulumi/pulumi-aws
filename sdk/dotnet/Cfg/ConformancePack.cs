@@ -72,12 +72,13 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
-    ///         var exampleBucketObject = new Aws.S3.BucketObject("exampleBucketObject", new Aws.S3.BucketObjectArgs
+    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
-    ///             Bucket = exampleBucket.Id,
+    ///             Bucket = exampleBucketV2.Id,
     ///             Key = "example-key",
     ///             Content = @"Resources:
     ///   IAMPasswordPolicy:
@@ -91,7 +92,7 @@ namespace Pulumi.Aws.Cfg
     ///         });
     ///         var exampleConformancePack = new Aws.Cfg.ConformancePack("exampleConformancePack", new Aws.Cfg.ConformancePackArgs
     ///         {
-    ///             TemplateS3Uri = Output.Tuple(exampleBucket.BucketName, exampleBucketObject.Key).Apply(values =&gt;
+    ///             TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
     ///             {
     ///                 var bucket = values.Item1;
     ///                 var key = values.Item2;

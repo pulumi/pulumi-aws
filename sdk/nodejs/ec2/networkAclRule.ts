@@ -91,11 +91,11 @@ export class NetworkAclRule extends pulumi.CustomResource {
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      */
-    public readonly icmpCode!: pulumi.Output<string | undefined>;
+    public readonly icmpCode!: pulumi.Output<number | undefined>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
-    public readonly icmpType!: pulumi.Output<string | undefined>;
+    public readonly icmpType!: pulumi.Output<number | undefined>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
@@ -195,11 +195,11 @@ export interface NetworkAclRuleState {
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      */
-    icmpCode?: pulumi.Input<string>;
+    icmpCode?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
-    icmpType?: pulumi.Input<string>;
+    icmpType?: pulumi.Input<number>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
@@ -245,11 +245,11 @@ export interface NetworkAclRuleArgs {
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      */
-    icmpCode?: pulumi.Input<string>;
+    icmpCode?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
-    icmpType?: pulumi.Input<string>;
+    icmpType?: pulumi.Input<number>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */

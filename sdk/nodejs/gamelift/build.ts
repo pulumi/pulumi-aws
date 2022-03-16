@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     operatingSystem: "WINDOWS_2012",
  *     storageLocation: {
  *         bucket: aws_s3_bucket.test.bucket,
- *         key: aws_s3_bucket_object.test.key,
+ *         key: aws_s3_object.test.key,
  *         roleArn: aws_iam_role.test.arn,
  *     },
  * }, {

@@ -115,7 +115,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly notificationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Access Control List permission for S3 bucket objects. Defaults to `private`.
+     * Access Control List permission for S3 objects. Defaults to `private`.
      */
     public readonly objectAcl!: pulumi.Output<string | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface NfsFileShareState {
      */
     notificationPolicy?: pulumi.Input<string>;
     /**
-     * Access Control List permission for S3 bucket objects. Defaults to `private`.
+     * Access Control List permission for S3 objects. Defaults to `private`.
      */
     objectAcl?: pulumi.Input<string>;
     /**
@@ -371,7 +371,7 @@ export interface NfsFileShareArgs {
      */
     notificationPolicy?: pulumi.Input<string>;
     /**
-     * Access Control List permission for S3 bucket objects. Defaults to `private`.
+     * Access Control List permission for S3 objects. Defaults to `private`.
      */
     objectAcl?: pulumi.Input<string>;
     /**

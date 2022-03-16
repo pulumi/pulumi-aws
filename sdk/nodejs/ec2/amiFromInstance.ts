@@ -72,6 +72,10 @@ export class AmiFromInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    public /*out*/ readonly bootMode!: pulumi.Output<string>;
+    /**
      * A longer, human-readable description for the AMI.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -165,6 +169,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             const state = argsOrState as AmiFromInstanceState | undefined;
             resourceInputs["architecture"] = state ? state.architecture : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bootMode"] = state ? state.bootMode : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             resourceInputs["enaSupport"] = state ? state.enaSupport : undefined;
@@ -204,6 +209,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["architecture"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bootMode"] = undefined /*out*/;
             resourceInputs["enaSupport"] = undefined /*out*/;
             resourceInputs["hypervisor"] = undefined /*out*/;
             resourceInputs["imageLocation"] = undefined /*out*/;
@@ -240,6 +246,10 @@ export interface AmiFromInstanceState {
      * The ARN of the AMI.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    bootMode?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */

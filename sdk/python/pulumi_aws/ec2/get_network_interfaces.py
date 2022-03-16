@@ -53,7 +53,7 @@ class GetNetworkInterfacesResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A list of all the network interface ids found. This data source will fail if none are found.
+        A list of all the network interface ids found.
         """
         return pulumi.get(self, "ids")
 

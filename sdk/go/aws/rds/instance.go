@@ -41,7 +41,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/rds"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -73,7 +73,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/rds"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -140,7 +140,9 @@ type Instance struct {
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	CustomerOwnedIpEnabled pulumi.BoolPtrOutput `pulumi:"customerOwnedIpEnabled"`
-	// Name of `DB subnet group`. DB instance will
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	DbName pulumi.StringOutput `pulumi:"dbName"`
+	// Name of DB subnet group. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
 	// with read replicas, it should be specified only if the source database
@@ -161,8 +163,8 @@ type Instance struct {
 	// The connection endpoint in `address:port` format.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
+	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
+	// Note that for Amazon Aurora instances the engine must match the DB cluster's engine'.
 	// For information on the difference between the available Aurora MySQL engines
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
@@ -171,7 +173,7 @@ type Instance struct {
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
 	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
+	// Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The running version of the database.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -226,7 +228,9 @@ type Instance struct {
 	MonitoringRoleArn pulumi.StringOutput `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	//
+	// Deprecated: Use db_name instead
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -253,7 +257,7 @@ type Instance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
 	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
-	ReplicaMode pulumi.StringPtrOutput   `pulumi:"replicaMode"`
+	ReplicaMode pulumi.StringOutput      `pulumi:"replicaMode"`
 	Replicas    pulumi.StringArrayOutput `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
@@ -307,7 +311,7 @@ type Instance struct {
 	// for more information.
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringOutput `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -385,7 +389,9 @@ type instanceState struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
-	// Name of `DB subnet group`. DB instance will
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	DbName *string `pulumi:"dbName"`
+	// Name of DB subnet group. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
 	// with read replicas, it should be specified only if the source database
@@ -406,8 +412,8 @@ type instanceState struct {
 	// The connection endpoint in `address:port` format.
 	Endpoint *string `pulumi:"endpoint"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
+	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
+	// Note that for Amazon Aurora instances the engine must match the DB cluster's engine'.
 	// For information on the difference between the available Aurora MySQL engines
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
@@ -416,7 +422,7 @@ type instanceState struct {
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
 	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
+	// Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The running version of the database.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -471,7 +477,9 @@ type instanceState struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	//
+	// Deprecated: Use db_name instead
 	Name *string `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -552,7 +560,7 @@ type instanceState struct {
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username *string `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -599,7 +607,9 @@ type InstanceState struct {
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
-	// Name of `DB subnet group`. DB instance will
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	DbName pulumi.StringPtrInput
+	// Name of DB subnet group. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
 	// with read replicas, it should be specified only if the source database
@@ -620,8 +630,8 @@ type InstanceState struct {
 	// The connection endpoint in `address:port` format.
 	Endpoint pulumi.StringPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
+	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
+	// Note that for Amazon Aurora instances the engine must match the DB cluster's engine'.
 	// For information on the difference between the available Aurora MySQL engines
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
@@ -630,7 +640,7 @@ type InstanceState struct {
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
 	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
+	// Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
 	EngineVersion pulumi.StringPtrInput
 	// The running version of the database.
 	EngineVersionActual pulumi.StringPtrInput
@@ -685,7 +695,9 @@ type InstanceState struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	//
+	// Deprecated: Use db_name instead
 	Name pulumi.StringPtrInput
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -766,7 +778,7 @@ type InstanceState struct {
 	// for more information.
 	Timezone pulumi.StringPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringPtrInput
 	// List of VPC security groups to
 	// associate.
@@ -813,7 +825,9 @@ type instanceArgs struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
-	// Name of `DB subnet group`. DB instance will
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	DbName *string `pulumi:"dbName"`
+	// Name of DB subnet group. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
 	// with read replicas, it should be specified only if the source database
@@ -832,8 +846,8 @@ type instanceArgs struct {
 	// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
+	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
+	// Note that for Amazon Aurora instances the engine must match the DB cluster's engine'.
 	// For information on the difference between the available Aurora MySQL engines
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
@@ -842,7 +856,7 @@ type instanceArgs struct {
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
 	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
+	// Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
@@ -890,7 +904,9 @@ type instanceArgs struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	//
+	// Deprecated: Use db_name instead
 	Name *string `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -964,7 +980,7 @@ type instanceArgs struct {
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username *string `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -1008,7 +1024,9 @@ type InstanceArgs struct {
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
-	// Name of `DB subnet group`. DB instance will
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	DbName pulumi.StringPtrInput
+	// Name of DB subnet group. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
 	// with read replicas, it should be specified only if the source database
@@ -1027,8 +1045,8 @@ type InstanceArgs struct {
 	// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
+	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
+	// Note that for Amazon Aurora instances the engine must match the DB cluster's engine'.
 	// For information on the difference between the available Aurora MySQL engines
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
@@ -1037,7 +1055,7 @@ type InstanceArgs struct {
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
 	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
+	// Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
@@ -1085,7 +1103,9 @@ type InstanceArgs struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	//
+	// Deprecated: Use db_name instead
 	Name pulumi.StringPtrInput
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1159,7 +1179,7 @@ type InstanceArgs struct {
 	// for more information.
 	Timezone pulumi.StringPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringPtrInput
 	// List of VPC security groups to
 	// associate.

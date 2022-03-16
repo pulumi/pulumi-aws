@@ -89,13 +89,13 @@ namespace Pulumi.Aws.Ec2
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Output("icmpCode")]
-        public Output<string?> IcmpCode { get; private set; } = null!;
+        public Output<int?> IcmpCode { get; private set; } = null!;
 
         /// <summary>
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Output("icmpType")]
-        public Output<string?> IcmpType { get; private set; } = null!;
+        public Output<int?> IcmpType { get; private set; } = null!;
 
         /// <summary>
         /// The IPv6 CIDR block to allow or deny.
@@ -201,13 +201,13 @@ namespace Pulumi.Aws.Ec2
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpCode")]
-        public Input<string>? IcmpCode { get; set; }
+        public Input<int>? IcmpCode { get; set; }
 
         /// <summary>
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpType")]
-        public Input<string>? IcmpType { get; set; }
+        public Input<int>? IcmpType { get; set; }
 
         /// <summary>
         /// The IPv6 CIDR block to allow or deny.
@@ -274,13 +274,13 @@ namespace Pulumi.Aws.Ec2
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpCode")]
-        public Input<string>? IcmpCode { get; set; }
+        public Input<int>? IcmpCode { get; set; }
 
         /// <summary>
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpType")]
-        public Input<string>? IcmpType { get; set; }
+        public Input<int>? IcmpType { get; set; }
 
         /// <summary>
         /// The IPv6 CIDR block to allow or deny.

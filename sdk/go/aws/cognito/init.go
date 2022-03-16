@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityProvider{}
 	case "aws:cognito/resourceServer:ResourceServer":
 		r = &ResourceServer{}
+	case "aws:cognito/user:User":
+		r = &User{}
 	case "aws:cognito/userGroup:UserGroup":
 		r = &UserGroup{}
 	case "aws:cognito/userPool:UserPool":
@@ -77,6 +79,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cognito/resourceServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cognito/user",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

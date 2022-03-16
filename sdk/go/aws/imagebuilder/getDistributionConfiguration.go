@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/imagebuilder"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -58,7 +58,7 @@ type LookupDistributionConfigurationResult struct {
 	DateCreated string `pulumi:"dateCreated"`
 	// Date the distribution configuration was updated.
 	DateUpdated string `pulumi:"dateUpdated"`
-	// Description to apply to distributed AMI.
+	// Description of the container distribution configuration.
 	Description string `pulumi:"description"`
 	// Set of distributions.
 	Distributions []GetDistributionConfigurationDistribution `pulumi:"distributions"`
@@ -120,7 +120,7 @@ func (o LookupDistributionConfigurationResultOutput) DateUpdated() pulumi.String
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.DateUpdated }).(pulumi.StringOutput)
 }
 
-// Description to apply to distributed AMI.
+// Description of the container distribution configuration.
 func (o LookupDistributionConfigurationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
 }

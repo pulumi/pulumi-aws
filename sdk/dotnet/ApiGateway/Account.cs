@@ -94,7 +94,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Account-Level throttle settings. See exported fields below.
         /// </summary>
         [Output("throttleSettings")]
-        public Output<Outputs.AccountThrottleSettings> ThrottleSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AccountThrottleSetting>> ThrottleSettings { get; private set; } = null!;
 
 
         /// <summary>
@@ -161,11 +161,17 @@ namespace Pulumi.Aws.ApiGateway
         [Input("cloudwatchRoleArn")]
         public Input<string>? CloudwatchRoleArn { get; set; }
 
+        [Input("throttleSettings")]
+        private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;
+
         /// <summary>
         /// Account-Level throttle settings. See exported fields below.
         /// </summary>
-        [Input("throttleSettings")]
-        public Input<Inputs.AccountThrottleSettingsGetArgs>? ThrottleSettings { get; set; }
+        public InputList<Inputs.AccountThrottleSettingGetArgs> ThrottleSettings
+        {
+            get => _throttleSettings ?? (_throttleSettings = new InputList<Inputs.AccountThrottleSettingGetArgs>());
+            set => _throttleSettings = value;
+        }
 
         public AccountState()
         {

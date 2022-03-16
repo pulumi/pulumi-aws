@@ -21,11 +21,11 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/guardduty"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -39,8 +39,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		gdBucket, err := s3.NewBucket(ctx, "gdBucket", &s3.BucketArgs{
-// 			Acl:          pulumi.String("private"),
+// 		gdBucket, err := s3.NewBucketV2(ctx, "gdBucket", &s3.BucketV2Args{
+// 			Bucket:       pulumi.String("example"),
 // 			ForceDestroy: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
@@ -129,6 +129,13 @@ import (
 // 		}
 // 		testGd, err := guardduty.NewDetector(ctx, "testGd", &guardduty.DetectorArgs{
 // 			Enable: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "gdBucketAcl", &s3.BucketAclV2Args{
+// 			Bucket: gdBucket.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err

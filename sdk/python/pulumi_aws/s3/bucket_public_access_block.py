@@ -225,9 +225,9 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket.id,
+            bucket=example_bucket_v2.id,
             block_public_acls=True,
             block_public_policy=True)
         ```
@@ -268,9 +268,9 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket.id,
+            bucket=example_bucket_v2.id,
             block_public_acls=True,
             block_public_policy=True)
         ```

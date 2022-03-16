@@ -13,10 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = pulumi.output(aws.getBillingServiceAccount());
- * const billingLogs = new aws.s3.Bucket("billing_logs", {
+ * const main = aws.getBillingServiceAccount({});
+ * const billingLogs = new aws.s3.BucketV2("billingLogs", {bucket: "my-billing-tf-test-bucket"});
+ * const billingLogsAcl = new aws.s3.BucketAclV2("billingLogsAcl", {
+ *     bucket: billingLogs.id,
  *     acl: "private",
- *     policy: pulumi.interpolate`{
+ * });
+ * const allowBillingLogging = new aws.s3.BucketPolicy("allowBillingLogging", {
+ *     bucket: billingLogs.id,
+ *     policy: Promise.all([main, main]).then(([main, main1]) => `{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -40,13 +45,13 @@ import * as utilities from "./utilities";
  *       "Resource": "arn:aws:s3:::my-billing-tf-test-bucket/*",
  *       "Principal": {
  *         "AWS": [
- *           "${main.arn}"
+ *           "${main1.arn}"
  *         ]
  *       }
  *     }
  *   ]
  * }
- * `,
+ * `),
  * });
  * ```
  */

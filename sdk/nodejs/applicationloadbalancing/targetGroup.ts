@@ -48,6 +48,19 @@ import * as utilities from "../utilities";
  *     targetType: "lambda",
  * });
  * ```
+ * ### ALB Target Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lambda_example = new aws.lb.TargetGroup("lambda-example", {
+ *     targetType: "alb",
+ *     port: 80,
+ *     protocol: "TCP",
+ *     vpcId: aws_vpc.main.id,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -165,7 +178,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly targetType!: pulumi.Output<string | undefined>;
     /**
-     * Identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+     * Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     public readonly vpcId!: pulumi.Output<string | undefined>;
 
@@ -314,7 +327,7 @@ export interface TargetGroupState {
      */
     targetType?: pulumi.Input<string>;
     /**
-     * Identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+     * Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -388,7 +401,7 @@ export interface TargetGroupArgs {
      */
     targetType?: pulumi.Input<string>;
     /**
-     * Identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+     * Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     vpcId?: pulumi.Input<string>;
 }

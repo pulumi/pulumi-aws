@@ -15,20 +15,20 @@ __all__ = ['PipelineArgs', 'Pipeline']
 @pulumi.input_type
 class PipelineArgs:
     def __init__(__self__, *,
-                 artifact_store: pulumi.Input['PipelineArtifactStoreArgs'],
+                 artifact_stores: pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]],
                  role_arn: pulumi.Input[str],
                  stages: pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]],
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input['PipelineArtifactStoreArgs'] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "artifact_store", artifact_store)
+        pulumi.set(__self__, "artifact_stores", artifact_stores)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stages", stages)
         if name is not None:
@@ -37,16 +37,16 @@ class PipelineArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> pulumi.Input['PipelineArtifactStoreArgs']:
+    @pulumi.getter(name="artifactStores")
+    def artifact_stores(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]:
         """
         One or more artifact_store blocks. Artifact stores are documented below.
         """
-        return pulumi.get(self, "artifact_store")
+        return pulumi.get(self, "artifact_stores")
 
-    @artifact_store.setter
-    def artifact_store(self, value: pulumi.Input['PipelineArtifactStoreArgs']):
-        pulumi.set(self, "artifact_store", value)
+    @artifact_stores.setter
+    def artifact_stores(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]):
+        pulumi.set(self, "artifact_stores", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -101,7 +101,7 @@ class PipelineArgs:
 class _PipelineState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 artifact_store: Optional[pulumi.Input['PipelineArtifactStoreArgs']] = None,
+                 artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]] = None,
@@ -110,7 +110,7 @@ class _PipelineState:
         """
         Input properties used for looking up and filtering Pipeline resources.
         :param pulumi.Input[str] arn: The codepipeline ARN.
-        :param pulumi.Input['PipelineArtifactStoreArgs'] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
@@ -119,8 +119,8 @@ class _PipelineState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
-        if artifact_store is not None:
-            pulumi.set(__self__, "artifact_store", artifact_store)
+        if artifact_stores is not None:
+            pulumi.set(__self__, "artifact_stores", artifact_stores)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role_arn is not None:
@@ -145,16 +145,16 @@ class _PipelineState:
         pulumi.set(self, "arn", value)
 
     @property
-    @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> Optional[pulumi.Input['PipelineArtifactStoreArgs']]:
+    @pulumi.getter(name="artifactStores")
+    def artifact_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]]:
         """
         One or more artifact_store blocks. Artifact stores are documented below.
         """
-        return pulumi.get(self, "artifact_store")
+        return pulumi.get(self, "artifact_stores")
 
-    @artifact_store.setter
-    def artifact_store(self, value: Optional[pulumi.Input['PipelineArtifactStoreArgs']]):
-        pulumi.set(self, "artifact_store", value)
+    @artifact_stores.setter
+    def artifact_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]]):
+        pulumi.set(self, "artifact_stores", value)
 
     @property
     @pulumi.getter
@@ -222,7 +222,7 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store: Optional[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]] = None,
+                 artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
@@ -238,7 +238,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.Bucket("codepipelineBucket", acl="private")
+        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket", bucket="test-bucket")
         codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -255,14 +255,14 @@ class Pipeline(pulumi.CustomResource):
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
             role_arn=codepipeline_role.arn,
-            artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
                 type="S3",
                 encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
                     id=s3kmskey.arn,
                     type="KMS",
                 ),
-            ),
+            )],
             stages=[
                 aws.codepipeline.PipelineStageArgs(
                     name="Source",
@@ -314,6 +314,9 @@ class Pipeline(pulumi.CustomResource):
                     )],
                 ),
             ])
+        codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
+            bucket=codepipeline_bucket.id,
+            acl="private")
         codepipeline_policy = aws.iam.RolePolicy("codepipelinePolicy",
             role=codepipeline_role.id,
             policy=pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn, example.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1, exampleArn: f\"\"\"{{
@@ -363,7 +366,7 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
@@ -385,7 +388,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.Bucket("codepipelineBucket", acl="private")
+        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket", bucket="test-bucket")
         codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -402,14 +405,14 @@ class Pipeline(pulumi.CustomResource):
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
             role_arn=codepipeline_role.arn,
-            artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
                 type="S3",
                 encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
                     id=s3kmskey.arn,
                     type="KMS",
                 ),
-            ),
+            )],
             stages=[
                 aws.codepipeline.PipelineStageArgs(
                     name="Source",
@@ -461,6 +464,9 @@ class Pipeline(pulumi.CustomResource):
                     )],
                 ),
             ])
+        codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
+            bucket=codepipeline_bucket.id,
+            acl="private")
         codepipeline_policy = aws.iam.RolePolicy("codepipelinePolicy",
             role=codepipeline_role.id,
             policy=pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn, example.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1, exampleArn: f\"\"\"{{
@@ -523,7 +529,7 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store: Optional[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]] = None,
+                 artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
@@ -540,9 +546,9 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            if artifact_store is None and not opts.urn:
-                raise TypeError("Missing required property 'artifact_store'")
-            __props__.__dict__["artifact_store"] = artifact_store
+            if artifact_stores is None and not opts.urn:
+                raise TypeError("Missing required property 'artifact_stores'")
+            __props__.__dict__["artifact_stores"] = artifact_stores
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -564,7 +570,7 @@ class Pipeline(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            artifact_store: Optional[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]] = None,
+            artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
@@ -578,7 +584,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The codepipeline ARN.
-        :param pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
@@ -590,7 +596,7 @@ class Pipeline(pulumi.CustomResource):
         __props__ = _PipelineState.__new__(_PipelineState)
 
         __props__.__dict__["arn"] = arn
-        __props__.__dict__["artifact_store"] = artifact_store
+        __props__.__dict__["artifact_stores"] = artifact_stores
         __props__.__dict__["name"] = name
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["stages"] = stages
@@ -607,12 +613,12 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> pulumi.Output['outputs.PipelineArtifactStore']:
+    @pulumi.getter(name="artifactStores")
+    def artifact_stores(self) -> pulumi.Output[Sequence['outputs.PipelineArtifactStore']]:
         """
         One or more artifact_store blocks. Artifact stores are documented below.
         """
-        return pulumi.get(self, "artifact_store")
+        return pulumi.get(self, "artifact_stores")
 
     @property
     @pulumi.getter

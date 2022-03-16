@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainRetentionPolicy
     {
         /// <summary>
-        /// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+        /// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
         /// </summary>
         public readonly string? HomeEfsFileSystem;
 

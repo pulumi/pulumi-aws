@@ -13,6 +13,8 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
     /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
     /// 
+    /// &gt; **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -78,6 +80,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string> ClientCidrBlock { get; private set; } = null!;
 
         /// <summary>
+        /// The options for managing connection authorization for new client connections.
+        /// </summary>
+        [Output("clientConnectOptions")]
+        public Output<Outputs.EndpointClientConnectOptions> ClientConnectOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        /// </summary>
+        [Output("clientLoginBannerOptions")]
+        public Output<Outputs.EndpointClientLoginBannerOptions> ClientLoginBannerOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Output("connectionLogOptions")]
@@ -102,6 +116,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        /// </summary>
+        [Output("securityGroupIds")]
+        public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         /// </summary>
         [Output("selfServicePortal")]
@@ -114,13 +134,19 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string> ServerCertificateArn { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
+        /// </summary>
+        [Output("sessionTimeoutHours")]
+        public Output<int?> SessionTimeoutHours { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         /// </summary>
         [Output("splitTunnel")]
         public Output<bool?> SplitTunnel { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the Client VPN endpoint.
+        /// **Deprecated** The current state of the Client VPN endpoint.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -142,6 +168,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Output("transportProtocol")]
         public Output<string?> TransportProtocol { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        /// </summary>
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
+
+        /// <summary>
+        /// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
+        /// </summary>
+        [Output("vpnPort")]
+        public Output<int?> VpnPort { get; private set; } = null!;
 
 
         /// <summary>
@@ -208,6 +246,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string> ClientCidrBlock { get; set; } = null!;
 
         /// <summary>
+        /// The options for managing connection authorization for new client connections.
+        /// </summary>
+        [Input("clientConnectOptions")]
+        public Input<Inputs.EndpointClientConnectOptionsArgs>? ClientConnectOptions { get; set; }
+
+        /// <summary>
+        /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        /// </summary>
+        [Input("clientLoginBannerOptions")]
+        public Input<Inputs.EndpointClientLoginBannerOptionsArgs>? ClientLoginBannerOptions { get; set; }
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Input("connectionLogOptions", required: true)]
@@ -231,6 +281,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
             set => _dnsServers = value;
         }
 
+        [Input("securityGroupIds")]
+        private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        /// </summary>
+        public InputList<string> SecurityGroupIds
+        {
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
+        }
+
         /// <summary>
         /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         /// </summary>
@@ -242,6 +304,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Input("serverCertificateArn", required: true)]
         public Input<string> ServerCertificateArn { get; set; } = null!;
+
+        /// <summary>
+        /// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
+        /// </summary>
+        [Input("sessionTimeoutHours")]
+        public Input<int>? SessionTimeoutHours { get; set; }
 
         /// <summary>
         /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -266,6 +334,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Input("transportProtocol")]
         public Input<string>? TransportProtocol { get; set; }
+
+        /// <summary>
+        /// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        /// <summary>
+        /// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
+        /// </summary>
+        [Input("vpnPort")]
+        public Input<int>? VpnPort { get; set; }
 
         public EndpointArgs()
         {
@@ -299,6 +379,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? ClientCidrBlock { get; set; }
 
         /// <summary>
+        /// The options for managing connection authorization for new client connections.
+        /// </summary>
+        [Input("clientConnectOptions")]
+        public Input<Inputs.EndpointClientConnectOptionsGetArgs>? ClientConnectOptions { get; set; }
+
+        /// <summary>
+        /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        /// </summary>
+        [Input("clientLoginBannerOptions")]
+        public Input<Inputs.EndpointClientLoginBannerOptionsGetArgs>? ClientLoginBannerOptions { get; set; }
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Input("connectionLogOptions")]
@@ -328,6 +420,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
             set => _dnsServers = value;
         }
 
+        [Input("securityGroupIds")]
+        private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        /// </summary>
+        public InputList<string> SecurityGroupIds
+        {
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
+        }
+
         /// <summary>
         /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         /// </summary>
@@ -341,13 +445,19 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? ServerCertificateArn { get; set; }
 
         /// <summary>
+        /// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
+        /// </summary>
+        [Input("sessionTimeoutHours")]
+        public Input<int>? SessionTimeoutHours { get; set; }
+
+        /// <summary>
         /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         /// </summary>
         [Input("splitTunnel")]
         public Input<bool>? SplitTunnel { get; set; }
 
         /// <summary>
-        /// The current state of the Client VPN endpoint.
+        /// **Deprecated** The current state of the Client VPN endpoint.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -381,6 +491,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Input("transportProtocol")]
         public Input<string>? TransportProtocol { get; set; }
+
+        /// <summary>
+        /// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        /// <summary>
+        /// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
+        /// </summary>
+        [Input("vpnPort")]
+        public Input<int>? VpnPort { get; set; }
 
         public EndpointState()
         {

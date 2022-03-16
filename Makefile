@@ -3,8 +3,8 @@ ORG              := pulumi
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
-PROVIDER_PATH    := provider/v4
-SDK_PATH		 := sdk/v4
+PROVIDER_PATH    := provider/v5
+SDK_PATH		 := sdk/v5
 VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
 
 TFGEN           := pulumi-tfgen-${PACK}
@@ -86,9 +86,10 @@ clean::
 
 install_plugins::
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource tls 4.0.0
-	pulumi plugin install resource github 4.6.0
-	pulumi plugin install resource kubernetes 3.8.3
+	pulumi plugin install resource tls
+	pulumi plugin install resource github
+	pulumi plugin install resource kubernetes
+	pulumi plugin install resource random
 
 install_dotnet_sdk::
 	mkdir -p $(WORKING_DIR)/nuget

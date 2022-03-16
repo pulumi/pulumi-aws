@@ -627,10 +627,10 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
-            bucket=bucket.id,
-            policy=pulumi.Output.all(bucket.id, bucket.id).apply(lambda bucketId, bucketId1: f\"\"\"  {{
+            bucket=bucket_v2.id,
+            policy=pulumi.Output.all(bucket_v2.id, bucket_v2.id).apply(lambda bucketV2Id, bucketV2Id1: f\"\"\"  {{
               "Version": "2012-10-17",
               "Statement": [
                   {{
@@ -640,7 +640,7 @@ class Trail(pulumi.CustomResource):
                         "Service": "cloudtrail.amazonaws.com"
                       }},
                       "Action": "s3:GetBucketAcl",
-                      "Resource": "arn:aws:s3:::{bucket_id}"
+                      "Resource": "arn:aws:s3:::{bucket_v2_id}"
                   }},
                   {{
                       "Sid": "AWSCloudTrailWrite",
@@ -649,7 +649,7 @@ class Trail(pulumi.CustomResource):
                         "Service": "cloudtrail.amazonaws.com"
                       }},
                       "Action": "s3:PutObject",
-                      "Resource": "arn:aws:s3:::{bucket_id1}/prefix/AWSLogs/{current.account_id}/*",
+                      "Resource": "arn:aws:s3:::{bucket_v2_id1}/prefix/AWSLogs/{current.account_id}/*",
                       "Condition": {{
                           "StringEquals": {{
                               "s3:x-amz-acl": "bucket-owner-full-control"
@@ -660,13 +660,13 @@ class Trail(pulumi.CustomResource):
           }}
         \"\"\"))
         foobar = aws.cloudtrail.Trail("foobar",
-            s3_bucket_name=bucket.id,
+            s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
             include_global_service_events=False)
         ```
         ### Data Event Logging
 
-        CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
+        CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 
         * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
         * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
@@ -676,9 +676,9 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket.id,
+            s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
             event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
                 read_write_type="All",
@@ -689,15 +689,15 @@ class Trail(pulumi.CustomResource):
                 )],
             )])
         ```
-        ### Logging All S3 Bucket Object Events By Using Basic Event Selectors
+        ### Logging All S3 Object Events By Using Basic Event Selectors
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket.id,
+            s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
             event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
                 read_write_type="All",
@@ -727,7 +727,7 @@ class Trail(pulumi.CustomResource):
                 )],
             )])
         ```
-        ### Logging All S3 Bucket Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+        ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 
         ```python
         import pulumi
@@ -754,7 +754,7 @@ class Trail(pulumi.CustomResource):
                         field="resources.type",
                     ),
                 ],
-                name="Log all S3 buckets objects events except for two S3 buckets",
+                name="Log all S3 objects events except for two S3 buckets",
             ),
             aws.cloudtrail.TrailAdvancedEventSelectorArgs(
                 field_selectors=[aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
@@ -872,7 +872,7 @@ class Trail(pulumi.CustomResource):
           ]
         }}
         \"\"\")
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         example_trail = aws.cloudtrail.Trail("exampleTrail",
             s3_bucket_name=data["aws_s3_bucket"]["important-bucket"]["id"],
             s3_key_prefix="prefix",
@@ -932,10 +932,10 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
-            bucket=bucket.id,
-            policy=pulumi.Output.all(bucket.id, bucket.id).apply(lambda bucketId, bucketId1: f\"\"\"  {{
+            bucket=bucket_v2.id,
+            policy=pulumi.Output.all(bucket_v2.id, bucket_v2.id).apply(lambda bucketV2Id, bucketV2Id1: f\"\"\"  {{
               "Version": "2012-10-17",
               "Statement": [
                   {{
@@ -945,7 +945,7 @@ class Trail(pulumi.CustomResource):
                         "Service": "cloudtrail.amazonaws.com"
                       }},
                       "Action": "s3:GetBucketAcl",
-                      "Resource": "arn:aws:s3:::{bucket_id}"
+                      "Resource": "arn:aws:s3:::{bucket_v2_id}"
                   }},
                   {{
                       "Sid": "AWSCloudTrailWrite",
@@ -954,7 +954,7 @@ class Trail(pulumi.CustomResource):
                         "Service": "cloudtrail.amazonaws.com"
                       }},
                       "Action": "s3:PutObject",
-                      "Resource": "arn:aws:s3:::{bucket_id1}/prefix/AWSLogs/{current.account_id}/*",
+                      "Resource": "arn:aws:s3:::{bucket_v2_id1}/prefix/AWSLogs/{current.account_id}/*",
                       "Condition": {{
                           "StringEquals": {{
                               "s3:x-amz-acl": "bucket-owner-full-control"
@@ -965,13 +965,13 @@ class Trail(pulumi.CustomResource):
           }}
         \"\"\"))
         foobar = aws.cloudtrail.Trail("foobar",
-            s3_bucket_name=bucket.id,
+            s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
             include_global_service_events=False)
         ```
         ### Data Event Logging
 
-        CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
+        CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 
         * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
         * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
@@ -981,9 +981,9 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket.id,
+            s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
             event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
                 read_write_type="All",
@@ -994,15 +994,15 @@ class Trail(pulumi.CustomResource):
                 )],
             )])
         ```
-        ### Logging All S3 Bucket Object Events By Using Basic Event Selectors
+        ### Logging All S3 Object Events By Using Basic Event Selectors
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket.id,
+            s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
             event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
                 read_write_type="All",
@@ -1032,7 +1032,7 @@ class Trail(pulumi.CustomResource):
                 )],
             )])
         ```
-        ### Logging All S3 Bucket Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+        ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 
         ```python
         import pulumi
@@ -1059,7 +1059,7 @@ class Trail(pulumi.CustomResource):
                         field="resources.type",
                     ),
                 ],
-                name="Log all S3 buckets objects events except for two S3 buckets",
+                name="Log all S3 objects events except for two S3 buckets",
             ),
             aws.cloudtrail.TrailAdvancedEventSelectorArgs(
                 field_selectors=[aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
@@ -1177,7 +1177,7 @@ class Trail(pulumi.CustomResource):
           ]
         }}
         \"\"\")
-        bucket = aws.s3.Bucket("bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
         example_trail = aws.cloudtrail.Trail("exampleTrail",
             s3_bucket_name=data["aws_s3_bucket"]["important-bucket"]["id"],
             s3_key_prefix="prefix",

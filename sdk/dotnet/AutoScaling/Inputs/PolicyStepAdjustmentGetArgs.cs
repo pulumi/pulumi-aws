@@ -15,7 +15,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         /// <summary>
         /// The lower bound for the
         /// difference between the alarm threshold and the CloudWatch metric.
-        /// Without a value, AWS will treat this bound as infinity.
+        /// Without a value, AWS will treat this bound as negative infinity.
         /// </summary>
         [Input("metricIntervalLowerBound")]
         public Input<string>? MetricIntervalLowerBound { get; set; }
@@ -23,7 +23,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         /// <summary>
         /// The upper bound for the
         /// difference between the alarm threshold and the CloudWatch metric.
-        /// Without a value, AWS will treat this bound as infinity. The upper bound
+        /// Without a value, AWS will treat this bound as positive infinity. The upper bound
         /// must be greater than the lower bound.
         /// </summary>
         [Input("metricIntervalUpperBound")]

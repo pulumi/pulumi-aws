@@ -21,7 +21,7 @@ import (
 // import (
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/pinpoint"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

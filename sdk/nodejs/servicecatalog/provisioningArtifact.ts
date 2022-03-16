@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const example = new aws.servicecatalog.ProvisioningArtifact("example", {
  *     productId: aws_servicecatalog_product.example.id,
  *     type: "CLOUD_FORMATION_TEMPLATE",
- *     templateUrl: `https://${aws_s3_bucket.example.bucket_regional_domain_name}/${aws_s3_bucket_object.example.key}`,
+ *     templateUrl: `https://${aws_s3_bucket.example.bucket_regional_domain_name}/${aws_s3_object.example.key}`,
  * });
  * ```
  *

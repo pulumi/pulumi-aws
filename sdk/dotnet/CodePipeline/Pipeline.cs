@@ -26,9 +26,9 @@ namespace Pulumi.Aws.CodePipeline
     ///         {
     ///             ProviderType = "GitHub",
     ///         });
-    ///         var codepipelineBucket = new Aws.S3.Bucket("codepipelineBucket", new Aws.S3.BucketArgs
+    ///         var codepipelineBucket = new Aws.S3.BucketV2("codepipelineBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Acl = "private",
+    ///             Bucket = "test-bucket",
     ///         });
     ///         var codepipelineRole = new Aws.Iam.Role("codepipelineRole", new Aws.Iam.RoleArgs
     ///         {
@@ -53,14 +53,17 @@ namespace Pulumi.Aws.CodePipeline
     ///         var codepipeline = new Aws.CodePipeline.Pipeline("codepipeline", new Aws.CodePipeline.PipelineArgs
     ///         {
     ///             RoleArn = codepipelineRole.Arn,
-    ///             ArtifactStore = new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
+    ///             ArtifactStores = 
     ///             {
-    ///                 Location = codepipelineBucket.BucketName,
-    ///                 Type = "S3",
-    ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
+    ///                 new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
     ///                 {
-    ///                     Id = s3kmskey.Apply(s3kmskey =&gt; s3kmskey.Arn),
-    ///                     Type = "KMS",
+    ///                     Location = codepipelineBucket.Bucket,
+    ///                     Type = "S3",
+    ///                     EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
+    ///                     {
+    ///                         Id = s3kmskey.Apply(s3kmskey =&gt; s3kmskey.Arn),
+    ///                         Type = "KMS",
+    ///                     },
     ///                 },
     ///             },
     ///             Stages = 
@@ -146,6 +149,11 @@ namespace Pulumi.Aws.CodePipeline
     ///                 },
     ///             },
     ///         });
+    ///         var codepipelineBucketAcl = new Aws.S3.BucketAclV2("codepipelineBucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = codepipelineBucket.Id,
+    ///             Acl = "private",
+    ///         });
     ///         var codepipelinePolicy = new Aws.Iam.RolePolicy("codepipelinePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
     ///             Role = codepipelineRole.Id,
@@ -216,8 +224,8 @@ namespace Pulumi.Aws.CodePipeline
         /// <summary>
         /// One or more artifact_store blocks. Artifact stores are documented below.
         /// </summary>
-        [Output("artifactStore")]
-        public Output<Outputs.PipelineArtifactStore> ArtifactStore { get; private set; } = null!;
+        [Output("artifactStores")]
+        public Output<ImmutableArray<Outputs.PipelineArtifactStore>> ArtifactStores { get; private set; } = null!;
 
         /// <summary>
         /// The name of the pipeline.
@@ -295,11 +303,17 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
+        [Input("artifactStores", required: true)]
+        private InputList<Inputs.PipelineArtifactStoreArgs>? _artifactStores;
+
         /// <summary>
         /// One or more artifact_store blocks. Artifact stores are documented below.
         /// </summary>
-        [Input("artifactStore", required: true)]
-        public Input<Inputs.PipelineArtifactStoreArgs> ArtifactStore { get; set; } = null!;
+        public InputList<Inputs.PipelineArtifactStoreArgs> ArtifactStores
+        {
+            get => _artifactStores ?? (_artifactStores = new InputList<Inputs.PipelineArtifactStoreArgs>());
+            set => _artifactStores = value;
+        }
 
         /// <summary>
         /// The name of the pipeline.
@@ -350,11 +364,17 @@ namespace Pulumi.Aws.CodePipeline
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("artifactStores")]
+        private InputList<Inputs.PipelineArtifactStoreGetArgs>? _artifactStores;
+
         /// <summary>
         /// One or more artifact_store blocks. Artifact stores are documented below.
         /// </summary>
-        [Input("artifactStore")]
-        public Input<Inputs.PipelineArtifactStoreGetArgs>? ArtifactStore { get; set; }
+        public InputList<Inputs.PipelineArtifactStoreGetArgs> ArtifactStores
+        {
+            get => _artifactStores ?? (_artifactStores = new InputList<Inputs.PipelineArtifactStoreGetArgs>());
+            set => _artifactStores = value;
+        }
 
         /// <summary>
         /// The name of the pipeline.

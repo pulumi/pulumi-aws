@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class EndpointS3Settings
     {
         /// <summary>
-        /// S3 Bucket Object prefix.
+        /// S3 Object prefix.
         /// </summary>
         public readonly string? BucketFolder;
         /// <summary>

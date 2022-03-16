@@ -2814,7 +2814,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 }
 
 type DomainRetentionPolicy struct {
-	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 	HomeEfsFileSystem *string `pulumi:"homeEfsFileSystem"`
 }
 
@@ -2830,7 +2830,7 @@ type DomainRetentionPolicyInput interface {
 }
 
 type DomainRetentionPolicyArgs struct {
-	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 	HomeEfsFileSystem pulumi.StringPtrInput `pulumi:"homeEfsFileSystem"`
 }
 
@@ -2911,7 +2911,7 @@ func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyPtrOutputWithContext
 	}).(DomainRetentionPolicyPtrOutput)
 }
 
-// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 func (o DomainRetentionPolicyOutput) HomeEfsFileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainRetentionPolicy) *string { return v.HomeEfsFileSystem }).(pulumi.StringPtrOutput)
 }
@@ -2940,7 +2940,7 @@ func (o DomainRetentionPolicyPtrOutput) Elem() DomainRetentionPolicyOutput {
 	}).(DomainRetentionPolicyOutput)
 }
 
-// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 func (o DomainRetentionPolicyPtrOutput) HomeEfsFileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRetentionPolicy) *string {
 		if v == nil {

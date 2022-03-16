@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -85,6 +85,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NatGateway{}
 	case "aws:ec2/networkAcl:NetworkAcl":
 		r = &NetworkAcl{}
+	case "aws:ec2/networkAclAssociation:NetworkAclAssociation":
+		r = &NetworkAclAssociation{}
 	case "aws:ec2/networkAclRule:NetworkAclRule":
 		r = &NetworkAclRule{}
 	case "aws:ec2/networkInterface:NetworkInterface":
@@ -358,6 +360,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/networkAcl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/networkAclAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

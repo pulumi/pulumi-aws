@@ -23,15 +23,22 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/fsx"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-bucket"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+// 			Bucket: exampleBucketV2.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -49,7 +56,7 @@ import (
 // 		}
 // 		_, err = fsx.NewDataRepositoryAssociation(ctx, "exampleDataRepositoryAssociation", &fsx.DataRepositoryAssociationArgs{
 // 			FileSystemId: exampleLustreFileSystem.ID(),
-// 			DataRepositoryPath: exampleBucket.ID().ApplyT(func(id string) (string, error) {
+// 			DataRepositoryPath: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
 // 				return fmt.Sprintf("%v%v", "s3://", id), nil
 // 			}).(pulumi.StringOutput),
 // 			FileSystemPath: pulumi.String("/my-bucket"),

@@ -18,6 +18,7 @@ __all__ = [
 @pulumi.output_type
 class AssumeRole(dict):
     def __init__(__self__, *,
+                 duration: Optional[str] = None,
                  duration_seconds: Optional[int] = None,
                  external_id: Optional[str] = None,
                  policy: Optional[str] = None,
@@ -26,6 +27,8 @@ class AssumeRole(dict):
                  session_name: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  transitive_tag_keys: Optional[Sequence[str]] = None):
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
         if duration_seconds is not None:
             pulumi.set(__self__, "duration_seconds", duration_seconds)
         if external_id is not None:
@@ -42,6 +45,11 @@ class AssumeRole(dict):
             pulumi.set(__self__, "tags", tags)
         if transitive_tag_keys is not None:
             pulumi.set(__self__, "transitive_tag_keys", transitive_tag_keys)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[str]:
+        return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter(name="durationSeconds")
@@ -105,6 +113,7 @@ class Endpoints(dict):
                  acm: Optional[str] = None,
                  acmpca: Optional[str] = None,
                  alexaforbusiness: Optional[str] = None,
+                 amg: Optional[str] = None,
                  amp: Optional[str] = None,
                  amplify: Optional[str] = None,
                  amplifybackend: Optional[str] = None,
@@ -225,6 +234,7 @@ class Endpoints(dict):
                  globalaccelerator: Optional[str] = None,
                  glue: Optional[str] = None,
                  gluedatabrew: Optional[str] = None,
+                 grafana: Optional[str] = None,
                  greengrass: Optional[str] = None,
                  greengrassv2: Optional[str] = None,
                  groundstation: Optional[str] = None,
@@ -281,6 +291,7 @@ class Endpoints(dict):
                  macie: Optional[str] = None,
                  macie2: Optional[str] = None,
                  managedblockchain: Optional[str] = None,
+                 managedgrafana: Optional[str] = None,
                  marketplacecatalog: Optional[str] = None,
                  marketplacecommerceanalytics: Optional[str] = None,
                  marketplaceentitlement: Optional[str] = None,
@@ -411,6 +422,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "acmpca", acmpca)
         if alexaforbusiness is not None:
             pulumi.set(__self__, "alexaforbusiness", alexaforbusiness)
+        if amg is not None:
+            pulumi.set(__self__, "amg", amg)
         if amp is not None:
             pulumi.set(__self__, "amp", amp)
         if amplify is not None:
@@ -651,6 +664,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "glue", glue)
         if gluedatabrew is not None:
             pulumi.set(__self__, "gluedatabrew", gluedatabrew)
+        if grafana is not None:
+            pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
         if greengrassv2 is not None:
@@ -763,6 +778,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "macie2", macie2)
         if managedblockchain is not None:
             pulumi.set(__self__, "managedblockchain", managedblockchain)
+        if managedgrafana is not None:
+            pulumi.set(__self__, "managedgrafana", managedgrafana)
         if marketplacecatalog is not None:
             pulumi.set(__self__, "marketplacecatalog", marketplacecatalog)
         if marketplacecommerceanalytics is not None:
@@ -1028,6 +1045,11 @@ class Endpoints(dict):
     @pulumi.getter
     def alexaforbusiness(self) -> Optional[str]:
         return pulumi.get(self, "alexaforbusiness")
+
+    @property
+    @pulumi.getter
+    def amg(self) -> Optional[str]:
+        return pulumi.get(self, "amg")
 
     @property
     @pulumi.getter
@@ -1631,6 +1653,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def grafana(self) -> Optional[str]:
+        return pulumi.get(self, "grafana")
+
+    @property
+    @pulumi.getter
     def greengrass(self) -> Optional[str]:
         return pulumi.get(self, "greengrass")
 
@@ -1908,6 +1935,11 @@ class Endpoints(dict):
     @pulumi.getter
     def managedblockchain(self) -> Optional[str]:
         return pulumi.get(self, "managedblockchain")
+
+    @property
+    @pulumi.getter
+    def managedgrafana(self) -> Optional[str]:
+        return pulumi.get(self, "managedgrafana")
 
     @property
     @pulumi.getter

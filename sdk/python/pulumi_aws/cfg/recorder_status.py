@@ -108,8 +108,8 @@ class RecorderStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket")
-        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket)
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="awsconfig-example")
+        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
@@ -132,7 +132,7 @@ class RecorderStatus(pulumi.CustomResource):
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
-            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
+            policy=pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -141,8 +141,8 @@ class RecorderStatus(pulumi.CustomResource):
               ],
               "Effect": "Allow",
               "Resource": [
-                "{bucket_arn}",
-                "{bucket_arn1}/*"
+                "{bucket_v2_arn}",
+                "{bucket_v2_arn1}/*"
               ]
             }}
           ]
@@ -180,8 +180,8 @@ class RecorderStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket")
-        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket)
+        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="awsconfig-example")
+        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
@@ -204,7 +204,7 @@ class RecorderStatus(pulumi.CustomResource):
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
-            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
+            policy=pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -213,8 +213,8 @@ class RecorderStatus(pulumi.CustomResource):
               ],
               "Effect": "Allow",
               "Resource": [
-                "{bucket_arn}",
-                "{bucket_arn1}/*"
+                "{bucket_v2_arn}",
+                "{bucket_v2_arn1}/*"
               ]
             }}
           ]

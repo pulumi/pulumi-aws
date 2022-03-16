@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./authorizationRule";
 export * from "./endpoint";
+export * from "./getEndpoint";
 export * from "./networkAssociation";
 export * from "./route";
 

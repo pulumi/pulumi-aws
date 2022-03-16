@@ -11,11 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
+// Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
 //
-// The `ec2.DefaultSubnet` behaves differently from normal resources, in that this provider does not _create_ this resource but instead "adopts" it into management.
+// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
 //
-// The `ec2.DefaultSubnet` resource allows you to manage a region's default VPC subnet but this provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and the provider management.
+// The `ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
+// If no default subnet exists, this provider creates a new default subnet.
+// By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
+// Set the `forceDestroy` argument to `true` to delete the default subnet.
 //
 // ## Example Usage
 //
@@ -23,7 +26,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -53,35 +56,34 @@ import (
 type DefaultSubnet struct {
 	pulumi.CustomResourceState
 
-	// ARN for the subnet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether IPv6 addresses are assigned on creation.
-	// * `availabilityZoneId`- AZ ID of the subnet.
-	AssignIpv6AddressOnCreation pulumi.BoolOutput `pulumi:"assignIpv6AddressOnCreation"`
-	// AZ for the subnet.
-	AvailabilityZone   pulumi.StringOutput `pulumi:"availabilityZone"`
+	Arn                         pulumi.StringOutput  `pulumi:"arn"`
+	AssignIpv6AddressOnCreation pulumi.BoolPtrOutput `pulumi:"assignIpv6AddressOnCreation"`
+	// is required
+	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
+	// * The default value for `mapPublicIpOnLaunch` is `true`
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// The AZ ID of the subnet
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
-	// CIDR block for the subnet.
+	// The IPv4 CIDR block assigned to the subnet
 	CidrBlock                               pulumi.StringOutput    `pulumi:"cidrBlock"`
 	CustomerOwnedIpv4Pool                   pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	EnableDns64                             pulumi.BoolPtrOutput   `pulumi:"enableDns64"`
 	EnableResourceNameDnsARecordOnLaunch    pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
-	// IPv6 CIDR block.
-	Ipv6CidrBlock              pulumi.StringOutput  `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId pulumi.StringOutput  `pulumi:"ipv6CidrBlockAssociationId"`
-	Ipv6Native                 pulumi.BoolPtrOutput `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	// Whether instances launched into the subnet should be assigned a public IP address.
-	MapPublicIpOnLaunch pulumi.BoolOutput      `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn          pulumi.StringPtrOutput `pulumi:"outpostArn"`
-	// ID of the AWS account that owns the subnet.
-	OwnerId                        pulumi.StringOutput `pulumi:"ownerId"`
-	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// Map of tags to assign to the resource.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// VPC ID.
+	ExistingDefaultSubnet                   pulumi.BoolOutput      `pulumi:"existingDefaultSubnet"`
+	// Whether destroying the resource deletes the default subnet. Default: `false`
+	ForceDestroy                   pulumi.BoolPtrOutput   `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId     pulumi.StringOutput    `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6Native                     pulumi.BoolPtrOutput   `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrOutput   `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            pulumi.BoolPtrOutput   `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn                     pulumi.StringOutput    `pulumi:"outpostArn"`
+	OwnerId                        pulumi.StringOutput    `pulumi:"ownerId"`
+	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput    `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -117,68 +119,66 @@ func GetDefaultSubnet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultSubnet resources.
 type defaultSubnetState struct {
-	// ARN for the subnet.
-	Arn *string `pulumi:"arn"`
-	// Whether IPv6 addresses are assigned on creation.
-	// * `availabilityZoneId`- AZ ID of the subnet.
-	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
-	// AZ for the subnet.
-	AvailabilityZone   *string `pulumi:"availabilityZone"`
+	Arn                         *string `pulumi:"arn"`
+	AssignIpv6AddressOnCreation *bool   `pulumi:"assignIpv6AddressOnCreation"`
+	// is required
+	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
+	// * The default value for `mapPublicIpOnLaunch` is `true`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AZ ID of the subnet
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// CIDR block for the subnet.
+	// The IPv4 CIDR block assigned to the subnet
 	CidrBlock                               *string `pulumi:"cidrBlock"`
 	CustomerOwnedIpv4Pool                   *string `pulumi:"customerOwnedIpv4Pool"`
 	EnableDns64                             *bool   `pulumi:"enableDns64"`
 	EnableResourceNameDnsARecordOnLaunch    *bool   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
-	// IPv6 CIDR block.
-	Ipv6CidrBlock              *string `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId *string `pulumi:"ipv6CidrBlockAssociationId"`
-	Ipv6Native                 *bool   `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	// Whether instances launched into the subnet should be assigned a public IP address.
-	MapPublicIpOnLaunch *bool   `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn          *string `pulumi:"outpostArn"`
-	// ID of the AWS account that owns the subnet.
-	OwnerId                        *string `pulumi:"ownerId"`
-	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// Map of tags to assign to the resource.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// VPC ID.
+	ExistingDefaultSubnet                   *bool   `pulumi:"existingDefaultSubnet"`
+	// Whether destroying the resource deletes the default subnet. Default: `false`
+	ForceDestroy                   *bool             `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  *string           `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId     *string           `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6Native                     *bool             `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     *bool             `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn                     *string           `pulumi:"outpostArn"`
+	OwnerId                        *string           `pulumi:"ownerId"`
+	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Tags                           map[string]string `pulumi:"tags"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
+	// The ID of the VPC the subnet is in
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type DefaultSubnetState struct {
-	// ARN for the subnet.
-	Arn pulumi.StringPtrInput
-	// Whether IPv6 addresses are assigned on creation.
-	// * `availabilityZoneId`- AZ ID of the subnet.
+	Arn                         pulumi.StringPtrInput
 	AssignIpv6AddressOnCreation pulumi.BoolPtrInput
-	// AZ for the subnet.
-	AvailabilityZone   pulumi.StringPtrInput
+	// is required
+	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
+	// * The default value for `mapPublicIpOnLaunch` is `true`
+	AvailabilityZone pulumi.StringPtrInput
+	// The AZ ID of the subnet
 	AvailabilityZoneId pulumi.StringPtrInput
-	// CIDR block for the subnet.
+	// The IPv4 CIDR block assigned to the subnet
 	CidrBlock                               pulumi.StringPtrInput
 	CustomerOwnedIpv4Pool                   pulumi.StringPtrInput
 	EnableDns64                             pulumi.BoolPtrInput
 	EnableResourceNameDnsARecordOnLaunch    pulumi.BoolPtrInput
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrInput
-	// IPv6 CIDR block.
-	Ipv6CidrBlock              pulumi.StringPtrInput
-	Ipv6CidrBlockAssociationId pulumi.StringPtrInput
-	Ipv6Native                 pulumi.BoolPtrInput
-	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
-	// Whether instances launched into the subnet should be assigned a public IP address.
-	MapPublicIpOnLaunch pulumi.BoolPtrInput
-	OutpostArn          pulumi.StringPtrInput
-	// ID of the AWS account that owns the subnet.
+	ExistingDefaultSubnet                   pulumi.BoolPtrInput
+	// Whether destroying the resource deletes the default subnet. Default: `false`
+	ForceDestroy                   pulumi.BoolPtrInput
+	Ipv6CidrBlock                  pulumi.StringPtrInput
+	Ipv6CidrBlockAssociationId     pulumi.StringPtrInput
+	Ipv6Native                     pulumi.BoolPtrInput
+	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrInput
+	MapPublicIpOnLaunch            pulumi.BoolPtrInput
+	OutpostArn                     pulumi.StringPtrInput
 	OwnerId                        pulumi.StringPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	// Map of tags to assign to the resource.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// VPC ID.
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
+	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringPtrInput
 }
 
@@ -187,38 +187,46 @@ func (DefaultSubnetState) ElementType() reflect.Type {
 }
 
 type defaultSubnetArgs struct {
-	// AZ for the subnet.
+	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
+	// is required
+	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
+	// * The default value for `mapPublicIpOnLaunch` is `true`
 	AvailabilityZone                        string  `pulumi:"availabilityZone"`
 	CustomerOwnedIpv4Pool                   *string `pulumi:"customerOwnedIpv4Pool"`
 	EnableDns64                             *bool   `pulumi:"enableDns64"`
 	EnableResourceNameDnsARecordOnLaunch    *bool   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
-	Ipv6Native                              *bool   `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch              *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	// Whether instances launched into the subnet should be assigned a public IP address.
-	MapPublicIpOnLaunch            *bool   `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                     *string `pulumi:"outpostArn"`
-	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	// Whether destroying the resource deletes the default subnet. Default: `false`
+	ForceDestroy                   *bool             `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  *string           `pulumi:"ipv6CidrBlock"`
+	Ipv6Native                     *bool             `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     *bool             `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
+	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Tags                           map[string]string `pulumi:"tags"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultSubnet resource.
 type DefaultSubnetArgs struct {
-	// AZ for the subnet.
+	AssignIpv6AddressOnCreation pulumi.BoolPtrInput
+	// is required
+	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
+	// * The default value for `mapPublicIpOnLaunch` is `true`
 	AvailabilityZone                        pulumi.StringInput
 	CustomerOwnedIpv4Pool                   pulumi.StringPtrInput
 	EnableDns64                             pulumi.BoolPtrInput
 	EnableResourceNameDnsARecordOnLaunch    pulumi.BoolPtrInput
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrInput
-	Ipv6Native                              pulumi.BoolPtrInput
-	MapCustomerOwnedIpOnLaunch              pulumi.BoolPtrInput
-	// Whether instances launched into the subnet should be assigned a public IP address.
+	// Whether destroying the resource deletes the default subnet. Default: `false`
+	ForceDestroy                   pulumi.BoolPtrInput
+	Ipv6CidrBlock                  pulumi.StringPtrInput
+	Ipv6Native                     pulumi.BoolPtrInput
+	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrInput
 	MapPublicIpOnLaunch            pulumi.BoolPtrInput
-	OutpostArn                     pulumi.StringPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	// Map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 }
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {

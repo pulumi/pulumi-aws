@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/eks"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -42,8 +42,8 @@ import (
 // 			return err
 // 		}
 // 		ctx.Export("endpoint", example.Endpoint)
-// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.ApplyT(func(certificateAuthority eks.ClusterCertificateAuthority) (string, error) {
-// 			return certificateAuthority.Data, nil
+// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthorities.ApplyT(func(certificateAuthorities []eks.ClusterCertificateAuthority) (string, error) {
+// 			return certificateAuthorities[0].Data, nil
 // 		}).(pulumi.StringOutput))
 // 		return nil
 // 	})
@@ -57,7 +57,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -97,8 +97,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/eks"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 // )
@@ -145,7 +145,7 @@ type Cluster struct {
 	// ARN of the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
+	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -214,7 +214,7 @@ type clusterState struct {
 	// ARN of the cluster.
 	Arn *string `pulumi:"arn"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
+	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -249,7 +249,7 @@ type ClusterState struct {
 	// ARN of the cluster.
 	Arn pulumi.StringPtrInput
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority ClusterCertificateAuthorityPtrInput
+	CertificateAuthorities ClusterCertificateAuthorityArrayInput
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringPtrInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).

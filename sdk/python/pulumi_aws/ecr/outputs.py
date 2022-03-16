@@ -109,19 +109,19 @@ class RegistryScanningConfigurationRuleRepositoryFilter(dict):
 @pulumi.output_type
 class ReplicationConfigurationReplicationConfiguration(dict):
     def __init__(__self__, *,
-                 rule: 'outputs.ReplicationConfigurationReplicationConfigurationRule'):
+                 rules: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRule']):
         """
-        :param 'ReplicationConfigurationReplicationConfigurationRuleArgs' rule: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleArgs'] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
-        pulumi.set(__self__, "rule", rule)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rule(self) -> 'outputs.ReplicationConfigurationReplicationConfigurationRule':
+    def rules(self) -> Sequence['outputs.ReplicationConfigurationReplicationConfigurationRule']:
         """
         The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
-        return pulumi.get(self, "rule")
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type

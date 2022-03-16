@@ -93,43 +93,43 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class DomainName : Pulumi.CustomResource
     {
         /// <summary>
-        /// The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+        /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         /// </summary>
         [Output("apiMappingSelectionExpression")]
         public Output<string> ApiMappingSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the domain name.
+        /// ARN of the domain name.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name. Must be between 1 and 512 characters in length.
+        /// Domain name. Must be between 1 and 512 characters in length.
         /// </summary>
         [Output("domainName")]
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name configuration.
+        /// Domain name configuration. See below.
         /// </summary>
         [Output("domainNameConfiguration")]
         public Output<Outputs.DomainNameDomainNameConfiguration> DomainNameConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The mutual TLS authentication configuration for the domain name.
+        /// Mutual TLS authentication configuration for the domain name.
         /// </summary>
         [Output("mutualTlsAuthentication")]
         public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the domain name. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -181,19 +181,19 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class DomainNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name. Must be between 1 and 512 characters in length.
+        /// Domain name. Must be between 1 and 512 characters in length.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
-        /// The domain name configuration.
+        /// Domain name configuration. See below.
         /// </summary>
         [Input("domainNameConfiguration", required: true)]
         public Input<Inputs.DomainNameDomainNameConfigurationArgs> DomainNameConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The mutual TLS authentication configuration for the domain name.
+        /// Mutual TLS authentication configuration for the domain name.
         /// </summary>
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the domain name. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -218,31 +218,31 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class DomainNameState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+        /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         /// </summary>
         [Input("apiMappingSelectionExpression")]
         public Input<string>? ApiMappingSelectionExpression { get; set; }
 
         /// <summary>
-        /// The ARN of the domain name.
+        /// ARN of the domain name.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The domain name. Must be between 1 and 512 characters in length.
+        /// Domain name. Must be between 1 and 512 characters in length.
         /// </summary>
         [Input("domainName")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The domain name configuration.
+        /// Domain name configuration. See below.
         /// </summary>
         [Input("domainNameConfiguration")]
         public Input<Inputs.DomainNameDomainNameConfigurationGetArgs>? DomainNameConfiguration { get; set; }
 
         /// <summary>
-        /// The mutual TLS authentication configuration for the domain name.
+        /// Mutual TLS authentication configuration for the domain name.
         /// </summary>
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationGetArgs>? MutualTlsAuthentication { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the domain name. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

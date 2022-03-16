@@ -99,8 +99,8 @@ class GroupArgs:
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]] tags: Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]] tags: Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
@@ -169,6 +169,9 @@ class GroupArgs:
             pulumi.set(__self__, "suspended_processes", suspended_processes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_collection is not None:
+            warnings.warn("""Use tag instead""", DeprecationWarning)
+            pulumi.log.warn("""tags_collection is deprecated: Use tag instead""")
         if tags_collection is not None:
             pulumi.set(__self__, "tags_collection", tags_collection)
         if target_group_arns is not None:
@@ -519,7 +522,7 @@ class GroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]:
         """
-        Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
+        Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
         """
         return pulumi.get(self, "tags")
 
@@ -531,7 +534,7 @@ class GroupArgs:
     @pulumi.getter(name="tagsCollection")
     def tags_collection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]:
         """
-        Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         """
         return pulumi.get(self, "tags_collection")
 
@@ -709,8 +712,8 @@ class _GroupState:
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]] tags: Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]] tags: Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
@@ -783,6 +786,9 @@ class _GroupState:
             pulumi.set(__self__, "suspended_processes", suspended_processes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_collection is not None:
+            warnings.warn("""Use tag instead""", DeprecationWarning)
+            pulumi.log.warn("""tags_collection is deprecated: Use tag instead""")
         if tags_collection is not None:
             pulumi.set(__self__, "tags_collection", tags_collection)
         if target_group_arns is not None:
@@ -1145,7 +1151,7 @@ class _GroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]:
         """
-        Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
+        Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
         """
         return pulumi.get(self, "tags")
 
@@ -1157,7 +1163,7 @@ class _GroupState:
     @pulumi.getter(name="tagsCollection")
     def tags_collection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]:
         """
-        Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         """
         return pulumi.get(self, "tags_collection")
 
@@ -1614,8 +1620,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]] tags: Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]] tags: Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
@@ -2008,6 +2014,9 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
             __props__.__dict__["suspended_processes"] = suspended_processes
             __props__.__dict__["tags"] = tags
+            if tags_collection is not None and not opts.urn:
+                warnings.warn("""Use tag instead""", DeprecationWarning)
+                pulumi.log.warn("""tags_collection is deprecated: Use tag instead""")
             __props__.__dict__["tags_collection"] = tags_collection
             __props__.__dict__["target_group_arns"] = target_group_arns
             __props__.__dict__["termination_policies"] = termination_policies
@@ -2116,8 +2125,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]] tags: Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]] tags: Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
@@ -2414,7 +2423,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GroupTag']]]:
         """
-        Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
+        Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
         """
         return pulumi.get(self, "tags")
 
@@ -2422,7 +2431,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="tagsCollection")
     def tags_collection(self) -> pulumi.Output[Optional[Sequence[Mapping[str, str]]]]:
         """
-        Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         """
         return pulumi.get(self, "tags_collection")
 

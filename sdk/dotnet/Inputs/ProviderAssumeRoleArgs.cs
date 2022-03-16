@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Inputs
 
     public sealed class ProviderAssumeRoleArgs : Pulumi.ResourceArgs
     {
+        [Input("duration")]
+        public Input<string>? Duration { get; set; }
+
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
 

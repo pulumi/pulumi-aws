@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.Bucket("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {bucket: example.bucket});
  * ```
- * ### Add metrics configuration with S3 bucket object filter
+ * ### Add metrics configuration with S3 object filter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.Bucket("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
  *     bucket: example.bucket,
  *     filter: {

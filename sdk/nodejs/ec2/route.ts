@@ -111,6 +111,8 @@ export class Route extends pulumi.CustomResource {
     public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 instance.
+     *
+     * @deprecated Use network_interface_id instead
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
@@ -242,6 +244,8 @@ export interface RouteState {
     gatewayId?: pulumi.Input<string>;
     /**
      * Identifier of an EC2 instance.
+     *
+     * @deprecated Use network_interface_id instead
      */
     instanceId?: pulumi.Input<string>;
     /**
@@ -316,6 +320,8 @@ export interface RouteArgs {
     gatewayId?: pulumi.Input<string>;
     /**
      * Identifier of an EC2 instance.
+     *
+     * @deprecated Use network_interface_id instead
      */
     instanceId?: pulumi.Input<string>;
     /**

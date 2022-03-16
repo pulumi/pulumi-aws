@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2ClientVpn
 {
     /// <summary>
-    /// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
-    /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-    /// 
     /// ## Example Usage
     /// ### Using default security group
     /// 
@@ -88,7 +85,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the target network association.
+        /// **Deprecated** The current state of the target network association.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -163,6 +160,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <summary>
         /// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
         /// </summary>
+        [Obsolete(@"Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.")]
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -200,6 +198,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <summary>
         /// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
         /// </summary>
+        [Obsolete(@"Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.")]
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -207,7 +206,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// The current state of the target network association.
+        /// **Deprecated** The current state of the target network association.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

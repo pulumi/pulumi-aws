@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example"});
  * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  *             "s3:PutObjectAcl",
  *         ],
  *         resources: [
- *             exampleBucket.arn,
- *             pulumi.interpolate`${exampleBucket.arn}/*`,
+ *             exampleBucketV2.arn,
+ *             pulumi.interpolate`${exampleBucketV2.arn}/*`,
  *         ],
  *         principals: [{
  *             identifiers: ["acm-pca.amazonaws.com"],
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
- *     bucket: exampleBucket.id,
+ *     bucket: exampleBucketV2.id,
  *     policy: acmpcaBucketAccess.apply(acmpcaBucketAccess => acmpcaBucketAccess.json),
  * });
  * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *             customCname: "crl.example.com",
  *             enabled: true,
  *             expirationInDays: 7,
- *             s3BucketName: exampleBucket.id,
+ *             s3BucketName: exampleBucketV2.id,
  *         },
  *     },
  * }, {
@@ -159,7 +159,9 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly serial!: pulumi.Output<string>;
     /**
-     * Status of the certificate authority.
+     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
+     *
+     * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -167,7 +169,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -278,7 +280,9 @@ export interface CertificateAuthorityState {
      */
     serial?: pulumi.Input<string>;
     /**
-     * Status of the certificate authority.
+     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
+     *
+     * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
      */
     status?: pulumi.Input<string>;
     /**
@@ -286,7 +290,7 @@ export interface CertificateAuthorityState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

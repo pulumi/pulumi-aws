@@ -51,7 +51,7 @@ export interface GetRouteTablesResult {
      */
     readonly id: string;
     /**
-     * A set of all the route table ids found. This data source will fail if none are found.
+     * A set of all the route table ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};

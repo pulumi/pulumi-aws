@@ -31,7 +31,7 @@ class ImageRecipeArgs:
         :param pulumi.Input[str] version: Version of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the the image recipe. Detailed below.
         :param pulumi.Input[str] description: Description of the image recipe.
-        :param pulumi.Input[str] name: Name of the image recipe.
+        :param pulumi.Input[str] name: The name of the component parameter.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
@@ -116,7 +116,7 @@ class ImageRecipeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the image recipe.
+        The name of the component parameter.
         """
         return pulumi.get(self, "name")
 
@@ -185,7 +185,7 @@ class _ImageRecipeState:
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] date_created: Date the image recipe was created.
         :param pulumi.Input[str] description: Description of the image recipe.
-        :param pulumi.Input[str] name: Name of the image recipe.
+        :param pulumi.Input[str] name: The name of the component parameter.
         :param pulumi.Input[str] owner: Owner of the image recipe.
         :param pulumi.Input[str] parent_image: Platform of the image recipe.
         :param pulumi.Input[str] platform: Platform of the image recipe.
@@ -288,7 +288,7 @@ class _ImageRecipeState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the image recipe.
+        The name of the component parameter.
         """
         return pulumi.get(self, "name")
 
@@ -428,6 +428,16 @@ class ImageRecipe(pulumi.CustomResource):
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
                 component_arn=aws_imagebuilder_component["example"]["arn"],
+                parameters=[
+                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
+                        name="Parameter1",
+                        value="Value1",
+                    ),
+                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
+                        name="Parameter2",
+                        value="Value2",
+                    ),
+                ],
             )],
             parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
@@ -446,7 +456,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]] block_device_mappings: Configuration block(s) with block device mappings for the the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] description: Description of the image recipe.
-        :param pulumi.Input[str] name: Name of the image recipe.
+        :param pulumi.Input[str] name: The name of the component parameter.
         :param pulumi.Input[str] parent_image: Platform of the image recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
@@ -479,6 +489,16 @@ class ImageRecipe(pulumi.CustomResource):
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
                 component_arn=aws_imagebuilder_component["example"]["arn"],
+                parameters=[
+                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
+                        name="Parameter1",
+                        value="Value1",
+                    ),
+                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
+                        name="Parameter2",
+                        value="Value2",
+                    ),
+                ],
             )],
             parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
@@ -584,7 +604,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] date_created: Date the image recipe was created.
         :param pulumi.Input[str] description: Description of the image recipe.
-        :param pulumi.Input[str] name: Name of the image recipe.
+        :param pulumi.Input[str] name: The name of the component parameter.
         :param pulumi.Input[str] owner: Owner of the image recipe.
         :param pulumi.Input[str] parent_image: Platform of the image recipe.
         :param pulumi.Input[str] platform: Platform of the image recipe.
@@ -658,7 +678,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the image recipe.
+        The name of the component parameter.
         """
         return pulumi.get(self, "name")
 

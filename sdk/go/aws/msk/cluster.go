@@ -21,14 +21,14 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/msk"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -86,8 +86,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("msk-broker-logs-bucket"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+// 			Bucket: bucket.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err

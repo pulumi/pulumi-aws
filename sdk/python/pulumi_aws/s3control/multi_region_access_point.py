@@ -176,8 +176,10 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
 
         primary_region = pulumi.providers.Aws("primaryRegion", region="us-east-1")
         secondary_region = pulumi.providers.Aws("secondaryRegion", region="us-west-2")
-        foo_bucket = aws.s3.Bucket("fooBucket", opts=pulumi.ResourceOptions(provider=aws["primary_region"]))
-        bar_bucket = aws.s3.Bucket("barBucket", opts=pulumi.ResourceOptions(provider=aws["secondary_region"]))
+        foo_bucket = aws.s3.BucketV2("fooBucket", bucket="example-bucket-foo",
+        opts=pulumi.ResourceOptions(provider=aws["primary_region"]))
+        bar_bucket = aws.s3.BucketV2("barBucket", bucket="example-bucket-bar",
+        opts=pulumi.ResourceOptions(provider=aws["secondary_region"]))
         example = aws.s3control.MultiRegionAccessPoint("example", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
             name="example",
             regions=[
@@ -223,8 +225,10 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
 
         primary_region = pulumi.providers.Aws("primaryRegion", region="us-east-1")
         secondary_region = pulumi.providers.Aws("secondaryRegion", region="us-west-2")
-        foo_bucket = aws.s3.Bucket("fooBucket", opts=pulumi.ResourceOptions(provider=aws["primary_region"]))
-        bar_bucket = aws.s3.Bucket("barBucket", opts=pulumi.ResourceOptions(provider=aws["secondary_region"]))
+        foo_bucket = aws.s3.BucketV2("fooBucket", bucket="example-bucket-foo",
+        opts=pulumi.ResourceOptions(provider=aws["primary_region"]))
+        bar_bucket = aws.s3.BucketV2("barBucket", bucket="example-bucket-bar",
+        opts=pulumi.ResourceOptions(provider=aws["secondary_region"]))
         example = aws.s3control.MultiRegionAccessPoint("example", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
             name="example",
             regions=[

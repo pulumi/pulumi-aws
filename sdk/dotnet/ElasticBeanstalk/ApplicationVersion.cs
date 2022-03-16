@@ -32,14 +32,15 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// {
     ///     public MyStack()
     ///     {
-    ///         var defaultBucket = new Aws.S3.Bucket("defaultBucket", new Aws.S3.BucketArgs
+    ///         var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "tftest.applicationversion.bucket",
     ///         });
-    ///         var defaultBucketObject = new Aws.S3.BucketObject("defaultBucketObject", new Aws.S3.BucketObjectArgs
+    ///         var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("defaultBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
-    ///             Bucket = defaultBucket.Id,
+    ///             Bucket = defaultBucketV2.Id,
     ///             Key = "beanstalk/go-v1.zip",
-    ///             Source = new FileAsset("go-v1.zip"),
+    ///             Source = "go-v1.zip",
     ///         });
     ///         var defaultApplication = new Aws.ElasticBeanstalk.Application("defaultApplication", new Aws.ElasticBeanstalk.ApplicationArgs
     ///         {
@@ -49,8 +50,8 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///         {
     ///             Application = "tf-test-name",
     ///             Description = "application version",
-    ///             Bucket = defaultBucket.Id,
-    ///             Key = defaultBucketObject.Id,
+    ///             Bucket = defaultBucketV2.Id,
+    ///             Key = defaultBucketObjectv2.Id,
     ///         });
     ///     }
     /// 

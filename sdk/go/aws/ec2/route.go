@@ -17,7 +17,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -43,7 +43,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -110,6 +110,8 @@ type Route struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
+	//
+	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
@@ -178,6 +180,8 @@ type routeState struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
+	//
+	// Deprecated: Use network_interface_id instead
 	InstanceId *string `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId *string `pulumi:"instanceOwnerId"`
@@ -215,6 +219,8 @@ type RouteState struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
+	//
+	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringPtrInput
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringPtrInput
@@ -256,6 +262,8 @@ type routeArgs struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
+	//
+	// Deprecated: Use network_interface_id instead
 	InstanceId *string `pulumi:"instanceId"`
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
@@ -288,6 +296,8 @@ type RouteArgs struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
+	//
+	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringPtrInput
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId pulumi.StringPtrInput

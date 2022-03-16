@@ -55,9 +55,9 @@ import * as utilities from "../utilities";
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
- *     bucket: exampleBucket.id,
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example"});
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ *     bucket: exampleBucketV2.id,
  *     key: "example-key",
  *     content: `Resources:
  *   IAMPasswordPolicy:
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     Type: AWS::Config::ConfigRule
  * `,
  * });
- * const exampleOrganizationConformancePack = new aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack", {templateS3Uri: pulumi.interpolate`s3://${exampleBucket.bucket}/${exampleBucketObject.key}`}, {
+ * const exampleOrganizationConformancePack = new aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack", {templateS3Uri: pulumi.interpolate`s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`}, {
  *     dependsOn: [
  *         aws_config_configuration_recorder.example,
  *         exampleOrganization,

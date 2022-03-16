@@ -28,11 +28,11 @@ namespace Pulumi.Aws.GuardDuty
     ///         {
     ///             Enable = true,
     ///         });
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Acl = "private",
     ///         });
-    ///         var myIPSet = new Aws.S3.BucketObject("myIPSet", new Aws.S3.BucketObjectArgs
+    ///         // ... other configuration
+    ///         var myIPSet = new Aws.S3.BucketObjectv2("myIPSet", new Aws.S3.BucketObjectv2Args
     ///         {
     ///             Acl = "public-read",
     ///             Content = @"10.0.0.0/8
@@ -51,6 +51,11 @@ namespace Pulumi.Aws.GuardDuty
     ///                 var key = values.Item2;
     ///                 return $"https://s3.amazonaws.com/{bucket}/{key}";
     ///             }),
+    ///         });
+    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Acl = "private",
     ///         });
     ///     }
     /// 

@@ -22,12 +22,13 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     public MyStack()
     ///     {
-    ///         var hogeBucket = new Aws.S3.Bucket("hogeBucket", new Aws.S3.BucketArgs
+    ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "tf-test-bucket-1234",
     ///         });
     ///         var hogeBucketPolicy = new Aws.S3.BucketPolicy("hogeBucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {
-    ///             Bucket = hogeBucket.BucketName,
+    ///             Bucket = hogeBucketV2.Bucket,
     ///             Policy = @"{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
@@ -62,8 +63,8 @@ namespace Pulumi.Aws.Ssm
     ///         {
     ///             S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
     ///             {
-    ///                 BucketName = hogeBucket.BucketName,
-    ///                 Region = hogeBucket.Region,
+    ///                 BucketName = hogeBucketV2.Bucket,
+    ///                 Region = hogeBucketV2.Region,
     ///             },
     ///         });
     ///     }

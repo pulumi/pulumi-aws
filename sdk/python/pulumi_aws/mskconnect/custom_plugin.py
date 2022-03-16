@@ -222,17 +222,17 @@ class CustomPlugin(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
-            bucket=example_bucket.id,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            bucket=example_bucket_v2.id,
             key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
+            source="debezium.zip")
         example_custom_plugin = aws.mskconnect.CustomPlugin("exampleCustomPlugin",
             content_type="ZIP",
             location=aws.mskconnect.CustomPluginLocationArgs(
                 s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example_bucket.arn,
-                    file_key=example_bucket_object.key,
+                    bucket_arn=example_bucket_v2.arn,
+                    file_key=example_bucket_objectv2.key,
                 ),
             ))
         ```
@@ -268,17 +268,17 @@ class CustomPlugin(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
-            bucket=example_bucket.id,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            bucket=example_bucket_v2.id,
             key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
+            source="debezium.zip")
         example_custom_plugin = aws.mskconnect.CustomPlugin("exampleCustomPlugin",
             content_type="ZIP",
             location=aws.mskconnect.CustomPluginLocationArgs(
                 s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example_bucket.arn,
-                    file_key=example_bucket_object.key,
+                    bucket_arn=example_bucket_v2.arn,
+                    file_key=example_bucket_objectv2.key,
                 ),
             ))
         ```

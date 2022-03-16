@@ -149,7 +149,7 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly notificationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Access Control List permission for S3 bucket objects. Defaults to `private`.
+     * Access Control List permission for S3 objects. Defaults to `private`.
      */
     public readonly objectAcl!: pulumi.Output<string | undefined>;
     /**
@@ -358,7 +358,7 @@ export interface SmbFileShareState {
      */
     notificationPolicy?: pulumi.Input<string>;
     /**
-     * Access Control List permission for S3 bucket objects. Defaults to `private`.
+     * Access Control List permission for S3 objects. Defaults to `private`.
      */
     objectAcl?: pulumi.Input<string>;
     /**
@@ -472,7 +472,7 @@ export interface SmbFileShareArgs {
      */
     notificationPolicy?: pulumi.Input<string>;
     /**
-     * Access Control List permission for S3 bucket objects. Defaults to `private`.
+     * Access Control List permission for S3 objects. Defaults to `private`.
      */
     objectAcl?: pulumi.Input<string>;
     /**

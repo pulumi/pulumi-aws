@@ -451,7 +451,24 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456")
         ```
 
-        You can also find a specific Prefix List using the `ec2.get_prefix_list` data source.
+        You can also find a specific Prefix List using the [`ec2.get_prefix_list`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
+        or [`ec2_managed_prefix_list`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
+        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
+            description="S3 Gateway Egress",
+            type="egress",
+            security_group_id="sg-123456",
+            from_port=443,
+            to_port=443,
+            protocol="tcp",
+            prefix_list_ids=[s3.id])
+        ```
 
         ## Import
 
@@ -574,7 +591,24 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456")
         ```
 
-        You can also find a specific Prefix List using the `ec2.get_prefix_list` data source.
+        You can also find a specific Prefix List using the [`ec2.get_prefix_list`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
+        or [`ec2_managed_prefix_list`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
+        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
+            description="S3 Gateway Egress",
+            type="egress",
+            security_group_id="sg-123456",
+            from_port=443,
+            to_port=443,
+            protocol="tcp",
+            prefix_list_ids=[s3.id])
+        ```
 
         ## Import
 

@@ -118,6 +118,10 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string ConfigurationEndpointAddress;
         /// <summary>
+        /// The description of the replication group.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -136,6 +140,14 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// The number of cache clusters that the replication group has.
         /// </summary>
+        public readonly int NumCacheClusters;
+        /// <summary>
+        /// Number of node groups (shards) for the replication group.
+        /// </summary>
+        public readonly int NumNodeGroups;
+        /// <summary>
+        /// (**Deprecated** use `num_cache_clusters` instead) The number of cache clusters that the replication group has.
+        /// </summary>
         public readonly int NumberCacheClusters;
         /// <summary>
         /// The port number on which the configuration endpoint will accept connections.
@@ -150,7 +162,11 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string ReaderEndpointAddress;
         /// <summary>
-        /// The description of the replication group.
+        /// Number of replica nodes in each node group.
+        /// </summary>
+        public readonly int ReplicasPerNodeGroup;
+        /// <summary>
+        /// (**Deprecated** use `description` instead) The description of the replication group.
         /// </summary>
         public readonly string ReplicationGroupDescription;
         public readonly string ReplicationGroupId;
@@ -173,6 +189,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string configurationEndpointAddress,
 
+            string description,
+
             string id,
 
             ImmutableArray<string> memberClusters,
@@ -181,6 +199,10 @@ namespace Pulumi.Aws.ElastiCache
 
             string nodeType,
 
+            int numCacheClusters,
+
+            int numNodeGroups,
+
             int numberCacheClusters,
 
             int port,
@@ -188,6 +210,8 @@ namespace Pulumi.Aws.ElastiCache
             string primaryEndpointAddress,
 
             string readerEndpointAddress,
+
+            int replicasPerNodeGroup,
 
             string replicationGroupDescription,
 
@@ -201,14 +225,18 @@ namespace Pulumi.Aws.ElastiCache
             AuthTokenEnabled = authTokenEnabled;
             AutomaticFailoverEnabled = automaticFailoverEnabled;
             ConfigurationEndpointAddress = configurationEndpointAddress;
+            Description = description;
             Id = id;
             MemberClusters = memberClusters;
             MultiAzEnabled = multiAzEnabled;
             NodeType = nodeType;
+            NumCacheClusters = numCacheClusters;
+            NumNodeGroups = numNodeGroups;
             NumberCacheClusters = numberCacheClusters;
             Port = port;
             PrimaryEndpointAddress = primaryEndpointAddress;
             ReaderEndpointAddress = readerEndpointAddress;
+            ReplicasPerNodeGroup = replicasPerNodeGroup;
             ReplicationGroupDescription = replicationGroupDescription;
             ReplicationGroupId = replicationGroupId;
             SnapshotRetentionLimit = snapshotRetentionLimit;

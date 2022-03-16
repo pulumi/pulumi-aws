@@ -28,11 +28,16 @@ namespace Pulumi.Aws.GuardDuty
     ///         {
     ///             Enable = true,
     ///         });
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
+    ///         });
+    ///         // ... other configuration ...
+    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = bucket.Id,
     ///             Acl = "private",
     ///         });
-    ///         var myThreatIntelSetBucketObject = new Aws.S3.BucketObject("myThreatIntelSetBucketObject", new Aws.S3.BucketObjectArgs
+    ///         var myThreatIntelSetBucketObjectv2 = new Aws.S3.BucketObjectv2("myThreatIntelSetBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
     ///             Acl = "public-read",
     ///             Content = @"10.0.0.0/8
@@ -45,7 +50,7 @@ namespace Pulumi.Aws.GuardDuty
     ///             Activate = true,
     ///             DetectorId = primary.Id,
     ///             Format = "TXT",
-    ///             Location = Output.Tuple(myThreatIntelSetBucketObject.Bucket, myThreatIntelSetBucketObject.Key).Apply(values =&gt;
+    ///             Location = Output.Tuple(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).Apply(values =&gt;
     ///             {
     ///                 var bucket = values.Item1;
     ///                 var key = values.Item2;

@@ -282,6 +282,8 @@ namespace Pulumi.Aws.Lambda
     /// }
     /// ```
     /// 
+    /// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
+    /// 
     /// ## Import
     /// 
     /// Lambda Functions can be imported using the `function_name`, e.g.,

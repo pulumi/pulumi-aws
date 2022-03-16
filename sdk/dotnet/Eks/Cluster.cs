@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Eks
     ///             },
     ///         });
     ///         this.Endpoint = example.Endpoint;
-    ///         this.Kubeconfig_certificate_authority_data = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data);
+    ///         this.Kubeconfig_certificate_authority_data = example.CertificateAuthorities.Apply(certificateAuthorities =&gt; certificateAuthorities[0].Data);
     ///     }
     /// 
     ///     [Output("endpoint")]
@@ -155,8 +155,8 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        [Output("certificateAuthority")]
-        public Output<Outputs.ClusterCertificateAuthority> CertificateAuthority { get; private set; } = null!;
+        [Output("certificateAuthorities")]
+        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthorities { get; private set; } = null!;
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
@@ -361,11 +361,17 @@ namespace Pulumi.Aws.Eks
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("certificateAuthorities")]
+        private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthorities;
+
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        [Input("certificateAuthority")]
-        public Input<Inputs.ClusterCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
+        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthorities
+        {
+            get => _certificateAuthorities ?? (_certificateAuthorities = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
+            set => _certificateAuthorities = value;
+        }
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.

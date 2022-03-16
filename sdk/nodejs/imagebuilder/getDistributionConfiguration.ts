@@ -59,7 +59,7 @@ export interface GetDistributionConfigurationResult {
      */
     readonly dateUpdated: string;
     /**
-     * Description to apply to distributed AMI.
+     * Description of the container distribution configuration.
      */
     readonly description: string;
     /**

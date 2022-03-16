@@ -17,11 +17,19 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// Amazon Resource Name (ARN) of the Image Builder Component to associate.
         /// </summary>
         public readonly string ComponentArn;
+        /// <summary>
+        /// Configuration block(s) for parameters to configure the component. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImageRecipeComponentParameter> Parameters;
 
         [OutputConstructor]
-        private ImageRecipeComponent(string componentArn)
+        private ImageRecipeComponent(
+            string componentArn,
+
+            ImmutableArray<Outputs.ImageRecipeComponentParameter> parameters)
         {
             ComponentArn = componentArn;
+            Parameters = parameters;
         }
     }
 }

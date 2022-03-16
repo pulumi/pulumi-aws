@@ -27,7 +27,7 @@ import (
 // 	"fmt"
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

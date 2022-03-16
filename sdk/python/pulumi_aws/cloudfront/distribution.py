@@ -977,15 +977,18 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
+        bucket_v2 = aws.s3.BucketV2("bucketV2",
+            bucket="mybucket",
             tags={
                 "Name": "My bucket",
             })
+        b_acl = aws.s3.BucketAclV2("bAcl",
+            bucket=bucket_v2.id,
+            acl="private")
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3Distribution",
             origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket.bucket_regional_domain_name,
+                domain_name=bucket_v2.bucket_regional_domain_name,
                 origin_id=s3_origin_id,
                 s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
                     origin_access_identity="origin-access-identity/cloudfront/ABCDEFG1234567",
@@ -1233,15 +1236,18 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
+        bucket_v2 = aws.s3.BucketV2("bucketV2",
+            bucket="mybucket",
             tags={
                 "Name": "My bucket",
             })
+        b_acl = aws.s3.BucketAclV2("bAcl",
+            bucket=bucket_v2.id,
+            acl="private")
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3Distribution",
             origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket.bucket_regional_domain_name,
+                domain_name=bucket_v2.bucket_regional_domain_name,
                 origin_id=s3_origin_id,
                 s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
                     origin_access_identity="origin-access-identity/cloudfront/ABCDEFG1234567",

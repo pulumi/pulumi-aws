@@ -32,7 +32,7 @@ import (
 // import (
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -66,7 +66,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -99,8 +99,8 @@ import (
 // import (
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

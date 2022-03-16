@@ -63,7 +63,27 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ * You can also find a specific Prefix List using the [`aws.ec2.getPrefixList`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
+ * or [`ec2ManagedPrefixList`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const s3 = current.then(current => aws.ec2.getPrefixList({
+ *     name: `com.amazonaws.${current.name}.s3`,
+ * }));
+ * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3GatewayEgress", {
+ *     description: "S3 Gateway Egress",
+ *     type: "egress",
+ *     securityGroupId: "sg-123456",
+ *     fromPort: 443,
+ *     toPort: 443,
+ *     protocol: "tcp",
+ *     prefixListIds: [s3.then(s3 => s3.id)],
+ * });
+ * ```
  *
  * ## Import
  *

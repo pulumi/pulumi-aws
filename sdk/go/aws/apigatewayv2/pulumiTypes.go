@@ -399,16 +399,17 @@ func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 }
 
 type DomainNameDomainNameConfiguration struct {
-	// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-	// Use the `acm.Certificate` resource to configure an ACM certificate.
+	// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
 	CertificateArn string `pulumi:"certificateArn"`
-	// The endpoint type. Valid values: `REGIONAL`.
+	// Endpoint type. Valid values: `REGIONAL`.
 	EndpointType string `pulumi:"endpointType"`
-	// The Amazon Route 53 Hosted Zone ID of the endpoint.
+	// Amazon Route 53 Hosted Zone ID of the endpoint.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
+	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
+	// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 	SecurityPolicy string `pulumi:"securityPolicy"`
-	// The target domain name.
+	// Target domain name.
 	TargetDomainName *string `pulumi:"targetDomainName"`
 }
 
@@ -424,16 +425,17 @@ type DomainNameDomainNameConfigurationInput interface {
 }
 
 type DomainNameDomainNameConfigurationArgs struct {
-	// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-	// Use the `acm.Certificate` resource to configure an ACM certificate.
+	// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
-	// The endpoint type. Valid values: `REGIONAL`.
+	// Endpoint type. Valid values: `REGIONAL`.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The Amazon Route 53 Hosted Zone ID of the endpoint.
+	// Amazon Route 53 Hosted Zone ID of the endpoint.
 	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
-	// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
+	OwnershipVerificationCertificateArn pulumi.StringPtrInput `pulumi:"ownershipVerificationCertificateArn"`
+	// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 	SecurityPolicy pulumi.StringInput `pulumi:"securityPolicy"`
-	// The target domain name.
+	// Target domain name.
 	TargetDomainName pulumi.StringPtrInput `pulumi:"targetDomainName"`
 }
 
@@ -514,28 +516,32 @@ func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigura
 	}).(DomainNameDomainNameConfigurationPtrOutput)
 }
 
-// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-// Use the `acm.Certificate` resource to configure an ACM certificate.
+// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
 func (o DomainNameDomainNameConfigurationOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// The endpoint type. Valid values: `REGIONAL`.
+// Endpoint type. Valid values: `REGIONAL`.
 func (o DomainNameDomainNameConfigurationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The Amazon Route 53 Hosted Zone ID of the endpoint.
+// Amazon Route 53 Hosted Zone ID of the endpoint.
 func (o DomainNameDomainNameConfigurationOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
+func (o DomainNameDomainNameConfigurationOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 func (o DomainNameDomainNameConfigurationOutput) SecurityPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.SecurityPolicy }).(pulumi.StringOutput)
 }
 
-// The target domain name.
+// Target domain name.
 func (o DomainNameDomainNameConfigurationOutput) TargetDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.TargetDomainName }).(pulumi.StringPtrOutput)
 }
@@ -564,8 +570,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameC
 	}).(DomainNameDomainNameConfigurationOutput)
 }
 
-// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-// Use the `acm.Certificate` resource to configure an ACM certificate.
+// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
 func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {
@@ -575,7 +580,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoint type. Valid values: `REGIONAL`.
+// Endpoint type. Valid values: `REGIONAL`.
 func (o DomainNameDomainNameConfigurationPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {
@@ -585,7 +590,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) EndpointType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Route 53 Hosted Zone ID of the endpoint.
+// Amazon Route 53 Hosted Zone ID of the endpoint.
 func (o DomainNameDomainNameConfigurationPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {
@@ -595,7 +600,17 @@ func (o DomainNameDomainNameConfigurationPtrOutput) HostedZoneId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
+func (o DomainNameDomainNameConfigurationPtrOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OwnershipVerificationCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 func (o DomainNameDomainNameConfigurationPtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {
@@ -605,7 +620,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) SecurityPolicy() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target domain name.
+// Target domain name.
 func (o DomainNameDomainNameConfigurationPtrOutput) TargetDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {
@@ -616,10 +631,9 @@ func (o DomainNameDomainNameConfigurationPtrOutput) TargetDomainName() pulumi.St
 }
 
 type DomainNameMutualTlsAuthentication struct {
-	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 	TruststoreUri string `pulumi:"truststoreUri"`
-	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion *string `pulumi:"truststoreVersion"`
 }
 
@@ -635,10 +649,9 @@ type DomainNameMutualTlsAuthenticationInput interface {
 }
 
 type DomainNameMutualTlsAuthenticationArgs struct {
-	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 	TruststoreUri pulumi.StringInput `pulumi:"truststoreUri"`
-	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
 }
 
@@ -719,13 +732,12 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) string { return v.TruststoreUri }).(pulumi.StringOutput)
 }
 
-// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
 }
@@ -754,8 +766,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAu
 	}).(DomainNameMutualTlsAuthenticationOutput)
 }
 
-// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -765,7 +776,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {

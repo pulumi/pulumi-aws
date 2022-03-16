@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/imagebuilder"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -35,6 +35,11 @@ import (
 // 						LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
 // 							UserIds: pulumi.StringArray{
 // 								pulumi.String("123456789012"),
+// 							},
+// 						},
+// 						LaunchTemplateConfiguration: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"launchTemplateId": "lt-0aaa1bcde2ff3456",
 // 							},
 // 						},
 // 						Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),

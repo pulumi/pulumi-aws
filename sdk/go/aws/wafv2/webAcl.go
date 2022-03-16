@@ -22,7 +22,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/wafv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -94,7 +94,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/wafv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -157,7 +157,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/wafv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -296,24 +296,24 @@ type WebAcl struct {
 
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The web ACL capacity units (WCUs) currently being used by this web ACL.
+	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
-	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
-	// A friendly description of the WebACL.
+	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// The label string.
+	// Label string.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfigOutput `pulumi:"visibilityConfig"`
@@ -359,24 +359,24 @@ func GetWebAcl(ctx *pulumi.Context,
 type webAclState struct {
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn *string `pulumi:"arn"`
-	// The web ACL capacity units (WCUs) currently being used by this web ACL.
+	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity *int `pulumi:"capacity"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
-	// A friendly description of the WebACL.
+	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// The label string.
+	// Label string.
 	Name *string `pulumi:"name"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
-	// An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig *WebAclVisibilityConfig `pulumi:"visibilityConfig"`
@@ -385,24 +385,24 @@ type webAclState struct {
 type WebAclState struct {
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn pulumi.StringPtrInput
-	// The web ACL capacity units (WCUs) currently being used by this web ACL.
+	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultActionPtrInput
-	// A friendly description of the WebACL.
+	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// The label string.
+	// Label string.
 	Name pulumi.StringPtrInput
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
-	// An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfigPtrInput
@@ -415,19 +415,19 @@ func (WebAclState) ElementType() reflect.Type {
 type webAclArgs struct {
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
-	// A friendly description of the WebACL.
+	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
-	// The label string.
+	// Label string.
 	Name *string `pulumi:"name"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
-	// An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfig `pulumi:"visibilityConfig"`
@@ -437,19 +437,19 @@ type webAclArgs struct {
 type WebAclArgs struct {
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultActionInput
-	// A friendly description of the WebACL.
+	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
-	// The label string.
+	// Label string.
 	Name pulumi.StringPtrInput
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
-	// An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfigInput

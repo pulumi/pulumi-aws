@@ -27,6 +27,7 @@ __all__ = [
 @pulumi.input_type
 class ProviderAssumeRoleArgs:
     def __init__(__self__, *,
+                 duration: Optional[pulumi.Input[str]] = None,
                  duration_seconds: Optional[pulumi.Input[int]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,11 @@ class ProviderAssumeRoleArgs:
                  session_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transitive_tag_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if duration_seconds is not None:
+            warnings.warn("""Use assume_role.0.duration instead""", DeprecationWarning)
+            pulumi.log.warn("""duration_seconds is deprecated: Use assume_role.0.duration instead""")
         if duration_seconds is not None:
             pulumi.set(__self__, "duration_seconds", duration_seconds)
         if external_id is not None:
@@ -51,6 +57,15 @@ class ProviderAssumeRoleArgs:
             pulumi.set(__self__, "tags", tags)
         if transitive_tag_keys is not None:
             pulumi.set(__self__, "transitive_tag_keys", transitive_tag_keys)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "duration", value)
 
     @property
     @pulumi.getter(name="durationSeconds")
@@ -150,6 +165,7 @@ class ProviderEndpointArgs:
                  acm: Optional[pulumi.Input[str]] = None,
                  acmpca: Optional[pulumi.Input[str]] = None,
                  alexaforbusiness: Optional[pulumi.Input[str]] = None,
+                 amg: Optional[pulumi.Input[str]] = None,
                  amp: Optional[pulumi.Input[str]] = None,
                  amplify: Optional[pulumi.Input[str]] = None,
                  amplifybackend: Optional[pulumi.Input[str]] = None,
@@ -270,6 +286,7 @@ class ProviderEndpointArgs:
                  globalaccelerator: Optional[pulumi.Input[str]] = None,
                  glue: Optional[pulumi.Input[str]] = None,
                  gluedatabrew: Optional[pulumi.Input[str]] = None,
+                 grafana: Optional[pulumi.Input[str]] = None,
                  greengrass: Optional[pulumi.Input[str]] = None,
                  greengrassv2: Optional[pulumi.Input[str]] = None,
                  groundstation: Optional[pulumi.Input[str]] = None,
@@ -326,6 +343,7 @@ class ProviderEndpointArgs:
                  macie: Optional[pulumi.Input[str]] = None,
                  macie2: Optional[pulumi.Input[str]] = None,
                  managedblockchain: Optional[pulumi.Input[str]] = None,
+                 managedgrafana: Optional[pulumi.Input[str]] = None,
                  marketplacecatalog: Optional[pulumi.Input[str]] = None,
                  marketplacecommerceanalytics: Optional[pulumi.Input[str]] = None,
                  marketplaceentitlement: Optional[pulumi.Input[str]] = None,
@@ -456,6 +474,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "acmpca", acmpca)
         if alexaforbusiness is not None:
             pulumi.set(__self__, "alexaforbusiness", alexaforbusiness)
+        if amg is not None:
+            pulumi.set(__self__, "amg", amg)
         if amp is not None:
             pulumi.set(__self__, "amp", amp)
         if amplify is not None:
@@ -696,6 +716,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "glue", glue)
         if gluedatabrew is not None:
             pulumi.set(__self__, "gluedatabrew", gluedatabrew)
+        if grafana is not None:
+            pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
         if greengrassv2 is not None:
@@ -808,6 +830,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "macie2", macie2)
         if managedblockchain is not None:
             pulumi.set(__self__, "managedblockchain", managedblockchain)
+        if managedgrafana is not None:
+            pulumi.set(__self__, "managedgrafana", managedgrafana)
         if marketplacecatalog is not None:
             pulumi.set(__self__, "marketplacecatalog", marketplacecatalog)
         if marketplacecommerceanalytics is not None:
@@ -1093,6 +1117,15 @@ class ProviderEndpointArgs:
     @alexaforbusiness.setter
     def alexaforbusiness(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alexaforbusiness", value)
+
+    @property
+    @pulumi.getter
+    def amg(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "amg")
+
+    @amg.setter
+    def amg(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amg", value)
 
     @property
     @pulumi.getter
@@ -2176,6 +2209,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def grafana(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "grafana")
+
+    @grafana.setter
+    def grafana(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grafana", value)
+
+    @property
+    @pulumi.getter
     def greengrass(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "greengrass")
 
@@ -2677,6 +2719,15 @@ class ProviderEndpointArgs:
     @managedblockchain.setter
     def managedblockchain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "managedblockchain", value)
+
+    @property
+    @pulumi.getter
+    def managedgrafana(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managedgrafana")
+
+    @managedgrafana.setter
+    def managedgrafana(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managedgrafana", value)
 
     @property
     @pulumi.getter

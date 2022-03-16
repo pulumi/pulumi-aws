@@ -152,13 +152,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
-    public readonly instanceInterruptionBehavior!: pulumi.Output<string>;
-    /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-     *
-     * @deprecated Use the parameter "instance_interruption_behavior" instead.
-     */
-    public readonly instanceInterruptionBehaviour!: pulumi.Output<string>;
+    public readonly instanceInterruptionBehavior!: pulumi.Output<string | undefined>;
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
     /**
      * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -348,7 +342,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
             resourceInputs["instanceInterruptionBehavior"] = state ? state.instanceInterruptionBehavior : undefined;
-            resourceInputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
             resourceInputs["instanceState"] = state ? state.instanceState : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
@@ -409,7 +402,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
             resourceInputs["instanceInterruptionBehavior"] = args ? args.instanceInterruptionBehavior : undefined;
-            resourceInputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
             resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
@@ -539,12 +531,6 @@ export interface SpotInstanceRequestState {
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
     instanceInterruptionBehavior?: pulumi.Input<string>;
-    /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-     *
-     * @deprecated Use the parameter "instance_interruption_behavior" instead.
-     */
-    instanceInterruptionBehaviour?: pulumi.Input<string>;
     instanceState?: pulumi.Input<string>;
     /**
      * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -784,12 +770,6 @@ export interface SpotInstanceRequestArgs {
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
     instanceInterruptionBehavior?: pulumi.Input<string>;
-    /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
-     *
-     * @deprecated Use the parameter "instance_interruption_behavior" instead.
-     */
-    instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
      * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      */

@@ -143,6 +143,318 @@ func (o EndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) Endpoi
 	}).(EndpointAuthenticationOptionOutput)
 }
 
+type EndpointClientConnectOptions struct {
+	// Indicates whether connection logging is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
+}
+
+// EndpointClientConnectOptionsInput is an input type that accepts EndpointClientConnectOptionsArgs and EndpointClientConnectOptionsOutput values.
+// You can construct a concrete instance of `EndpointClientConnectOptionsInput` via:
+//
+//          EndpointClientConnectOptionsArgs{...}
+type EndpointClientConnectOptionsInput interface {
+	pulumi.Input
+
+	ToEndpointClientConnectOptionsOutput() EndpointClientConnectOptionsOutput
+	ToEndpointClientConnectOptionsOutputWithContext(context.Context) EndpointClientConnectOptionsOutput
+}
+
+type EndpointClientConnectOptionsArgs struct {
+	// Indicates whether connection logging is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (EndpointClientConnectOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i EndpointClientConnectOptionsArgs) ToEndpointClientConnectOptionsOutput() EndpointClientConnectOptionsOutput {
+	return i.ToEndpointClientConnectOptionsOutputWithContext(context.Background())
+}
+
+func (i EndpointClientConnectOptionsArgs) ToEndpointClientConnectOptionsOutputWithContext(ctx context.Context) EndpointClientConnectOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientConnectOptionsOutput)
+}
+
+func (i EndpointClientConnectOptionsArgs) ToEndpointClientConnectOptionsPtrOutput() EndpointClientConnectOptionsPtrOutput {
+	return i.ToEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointClientConnectOptionsArgs) ToEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) EndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientConnectOptionsOutput).ToEndpointClientConnectOptionsPtrOutputWithContext(ctx)
+}
+
+// EndpointClientConnectOptionsPtrInput is an input type that accepts EndpointClientConnectOptionsArgs, EndpointClientConnectOptionsPtr and EndpointClientConnectOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointClientConnectOptionsPtrInput` via:
+//
+//          EndpointClientConnectOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointClientConnectOptionsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointClientConnectOptionsPtrOutput() EndpointClientConnectOptionsPtrOutput
+	ToEndpointClientConnectOptionsPtrOutputWithContext(context.Context) EndpointClientConnectOptionsPtrOutput
+}
+
+type endpointClientConnectOptionsPtrType EndpointClientConnectOptionsArgs
+
+func EndpointClientConnectOptionsPtr(v *EndpointClientConnectOptionsArgs) EndpointClientConnectOptionsPtrInput {
+	return (*endpointClientConnectOptionsPtrType)(v)
+}
+
+func (*endpointClientConnectOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i *endpointClientConnectOptionsPtrType) ToEndpointClientConnectOptionsPtrOutput() EndpointClientConnectOptionsPtrOutput {
+	return i.ToEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointClientConnectOptionsPtrType) ToEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) EndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientConnectOptionsPtrOutput)
+}
+
+type EndpointClientConnectOptionsOutput struct{ *pulumi.OutputState }
+
+func (EndpointClientConnectOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o EndpointClientConnectOptionsOutput) ToEndpointClientConnectOptionsOutput() EndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o EndpointClientConnectOptionsOutput) ToEndpointClientConnectOptionsOutputWithContext(ctx context.Context) EndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o EndpointClientConnectOptionsOutput) ToEndpointClientConnectOptionsPtrOutput() EndpointClientConnectOptionsPtrOutput {
+	return o.ToEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointClientConnectOptionsOutput) ToEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) EndpointClientConnectOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointClientConnectOptions) *EndpointClientConnectOptions {
+		return &v
+	}).(EndpointClientConnectOptionsPtrOutput)
+}
+
+// Indicates whether connection logging is enabled.
+func (o EndpointClientConnectOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointClientConnectOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+func (o EndpointClientConnectOptionsOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointClientConnectOptions) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
+}
+
+type EndpointClientConnectOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointClientConnectOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o EndpointClientConnectOptionsPtrOutput) ToEndpointClientConnectOptionsPtrOutput() EndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointClientConnectOptionsPtrOutput) ToEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) EndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointClientConnectOptionsPtrOutput) Elem() EndpointClientConnectOptionsOutput {
+	return o.ApplyT(func(v *EndpointClientConnectOptions) EndpointClientConnectOptions {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointClientConnectOptions
+		return ret
+	}).(EndpointClientConnectOptionsOutput)
+}
+
+// Indicates whether connection logging is enabled.
+func (o EndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointClientConnectOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+func (o EndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointClientConnectOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointClientLoginBannerOptions struct {
+	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+	BannerText *string `pulumi:"bannerText"`
+	// Indicates whether connection logging is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// EndpointClientLoginBannerOptionsInput is an input type that accepts EndpointClientLoginBannerOptionsArgs and EndpointClientLoginBannerOptionsOutput values.
+// You can construct a concrete instance of `EndpointClientLoginBannerOptionsInput` via:
+//
+//          EndpointClientLoginBannerOptionsArgs{...}
+type EndpointClientLoginBannerOptionsInput interface {
+	pulumi.Input
+
+	ToEndpointClientLoginBannerOptionsOutput() EndpointClientLoginBannerOptionsOutput
+	ToEndpointClientLoginBannerOptionsOutputWithContext(context.Context) EndpointClientLoginBannerOptionsOutput
+}
+
+type EndpointClientLoginBannerOptionsArgs struct {
+	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+	BannerText pulumi.StringPtrInput `pulumi:"bannerText"`
+	// Indicates whether connection logging is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (EndpointClientLoginBannerOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (i EndpointClientLoginBannerOptionsArgs) ToEndpointClientLoginBannerOptionsOutput() EndpointClientLoginBannerOptionsOutput {
+	return i.ToEndpointClientLoginBannerOptionsOutputWithContext(context.Background())
+}
+
+func (i EndpointClientLoginBannerOptionsArgs) ToEndpointClientLoginBannerOptionsOutputWithContext(ctx context.Context) EndpointClientLoginBannerOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientLoginBannerOptionsOutput)
+}
+
+func (i EndpointClientLoginBannerOptionsArgs) ToEndpointClientLoginBannerOptionsPtrOutput() EndpointClientLoginBannerOptionsPtrOutput {
+	return i.ToEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointClientLoginBannerOptionsArgs) ToEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) EndpointClientLoginBannerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientLoginBannerOptionsOutput).ToEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx)
+}
+
+// EndpointClientLoginBannerOptionsPtrInput is an input type that accepts EndpointClientLoginBannerOptionsArgs, EndpointClientLoginBannerOptionsPtr and EndpointClientLoginBannerOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointClientLoginBannerOptionsPtrInput` via:
+//
+//          EndpointClientLoginBannerOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointClientLoginBannerOptionsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointClientLoginBannerOptionsPtrOutput() EndpointClientLoginBannerOptionsPtrOutput
+	ToEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Context) EndpointClientLoginBannerOptionsPtrOutput
+}
+
+type endpointClientLoginBannerOptionsPtrType EndpointClientLoginBannerOptionsArgs
+
+func EndpointClientLoginBannerOptionsPtr(v *EndpointClientLoginBannerOptionsArgs) EndpointClientLoginBannerOptionsPtrInput {
+	return (*endpointClientLoginBannerOptionsPtrType)(v)
+}
+
+func (*endpointClientLoginBannerOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (i *endpointClientLoginBannerOptionsPtrType) ToEndpointClientLoginBannerOptionsPtrOutput() EndpointClientLoginBannerOptionsPtrOutput {
+	return i.ToEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointClientLoginBannerOptionsPtrType) ToEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) EndpointClientLoginBannerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientLoginBannerOptionsPtrOutput)
+}
+
+type EndpointClientLoginBannerOptionsOutput struct{ *pulumi.OutputState }
+
+func (EndpointClientLoginBannerOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (o EndpointClientLoginBannerOptionsOutput) ToEndpointClientLoginBannerOptionsOutput() EndpointClientLoginBannerOptionsOutput {
+	return o
+}
+
+func (o EndpointClientLoginBannerOptionsOutput) ToEndpointClientLoginBannerOptionsOutputWithContext(ctx context.Context) EndpointClientLoginBannerOptionsOutput {
+	return o
+}
+
+func (o EndpointClientLoginBannerOptionsOutput) ToEndpointClientLoginBannerOptionsPtrOutput() EndpointClientLoginBannerOptionsPtrOutput {
+	return o.ToEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointClientLoginBannerOptionsOutput) ToEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) EndpointClientLoginBannerOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointClientLoginBannerOptions) *EndpointClientLoginBannerOptions {
+		return &v
+	}).(EndpointClientLoginBannerOptionsPtrOutput)
+}
+
+// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+func (o EndpointClientLoginBannerOptionsOutput) BannerText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointClientLoginBannerOptions) *string { return v.BannerText }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether connection logging is enabled.
+func (o EndpointClientLoginBannerOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointClientLoginBannerOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type EndpointClientLoginBannerOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointClientLoginBannerOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (o EndpointClientLoginBannerOptionsPtrOutput) ToEndpointClientLoginBannerOptionsPtrOutput() EndpointClientLoginBannerOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointClientLoginBannerOptionsPtrOutput) ToEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) EndpointClientLoginBannerOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointClientLoginBannerOptionsPtrOutput) Elem() EndpointClientLoginBannerOptionsOutput {
+	return o.ApplyT(func(v *EndpointClientLoginBannerOptions) EndpointClientLoginBannerOptions {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointClientLoginBannerOptions
+		return ret
+	}).(EndpointClientLoginBannerOptionsOutput)
+}
+
+// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+func (o EndpointClientLoginBannerOptionsPtrOutput) BannerText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointClientLoginBannerOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BannerText
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether connection logging is enabled.
+func (o EndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointClientLoginBannerOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type EndpointConnectionLogOptions struct {
 	// The name of the CloudWatch Logs log group.
 	CloudwatchLogGroup *string `pulumi:"cloudwatchLogGroup"`
@@ -318,13 +630,571 @@ func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetEndpointAuthenticationOption struct {
+	ActiveDirectoryId          string `pulumi:"activeDirectoryId"`
+	RootCertificateChainArn    string `pulumi:"rootCertificateChainArn"`
+	SamlProviderArn            string `pulumi:"samlProviderArn"`
+	SelfServiceSamlProviderArn string `pulumi:"selfServiceSamlProviderArn"`
+	Type                       string `pulumi:"type"`
+}
+
+// GetEndpointAuthenticationOptionInput is an input type that accepts GetEndpointAuthenticationOptionArgs and GetEndpointAuthenticationOptionOutput values.
+// You can construct a concrete instance of `GetEndpointAuthenticationOptionInput` via:
+//
+//          GetEndpointAuthenticationOptionArgs{...}
+type GetEndpointAuthenticationOptionInput interface {
+	pulumi.Input
+
+	ToGetEndpointAuthenticationOptionOutput() GetEndpointAuthenticationOptionOutput
+	ToGetEndpointAuthenticationOptionOutputWithContext(context.Context) GetEndpointAuthenticationOptionOutput
+}
+
+type GetEndpointAuthenticationOptionArgs struct {
+	ActiveDirectoryId          pulumi.StringInput `pulumi:"activeDirectoryId"`
+	RootCertificateChainArn    pulumi.StringInput `pulumi:"rootCertificateChainArn"`
+	SamlProviderArn            pulumi.StringInput `pulumi:"samlProviderArn"`
+	SelfServiceSamlProviderArn pulumi.StringInput `pulumi:"selfServiceSamlProviderArn"`
+	Type                       pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEndpointAuthenticationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAuthenticationOption)(nil)).Elem()
+}
+
+func (i GetEndpointAuthenticationOptionArgs) ToGetEndpointAuthenticationOptionOutput() GetEndpointAuthenticationOptionOutput {
+	return i.ToGetEndpointAuthenticationOptionOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAuthenticationOptionArgs) ToGetEndpointAuthenticationOptionOutputWithContext(ctx context.Context) GetEndpointAuthenticationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAuthenticationOptionOutput)
+}
+
+// GetEndpointAuthenticationOptionArrayInput is an input type that accepts GetEndpointAuthenticationOptionArray and GetEndpointAuthenticationOptionArrayOutput values.
+// You can construct a concrete instance of `GetEndpointAuthenticationOptionArrayInput` via:
+//
+//          GetEndpointAuthenticationOptionArray{ GetEndpointAuthenticationOptionArgs{...} }
+type GetEndpointAuthenticationOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointAuthenticationOptionArrayOutput() GetEndpointAuthenticationOptionArrayOutput
+	ToGetEndpointAuthenticationOptionArrayOutputWithContext(context.Context) GetEndpointAuthenticationOptionArrayOutput
+}
+
+type GetEndpointAuthenticationOptionArray []GetEndpointAuthenticationOptionInput
+
+func (GetEndpointAuthenticationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAuthenticationOption)(nil)).Elem()
+}
+
+func (i GetEndpointAuthenticationOptionArray) ToGetEndpointAuthenticationOptionArrayOutput() GetEndpointAuthenticationOptionArrayOutput {
+	return i.ToGetEndpointAuthenticationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAuthenticationOptionArray) ToGetEndpointAuthenticationOptionArrayOutputWithContext(ctx context.Context) GetEndpointAuthenticationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAuthenticationOptionArrayOutput)
+}
+
+type GetEndpointAuthenticationOptionOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAuthenticationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAuthenticationOption)(nil)).Elem()
+}
+
+func (o GetEndpointAuthenticationOptionOutput) ToGetEndpointAuthenticationOptionOutput() GetEndpointAuthenticationOptionOutput {
+	return o
+}
+
+func (o GetEndpointAuthenticationOptionOutput) ToGetEndpointAuthenticationOptionOutputWithContext(ctx context.Context) GetEndpointAuthenticationOptionOutput {
+	return o
+}
+
+func (o GetEndpointAuthenticationOptionOutput) ActiveDirectoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.ActiveDirectoryId }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointAuthenticationOptionOutput) RootCertificateChainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.RootCertificateChainArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointAuthenticationOptionOutput) SamlProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.SamlProviderArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointAuthenticationOptionOutput) SelfServiceSamlProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.SelfServiceSamlProviderArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointAuthenticationOptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAuthenticationOption) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEndpointAuthenticationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAuthenticationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAuthenticationOption)(nil)).Elem()
+}
+
+func (o GetEndpointAuthenticationOptionArrayOutput) ToGetEndpointAuthenticationOptionArrayOutput() GetEndpointAuthenticationOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointAuthenticationOptionArrayOutput) ToGetEndpointAuthenticationOptionArrayOutputWithContext(ctx context.Context) GetEndpointAuthenticationOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointAuthenticationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointAuthenticationOption {
+		return vs[0].([]GetEndpointAuthenticationOption)[vs[1].(int)]
+	}).(GetEndpointAuthenticationOptionOutput)
+}
+
+type GetEndpointClientConnectOption struct {
+	Enabled           bool   `pulumi:"enabled"`
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+}
+
+// GetEndpointClientConnectOptionInput is an input type that accepts GetEndpointClientConnectOptionArgs and GetEndpointClientConnectOptionOutput values.
+// You can construct a concrete instance of `GetEndpointClientConnectOptionInput` via:
+//
+//          GetEndpointClientConnectOptionArgs{...}
+type GetEndpointClientConnectOptionInput interface {
+	pulumi.Input
+
+	ToGetEndpointClientConnectOptionOutput() GetEndpointClientConnectOptionOutput
+	ToGetEndpointClientConnectOptionOutputWithContext(context.Context) GetEndpointClientConnectOptionOutput
+}
+
+type GetEndpointClientConnectOptionArgs struct {
+	Enabled           pulumi.BoolInput   `pulumi:"enabled"`
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (GetEndpointClientConnectOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointClientConnectOption)(nil)).Elem()
+}
+
+func (i GetEndpointClientConnectOptionArgs) ToGetEndpointClientConnectOptionOutput() GetEndpointClientConnectOptionOutput {
+	return i.ToGetEndpointClientConnectOptionOutputWithContext(context.Background())
+}
+
+func (i GetEndpointClientConnectOptionArgs) ToGetEndpointClientConnectOptionOutputWithContext(ctx context.Context) GetEndpointClientConnectOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientConnectOptionOutput)
+}
+
+// GetEndpointClientConnectOptionArrayInput is an input type that accepts GetEndpointClientConnectOptionArray and GetEndpointClientConnectOptionArrayOutput values.
+// You can construct a concrete instance of `GetEndpointClientConnectOptionArrayInput` via:
+//
+//          GetEndpointClientConnectOptionArray{ GetEndpointClientConnectOptionArgs{...} }
+type GetEndpointClientConnectOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointClientConnectOptionArrayOutput() GetEndpointClientConnectOptionArrayOutput
+	ToGetEndpointClientConnectOptionArrayOutputWithContext(context.Context) GetEndpointClientConnectOptionArrayOutput
+}
+
+type GetEndpointClientConnectOptionArray []GetEndpointClientConnectOptionInput
+
+func (GetEndpointClientConnectOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointClientConnectOption)(nil)).Elem()
+}
+
+func (i GetEndpointClientConnectOptionArray) ToGetEndpointClientConnectOptionArrayOutput() GetEndpointClientConnectOptionArrayOutput {
+	return i.ToGetEndpointClientConnectOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointClientConnectOptionArray) ToGetEndpointClientConnectOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientConnectOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientConnectOptionArrayOutput)
+}
+
+type GetEndpointClientConnectOptionOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointClientConnectOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointClientConnectOption)(nil)).Elem()
+}
+
+func (o GetEndpointClientConnectOptionOutput) ToGetEndpointClientConnectOptionOutput() GetEndpointClientConnectOptionOutput {
+	return o
+}
+
+func (o GetEndpointClientConnectOptionOutput) ToGetEndpointClientConnectOptionOutputWithContext(ctx context.Context) GetEndpointClientConnectOptionOutput {
+	return o
+}
+
+func (o GetEndpointClientConnectOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointClientConnectOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointClientConnectOptionOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointClientConnectOption) string { return v.LambdaFunctionArn }).(pulumi.StringOutput)
+}
+
+type GetEndpointClientConnectOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointClientConnectOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointClientConnectOption)(nil)).Elem()
+}
+
+func (o GetEndpointClientConnectOptionArrayOutput) ToGetEndpointClientConnectOptionArrayOutput() GetEndpointClientConnectOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointClientConnectOptionArrayOutput) ToGetEndpointClientConnectOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientConnectOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointClientConnectOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointClientConnectOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointClientConnectOption {
+		return vs[0].([]GetEndpointClientConnectOption)[vs[1].(int)]
+	}).(GetEndpointClientConnectOptionOutput)
+}
+
+type GetEndpointClientLoginBannerOption struct {
+	BannerText string `pulumi:"bannerText"`
+	Enabled    bool   `pulumi:"enabled"`
+}
+
+// GetEndpointClientLoginBannerOptionInput is an input type that accepts GetEndpointClientLoginBannerOptionArgs and GetEndpointClientLoginBannerOptionOutput values.
+// You can construct a concrete instance of `GetEndpointClientLoginBannerOptionInput` via:
+//
+//          GetEndpointClientLoginBannerOptionArgs{...}
+type GetEndpointClientLoginBannerOptionInput interface {
+	pulumi.Input
+
+	ToGetEndpointClientLoginBannerOptionOutput() GetEndpointClientLoginBannerOptionOutput
+	ToGetEndpointClientLoginBannerOptionOutputWithContext(context.Context) GetEndpointClientLoginBannerOptionOutput
+}
+
+type GetEndpointClientLoginBannerOptionArgs struct {
+	BannerText pulumi.StringInput `pulumi:"bannerText"`
+	Enabled    pulumi.BoolInput   `pulumi:"enabled"`
+}
+
+func (GetEndpointClientLoginBannerOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointClientLoginBannerOption)(nil)).Elem()
+}
+
+func (i GetEndpointClientLoginBannerOptionArgs) ToGetEndpointClientLoginBannerOptionOutput() GetEndpointClientLoginBannerOptionOutput {
+	return i.ToGetEndpointClientLoginBannerOptionOutputWithContext(context.Background())
+}
+
+func (i GetEndpointClientLoginBannerOptionArgs) ToGetEndpointClientLoginBannerOptionOutputWithContext(ctx context.Context) GetEndpointClientLoginBannerOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientLoginBannerOptionOutput)
+}
+
+// GetEndpointClientLoginBannerOptionArrayInput is an input type that accepts GetEndpointClientLoginBannerOptionArray and GetEndpointClientLoginBannerOptionArrayOutput values.
+// You can construct a concrete instance of `GetEndpointClientLoginBannerOptionArrayInput` via:
+//
+//          GetEndpointClientLoginBannerOptionArray{ GetEndpointClientLoginBannerOptionArgs{...} }
+type GetEndpointClientLoginBannerOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointClientLoginBannerOptionArrayOutput() GetEndpointClientLoginBannerOptionArrayOutput
+	ToGetEndpointClientLoginBannerOptionArrayOutputWithContext(context.Context) GetEndpointClientLoginBannerOptionArrayOutput
+}
+
+type GetEndpointClientLoginBannerOptionArray []GetEndpointClientLoginBannerOptionInput
+
+func (GetEndpointClientLoginBannerOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointClientLoginBannerOption)(nil)).Elem()
+}
+
+func (i GetEndpointClientLoginBannerOptionArray) ToGetEndpointClientLoginBannerOptionArrayOutput() GetEndpointClientLoginBannerOptionArrayOutput {
+	return i.ToGetEndpointClientLoginBannerOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointClientLoginBannerOptionArray) ToGetEndpointClientLoginBannerOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientLoginBannerOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientLoginBannerOptionArrayOutput)
+}
+
+type GetEndpointClientLoginBannerOptionOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointClientLoginBannerOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointClientLoginBannerOption)(nil)).Elem()
+}
+
+func (o GetEndpointClientLoginBannerOptionOutput) ToGetEndpointClientLoginBannerOptionOutput() GetEndpointClientLoginBannerOptionOutput {
+	return o
+}
+
+func (o GetEndpointClientLoginBannerOptionOutput) ToGetEndpointClientLoginBannerOptionOutputWithContext(ctx context.Context) GetEndpointClientLoginBannerOptionOutput {
+	return o
+}
+
+func (o GetEndpointClientLoginBannerOptionOutput) BannerText() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointClientLoginBannerOption) string { return v.BannerText }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointClientLoginBannerOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointClientLoginBannerOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetEndpointClientLoginBannerOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointClientLoginBannerOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointClientLoginBannerOption)(nil)).Elem()
+}
+
+func (o GetEndpointClientLoginBannerOptionArrayOutput) ToGetEndpointClientLoginBannerOptionArrayOutput() GetEndpointClientLoginBannerOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointClientLoginBannerOptionArrayOutput) ToGetEndpointClientLoginBannerOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientLoginBannerOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointClientLoginBannerOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointClientLoginBannerOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointClientLoginBannerOption {
+		return vs[0].([]GetEndpointClientLoginBannerOption)[vs[1].(int)]
+	}).(GetEndpointClientLoginBannerOptionOutput)
+}
+
+type GetEndpointConnectionLogOption struct {
+	CloudwatchLogGroup  string `pulumi:"cloudwatchLogGroup"`
+	CloudwatchLogStream string `pulumi:"cloudwatchLogStream"`
+	Enabled             bool   `pulumi:"enabled"`
+}
+
+// GetEndpointConnectionLogOptionInput is an input type that accepts GetEndpointConnectionLogOptionArgs and GetEndpointConnectionLogOptionOutput values.
+// You can construct a concrete instance of `GetEndpointConnectionLogOptionInput` via:
+//
+//          GetEndpointConnectionLogOptionArgs{...}
+type GetEndpointConnectionLogOptionInput interface {
+	pulumi.Input
+
+	ToGetEndpointConnectionLogOptionOutput() GetEndpointConnectionLogOptionOutput
+	ToGetEndpointConnectionLogOptionOutputWithContext(context.Context) GetEndpointConnectionLogOptionOutput
+}
+
+type GetEndpointConnectionLogOptionArgs struct {
+	CloudwatchLogGroup  pulumi.StringInput `pulumi:"cloudwatchLogGroup"`
+	CloudwatchLogStream pulumi.StringInput `pulumi:"cloudwatchLogStream"`
+	Enabled             pulumi.BoolInput   `pulumi:"enabled"`
+}
+
+func (GetEndpointConnectionLogOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointConnectionLogOption)(nil)).Elem()
+}
+
+func (i GetEndpointConnectionLogOptionArgs) ToGetEndpointConnectionLogOptionOutput() GetEndpointConnectionLogOptionOutput {
+	return i.ToGetEndpointConnectionLogOptionOutputWithContext(context.Background())
+}
+
+func (i GetEndpointConnectionLogOptionArgs) ToGetEndpointConnectionLogOptionOutputWithContext(ctx context.Context) GetEndpointConnectionLogOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionLogOptionOutput)
+}
+
+// GetEndpointConnectionLogOptionArrayInput is an input type that accepts GetEndpointConnectionLogOptionArray and GetEndpointConnectionLogOptionArrayOutput values.
+// You can construct a concrete instance of `GetEndpointConnectionLogOptionArrayInput` via:
+//
+//          GetEndpointConnectionLogOptionArray{ GetEndpointConnectionLogOptionArgs{...} }
+type GetEndpointConnectionLogOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointConnectionLogOptionArrayOutput() GetEndpointConnectionLogOptionArrayOutput
+	ToGetEndpointConnectionLogOptionArrayOutputWithContext(context.Context) GetEndpointConnectionLogOptionArrayOutput
+}
+
+type GetEndpointConnectionLogOptionArray []GetEndpointConnectionLogOptionInput
+
+func (GetEndpointConnectionLogOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointConnectionLogOption)(nil)).Elem()
+}
+
+func (i GetEndpointConnectionLogOptionArray) ToGetEndpointConnectionLogOptionArrayOutput() GetEndpointConnectionLogOptionArrayOutput {
+	return i.ToGetEndpointConnectionLogOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointConnectionLogOptionArray) ToGetEndpointConnectionLogOptionArrayOutputWithContext(ctx context.Context) GetEndpointConnectionLogOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionLogOptionArrayOutput)
+}
+
+type GetEndpointConnectionLogOptionOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointConnectionLogOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointConnectionLogOption)(nil)).Elem()
+}
+
+func (o GetEndpointConnectionLogOptionOutput) ToGetEndpointConnectionLogOptionOutput() GetEndpointConnectionLogOptionOutput {
+	return o
+}
+
+func (o GetEndpointConnectionLogOptionOutput) ToGetEndpointConnectionLogOptionOutputWithContext(ctx context.Context) GetEndpointConnectionLogOptionOutput {
+	return o
+}
+
+func (o GetEndpointConnectionLogOptionOutput) CloudwatchLogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointConnectionLogOption) string { return v.CloudwatchLogGroup }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointConnectionLogOptionOutput) CloudwatchLogStream() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointConnectionLogOption) string { return v.CloudwatchLogStream }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointConnectionLogOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointConnectionLogOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetEndpointConnectionLogOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointConnectionLogOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointConnectionLogOption)(nil)).Elem()
+}
+
+func (o GetEndpointConnectionLogOptionArrayOutput) ToGetEndpointConnectionLogOptionArrayOutput() GetEndpointConnectionLogOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointConnectionLogOptionArrayOutput) ToGetEndpointConnectionLogOptionArrayOutputWithContext(ctx context.Context) GetEndpointConnectionLogOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointConnectionLogOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointConnectionLogOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointConnectionLogOption {
+		return vs[0].([]GetEndpointConnectionLogOption)[vs[1].(int)]
+	}).(GetEndpointConnectionLogOptionOutput)
+}
+
+type GetEndpointFilter struct {
+	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetEndpointFilterInput is an input type that accepts GetEndpointFilterArgs and GetEndpointFilterOutput values.
+// You can construct a concrete instance of `GetEndpointFilterInput` via:
+//
+//          GetEndpointFilterArgs{...}
+type GetEndpointFilterInput interface {
+	pulumi.Input
+
+	ToGetEndpointFilterOutput() GetEndpointFilterOutput
+	ToGetEndpointFilterOutputWithContext(context.Context) GetEndpointFilterOutput
+}
+
+type GetEndpointFilterArgs struct {
+	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointFilter)(nil)).Elem()
+}
+
+func (i GetEndpointFilterArgs) ToGetEndpointFilterOutput() GetEndpointFilterOutput {
+	return i.ToGetEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i GetEndpointFilterArgs) ToGetEndpointFilterOutputWithContext(ctx context.Context) GetEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointFilterOutput)
+}
+
+// GetEndpointFilterArrayInput is an input type that accepts GetEndpointFilterArray and GetEndpointFilterArrayOutput values.
+// You can construct a concrete instance of `GetEndpointFilterArrayInput` via:
+//
+//          GetEndpointFilterArray{ GetEndpointFilterArgs{...} }
+type GetEndpointFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointFilterArrayOutput() GetEndpointFilterArrayOutput
+	ToGetEndpointFilterArrayOutputWithContext(context.Context) GetEndpointFilterArrayOutput
+}
+
+type GetEndpointFilterArray []GetEndpointFilterInput
+
+func (GetEndpointFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointFilter)(nil)).Elem()
+}
+
+func (i GetEndpointFilterArray) ToGetEndpointFilterArrayOutput() GetEndpointFilterArrayOutput {
+	return i.ToGetEndpointFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointFilterArray) ToGetEndpointFilterArrayOutputWithContext(ctx context.Context) GetEndpointFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointFilterArrayOutput)
+}
+
+type GetEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointFilter)(nil)).Elem()
+}
+
+func (o GetEndpointFilterOutput) ToGetEndpointFilterOutput() GetEndpointFilterOutput {
+	return o
+}
+
+func (o GetEndpointFilterOutput) ToGetEndpointFilterOutputWithContext(ctx context.Context) GetEndpointFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+func (o GetEndpointFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+func (o GetEndpointFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEndpointFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetEndpointFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointFilter)(nil)).Elem()
+}
+
+func (o GetEndpointFilterArrayOutput) ToGetEndpointFilterArrayOutput() GetEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetEndpointFilterArrayOutput) ToGetEndpointFilterArrayOutputWithContext(ctx context.Context) GetEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetEndpointFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointFilter {
+		return vs[0].([]GetEndpointFilter)[vs[1].(int)]
+	}).(GetEndpointFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionInput)(nil)).Elem(), EndpointAuthenticationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionArrayInput)(nil)).Elem(), EndpointAuthenticationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientConnectOptionsInput)(nil)).Elem(), EndpointClientConnectOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientConnectOptionsPtrInput)(nil)).Elem(), EndpointClientConnectOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientLoginBannerOptionsInput)(nil)).Elem(), EndpointClientLoginBannerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientLoginBannerOptionsPtrInput)(nil)).Elem(), EndpointClientLoginBannerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsPtrInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAuthenticationOptionInput)(nil)).Elem(), GetEndpointAuthenticationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAuthenticationOptionArrayInput)(nil)).Elem(), GetEndpointAuthenticationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientConnectOptionInput)(nil)).Elem(), GetEndpointClientConnectOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientConnectOptionArrayInput)(nil)).Elem(), GetEndpointClientConnectOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientLoginBannerOptionInput)(nil)).Elem(), GetEndpointClientLoginBannerOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientLoginBannerOptionArrayInput)(nil)).Elem(), GetEndpointClientLoginBannerOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionLogOptionInput)(nil)).Elem(), GetEndpointConnectionLogOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionLogOptionArrayInput)(nil)).Elem(), GetEndpointConnectionLogOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterInput)(nil)).Elem(), GetEndpointFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterArrayInput)(nil)).Elem(), GetEndpointFilterArray{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionOutput{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointClientConnectOptionsOutput{})
+	pulumi.RegisterOutputType(EndpointClientConnectOptionsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointClientLoginBannerOptionsOutput{})
+	pulumi.RegisterOutputType(EndpointClientLoginBannerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetEndpointAuthenticationOptionOutput{})
+	pulumi.RegisterOutputType(GetEndpointAuthenticationOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointClientConnectOptionOutput{})
+	pulumi.RegisterOutputType(GetEndpointClientConnectOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointClientLoginBannerOptionOutput{})
+	pulumi.RegisterOutputType(GetEndpointClientLoginBannerOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointConnectionLogOptionOutput{})
+	pulumi.RegisterOutputType(GetEndpointConnectionLogOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointFilterOutput{})
+	pulumi.RegisterOutputType(GetEndpointFilterArrayOutput{})
 }

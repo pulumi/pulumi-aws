@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -79,7 +79,7 @@ type NfsFileShare struct {
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrOutput `pulumi:"nfsFileShareDefaults"`
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy pulumi.StringPtrOutput `pulumi:"notificationPolicy"`
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
 	// File share path used by the NFS client to identify the mount point.
 	Path pulumi.StringOutput `pulumi:"path"`
@@ -166,7 +166,7 @@ type nfsFileShareState struct {
 	NfsFileShareDefaults *NfsFileShareNfsFileShareDefaults `pulumi:"nfsFileShareDefaults"`
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy *string `pulumi:"notificationPolicy"`
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// File share path used by the NFS client to identify the mount point.
 	Path *string `pulumi:"path"`
@@ -213,7 +213,7 @@ type NfsFileShareState struct {
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrInput
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy pulumi.StringPtrInput
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// File share path used by the NFS client to identify the mount point.
 	Path pulumi.StringPtrInput
@@ -260,7 +260,7 @@ type nfsFileShareArgs struct {
 	NfsFileShareDefaults *NfsFileShareNfsFileShareDefaults `pulumi:"nfsFileShareDefaults"`
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy *string `pulumi:"notificationPolicy"`
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly *bool `pulumi:"readOnly"`
@@ -300,7 +300,7 @@ type NfsFileShareArgs struct {
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrInput
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy pulumi.StringPtrInput
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly pulumi.BoolPtrInput

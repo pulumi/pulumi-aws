@@ -22,8 +22,8 @@ class GetClusterResult:
     A collection of values returned by getCluster.
     """
     def __init__(__self__, cluster_certificates=None, cluster_id=None, cluster_state=None, id=None, security_group_id=None, subnet_ids=None, vpc_id=None):
-        if cluster_certificates and not isinstance(cluster_certificates, dict):
-            raise TypeError("Expected argument 'cluster_certificates' to be a dict")
+        if cluster_certificates and not isinstance(cluster_certificates, list):
+            raise TypeError("Expected argument 'cluster_certificates' to be a list")
         pulumi.set(__self__, "cluster_certificates", cluster_certificates)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
@@ -46,7 +46,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterCertificates")
-    def cluster_certificates(self) -> 'outputs.GetClusterClusterCertificatesResult':
+    def cluster_certificates(self) -> Sequence['outputs.GetClusterClusterCertificateResult']:
         """
         The list of cluster certificates.
         * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.

@@ -90,6 +90,8 @@ __all__ = [
     'GetOriginRequestPolicyHeadersConfigHeaderResult',
     'GetOriginRequestPolicyQueryStringsConfigResult',
     'GetOriginRequestPolicyQueryStringsConfigQueryStringResult',
+    'GetRealtimeLogConfigEndpointResult',
+    'GetRealtimeLogConfigEndpointKinesisStreamConfigResult',
     'GetResponseHeadersPolicyCorsConfigResult',
     'GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult',
     'GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodResult',
@@ -4182,6 +4184,66 @@ class GetOriginRequestPolicyQueryStringsConfigQueryStringResult(dict):
     @pulumi.getter
     def items(self) -> Sequence[str]:
         return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class GetRealtimeLogConfigEndpointResult(dict):
+    def __init__(__self__, *,
+                 kinesis_stream_configs: Sequence['outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult'],
+                 stream_type: str):
+        """
+        :param Sequence['GetRealtimeLogConfigEndpointKinesisStreamConfigArgs'] kinesis_stream_configs: (Required) The Amazon Kinesis data stream configuration.
+        :param str stream_type: (Required) The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+        """
+        pulumi.set(__self__, "kinesis_stream_configs", kinesis_stream_configs)
+        pulumi.set(__self__, "stream_type", stream_type)
+
+    @property
+    @pulumi.getter(name="kinesisStreamConfigs")
+    def kinesis_stream_configs(self) -> Sequence['outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult']:
+        """
+        (Required) The Amazon Kinesis data stream configuration.
+        """
+        return pulumi.get(self, "kinesis_stream_configs")
+
+    @property
+    @pulumi.getter(name="streamType")
+    def stream_type(self) -> str:
+        """
+        (Required) The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+        """
+        return pulumi.get(self, "stream_type")
+
+
+@pulumi.output_type
+class GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
+    def __init__(__self__, *,
+                 role_arn: str,
+                 stream_arn: str):
+        """
+        :param str role_arn: (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+               See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+        :param str stream_arn: (Required) The ARN of the Kinesis data stream.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+        See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        """
+        (Required) The ARN of the Kinesis data stream.
+        """
+        return pulumi.get(self, "stream_arn")
 
 
 @pulumi.output_type

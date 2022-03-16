@@ -650,7 +650,7 @@ class EndpointS3SettingsArgs:
                  server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
                  service_access_role_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket_folder: S3 Bucket Object prefix.
+        :param pulumi.Input[str] bucket_folder: S3 Object prefix.
         :param pulumi.Input[str] bucket_name: S3 Bucket name.
         :param pulumi.Input[str] compression_type: Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
         :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Defaults to `,`.
@@ -695,7 +695,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 Bucket Object prefix.
+        S3 Object prefix.
         """
         return pulumi.get(self, "bucket_folder")
 

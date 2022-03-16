@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? Iops { get; set; }
 
         /// <summary>
+        /// The ARN of the Outpost on which the snapshot is stored.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
+        /// <summary>
         /// The id of an EBS snapshot that will be used to initialize the created
         /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
         /// snapshot.

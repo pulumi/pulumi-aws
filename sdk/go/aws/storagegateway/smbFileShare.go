@@ -22,7 +22,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -49,7 +49,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -115,7 +115,7 @@ type SmbFileShare struct {
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy pulumi.StringPtrOutput `pulumi:"notificationPolicy"`
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
 	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
 	OplocksEnabled pulumi.BoolOutput `pulumi:"oplocksEnabled"`
@@ -213,7 +213,7 @@ type smbFileShareState struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy *string `pulumi:"notificationPolicy"`
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
 	OplocksEnabled *bool `pulumi:"oplocksEnabled"`
@@ -274,7 +274,7 @@ type SmbFileShareState struct {
 	LocationArn pulumi.StringPtrInput
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy pulumi.StringPtrInput
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
 	OplocksEnabled pulumi.BoolPtrInput
@@ -335,7 +335,7 @@ type smbFileShareArgs struct {
 	LocationArn string `pulumi:"locationArn"`
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy *string `pulumi:"notificationPolicy"`
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
 	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
 	OplocksEnabled *bool `pulumi:"oplocksEnabled"`
@@ -389,7 +389,7 @@ type SmbFileShareArgs struct {
 	LocationArn pulumi.StringInput
 	// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
 	NotificationPolicy pulumi.StringPtrInput
-	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	// Access Control List permission for S3 objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
 	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
 	OplocksEnabled pulumi.BoolPtrInput

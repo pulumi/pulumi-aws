@@ -112,6 +112,7 @@ __all__ = [
     'GetCoipPoolsFilterResult',
     'GetCustomerGatewayFilterResult',
     'GetDedicatedHostFilterResult',
+    'GetEipsFilterResult',
     'GetElasticIpFilterResult',
     'GetInstanceCreditSpecificationResult',
     'GetInstanceEbsBlockDeviceResult',
@@ -201,6 +202,8 @@ class AmiCopyEbsBlockDevice(dict):
             suggest = "delete_on_termination"
         elif key == "deviceName":
             suggest = "device_name"
+        elif key == "outpostArn":
+            suggest = "outpost_arn"
         elif key == "snapshotId":
             suggest = "snapshot_id"
         elif key == "volumeSize":
@@ -224,6 +227,7 @@ class AmiCopyEbsBlockDevice(dict):
                  device_name: Optional[str] = None,
                  encrypted: Optional[bool] = None,
                  iops: Optional[int] = None,
+                 outpost_arn: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
                  throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
@@ -235,6 +239,7 @@ class AmiCopyEbsBlockDevice(dict):
         :param bool encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param int iops: Number of I/O operations per second the
                created volumes will support.
+        :param str outpost_arn: The ARN of the Outpost on which the snapshot is stored.
         :param str snapshot_id: The id of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -252,6 +257,8 @@ class AmiCopyEbsBlockDevice(dict):
             pulumi.set(__self__, "encrypted", encrypted)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if throughput is not None:
@@ -294,6 +301,14 @@ class AmiCopyEbsBlockDevice(dict):
         created volumes will support.
         """
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[str]:
+        """
+        The ARN of the Outpost on which the snapshot is stored.
+        """
+        return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="snapshotId")
@@ -393,6 +408,8 @@ class AmiEbsBlockDevice(dict):
             suggest = "device_name"
         elif key == "deleteOnTermination":
             suggest = "delete_on_termination"
+        elif key == "outpostArn":
+            suggest = "outpost_arn"
         elif key == "snapshotId":
             suggest = "snapshot_id"
         elif key == "volumeSize":
@@ -416,6 +433,7 @@ class AmiEbsBlockDevice(dict):
                  delete_on_termination: Optional[bool] = None,
                  encrypted: Optional[bool] = None,
                  iops: Optional[int] = None,
+                 outpost_arn: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
                  throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
@@ -427,6 +445,7 @@ class AmiEbsBlockDevice(dict):
         :param bool encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param int iops: Number of I/O operations per second the
                created volumes will support.
+        :param str outpost_arn: The ARN of the Outpost on which the snapshot is stored.
         :param str snapshot_id: The id of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -443,6 +462,8 @@ class AmiEbsBlockDevice(dict):
             pulumi.set(__self__, "encrypted", encrypted)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if throughput is not None:
@@ -485,6 +506,14 @@ class AmiEbsBlockDevice(dict):
         created volumes will support.
         """
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[str]:
+        """
+        The ARN of the Outpost on which the snapshot is stored.
+        """
+        return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="snapshotId")
@@ -582,6 +611,8 @@ class AmiFromInstanceEbsBlockDevice(dict):
             suggest = "delete_on_termination"
         elif key == "deviceName":
             suggest = "device_name"
+        elif key == "outpostArn":
+            suggest = "outpost_arn"
         elif key == "snapshotId":
             suggest = "snapshot_id"
         elif key == "volumeSize":
@@ -605,6 +636,7 @@ class AmiFromInstanceEbsBlockDevice(dict):
                  device_name: Optional[str] = None,
                  encrypted: Optional[bool] = None,
                  iops: Optional[int] = None,
+                 outpost_arn: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
                  throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
@@ -616,6 +648,7 @@ class AmiFromInstanceEbsBlockDevice(dict):
         :param bool encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param int iops: Number of I/O operations per second the
                created volumes will support.
+        :param str outpost_arn: The ARN of the Outpost on which the snapshot is stored.
         :param str snapshot_id: The id of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -633,6 +666,8 @@ class AmiFromInstanceEbsBlockDevice(dict):
             pulumi.set(__self__, "encrypted", encrypted)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if throughput is not None:
@@ -675,6 +710,14 @@ class AmiFromInstanceEbsBlockDevice(dict):
         created volumes will support.
         """
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[str]:
+        """
+        The ARN of the Outpost on which the snapshot is stored.
+        """
+        return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="snapshotId")
@@ -7592,6 +7635,37 @@ class GetDedicatedHostFilterResult(dict):
     def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEipsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

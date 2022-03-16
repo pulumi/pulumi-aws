@@ -12,6 +12,8 @@ namespace Pulumi.Aws.S3
     public static class GetBucketObject
     {
         /// <summary>
+        /// &gt; **NOTE:** The `aws.s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.BucketObjectv2` instead, where new features and fixes will be added.
+        /// 
         /// The S3 object data source allows access to the metadata and
         /// _optionally_ (see below) content of an object stored inside S3 bucket.
         /// 
@@ -86,6 +88,8 @@ namespace Pulumi.Aws.S3
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **NOTE:** The `aws.s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.BucketObjectv2` instead, where new features and fixes will be added.
+        /// 
         /// The S3 object data source allows access to the metadata and
         /// _optionally_ (see below) content of an object stored inside S3 bucket.
         /// 

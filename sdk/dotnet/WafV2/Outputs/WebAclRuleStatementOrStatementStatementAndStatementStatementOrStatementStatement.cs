@@ -14,27 +14,27 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatement
     {
         /// <summary>
-        /// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementByteMatchStatement? ByteMatchStatement;
         /// <summary>
-        /// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        /// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementGeoMatchStatement? GeoMatchStatement;
         /// <summary>
-        /// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement? IpSetReferenceStatement;
         /// <summary>
-        /// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
-        /// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        /// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
         /// <summary>
-        /// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+        /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementSizeConstraintStatement? SizeConstraintStatement;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementSqliMatchStatement? SqliMatchStatement;
         /// <summary>
-        /// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementXssMatchStatement? XssMatchStatement;
 

@@ -94,7 +94,39 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// 
-    /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+    /// You can also find a specific Prefix List using the [`aws.ec2.getPrefixList`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
+    /// or [`ec2_managed_prefix_list`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
+    ///         var s3 = current.Apply(current =&gt; Output.Create(Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
+    ///         {
+    ///             Name = $"com.amazonaws.{current.Name}.s3",
+    ///         })));
+    ///         var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3GatewayEgress", new Aws.Ec2.SecurityGroupRuleArgs
+    ///         {
+    ///             Description = "S3 Gateway Egress",
+    ///             Type = "egress",
+    ///             SecurityGroupId = "sg-123456",
+    ///             FromPort = 443,
+    ///             ToPort = 443,
+    ///             Protocol = "tcp",
+    ///             PrefixListIds = 
+    ///             {
+    ///                 s3.Apply(s3 =&gt; s3.Id),
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

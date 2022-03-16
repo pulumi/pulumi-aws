@@ -22,7 +22,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/imagebuilder"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -30,7 +30,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
 // 			Platform: pulumi.String("Linux"),
-// 			Uri:      pulumi.String(fmt.Sprintf("%v%v%v%v", "s3://", aws_s3_bucket_object.Example.Bucket, "/", aws_s3_bucket_object.Example.Key)),
+// 			Uri:      pulumi.String(fmt.Sprintf("%v%v%v%v", "s3://", aws_s3_object.Example.Bucket, "/", aws_s3_object.Example.Key)),
 // 			Version:  pulumi.String("1.0.0"),
 // 		})
 // 		if err != nil {

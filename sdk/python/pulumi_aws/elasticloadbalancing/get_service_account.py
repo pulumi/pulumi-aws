@@ -79,8 +79,12 @@ def get_service_account(region: Optional[str] = None,
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.Bucket("elbLogs",
-        acl="private",
+    elb_logs = aws.s3.BucketV2("elbLogs", bucket="my-elb-tf-test-bucket")
+    elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
+        bucket=elb_logs.id,
+        acl="private")
+    allow_elb_logging = aws.s3.BucketPolicy("allowElbLogging",
+        bucket=elb_logs.id,
         policy=f\"\"\"{{
       "Id": "Policy",
       "Version": "2012-10-17",
@@ -147,8 +151,12 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.Bucket("elbLogs",
-        acl="private",
+    elb_logs = aws.s3.BucketV2("elbLogs", bucket="my-elb-tf-test-bucket")
+    elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
+        bucket=elb_logs.id,
+        acl="private")
+    allow_elb_logging = aws.s3.BucketPolicy("allowElbLogging",
+        bucket=elb_logs.id,
         policy=f\"\"\"{{
       "Id": "Policy",
       "Version": "2012-10-17",

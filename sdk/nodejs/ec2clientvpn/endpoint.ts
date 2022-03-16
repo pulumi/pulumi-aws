@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  *
+ * > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `securityGroups` argument and a Client VPN endpoint resource with a `securityGroupIds` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -80,6 +82,14 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly clientCidrBlock!: pulumi.Output<string>;
     /**
+     * The options for managing connection authorization for new client connections.
+     */
+    public readonly clientConnectOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientConnectOptions>;
+    /**
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     */
+    public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    /**
      * Information about the client connection logging options.
      */
     public readonly connectionLogOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointConnectionLogOptions>;
@@ -96,6 +106,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     */
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
     public readonly selfServicePortal!: pulumi.Output<string | undefined>;
@@ -104,11 +118,17 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly serverCertificateArn!: pulumi.Output<string>;
     /**
+     * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
+     */
+    public readonly sessionTimeoutHours!: pulumi.Output<number | undefined>;
+    /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
     public readonly splitTunnel!: pulumi.Output<boolean | undefined>;
     /**
-     * The current state of the Client VPN endpoint.
+     * **Deprecated** The current state of the Client VPN endpoint.
+     *
+     * @deprecated This attribute has been deprecated.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -123,6 +143,14 @@ export class Endpoint extends pulumi.CustomResource {
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     public readonly transportProtocol!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     */
+    public readonly vpcId!: pulumi.Output<string>;
+    /**
+     * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
+     */
+    public readonly vpnPort!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -140,17 +168,23 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
             resourceInputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
+            resourceInputs["clientConnectOptions"] = state ? state.clientConnectOptions : undefined;
+            resourceInputs["clientLoginBannerOptions"] = state ? state.clientLoginBannerOptions : undefined;
             resourceInputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["selfServicePortal"] = state ? state.selfServicePortal : undefined;
             resourceInputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
+            resourceInputs["sessionTimeoutHours"] = state ? state.sessionTimeoutHours : undefined;
             resourceInputs["splitTunnel"] = state ? state.splitTunnel : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transportProtocol"] = state ? state.transportProtocol : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpnPort"] = state ? state.vpnPort : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if ((!args || args.authenticationOptions === undefined) && !opts.urn) {
@@ -167,14 +201,20 @@ export class Endpoint extends pulumi.CustomResource {
             }
             resourceInputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;
             resourceInputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
+            resourceInputs["clientConnectOptions"] = args ? args.clientConnectOptions : undefined;
+            resourceInputs["clientLoginBannerOptions"] = args ? args.clientLoginBannerOptions : undefined;
             resourceInputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
             resourceInputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
+            resourceInputs["sessionTimeoutHours"] = args ? args.sessionTimeoutHours : undefined;
             resourceInputs["splitTunnel"] = args ? args.splitTunnel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transportProtocol"] = args ? args.transportProtocol : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["vpnPort"] = args ? args.vpnPort : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -202,6 +242,14 @@ export interface EndpointState {
      */
     clientCidrBlock?: pulumi.Input<string>;
     /**
+     * The options for managing connection authorization for new client connections.
+     */
+    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
+    /**
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     */
+    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    /**
      * Information about the client connection logging options.
      */
     connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
@@ -218,6 +266,10 @@ export interface EndpointState {
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     */
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
     selfServicePortal?: pulumi.Input<string>;
@@ -226,11 +278,17 @@ export interface EndpointState {
      */
     serverCertificateArn?: pulumi.Input<string>;
     /**
+     * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
+     */
+    sessionTimeoutHours?: pulumi.Input<number>;
+    /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
     splitTunnel?: pulumi.Input<boolean>;
     /**
-     * The current state of the Client VPN endpoint.
+     * **Deprecated** The current state of the Client VPN endpoint.
+     *
+     * @deprecated This attribute has been deprecated.
      */
     status?: pulumi.Input<string>;
     /**
@@ -245,6 +303,14 @@ export interface EndpointState {
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     transportProtocol?: pulumi.Input<string>;
+    /**
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     */
+    vpcId?: pulumi.Input<string>;
+    /**
+     * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
+     */
+    vpnPort?: pulumi.Input<number>;
 }
 
 /**
@@ -260,6 +326,14 @@ export interface EndpointArgs {
      */
     clientCidrBlock: pulumi.Input<string>;
     /**
+     * The options for managing connection authorization for new client connections.
+     */
+    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
+    /**
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     */
+    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    /**
      * Information about the client connection logging options.
      */
     connectionLogOptions: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
@@ -272,6 +346,10 @@ export interface EndpointArgs {
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     */
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
     selfServicePortal?: pulumi.Input<string>;
@@ -279,6 +357,10 @@ export interface EndpointArgs {
      * The ARN of the ACM server certificate.
      */
     serverCertificateArn: pulumi.Input<string>;
+    /**
+     * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
+     */
+    sessionTimeoutHours?: pulumi.Input<number>;
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
@@ -291,4 +373,12 @@ export interface EndpointArgs {
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     transportProtocol?: pulumi.Input<string>;
+    /**
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     */
+    vpcId?: pulumi.Input<string>;
+    /**
+     * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
+     */
+    vpnPort?: pulumi.Input<number>;
 }

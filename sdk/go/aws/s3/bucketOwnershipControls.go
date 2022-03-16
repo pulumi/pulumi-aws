@@ -19,18 +19,20 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-// 			Bucket: exampleBucket.ID(),
+// 			Bucket: exampleBucketV2.ID(),
 // 			Rule: &s3.BucketOwnershipControlsRuleArgs{
 // 				ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 // 			},

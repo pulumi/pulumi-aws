@@ -26,14 +26,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example-flink-application",
     ///         });
-    ///         var exampleBucketObject = new Aws.S3.BucketObject("exampleBucketObject", new Aws.S3.BucketObjectArgs
+    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
-    ///             Bucket = exampleBucket.BucketName,
+    ///             Bucket = exampleBucketV2.Bucket,
     ///             Key = "example-flink-application",
-    ///             Source = new FileAsset("flink-app.jar"),
+    ///             Source = "flink-app.jar",
     ///         });
     ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
     ///         {
@@ -47,8 +48,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                     {
     ///                         S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
     ///                         {
-    ///                             BucketArn = exampleBucket.Arn,
-    ///                             FileKey = exampleBucketObject.Key,
+    ///                             BucketArn = exampleBucketV2.Arn,
+    ///                             FileKey = exampleBucketObjectv2.Key,
     ///                         },
     ///                     },
     ///                     CodeContentType = "ZIPFILE",
@@ -262,14 +263,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example-flink-application",
     ///         });
-    ///         var exampleBucketObject = new Aws.S3.BucketObject("exampleBucketObject", new Aws.S3.BucketObjectArgs
+    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
-    ///             Bucket = exampleBucket.BucketName,
+    ///             Bucket = exampleBucketV2.Bucket,
     ///             Key = "example-flink-application",
-    ///             Source = new FileAsset("flink-app.jar"),
+    ///             Source = "flink-app.jar",
     ///         });
     ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
     ///         {
@@ -283,8 +285,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///                     {
     ///                         S3ContentLocation = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs
     ///                         {
-    ///                             BucketArn = exampleBucket.Arn,
-    ///                             FileKey = exampleBucketObject.Key,
+    ///                             BucketArn = exampleBucketV2.Arn,
+    ///                             FileKey = exampleBucketObjectv2.Key,
     ///                         },
     ///                     },
     ///                     CodeContentType = "ZIPFILE",

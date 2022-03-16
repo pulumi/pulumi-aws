@@ -21,7 +21,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/imagebuilder"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -41,6 +41,16 @@ import (
 // 			Components: imagebuilder.ImageRecipeComponentArray{
 // 				&imagebuilder.ImageRecipeComponentArgs{
 // 					ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
+// 					Parameters: imagebuilder.ImageRecipeComponentParameterArray{
+// 						&imagebuilder.ImageRecipeComponentParameterArgs{
+// 							Name:  pulumi.String("Parameter1"),
+// 							Value: pulumi.String("Value1"),
+// 						},
+// 						&imagebuilder.ImageRecipeComponentParameterArgs{
+// 							Name:  pulumi.String("Parameter2"),
+// 							Value: pulumi.String("Value2"),
+// 						},
+// 					},
 // 				},
 // 			},
 // 			ParentImage: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "arn:", data.Aws_partition.Current.Partition, ":imagebuilder:", data.Aws_region.Current.Name, ":aws:image/amazon-linux-2-x86/x.x.x")),
@@ -74,7 +84,7 @@ type ImageRecipe struct {
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Description of the image recipe.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the image recipe.
+	// The name of the component parameter.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the image recipe.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -142,7 +152,7 @@ type imageRecipeState struct {
 	DateCreated *string `pulumi:"dateCreated"`
 	// Description of the image recipe.
 	Description *string `pulumi:"description"`
-	// Name of the image recipe.
+	// The name of the component parameter.
 	Name *string `pulumi:"name"`
 	// Owner of the image recipe.
 	Owner *string `pulumi:"owner"`
@@ -173,7 +183,7 @@ type ImageRecipeState struct {
 	DateCreated pulumi.StringPtrInput
 	// Description of the image recipe.
 	Description pulumi.StringPtrInput
-	// Name of the image recipe.
+	// The name of the component parameter.
 	Name pulumi.StringPtrInput
 	// Owner of the image recipe.
 	Owner pulumi.StringPtrInput
@@ -204,7 +214,7 @@ type imageRecipeArgs struct {
 	Components []ImageRecipeComponent `pulumi:"components"`
 	// Description of the image recipe.
 	Description *string `pulumi:"description"`
-	// Name of the image recipe.
+	// The name of the component parameter.
 	Name *string `pulumi:"name"`
 	// Platform of the image recipe.
 	ParentImage string `pulumi:"parentImage"`
@@ -226,7 +236,7 @@ type ImageRecipeArgs struct {
 	Components ImageRecipeComponentArrayInput
 	// Description of the image recipe.
 	Description pulumi.StringPtrInput
-	// Name of the image recipe.
+	// The name of the component parameter.
 	Name pulumi.StringPtrInput
 	// Platform of the image recipe.
 	ParentImage pulumi.StringInput

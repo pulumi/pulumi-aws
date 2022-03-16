@@ -86,23 +86,23 @@ class RegistryScanningConfigurationRuleRepositoryFilterArgs:
 @pulumi.input_type
 class ReplicationConfigurationReplicationConfigurationArgs:
     def __init__(__self__, *,
-                 rule: pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']):
+                 rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]]):
         """
-        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs'] rule: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
-        pulumi.set(__self__, "rule", rule)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rule(self) -> pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]]:
         """
         The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
-        return pulumi.get(self, "rule")
+        return pulumi.get(self, "rules")
 
-    @rule.setter
-    def rule(self, value: pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']):
-        pulumi.set(self, "rule", value)
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]]):
+        pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type

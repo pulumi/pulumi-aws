@@ -23,6 +23,10 @@ class GetBucketObjectsResult:
     def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, id=None, keys=None, max_keys=None, owners=None, prefix=None, start_after=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
+        if bucket is not None:
+            warnings.warn("""Use the aws_s3_objects data source instead""", DeprecationWarning)
+            pulumi.log.warn("""bucket is deprecated: Use the aws_s3_objects data source instead""")
+
         pulumi.set(__self__, "bucket", bucket)
         if common_prefixes and not isinstance(common_prefixes, list):
             raise TypeError("Expected argument 'common_prefixes' to be a list")
@@ -151,9 +155,11 @@ def get_bucket_objects(bucket: Optional[str] = None,
                        start_after: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketObjectsResult:
     """
+    > **NOTE:** The `s3.get_bucket_objects` data source is DEPRECATED and will be removed in a future version! Use `s3.get_objects` instead, where new features and fixes will be added.
+
     > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
 
-    The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
@@ -202,9 +208,11 @@ def get_bucket_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                               start_after: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketObjectsResult]:
     """
+    > **NOTE:** The `s3.get_bucket_objects` data source is DEPRECATED and will be removed in a future version! Use `s3.get_objects` instead, where new features and fixes will be added.
+
     > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
 
-    The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified

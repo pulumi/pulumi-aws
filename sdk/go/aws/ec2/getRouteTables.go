@@ -36,7 +36,7 @@ type GetRouteTablesResult struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A set of all the route table ids found. This data source will fail if none are found.
+	// A set of all the route table ids found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId *string           `pulumi:"vpcId"`
@@ -90,7 +90,7 @@ func (o GetRouteTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A set of all the route table ids found. This data source will fail if none are found.
+// A set of all the route table ids found.
 func (o GetRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

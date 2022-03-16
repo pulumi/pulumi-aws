@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./dataSet";
+export * from "./revision";
 
 // Import resources to register:
 import { DataSet } from "./dataSet";
+import { Revision } from "./revision";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:dataexchange/dataSet:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
+            case "aws:dataexchange/revision:Revision":
+                return new Revision(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "dataexchange/dataSet", _module)
+pulumi.runtime.registerResourceModule("aws", "dataexchange/revision", _module)

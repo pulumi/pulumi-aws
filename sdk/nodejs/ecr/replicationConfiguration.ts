@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const exampleRegions = aws.getRegions({});
  * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rule: {
+ *     rules: [{
  *         destinations: [{
  *             region: exampleRegions.then(exampleRegions => exampleRegions.names?[0]),
  *             registryId: current.then(current => current.accountId),
  *         }],
- *     },
+ *     }],
  * }});
  * ```
  * ## Multiple Region Usage
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const exampleRegions = aws.getRegions({});
  * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rule: {
+ *     rules: [{
  *         destinations: [
  *             {
  *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?[0]),
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *                 registryId: current.then(current => current.accountId),
  *             },
  *         ],
- *     },
+ *     }],
  * }});
  * ```
  *
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const exampleRegions = aws.getRegions({});
  * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rule: {
+ *     rules: [{
  *         destinations: [{
  *             region: exampleRegions.then(exampleRegions => exampleRegions.names?[0]),
  *             registryId: current.then(current => current.accountId),
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *             filter: "prod-microservice",
  *             filterType: "PREFIX_MATCH",
  *         }],
- *     },
+ *     }],
  * }});
  * ```
  *

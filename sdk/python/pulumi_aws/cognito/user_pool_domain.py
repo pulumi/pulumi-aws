@@ -18,7 +18,7 @@ class UserPoolDomainArgs:
                  certificate_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
-        :param pulumi.Input[str] domain: The domain string.
+        :param pulumi.Input[str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         """
@@ -31,7 +31,7 @@ class UserPoolDomainArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
         """
-        The domain string.
+        For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         """
         return pulumi.get(self, "domain")
 
@@ -79,7 +79,7 @@ class _UserPoolDomainState:
         :param pulumi.Input[str] aws_account_id: The AWS account ID for the user pool owner.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-        :param pulumi.Input[str] domain: The domain string.
+        :param pulumi.Input[str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         :param pulumi.Input[str] version: The app version.
@@ -139,7 +139,7 @@ class _UserPoolDomainState:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        The domain string.
+        For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         """
         return pulumi.get(self, "domain")
 
@@ -216,7 +216,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         example_user_pool = aws.cognito.UserPool("exampleUserPool")
         main = aws.cognito.UserPoolDomain("main",
-            domain="example-domain.example.com",
+            domain="example-domain",
             certificate_arn=aws_acm_certificate["cert"]["arn"],
             user_pool_id=example_user_pool.id)
         example_zone = aws.route53.get_zone(name="example.com")
@@ -242,7 +242,7 @@ class UserPoolDomain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        :param pulumi.Input[str] domain: The domain string.
+        :param pulumi.Input[str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         ...
@@ -274,7 +274,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         example_user_pool = aws.cognito.UserPool("exampleUserPool")
         main = aws.cognito.UserPoolDomain("main",
-            domain="example-domain.example.com",
+            domain="example-domain",
             certificate_arn=aws_acm_certificate["cert"]["arn"],
             user_pool_id=example_user_pool.id)
         example_zone = aws.route53.get_zone(name="example.com")
@@ -365,7 +365,7 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.Input[str] aws_account_id: The AWS account ID for the user pool owner.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-        :param pulumi.Input[str] domain: The domain string.
+        :param pulumi.Input[str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         :param pulumi.Input[str] version: The app version.
@@ -411,7 +411,7 @@ class UserPoolDomain(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
         """
-        The domain string.
+        For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         """
         return pulumi.get(self, "domain")
 

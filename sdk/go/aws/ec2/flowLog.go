@@ -23,9 +23,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -67,19 +67,21 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
-// 			LogDestination:     exampleBucket.Arn,
+// 			LogDestination:     exampleBucketV2.Arn,
 // 			LogDestinationType: pulumi.String("s3"),
 // 			TrafficType:        pulumi.String("ALL"),
 // 			VpcId:              pulumi.Any(aws_vpc.Example.Id),
@@ -97,19 +99,21 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
-// 			LogDestination:     exampleBucket.Arn,
+// 			LogDestination:     exampleBucketV2.Arn,
 // 			LogDestinationType: pulumi.String("s3"),
 // 			TrafficType:        pulumi.String("ALL"),
 // 			VpcId:              pulumi.Any(aws_vpc.Example.Id),

@@ -81,6 +81,12 @@ namespace Pulumi.Aws.Connect
     public partial class HoursOfOperation : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         /// </summary>
         [Output("configs")]
@@ -93,7 +99,7 @@ namespace Pulumi.Aws.Connect
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         /// </summary>
         [Output("hoursOfOperationArn")]
         public Output<string> HoursOfOperationArn { get; private set; } = null!;
@@ -247,6 +253,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class HoursOfOperationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("configs")]
         private InputList<Inputs.HoursOfOperationConfigGetArgs>? _configs;
 
@@ -266,7 +278,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         /// </summary>
         [Input("hoursOfOperationArn")]
         public Input<string>? HoursOfOperationArn { get; set; }

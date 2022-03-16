@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
- *     domain: "example-domain.example.com",
+ *     domain: "example-domain",
  *     certificateArn: aws_acm_certificate.cert.arn,
  *     userPoolId: exampleUserPool.id,
  * });
@@ -96,7 +96,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string>;
     /**
-     * The domain string.
+     * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
     public readonly domain!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface UserPoolDomainState {
      */
     cloudfrontDistributionArn?: pulumi.Input<string>;
     /**
-     * The domain string.
+     * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
     domain?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface UserPoolDomainArgs {
      */
     certificateArn?: pulumi.Input<string>;
     /**
-     * The domain string.
+     * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
     domain: pulumi.Input<string>;
     /**

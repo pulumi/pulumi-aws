@@ -72,7 +72,7 @@ class GetDomainNameResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the found custom domain name.
+        ARN of the found custom domain name.
         """
         return pulumi.get(self, "arn")
 
@@ -80,7 +80,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> str:
         """
-        The ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
+        ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -88,7 +88,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> str:
         """
-        The name of the certificate that is used by edge-optimized endpoint for this domain name.
+        Name of the certificate that is used by edge-optimized endpoint for this domain name.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -96,7 +96,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="certificateUploadDate")
     def certificate_upload_date(self) -> str:
         """
-        The upload date associated with the domain certificate.
+        Upload date associated with the domain certificate.
         """
         return pulumi.get(self, "certificate_upload_date")
 
@@ -104,7 +104,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="cloudfrontDomainName")
     def cloudfront_domain_name(self) -> str:
         """
-        The hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         """
         return pulumi.get(self, "cloudfront_domain_name")
 
@@ -141,7 +141,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="regionalCertificateArn")
     def regional_certificate_arn(self) -> str:
         """
-        The ARN for an AWS-managed certificate that is used for validating the regional domain name.
+        ARN for an AWS-managed certificate that is used for validating the regional domain name.
         """
         return pulumi.get(self, "regional_certificate_arn")
 
@@ -149,7 +149,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="regionalCertificateName")
     def regional_certificate_name(self) -> str:
         """
-        The user-friendly name of the certificate that is used by regional endpoint for this domain name.
+        User-friendly name of the certificate that is used by regional endpoint for this domain name.
         """
         return pulumi.get(self, "regional_certificate_name")
 
@@ -157,7 +157,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> str:
         """
-        The hostname for the custom domain's regional endpoint.
+        Hostname for the custom domain's regional endpoint.
         """
         return pulumi.get(self, "regional_domain_name")
 
@@ -165,7 +165,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="regionalZoneId")
     def regional_zone_id(self) -> str:
         """
-        The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
+        Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         """
         return pulumi.get(self, "regional_zone_id")
 
@@ -173,7 +173,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> str:
         """
-        The security policy for the domain name.
+        Security policy for the domain name.
         """
         return pulumi.get(self, "security_policy")
 
@@ -225,7 +225,7 @@ def get_domain_name(domain_name: Optional[str] = None,
     ```
 
 
-    :param str domain_name: The fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+    :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of tags for the resource.
     """
     __args__ = dict()
@@ -272,7 +272,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str domain_name: The fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+    :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of tags for the resource.
     """
     ...

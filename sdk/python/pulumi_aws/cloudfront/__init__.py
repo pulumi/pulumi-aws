@@ -16,6 +16,7 @@ from .get_function import *
 from .get_log_delivery_canonical_user_id import *
 from .get_origin_access_identity import *
 from .get_origin_request_policy import *
+from .get_realtime_log_config import *
 from .get_response_headers_policy import *
 from .key_group import *
 from .monitoring_subscription import *

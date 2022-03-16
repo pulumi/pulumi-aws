@@ -566,7 +566,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketObjectLockConfiguration?> ObjectLockConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
+        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
         /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
@@ -599,13 +599,13 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the bucket.
+        /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -777,7 +777,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketObjectLockConfigurationArgs>? ObjectLockConfiguration { get; set; }
 
         /// <summary>
-        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
+        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -807,12 +807,24 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the bucket.
+        /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -955,7 +967,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketObjectLockConfigurationGetArgs>? ObjectLockConfiguration { get; set; }
 
         /// <summary>
-        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
+        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -991,7 +1003,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the bucket.
+        /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1003,7 +1015,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

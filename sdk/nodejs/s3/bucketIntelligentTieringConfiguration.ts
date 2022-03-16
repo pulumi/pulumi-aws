@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.Bucket("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_entire_bucket = new aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket", {
  *     bucket: example.bucket,
  *     tierings: [
@@ -30,13 +30,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * ### Add intelligent tiering configuration with S3 bucket object filter
+ * ### Add intelligent tiering configuration with S3 object filter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.Bucket("example", {});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketIntelligentTieringConfiguration("example-filtered", {
  *     bucket: example.bucket,
  *     status: "Disabled",

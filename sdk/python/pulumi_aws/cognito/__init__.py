@@ -14,6 +14,7 @@ from .identity_pool_provider_principal_tag import *
 from .identity_pool_role_attachment import *
 from .identity_provider import *
 from .resource_server import *
+from .user import *
 from .user_group import *
 from .user_pool import *
 from .user_pool_client import *

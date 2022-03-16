@@ -444,6 +444,162 @@ func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Events() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+type LustreFileSystemLogConfiguration struct {
+	// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+	Destination *string `pulumi:"destination"`
+	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+	Level *string `pulumi:"level"`
+}
+
+// LustreFileSystemLogConfigurationInput is an input type that accepts LustreFileSystemLogConfigurationArgs and LustreFileSystemLogConfigurationOutput values.
+// You can construct a concrete instance of `LustreFileSystemLogConfigurationInput` via:
+//
+//          LustreFileSystemLogConfigurationArgs{...}
+type LustreFileSystemLogConfigurationInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemLogConfigurationOutput() LustreFileSystemLogConfigurationOutput
+	ToLustreFileSystemLogConfigurationOutputWithContext(context.Context) LustreFileSystemLogConfigurationOutput
+}
+
+type LustreFileSystemLogConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+	Destination pulumi.StringPtrInput `pulumi:"destination"`
+	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+}
+
+func (LustreFileSystemLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemLogConfiguration)(nil)).Elem()
+}
+
+func (i LustreFileSystemLogConfigurationArgs) ToLustreFileSystemLogConfigurationOutput() LustreFileSystemLogConfigurationOutput {
+	return i.ToLustreFileSystemLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemLogConfigurationArgs) ToLustreFileSystemLogConfigurationOutputWithContext(ctx context.Context) LustreFileSystemLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemLogConfigurationOutput)
+}
+
+func (i LustreFileSystemLogConfigurationArgs) ToLustreFileSystemLogConfigurationPtrOutput() LustreFileSystemLogConfigurationPtrOutput {
+	return i.ToLustreFileSystemLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemLogConfigurationArgs) ToLustreFileSystemLogConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemLogConfigurationOutput).ToLustreFileSystemLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// LustreFileSystemLogConfigurationPtrInput is an input type that accepts LustreFileSystemLogConfigurationArgs, LustreFileSystemLogConfigurationPtr and LustreFileSystemLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `LustreFileSystemLogConfigurationPtrInput` via:
+//
+//          LustreFileSystemLogConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type LustreFileSystemLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemLogConfigurationPtrOutput() LustreFileSystemLogConfigurationPtrOutput
+	ToLustreFileSystemLogConfigurationPtrOutputWithContext(context.Context) LustreFileSystemLogConfigurationPtrOutput
+}
+
+type lustreFileSystemLogConfigurationPtrType LustreFileSystemLogConfigurationArgs
+
+func LustreFileSystemLogConfigurationPtr(v *LustreFileSystemLogConfigurationArgs) LustreFileSystemLogConfigurationPtrInput {
+	return (*lustreFileSystemLogConfigurationPtrType)(v)
+}
+
+func (*lustreFileSystemLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemLogConfiguration)(nil)).Elem()
+}
+
+func (i *lustreFileSystemLogConfigurationPtrType) ToLustreFileSystemLogConfigurationPtrOutput() LustreFileSystemLogConfigurationPtrOutput {
+	return i.ToLustreFileSystemLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *lustreFileSystemLogConfigurationPtrType) ToLustreFileSystemLogConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemLogConfigurationPtrOutput)
+}
+
+type LustreFileSystemLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemLogConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemLogConfigurationOutput) ToLustreFileSystemLogConfigurationOutput() LustreFileSystemLogConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemLogConfigurationOutput) ToLustreFileSystemLogConfigurationOutputWithContext(ctx context.Context) LustreFileSystemLogConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemLogConfigurationOutput) ToLustreFileSystemLogConfigurationPtrOutput() LustreFileSystemLogConfigurationPtrOutput {
+	return o.ToLustreFileSystemLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LustreFileSystemLogConfigurationOutput) ToLustreFileSystemLogConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LustreFileSystemLogConfiguration) *LustreFileSystemLogConfiguration {
+		return &v
+	}).(LustreFileSystemLogConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+func (o LustreFileSystemLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LustreFileSystemLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+func (o LustreFileSystemLogConfigurationOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LustreFileSystemLogConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+type LustreFileSystemLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemLogConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemLogConfigurationPtrOutput) ToLustreFileSystemLogConfigurationPtrOutput() LustreFileSystemLogConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemLogConfigurationPtrOutput) ToLustreFileSystemLogConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemLogConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemLogConfigurationPtrOutput) Elem() LustreFileSystemLogConfigurationOutput {
+	return o.ApplyT(func(v *LustreFileSystemLogConfiguration) LustreFileSystemLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LustreFileSystemLogConfiguration
+		return ret
+	}).(LustreFileSystemLogConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+func (o LustreFileSystemLogConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LustreFileSystemLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+func (o LustreFileSystemLogConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LustreFileSystemLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
 type OntapFileSystemDiskIopsConfiguration struct {
 	// - The total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
@@ -1079,8 +1235,6 @@ type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDire
 	DomainName string `pulumi:"domainName"`
 	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 	FileSystemAdministratorsGroup *string `pulumi:"fileSystemAdministratorsGroup"`
-	// Deprecated: use 'organizational_unit_distinguished_name' instead
-	OrganizationalUnitDistinguidshedName *string `pulumi:"organizationalUnitDistinguidshedName"`
 	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
 	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
@@ -1107,8 +1261,6 @@ type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDire
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 	FileSystemAdministratorsGroup pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
-	// Deprecated: use 'organizational_unit_distinguished_name' instead
-	OrganizationalUnitDistinguidshedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguidshedName"`
 	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
 	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
@@ -1215,13 +1367,6 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: use 'organizational_unit_distinguished_name' instead
-func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguidshedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
-		return v.OrganizationalUnitDistinguidshedName
-	}).(pulumi.StringPtrOutput)
-}
-
 // The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
@@ -1294,16 +1439,6 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 			return nil
 		}
 		return v.FileSystemAdministratorsGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: use 'organizational_unit_distinguished_name' instead
-func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguidshedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OrganizationalUnitDistinguidshedName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3694,6 +3829,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoExportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationS3AutoExportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicyInput)(nil)).Elem(), DataRepositoryAssociationS3AutoImportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationS3AutoImportPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationPtrInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointInput)(nil)).Elem(), OntapFileSystemEndpointArgs{})
@@ -3746,6 +3883,8 @@ func init() {
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoExportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoImportPolicyOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoImportPolicyPtrOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemEndpointOutput{})

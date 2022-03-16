@@ -40,9 +40,9 @@ namespace Pulumi.Aws.CloudWatch
     /// }
     /// ",
     ///         });
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Acl = "private",
+    ///             Bucket = "metric-stream-test-bucket",
     ///         });
     ///         var firehoseToS3Role = new Aws.Iam.Role("firehoseToS3Role", new Aws.Iam.RoleArgs
     ///         {
@@ -105,6 +105,11 @@ namespace Pulumi.Aws.CloudWatch
     ///     ]
     /// }}
     /// "),
+    ///         });
+    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Acl = "private",
     ///         });
     ///         var firehoseToS3RolePolicy = new Aws.Iam.RolePolicy("firehoseToS3RolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {

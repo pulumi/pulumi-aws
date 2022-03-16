@@ -65,7 +65,7 @@ export interface GetHoursOfOperationArgs {
      */
     name?: string;
     /**
-     * A the map of tags to assign to the Hours of Operation.
+     * A map of tags to assign to the Hours of Operation.
      */
     tags?: {[key: string]: string};
 }
@@ -75,6 +75,10 @@ export interface GetHoursOfOperationArgs {
  */
 export interface GetHoursOfOperationResult {
     /**
+     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     */
+    readonly arn: string;
+    /**
      * Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      */
     readonly configs: outputs.connect.GetHoursOfOperationConfig[];
@@ -83,7 +87,9 @@ export interface GetHoursOfOperationResult {
      */
     readonly description: string;
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+     *
+     * @deprecated use 'arn' attribute instead
      */
     readonly hoursOfOperationArn: string;
     /**
@@ -103,7 +109,7 @@ export interface GetHoursOfOperationResult {
      */
     readonly name: string;
     /**
-     * A the map of tags to assign to the Hours of Operation.
+     * A map of tags to assign to the Hours of Operation.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -133,7 +139,7 @@ export interface GetHoursOfOperationOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A the map of tags to assign to the Hours of Operation.
+     * A map of tags to assign to the Hours of Operation.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

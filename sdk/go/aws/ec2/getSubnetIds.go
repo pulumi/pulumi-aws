@@ -13,6 +13,8 @@ import (
 // `ec2.getSubnetIds` provides a set of ids for a vpcId
 //
 // This resource can be useful for getting back a set of subnet ids for a vpc.
+//
+// > **NOTE:** The `ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `ec2.getSubnets` data source instead.
 func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.InvokeOption) (*GetSubnetIdsResult, error) {
 	var rv GetSubnetIdsResult
 	err := ctx.Invoke("aws:ec2/getSubnetIds:getSubnetIds", args, &rv, opts...)

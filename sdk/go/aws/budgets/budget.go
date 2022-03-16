@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/budgets"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -66,7 +66,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/budgets"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -91,7 +91,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/budgets"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -116,7 +116,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/budgets"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -153,7 +153,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/budgets"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -162,7 +162,12 @@ import (
 // 		_, err := budgets.NewBudget(ctx, "riUtilization", &budgets.BudgetArgs{
 // 			BudgetType: pulumi.String("RI_UTILIZATION"),
 // 			CostFilters: pulumi.StringMap{
-// 				"Service": pulumi.String("Amazon Relational Database Service"),
+// 				pulumi.String{
+// 					Name: "Service",
+// 					Values: []string{
+// 						"Amazon Relational Database Service",
+// 					},
+// 				},
 // 			},
 // 			CostTypes: &budgets.BudgetCostTypesArgs{
 // 				IncludeCredit:            pulumi.Bool(false),
@@ -204,6 +209,8 @@ type Budget struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
+	//
+	// Deprecated: Use the attribute "cost_filter" instead.
 	CostFilters pulumi.StringMapOutput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
@@ -273,6 +280,8 @@ type budgetState struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
+	//
+	// Deprecated: Use the attribute "cost_filter" instead.
 	CostFilters map[string]string `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
@@ -302,6 +311,8 @@ type BudgetState struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
 	// Map of CostFilters key/value pairs to apply to the budget.
+	//
+	// Deprecated: Use the attribute "cost_filter" instead.
 	CostFilters pulumi.StringMapInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
@@ -333,6 +344,8 @@ type budgetArgs struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
+	//
+	// Deprecated: Use the attribute "cost_filter" instead.
 	CostFilters map[string]string `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
@@ -361,6 +374,8 @@ type BudgetArgs struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
 	// Map of CostFilters key/value pairs to apply to the budget.
+	//
+	// Deprecated: Use the attribute "cost_filter" instead.
 	CostFilters pulumi.StringMapInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput

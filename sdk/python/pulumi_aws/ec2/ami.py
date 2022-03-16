@@ -16,6 +16,7 @@ __all__ = ['AmiArgs', 'Ami']
 class AmiArgs:
     def __init__(__self__, *,
                  architecture: Optional[pulumi.Input[str]] = None,
+                 boot_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]] = None,
                  ena_support: Optional[pulumi.Input[bool]] = None,
@@ -31,6 +32,7 @@ class AmiArgs:
         """
         The set of arguments for constructing a Ami resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -54,6 +56,8 @@ class AmiArgs:
         """
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
+        if boot_mode is not None:
+            pulumi.set(__self__, "boot_mode", boot_mode)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ebs_block_devices is not None:
@@ -90,6 +94,18 @@ class AmiArgs:
     @architecture.setter
     def architecture(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "architecture", value)
+
+    @property
+    @pulumi.getter(name="bootMode")
+    def boot_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "boot_mode")
+
+    @boot_mode.setter
+    def boot_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "boot_mode", value)
 
     @property
     @pulumi.getter
@@ -249,6 +265,7 @@ class _AmiState:
     def __init__(__self__, *,
                  architecture: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 boot_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]] = None,
                  ena_support: Optional[pulumi.Input[bool]] = None,
@@ -276,6 +293,7 @@ class _AmiState:
         Input properties used for looking up and filtering Ami resources.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
+        :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -311,6 +329,8 @@ class _AmiState:
             pulumi.set(__self__, "architecture", architecture)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if boot_mode is not None:
+            pulumi.set(__self__, "boot_mode", boot_mode)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ebs_block_devices is not None:
@@ -381,6 +401,18 @@ class _AmiState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="bootMode")
+    def boot_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "boot_mode")
+
+    @boot_mode.setter
+    def boot_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "boot_mode", value)
 
     @property
     @pulumi.getter
@@ -670,6 +702,7 @@ class Ami(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architecture: Optional[pulumi.Input[str]] = None,
+                 boot_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEbsBlockDeviceArgs']]]]] = None,
                  ena_support: Optional[pulumi.Input[bool]] = None,
@@ -723,6 +756,7 @@ class Ami(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -803,6 +837,7 @@ class Ami(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architecture: Optional[pulumi.Input[str]] = None,
+                 boot_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEbsBlockDeviceArgs']]]]] = None,
                  ena_support: Optional[pulumi.Input[bool]] = None,
@@ -828,6 +863,7 @@ class Ami(pulumi.CustomResource):
             __props__ = AmiArgs.__new__(AmiArgs)
 
             __props__.__dict__["architecture"] = architecture
+            __props__.__dict__["boot_mode"] = boot_mode
             __props__.__dict__["description"] = description
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
             __props__.__dict__["ena_support"] = ena_support
@@ -864,6 +900,7 @@ class Ami(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             architecture: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            boot_mode: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEbsBlockDeviceArgs']]]]] = None,
             ena_support: Optional[pulumi.Input[bool]] = None,
@@ -896,6 +933,7 @@ class Ami(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
+        :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -933,6 +971,7 @@ class Ami(pulumi.CustomResource):
 
         __props__.__dict__["architecture"] = architecture
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["boot_mode"] = boot_mode
         __props__.__dict__["description"] = description
         __props__.__dict__["ebs_block_devices"] = ebs_block_devices
         __props__.__dict__["ena_support"] = ena_support
@@ -973,6 +1012,14 @@ class Ami(pulumi.CustomResource):
         The ARN of the AMI.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bootMode")
+    def boot_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "boot_mode")
 
     @property
     @pulumi.getter

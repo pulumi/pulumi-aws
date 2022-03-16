@@ -20,7 +20,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, multi_az_enabled=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, description=None, id=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replicas_per_node_group=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,6 +33,9 @@ class GetReplicationGroupResult:
         if configuration_endpoint_address and not isinstance(configuration_endpoint_address, str):
             raise TypeError("Expected argument 'configuration_endpoint_address' to be a str")
         pulumi.set(__self__, "configuration_endpoint_address", configuration_endpoint_address)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,8 +48,18 @@ class GetReplicationGroupResult:
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
+        if num_cache_clusters and not isinstance(num_cache_clusters, int):
+            raise TypeError("Expected argument 'num_cache_clusters' to be a int")
+        pulumi.set(__self__, "num_cache_clusters", num_cache_clusters)
+        if num_node_groups and not isinstance(num_node_groups, int):
+            raise TypeError("Expected argument 'num_node_groups' to be a int")
+        pulumi.set(__self__, "num_node_groups", num_node_groups)
         if number_cache_clusters and not isinstance(number_cache_clusters, int):
             raise TypeError("Expected argument 'number_cache_clusters' to be a int")
+        if number_cache_clusters is not None:
+            warnings.warn("""Use num_cache_clusters instead""", DeprecationWarning)
+            pulumi.log.warn("""number_cache_clusters is deprecated: Use num_cache_clusters instead""")
+
         pulumi.set(__self__, "number_cache_clusters", number_cache_clusters)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
@@ -57,8 +70,15 @@ class GetReplicationGroupResult:
         if reader_endpoint_address and not isinstance(reader_endpoint_address, str):
             raise TypeError("Expected argument 'reader_endpoint_address' to be a str")
         pulumi.set(__self__, "reader_endpoint_address", reader_endpoint_address)
+        if replicas_per_node_group and not isinstance(replicas_per_node_group, int):
+            raise TypeError("Expected argument 'replicas_per_node_group' to be a int")
+        pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
         if replication_group_description and not isinstance(replication_group_description, str):
             raise TypeError("Expected argument 'replication_group_description' to be a str")
+        if replication_group_description is not None:
+            warnings.warn("""Use description instead""", DeprecationWarning)
+            pulumi.log.warn("""replication_group_description is deprecated: Use description instead""")
+
         pulumi.set(__self__, "replication_group_description", replication_group_description)
         if replication_group_id and not isinstance(replication_group_id, str):
             raise TypeError("Expected argument 'replication_group_id' to be a str")
@@ -104,6 +124,14 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the replication group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
@@ -135,10 +163,26 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "node_type")
 
     @property
+    @pulumi.getter(name="numCacheClusters")
+    def num_cache_clusters(self) -> int:
+        """
+        The number of cache clusters that the replication group has.
+        """
+        return pulumi.get(self, "num_cache_clusters")
+
+    @property
+    @pulumi.getter(name="numNodeGroups")
+    def num_node_groups(self) -> int:
+        """
+        Number of node groups (shards) for the replication group.
+        """
+        return pulumi.get(self, "num_node_groups")
+
+    @property
     @pulumi.getter(name="numberCacheClusters")
     def number_cache_clusters(self) -> int:
         """
-        The number of cache clusters that the replication group has.
+        (**Deprecated** use `num_cache_clusters` instead) The number of cache clusters that the replication group has.
         """
         return pulumi.get(self, "number_cache_clusters")
 
@@ -167,10 +211,18 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "reader_endpoint_address")
 
     @property
+    @pulumi.getter(name="replicasPerNodeGroup")
+    def replicas_per_node_group(self) -> int:
+        """
+        Number of replica nodes in each node group.
+        """
+        return pulumi.get(self, "replicas_per_node_group")
+
+    @property
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> str:
         """
-        The description of the replication group.
+        (**Deprecated** use `description` instead) The description of the replication group.
         """
         return pulumi.get(self, "replication_group_description")
 
@@ -206,14 +258,18 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             auth_token_enabled=self.auth_token_enabled,
             automatic_failover_enabled=self.automatic_failover_enabled,
             configuration_endpoint_address=self.configuration_endpoint_address,
+            description=self.description,
             id=self.id,
             member_clusters=self.member_clusters,
             multi_az_enabled=self.multi_az_enabled,
             node_type=self.node_type,
+            num_cache_clusters=self.num_cache_clusters,
+            num_node_groups=self.num_node_groups,
             number_cache_clusters=self.number_cache_clusters,
             port=self.port,
             primary_endpoint_address=self.primary_endpoint_address,
             reader_endpoint_address=self.reader_endpoint_address,
+            replicas_per_node_group=self.replicas_per_node_group,
             replication_group_description=self.replication_group_description,
             replication_group_id=self.replication_group_id,
             snapshot_retention_limit=self.snapshot_retention_limit,
@@ -250,14 +306,18 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         auth_token_enabled=__ret__.auth_token_enabled,
         automatic_failover_enabled=__ret__.automatic_failover_enabled,
         configuration_endpoint_address=__ret__.configuration_endpoint_address,
+        description=__ret__.description,
         id=__ret__.id,
         member_clusters=__ret__.member_clusters,
         multi_az_enabled=__ret__.multi_az_enabled,
         node_type=__ret__.node_type,
+        num_cache_clusters=__ret__.num_cache_clusters,
+        num_node_groups=__ret__.num_node_groups,
         number_cache_clusters=__ret__.number_cache_clusters,
         port=__ret__.port,
         primary_endpoint_address=__ret__.primary_endpoint_address,
         reader_endpoint_address=__ret__.reader_endpoint_address,
+        replicas_per_node_group=__ret__.replicas_per_node_group,
         replication_group_description=__ret__.replication_group_description,
         replication_group_id=__ret__.replication_group_id,
         snapshot_retention_limit=__ret__.snapshot_retention_limit,

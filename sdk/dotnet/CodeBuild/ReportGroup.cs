@@ -43,8 +43,9 @@ namespace Pulumi.Aws.CodeBuild
     /// }
     /// ",
     ///         });
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "my-test",
     ///         });
     ///         var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new Aws.CodeBuild.ReportGroupArgs
     ///         {
@@ -54,7 +55,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                 Type = "S3",
     ///                 S3Destination = new Aws.CodeBuild.Inputs.ReportGroupExportConfigS3DestinationArgs
     ///                 {
-    ///                     Bucket = exampleBucket.Id,
+    ///                     Bucket = exampleBucketV2.Id,
     ///                     EncryptionDisabled = false,
     ///                     EncryptionKey = exampleKey.Arn,
     ///                     Packaging = "NONE",

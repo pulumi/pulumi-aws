@@ -66,6 +66,28 @@ namespace Pulumi.Aws
             set => _defaultTags.Set(value);
         }
 
+        private static readonly __Value<string?> _ec2MetadataServiceEndpoint = new __Value<string?>(() => __config.Get("ec2MetadataServiceEndpoint"));
+        /// <summary>
+        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        /// </summary>
+        public static string? Ec2MetadataServiceEndpoint
+        {
+            get => _ec2MetadataServiceEndpoint.Get();
+            set => _ec2MetadataServiceEndpoint.Set(value);
+        }
+
+        private static readonly __Value<string?> _ec2MetadataServiceEndpointMode = new __Value<string?>(() => __config.Get("ec2MetadataServiceEndpointMode"));
+        /// <summary>
+        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        /// </summary>
+        public static string? Ec2MetadataServiceEndpointMode
+        {
+            get => _ec2MetadataServiceEndpointMode.Get();
+            set => _ec2MetadataServiceEndpointMode.Set(value);
+        }
+
         private static readonly __Value<ImmutableArray<Pulumi.Aws.Config.Types.Endpoints>> _endpoints = new __Value<ImmutableArray<Pulumi.Aws.Config.Types.Endpoints>>(() => __config.GetObject<ImmutableArray<Pulumi.Aws.Config.Types.Endpoints>>("endpoints"));
         public static ImmutableArray<Pulumi.Aws.Config.Types.Endpoints> Endpoints
         {
@@ -143,14 +165,26 @@ namespace Pulumi.Aws
 
         private static readonly __Value<bool?> _s3ForcePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3ForcePathStyle"));
         /// <summary>
-        /// Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
         /// Specific to the Amazon S3 service.
         /// </summary>
         public static bool? S3ForcePathStyle
         {
             get => _s3ForcePathStyle.Get();
             set => _s3ForcePathStyle.Set(value);
+        }
+
+        private static readonly __Value<bool?> _s3UsePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3UsePathStyle"));
+        /// <summary>
+        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+        /// Specific to the Amazon S3 service.
+        /// </summary>
+        public static bool? S3UsePathStyle
+        {
+            get => _s3UsePathStyle.Get();
+            set => _s3UsePathStyle.Set(value);
         }
 
         private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey"));
@@ -163,14 +197,34 @@ namespace Pulumi.Aws
             set => _secretKey.Set(value);
         }
 
+        private static readonly __Value<ImmutableArray<string>> _sharedConfigFiles = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("sharedConfigFiles"));
+        /// <summary>
+        /// List of paths to shared config files. If not set, defaults to [~/.aws/config].
+        /// </summary>
+        public static ImmutableArray<string> SharedConfigFiles
+        {
+            get => _sharedConfigFiles.Get();
+            set => _sharedConfigFiles.Set(value);
+        }
+
         private static readonly __Value<string?> _sharedCredentialsFile = new __Value<string?>(() => __config.Get("sharedCredentialsFile"));
         /// <summary>
-        /// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         /// </summary>
         public static string? SharedCredentialsFile
         {
             get => _sharedCredentialsFile.Get();
             set => _sharedCredentialsFile.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<string>> _sharedCredentialsFiles = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("sharedCredentialsFiles"));
+        /// <summary>
+        /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+        /// </summary>
+        public static ImmutableArray<string> SharedCredentialsFiles
+        {
+            get => _sharedCredentialsFiles.Get();
+            set => _sharedCredentialsFiles.Set(value);
         }
 
         private static readonly __Value<bool?> _skipCredentialsValidation = new __Value<bool?>(() => __config.GetBoolean("skipCredentialsValidation") ?? true);
@@ -195,6 +249,9 @@ namespace Pulumi.Aws
         }
 
         private static readonly __Value<bool?> _skipMetadataApiCheck = new __Value<bool?>(() => __config.GetBoolean("skipMetadataApiCheck") ?? true);
+        /// <summary>
+        /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        /// </summary>
         public static bool? SkipMetadataApiCheck
         {
             get => _skipMetadataApiCheck.Get();
@@ -232,11 +289,32 @@ namespace Pulumi.Aws
             set => _token.Set(value);
         }
 
+        private static readonly __Value<bool?> _useDualstackEndpoint = new __Value<bool?>(() => __config.GetBoolean("useDualstackEndpoint"));
+        /// <summary>
+        /// Resolve an endpoint with DualStack capability
+        /// </summary>
+        public static bool? UseDualstackEndpoint
+        {
+            get => _useDualstackEndpoint.Get();
+            set => _useDualstackEndpoint.Set(value);
+        }
+
+        private static readonly __Value<bool?> _useFipsEndpoint = new __Value<bool?>(() => __config.GetBoolean("useFipsEndpoint"));
+        /// <summary>
+        /// Resolve an endpoint with FIPS capability
+        /// </summary>
+        public static bool? UseFipsEndpoint
+        {
+            get => _useFipsEndpoint.Get();
+            set => _useFipsEndpoint.Set(value);
+        }
+
         public static class Types
         {
 
              public class AssumeRole
              {
+                public string? Duration { get; set; } = null!;
                 public int? DurationSeconds { get; set; }
                 public string? ExternalId { get; set; } = null!;
                 public string? Policy { get; set; } = null!;
@@ -259,6 +337,7 @@ namespace Pulumi.Aws
                 public string? Acm { get; set; } = null!;
                 public string? Acmpca { get; set; } = null!;
                 public string? Alexaforbusiness { get; set; } = null!;
+                public string? Amg { get; set; } = null!;
                 public string? Amp { get; set; } = null!;
                 public string? Amplify { get; set; } = null!;
                 public string? Amplifybackend { get; set; } = null!;
@@ -379,6 +458,7 @@ namespace Pulumi.Aws
                 public string? Globalaccelerator { get; set; } = null!;
                 public string? Glue { get; set; } = null!;
                 public string? Gluedatabrew { get; set; } = null!;
+                public string? Grafana { get; set; } = null!;
                 public string? Greengrass { get; set; } = null!;
                 public string? Greengrassv2 { get; set; } = null!;
                 public string? Groundstation { get; set; } = null!;
@@ -435,6 +515,7 @@ namespace Pulumi.Aws
                 public string? Macie { get; set; } = null!;
                 public string? Macie2 { get; set; } = null!;
                 public string? Managedblockchain { get; set; } = null!;
+                public string? Managedgrafana { get; set; } = null!;
                 public string? Marketplacecatalog { get; set; } = null!;
                 public string? Marketplacecommerceanalytics { get; set; } = null!;
                 public string? Marketplaceentitlement { get; set; } = null!;

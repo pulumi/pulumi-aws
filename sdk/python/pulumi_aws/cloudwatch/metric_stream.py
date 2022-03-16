@@ -391,7 +391,7 @@ class MetricStream(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        bucket = aws.s3.Bucket("bucket", acl="private")
+        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
         firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -441,6 +441,9 @@ class MetricStream(pulumi.CustomResource):
             ]
         }}
         \"\"\"))
+        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            bucket=bucket.id,
+            acl="private")
         firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
             role=firehose_to_s3_role.id,
             policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
@@ -514,7 +517,7 @@ class MetricStream(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        bucket = aws.s3.Bucket("bucket", acl="private")
+        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
         firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -564,6 +567,9 @@ class MetricStream(pulumi.CustomResource):
             ]
         }}
         \"\"\"))
+        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            bucket=bucket.id,
+            acl="private")
         firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
             role=firehose_to_s3_role.id,
             policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{

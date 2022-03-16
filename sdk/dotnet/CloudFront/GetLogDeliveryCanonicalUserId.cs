@@ -28,17 +28,25 @@ namespace Pulumi.Aws.CloudFront
         ///     public MyStack()
         ///     {
         ///         var exampleLogDeliveryCanonicalUserId = Output.Create(Aws.CloudFront.GetLogDeliveryCanonicalUserId.InvokeAsync());
-        ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+        ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
         ///         {
-        ///             Grants = 
+        ///             Bucket = "example",
+        ///         });
+        ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
+        ///         {
+        ///             Bucket = exampleBucketV2.Id,
+        ///             AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
         ///             {
-        ///                 new Aws.S3.Inputs.BucketGrantArgs
+        ///                 Grants = 
         ///                 {
-        ///                     Id = exampleLogDeliveryCanonicalUserId.Apply(exampleLogDeliveryCanonicalUserId =&gt; exampleLogDeliveryCanonicalUserId.Id),
-        ///                     Type = "CanonicalUser",
-        ///                     Permissions = 
+        ///                     new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
         ///                     {
-        ///                         "FULL_CONTROL",
+        ///                         Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
+        ///                         {
+        ///                             Id = exampleLogDeliveryCanonicalUserId.Apply(exampleLogDeliveryCanonicalUserId =&gt; exampleLogDeliveryCanonicalUserId.Id),
+        ///                             Type = "CanonicalUser",
+        ///                         },
+        ///                         Permission = "FULL_CONTROL",
         ///                     },
         ///                 },
         ///             },
@@ -70,17 +78,25 @@ namespace Pulumi.Aws.CloudFront
         ///     public MyStack()
         ///     {
         ///         var exampleLogDeliveryCanonicalUserId = Output.Create(Aws.CloudFront.GetLogDeliveryCanonicalUserId.InvokeAsync());
-        ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+        ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
         ///         {
-        ///             Grants = 
+        ///             Bucket = "example",
+        ///         });
+        ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
+        ///         {
+        ///             Bucket = exampleBucketV2.Id,
+        ///             AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
         ///             {
-        ///                 new Aws.S3.Inputs.BucketGrantArgs
+        ///                 Grants = 
         ///                 {
-        ///                     Id = exampleLogDeliveryCanonicalUserId.Apply(exampleLogDeliveryCanonicalUserId =&gt; exampleLogDeliveryCanonicalUserId.Id),
-        ///                     Type = "CanonicalUser",
-        ///                     Permissions = 
+        ///                     new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
         ///                     {
-        ///                         "FULL_CONTROL",
+        ///                         Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
+        ///                         {
+        ///                             Id = exampleLogDeliveryCanonicalUserId.Apply(exampleLogDeliveryCanonicalUserId =&gt; exampleLogDeliveryCanonicalUserId.Id),
+        ///                             Type = "CanonicalUser",
+        ///                         },
+        ///                         Permission = "FULL_CONTROL",
         ///                     },
         ///                 },
         ///             },

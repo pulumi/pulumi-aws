@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleConnection = new aws.codestarconnections.Connection("exampleConnection", {providerType: "Bitbucket"});
  * const examplePipeline = new aws.codepipeline.Pipeline("examplePipeline", {
  *     roleArn: aws_iam_role.codepipeline_role.arn,
- *     artifactStore: {},
+ *     artifactStores: [{}],
  *     stages: [
  *         {
  *             name: "Source",

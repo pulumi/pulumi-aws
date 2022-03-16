@@ -27,6 +27,9 @@ namespace Pulumi.Aws.Inputs
         [Input("alexaforbusiness")]
         public Input<string>? Alexaforbusiness { get; set; }
 
+        [Input("amg")]
+        public Input<string>? Amg { get; set; }
+
         [Input("amp")]
         public Input<string>? Amp { get; set; }
 
@@ -387,6 +390,9 @@ namespace Pulumi.Aws.Inputs
         [Input("gluedatabrew")]
         public Input<string>? Gluedatabrew { get; set; }
 
+        [Input("grafana")]
+        public Input<string>? Grafana { get; set; }
+
         [Input("greengrass")]
         public Input<string>? Greengrass { get; set; }
 
@@ -554,6 +560,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("managedblockchain")]
         public Input<string>? Managedblockchain { get; set; }
+
+        [Input("managedgrafana")]
+        public Input<string>? Managedgrafana { get; set; }
 
         [Input("marketplacecatalog")]
         public Input<string>? Marketplacecatalog { get; set; }

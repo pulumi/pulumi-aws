@@ -22,8 +22,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -66,7 +66,7 @@ type Account struct {
 	// The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrOutput `pulumi:"cloudwatchRoleArn"`
 	// Account-Level throttle settings. See exported fields below.
-	ThrottleSettings AccountThrottleSettingsOutput `pulumi:"throttleSettings"`
+	ThrottleSettings AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -101,14 +101,14 @@ type accountState struct {
 	// The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
 	// Account-Level throttle settings. See exported fields below.
-	ThrottleSettings *AccountThrottleSettings `pulumi:"throttleSettings"`
+	ThrottleSettings []AccountThrottleSetting `pulumi:"throttleSettings"`
 }
 
 type AccountState struct {
 	// The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrInput
 	// Account-Level throttle settings. See exported fields below.
-	ThrottleSettings AccountThrottleSettingsPtrInput
+	ThrottleSettings AccountThrottleSettingArrayInput
 }
 
 func (AccountState) ElementType() reflect.Type {

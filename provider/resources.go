@@ -26,7 +26,7 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	homedir "github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v4/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -413,14 +413,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appmesh_gateway_route":   {Tok: awsResource(appmeshMod, "GatewayRoute")},
 			"aws_appmesh_virtual_gateway": {Tok: awsResource(appmeshMod, "VirtualGateway")},
 			// API Gateway
-			"aws_api_gateway_account": {
-				Tok: awsResource(apigatewayMod, "Account"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"throttle_settings": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
 				Tok: awsResource(apigatewayMod, "ApiKey"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -898,14 +891,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(codecommitMod, "ApprovalRuleTemplateAssociation"),
 			},
 			// CodePipeline
-			"aws_codepipeline": {
-				Tok: awsResource(codepipelineMod, "Pipeline"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"artifact_store": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_codepipeline":         {Tok: awsResource(codepipelineMod, "Pipeline")},
 			"aws_codepipeline_webhook": {Tok: awsResource(codepipelineMod, "Webhook")},
 
 			// Cognito
@@ -919,6 +905,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_user_pool_domain":                     {Tok: awsResource(cognitoMod, "UserPoolDomain")},
 			"aws_cognito_user_pool_ui_customization":           {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
 			"aws_cognito_identity_pool_provider_principal_tag": {Tok: awsResource(cognitoMod, "IdentityPoolProviderPrincipalTag")},
+			"aws_cognito_user":                                 {Tok: awsResource(cognitoMod, "User")},
 
 			// Connect
 			"aws_connect_contact_flow":                {Tok: awsResource(connectMod, "ContactFlow")},
@@ -948,6 +935,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// DataExchange
 			"aws_dataexchange_data_set": {Tok: awsResource(dataexchangeMod, "DataSet")},
+			"aws_dataexchange_revision": {Tok: awsResource(dataexchangeMod, "Revision")},
 
 			// Datapipeline
 			"aws_datapipeline_pipeline_definition": {Tok: awsResource(datapipelineMod, "PipelineDefinition")},
@@ -1236,6 +1224,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_network_acl_rule":             {Tok: awsResource(ec2Mod, "NetworkAclRule")},
+			"aws_network_acl_association":      {Tok: awsResource(ec2Mod, "NetworkAclAssociation")},
 			"aws_network_interface":            {Tok: awsResource(ec2Mod, "NetworkInterface")},
 			"aws_network_interface_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
 			"aws_placement_group": {
@@ -1436,13 +1425,6 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"replication_configuration": {
 						CSharpName: "ReplicationConfigurationDetails",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rule": {
-									MaxItemsOne: tfbridge.True(),
-								},
-							},
-						},
 					},
 				},
 			},
@@ -1486,9 +1468,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(efsMod, "FileSystem"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"creation_token": tfbridge.AutoName("creationToken", 255, "-"),
-					"lifecycle_policy": {
-						MaxItemsOne: boolRef(true),
-					},
 				},
 			},
 			"aws_efs_mount_target": {
@@ -1506,14 +1485,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {
-				Tok: awsResource(eksMod, "Cluster"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"certificate_authority": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
 			"aws_eks_node_group": {
 				Tok: awsResource(eksMod, "NodeGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2435,8 +2407,20 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_shield_protection_health_check_association": {Tok: awsResource(shieldMod, "ProtectionHealthCheckAssociation")},
 
 			// S3
-			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
-			"aws_s3_bucket": {
+			"aws_s3_account_public_access_block":                 {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
+			"aws_s3_bucket":                                      {Tok: awsResource(s3Mod, "BucketV2")},
+			"aws_s3_bucket_accelerate_configuration":             {Tok: awsResource(s3Mod, "BucketAccelerateConfigurationV2")},
+			"aws_s3_bucket_acl":                                  {Tok: awsResource(s3Mod, "BucketAclV2")},
+			"aws_s3_bucket_cors_configuration":                   {Tok: awsResource(s3Mod, "BucketCorsConfigurationV2")},
+			"aws_s3_bucket_lifecycle_configuration":              {Tok: awsResource(s3Mod, "BucketLifecycleConfigurationV2")},
+			"aws_s3_bucket_logging":                              {Tok: awsResource(s3Mod, "BucketLoggingV2")},
+			"aws_s3_bucket_object_lock_configuration":            {Tok: awsResource(s3Mod, "BucketObjectLockConfigurationV2")},
+			"aws_s3_bucket_request_payment_configuration":        {Tok: awsResource(s3Mod, "BucketRequestPaymentConfigurationV2")},
+			"aws_s3_bucket_server_side_encryption_configuration": {Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfigurationV2")},
+			"aws_s3_bucket_versioning":                           {Tok: awsResource(s3Mod, "BucketVersioningV2")},
+			"aws_s3_bucket_website_configuration":                {Tok: awsResource(s3Mod, "BucketWebsiteConfigurationV2")},
+			"aws_s3_object":                                      {Tok: awsResource(s3Mod, "BucketObjectv2")},
+			"aws_s3_bucket_legacy": {
 				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"acl": {
@@ -4053,14 +4037,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudformation_export": {Tok: awsDataSource(cloudformationMod, "getExport")},
 			"aws_cloudformation_type":   {Tok: awsDataSource(cloudformationMod, "getCloudFormationType")},
 			// CloudHSM
-			"aws_cloudhsm_v2_cluster": {
-				Tok: awsDataSource(cloudhsmv2Mod, "getCluster"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"cluster_certificates": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_cloudhsm_v2_cluster": {Tok: awsDataSource(cloudhsmv2Mod, "getCluster")},
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// CloudWatch
@@ -4181,6 +4158,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_instance_types":               {Tok: awsDataSource(ec2Mod, "getInstanceTypes")},
 			"aws_vpc_ipam_pool":                    {Tok: awsDataSource(ec2Mod, "getVpcIamPool")},
 			"aws_vpc_ipam_preview_next_cidr":       {Tok: awsDataSource(ec2Mod, "getIpamPreviewNextCidr")},
+			"aws_eips":                             {Tok: awsDataSource(ec2Mod, "getEips")},
+
+			// Ec2 Client
+			"aws_ec2_client_vpn_endpoint": {Tok: awsDataSource(ec2ClientVpnMod, "getEndpoint")},
 
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
@@ -4367,6 +4348,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
 			"aws_s3_bucket_objects": {Tok: awsDataSource(s3Mod, "getBucketObjects")},
+			"aws_s3_object":         {Tok: awsDataSource(s3Mod, "getObject")},
+			"aws_s3_objects":        {Tok: awsDataSource(s3Mod, "getObjects")},
 			// Secrets Manager
 			"aws_secretsmanager_secret":          {Tok: awsDataSource(secretsmanagerMod, "getSecret")},
 			"aws_secretsmanager_secret_version":  {Tok: awsDataSource(secretsmanagerMod, "getSecretVersion")},
@@ -4438,6 +4421,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_cloudfront_response_headers_policy": {Tok: awsDataSource(cloudfrontMod, "getResponseHeadersPolicy")},
 			"aws_cloudfront_origin_access_identity":  {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentity")},
+			"aws_cloudfront_realtime_log_config":     {Tok: awsDataSource(cloudfrontMod, "getRealtimeLogConfig")},
 
 			// Backup
 			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
@@ -4854,7 +4838,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
-	prov.Resources["aws_s3_bucket"].Fields["bucket"].CSharpName = "BucketName"
+	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
 	return prov
 }

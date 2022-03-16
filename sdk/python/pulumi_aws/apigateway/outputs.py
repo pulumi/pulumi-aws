@@ -10,7 +10,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'AccountThrottleSettings',
+    'AccountThrottleSetting',
     'DocumentationPartLocation',
     'DomainNameEndpointConfiguration',
     'DomainNameMutualTlsAuthentication',
@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountThrottleSettings(dict):
+class AccountThrottleSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37,14 +37,14 @@ class AccountThrottleSettings(dict):
             suggest = "rate_limit"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AccountThrottleSettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AccountThrottleSetting. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AccountThrottleSettings.__key_warning(key)
+        AccountThrottleSetting.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AccountThrottleSettings.__key_warning(key)
+        AccountThrottleSetting.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -164,7 +164,7 @@ class DomainNameEndpointConfiguration(dict):
     def __init__(__self__, *,
                  types: str):
         """
-        :param str types: A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        :param str types: List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         """
         pulumi.set(__self__, "types", types)
 
@@ -172,7 +172,7 @@ class DomainNameEndpointConfiguration(dict):
     @pulumi.getter
     def types(self) -> str:
         """
-        A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         """
         return pulumi.get(self, "types")
 
@@ -202,9 +202,8 @@ class DomainNameMutualTlsAuthentication(dict):
                  truststore_uri: str,
                  truststore_version: Optional[str] = None):
         """
-        :param str truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-               The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
-        :param str truststore_version: The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        :param str truststore_uri: Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        :param str truststore_version: Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
@@ -214,8 +213,7 @@ class DomainNameMutualTlsAuthentication(dict):
     @pulumi.getter(name="truststoreUri")
     def truststore_uri(self) -> str:
         """
-        An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-        The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
         """
         return pulumi.get(self, "truststore_uri")
 
@@ -223,7 +221,7 @@ class DomainNameMutualTlsAuthentication(dict):
     @pulumi.getter(name="truststoreVersion")
     def truststore_version(self) -> Optional[str]:
         """
-        The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         return pulumi.get(self, "truststore_version")
 

@@ -12,11 +12,17 @@ namespace Pulumi.Aws.Ecr.Inputs
 
     public sealed class ReplicationConfigurationReplicationConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        [Input("rules", required: true)]
+        private InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleGetArgs>? _rules;
+
         /// <summary>
         /// The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         /// </summary>
-        [Input("rule", required: true)]
-        public Input<Inputs.ReplicationConfigurationReplicationConfigurationRuleGetArgs> Rule { get; set; } = null!;
+        public InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleGetArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleGetArgs>());
+            set => _rules = value;
+        }
 
         public ReplicationConfigurationReplicationConfigurationGetArgs()
         {

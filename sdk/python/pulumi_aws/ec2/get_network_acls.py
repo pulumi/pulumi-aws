@@ -56,7 +56,7 @@ class GetNetworkAclsResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A list of all the network ACL ids found. This data source will fail if none are found.
+        A list of all the network ACL ids found.
         """
         return pulumi.get(self, "ids")
 

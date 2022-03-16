@@ -26,14 +26,17 @@ namespace Pulumi.Aws.CodePipeline
     ///         var barPipeline = new Aws.CodePipeline.Pipeline("barPipeline", new Aws.CodePipeline.PipelineArgs
     ///         {
     ///             RoleArn = aws_iam_role.Bar.Arn,
-    ///             ArtifactStore = new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
+    ///             ArtifactStores = 
     ///             {
-    ///                 Location = aws_s3_bucket.Bar.Bucket,
-    ///                 Type = "S3",
-    ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
+    ///                 new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
     ///                 {
-    ///                     Id = data.Aws_kms_alias.S3kmskey.Arn,
-    ///                     Type = "KMS",
+    ///                     Location = aws_s3_bucket.Bar.Bucket,
+    ///                     Type = "S3",
+    ///                     EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
+    ///                     {
+    ///                         Id = data.Aws_kms_alias.S3kmskey.Arn,
+    ///                         Type = "KMS",
+    ///                     },
     ///                 },
     ///             },
     ///             Stages = 

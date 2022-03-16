@@ -152,7 +152,14 @@ namespace Pulumi.Aws.Budgets
     ///             BudgetType = "RI_UTILIZATION",
     ///             CostFilters = 
     ///             {
-    ///                 { "Service", "Amazon Relational Database Service" },
+    ///                 
+    ///                 {
+    ///                     { "name", "Service" },
+    ///                     { "values", 
+    ///                     {
+    ///                         "Amazon Relational Database Service",
+    ///                     } },
+    ///                 },
     ///             },
     ///             CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
     ///             {
@@ -328,6 +335,7 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
+        [Obsolete(@"Use the attribute ""cost_filter"" instead.")]
         public InputMap<string> CostFilters
         {
             get => _costFilters ?? (_costFilters = new InputMap<string>());
@@ -425,6 +433,7 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
+        [Obsolete(@"Use the attribute ""cost_filter"" instead.")]
         public InputMap<string> CostFilters
         {
             get => _costFilters ?? (_costFilters = new InputMap<string>());

@@ -1186,7 +1186,7 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 }
 
 type EndpointS3Settings struct {
-	// S3 Bucket Object prefix.
+	// S3 Object prefix.
 	BucketFolder *string `pulumi:"bucketFolder"`
 	// S3 Bucket name.
 	BucketName *string `pulumi:"bucketName"`
@@ -1226,7 +1226,7 @@ type EndpointS3SettingsInput interface {
 }
 
 type EndpointS3SettingsArgs struct {
-	// S3 Bucket Object prefix.
+	// S3 Object prefix.
 	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
 	// S3 Bucket name.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
@@ -1331,7 +1331,7 @@ func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx c
 	}).(EndpointS3SettingsPtrOutput)
 }
 
-// S3 Bucket Object prefix.
+// S3 Object prefix.
 func (o EndpointS3SettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
@@ -1420,7 +1420,7 @@ func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
 	}).(EndpointS3SettingsOutput)
 }
 
-// S3 Bucket Object prefix.
+// S3 Object prefix.
 func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {

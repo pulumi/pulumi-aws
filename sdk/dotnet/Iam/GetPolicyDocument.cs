@@ -194,9 +194,12 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///             },
         ///         }));
-        ///         var sourceJsonExample = source.Apply(source =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         var sourceDocumentExample = source.Apply(source =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
         ///         {
-        ///             SourceJson = source.Json,
+        ///             SourcePolicyDocuments = 
+        ///             {
+        ///                 source.Json,
+        ///             },
         ///             Statements = 
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
@@ -219,7 +222,7 @@ namespace Pulumi.Aws.Iam
         /// }
         /// ```
         /// 
-        /// `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
+        /// `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -262,9 +265,12 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///             },
         ///         }));
-        ///         var overrideJsonExample = @override.Apply(@override =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         var overridePolicyDocumentExample = @override.Apply(@override =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
         ///         {
-        ///             OverrideJson = @override.Json,
+        ///             OverridePolicyDocuments = 
+        ///             {
+        ///                 @override.Json,
+        ///             },
         ///             Statements = 
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
@@ -298,7 +304,7 @@ namespace Pulumi.Aws.Iam
         /// }
         /// ```
         /// 
-        /// `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
+        /// `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -315,7 +321,7 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_json` and `override_json` in the same document.
+        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -367,8 +373,14 @@ namespace Pulumi.Aws.Iam
         ///             var @override = values.Item2;
         ///             return Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
         ///             {
-        ///                 SourceJson = source.Json,
-        ///                 OverrideJson = @override.Json,
+        ///                 SourcePolicyDocuments = 
+        ///                 {
+        ///                     source.Json,
+        ///                 },
+        ///                 OverridePolicyDocuments = 
+        ///                 {
+        ///                     @override.Json,
+        ///                 },
         ///             }));
         ///         });
         ///     }
@@ -811,9 +823,12 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///             },
         ///         }));
-        ///         var sourceJsonExample = source.Apply(source =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         var sourceDocumentExample = source.Apply(source =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
         ///         {
-        ///             SourceJson = source.Json,
+        ///             SourcePolicyDocuments = 
+        ///             {
+        ///                 source.Json,
+        ///             },
         ///             Statements = 
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
@@ -836,7 +851,7 @@ namespace Pulumi.Aws.Iam
         /// }
         /// ```
         /// 
-        /// `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
+        /// `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -879,9 +894,12 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///             },
         ///         }));
-        ///         var overrideJsonExample = @override.Apply(@override =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         var overridePolicyDocumentExample = @override.Apply(@override =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
         ///         {
-        ///             OverrideJson = @override.Json,
+        ///             OverridePolicyDocuments = 
+        ///             {
+        ///                 @override.Json,
+        ///             },
         ///             Statements = 
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
@@ -915,7 +933,7 @@ namespace Pulumi.Aws.Iam
         /// }
         /// ```
         /// 
-        /// `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
+        /// `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -932,7 +950,7 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_json` and `override_json` in the same document.
+        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -984,8 +1002,14 @@ namespace Pulumi.Aws.Iam
         ///             var @override = values.Item2;
         ///             return Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
         ///             {
-        ///                 SourceJson = source.Json,
-        ///                 OverrideJson = @override.Json,
+        ///                 SourcePolicyDocuments = 
+        ///                 {
+        ///                     source.Json,
+        ///                 },
+        ///                 OverridePolicyDocuments = 
+        ///                 {
+        ///                     @override.Json,
+        ///                 },
         ///             }));
         ///         });
         ///     }
@@ -1250,7 +1274,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyDocumentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
+        /// - IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
         /// </summary>
         [Input("overrideJson")]
         public string? OverrideJson { get; set; }
@@ -1274,7 +1298,7 @@ namespace Pulumi.Aws.Iam
         public string? PolicyId { get; set; }
 
         /// <summary>
-        /// IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+        /// - IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
         /// </summary>
         [Input("sourceJson")]
         public string? SourceJson { get; set; }
@@ -1317,7 +1341,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyDocumentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
+        /// - IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
         /// </summary>
         [Input("overrideJson")]
         public Input<string>? OverrideJson { get; set; }
@@ -1341,7 +1365,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+        /// - IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
         /// </summary>
         [Input("sourceJson")]
         public Input<string>? SourceJson { get; set; }

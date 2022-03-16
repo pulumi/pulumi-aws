@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         /// </summary>
         public readonly string? FileSystemAdministratorsGroup;
-        public readonly string? OrganizationalUnitDistinguidshedName;
         /// <summary>
         /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         /// </summary>
@@ -47,8 +46,6 @@ namespace Pulumi.Aws.Fsx.Outputs
 
             string? fileSystemAdministratorsGroup,
 
-            string? organizationalUnitDistinguidshedName,
-
             string? organizationalUnitDistinguishedName,
 
             string password,
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Fsx.Outputs
             DnsIps = dnsIps;
             DomainName = domainName;
             FileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-            OrganizationalUnitDistinguidshedName = organizationalUnitDistinguidshedName;
             OrganizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             Password = password;
             Username = username;

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,14 +29,28 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnalyticsConfiguration{}
 	case "aws:s3/bucket:Bucket":
 		r = &Bucket{}
+	case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
+		r = &BucketAccelerateConfigurationV2{}
+	case "aws:s3/bucketAclV2:BucketAclV2":
+		r = &BucketAclV2{}
+	case "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2":
+		r = &BucketCorsConfigurationV2{}
 	case "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration":
 		r = &BucketIntelligentTieringConfiguration{}
+	case "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2":
+		r = &BucketLifecycleConfigurationV2{}
+	case "aws:s3/bucketLoggingV2:BucketLoggingV2":
+		r = &BucketLoggingV2{}
 	case "aws:s3/bucketMetric:BucketMetric":
 		r = &BucketMetric{}
 	case "aws:s3/bucketNotification:BucketNotification":
 		r = &BucketNotification{}
 	case "aws:s3/bucketObject:BucketObject":
 		r = &BucketObject{}
+	case "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2":
+		r = &BucketObjectLockConfigurationV2{}
+	case "aws:s3/bucketObjectv2:BucketObjectv2":
+		r = &BucketObjectv2{}
 	case "aws:s3/bucketOwnershipControls:BucketOwnershipControls":
 		r = &BucketOwnershipControls{}
 	case "aws:s3/bucketPolicy:BucketPolicy":
@@ -45,6 +59,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketPublicAccessBlock{}
 	case "aws:s3/bucketReplicationConfig:BucketReplicationConfig":
 		r = &BucketReplicationConfig{}
+	case "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2":
+		r = &BucketRequestPaymentConfigurationV2{}
+	case "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2":
+		r = &BucketServerSideEncryptionConfigurationV2{}
+	case "aws:s3/bucketV2:BucketV2":
+		r = &BucketV2{}
+	case "aws:s3/bucketVersioningV2:BucketVersioningV2":
+		r = &BucketVersioningV2{}
+	case "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2":
+		r = &BucketWebsiteConfigurationV2{}
 	case "aws:s3/inventory:Inventory":
 		r = &Inventory{}
 	case "aws:s3/objectCopy:ObjectCopy":
@@ -84,7 +108,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"s3/bucketAccelerateConfigurationV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketAclV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketCorsConfigurationV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"s3/bucketIntelligentTieringConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketLifecycleConfigurationV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketLoggingV2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -100,6 +149,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucketObject",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketObjectLockConfigurationV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketObjectv2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -120,6 +179,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucketReplicationConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketRequestPaymentConfigurationV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketServerSideEncryptionConfigurationV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketVersioningV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketWebsiteConfigurationV2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

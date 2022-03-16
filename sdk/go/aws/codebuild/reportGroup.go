@@ -21,9 +21,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codebuild"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -37,7 +37,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-test"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -46,7 +48,7 @@ import (
 // 			ExportConfig: &codebuild.ReportGroupExportConfigArgs{
 // 				Type: pulumi.String("S3"),
 // 				S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
-// 					Bucket:             exampleBucket.ID(),
+// 					Bucket:             exampleBucketV2.ID(),
 // 					EncryptionDisabled: pulumi.Bool(false),
 // 					EncryptionKey:      exampleKey.Arn,
 // 					Packaging:          pulumi.String("NONE"),

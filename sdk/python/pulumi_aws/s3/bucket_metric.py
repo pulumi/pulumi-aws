@@ -142,16 +142,16 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.bucket)
         ```
-        ### Add metrics configuration with S3 bucket object filter
+        ### Add metrics configuration with S3 object filter
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.bucket,
             filter=aws.s3.BucketMetricFilterArgs(
@@ -193,16 +193,16 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.bucket)
         ```
-        ### Add metrics configuration with S3 bucket object filter
+        ### Add metrics configuration with S3 object filter
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.bucket,
             filter=aws.s3.BucketMetricFilterArgs(

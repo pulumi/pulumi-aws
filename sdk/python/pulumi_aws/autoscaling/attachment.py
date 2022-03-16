@@ -15,18 +15,25 @@ class AttachmentArgs:
     def __init__(__self__, *,
                  autoscaling_group_name: pulumi.Input[str],
                  alb_target_group_arn: Optional[pulumi.Input[str]] = None,
-                 elb: Optional[pulumi.Input[str]] = None):
+                 elb: Optional[pulumi.Input[str]] = None,
+                 lb_target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Attachment resource.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
         :param pulumi.Input[str] elb: The name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+        if alb_target_group_arn is not None:
+            warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
+            pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
         if alb_target_group_arn is not None:
             pulumi.set(__self__, "alb_target_group_arn", alb_target_group_arn)
         if elb is not None:
             pulumi.set(__self__, "elb", elb)
+        if lb_target_group_arn is not None:
+            pulumi.set(__self__, "lb_target_group_arn", lb_target_group_arn)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -64,25 +71,44 @@ class AttachmentArgs:
     def elb(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "elb", value)
 
+    @property
+    @pulumi.getter(name="lbTargetGroupArn")
+    def lb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of a load balancer target group.
+        """
+        return pulumi.get(self, "lb_target_group_arn")
+
+    @lb_target_group_arn.setter
+    def lb_target_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lb_target_group_arn", value)
+
 
 @pulumi.input_type
 class _AttachmentState:
     def __init__(__self__, *,
                  alb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 elb: Optional[pulumi.Input[str]] = None):
+                 elb: Optional[pulumi.Input[str]] = None,
+                 lb_target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Attachment resources.
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: The name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
         """
+        if alb_target_group_arn is not None:
+            warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
+            pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
         if alb_target_group_arn is not None:
             pulumi.set(__self__, "alb_target_group_arn", alb_target_group_arn)
         if autoscaling_group_name is not None:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
             pulumi.set(__self__, "elb", elb)
+        if lb_target_group_arn is not None:
+            pulumi.set(__self__, "lb_target_group_arn", lb_target_group_arn)
 
     @property
     @pulumi.getter(name="albTargetGroupArn")
@@ -120,6 +146,18 @@ class _AttachmentState:
     def elb(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "elb", value)
 
+    @property
+    @pulumi.getter(name="lbTargetGroupArn")
+    def lb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of a load balancer target group.
+        """
+        return pulumi.get(self, "lb_target_group_arn")
+
+    @lb_target_group_arn.setter
+    def lb_target_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lb_target_group_arn", value)
+
 
 class Attachment(pulumi.CustomResource):
     @overload
@@ -129,6 +167,7 @@ class Attachment(pulumi.CustomResource):
                  alb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  elb: Optional[pulumi.Input[str]] = None,
+                 lb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides an Auto Scaling Attachment resource.
@@ -180,6 +219,7 @@ class Attachment(pulumi.CustomResource):
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: The name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
         """
         ...
     @overload
@@ -250,6 +290,7 @@ class Attachment(pulumi.CustomResource):
                  alb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  elb: Optional[pulumi.Input[str]] = None,
+                 lb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -262,11 +303,15 @@ class Attachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AttachmentArgs.__new__(AttachmentArgs)
 
+            if alb_target_group_arn is not None and not opts.urn:
+                warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
+                pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
             __props__.__dict__["alb_target_group_arn"] = alb_target_group_arn
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
             __props__.__dict__["elb"] = elb
+            __props__.__dict__["lb_target_group_arn"] = lb_target_group_arn
         super(Attachment, __self__).__init__(
             'aws:autoscaling/attachment:Attachment',
             resource_name,
@@ -279,7 +324,8 @@ class Attachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alb_target_group_arn: Optional[pulumi.Input[str]] = None,
             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-            elb: Optional[pulumi.Input[str]] = None) -> 'Attachment':
+            elb: Optional[pulumi.Input[str]] = None,
+            lb_target_group_arn: Optional[pulumi.Input[str]] = None) -> 'Attachment':
         """
         Get an existing Attachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -290,6 +336,7 @@ class Attachment(pulumi.CustomResource):
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: The name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,6 +345,7 @@ class Attachment(pulumi.CustomResource):
         __props__.__dict__["alb_target_group_arn"] = alb_target_group_arn
         __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
         __props__.__dict__["elb"] = elb
+        __props__.__dict__["lb_target_group_arn"] = lb_target_group_arn
         return Attachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -323,4 +371,12 @@ class Attachment(pulumi.CustomResource):
         The name of the ELB.
         """
         return pulumi.get(self, "elb")
+
+    @property
+    @pulumi.getter(name="lbTargetGroupArn")
+    def lb_target_group_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of a load balancer target group.
+        """
+        return pulumi.get(self, "lb_target_group_arn")
 

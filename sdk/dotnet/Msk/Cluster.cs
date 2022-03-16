@@ -59,8 +59,13 @@ namespace Pulumi.Aws.Msk
     ///         var test = new Aws.CloudWatch.LogGroup("test", new Aws.CloudWatch.LogGroupArgs
     ///         {
     ///         });
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "msk-broker-logs-bucket",
+    ///         });
+    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = bucket.Id,
     ///             Acl = "private",
     ///         });
     ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs

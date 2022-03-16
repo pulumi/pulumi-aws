@@ -21,16 +21,23 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codebuild"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+// 			Bucket: exampleBucketV2.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -43,10 +50,10 @@ import (
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
 // 			Role: exampleRole.Name,
-// 			Policy: pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
-// 				exampleBucketArn := _args[0].(string)
-// 				exampleBucketArn1 := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"*\"\n", "      ],\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ]\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterface\",\n", "        \"ec2:DescribeDhcpOptions\",\n", "        \"ec2:DescribeNetworkInterfaces\",\n", "        \"ec2:DeleteNetworkInterface\",\n", "        \"ec2:DescribeSubnets\",\n", "        \"ec2:DescribeSecurityGroups\",\n", "        \"ec2:DescribeVpcs\"\n", "      ],\n", "      \"Resource\": \"*\"\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterfacePermission\"\n", "      ],\n", "      \"Resource\": [\n", "        \"arn:aws:ec2:us-east-1:123456789012:network-interface/*\"\n", "      ],\n", "      \"Condition\": {\n", "        \"StringEquals\": {\n", "          \"ec2:Subnet\": [\n", "            \"", aws_subnet.Example1.Arn, "\",\n", "            \"", aws_subnet.Example2.Arn, "\"\n", "          ],\n", "          \"ec2:AuthorizedService\": \"codebuild.amazonaws.com\"\n", "        }\n", "      }\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"s3:*\"\n", "      ],\n", "      \"Resource\": [\n", "        \"", exampleBucketArn, "\",\n", "        \"", exampleBucketArn1, "/*\"\n", "      ]\n", "    }\n", "  ]\n", "}\n"), nil
+// 			Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
+// 				exampleBucketV2Arn := _args[0].(string)
+// 				exampleBucketV2Arn1 := _args[1].(string)
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"*\"\n", "      ],\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ]\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterface\",\n", "        \"ec2:DescribeDhcpOptions\",\n", "        \"ec2:DescribeNetworkInterfaces\",\n", "        \"ec2:DeleteNetworkInterface\",\n", "        \"ec2:DescribeSubnets\",\n", "        \"ec2:DescribeSecurityGroups\",\n", "        \"ec2:DescribeVpcs\"\n", "      ],\n", "      \"Resource\": \"*\"\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterfacePermission\"\n", "      ],\n", "      \"Resource\": [\n", "        \"arn:aws:ec2:us-east-1:123456789012:network-interface/*\"\n", "      ],\n", "      \"Condition\": {\n", "        \"StringEquals\": {\n", "          \"ec2:Subnet\": [\n", "            \"", aws_subnet.Example1.Arn, "\",\n", "            \"", aws_subnet.Example2.Arn, "\"\n", "          ],\n", "          \"ec2:AuthorizedService\": \"codebuild.amazonaws.com\"\n", "        }\n", "      }\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"s3:*\"\n", "      ],\n", "      \"Resource\": [\n", "        \"", exampleBucketV2Arn, "\",\n", "        \"", exampleBucketV2Arn1, "/*\"\n", "      ]\n", "    }\n", "  ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -61,7 +68,7 @@ import (
 // 			},
 // 			Cache: &codebuild.ProjectCacheArgs{
 // 				Type:     pulumi.String("S3"),
-// 				Location: exampleBucket.Bucket,
+// 				Location: exampleBucketV2.Bucket,
 // 			},
 // 			Environment: &codebuild.ProjectEnvironmentArgs{
 // 				ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
@@ -87,7 +94,7 @@ import (
 // 				},
 // 				S3Logs: &codebuild.ProjectLogsConfigS3LogsArgs{
 // 					Status: pulumi.String("ENABLED"),
-// 					Location: exampleBucket.ID().ApplyT(func(id string) (string, error) {
+// 					Location: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
 // 						return fmt.Sprintf("%v%v", id, "/build-log"), nil
 // 					}).(pulumi.StringOutput),
 // 				},

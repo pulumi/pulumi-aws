@@ -43,45 +43,29 @@ func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityOutput)
 }
 
-func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
-	return i.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityOutput).ToClusterCertificateAuthorityPtrOutputWithContext(ctx)
-}
-
-// ClusterCertificateAuthorityPtrInput is an input type that accepts ClusterCertificateAuthorityArgs, ClusterCertificateAuthorityPtr and ClusterCertificateAuthorityPtrOutput values.
-// You can construct a concrete instance of `ClusterCertificateAuthorityPtrInput` via:
+// ClusterCertificateAuthorityArrayInput is an input type that accepts ClusterCertificateAuthorityArray and ClusterCertificateAuthorityArrayOutput values.
+// You can construct a concrete instance of `ClusterCertificateAuthorityArrayInput` via:
 //
-//          ClusterCertificateAuthorityArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterCertificateAuthorityPtrInput interface {
+//          ClusterCertificateAuthorityArray{ ClusterCertificateAuthorityArgs{...} }
+type ClusterCertificateAuthorityArrayInput interface {
 	pulumi.Input
 
-	ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput
-	ToClusterCertificateAuthorityPtrOutputWithContext(context.Context) ClusterCertificateAuthorityPtrOutput
+	ToClusterCertificateAuthorityArrayOutput() ClusterCertificateAuthorityArrayOutput
+	ToClusterCertificateAuthorityArrayOutputWithContext(context.Context) ClusterCertificateAuthorityArrayOutput
 }
 
-type clusterCertificateAuthorityPtrType ClusterCertificateAuthorityArgs
+type ClusterCertificateAuthorityArray []ClusterCertificateAuthorityInput
 
-func ClusterCertificateAuthorityPtr(v *ClusterCertificateAuthorityArgs) ClusterCertificateAuthorityPtrInput {
-	return (*clusterCertificateAuthorityPtrType)(v)
+func (ClusterCertificateAuthorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCertificateAuthority)(nil)).Elem()
 }
 
-func (*clusterCertificateAuthorityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterCertificateAuthority)(nil)).Elem()
+func (i ClusterCertificateAuthorityArray) ToClusterCertificateAuthorityArrayOutput() ClusterCertificateAuthorityArrayOutput {
+	return i.ToClusterCertificateAuthorityArrayOutputWithContext(context.Background())
 }
 
-func (i *clusterCertificateAuthorityPtrType) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
-	return i.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterCertificateAuthorityPtrType) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityPtrOutput)
+func (i ClusterCertificateAuthorityArray) ToClusterCertificateAuthorityArrayOutputWithContext(ctx context.Context) ClusterCertificateAuthorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityArrayOutput)
 }
 
 type ClusterCertificateAuthorityOutput struct{ *pulumi.OutputState }
@@ -98,53 +82,29 @@ func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityOutputWi
 	return o
 }
 
-func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
-	return o.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCertificateAuthority) *ClusterCertificateAuthority {
-		return &v
-	}).(ClusterCertificateAuthorityPtrOutput)
-}
-
 // Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+type ClusterCertificateAuthorityArrayOutput struct{ *pulumi.OutputState }
 
-func (ClusterCertificateAuthorityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterCertificateAuthority)(nil)).Elem()
+func (ClusterCertificateAuthorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCertificateAuthority)(nil)).Elem()
 }
 
-func (o ClusterCertificateAuthorityPtrOutput) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
+func (o ClusterCertificateAuthorityArrayOutput) ToClusterCertificateAuthorityArrayOutput() ClusterCertificateAuthorityArrayOutput {
 	return o
 }
 
-func (o ClusterCertificateAuthorityPtrOutput) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
+func (o ClusterCertificateAuthorityArrayOutput) ToClusterCertificateAuthorityArrayOutputWithContext(ctx context.Context) ClusterCertificateAuthorityArrayOutput {
 	return o
 }
 
-func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthorityOutput {
-	return o.ApplyT(func(v *ClusterCertificateAuthority) ClusterCertificateAuthority {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterCertificateAuthority
-		return ret
+func (o ClusterCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) ClusterCertificateAuthorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCertificateAuthority {
+		return vs[0].([]ClusterCertificateAuthority)[vs[1].(int)]
 	}).(ClusterCertificateAuthorityOutput)
-}
-
-// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterCertificateAuthority) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Data
-	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterEncryptionConfig struct {
@@ -3278,7 +3238,7 @@ func (o GetNodeGroupScalingConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGr
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityPtrInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityArrayInput)(nil)).Elem(), ClusterCertificateAuthorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigPtrInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigProviderInput)(nil)).Elem(), ClusterEncryptionConfigProviderArgs{})
@@ -3326,7 +3286,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigInput)(nil)).Elem(), GetNodeGroupScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigArrayInput)(nil)).Elem(), GetNodeGroupScalingConfigArray{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
-	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCertificateAuthorityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderOutput{})

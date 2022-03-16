@@ -11970,6 +11970,223 @@ func (o GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput) Index(i 
 	}).(GetOriginRequestPolicyQueryStringsConfigQueryStringOutput)
 }
 
+type GetRealtimeLogConfigEndpoint struct {
+	// (Required) The Amazon Kinesis data stream configuration.
+	KinesisStreamConfigs []GetRealtimeLogConfigEndpointKinesisStreamConfig `pulumi:"kinesisStreamConfigs"`
+	// (Required) The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+	StreamType string `pulumi:"streamType"`
+}
+
+// GetRealtimeLogConfigEndpointInput is an input type that accepts GetRealtimeLogConfigEndpointArgs and GetRealtimeLogConfigEndpointOutput values.
+// You can construct a concrete instance of `GetRealtimeLogConfigEndpointInput` via:
+//
+//          GetRealtimeLogConfigEndpointArgs{...}
+type GetRealtimeLogConfigEndpointInput interface {
+	pulumi.Input
+
+	ToGetRealtimeLogConfigEndpointOutput() GetRealtimeLogConfigEndpointOutput
+	ToGetRealtimeLogConfigEndpointOutputWithContext(context.Context) GetRealtimeLogConfigEndpointOutput
+}
+
+type GetRealtimeLogConfigEndpointArgs struct {
+	// (Required) The Amazon Kinesis data stream configuration.
+	KinesisStreamConfigs GetRealtimeLogConfigEndpointKinesisStreamConfigArrayInput `pulumi:"kinesisStreamConfigs"`
+	// (Required) The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+	StreamType pulumi.StringInput `pulumi:"streamType"`
+}
+
+func (GetRealtimeLogConfigEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (i GetRealtimeLogConfigEndpointArgs) ToGetRealtimeLogConfigEndpointOutput() GetRealtimeLogConfigEndpointOutput {
+	return i.ToGetRealtimeLogConfigEndpointOutputWithContext(context.Background())
+}
+
+func (i GetRealtimeLogConfigEndpointArgs) ToGetRealtimeLogConfigEndpointOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRealtimeLogConfigEndpointOutput)
+}
+
+// GetRealtimeLogConfigEndpointArrayInput is an input type that accepts GetRealtimeLogConfigEndpointArray and GetRealtimeLogConfigEndpointArrayOutput values.
+// You can construct a concrete instance of `GetRealtimeLogConfigEndpointArrayInput` via:
+//
+//          GetRealtimeLogConfigEndpointArray{ GetRealtimeLogConfigEndpointArgs{...} }
+type GetRealtimeLogConfigEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetRealtimeLogConfigEndpointArrayOutput() GetRealtimeLogConfigEndpointArrayOutput
+	ToGetRealtimeLogConfigEndpointArrayOutputWithContext(context.Context) GetRealtimeLogConfigEndpointArrayOutput
+}
+
+type GetRealtimeLogConfigEndpointArray []GetRealtimeLogConfigEndpointInput
+
+func (GetRealtimeLogConfigEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (i GetRealtimeLogConfigEndpointArray) ToGetRealtimeLogConfigEndpointArrayOutput() GetRealtimeLogConfigEndpointArrayOutput {
+	return i.ToGetRealtimeLogConfigEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetRealtimeLogConfigEndpointArray) ToGetRealtimeLogConfigEndpointArrayOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRealtimeLogConfigEndpointArrayOutput)
+}
+
+type GetRealtimeLogConfigEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetRealtimeLogConfigEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (o GetRealtimeLogConfigEndpointOutput) ToGetRealtimeLogConfigEndpointOutput() GetRealtimeLogConfigEndpointOutput {
+	return o
+}
+
+func (o GetRealtimeLogConfigEndpointOutput) ToGetRealtimeLogConfigEndpointOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointOutput {
+	return o
+}
+
+// (Required) The Amazon Kinesis data stream configuration.
+func (o GetRealtimeLogConfigEndpointOutput) KinesisStreamConfigs() GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput {
+	return o.ApplyT(func(v GetRealtimeLogConfigEndpoint) []GetRealtimeLogConfigEndpointKinesisStreamConfig {
+		return v.KinesisStreamConfigs
+	}).(GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput)
+}
+
+// (Required) The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+func (o GetRealtimeLogConfigEndpointOutput) StreamType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRealtimeLogConfigEndpoint) string { return v.StreamType }).(pulumi.StringOutput)
+}
+
+type GetRealtimeLogConfigEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRealtimeLogConfigEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRealtimeLogConfigEndpoint)(nil)).Elem()
+}
+
+func (o GetRealtimeLogConfigEndpointArrayOutput) ToGetRealtimeLogConfigEndpointArrayOutput() GetRealtimeLogConfigEndpointArrayOutput {
+	return o
+}
+
+func (o GetRealtimeLogConfigEndpointArrayOutput) ToGetRealtimeLogConfigEndpointArrayOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointArrayOutput {
+	return o
+}
+
+func (o GetRealtimeLogConfigEndpointArrayOutput) Index(i pulumi.IntInput) GetRealtimeLogConfigEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRealtimeLogConfigEndpoint {
+		return vs[0].([]GetRealtimeLogConfigEndpoint)[vs[1].(int)]
+	}).(GetRealtimeLogConfigEndpointOutput)
+}
+
+type GetRealtimeLogConfigEndpointKinesisStreamConfig struct {
+	// (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+	// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+	RoleArn string `pulumi:"roleArn"`
+	// (Required) The ARN of the Kinesis data stream.
+	StreamArn string `pulumi:"streamArn"`
+}
+
+// GetRealtimeLogConfigEndpointKinesisStreamConfigInput is an input type that accepts GetRealtimeLogConfigEndpointKinesisStreamConfigArgs and GetRealtimeLogConfigEndpointKinesisStreamConfigOutput values.
+// You can construct a concrete instance of `GetRealtimeLogConfigEndpointKinesisStreamConfigInput` via:
+//
+//          GetRealtimeLogConfigEndpointKinesisStreamConfigArgs{...}
+type GetRealtimeLogConfigEndpointKinesisStreamConfigInput interface {
+	pulumi.Input
+
+	ToGetRealtimeLogConfigEndpointKinesisStreamConfigOutput() GetRealtimeLogConfigEndpointKinesisStreamConfigOutput
+	ToGetRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(context.Context) GetRealtimeLogConfigEndpointKinesisStreamConfigOutput
+}
+
+type GetRealtimeLogConfigEndpointKinesisStreamConfigArgs struct {
+	// (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+	// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// (Required) The ARN of the Kinesis data stream.
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (GetRealtimeLogConfigEndpointKinesisStreamConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (i GetRealtimeLogConfigEndpointKinesisStreamConfigArgs) ToGetRealtimeLogConfigEndpointKinesisStreamConfigOutput() GetRealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return i.ToGetRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(context.Background())
+}
+
+func (i GetRealtimeLogConfigEndpointKinesisStreamConfigArgs) ToGetRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRealtimeLogConfigEndpointKinesisStreamConfigOutput)
+}
+
+// GetRealtimeLogConfigEndpointKinesisStreamConfigArrayInput is an input type that accepts GetRealtimeLogConfigEndpointKinesisStreamConfigArray and GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput values.
+// You can construct a concrete instance of `GetRealtimeLogConfigEndpointKinesisStreamConfigArrayInput` via:
+//
+//          GetRealtimeLogConfigEndpointKinesisStreamConfigArray{ GetRealtimeLogConfigEndpointKinesisStreamConfigArgs{...} }
+type GetRealtimeLogConfigEndpointKinesisStreamConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput() GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput
+	ToGetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutputWithContext(context.Context) GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput
+}
+
+type GetRealtimeLogConfigEndpointKinesisStreamConfigArray []GetRealtimeLogConfigEndpointKinesisStreamConfigInput
+
+func (GetRealtimeLogConfigEndpointKinesisStreamConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (i GetRealtimeLogConfigEndpointKinesisStreamConfigArray) ToGetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput() GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput {
+	return i.ToGetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetRealtimeLogConfigEndpointKinesisStreamConfigArray) ToGetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput)
+}
+
+type GetRealtimeLogConfigEndpointKinesisStreamConfigOutput struct{ *pulumi.OutputState }
+
+func (GetRealtimeLogConfigEndpointKinesisStreamConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (o GetRealtimeLogConfigEndpointKinesisStreamConfigOutput) ToGetRealtimeLogConfigEndpointKinesisStreamConfigOutput() GetRealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return o
+}
+
+func (o GetRealtimeLogConfigEndpointKinesisStreamConfigOutput) ToGetRealtimeLogConfigEndpointKinesisStreamConfigOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return o
+}
+
+// (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+func (o GetRealtimeLogConfigEndpointKinesisStreamConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRealtimeLogConfigEndpointKinesisStreamConfig) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// (Required) The ARN of the Kinesis data stream.
+func (o GetRealtimeLogConfigEndpointKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRealtimeLogConfigEndpointKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
+}
+
+func (o GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput) ToGetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput() GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput {
+	return o
+}
+
+func (o GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput) ToGetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutputWithContext(ctx context.Context) GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput {
+	return o
+}
+
+func (o GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput) Index(i pulumi.IntInput) GetRealtimeLogConfigEndpointKinesisStreamConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRealtimeLogConfigEndpointKinesisStreamConfig {
+		return vs[0].([]GetRealtimeLogConfigEndpointKinesisStreamConfig)[vs[1].(int)]
+	}).(GetRealtimeLogConfigEndpointKinesisStreamConfigOutput)
+}
+
 type GetResponseHeadersPolicyCorsConfig struct {
 	// A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
 	AccessControlAllowCredentials bool `pulumi:"accessControlAllowCredentials"`
@@ -13695,6 +13912,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigArrayInput)(nil)).Elem(), GetOriginRequestPolicyQueryStringsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigQueryStringInput)(nil)).Elem(), GetOriginRequestPolicyQueryStringsConfigQueryStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput)(nil)).Elem(), GetOriginRequestPolicyQueryStringsConfigQueryStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRealtimeLogConfigEndpointInput)(nil)).Elem(), GetRealtimeLogConfigEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRealtimeLogConfigEndpointArrayInput)(nil)).Elem(), GetRealtimeLogConfigEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRealtimeLogConfigEndpointKinesisStreamConfigInput)(nil)).Elem(), GetRealtimeLogConfigEndpointKinesisStreamConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRealtimeLogConfigEndpointKinesisStreamConfigArrayInput)(nil)).Elem(), GetRealtimeLogConfigEndpointKinesisStreamConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs{})
@@ -13881,6 +14102,10 @@ func init() {
 	pulumi.RegisterOutputType(GetOriginRequestPolicyQueryStringsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyQueryStringsConfigQueryStringOutput{})
 	pulumi.RegisterOutputType(GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput{})
+	pulumi.RegisterOutputType(GetRealtimeLogConfigEndpointOutput{})
+	pulumi.RegisterOutputType(GetRealtimeLogConfigEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetRealtimeLogConfigEndpointKinesisStreamConfigOutput{})
+	pulumi.RegisterOutputType(GetRealtimeLogConfigEndpointKinesisStreamConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicyCorsConfigOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicyCorsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput{})

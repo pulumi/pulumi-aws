@@ -133,7 +133,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> NotificationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Access Control List permission for S3 bucket objects. Defaults to `private`.
+        /// Access Control List permission for S3 objects. Defaults to `private`.
         /// </summary>
         [Output("objectAcl")]
         public Output<string?> ObjectAcl { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? NotificationPolicy { get; set; }
 
         /// <summary>
-        /// Access Control List permission for S3 bucket objects. Defaults to `private`.
+        /// Access Control List permission for S3 objects. Defaults to `private`.
         /// </summary>
         [Input("objectAcl")]
         public Input<string>? ObjectAcl { get; set; }
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? NotificationPolicy { get; set; }
 
         /// <summary>
-        /// Access Control List permission for S3 bucket objects. Defaults to `private`.
+        /// Access Control List permission for S3 objects. Defaults to `private`.
         /// </summary>
         [Input("objectAcl")]
         public Input<string>? ObjectAcl { get; set; }

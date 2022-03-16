@@ -15,8 +15,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.Bucket("elbLogs", {
+ * const elbLogs = new aws.s3.BucketV2("elbLogs", {bucket: "my-elb-tf-test-bucket"});
+ * const elbLogsAcl = new aws.s3.BucketAclV2("elbLogsAcl", {
+ *     bucket: elbLogs.id,
  *     acl: "private",
+ * });
+ * const allowElbLogging = new aws.s3.BucketPolicy("allowElbLogging", {
+ *     bucket: elbLogs.id,
  *     policy: main.then(main => `{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",

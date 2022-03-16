@@ -974,7 +974,7 @@ class DomainRetentionPolicyArgs:
     def __init__(__self__, *,
                  home_efs_file_system: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] home_efs_file_system: The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+        :param pulumi.Input[str] home_efs_file_system: The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
         """
         if home_efs_file_system is not None:
             pulumi.set(__self__, "home_efs_file_system", home_efs_file_system)
@@ -983,7 +983,7 @@ class DomainRetentionPolicyArgs:
     @pulumi.getter(name="homeEfsFileSystem")
     def home_efs_file_system(self) -> Optional[pulumi.Input[str]]:
         """
-        The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+        The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
         """
         return pulumi.get(self, "home_efs_file_system")
 

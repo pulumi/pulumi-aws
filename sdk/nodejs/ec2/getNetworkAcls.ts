@@ -94,7 +94,7 @@ export interface GetNetworkAclsResult {
      */
     readonly id: string;
     /**
-     * A list of all the network ACL ids found. This data source will fail if none are found.
+     * A list of all the network ACL ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};

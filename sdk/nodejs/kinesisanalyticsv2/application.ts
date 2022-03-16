@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
- *     bucket: exampleBucket.bucket,
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example-flink-application"});
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ *     bucket: exampleBucketV2.bucket,
  *     key: "example-flink-application",
- *     source: new pulumi.asset.FileAsset("flink-app.jar"),
+ *     source: "flink-app.jar",
  * });
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
  *     runtimeEnvironment: "FLINK-1_8",
@@ -31,8 +31,8 @@ import * as utilities from "../utilities";
  *         applicationCodeConfiguration: {
  *             codeContent: {
  *                 s3ContentLocation: {
- *                     bucketArn: exampleBucket.arn,
- *                     fileKey: exampleBucketObject.key,
+ *                     bucketArn: exampleBucketV2.arn,
+ *                     fileKey: exampleBucketObjectv2.key,
  *                 },
  *             },
  *             codeContentType: "ZIPFILE",
@@ -181,11 +181,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
- *     bucket: exampleBucket.bucket,
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example-flink-application"});
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ *     bucket: exampleBucketV2.bucket,
  *     key: "example-flink-application",
- *     source: new pulumi.asset.FileAsset("flink-app.jar"),
+ *     source: "flink-app.jar",
  * });
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
  *     runtimeEnvironment: "FLINK-1_8",
@@ -194,8 +194,8 @@ import * as utilities from "../utilities";
  *         applicationCodeConfiguration: {
  *             codeContent: {
  *                 s3ContentLocation: {
- *                     bucketArn: exampleBucket.arn,
- *                     fileKey: exampleBucketObject.key,
+ *                     bucketArn: exampleBucketV2.arn,
+ *                     fileKey: exampleBucketObjectv2.key,
  *                 },
  *             },
  *             codeContentType: "ZIPFILE",

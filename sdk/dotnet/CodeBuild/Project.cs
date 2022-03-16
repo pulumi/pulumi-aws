@@ -22,8 +22,13 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
+    ///         });
+    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = exampleBucketV2.Id,
     ///             Acl = "private",
     ///         });
     ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
@@ -45,10 +50,10 @@ namespace Pulumi.Aws.CodeBuild
     ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
     ///             Role = exampleRole.Name,
-    ///             Policy = Output.Tuple(exampleBucket.Arn, exampleBucket.Arn).Apply(values =&gt;
+    ///             Policy = Output.Tuple(exampleBucketV2.Arn, exampleBucketV2.Arn).Apply(values =&gt;
     ///             {
-    ///                 var exampleBucketArn = values.Item1;
-    ///                 var exampleBucketArn1 = values.Item2;
+    ///                 var exampleBucketV2Arn = values.Item1;
+    ///                 var exampleBucketV2Arn1 = values.Item2;
     ///                 return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -100,8 +105,8 @@ namespace Pulumi.Aws.CodeBuild
     ///         ""s3:*""
     ///       ],
     ///       ""Resource"": [
-    ///         ""{exampleBucketArn}"",
-    ///         ""{exampleBucketArn1}/*""
+    ///         ""{exampleBucketV2Arn}"",
+    ///         ""{exampleBucketV2Arn1}/*""
     ///       ]
     ///     }}
     ///   ]
@@ -121,7 +126,7 @@ namespace Pulumi.Aws.CodeBuild
     ///             Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
     ///             {
     ///                 Type = "S3",
-    ///                 Location = exampleBucket.BucketName,
+    ///                 Location = exampleBucketV2.Bucket,
     ///             },
     ///             Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///             {
@@ -154,7 +159,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                 S3Logs = new Aws.CodeBuild.Inputs.ProjectLogsConfigS3LogsArgs
     ///                 {
     ///                     Status = "ENABLED",
-    ///                     Location = exampleBucket.Id.Apply(id =&gt; $"{id}/build-log"),
+    ///                     Location = exampleBucketV2.Id.Apply(id =&gt; $"{id}/build-log"),
     ///                 },
     ///             },
     ///             Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs

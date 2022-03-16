@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
+    /// Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
     /// 
-    /// The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that this provider does not _create_ this resource but instead "adopts" it into management.
+    /// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
     /// 
-    /// The `aws.ec2.DefaultSubnet` resource allows you to manage a region's default VPC subnet but this provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and the provider management.
+    /// The `aws.ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
+    /// If no default subnet exists, this provider creates a new default subnet.
+    /// By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
+    /// Set the `force_destroy` argument to `true` to delete the default subnet.
     /// 
     /// ## Example Usage
     /// 
@@ -50,30 +53,28 @@ namespace Pulumi.Aws.Ec2
     [AwsResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
     public partial class DefaultSubnet : Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN for the subnet.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether IPv6 addresses are assigned on creation.
-        /// * `availability_zone_id`- AZ ID of the subnet.
-        /// </summary>
         [Output("assignIpv6AddressOnCreation")]
-        public Output<bool> AssignIpv6AddressOnCreation { get; private set; } = null!;
+        public Output<bool?> AssignIpv6AddressOnCreation { get; private set; } = null!;
 
         /// <summary>
-        /// AZ for the subnet.
+        /// is required
+        /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+        /// * The default value for `map_public_ip_on_launch` is `true`
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The AZ ID of the subnet
+        /// </summary>
         [Output("availabilityZoneId")]
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// CIDR block for the subnet.
+        /// The IPv4 CIDR block assigned to the subnet
         /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
@@ -90,9 +91,15 @@ namespace Pulumi.Aws.Ec2
         [Output("enableResourceNameDnsAaaaRecordOnLaunch")]
         public Output<bool?> EnableResourceNameDnsAaaaRecordOnLaunch { get; private set; } = null!;
 
+        [Output("existingDefaultSubnet")]
+        public Output<bool> ExistingDefaultSubnet { get; private set; } = null!;
+
         /// <summary>
-        /// IPv6 CIDR block.
+        /// Whether destroying the resource deletes the default subnet. Default: `false`
         /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
+
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
 
@@ -105,27 +112,18 @@ namespace Pulumi.Aws.Ec2
         [Output("mapCustomerOwnedIpOnLaunch")]
         public Output<bool?> MapCustomerOwnedIpOnLaunch { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether instances launched into the subnet should be assigned a public IP address.
-        /// </summary>
         [Output("mapPublicIpOnLaunch")]
-        public Output<bool> MapPublicIpOnLaunch { get; private set; } = null!;
+        public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
 
         [Output("outpostArn")]
-        public Output<string?> OutpostArn { get; private set; } = null!;
+        public Output<string> OutpostArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the AWS account that owns the subnet.
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
         [Output("privateDnsHostnameTypeOnLaunch")]
         public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -133,7 +131,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// VPC ID.
+        /// The ID of the VPC the subnet is in
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -184,8 +182,13 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultSubnetArgs : Pulumi.ResourceArgs
     {
+        [Input("assignIpv6AddressOnCreation")]
+        public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
+
         /// <summary>
-        /// AZ for the subnet.
+        /// is required
+        /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+        /// * The default value for `map_public_ip_on_launch` is `true`
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -202,34 +205,41 @@ namespace Pulumi.Aws.Ec2
         [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
         public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
 
+        /// <summary>
+        /// Whether destroying the resource deletes the default subnet. Default: `false`
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        [Input("ipv6CidrBlock")]
+        public Input<string>? Ipv6CidrBlock { get; set; }
+
         [Input("ipv6Native")]
         public Input<bool>? Ipv6Native { get; set; }
 
         [Input("mapCustomerOwnedIpOnLaunch")]
         public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
-        /// <summary>
-        /// Whether instances launched into the subnet should be assigned a public IP address.
-        /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
-
-        [Input("outpostArn")]
-        public Input<string>? OutpostArn { get; set; }
 
         [Input("privateDnsHostnameTypeOnLaunch")]
         public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public DefaultSubnetArgs()
@@ -239,30 +249,28 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultSubnetState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN for the subnet.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Whether IPv6 addresses are assigned on creation.
-        /// * `availability_zone_id`- AZ ID of the subnet.
-        /// </summary>
         [Input("assignIpv6AddressOnCreation")]
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
 
         /// <summary>
-        /// AZ for the subnet.
+        /// is required
+        /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+        /// * The default value for `map_public_ip_on_launch` is `true`
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The AZ ID of the subnet
+        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// CIDR block for the subnet.
+        /// The IPv4 CIDR block assigned to the subnet
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
@@ -279,9 +287,15 @@ namespace Pulumi.Aws.Ec2
         [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
         public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
 
+        [Input("existingDefaultSubnet")]
+        public Input<bool>? ExistingDefaultSubnet { get; set; }
+
         /// <summary>
-        /// IPv6 CIDR block.
+        /// Whether destroying the resource deletes the default subnet. Default: `false`
         /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
@@ -294,18 +308,12 @@ namespace Pulumi.Aws.Ec2
         [Input("mapCustomerOwnedIpOnLaunch")]
         public Input<bool>? MapCustomerOwnedIpOnLaunch { get; set; }
 
-        /// <summary>
-        /// Whether instances launched into the subnet should be assigned a public IP address.
-        /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
-        /// <summary>
-        /// ID of the AWS account that owns the subnet.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
@@ -314,10 +322,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -333,7 +337,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// VPC ID.
+        /// The ID of the VPC the subnet is in
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

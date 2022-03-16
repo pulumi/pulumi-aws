@@ -22,7 +22,7 @@ import (
 // import (
 // 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -91,7 +91,7 @@ import (
 // import (
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -136,7 +136,7 @@ import (
 // 	"fmt"
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -184,7 +184,7 @@ import (
 // import (
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -233,8 +233,8 @@ import (
 // 	"encoding/json"
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/secretsmanager"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -295,7 +295,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -326,7 +326,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

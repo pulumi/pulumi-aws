@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cognito"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -47,8 +47,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cognito"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/route53"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -59,7 +59,7 @@ import (
 // 			return err
 // 		}
 // 		main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
-// 			Domain:         pulumi.String("example-domain.example.com"),
+// 			Domain:         pulumi.String("example-domain"),
 // 			CertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
 // 			UserPoolId:     exampleUserPool.ID(),
 // 		})
@@ -108,7 +108,7 @@ type UserPoolDomain struct {
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn pulumi.StringOutput `pulumi:"cloudfrontDistributionArn"`
-	// The domain string.
+	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
@@ -159,7 +159,7 @@ type userPoolDomainState struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn *string `pulumi:"cloudfrontDistributionArn"`
-	// The domain string.
+	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain *string `pulumi:"domain"`
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket *string `pulumi:"s3Bucket"`
@@ -176,7 +176,7 @@ type UserPoolDomainState struct {
 	CertificateArn pulumi.StringPtrInput
 	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn pulumi.StringPtrInput
-	// The domain string.
+	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringPtrInput
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket pulumi.StringPtrInput
@@ -193,7 +193,7 @@ func (UserPoolDomainState) ElementType() reflect.Type {
 type userPoolDomainArgs struct {
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// The domain string.
+	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain string `pulumi:"domain"`
 	// The user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -203,7 +203,7 @@ type userPoolDomainArgs struct {
 type UserPoolDomainArgs struct {
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn pulumi.StringPtrInput
-	// The domain string.
+	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringInput
 	// The user pool ID.
 	UserPoolId pulumi.StringInput

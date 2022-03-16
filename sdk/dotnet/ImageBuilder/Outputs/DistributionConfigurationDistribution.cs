@@ -22,6 +22,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionContainerDistributionConfiguration? ContainerDistributionConfiguration;
         /// <summary>
+        /// Set of launch template configuration settings that apply to image distribution. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration> LaunchTemplateConfigurations;
+        /// <summary>
         /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
@@ -36,12 +40,15 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
             Outputs.DistributionConfigurationDistributionContainerDistributionConfiguration? containerDistributionConfiguration,
 
+            ImmutableArray<Outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations,
+
             ImmutableArray<string> licenseConfigurationArns,
 
             string region)
         {
             AmiDistributionConfiguration = amiDistributionConfiguration;
             ContainerDistributionConfiguration = containerDistributionConfiguration;
+            LaunchTemplateConfigurations = launchTemplateConfigurations;
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
         }

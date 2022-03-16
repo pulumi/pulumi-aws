@@ -63,6 +63,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        [Output("bootMode")]
+        public Output<string> BootMode { get; private set; } = null!;
+
+        /// <summary>
         /// A longer, human-readable description for the AMI.
         /// </summary>
         [Output("description")]
@@ -319,6 +325,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        [Input("bootMode")]
+        public Input<string>? BootMode { get; set; }
 
         /// <summary>
         /// A longer, human-readable description for the AMI.

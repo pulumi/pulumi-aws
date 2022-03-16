@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  *
  * const primaryRegion = new aws.Provider("primaryRegion", {region: "us-east-1"});
  * const secondaryRegion = new aws.Provider("secondaryRegion", {region: "us-west-2"});
- * const fooBucket = new aws.s3.Bucket("fooBucket", {}, {
+ * const fooBucket = new aws.s3.BucketV2("fooBucket", {bucket: "example-bucket-foo"}, {
  *     provider: aws.primary_region,
  * });
- * const barBucket = new aws.s3.Bucket("barBucket", {}, {
+ * const barBucket = new aws.s3.BucketV2("barBucket", {bucket: "example-bucket-bar"}, {
  *     provider: aws.secondary_region,
  * });
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {

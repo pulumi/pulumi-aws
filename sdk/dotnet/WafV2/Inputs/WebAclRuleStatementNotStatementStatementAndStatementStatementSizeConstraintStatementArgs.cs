@@ -13,19 +13,19 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+        /// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         /// </summary>
         [Input("comparisonOperator", required: true)]
         public Input<string> ComparisonOperator { get; set; } = null!;
 
         /// <summary>
-        /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        /// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         /// </summary>
         [Input("fieldToMatch")]
         public Input<Inputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchArgs>? FieldToMatch { get; set; }
 
         /// <summary>
-        /// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+        /// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
         /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;

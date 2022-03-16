@@ -226,7 +226,7 @@ class Connection(pulumi.CustomResource):
         example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
         example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
             role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(),
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
             stages=[
                 aws.codepipeline.PipelineStageArgs(
                     name="Source",
@@ -290,7 +290,7 @@ class Connection(pulumi.CustomResource):
         example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
         example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
             role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(),
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
             stages=[
                 aws.codepipeline.PipelineStageArgs(
                     name="Source",

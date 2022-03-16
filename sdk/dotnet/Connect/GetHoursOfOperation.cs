@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A the map of tags to assign to the Hours of Operation.
+        /// A map of tags to assign to the Hours of Operation.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A the map of tags to assign to the Hours of Operation.
+        /// A map of tags to assign to the Hours of Operation.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -196,6 +196,10 @@ namespace Pulumi.Aws.Connect
     public sealed class GetHoursOfOperationResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetHoursOfOperationConfigResult> Configs;
@@ -204,7 +208,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         /// </summary>
         public readonly string HoursOfOperationArn;
         /// <summary>
@@ -224,7 +228,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A the map of tags to assign to the Hours of Operation.
+        /// A map of tags to assign to the Hours of Operation.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
@@ -234,6 +238,8 @@ namespace Pulumi.Aws.Connect
 
         [OutputConstructor]
         private GetHoursOfOperationResult(
+            string arn,
+
             ImmutableArray<Outputs.GetHoursOfOperationConfigResult> configs,
 
             string description,
@@ -252,6 +258,7 @@ namespace Pulumi.Aws.Connect
 
             string timeZone)
         {
+            Arn = arn;
             Configs = configs;
             Description = description;
             HoursOfOperationArn = hoursOfOperationArn;
