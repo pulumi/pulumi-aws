@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     public MyStack()
     ///     {
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Acl = "private",
+    ///             Bucket = "tf-test-bucket",
     ///         });
     ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
     ///         {
@@ -98,6 +98,11 @@ namespace Pulumi.Aws.Kinesis
     ///                 },
     ///             },
     ///         });
+    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Acl = "private",
+    ///         });
     ///     }
     /// 
     /// }
@@ -112,8 +117,13 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     public MyStack()
     ///     {
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "tf-test-bucket",
+    ///         });
+    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = bucket.Id,
     ///             Acl = "private",
     ///         });
     ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs

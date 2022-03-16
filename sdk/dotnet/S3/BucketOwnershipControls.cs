@@ -22,12 +22,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new Aws.S3.BucketOwnershipControlsArgs
     ///         {
-    ///             Bucket = exampleBucket.Id,
+    ///             Bucket = exampleBucketV2.Id,
     ///             Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
     ///             {
     ///                 ObjectOwnership = "BucketOwnerPreferred",

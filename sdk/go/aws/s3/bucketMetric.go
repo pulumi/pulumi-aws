@@ -20,13 +20,15 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucket(ctx, "example", nil)
+// 		example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -40,19 +42,21 @@ import (
 // 	})
 // }
 // ```
-// ### Add metrics configuration with S3 bucket object filter
+// ### Add metrics configuration with S3 object filter
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucket(ctx, "example", nil)
+// 		example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

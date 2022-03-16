@@ -14,23 +14,29 @@ __all__ = ['DefaultSubnetArgs', 'DefaultSubnet']
 class DefaultSubnetArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
+                 assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
-                 outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DefaultSubnet resource.
-        :param pulumi.Input[str] availability_zone: AZ for the subnet.
-        :param pulumi.Input[bool] map_public_ip_on_launch: Whether instances launched into the subnet should be assigned a public IP address.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[str] availability_zone: is required
+               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+               * The default value for `map_public_ip_on_launch` is `true`
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if assign_ipv6_address_on_creation is not None:
+            pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if enable_dns64 is not None:
@@ -39,30 +45,45 @@ class DefaultSubnetArgs:
             pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
             pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_native is not None:
             pulumi.set(__self__, "ipv6_native", ipv6_native)
         if map_customer_owned_ip_on_launch is not None:
             pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch is not None:
             pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
-        if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if private_dns_hostname_type_on_launch is not None:
             pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[str]:
         """
-        AZ for the subnet.
+        is required
+        * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+        * The default value for `map_public_ip_on_launch` is `true`
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
     def availability_zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="assignIpv6AddressOnCreation")
+    def assign_ipv6_address_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "assign_ipv6_address_on_creation")
+
+    @assign_ipv6_address_on_creation.setter
+    def assign_ipv6_address_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "assign_ipv6_address_on_creation", value)
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
@@ -101,6 +122,27 @@ class DefaultSubnetArgs:
         pulumi.set(self, "enable_resource_name_dns_aaaa_record_on_launch", value)
 
     @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether destroying the resource deletes the default subnet. Default: `false`
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
     @pulumi.getter(name="ipv6Native")
     def ipv6_native(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "ipv6_native")
@@ -121,23 +163,11 @@ class DefaultSubnetArgs:
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether instances launched into the subnet should be assigned a public IP address.
-        """
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @map_public_ip_on_launch.setter
     def map_public_ip_on_launch(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "map_public_ip_on_launch", value)
-
-    @property
-    @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "outpost_arn")
-
-    @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "outpost_arn", value)
 
     @property
     @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
@@ -151,14 +181,20 @@ class DefaultSubnetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -173,6 +209,8 @@ class _DefaultSubnetState:
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 existing_default_subnet: Optional[pulumi.Input[bool]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
@@ -186,16 +224,13 @@ class _DefaultSubnetState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DefaultSubnet resources.
-        :param pulumi.Input[str] arn: ARN for the subnet.
-        :param pulumi.Input[bool] assign_ipv6_address_on_creation: Whether IPv6 addresses are assigned on creation.
-               * `availability_zone_id`- AZ ID of the subnet.
-        :param pulumi.Input[str] availability_zone: AZ for the subnet.
-        :param pulumi.Input[str] cidr_block: CIDR block for the subnet.
-        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block.
-        :param pulumi.Input[bool] map_public_ip_on_launch: Whether instances launched into the subnet should be assigned a public IP address.
-        :param pulumi.Input[str] owner_id: ID of the AWS account that owns the subnet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
-        :param pulumi.Input[str] vpc_id: VPC ID.
+        :param pulumi.Input[str] availability_zone: is required
+               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+               * The default value for `map_public_ip_on_launch` is `true`
+        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet
+        :param pulumi.Input[str] cidr_block: The IPv4 CIDR block assigned to the subnet
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet is in
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -215,6 +250,10 @@ class _DefaultSubnetState:
             pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
             pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
+        if existing_default_subnet is not None:
+            pulumi.set(__self__, "existing_default_subnet", existing_default_subnet)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_cidr_block_association_id is not None:
@@ -241,9 +280,6 @@ class _DefaultSubnetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN for the subnet.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -253,10 +289,6 @@ class _DefaultSubnetState:
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
     def assign_ipv6_address_on_creation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether IPv6 addresses are assigned on creation.
-        * `availability_zone_id`- AZ ID of the subnet.
-        """
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @assign_ipv6_address_on_creation.setter
@@ -267,7 +299,9 @@ class _DefaultSubnetState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        AZ for the subnet.
+        is required
+        * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+        * The default value for `map_public_ip_on_launch` is `true`
         """
         return pulumi.get(self, "availability_zone")
 
@@ -278,6 +312,9 @@ class _DefaultSubnetState:
     @property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AZ ID of the subnet
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -288,7 +325,7 @@ class _DefaultSubnetState:
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
-        CIDR block for the subnet.
+        The IPv4 CIDR block assigned to the subnet
         """
         return pulumi.get(self, "cidr_block")
 
@@ -333,11 +370,29 @@ class _DefaultSubnetState:
         pulumi.set(self, "enable_resource_name_dns_aaaa_record_on_launch", value)
 
     @property
+    @pulumi.getter(name="existingDefaultSubnet")
+    def existing_default_subnet(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "existing_default_subnet")
+
+    @existing_default_subnet.setter
+    def existing_default_subnet(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "existing_default_subnet", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether destroying the resource deletes the default subnet. Default: `false`
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        IPv6 CIDR block.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -374,9 +429,6 @@ class _DefaultSubnetState:
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether instances launched into the subnet should be assigned a public IP address.
-        """
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @map_public_ip_on_launch.setter
@@ -395,9 +447,6 @@ class _DefaultSubnetState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the AWS account that owns the subnet.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -416,9 +465,6 @@ class _DefaultSubnetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -438,7 +484,7 @@ class _DefaultSubnetState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        VPC ID.
+        The ID of the VPC the subnet is in
         """
         return pulumi.get(self, "vpc_id")
 
@@ -452,24 +498,30 @@ class DefaultSubnet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
-                 outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
+        Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
 
-        The `ec2.DefaultSubnet` behaves differently from normal resources, in that this provider does not _create_ this resource but instead "adopts" it into management.
+        **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
 
-        The `ec2.DefaultSubnet` resource allows you to manage a region's default VPC subnet but this provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and the provider management.
+        The `ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
+        If no default subnet exists, this provider creates a new default subnet.
+        By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
+        Set the `force_destroy` argument to `true` to delete the default subnet.
 
         ## Example Usage
 
@@ -494,9 +546,10 @@ class DefaultSubnet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] availability_zone: AZ for the subnet.
-        :param pulumi.Input[bool] map_public_ip_on_launch: Whether instances launched into the subnet should be assigned a public IP address.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[str] availability_zone: is required
+               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+               * The default value for `map_public_ip_on_launch` is `true`
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
         """
         ...
     @overload
@@ -505,11 +558,14 @@ class DefaultSubnet(pulumi.CustomResource):
                  args: DefaultSubnetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
+        Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
 
-        The `ec2.DefaultSubnet` behaves differently from normal resources, in that this provider does not _create_ this resource but instead "adopts" it into management.
+        **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
 
-        The `ec2.DefaultSubnet` resource allows you to manage a region's default VPC subnet but this provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and the provider management.
+        The `ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
+        If no default subnet exists, this provider creates a new default subnet.
+        By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
+        Set the `force_destroy` argument to `true` to delete the default subnet.
 
         ## Example Usage
 
@@ -547,17 +603,20 @@ class DefaultSubnet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
-                 outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -570,6 +629,7 @@ class DefaultSubnet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DefaultSubnetArgs.__new__(DefaultSubnetArgs)
 
+            __props__.__dict__["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
@@ -577,20 +637,21 @@ class DefaultSubnet(pulumi.CustomResource):
             __props__.__dict__["enable_dns64"] = enable_dns64
             __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
             __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
+            __props__.__dict__["force_destroy"] = force_destroy
+            __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
             __props__.__dict__["ipv6_native"] = ipv6_native
             __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
-            __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["assign_ipv6_address_on_creation"] = None
             __props__.__dict__["availability_zone_id"] = None
             __props__.__dict__["cidr_block"] = None
-            __props__.__dict__["ipv6_cidr_block"] = None
+            __props__.__dict__["existing_default_subnet"] = None
             __props__.__dict__["ipv6_cidr_block_association_id"] = None
+            __props__.__dict__["outpost_arn"] = None
             __props__.__dict__["owner_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(DefaultSubnet, __self__).__init__(
             'aws:ec2/defaultSubnet:DefaultSubnet',
@@ -611,6 +672,8 @@ class DefaultSubnet(pulumi.CustomResource):
             enable_dns64: Optional[pulumi.Input[bool]] = None,
             enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
             enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+            existing_default_subnet: Optional[pulumi.Input[bool]] = None,
+            force_destroy: Optional[pulumi.Input[bool]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
             ipv6_native: Optional[pulumi.Input[bool]] = None,
@@ -629,16 +692,13 @@ class DefaultSubnet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN for the subnet.
-        :param pulumi.Input[bool] assign_ipv6_address_on_creation: Whether IPv6 addresses are assigned on creation.
-               * `availability_zone_id`- AZ ID of the subnet.
-        :param pulumi.Input[str] availability_zone: AZ for the subnet.
-        :param pulumi.Input[str] cidr_block: CIDR block for the subnet.
-        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block.
-        :param pulumi.Input[bool] map_public_ip_on_launch: Whether instances launched into the subnet should be assigned a public IP address.
-        :param pulumi.Input[str] owner_id: ID of the AWS account that owns the subnet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
-        :param pulumi.Input[str] vpc_id: VPC ID.
+        :param pulumi.Input[str] availability_zone: is required
+               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+               * The default value for `map_public_ip_on_launch` is `true`
+        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet
+        :param pulumi.Input[str] cidr_block: The IPv4 CIDR block assigned to the subnet
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet is in
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -653,6 +713,8 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__.__dict__["enable_dns64"] = enable_dns64
         __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
         __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
+        __props__.__dict__["existing_default_subnet"] = existing_default_subnet
+        __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
         __props__.__dict__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
         __props__.__dict__["ipv6_native"] = ipv6_native
@@ -669,38 +731,36 @@ class DefaultSubnet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN for the subnet.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
-    def assign_ipv6_address_on_creation(self) -> pulumi.Output[bool]:
-        """
-        Whether IPv6 addresses are assigned on creation.
-        * `availability_zone_id`- AZ ID of the subnet.
-        """
+    def assign_ipv6_address_on_creation(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
         """
-        AZ for the subnet.
+        is required
+        * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+        * The default value for `map_public_ip_on_launch` is `true`
         """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[str]:
+        """
+        The AZ ID of the subnet
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
         """
-        CIDR block for the subnet.
+        The IPv4 CIDR block assigned to the subnet
         """
         return pulumi.get(self, "cidr_block")
 
@@ -725,11 +785,21 @@ class DefaultSubnet(pulumi.CustomResource):
         return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
 
     @property
+    @pulumi.getter(name="existingDefaultSubnet")
+    def existing_default_subnet(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "existing_default_subnet")
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether destroying the resource deletes the default subnet. Default: `false`
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[str]:
-        """
-        IPv6 CIDR block.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
@@ -749,23 +819,17 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
-    def map_public_ip_on_launch(self) -> pulumi.Output[bool]:
-        """
-        Whether instances launched into the subnet should be assigned a public IP address.
-        """
+    def map_public_ip_on_launch(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
+    def outpost_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
-        """
-        ID of the AWS account that owns the subnet.
-        """
         return pulumi.get(self, "owner_id")
 
     @property
@@ -776,9 +840,6 @@ class DefaultSubnet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -790,7 +851,7 @@ class DefaultSubnet(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        VPC ID.
+        The ID of the VPC the subnet is in
         """
         return pulumi.get(self, "vpc_id")
 

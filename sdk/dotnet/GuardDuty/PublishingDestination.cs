@@ -24,9 +24,9 @@ namespace Pulumi.Aws.GuardDuty
     ///     {
     ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var gdBucket = new Aws.S3.Bucket("gdBucket", new Aws.S3.BucketArgs
+    ///         var gdBucket = new Aws.S3.BucketV2("gdBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Acl = "private",
+    ///             Bucket = "example",
     ///             ForceDestroy = true,
     ///         });
     ///         var bucketPol = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
@@ -144,6 +144,11 @@ namespace Pulumi.Aws.GuardDuty
     ///         var testGd = new Aws.GuardDuty.Detector("testGd", new Aws.GuardDuty.DetectorArgs
     ///         {
     ///             Enable = true,
+    ///         });
+    ///         var gdBucketAcl = new Aws.S3.BucketAclV2("gdBucketAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = gdBucket.Id,
+    ///             Acl = "private",
     ///         });
     ///         var gdBucketPolicy = new Aws.S3.BucketPolicy("gdBucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {

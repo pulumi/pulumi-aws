@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codestarconnections.Connection("example", {providerType: "GitHub"});
- * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {acl: "private"});
+ * const codepipelineBucket = new aws.s3.BucketV2("codepipelineBucket", {bucket: "test-bucket"});
  * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -34,14 +34,14 @@ import * as utilities from "../utilities";
  * });
  * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
  *     roleArn: codepipelineRole.arn,
- *     artifactStore: {
+ *     artifactStores: [{
  *         location: codepipelineBucket.bucket,
  *         type: "S3",
  *         encryptionKey: {
  *             id: s3kmskey.then(s3kmskey => s3kmskey.arn),
  *             type: "KMS",
  *         },
- *     },
+ *     }],
  *     stages: [
  *         {
  *             name: "Source",
@@ -93,6 +93,10 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *     ],
+ * });
+ * const codepipelineBucketAcl = new aws.s3.BucketAclV2("codepipelineBucketAcl", {
+ *     bucket: codepipelineBucket.id,
+ *     acl: "private",
  * });
  * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
  *     role: codepipelineRole.id,
@@ -177,7 +181,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    public readonly artifactStore!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore>;
+    public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
     /**
      * The name of the pipeline.
      */
@@ -213,7 +217,7 @@ export class Pipeline extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["artifactStore"] = state ? state.artifactStore : undefined;
+            resourceInputs["artifactStores"] = state ? state.artifactStores : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stages"] = state ? state.stages : undefined;
@@ -221,8 +225,8 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.artifactStore === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'artifactStore'");
+            if ((!args || args.artifactStores === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'artifactStores'");
             }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
@@ -230,7 +234,7 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.stages === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["artifactStore"] = args ? args.artifactStore : undefined;
+            resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stages"] = args ? args.stages : undefined;
@@ -254,7 +258,7 @@ export interface PipelineState {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
+    artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
     /**
      * The name of the pipeline.
      */
@@ -284,7 +288,7 @@ export interface PipelineArgs {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    artifactStore: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
+    artifactStores: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
     /**
      * The name of the pipeline.
      */

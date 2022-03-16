@@ -10,6 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an ECS cluster.
+//
+// > **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
+//
 // ## Example Usage
 // ### Basic Example
 //
@@ -17,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -38,15 +42,15 @@ import (
 // 	})
 // }
 // ```
-// ### Example W/Log Configuration
+// ### Example with Log Configuration
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -82,6 +86,50 @@ import (
 // 	})
 // }
 // ```
+// ### Example with Capacity Providers
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCapacityProvider, err := ecs.NewCapacityProvider(ctx, "exampleCapacityProvider", &ecs.CapacityProviderArgs{
+// 			AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+// 				AutoScalingGroupArn: pulumi.Any(aws_autoscaling_group.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
+// 			ClusterName: exampleCluster.Name,
+// 			CapacityProviders: pulumi.StringArray{
+// 				exampleCapacityProvider.Name,
+// 			},
+// 			DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
+// 				&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
+// 					Base:             pulumi.Int(1),
+// 					Weight:           pulumi.Int(100),
+// 					CapacityProvider: exampleCapacityProvider.Name,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -96,17 +144,22 @@ type Cluster struct {
 	// ARN that identifies the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayOutput `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -142,17 +195,22 @@ type clusterState struct {
 	// ARN that identifies the cluster.
 	Arn *string `pulumi:"arn"`
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	CapacityProviders []string `pulumi:"capacityProviders"`
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings []ClusterSetting `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -160,17 +218,22 @@ type ClusterState struct {
 	// ARN that identifies the cluster.
 	Arn pulumi.StringPtrInput
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	CapacityProviders pulumi.StringArrayInput
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration ClusterConfigurationPtrInput
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -180,10 +243,14 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	CapacityProviders []string `pulumi:"capacityProviders"`
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name *string `pulumi:"name"`
@@ -196,10 +263,14 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	CapacityProviders pulumi.StringArrayInput
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration ClusterConfigurationPtrInput
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+	//
+	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringPtrInput

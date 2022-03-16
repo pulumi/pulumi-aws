@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucket.bucket});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "awsconfig-example"});
+ * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket});
  * const fooRecorderStatus = new aws.cfg.RecorderStatus("fooRecorderStatus", {isEnabled: true}, {
  *     dependsOn: [fooDeliveryChannel],
  * });
@@ -50,8 +50,8 @@ import * as utilities from "../utilities";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${bucket.arn}",
- *         "${bucket.arn}/*"
+ *         "${bucketV2.arn}",
+ *         "${bucketV2.arn}/*"
  *       ]
  *     }
  *   ]

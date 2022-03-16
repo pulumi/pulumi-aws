@@ -23,15 +23,17 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testBucket = new Aws.S3.Bucket("testBucket", new Aws.S3.BucketArgs
+    ///         var testBucketV2 = new Aws.S3.BucketV2("testBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "my-tf-test-bucket",
     ///         });
-    ///         var inventory = new Aws.S3.Bucket("inventory", new Aws.S3.BucketArgs
+    ///         var inventory = new Aws.S3.BucketV2("inventory", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "my-tf-inventory-bucket",
     ///         });
     ///         var testInventory = new Aws.S3.Inventory("testInventory", new Aws.S3.InventoryArgs
     ///         {
-    ///             Bucket = testBucket.Id,
+    ///             Bucket = testBucketV2.Id,
     ///             IncludedObjectVersions = "All",
     ///             Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
     ///             {
@@ -50,7 +52,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// ### Add inventory configuration with S3 bucket object prefix
+    /// ### Add inventory configuration with S3 object prefix
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -60,11 +62,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var test = new Aws.S3.Bucket("test", new Aws.S3.BucketArgs
+    ///         var test = new Aws.S3.BucketV2("test", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "my-tf-test-bucket",
     ///         });
-    ///         var inventory = new Aws.S3.Bucket("inventory", new Aws.S3.BucketArgs
+    ///         var inventory = new Aws.S3.BucketV2("inventory", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "my-tf-inventory-bucket",
     ///         });
     ///         var test_prefix = new Aws.S3.Inventory("test-prefix", new Aws.S3.InventoryArgs
     ///         {

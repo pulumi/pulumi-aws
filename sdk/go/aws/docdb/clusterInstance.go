@@ -28,7 +28,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/docdb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

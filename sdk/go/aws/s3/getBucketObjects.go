@@ -10,9 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **NOTE:** The `s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `s3.getObjects` instead, where new features and fixes will be added.
+//
 // > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
 //
-// The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 func GetBucketObjects(ctx *pulumi.Context, args *GetBucketObjectsArgs, opts ...pulumi.InvokeOption) (*GetBucketObjectsResult, error) {
 	var rv GetBucketObjectsResult
 	err := ctx.Invoke("aws:s3/getBucketObjects:getBucketObjects", args, &rv, opts...)
@@ -25,6 +27,8 @@ func GetBucketObjects(ctx *pulumi.Context, args *GetBucketObjectsArgs, opts ...p
 // A collection of arguments for invoking getBucketObjects.
 type GetBucketObjectsArgs struct {
 	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	//
+	// Deprecated: Use the aws_s3_objects data source instead
 	Bucket string `pulumi:"bucket"`
 	// A character used to group keys (Default: none)
 	Delimiter *string `pulumi:"delimiter"`
@@ -42,6 +46,7 @@ type GetBucketObjectsArgs struct {
 
 // A collection of values returned by getBucketObjects.
 type GetBucketObjectsResult struct {
+	// Deprecated: Use the aws_s3_objects data source instead
 	Bucket string `pulumi:"bucket"`
 	// List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
 	CommonPrefixes []string `pulumi:"commonPrefixes"`
@@ -71,6 +76,8 @@ func GetBucketObjectsOutput(ctx *pulumi.Context, args GetBucketObjectsOutputArgs
 // A collection of arguments for invoking getBucketObjects.
 type GetBucketObjectsOutputArgs struct {
 	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	//
+	// Deprecated: Use the aws_s3_objects data source instead
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// A character used to group keys (Default: none)
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
@@ -105,6 +112,7 @@ func (o GetBucketObjectsResultOutput) ToGetBucketObjectsResultOutputWithContext(
 	return o
 }
 
+// Deprecated: Use the aws_s3_objects data source instead
 func (o GetBucketObjectsResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketObjectsResult) string { return v.Bucket }).(pulumi.StringOutput)
 }

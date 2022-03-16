@@ -35,7 +35,7 @@ type GetNetworkAclsResult struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the network ACL ids found. This data source will fail if none are found.
+	// A list of all the network ACL ids found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId *string           `pulumi:"vpcId"`
@@ -89,7 +89,7 @@ func (o GetNetworkAclsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the network ACL ids found. This data source will fail if none are found.
+// A list of all the network ACL ids found.
 func (o GetNetworkAclsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

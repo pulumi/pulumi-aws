@@ -99,9 +99,10 @@ import * as utilities from "../utilities";
  *     // ...
  *     budgetType: "RI_UTILIZATION",
  *     // RI Utilization plans require a service cost filter to be set
- *     costFilters: {
- *         Service: "Amazon Relational Database Service",
- *     },
+ *     costFilters: [{
+ *         name: "Service",
+ *         values: ["Amazon Relational Database Service"],
+ *     }],
  *     //Cost types must be defined for RI budgets because the settings conflict with the defaults
  *     costTypes: {
  *         includeCredit: false,
@@ -170,6 +171,8 @@ export class Budget extends pulumi.CustomResource {
     public readonly budgetType!: pulumi.Output<string>;
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
+     *
+     * @deprecated Use the attribute "cost_filter" instead.
      */
     public readonly costFilters!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -286,6 +289,8 @@ export interface BudgetState {
     budgetType?: pulumi.Input<string>;
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
+     *
+     * @deprecated Use the attribute "cost_filter" instead.
      */
     costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -340,6 +345,8 @@ export interface BudgetArgs {
     budgetType: pulumi.Input<string>;
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
+     *
+     * @deprecated Use the attribute "cost_filter" instead.
      */
     costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

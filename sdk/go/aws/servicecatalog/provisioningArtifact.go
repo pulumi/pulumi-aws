@@ -28,7 +28,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/servicecatalog"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -37,7 +37,7 @@ import (
 // 		_, err := servicecatalog.NewProvisioningArtifact(ctx, "example", &servicecatalog.ProvisioningArtifactArgs{
 // 			ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
 // 			Type:        pulumi.String("CLOUD_FORMATION_TEMPLATE"),
-// 			TemplateUrl: pulumi.String(fmt.Sprintf("%v%v%v%v", "https://", aws_s3_bucket.Example.Bucket_regional_domain_name, "/", aws_s3_bucket_object.Example.Key)),
+// 			TemplateUrl: pulumi.String(fmt.Sprintf("%v%v%v%v", "https://", aws_s3_bucket.Example.Bucket_regional_domain_name, "/", aws_s3_object.Example.Key)),
 // 		})
 // 		if err != nil {
 // 			return err

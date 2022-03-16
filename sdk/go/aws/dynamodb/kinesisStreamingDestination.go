@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

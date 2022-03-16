@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of all the VPC Ids found. This data source will fail if none are found.
+        /// A list of all the VPC Ids found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;

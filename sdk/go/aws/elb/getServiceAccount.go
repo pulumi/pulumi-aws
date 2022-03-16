@@ -21,8 +21,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -32,8 +32,21 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		elbLogs, err := s3.NewBucket(ctx, "elbLogs", &s3.BucketArgs{
+// 		elbLogs, err := s3.NewBucketV2(ctx, "elbLogs", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-elb-tf-test-bucket"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "elbLogsAcl", &s3.BucketAclV2Args{
+// 			Bucket: elbLogs.ID(),
 // 			Acl:    pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketPolicy(ctx, "allowElbLogging", &s3.BucketPolicyArgs{
+// 			Bucket: elbLogs.ID(),
 // 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Id\": \"Policy\",\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"s3:PutObject\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*\",\n", "      \"Principal\": {\n", "        \"AWS\": [\n", "          \"", main.Arn, "\"\n", "        ]\n", "      }\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {

@@ -29,9 +29,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         ///     public MyStack()
         ///     {
         ///         var main = Output.Create(Aws.Elb.GetServiceAccount.InvokeAsync());
-        ///         var elbLogs = new Aws.S3.Bucket("elbLogs", new Aws.S3.BucketArgs
+        ///         var elbLogs = new Aws.S3.BucketV2("elbLogs", new Aws.S3.BucketV2Args
         ///         {
+        ///             Bucket = "my-elb-tf-test-bucket",
+        ///         });
+        ///         var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new Aws.S3.BucketAclV2Args
+        ///         {
+        ///             Bucket = elbLogs.Id,
         ///             Acl = "private",
+        ///         });
+        ///         var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new Aws.S3.BucketPolicyArgs
+        ///         {
+        ///             Bucket = elbLogs.Id,
         ///             Policy = main.Apply(main =&gt; @$"{{
         ///   ""Id"": ""Policy"",
         ///   ""Version"": ""2012-10-17"",
@@ -60,7 +69,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         ///             },
         ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///             {
-        ///                 Bucket = elbLogs.BucketName,
+        ///                 Bucket = elbLogs.Bucket,
         ///                 Interval = 5,
         ///             },
         ///             Listeners = 
@@ -101,9 +110,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         ///     public MyStack()
         ///     {
         ///         var main = Output.Create(Aws.Elb.GetServiceAccount.InvokeAsync());
-        ///         var elbLogs = new Aws.S3.Bucket("elbLogs", new Aws.S3.BucketArgs
+        ///         var elbLogs = new Aws.S3.BucketV2("elbLogs", new Aws.S3.BucketV2Args
         ///         {
+        ///             Bucket = "my-elb-tf-test-bucket",
+        ///         });
+        ///         var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new Aws.S3.BucketAclV2Args
+        ///         {
+        ///             Bucket = elbLogs.Id,
         ///             Acl = "private",
+        ///         });
+        ///         var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new Aws.S3.BucketPolicyArgs
+        ///         {
+        ///             Bucket = elbLogs.Id,
         ///             Policy = main.Apply(main =&gt; @$"{{
         ///   ""Id"": ""Policy"",
         ///   ""Version"": ""2012-10-17"",
@@ -132,7 +150,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         ///             },
         ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///             {
-        ///                 Bucket = elbLogs.BucketName,
+        ///                 Bucket = elbLogs.Bucket,
         ///                 Interval = 5,
         ///             },
         ///             Listeners = 

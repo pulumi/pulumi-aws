@@ -22,13 +22,14 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     public MyStack()
     ///     {
-    ///         var hogeBucket = new Aws.S3.Bucket("hogeBucket", new Aws.S3.BucketArgs
+    ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "hoge",
     ///         });
     ///         var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new Aws.Athena.DatabaseArgs
     ///         {
     ///             Name = "database_name",
-    ///             Bucket = hogeBucket.BucketName,
+    ///             Bucket = hogeBucketV2.Bucket,
     ///         });
     ///     }
     /// 

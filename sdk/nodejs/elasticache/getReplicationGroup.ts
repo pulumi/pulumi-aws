@@ -60,6 +60,10 @@ export interface GetReplicationGroupResult {
      */
     readonly configurationEndpointAddress: string;
     /**
+     * The description of the replication group.
+     */
+    readonly description: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -78,6 +82,16 @@ export interface GetReplicationGroupResult {
     /**
      * The number of cache clusters that the replication group has.
      */
+    readonly numCacheClusters: number;
+    /**
+     * Number of node groups (shards) for the replication group.
+     */
+    readonly numNodeGroups: number;
+    /**
+     * (**Deprecated** use `numCacheClusters` instead) The number of cache clusters that the replication group has.
+     *
+     * @deprecated Use num_cache_clusters instead
+     */
     readonly numberCacheClusters: number;
     /**
      * The port number on which the configuration endpoint will accept connections.
@@ -92,7 +106,13 @@ export interface GetReplicationGroupResult {
      */
     readonly readerEndpointAddress: string;
     /**
-     * The description of the replication group.
+     * Number of replica nodes in each node group.
+     */
+    readonly replicasPerNodeGroup: number;
+    /**
+     * (**Deprecated** use `description` instead) The description of the replication group.
+     *
+     * @deprecated Use description instead
      */
     readonly replicationGroupDescription: string;
     readonly replicationGroupId: string;

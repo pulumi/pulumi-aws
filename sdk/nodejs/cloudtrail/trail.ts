@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
  * const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
- *     bucket: bucket.id,
- *     policy: pulumi.all([bucket.id, bucket.id, current]).apply(([bucketId, bucketId1, current]) => `  {
+ *     bucket: bucketV2.id,
+ *     policy: pulumi.all([bucketV2.id, bucketV2.id, current]).apply(([bucketV2Id, bucketV2Id1, current]) => `  {
  *       "Version": "2012-10-17",
  *       "Statement": [
  *           {
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *                 "Service": "cloudtrail.amazonaws.com"
  *               },
  *               "Action": "s3:GetBucketAcl",
- *               "Resource": "arn:aws:s3:::${bucketId}"
+ *               "Resource": "arn:aws:s3:::${bucketV2Id}"
  *           },
  *           {
  *               "Sid": "AWSCloudTrailWrite",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *                 "Service": "cloudtrail.amazonaws.com"
  *               },
  *               "Action": "s3:PutObject",
- *               "Resource": "arn:aws:s3:::${bucketId1}/prefix/AWSLogs/${current.accountId}/*",
+ *               "Resource": "arn:aws:s3:::${bucketV2Id1}/prefix/AWSLogs/${current.accountId}/*",
  *               "Condition": {
  *                   "StringEquals": {
  *                       "s3:x-amz-acl": "bucket-owner-full-control"
@@ -57,14 +57,14 @@ import * as utilities from "../utilities";
  * `),
  * });
  * const foobar = new aws.cloudtrail.Trail("foobar", {
- *     s3BucketName: bucket.id,
+ *     s3BucketName: bucketV2.id,
  *     s3KeyPrefix: "prefix",
  *     includeGlobalServiceEvents: false,
  * });
  * ```
  * ### Data Event Logging
  *
- * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
+ * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
  *
  * * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
  * * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
@@ -74,9 +74,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
  * const example = new aws.cloudtrail.Trail("example", {
- *     s3BucketName: bucket.id,
+ *     s3BucketName: bucketV2.id,
  *     s3KeyPrefix: "prefix",
  *     eventSelectors: [{
  *         readWriteType: "All",
@@ -88,15 +88,15 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging All S3 Bucket Object Events By Using Basic Event Selectors
+ * ### Logging All S3 Object Events By Using Basic Event Selectors
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
  * const example = new aws.cloudtrail.Trail("example", {
- *     s3BucketName: bucket.id,
+ *     s3BucketName: bucketV2.id,
  *     s3KeyPrefix: "prefix",
  *     eventSelectors: [{
  *         readWriteType: "All",
@@ -130,7 +130,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging All S3 Bucket Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+ * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -162,7 +162,7 @@ import * as utilities from "../utilities";
  *                     field: "resources.type",
  *                 },
  *             ],
- *             name: "Log all S3 buckets objects events except for two S3 buckets",
+ *             name: "Log all S3 objects events except for two S3 buckets",
  *         },
  *         {
  *             fieldSelectors: [{
@@ -292,7 +292,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
  * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
  *     s3BucketName: data.aws_s3_bucket["important-bucket"].id,
  *     s3KeyPrefix: "prefix",

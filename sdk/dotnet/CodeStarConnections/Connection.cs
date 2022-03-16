@@ -31,7 +31,10 @@ namespace Pulumi.Aws.CodeStarConnections
     ///         var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new Aws.CodePipeline.PipelineArgs
     ///         {
     ///             RoleArn = aws_iam_role.Codepipeline_role.Arn,
-    ///             ArtifactStore = ,
+    ///             ArtifactStores = 
+    ///             {
+    ///                 ,
+    ///             },
     ///             Stages = 
     ///             {
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs

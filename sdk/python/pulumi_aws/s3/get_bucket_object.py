@@ -26,6 +26,10 @@ class GetBucketObjectResult:
         pulumi.set(__self__, "body", body)
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
+        if bucket is not None:
+            warnings.warn("""Use the aws_s3_object data source instead""", DeprecationWarning)
+            pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object data source instead""")
+
         pulumi.set(__self__, "bucket", bucket)
         if bucket_key_enabled and not isinstance(bucket_key_enabled, bool):
             raise TypeError("Expected argument 'bucket_key_enabled' to be a bool")
@@ -341,6 +345,8 @@ def get_bucket_object(bucket: Optional[str] = None,
                       version_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketObjectResult:
     """
+    > **NOTE:** The `s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `s3.BucketObjectv2` instead, where new features and fixes will be added.
+
     The S3 object data source allows access to the metadata and
     _optionally_ (see below) content of an object stored inside S3 bucket.
 
@@ -438,6 +444,8 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
                              version_id: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketObjectResult]:
     """
+    > **NOTE:** The `s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `s3.BucketObjectv2` instead, where new features and fixes will be added.
+
     The S3 object data source allows access to the metadata and
     _optionally_ (see below) content of an object stored inside S3 bucket.
 

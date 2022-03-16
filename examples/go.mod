@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-aws/examples/v4
+module github.com/pulumi/pulumi-aws/examples/v5
 
 go 1.16
 

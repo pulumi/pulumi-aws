@@ -23,12 +23,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration("example-entire-bucket", new Aws.S3.BucketIntelligentTieringConfigurationArgs
     ///         {
-    ///             Bucket = example.BucketName,
+    ///             Bucket = example.Bucket,
     ///             Tierings = 
     ///             {
     ///                 new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
@@ -47,7 +48,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// ### Add intelligent tiering configuration with S3 bucket object filter
+    /// ### Add intelligent tiering configuration with S3 object filter
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -57,12 +58,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration("example-filtered", new Aws.S3.BucketIntelligentTieringConfigurationArgs
     ///         {
-    ///             Bucket = example.BucketName,
+    ///             Bucket = example.Bucket,
     ///             Status = "Disabled",
     ///             Filter = new Aws.S3.Inputs.BucketIntelligentTieringConfigurationFilterArgs
     ///             {

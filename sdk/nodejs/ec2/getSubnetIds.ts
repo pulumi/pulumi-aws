@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  * `aws.ec2.getSubnetIds` provides a set of ids for a vpcId
  *
  * This resource can be useful for getting back a set of subnet ids for a vpc.
+ *
+ * > **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
  */
 export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {
     if (!opts) {

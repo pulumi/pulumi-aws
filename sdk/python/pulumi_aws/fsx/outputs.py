@@ -13,6 +13,7 @@ __all__ = [
     'DataRepositoryAssociationS3',
     'DataRepositoryAssociationS3AutoExportPolicy',
     'DataRepositoryAssociationS3AutoImportPolicy',
+    'LustreFileSystemLogConfiguration',
     'OntapFileSystemDiskIopsConfiguration',
     'OntapFileSystemEndpoint',
     'OntapFileSystemEndpointIntercluster',
@@ -124,6 +125,37 @@ class DataRepositoryAssociationS3AutoImportPolicy(dict):
         A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
         return pulumi.get(self, "events")
+
+
+@pulumi.output_type
+class LustreFileSystemLogConfiguration(dict):
+    def __init__(__self__, *,
+                 destination: Optional[str] = None,
+                 level: Optional[str] = None):
+        """
+        :param str destination: The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        :param str level: Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        """
+        return pulumi.get(self, "level")
 
 
 @pulumi.output_type
@@ -345,8 +377,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
             suggest = "domain_name"
         elif key == "fileSystemAdministratorsGroup":
             suggest = "file_system_administrators_group"
-        elif key == "organizationalUnitDistinguidshedName":
-            suggest = "organizational_unit_distinguidshed_name"
         elif key == "organizationalUnitDistinguishedName":
             suggest = "organizational_unit_distinguished_name"
 
@@ -367,7 +397,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
                  password: str,
                  username: str,
                  file_system_administrators_group: Optional[str] = None,
-                 organizational_unit_distinguidshed_name: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
         """
         :param Sequence[str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
@@ -383,8 +412,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
         pulumi.set(__self__, "username", username)
         if file_system_administrators_group is not None:
             pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
-        if organizational_unit_distinguidshed_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguidshed_name", organizational_unit_distinguidshed_name)
         if organizational_unit_distinguished_name is not None:
             pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
@@ -427,11 +454,6 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
         The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         """
         return pulumi.get(self, "file_system_administrators_group")
-
-    @property
-    @pulumi.getter(name="organizationalUnitDistinguidshedName")
-    def organizational_unit_distinguidshed_name(self) -> Optional[str]:
-        return pulumi.get(self, "organizational_unit_distinguidshed_name")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")

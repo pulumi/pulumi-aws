@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "my-test"});
  * const exampleReportGroup = new aws.codebuild.ReportGroup("exampleReportGroup", {
  *     type: "TEST",
  *     exportConfig: {
  *         type: "S3",
  *         s3Destination: {
- *             bucket: exampleBucket.id,
+ *             bucket: exampleBucketV2.id,
  *             encryptionDisabled: false,
  *             encryptionKey: exampleKey.arn,
  *             packaging: "NONE",

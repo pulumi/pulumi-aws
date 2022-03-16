@@ -65,8 +65,12 @@ def get_billing_service_account(opts: Optional[pulumi.InvokeOptions] = None) -> 
     import pulumi_aws as aws
 
     main = aws.get_billing_service_account()
-    billing_logs = aws.s3.Bucket("billingLogs",
-        acl="private",
+    billing_logs = aws.s3.BucketV2("billingLogs", bucket="my-billing-tf-test-bucket")
+    billing_logs_acl = aws.s3.BucketAclV2("billingLogsAcl",
+        bucket=billing_logs.id,
+        acl="private")
+    allow_billing_logging = aws.s3.BucketPolicy("allowBillingLogging",
+        bucket=billing_logs.id,
         policy=f\"\"\"{{
       "Id": "Policy",
       "Version": "2012-10-17",
@@ -97,7 +101,6 @@ def get_billing_service_account(opts: Optional[pulumi.InvokeOptions] = None) -> 
         }}
       ]
     }}
-
     \"\"\")
     ```
     """

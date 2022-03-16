@@ -20,8 +20,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codepipeline"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codestarconnections"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -34,8 +34,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = codepipeline.NewPipeline(ctx, "examplePipeline", &codepipeline.PipelineArgs{
-// 			RoleArn:       pulumi.Any(aws_iam_role.Codepipeline_role.Arn),
-// 			ArtifactStore: nil,
+// 			RoleArn: pulumi.Any(aws_iam_role.Codepipeline_role.Arn),
+// 			ArtifactStores: codepipeline.PipelineArtifactStoreArray{
+// 				nil,
+// 			},
 // 			Stages: codepipeline.PipelineStageArray{
 // 				&codepipeline.PipelineStageArgs{
 // 					Name: pulumi.String("Source"),

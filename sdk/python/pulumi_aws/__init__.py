@@ -2176,6 +2176,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/user",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/userGroup",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -2300,6 +2308,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dataexchange",
   "classes": {
    "aws:dataexchange/dataSet:DataSet": "DataSet"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dataexchange/revision",
+  "fqn": "pulumi_aws.dataexchange",
+  "classes": {
+   "aws:dataexchange/revision:Revision": "Revision"
   }
  },
  {
@@ -3100,6 +3116,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/networkAcl:NetworkAcl": "NetworkAcl"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/networkAclAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/networkAclAssociation:NetworkAclAssociation": "NetworkAclAssociation"
   }
  },
  {
@@ -6432,10 +6456,50 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketAccelerateConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2": "BucketAccelerateConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketAclV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketAclV2:BucketAclV2": "BucketAclV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketCorsConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2": "BucketCorsConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketIntelligentTieringConfiguration",
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration": "BucketIntelligentTieringConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketLifecycleConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2": "BucketLifecycleConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketLoggingV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketLoggingV2:BucketLoggingV2": "BucketLoggingV2"
   }
  },
  {
@@ -6460,6 +6524,22 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketObject:BucketObject": "BucketObject"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketObjectLockConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2": "BucketObjectLockConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketObjectv2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketObjectv2:BucketObjectv2": "BucketObjectv2"
   }
  },
  {
@@ -6492,6 +6572,46 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketReplicationConfig:BucketReplicationConfig": "BucketReplicationConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketRequestPaymentConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2": "BucketRequestPaymentConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketServerSideEncryptionConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2": "BucketServerSideEncryptionConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketV2:BucketV2": "BucketV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketVersioningV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketVersioningV2:BucketVersioningV2": "BucketVersioningV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketWebsiteConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2": "BucketWebsiteConfigurationV2"
   }
  },
  {

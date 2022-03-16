@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketIntelligentTieringConfigurationTieringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+        /// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
         /// </summary>
         [Input("accessTier", required: true)]
         public Input<string> AccessTier { get; set; } = null!;

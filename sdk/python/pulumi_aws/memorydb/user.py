@@ -231,6 +231,23 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_random as random
+
+        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.User("exampleUser",
+            user_name="my-user",
+            access_string="on ~* &* +@all",
+            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
+                type="password",
+                passwords=[example_random_password.result],
+            ))
+        ```
+
         ## Import
 
         Use the `user_name` to import a user. For example
@@ -256,6 +273,23 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_random as random
+
+        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.User("exampleUser",
+            user_name="my-user",
+            access_string="on ~* &* +@all",
+            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
+                type="password",
+                passwords=[example_random_password.result],
+            ))
+        ```
+
         ## Import
 
         Use the `user_name` to import a user. For example

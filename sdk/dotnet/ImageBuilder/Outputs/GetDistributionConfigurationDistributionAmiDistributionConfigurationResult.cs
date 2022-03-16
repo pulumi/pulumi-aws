@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> AmiTags;
         /// <summary>
-        /// Description to apply to distributed AMI.
+        /// Description of the container distribution configuration.
         /// </summary>
         public readonly string Description;
         /// <summary>

@@ -25,6 +25,9 @@ class NetworkAssociationArgs:
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
         if security_groups is not None:
+            warnings.warn("""Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""security_groups is deprecated: Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""")
+        if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
 
     @property
@@ -78,7 +81,7 @@ class _NetworkAssociationState:
         :param pulumi.Input[str] association_id: The unique ID of the target network association.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-        :param pulumi.Input[str] status: The current state of the target network association.
+        :param pulumi.Input[str] status: **Deprecated** The current state of the target network association.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
@@ -87,7 +90,13 @@ class _NetworkAssociationState:
         if client_vpn_endpoint_id is not None:
             pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         if security_groups is not None:
+            warnings.warn("""Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""security_groups is deprecated: Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""")
+        if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
+        if status is not None:
+            warnings.warn("""This attribute has been deprecated.""", DeprecationWarning)
+            pulumi.log.warn("""status is deprecated: This attribute has been deprecated.""")
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subnet_id is not None:
@@ -135,7 +144,7 @@ class _NetworkAssociationState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The current state of the target network association.
+        **Deprecated** The current state of the target network association.
         """
         return pulumi.get(self, "status")
 
@@ -178,9 +187,6 @@ class NetworkAssociation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
-        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-
         ## Example Usage
         ### Using default security group
 
@@ -228,9 +234,6 @@ class NetworkAssociation(pulumi.CustomResource):
                  args: NetworkAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
-        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-
         ## Example Usage
         ### Using default security group
 
@@ -298,6 +301,9 @@ class NetworkAssociation(pulumi.CustomResource):
             if client_vpn_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_vpn_endpoint_id'")
             __props__.__dict__["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+            if security_groups is not None and not opts.urn:
+                warnings.warn("""Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""security_groups is deprecated: Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""")
             __props__.__dict__["security_groups"] = security_groups
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
@@ -331,7 +337,7 @@ class NetworkAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] association_id: The unique ID of the target network association.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-        :param pulumi.Input[str] status: The current state of the target network association.
+        :param pulumi.Input[str] status: **Deprecated** The current state of the target network association.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
@@ -375,7 +381,7 @@ class NetworkAssociation(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The current state of the target network association.
+        **Deprecated** The current state of the target network association.
         """
         return pulumi.get(self, "status")
 

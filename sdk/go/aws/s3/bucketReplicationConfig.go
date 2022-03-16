@@ -22,10 +22,10 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -43,29 +43,24 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		destination, err := s3.NewBucket(ctx, "destination", &s3.BucketArgs{
-// 			Versioning: &s3.BucketVersioningArgs{
-// 				Enabled: pulumi.Bool(true),
-// 			},
+// 		destinationBucketV2, err := s3.NewBucketV2(ctx, "destinationBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("tf-test-bucket-destination-12345"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		source, err := s3.NewBucket(ctx, "source", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
-// 			Versioning: &s3.BucketVersioningArgs{
-// 				Enabled: pulumi.Bool(true),
-// 			},
+// 		sourceBucketV2, err := s3.NewBucketV2(ctx, "sourceBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("tf-test-bucket-source-12345"),
 // 		}, pulumi.Provider(aws.Central))
 // 		if err != nil {
 // 			return err
 // 		}
 // 		replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
-// 			Policy: pulumi.All(source.Arn, source.Arn, destination.Arn).ApplyT(func(_args []interface{}) (string, error) {
-// 				sourceArn := _args[0].(string)
-// 				sourceArn1 := _args[1].(string)
-// 				destinationArn := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetReplicationConfiguration\",\n", "        \"s3:ListBucket\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", sourceArn, "\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetObjectVersionForReplication\",\n", "        \"s3:GetObjectVersionAcl\",\n", "         \"s3:GetObjectVersionTagging\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", sourceArn1, "/*\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:ReplicateObject\",\n", "        \"s3:ReplicateDelete\",\n", "        \"s3:ReplicateTags\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"", destinationArn, "/*\"\n", "    }\n", "  ]\n", "}\n"), nil
+// 			Policy: pulumi.All(sourceBucketV2.Arn, sourceBucketV2.Arn, destinationBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
+// 				sourceBucketV2Arn := _args[0].(string)
+// 				sourceBucketV2Arn1 := _args[1].(string)
+// 				destinationBucketV2Arn := _args[2].(string)
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetReplicationConfiguration\",\n", "        \"s3:ListBucket\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", sourceBucketV2Arn, "\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetObjectVersionForReplication\",\n", "        \"s3:GetObjectVersionAcl\",\n", "         \"s3:GetObjectVersionTagging\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", sourceBucketV2Arn1, "/*\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:ReplicateObject\",\n", "        \"s3:ReplicateDelete\",\n", "        \"s3:ReplicateTags\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"", destinationBucketV2Arn, "/*\"\n", "    }\n", "  ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -78,21 +73,48 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = s3.NewBucketVersioningV2(ctx, "destinationBucketVersioningV2", &s3.BucketVersioningV2Args{
+// 			Bucket: destinationBucketV2.ID(),
+// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+// 				Status: pulumi.String("Enabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "sourceBucketAcl", &s3.BucketAclV2Args{
+// 			Bucket: sourceBucketV2.ID(),
+// 			Acl:    pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sourceBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "sourceBucketVersioningV2", &s3.BucketVersioningV2Args{
+// 			Bucket: sourceBucketV2.ID(),
+// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+// 				Status: pulumi.String("Enabled"),
+// 			},
+// 		}, pulumi.Provider(aws.Central))
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = s3.NewBucketReplicationConfig(ctx, "replicationBucketReplicationConfig", &s3.BucketReplicationConfigArgs{
 // 			Role:   replicationRole.Arn,
-// 			Bucket: source.ID(),
+// 			Bucket: sourceBucketV2.ID(),
 // 			Rules: s3.BucketReplicationConfigRuleArray{
 // 				&s3.BucketReplicationConfigRuleArgs{
 // 					Id:     pulumi.String("foobar"),
 // 					Prefix: pulumi.String("foo"),
 // 					Status: pulumi.String("Enabled"),
 // 					Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
-// 						Bucket:       destination.Arn,
+// 						Bucket:       destinationBucketV2.Arn,
 // 						StorageClass: pulumi.String("STANDARD"),
 // 					},
 // 				},
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			sourceBucketVersioningV2,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -100,34 +122,92 @@ import (
 // 	})
 // }
 // ```
-// ## Usage Notes
-//
-// > **NOTE:** To avoid conflicts always add the following lifecycle object to the `s3.Bucket` resource of the source bucket.
-//
-// This resource implements the same features that are provided by the `replicationConfiguration` object of the `s3.Bucket` resource. To avoid conflicts or unexpected apply results, a lifecycle configuration is needed on the `s3.Bucket` to ignore changes to the internal `replicationConfiguration` object.  Failure to add the `lifecycle` configuration to the `s3.Bucket` will result in conflicting state results.
+// ### Bi-Directional Replication
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		eastBucketV2, err := s3.NewBucketV2(ctx, "eastBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("tf-test-bucket-east-12345"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		eastBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "eastBucketVersioningV2", &s3.BucketVersioningV2Args{
+// 			Bucket: eastBucketV2.ID(),
+// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+// 				Status: pulumi.String("Enabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		westBucketV2, err := s3.NewBucketV2(ctx, "westBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("tf-test-bucket-west-12345"),
+// 		}, pulumi.Provider(west))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		westBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "westBucketVersioningV2", &s3.BucketVersioningV2Args{
+// 			Bucket: westBucketV2.ID(),
+// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+// 				Status: pulumi.String("Enabled"),
+// 			},
+// 		}, pulumi.Provider(west))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketReplicationConfig(ctx, "eastToWest", &s3.BucketReplicationConfigArgs{
+// 			Role:   pulumi.Any(aws_iam_role.East_replication.Arn),
+// 			Bucket: eastBucketV2.ID(),
+// 			Rules: s3.BucketReplicationConfigRuleArray{
+// 				&s3.BucketReplicationConfigRuleArgs{
+// 					Id:     pulumi.String("foobar"),
+// 					Prefix: pulumi.String("foo"),
+// 					Status: pulumi.String("Enabled"),
+// 					Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
+// 						Bucket:       westBucketV2.Arn,
+// 						StorageClass: pulumi.String("STANDARD"),
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			eastBucketVersioningV2,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketReplicationConfig(ctx, "westToEast", &s3.BucketReplicationConfigArgs{
+// 			Role:   pulumi.Any(aws_iam_role.West_replication.Arn),
+// 			Bucket: westBucketV2.ID(),
+// 			Rules: s3.BucketReplicationConfigRuleArray{
+// 				&s3.BucketReplicationConfigRuleArgs{
+// 					Id:     pulumi.String("foobar"),
+// 					Prefix: pulumi.String("foo"),
+// 					Status: pulumi.String("Enabled"),
+// 					Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
+// 						Bucket:       eastBucketV2.Arn,
+// 						StorageClass: pulumi.String("STANDARD"),
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			westBucketVersioningV2,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }
 // ```
-//
-// The `s3.BucketReplicationConfig` resource provides the following features that are not available in the `s3.Bucket` resource:
-//
-// * `replicaModifications` - Added to the `sourceSelectionCriteria` configuration object documented below
-// * `metrics` - Added to the `destination` configuration object documented below
-// * `replicationTime` - Added to the `destination` configuration object documented below
-// * `existingObjectReplication` - Added to the replication rule object documented below
-//
-// Replication for existing objects requires activation by AWS Support.  See [userguide/replication-what-is-isnot-replicated](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-what-is-isnot-replicated.html#existing-object-replication).
 //
 // ## Import
 //

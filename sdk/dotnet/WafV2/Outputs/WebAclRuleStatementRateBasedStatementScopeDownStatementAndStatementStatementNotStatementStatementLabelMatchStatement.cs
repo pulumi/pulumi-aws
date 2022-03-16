@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement
     {
         /// <summary>
-        /// The string to match against.
+        /// String to match against.
         /// </summary>
         public readonly string Key;
         /// <summary>

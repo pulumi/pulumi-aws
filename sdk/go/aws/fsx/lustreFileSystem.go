@@ -23,7 +23,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/fsx"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -98,6 +98,8 @@ type LustreFileSystem struct {
 	ImportedFileChunkSize pulumi.IntOutput `pulumi:"importedFileChunkSize"`
 	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+	LogConfiguration LustreFileSystemLogConfigurationOutput `pulumi:"logConfiguration"`
 	// The value to be used when mounting the filesystem.
 	MountName pulumi.StringOutput `pulumi:"mountName"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
@@ -186,6 +188,8 @@ type lustreFileSystemState struct {
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
 	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+	LogConfiguration *LustreFileSystemLogConfiguration `pulumi:"logConfiguration"`
 	// The value to be used when mounting the filesystem.
 	MountName *string `pulumi:"mountName"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
@@ -243,6 +247,8 @@ type LustreFileSystemState struct {
 	ImportedFileChunkSize pulumi.IntPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
+	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+	LogConfiguration LustreFileSystemLogConfigurationPtrInput
 	// The value to be used when mounting the filesystem.
 	MountName pulumi.StringPtrInput
 	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
@@ -300,6 +306,8 @@ type lustreFileSystemArgs struct {
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
 	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+	LogConfiguration *LustreFileSystemLogConfiguration `pulumi:"logConfiguration"`
 	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -344,6 +352,8 @@ type LustreFileSystemArgs struct {
 	ImportedFileChunkSize pulumi.IntPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
+	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+	LogConfiguration LustreFileSystemLogConfigurationPtrInput
 	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput pulumi.IntPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.

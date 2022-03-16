@@ -86,6 +86,10 @@ export class HoursOfOperation extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      */
     public readonly configs!: pulumi.Output<outputs.connect.HoursOfOperationConfig[]>;
@@ -94,7 +98,9 @@ export class HoursOfOperation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+     *
+     * @deprecated use 'arn' attribute instead
      */
     public /*out*/ readonly hoursOfOperationArn!: pulumi.Output<string>;
     /**
@@ -135,6 +141,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HoursOfOperationState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configs"] = state ? state.configs : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["hoursOfOperationArn"] = state ? state.hoursOfOperationArn : undefined;
@@ -162,6 +169,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
             resourceInputs["hoursOfOperationId"] = undefined /*out*/;
         }
@@ -175,6 +183,10 @@ export class HoursOfOperation extends pulumi.CustomResource {
  */
 export interface HoursOfOperationState {
     /**
+     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     */
+    arn?: pulumi.Input<string>;
+    /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      */
     configs?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationConfig>[]>;
@@ -183,7 +195,9 @@ export interface HoursOfOperationState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+     *
+     * @deprecated use 'arn' attribute instead
      */
     hoursOfOperationArn?: pulumi.Input<string>;
     /**

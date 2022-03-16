@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * > **NOTE:** The `aws.s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.BucketObjectv2` instead, where new features and fixes will be added.
+ *
  * The S3 object data source allows access to the metadata and
  * _optionally_ (see below) content of an object stored inside S3 bucket.
  *
@@ -74,6 +76,8 @@ export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeO
 export interface GetBucketObjectArgs {
     /**
      * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     *
+     * @deprecated Use the aws_s3_object data source instead
      */
     bucket: string;
     /**
@@ -99,6 +103,9 @@ export interface GetBucketObjectResult {
      * Object data (see **limitations above** to understand cases in which this field is actually available)
      */
     readonly body: string;
+    /**
+     * @deprecated Use the aws_s3_object data source instead
+     */
     readonly bucket: string;
     /**
      * (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -202,6 +209,8 @@ export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pu
 export interface GetBucketObjectOutputArgs {
     /**
      * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     *
+     * @deprecated Use the aws_s3_object data source instead
      */
     bucket: pulumi.Input<string>;
     /**

@@ -33,7 +33,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -71,7 +71,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -99,7 +99,50 @@ import (
 // }
 // ```
 //
-// You can also find a specific Prefix List using the `ec2.getPrefixList` data source.
+// You can also find a specific Prefix List using the [`ec2.getPrefixList`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
+// or [`ec2ManagedPrefixList`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := aws.GetRegion(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		s3, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
+// 			Name: pulumi.StringRef(fmt.Sprintf("%v%v%v", "com.amazonaws.", current.Name, ".s3")),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSecurityGroupRule(ctx, "s3GatewayEgress", &ec2.SecurityGroupRuleArgs{
+// 			Description:     pulumi.String("S3 Gateway Egress"),
+// 			Type:            pulumi.String("egress"),
+// 			SecurityGroupId: pulumi.String("sg-123456"),
+// 			FromPort:        pulumi.Int(443),
+// 			ToPort:          pulumi.Int(443),
+// 			Protocol:        pulumi.String("tcp"),
+// 			PrefixListIds: pulumi.StringArray{
+// 				pulumi.String(s3.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

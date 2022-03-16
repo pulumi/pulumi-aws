@@ -49,7 +49,7 @@ export interface GetLogGroupArgs {
  */
 export interface GetLogGroupResult {
     /**
-     * The ARN of the Cloudwatch log group
+     * The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      */
     readonly arn: string;
     /**

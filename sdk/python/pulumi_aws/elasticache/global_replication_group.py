@@ -67,7 +67,6 @@ class GlobalReplicationGroupArgs:
 @pulumi.input_type
 class _GlobalReplicationGroupState:
     def __init__(__self__, *,
-                 actual_engine_version: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token_enabled: Optional[pulumi.Input[bool]] = None,
@@ -82,7 +81,6 @@ class _GlobalReplicationGroupState:
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GlobalReplicationGroup resources.
-        :param pulumi.Input[str] actual_engine_version: (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] arn: The ARN of the ElastiCache Global Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
         :param pulumi.Input[bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
@@ -96,11 +94,6 @@ class _GlobalReplicationGroupState:
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
-        if actual_engine_version is not None:
-            warnings.warn("""Use engine_version_actual instead""", DeprecationWarning)
-            pulumi.log.warn("""actual_engine_version is deprecated: Use engine_version_actual instead""")
-        if actual_engine_version is not None:
-            pulumi.set(__self__, "actual_engine_version", actual_engine_version)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if at_rest_encryption_enabled is not None:
@@ -125,18 +118,6 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
-
-    @property
-    @pulumi.getter(name="actualEngineVersion")
-    def actual_engine_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
-        """
-        return pulumi.get(self, "actual_engine_version")
-
-    @actual_engine_version.setter
-    def actual_engine_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "actual_engine_version", value)
 
     @property
     @pulumi.getter
@@ -413,7 +394,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             if primary_replication_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_replication_group_id'")
             __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
-            __props__.__dict__["actual_engine_version"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["at_rest_encryption_enabled"] = None
             __props__.__dict__["auth_token_enabled"] = None
@@ -433,7 +413,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actual_engine_version: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             auth_token_enabled: Optional[pulumi.Input[bool]] = None,
@@ -453,7 +432,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] actual_engine_version: (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] arn: The ARN of the ElastiCache Global Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
         :param pulumi.Input[bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
@@ -471,7 +449,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
         __props__ = _GlobalReplicationGroupState.__new__(_GlobalReplicationGroupState)
 
-        __props__.__dict__["actual_engine_version"] = actual_engine_version
         __props__.__dict__["arn"] = arn
         __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
         __props__.__dict__["auth_token_enabled"] = auth_token_enabled
@@ -485,14 +462,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return GlobalReplicationGroup(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="actualEngineVersion")
-    def actual_engine_version(self) -> pulumi.Output[str]:
-        """
-        (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
-        """
-        return pulumi.get(self, "actual_engine_version")
 
     @property
     @pulumi.getter

@@ -58,7 +58,7 @@ export interface GetClusterResult {
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
      * The number of available cluster certificates may vary depending on state of the cluster.
      */
-    readonly clusterCertificates: outputs.cloudhsmv2.GetClusterClusterCertificates;
+    readonly clusterCertificates: outputs.cloudhsmv2.GetClusterClusterCertificate[];
     readonly clusterId: string;
     readonly clusterState: string;
     /**

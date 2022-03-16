@@ -34,7 +34,6 @@ class SpotInstanceRequestArgs:
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
-                 instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -86,7 +85,6 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
-        :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
         :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -159,11 +157,6 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_interruption_behavior is not None:
             pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
-        if instance_interruption_behaviour is not None:
-            warnings.warn("""Use the parameter \"instance_interruption_behavior\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""instance_interruption_behaviour is deprecated: Use the parameter \"instance_interruption_behavior\" instead.""")
-        if instance_interruption_behaviour is not None:
-            pulumi.set(__self__, "instance_interruption_behaviour", instance_interruption_behaviour)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if ipv6_address_count is not None:
@@ -450,18 +443,6 @@ class SpotInstanceRequestArgs:
     @instance_interruption_behavior.setter
     def instance_interruption_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_interruption_behavior", value)
-
-    @property
-    @pulumi.getter(name="instanceInterruptionBehaviour")
-    def instance_interruption_behaviour(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        """
-        return pulumi.get(self, "instance_interruption_behaviour")
-
-    @instance_interruption_behaviour.setter
-    def instance_interruption_behaviour(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "instance_interruption_behaviour", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -828,7 +809,6 @@ class _SpotInstanceRequestState:
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
-                 instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
                  instance_state: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -891,7 +871,6 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
-        :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
         :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -981,11 +960,6 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_interruption_behavior is not None:
             pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
-        if instance_interruption_behaviour is not None:
-            warnings.warn("""Use the parameter \"instance_interruption_behavior\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""instance_interruption_behaviour is deprecated: Use the parameter \"instance_interruption_behavior\" instead.""")
-        if instance_interruption_behaviour is not None:
-            pulumi.set(__self__, "instance_interruption_behaviour", instance_interruption_behaviour)
         if instance_state is not None:
             pulumi.set(__self__, "instance_state", instance_state)
         if instance_type is not None:
@@ -1303,18 +1277,6 @@ class _SpotInstanceRequestState:
     @instance_interruption_behavior.setter
     def instance_interruption_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_interruption_behavior", value)
-
-    @property
-    @pulumi.getter(name="instanceInterruptionBehaviour")
-    def instance_interruption_behaviour(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        """
-        return pulumi.get(self, "instance_interruption_behaviour")
-
-    @instance_interruption_behaviour.setter
-    def instance_interruption_behaviour(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "instance_interruption_behaviour", value)
 
     @property
     @pulumi.getter(name="instanceState")
@@ -1808,7 +1770,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
-                 instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1901,7 +1862,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
-        :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
         :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -2016,7 +1976,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
-                 instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2076,10 +2035,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["iam_instance_profile"] = iam_instance_profile
             __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
             __props__.__dict__["instance_interruption_behavior"] = instance_interruption_behavior
-            if instance_interruption_behaviour is not None and not opts.urn:
-                warnings.warn("""Use the parameter \"instance_interruption_behavior\" instead.""", DeprecationWarning)
-                pulumi.log.warn("""instance_interruption_behaviour is deprecated: Use the parameter \"instance_interruption_behavior\" instead.""")
-            __props__.__dict__["instance_interruption_behaviour"] = instance_interruption_behaviour
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
@@ -2150,7 +2105,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
             iam_instance_profile: Optional[pulumi.Input[str]] = None,
             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
             instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
-            instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
             instance_state: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -2218,7 +2172,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
-        :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
         :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -2292,7 +2245,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["iam_instance_profile"] = iam_instance_profile
         __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
         __props__.__dict__["instance_interruption_behavior"] = instance_interruption_behavior
-        __props__.__dict__["instance_interruption_behaviour"] = instance_interruption_behaviour
         __props__.__dict__["instance_state"] = instance_state
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["ipv6_address_count"] = ipv6_address_count
@@ -2487,19 +2439,11 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> pulumi.Output[str]:
+    def instance_interruption_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
         """
         return pulumi.get(self, "instance_interruption_behavior")
-
-    @property
-    @pulumi.getter(name="instanceInterruptionBehaviour")
-    def instance_interruption_behaviour(self) -> pulumi.Output[str]:
-        """
-        Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        """
-        return pulumi.get(self, "instance_interruption_behaviour")
 
     @property
     @pulumi.getter(name="instanceState")

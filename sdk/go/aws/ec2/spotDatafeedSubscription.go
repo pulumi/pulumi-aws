@@ -22,19 +22,21 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultBucket, err := s3.NewBucket(ctx, "defaultBucket", nil)
+// 		defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("tf-spot-datafeed"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewSpotDatafeedSubscription(ctx, "defaultSpotDatafeedSubscription", &ec2.SpotDatafeedSubscriptionArgs{
-// 			Bucket: defaultBucket.Bucket,
+// 			Bucket: defaultBucketV2.Bucket,
 // 			Prefix: pulumi.String("my_subdirectory"),
 // 		})
 // 		if err != nil {

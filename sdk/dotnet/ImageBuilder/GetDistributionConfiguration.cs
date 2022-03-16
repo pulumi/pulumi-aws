@@ -135,7 +135,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string DateUpdated;
         /// <summary>
-        /// Description to apply to distributed AMI.
+        /// Description of the container distribution configuration.
         /// </summary>
         public readonly string Description;
         /// <summary>

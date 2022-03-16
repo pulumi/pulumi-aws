@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -59,6 +59,8 @@ type LookupReplicationGroupResult struct {
 	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
 	// The configuration endpoint address to allow host discovery.
 	ConfigurationEndpointAddress string `pulumi:"configurationEndpointAddress"`
+	// The description of the replication group.
+	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The identifiers of all the nodes that are part of this replication group.
@@ -68,6 +70,12 @@ type LookupReplicationGroupResult struct {
 	// The cluster node type.
 	NodeType string `pulumi:"nodeType"`
 	// The number of cache clusters that the replication group has.
+	NumCacheClusters int `pulumi:"numCacheClusters"`
+	// Number of node groups (shards) for the replication group.
+	NumNodeGroups int `pulumi:"numNodeGroups"`
+	// (**Deprecated** use `numCacheClusters` instead) The number of cache clusters that the replication group has.
+	//
+	// Deprecated: Use num_cache_clusters instead
 	NumberCacheClusters int `pulumi:"numberCacheClusters"`
 	// The port number on which the configuration endpoint will accept connections.
 	Port int `pulumi:"port"`
@@ -75,7 +83,11 @@ type LookupReplicationGroupResult struct {
 	PrimaryEndpointAddress string `pulumi:"primaryEndpointAddress"`
 	// The endpoint of the reader node in this node group (shard).
 	ReaderEndpointAddress string `pulumi:"readerEndpointAddress"`
-	// The description of the replication group.
+	// Number of replica nodes in each node group.
+	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
+	// (**Deprecated** use `description` instead) The description of the replication group.
+	//
+	// Deprecated: Use description instead
 	ReplicationGroupDescription string `pulumi:"replicationGroupDescription"`
 	ReplicationGroupId          string `pulumi:"replicationGroupId"`
 	// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
@@ -138,6 +150,11 @@ func (o LookupReplicationGroupResultOutput) ConfigurationEndpointAddress() pulum
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ConfigurationEndpointAddress }).(pulumi.StringOutput)
 }
 
+// The description of the replication group.
+func (o LookupReplicationGroupResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupReplicationGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.Id }).(pulumi.StringOutput)
@@ -159,6 +176,18 @@ func (o LookupReplicationGroupResultOutput) NodeType() pulumi.StringOutput {
 }
 
 // The number of cache clusters that the replication group has.
+func (o LookupReplicationGroupResultOutput) NumCacheClusters() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.NumCacheClusters }).(pulumi.IntOutput)
+}
+
+// Number of node groups (shards) for the replication group.
+func (o LookupReplicationGroupResultOutput) NumNodeGroups() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.NumNodeGroups }).(pulumi.IntOutput)
+}
+
+// (**Deprecated** use `numCacheClusters` instead) The number of cache clusters that the replication group has.
+//
+// Deprecated: Use num_cache_clusters instead
 func (o LookupReplicationGroupResultOutput) NumberCacheClusters() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.NumberCacheClusters }).(pulumi.IntOutput)
 }
@@ -178,7 +207,14 @@ func (o LookupReplicationGroupResultOutput) ReaderEndpointAddress() pulumi.Strin
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ReaderEndpointAddress }).(pulumi.StringOutput)
 }
 
-// The description of the replication group.
+// Number of replica nodes in each node group.
+func (o LookupReplicationGroupResultOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
+}
+
+// (**Deprecated** use `description` instead) The description of the replication group.
+//
+// Deprecated: Use description instead
 func (o LookupReplicationGroupResultOutput) ReplicationGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ReplicationGroupDescription }).(pulumi.StringOutput)
 }

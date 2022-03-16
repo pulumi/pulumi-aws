@@ -457,11 +457,13 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly suspendedProcesses!: pulumi.Output<string[] | undefined>;
     /**
-     * Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
      */
     public readonly tags!: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
     /**
-     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+     *
+     * @deprecated Use tag instead
      */
     public readonly tagsCollection!: pulumi.Output<{[key: string]: string}[] | undefined>;
     /**
@@ -727,11 +729,13 @@ export interface GroupState {
      */
     suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+     *
+     * @deprecated Use tag instead
      */
     tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
@@ -897,11 +901,13 @@ export interface GroupArgs {
      */
     suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+     *
+     * @deprecated Use tag instead
      */
     tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**

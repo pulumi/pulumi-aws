@@ -317,6 +317,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> BlockDeviceMappings;
         /// <summary>
+        /// The boot mode of the image.
+        /// </summary>
+        public readonly string BootMode;
+        /// <summary>
         /// The date and time the image was created.
         /// </summary>
         public readonly string CreationDate;
@@ -447,6 +451,8 @@ namespace Pulumi.Aws
 
             ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> blockDeviceMappings,
 
+            string bootMode,
+
             string creationDate,
 
             string description,
@@ -512,6 +518,7 @@ namespace Pulumi.Aws
             Architecture = architecture;
             Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;
+            BootMode = bootMode;
             CreationDate = creationDate;
             Description = description;
             EnaSupport = enaSupport;

@@ -31,9 +31,15 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if capacity_providers is not None:
+            warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+            pulumi.log.warn("""capacity_providers is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+        if capacity_providers is not None:
             pulumi.set(__self__, "capacity_providers", capacity_providers)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if default_capacity_provider_strategies is not None:
+            warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+            pulumi.log.warn("""default_capacity_provider_strategies is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
         if default_capacity_provider_strategies is not None:
             pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
         if name is not None:
@@ -136,13 +142,20 @@ class _ClusterState:
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if capacity_providers is not None:
+            warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+            pulumi.log.warn("""capacity_providers is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+        if capacity_providers is not None:
             pulumi.set(__self__, "capacity_providers", capacity_providers)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if default_capacity_provider_strategies is not None:
+            warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+            pulumi.log.warn("""default_capacity_provider_strategies is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
         if default_capacity_provider_strategies is not None:
             pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
         if name is not None:
@@ -241,6 +254,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -261,6 +277,10 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Provides an ECS cluster.
+
+        > **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
+
         ## Example Usage
         ### Basic Example
 
@@ -273,7 +293,7 @@ class Cluster(pulumi.CustomResource):
             value="enabled",
         )])
         ```
-        ### Example W/Log Configuration
+        ### Example with Log Configuration
 
         ```python
         import pulumi
@@ -293,6 +313,25 @@ class Cluster(pulumi.CustomResource):
                 ),
             ),
         ))
+        ```
+        ### Example with Capacity Providers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.ecs.Cluster("exampleCluster")
+        example_capacity_provider = aws.ecs.CapacityProvider("exampleCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
+            auto_scaling_group_arn=aws_autoscaling_group["example"]["arn"],
+        ))
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
+            cluster_name=example_cluster.name,
+            capacity_providers=[example_capacity_provider.name],
+            default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
+                base=1,
+                weight=100,
+                capacity_provider=example_capacity_provider.name,
+            )])
         ```
 
         ## Import
@@ -319,6 +358,10 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an ECS cluster.
+
+        > **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
+
         ## Example Usage
         ### Basic Example
 
@@ -331,7 +374,7 @@ class Cluster(pulumi.CustomResource):
             value="enabled",
         )])
         ```
-        ### Example W/Log Configuration
+        ### Example with Log Configuration
 
         ```python
         import pulumi
@@ -351,6 +394,25 @@ class Cluster(pulumi.CustomResource):
                 ),
             ),
         ))
+        ```
+        ### Example with Capacity Providers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.ecs.Cluster("exampleCluster")
+        example_capacity_provider = aws.ecs.CapacityProvider("exampleCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
+            auto_scaling_group_arn=aws_autoscaling_group["example"]["arn"],
+        ))
+        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
+            cluster_name=example_cluster.name,
+            capacity_providers=[example_capacity_provider.name],
+            default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
+                base=1,
+                weight=100,
+                capacity_provider=example_capacity_provider.name,
+            )])
         ```
 
         ## Import
@@ -394,8 +456,14 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            if capacity_providers is not None and not opts.urn:
+                warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+                pulumi.log.warn("""capacity_providers is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
             __props__.__dict__["capacity_providers"] = capacity_providers
             __props__.__dict__["configuration"] = configuration
+            if default_capacity_provider_strategies is not None and not opts.urn:
+                warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+                pulumi.log.warn("""default_capacity_provider_strategies is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
             __props__.__dict__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
             __props__.__dict__["name"] = name
             __props__.__dict__["settings"] = settings
@@ -434,6 +502,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -508,5 +577,8 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

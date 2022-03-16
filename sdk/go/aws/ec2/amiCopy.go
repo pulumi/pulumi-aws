@@ -29,7 +29,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -57,6 +57,8 @@ type AmiCopy struct {
 	Architecture pulumi.StringOutput `pulumi:"architecture"`
 	// The ARN of the AMI.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode pulumi.StringOutput `pulumi:"bootMode"`
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the Outpost to which to copy the AMI.
@@ -156,6 +158,8 @@ type amiCopyState struct {
 	Architecture *string `pulumi:"architecture"`
 	// The ARN of the AMI.
 	Arn *string `pulumi:"arn"`
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode *string `pulumi:"bootMode"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// The ARN of the Outpost to which to copy the AMI.
@@ -221,6 +225,8 @@ type AmiCopyState struct {
 	Architecture pulumi.StringPtrInput
 	// The ARN of the AMI.
 	Arn pulumi.StringPtrInput
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// The ARN of the Outpost to which to copy the AMI.

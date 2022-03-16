@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -105,6 +105,8 @@ type LookupAmiResult struct {
 	Arn string `pulumi:"arn"`
 	// Set of objects with block device mappings of the AMI.
 	BlockDeviceMappings []GetAmiBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// The boot mode of the image.
+	BootMode string `pulumi:"bootMode"`
 	// The date and time the image was created.
 	CreationDate string `pulumi:"creationDate"`
 	// The description of the AMI that was provided during image
@@ -244,6 +246,11 @@ func (o LookupAmiResultOutput) Arn() pulumi.StringOutput {
 // Set of objects with block device mappings of the AMI.
 func (o LookupAmiResultOutput) BlockDeviceMappings() GetAmiBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v LookupAmiResult) []GetAmiBlockDeviceMapping { return v.BlockDeviceMappings }).(GetAmiBlockDeviceMappingArrayOutput)
+}
+
+// The boot mode of the image.
+func (o LookupAmiResultOutput) BootMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAmiResult) string { return v.BootMode }).(pulumi.StringOutput)
 }
 
 // The date and time the image was created.

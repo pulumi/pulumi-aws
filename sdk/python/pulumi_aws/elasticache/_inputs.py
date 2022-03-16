@@ -117,27 +117,22 @@ class ParameterGroupParameterArgs:
 @pulumi.input_type
 class ReplicationGroupClusterModeArgs:
     def __init__(__self__, *,
-                 replicas_per_node_group: pulumi.Input[int],
-                 num_node_groups: Optional[pulumi.Input[int]] = None):
+                 num_node_groups: Optional[pulumi.Input[int]] = None,
+                 replicas_per_node_group: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         :param pulumi.Input[int] num_node_groups: Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         """
-        pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
+        if num_node_groups is not None:
+            warnings.warn("""Use root-level num_node_groups instead""", DeprecationWarning)
+            pulumi.log.warn("""num_node_groups is deprecated: Use root-level num_node_groups instead""")
         if num_node_groups is not None:
             pulumi.set(__self__, "num_node_groups", num_node_groups)
-
-    @property
-    @pulumi.getter(name="replicasPerNodeGroup")
-    def replicas_per_node_group(self) -> pulumi.Input[int]:
-        """
-        Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        """
-        return pulumi.get(self, "replicas_per_node_group")
-
-    @replicas_per_node_group.setter
-    def replicas_per_node_group(self, value: pulumi.Input[int]):
-        pulumi.set(self, "replicas_per_node_group", value)
+        if replicas_per_node_group is not None:
+            warnings.warn("""Use root-level replicas_per_node_group instead""", DeprecationWarning)
+            pulumi.log.warn("""replicas_per_node_group is deprecated: Use root-level replicas_per_node_group instead""")
+        if replicas_per_node_group is not None:
+            pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
 
     @property
     @pulumi.getter(name="numNodeGroups")
@@ -150,5 +145,17 @@ class ReplicationGroupClusterModeArgs:
     @num_node_groups.setter
     def num_node_groups(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "num_node_groups", value)
+
+    @property
+    @pulumi.getter(name="replicasPerNodeGroup")
+    def replicas_per_node_group(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        """
+        return pulumi.get(self, "replicas_per_node_group")
+
+    @replicas_per_node_group.setter
+    def replicas_per_node_group(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas_per_node_group", value)
 
 

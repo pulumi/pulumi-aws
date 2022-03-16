@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const fooWithLifecylePolicy = new aws.efs.FileSystem("foo_with_lifecyle_policy", {
- *     lifecyclePolicies: {
+ *     lifecyclePolicies: [{
  *         transitionToIa: "AFTER_30_DAYS",
- *     },
+ *     }],
  * });
  * ```
  *
@@ -104,7 +104,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
-    public readonly lifecyclePolicy!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy | undefined>;
+    public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
     /**
      * The current number of mount targets that the file system has.
      */
@@ -158,7 +158,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["encrypted"] = state ? state.encrypted : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
+            resourceInputs["lifecyclePolicies"] = state ? state.lifecyclePolicies : undefined;
             resourceInputs["numberOfMountTargets"] = state ? state.numberOfMountTargets : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["performanceMode"] = state ? state.performanceMode : undefined;
@@ -173,7 +173,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["creationToken"] = args ? args.creationToken : undefined;
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
+            resourceInputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
             resourceInputs["performanceMode"] = args ? args.performanceMode : undefined;
             resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -229,7 +229,7 @@ export interface FileSystemState {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
-    lifecyclePolicy?: pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>;
+    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
     /**
      * The current number of mount targets that the file system has.
      */
@@ -290,7 +290,7 @@ export interface FileSystemArgs {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
-    lifecyclePolicy?: pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>;
+    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */

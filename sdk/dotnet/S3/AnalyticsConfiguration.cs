@@ -23,15 +23,17 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
-    ///         var analytics = new Aws.S3.Bucket("analytics", new Aws.S3.BucketArgs
+    ///         var analytics = new Aws.S3.BucketV2("analytics", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "analytics destination",
     ///         });
     ///         var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new Aws.S3.AnalyticsConfigurationArgs
     ///         {
-    ///             Bucket = example.BucketName,
+    ///             Bucket = example.Bucket,
     ///             StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
     ///             {
     ///                 DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
@@ -50,7 +52,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// ### Add analytics configuration with S3 bucket object filter
+    /// ### Add analytics configuration with S3 object filter
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -60,12 +62,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new Aws.S3.AnalyticsConfigurationArgs
     ///         {
-    ///             Bucket = example.BucketName,
+    ///             Bucket = example.Bucket,
     ///             Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
     ///             {
     ///                 Prefix = "documents/",

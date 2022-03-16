@@ -32,6 +32,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
+        /// The ARN of the Outpost on which the snapshot is stored.
+        /// </summary>
+        public readonly string? OutpostArn;
+        /// <summary>
         /// The id of an EBS snapshot that will be used to initialize the created
         /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
         /// snapshot.
@@ -62,6 +66,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int? iops,
 
+            string? outpostArn,
+
             string? snapshotId,
 
             int? throughput,
@@ -74,6 +80,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             DeviceName = deviceName;
             Encrypted = encrypted;
             Iops = iops;
+            OutpostArn = outpostArn;
             SnapshotId = snapshotId;
             Throughput = throughput;
             VolumeSize = volumeSize;

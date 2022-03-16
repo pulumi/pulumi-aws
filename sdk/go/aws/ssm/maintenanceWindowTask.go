@@ -22,7 +22,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -70,7 +70,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -128,7 +128,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

@@ -20,22 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testBucket, err := s3.NewBucket(ctx, "testBucket", nil)
+// 		testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-tf-test-bucket"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		inventory, err := s3.NewBucket(ctx, "inventory", nil)
+// 		inventory, err := s3.NewBucketV2(ctx, "inventory", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-tf-inventory-bucket"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = s3.NewInventory(ctx, "testInventory", &s3.InventoryArgs{
-// 			Bucket:                 testBucket.ID(),
+// 			Bucket:                 testBucketV2.ID(),
 // 			IncludedObjectVersions: pulumi.String("All"),
 // 			Schedule: &s3.InventoryScheduleArgs{
 // 				Frequency: pulumi.String("Daily"),
@@ -54,23 +58,27 @@ import (
 // 	})
 // }
 // ```
-// ### Add inventory configuration with S3 bucket object prefix
+// ### Add inventory configuration with S3 object prefix
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := s3.NewBucket(ctx, "test", nil)
+// 		test, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-tf-test-bucket"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		inventory, err := s3.NewBucket(ctx, "inventory", nil)
+// 		inventory, err := s3.NewBucketV2(ctx, "inventory", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-tf-inventory-bucket"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

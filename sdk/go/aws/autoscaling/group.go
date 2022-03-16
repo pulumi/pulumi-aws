@@ -32,8 +32,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -72,8 +72,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -125,8 +125,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -187,8 +187,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -250,8 +250,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -322,8 +322,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -504,9 +504,11 @@ type Group struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayOutput `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
 	Tags GroupTagArrayOutput `pulumi:"tags"`
-	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+	//
+	// Deprecated: Use tag instead
 	TagsCollection pulumi.StringMapArrayOutput `pulumi:"tagsCollection"`
 	// A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
@@ -641,9 +643,11 @@ type groupState struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
 	Tags []GroupTag `pulumi:"tags"`
-	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+	//
+	// Deprecated: Use tag instead
 	TagsCollection []map[string]string `pulumi:"tagsCollection"`
 	// A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
@@ -744,9 +748,11 @@ type GroupState struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
 	Tags GroupTagArrayInput
-	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+	//
+	// Deprecated: Use tag instead
 	TagsCollection pulumi.StringMapArrayInput
 	// A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
@@ -849,9 +855,11 @@ type groupArgs struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
 	Tags []GroupTag `pulumi:"tags"`
-	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+	//
+	// Deprecated: Use tag instead
 	TagsCollection []map[string]string `pulumi:"tagsCollection"`
 	// A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
@@ -951,9 +959,11 @@ type GroupArgs struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
 	Tags GroupTagArrayInput
-	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
+	//
+	// Deprecated: Use tag instead
 	TagsCollection pulumi.StringMapArrayInput
 	// A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput

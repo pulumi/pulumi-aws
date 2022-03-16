@@ -40,11 +40,11 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
-                 throttle_settings: Optional[pulumi.Input['AccountThrottleSettingsArgs']] = None):
+                 throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input['AccountThrottleSettingsArgs'] throttle_settings: Account-Level throttle settings. See exported fields below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         if cloudwatch_role_arn is not None:
             pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
@@ -65,14 +65,14 @@ class _AccountState:
 
     @property
     @pulumi.getter(name="throttleSettings")
-    def throttle_settings(self) -> Optional[pulumi.Input['AccountThrottleSettingsArgs']]:
+    def throttle_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]:
         """
         Account-Level throttle settings. See exported fields below.
         """
         return pulumi.get(self, "throttle_settings")
 
     @throttle_settings.setter
-    def throttle_settings(self, value: Optional[pulumi.Input['AccountThrottleSettingsArgs']]):
+    def throttle_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]):
         pulumi.set(self, "throttle_settings", value)
 
 
@@ -248,7 +248,7 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
-            throttle_settings: Optional[pulumi.Input[pulumi.InputType['AccountThrottleSettingsArgs']]] = None) -> 'Account':
+            throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountThrottleSettingArgs']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -257,7 +257,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[pulumi.InputType['AccountThrottleSettingsArgs']] throttle_settings: Account-Level throttle settings. See exported fields below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountThrottleSettingArgs']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -277,7 +277,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="throttleSettings")
-    def throttle_settings(self) -> pulumi.Output['outputs.AccountThrottleSettings']:
+    def throttle_settings(self) -> pulumi.Output[Sequence['outputs.AccountThrottleSetting']]:
         """
         Account-Level throttle settings. See exported fields below.
         """

@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// How the intent should be fulfilled, either by running a Lambda function or by
-        /// returning the slot data to the client application.
+        /// returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

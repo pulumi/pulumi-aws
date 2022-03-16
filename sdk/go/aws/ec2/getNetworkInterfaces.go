@@ -33,7 +33,7 @@ type GetNetworkInterfacesResult struct {
 	Filters []GetNetworkInterfacesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the network interface ids found. This data source will fail if none are found.
+	// A list of all the network interface ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -84,7 +84,7 @@ func (o GetNetworkInterfacesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfacesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the network interface ids found. This data source will fail if none are found.
+// A list of all the network interface ids found.
 func (o GetNetworkInterfacesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkInterfacesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -21,7 +21,10 @@ class GetHoursOfOperationResult:
     """
     A collection of values returned by getHoursOfOperation.
     """
-    def __init__(__self__, configs=None, description=None, hours_of_operation_arn=None, hours_of_operation_id=None, id=None, instance_id=None, name=None, tags=None, time_zone=None):
+    def __init__(__self__, arn=None, configs=None, description=None, hours_of_operation_arn=None, hours_of_operation_id=None, id=None, instance_id=None, name=None, tags=None, time_zone=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if configs and not isinstance(configs, list):
             raise TypeError("Expected argument 'configs' to be a list")
         pulumi.set(__self__, "configs", configs)
@@ -30,6 +33,10 @@ class GetHoursOfOperationResult:
         pulumi.set(__self__, "description", description)
         if hours_of_operation_arn and not isinstance(hours_of_operation_arn, str):
             raise TypeError("Expected argument 'hours_of_operation_arn' to be a str")
+        if hours_of_operation_arn is not None:
+            warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
+
         pulumi.set(__self__, "hours_of_operation_arn", hours_of_operation_arn)
         if hours_of_operation_id and not isinstance(hours_of_operation_id, str):
             raise TypeError("Expected argument 'hours_of_operation_id' to be a str")
@@ -52,6 +59,14 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Hours of Operation.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
     def configs(self) -> Sequence['outputs.GetHoursOfOperationConfigResult']:
         """
         Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
@@ -70,7 +85,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter(name="hoursOfOperationArn")
     def hours_of_operation_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Hours of Operation.
+        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         """
         return pulumi.get(self, "hours_of_operation_arn")
 
@@ -110,7 +125,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A the map of tags to assign to the Hours of Operation.
+        A map of tags to assign to the Hours of Operation.
         """
         return pulumi.get(self, "tags")
 
@@ -129,6 +144,7 @@ class AwaitableGetHoursOfOperationResult(GetHoursOfOperationResult):
         if False:
             yield self
         return GetHoursOfOperationResult(
+            arn=self.arn,
             configs=self.configs,
             description=self.description,
             hours_of_operation_arn=self.hours_of_operation_arn,
@@ -174,7 +190,7 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Hours of Operation by name
-    :param Mapping[str, str] tags: A the map of tags to assign to the Hours of Operation.
+    :param Mapping[str, str] tags: A map of tags to assign to the Hours of Operation.
     """
     __args__ = dict()
     __args__['hoursOfOperationId'] = hours_of_operation_id
@@ -188,6 +204,7 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getHoursOfOperation:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult).value
 
     return AwaitableGetHoursOfOperationResult(
+        arn=__ret__.arn,
         configs=__ret__.configs,
         description=__ret__.description,
         hours_of_operation_arn=__ret__.hours_of_operation_arn,
@@ -234,6 +251,6 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Hours of Operation by name
-    :param Mapping[str, str] tags: A the map of tags to assign to the Hours of Operation.
+    :param Mapping[str, str] tags: A map of tags to assign to the Hours of Operation.
     """
     ...

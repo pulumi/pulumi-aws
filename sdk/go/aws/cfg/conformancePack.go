@@ -27,7 +27,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cfg"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -59,19 +59,21 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleBucketObject, err := s3.NewBucketObject(ctx, "exampleBucketObject", &s3.BucketObjectArgs{
-// 			Bucket:  exampleBucket.ID(),
+// 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+// 			Bucket:  exampleBucketV2.ID(),
 // 			Key:     pulumi.String("example-key"),
 // 			Content: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "Resources:\n", "  IAMPasswordPolicy:\n", "    Properties:\n", "      ConfigRuleName: IAMPasswordPolicy\n", "      Source:\n", "        Owner: AWS\n", "        SourceIdentifier: IAM_PASSWORD_POLICY\n", "    Type: AWS::Config::ConfigRule\n")),
 // 		})
@@ -79,7 +81,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = cfg.NewConformancePack(ctx, "exampleConformancePack", &cfg.ConformancePackArgs{
-// 			TemplateS3Uri: pulumi.All(exampleBucket.Bucket, exampleBucketObject.Key).ApplyT(func(_args []interface{}) (string, error) {
+// 			TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 // 				bucket := _args[0].(string)
 // 				key := _args[1].(string)
 // 				return fmt.Sprintf("%v%v%v%v", "s3://", bucket, "/", key), nil

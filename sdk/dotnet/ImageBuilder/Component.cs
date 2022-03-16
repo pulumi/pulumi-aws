@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///         var example = new Aws.ImageBuilder.Component("example", new Aws.ImageBuilder.ComponentArgs
     ///         {
     ///             Platform = "Linux",
-    ///             Uri = $"s3://{aws_s3_bucket_object.Example.Bucket}/{aws_s3_bucket_object.Example.Key}",
+    ///             Uri = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
     ///             Version = "1.0.0",
     ///         });
     ///     }

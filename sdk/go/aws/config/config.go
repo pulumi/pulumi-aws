@@ -23,6 +23,18 @@ func GetAssumeRole(ctx *pulumi.Context) string {
 func GetDefaultTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:defaultTags")
 }
+
+// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+func GetEc2MetadataServiceEndpoint(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:ec2MetadataServiceEndpoint")
+}
+
+// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+func GetEc2MetadataServiceEndpointMode(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:ec2MetadataServiceEndpointMode")
+}
 func GetEndpoints(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:endpoints")
 }
@@ -69,11 +81,20 @@ func GetRegion(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string)
 }
 
-// Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-// default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 // Specific to the Amazon S3 service.
+//
+// Deprecated: Use s3_use_path_style instead.
 func GetS3ForcePathStyle(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:s3ForcePathStyle")
+}
+
+// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+// Specific to the Amazon S3 service.
+func GetS3UsePathStyle(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "aws:s3UsePathStyle")
 }
 
 // The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
@@ -81,9 +102,21 @@ func GetSecretKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:secretKey")
 }
 
-// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+// List of paths to shared config files. If not set, defaults to [~/.aws/config].
+func GetSharedConfigFiles(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:sharedConfigFiles")
+}
+
+// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+//
+// Deprecated: Use shared_credentials_files instead.
 func GetSharedCredentialsFile(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:sharedCredentialsFile")
+}
+
+// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+func GetSharedCredentialsFiles(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:sharedCredentialsFiles")
 }
 
 // Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
@@ -104,6 +137,8 @@ func GetSkipGetEc2Platforms(ctx *pulumi.Context) bool {
 	}
 	return true
 }
+
+// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "aws:skipMetadataApiCheck")
 	if err == nil {
@@ -130,4 +165,14 @@ func GetSkipRequestingAccountId(ctx *pulumi.Context) bool {
 // session token. A session token is only required if you are using temporary security credentials.
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:token")
+}
+
+// Resolve an endpoint with DualStack capability
+func GetUseDualstackEndpoint(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "aws:useDualstackEndpoint")
+}
+
+// Resolve an endpoint with FIPS capability
+func GetUseFipsEndpoint(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "aws:useFipsEndpoint")
 }

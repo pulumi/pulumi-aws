@@ -33,6 +33,16 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly accessKey!: pulumi.Output<string | undefined>;
     /**
+     * Address of the EC2 metadata service endpoint to use. Can also be configured using the
+     * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+     */
+    public readonly ec2MetadataServiceEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+     * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+     */
+    public readonly ec2MetadataServiceEndpointMode!: pulumi.Output<string | undefined>;
+    /**
      * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
      * `HTTPS_PROXY` environment variables.
      */
@@ -50,7 +60,9 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;
     /**
-     * The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+     * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+     *
+     * @deprecated Use shared_credentials_files instead.
      */
     public readonly sharedCredentialsFile!: pulumi.Output<string | undefined>;
     /**
@@ -73,6 +85,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
+            resourceInputs["ec2MetadataServiceEndpoint"] = args ? args.ec2MetadataServiceEndpoint : undefined;
+            resourceInputs["ec2MetadataServiceEndpointMode"] = args ? args.ec2MetadataServiceEndpointMode : undefined;
             resourceInputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             resourceInputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
             resourceInputs["httpProxy"] = args ? args.httpProxy : undefined;
@@ -82,14 +96,19 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["profile"] = (args ? args.profile : undefined) ?? utilities.getEnv("AWS_PROFILE");
             resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             resourceInputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
+            resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);
             resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["sharedConfigFiles"] = pulumi.output(args ? args.sharedConfigFiles : undefined).apply(JSON.stringify);
             resourceInputs["sharedCredentialsFile"] = args ? args.sharedCredentialsFile : undefined;
+            resourceInputs["sharedCredentialsFiles"] = pulumi.output(args ? args.sharedCredentialsFiles : undefined).apply(JSON.stringify);
             resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipGetEc2Platforms"] = pulumi.output((args ? args.skipGetEc2Platforms : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipMetadataApiCheck"] = pulumi.output((args ? args.skipMetadataApiCheck : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
             resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["useDualstackEndpoint"] = pulumi.output(args ? args.useDualstackEndpoint : undefined).apply(JSON.stringify);
+            resourceInputs["useFipsEndpoint"] = pulumi.output(args ? args.useFipsEndpoint : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -110,6 +129,16 @@ export interface ProviderArgs {
      * Configuration block with settings to default resource tags across all resources.
      */
     defaultTags?: pulumi.Input<inputs.ProviderDefaultTags>;
+    /**
+     * Address of the EC2 metadata service endpoint to use. Can also be configured using the
+     * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+     */
+    ec2MetadataServiceEndpoint?: pulumi.Input<string>;
+    /**
+     * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+     * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+     */
+    ec2MetadataServiceEndpointMode?: pulumi.Input<string>;
     endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
     forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -138,19 +167,37 @@ export interface ProviderArgs {
      */
     region?: pulumi.Input<Region>;
     /**
-     * Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-     * default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+     * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
      * Specific to the Amazon S3 service.
+     *
+     * @deprecated Use s3_use_path_style instead.
      */
     s3ForcePathStyle?: pulumi.Input<boolean>;
+    /**
+     * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+     * Specific to the Amazon S3 service.
+     */
+    s3UsePathStyle?: pulumi.Input<boolean>;
     /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     secretKey?: pulumi.Input<string>;
     /**
-     * The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+     * List of paths to shared config files. If not set, defaults to [~/.aws/config].
+     */
+    sharedConfigFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+     *
+     * @deprecated Use shared_credentials_files instead.
      */
     sharedCredentialsFile?: pulumi.Input<string>;
+    /**
+     * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+     */
+    sharedCredentialsFiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
      * available/implemented.
@@ -160,6 +207,9 @@ export interface ProviderArgs {
      * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
      */
     skipGetEc2Platforms?: pulumi.Input<boolean>;
+    /**
+     * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+     */
     skipMetadataApiCheck?: pulumi.Input<boolean>;
     /**
      * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
@@ -174,4 +224,12 @@ export interface ProviderArgs {
      * session token. A session token is only required if you are using temporary security credentials.
      */
     token?: pulumi.Input<string>;
+    /**
+     * Resolve an endpoint with DualStack capability
+     */
+    useDualstackEndpoint?: pulumi.Input<boolean>;
+    /**
+     * Resolve an endpoint with FIPS capability
+     */
+    useFipsEndpoint?: pulumi.Input<boolean>;
 }

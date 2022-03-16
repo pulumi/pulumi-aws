@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:dataexchange/dataSet:DataSet":
 		r = &DataSet{}
+	case "aws:dataexchange/revision:Revision":
+		r = &Revision{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dataexchange/dataSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dataexchange/revision",
 		&module{version},
 	)
 }

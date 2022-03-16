@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/connect"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -76,11 +76,15 @@ import (
 type HoursOfOperation struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs HoursOfOperationConfigArrayOutput `pulumi:"configs"`
 	// Specifies the description of the Hours of Operation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+	//
+	// Deprecated: use 'arn' attribute instead
 	HoursOfOperationArn pulumi.StringOutput `pulumi:"hoursOfOperationArn"`
 	// The identifier for the hours of operation.
 	HoursOfOperationId pulumi.StringOutput `pulumi:"hoursOfOperationId"`
@@ -134,11 +138,15 @@ func GetHoursOfOperation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HoursOfOperation resources.
 type hoursOfOperationState struct {
+	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	Arn *string `pulumi:"arn"`
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs []HoursOfOperationConfig `pulumi:"configs"`
 	// Specifies the description of the Hours of Operation.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+	//
+	// Deprecated: use 'arn' attribute instead
 	HoursOfOperationArn *string `pulumi:"hoursOfOperationArn"`
 	// The identifier for the hours of operation.
 	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
@@ -155,11 +163,15 @@ type hoursOfOperationState struct {
 }
 
 type HoursOfOperationState struct {
+	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	Arn pulumi.StringPtrInput
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs HoursOfOperationConfigArrayInput
 	// Specifies the description of the Hours of Operation.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+	//
+	// Deprecated: use 'arn' attribute instead
 	HoursOfOperationArn pulumi.StringPtrInput
 	// The identifier for the hours of operation.
 	HoursOfOperationId pulumi.StringPtrInput

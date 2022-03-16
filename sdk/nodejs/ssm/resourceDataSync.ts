@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucket = new aws.s3.Bucket("hogeBucket", {});
+ * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {bucket: "tf-test-bucket-1234"});
  * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
- *     bucket: hogeBucket.bucket,
+ *     bucket: hogeBucketV2.bucket,
  *     policy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -48,8 +48,8 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const foo = new aws.ssm.ResourceDataSync("foo", {s3Destination: {
- *     bucketName: hogeBucket.bucket,
- *     region: hogeBucket.region,
+ *     bucketName: hogeBucketV2.bucket,
+ *     region: hogeBucketV2.region,
  * }});
  * ```
  *

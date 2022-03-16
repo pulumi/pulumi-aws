@@ -35,7 +35,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -58,6 +58,8 @@ type AmiFromInstance struct {
 	Architecture pulumi.StringOutput `pulumi:"architecture"`
 	// The ARN of the AMI.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode pulumi.StringOutput `pulumi:"bootMode"`
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
@@ -146,6 +148,8 @@ type amiFromInstanceState struct {
 	Architecture *string `pulumi:"architecture"`
 	// The ARN of the AMI.
 	Arn *string `pulumi:"arn"`
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode *string `pulumi:"bootMode"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
@@ -203,6 +207,8 @@ type AmiFromInstanceState struct {
 	Architecture pulumi.StringPtrInput
 	// The ARN of the AMI.
 	Arn pulumi.StringPtrInput
+	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	BootMode pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be

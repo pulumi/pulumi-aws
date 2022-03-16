@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleRuleLabelGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The label string.
+        /// Label string.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

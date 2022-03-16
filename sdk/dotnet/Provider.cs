@@ -25,6 +25,20 @@ namespace Pulumi.Aws
         public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        /// </summary>
+        [Output("ec2MetadataServiceEndpoint")]
+        public Output<string?> Ec2MetadataServiceEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        /// </summary>
+        [Output("ec2MetadataServiceEndpointMode")]
+        public Output<string?> Ec2MetadataServiceEndpointMode { get; private set; } = null!;
+
+        /// <summary>
         /// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
         /// `HTTPS_PROXY` environment variables.
         /// </summary>
@@ -50,7 +64,7 @@ namespace Pulumi.Aws
         public Output<string?> SecretKey { get; private set; } = null!;
 
         /// <summary>
-        /// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         /// </summary>
         [Output("sharedCredentialsFile")]
         public Output<string?> SharedCredentialsFile { get; private set; } = null!;
@@ -112,6 +126,20 @@ namespace Pulumi.Aws
         [Input("defaultTags", json: true)]
         public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }
 
+        /// <summary>
+        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        /// </summary>
+        [Input("ec2MetadataServiceEndpoint")]
+        public Input<string>? Ec2MetadataServiceEndpoint { get; set; }
+
+        /// <summary>
+        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        /// </summary>
+        [Input("ec2MetadataServiceEndpointMode")]
+        public Input<string>? Ec2MetadataServiceEndpointMode { get; set; }
+
         [Input("endpoints", json: true)]
         private InputList<Inputs.ProviderEndpointArgs>? _endpoints;
         public InputList<Inputs.ProviderEndpointArgs> Endpoints
@@ -166,12 +194,20 @@ namespace Pulumi.Aws
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
         /// Specific to the Amazon S3 service.
         /// </summary>
         [Input("s3ForcePathStyle", json: true)]
         public Input<bool>? S3ForcePathStyle { get; set; }
+
+        /// <summary>
+        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+        /// Specific to the Amazon S3 service.
+        /// </summary>
+        [Input("s3UsePathStyle", json: true)]
+        public Input<bool>? S3UsePathStyle { get; set; }
 
         /// <summary>
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
@@ -179,11 +215,35 @@ namespace Pulumi.Aws
         [Input("secretKey")]
         public Input<string>? SecretKey { get; set; }
 
+        [Input("sharedConfigFiles", json: true)]
+        private InputList<string>? _sharedConfigFiles;
+
         /// <summary>
-        /// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        /// List of paths to shared config files. If not set, defaults to [~/.aws/config].
+        /// </summary>
+        public InputList<string> SharedConfigFiles
+        {
+            get => _sharedConfigFiles ?? (_sharedConfigFiles = new InputList<string>());
+            set => _sharedConfigFiles = value;
+        }
+
+        /// <summary>
+        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         /// </summary>
         [Input("sharedCredentialsFile")]
         public Input<string>? SharedCredentialsFile { get; set; }
+
+        [Input("sharedCredentialsFiles", json: true)]
+        private InputList<string>? _sharedCredentialsFiles;
+
+        /// <summary>
+        /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+        /// </summary>
+        public InputList<string> SharedCredentialsFiles
+        {
+            get => _sharedCredentialsFiles ?? (_sharedCredentialsFiles = new InputList<string>());
+            set => _sharedCredentialsFiles = value;
+        }
 
         /// <summary>
         /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
@@ -198,6 +258,9 @@ namespace Pulumi.Aws
         [Input("skipGetEc2Platforms", json: true)]
         public Input<bool>? SkipGetEc2Platforms { get; set; }
 
+        /// <summary>
+        /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        /// </summary>
         [Input("skipMetadataApiCheck", json: true)]
         public Input<bool>? SkipMetadataApiCheck { get; set; }
 
@@ -219,6 +282,18 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("token")]
         public Input<string>? Token { get; set; }
+
+        /// <summary>
+        /// Resolve an endpoint with DualStack capability
+        /// </summary>
+        [Input("useDualstackEndpoint", json: true)]
+        public Input<bool>? UseDualstackEndpoint { get; set; }
+
+        /// <summary>
+        /// Resolve an endpoint with FIPS capability
+        /// </summary>
+        [Input("useFipsEndpoint", json: true)]
+        public Input<bool>? UseFipsEndpoint { get; set; }
 
         public ProviderArgs()
         {

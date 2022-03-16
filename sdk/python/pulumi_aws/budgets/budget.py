@@ -49,6 +49,9 @@ class BudgetArgs:
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if cost_filters is not None:
+            warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
+            pulumi.log.warn("""cost_filters is deprecated: Use the attribute \"cost_filter\" instead.""")
+        if cost_filters is not None:
             pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
             pulumi.set(__self__, "cost_types", cost_types)
@@ -246,6 +249,9 @@ class _BudgetState:
             pulumi.set(__self__, "arn", arn)
         if budget_type is not None:
             pulumi.set(__self__, "budget_type", budget_type)
+        if cost_filters is not None:
+            warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
+            pulumi.log.warn("""cost_filters is deprecated: Use the attribute \"cost_filter\" instead.""")
         if cost_filters is not None:
             pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
@@ -527,9 +533,10 @@ class Budget(pulumi.CustomResource):
 
         ri_utilization = aws.budgets.Budget("riUtilization",
             budget_type="RI_UTILIZATION",
-            cost_filters={
-                "Service": "Amazon Relational Database Service",
-            },
+            cost_filters=[{
+                "name": "Service",
+                "values": ["Amazon Relational Database Service"],
+            }],
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -660,9 +667,10 @@ class Budget(pulumi.CustomResource):
 
         ri_utilization = aws.budgets.Budget("riUtilization",
             budget_type="RI_UTILIZATION",
-            cost_filters={
-                "Service": "Amazon Relational Database Service",
-            },
+            cost_filters=[{
+                "name": "Service",
+                "values": ["Amazon Relational Database Service"],
+            }],
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -730,6 +738,9 @@ class Budget(pulumi.CustomResource):
             if budget_type is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_type'")
             __props__.__dict__["budget_type"] = budget_type
+            if cost_filters is not None and not opts.urn:
+                warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
+                pulumi.log.warn("""cost_filters is deprecated: Use the attribute \"cost_filter\" instead.""")
             __props__.__dict__["cost_filters"] = cost_filters
             __props__.__dict__["cost_types"] = cost_types
             if limit_amount is None and not opts.urn:

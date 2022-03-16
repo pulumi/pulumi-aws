@@ -58,6 +58,9 @@ class RouteArgs:
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
         if instance_id is not None:
+            warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
+            pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
+        if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if local_gateway_id is not None:
             pulumi.set(__self__, "local_gateway_id", local_gateway_id)
@@ -293,6 +296,9 @@ class _RouteState:
             pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
+            pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if instance_owner_id is not None:
@@ -709,6 +715,9 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["destination_prefix_list_id"] = destination_prefix_list_id
             __props__.__dict__["egress_only_gateway_id"] = egress_only_gateway_id
             __props__.__dict__["gateway_id"] = gateway_id
+            if instance_id is not None and not opts.urn:
+                warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
+                pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["local_gateway_id"] = local_gateway_id
             __props__.__dict__["nat_gateway_id"] = nat_gateway_id

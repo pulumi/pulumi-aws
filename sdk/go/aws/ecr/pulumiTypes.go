@@ -220,7 +220,7 @@ func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) Index(i pu
 
 type ReplicationConfigurationReplicationConfiguration struct {
 	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
-	Rule ReplicationConfigurationReplicationConfigurationRule `pulumi:"rule"`
+	Rules []ReplicationConfigurationReplicationConfigurationRule `pulumi:"rules"`
 }
 
 // ReplicationConfigurationReplicationConfigurationInput is an input type that accepts ReplicationConfigurationReplicationConfigurationArgs and ReplicationConfigurationReplicationConfigurationOutput values.
@@ -236,7 +236,7 @@ type ReplicationConfigurationReplicationConfigurationInput interface {
 
 type ReplicationConfigurationReplicationConfigurationArgs struct {
 	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
-	Rule ReplicationConfigurationReplicationConfigurationRuleInput `pulumi:"rule"`
+	Rules ReplicationConfigurationReplicationConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
 func (ReplicationConfigurationReplicationConfigurationArgs) ElementType() reflect.Type {
@@ -317,10 +317,10 @@ func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationCon
 }
 
 // The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
-func (o ReplicationConfigurationReplicationConfigurationOutput) Rule() ReplicationConfigurationReplicationConfigurationRuleOutput {
-	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) ReplicationConfigurationReplicationConfigurationRule {
-		return v.Rule
-	}).(ReplicationConfigurationReplicationConfigurationRuleOutput)
+func (o ReplicationConfigurationReplicationConfigurationOutput) Rules() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationConfigurationRule {
+		return v.Rules
+	}).(ReplicationConfigurationReplicationConfigurationRuleArrayOutput)
 }
 
 type ReplicationConfigurationReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -348,13 +348,13 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() Replic
 }
 
 // The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
-func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rule() ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) *ReplicationConfigurationReplicationConfigurationRule {
+func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationConfigurationRule {
 		if v == nil {
 			return nil
 		}
-		return &v.Rule
-	}).(ReplicationConfigurationReplicationConfigurationRulePtrOutput)
+		return v.Rules
+	}).(ReplicationConfigurationReplicationConfigurationRuleArrayOutput)
 }
 
 type ReplicationConfigurationReplicationConfigurationRule struct {
@@ -394,45 +394,29 @@ func (i ReplicationConfigurationReplicationConfigurationRuleArgs) ToReplicationC
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationRuleArgs) ToReplicationConfigurationReplicationConfigurationRulePtrOutput() ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return i.ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(context.Background())
-}
-
-func (i ReplicationConfigurationReplicationConfigurationRuleArgs) ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleOutput).ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(ctx)
-}
-
-// ReplicationConfigurationReplicationConfigurationRulePtrInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleArgs, ReplicationConfigurationReplicationConfigurationRulePtr and ReplicationConfigurationReplicationConfigurationRulePtrOutput values.
-// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRulePtrInput` via:
+// ReplicationConfigurationReplicationConfigurationRuleArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleArray and ReplicationConfigurationReplicationConfigurationRuleArrayOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleArrayInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationRuleArgs{...}
-//
-//  or:
-//
-//          nil
-type ReplicationConfigurationReplicationConfigurationRulePtrInput interface {
+//          ReplicationConfigurationReplicationConfigurationRuleArray{ ReplicationConfigurationReplicationConfigurationRuleArgs{...} }
+type ReplicationConfigurationReplicationConfigurationRuleArrayInput interface {
 	pulumi.Input
 
-	ToReplicationConfigurationReplicationConfigurationRulePtrOutput() ReplicationConfigurationReplicationConfigurationRulePtrOutput
-	ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationRulePtrOutput
+	ToReplicationConfigurationReplicationConfigurationRuleArrayOutput() ReplicationConfigurationReplicationConfigurationRuleArrayOutput
+	ToReplicationConfigurationReplicationConfigurationRuleArrayOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationRuleArrayOutput
 }
 
-type replicationConfigurationReplicationConfigurationRulePtrType ReplicationConfigurationReplicationConfigurationRuleArgs
+type ReplicationConfigurationReplicationConfigurationRuleArray []ReplicationConfigurationReplicationConfigurationRuleInput
 
-func ReplicationConfigurationReplicationConfigurationRulePtr(v *ReplicationConfigurationReplicationConfigurationRuleArgs) ReplicationConfigurationReplicationConfigurationRulePtrInput {
-	return (*replicationConfigurationReplicationConfigurationRulePtrType)(v)
+func (ReplicationConfigurationReplicationConfigurationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationConfigurationRule)(nil)).Elem()
 }
 
-func (*replicationConfigurationReplicationConfigurationRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfigurationReplicationConfigurationRule)(nil)).Elem()
+func (i ReplicationConfigurationReplicationConfigurationRuleArray) ToReplicationConfigurationReplicationConfigurationRuleArrayOutput() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
+	return i.ToReplicationConfigurationReplicationConfigurationRuleArrayOutputWithContext(context.Background())
 }
 
-func (i *replicationConfigurationReplicationConfigurationRulePtrType) ToReplicationConfigurationReplicationConfigurationRulePtrOutput() ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return i.ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(context.Background())
-}
-
-func (i *replicationConfigurationReplicationConfigurationRulePtrType) ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRulePtrOutput)
+func (i ReplicationConfigurationReplicationConfigurationRuleArray) ToReplicationConfigurationReplicationConfigurationRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleArrayOutput)
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleOutput struct{ *pulumi.OutputState }
@@ -449,16 +433,6 @@ func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicatio
 	return o
 }
 
-func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicationConfigurationReplicationConfigurationRulePtrOutput() ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return o.ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationReplicationConfigurationRule) *ReplicationConfigurationReplicationConfigurationRule {
-		return &v
-	}).(ReplicationConfigurationReplicationConfigurationRulePtrOutput)
-}
-
 // the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) Destinations() ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleDestination {
@@ -473,48 +447,24 @@ func (o ReplicationConfigurationReplicationConfigurationRuleOutput) RepositoryFi
 	}).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput)
 }
 
-type ReplicationConfigurationReplicationConfigurationRulePtrOutput struct{ *pulumi.OutputState }
+type ReplicationConfigurationReplicationConfigurationRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (ReplicationConfigurationReplicationConfigurationRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfigurationReplicationConfigurationRule)(nil)).Elem()
+func (ReplicationConfigurationReplicationConfigurationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationConfigurationRule)(nil)).Elem()
 }
 
-func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) ToReplicationConfigurationReplicationConfigurationRulePtrOutput() ReplicationConfigurationReplicationConfigurationRulePtrOutput {
+func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) ToReplicationConfigurationReplicationConfigurationRuleArrayOutput() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o
 }
 
-func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRulePtrOutput {
+func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) ToReplicationConfigurationReplicationConfigurationRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o
 }
 
-func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) Elem() ReplicationConfigurationReplicationConfigurationRuleOutput {
-	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfigurationRule) ReplicationConfigurationReplicationConfigurationRule {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationConfigurationReplicationConfigurationRule
-		return ret
+func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationConfigurationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationReplicationConfigurationRule {
+		return vs[0].([]ReplicationConfigurationReplicationConfigurationRule)[vs[1].(int)]
 	}).(ReplicationConfigurationReplicationConfigurationRuleOutput)
-}
-
-// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) Destinations() ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput {
-	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleDestination {
-		if v == nil {
-			return nil
-		}
-		return v.Destinations
-	}).(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput)
-}
-
-// filters for a replication rule. See Repository Filter.
-func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) RepositoryFilters() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
-	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
-		if v == nil {
-			return nil
-		}
-		return v.RepositoryFilters
-	}).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput)
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleDestination struct {
@@ -1185,7 +1135,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationPtrInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRulePtrInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{})
@@ -1205,7 +1155,7 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleOutput{})
-	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRulePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleDestinationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput{})

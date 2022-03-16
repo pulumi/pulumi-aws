@@ -25,6 +25,16 @@ import * as utilities from "../utilities";
  *     }],
  *     components: [{
  *         componentArn: aws_imagebuilder_component.example.arn,
+ *         parameters: [
+ *             {
+ *                 name: "Parameter1",
+ *                 value: "Value1",
+ *             },
+ *             {
+ *                 name: "Parameter2",
+ *                 value: "Value2",
+ *             },
+ *         ],
  *     }],
  *     parentImage: `arn:${data.aws_partition.current.partition}:imagebuilder:${data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x`,
  *     version: "1.0.0",
@@ -88,7 +98,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of the image recipe.
+     * The name of the component parameter.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -207,7 +217,7 @@ export interface ImageRecipeState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the image recipe.
+     * The name of the component parameter.
      */
     name?: pulumi.Input<string>;
     /**
@@ -261,7 +271,7 @@ export interface ImageRecipeArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the image recipe.
+     * The name of the component parameter.
      */
     name?: pulumi.Input<string>;
     /**

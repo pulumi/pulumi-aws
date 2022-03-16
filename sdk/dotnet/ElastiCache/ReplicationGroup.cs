@@ -47,16 +47,16 @@ namespace Pulumi.Aws.ElastiCache
     ///         var example = new Aws.ElastiCache.ReplicationGroup("example", new Aws.ElastiCache.ReplicationGroupArgs
     ///         {
     ///             AutomaticFailoverEnabled = true,
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///             },
+    ///             Description = "example description",
     ///             NodeType = "cache.m4.large",
     ///             NumberCacheClusters = 2,
     ///             ParameterGroupName = "default.redis3.2",
     ///             Port = 6379,
-    ///             ReplicationGroupDescription = "test description",
+    ///             PreferredCacheClusterAzs = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -80,12 +80,12 @@ namespace Pulumi.Aws.ElastiCache
     ///         var example = new Aws.ElastiCache.ReplicationGroup("example", new Aws.ElastiCache.ReplicationGroupArgs
     ///         {
     ///             AutomaticFailoverEnabled = true,
-    ///             AvailabilityZones = 
+    ///             PreferredCacheClusterAzs = 
     ///             {
     ///                 "us-west-2a",
     ///                 "us-west-2b",
     ///             },
-    ///             ReplicationGroupDescription = "test description",
+    ///             Description = "example description",
     ///             NodeType = "cache.m4.large",
     ///             NumberCacheClusters = 2,
     ///             ParameterGroupName = "default.redis3.2",
@@ -119,15 +119,12 @@ namespace Pulumi.Aws.ElastiCache
     ///         var baz = new Aws.ElastiCache.ReplicationGroup("baz", new Aws.ElastiCache.ReplicationGroupArgs
     ///         {
     ///             AutomaticFailoverEnabled = true,
-    ///             ClusterMode = new Aws.ElastiCache.Inputs.ReplicationGroupClusterModeArgs
-    ///             {
-    ///                 NumNodeGroups = 2,
-    ///                 ReplicasPerNodeGroup = 1,
-    ///             },
+    ///             Description = "example description",
     ///             NodeType = "cache.t2.small",
+    ///             NumNodeGroups = 2,
     ///             ParameterGroupName = "default.redis3.2.cluster.on",
     ///             Port = 6379,
-    ///             ReplicationGroupDescription = "test description",
+    ///             ReplicasPerNodeGroup = 1,
     ///         });
     ///     }
     /// 
@@ -153,7 +150,7 @@ namespace Pulumi.Aws.ElastiCache
     ///     {
     ///         var primary = new Aws.ElastiCache.ReplicationGroup("primary", new Aws.ElastiCache.ReplicationGroupArgs
     ///         {
-    ///             ReplicationGroupDescription = "primary replication group",
+    ///             Description = "primary replication group",
     ///             Engine = "redis",
     ///             EngineVersion = "5.0.6",
     ///             NodeType = "cache.m5.large",
@@ -172,7 +169,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         });
     ///         var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new Aws.ElastiCache.ReplicationGroupArgs
     ///         {
-    ///             ReplicationGroupDescription = "secondary replication group",
+    ///             Description = "secondary replication group",
     ///             GlobalReplicationGroupId = example.GlobalReplicationGroupId,
     ///             NumberCacheClusters = 1,
     ///         });
@@ -229,7 +226,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool?> AutomaticFailoverEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -259,6 +256,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> DataTieringEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// User-created description for the replication group.
+        /// </summary>
+        [Output("description")]
+        public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Output("engine")]
@@ -283,7 +286,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter of the `cluster_mode` block cannot be set.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
         /// </summary>
         [Output("globalReplicationGroupId")]
         public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
@@ -325,7 +328,19 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+        /// </summary>
+        [Output("numCacheClusters")]
+        public Output<int> NumCacheClusters { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        /// </summary>
+        [Output("numNodeGroups")]
+        public Output<int> NumNodeGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
         /// </summary>
         [Output("numberCacheClusters")]
         public Output<int> NumberCacheClusters { get; private set; } = null!;
@@ -343,6 +358,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
+        /// </summary>
+        [Output("preferredCacheClusterAzs")]
+        public Output<ImmutableArray<string>> PreferredCacheClusterAzs { get; private set; } = null!;
+
+        /// <summary>
         /// (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         /// </summary>
         [Output("primaryEndpointAddress")]
@@ -353,6 +374,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("readerEndpointAddress")]
         public Output<string> ReaderEndpointAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// </summary>
+        [Output("replicasPerNodeGroup")]
+        public Output<int> ReplicasPerNodeGroup { get; private set; } = null!;
 
         /// <summary>
         /// User-created description for the replication group.
@@ -434,7 +461,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ReplicationGroup(string name, ReplicationGroupArgs args, CustomResourceOptions? options = null)
+        public ReplicationGroup(string name, ReplicationGroupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:elasticache/replicationGroup:ReplicationGroup", name, args ?? new ReplicationGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -506,7 +533,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -527,6 +554,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? DataTieringEnabled { get; set; }
 
         /// <summary>
+        /// User-created description for the replication group.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Input("engine")]
@@ -545,7 +578,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter of the `cluster_mode` block cannot be set.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
         /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
@@ -581,7 +614,19 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+        /// </summary>
+        [Input("numCacheClusters")]
+        public Input<int>? NumCacheClusters { get; set; }
+
+        /// <summary>
+        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        /// </summary>
+        [Input("numNodeGroups")]
+        public Input<int>? NumNodeGroups { get; set; }
+
+        /// <summary>
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
         /// </summary>
         [Input("numberCacheClusters")]
         public Input<int>? NumberCacheClusters { get; set; }
@@ -598,11 +643,29 @@ namespace Pulumi.Aws.ElastiCache
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("preferredCacheClusterAzs")]
+        private InputList<string>? _preferredCacheClusterAzs;
+
+        /// <summary>
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
+        /// </summary>
+        public InputList<string> PreferredCacheClusterAzs
+        {
+            get => _preferredCacheClusterAzs ?? (_preferredCacheClusterAzs = new InputList<string>());
+            set => _preferredCacheClusterAzs = value;
+        }
+
+        /// <summary>
+        /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// </summary>
+        [Input("replicasPerNodeGroup")]
+        public Input<int>? ReplicasPerNodeGroup { get; set; }
+
         /// <summary>
         /// User-created description for the replication group.
         /// </summary>
-        [Input("replicationGroupDescription", required: true)]
-        public Input<string> ReplicationGroupDescription { get; set; } = null!;
+        [Input("replicationGroupDescription")]
+        public Input<string>? ReplicationGroupDescription { get; set; }
 
         /// <summary>
         /// Replication group identifier. This parameter is stored as a lowercase string.
@@ -743,7 +806,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -776,6 +839,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? DataTieringEnabled { get; set; }
 
         /// <summary>
+        /// User-created description for the replication group.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Input("engine")]
@@ -800,7 +869,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter of the `cluster_mode` block cannot be set.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
         /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
@@ -848,7 +917,19 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+        /// </summary>
+        [Input("numCacheClusters")]
+        public Input<int>? NumCacheClusters { get; set; }
+
+        /// <summary>
+        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        /// </summary>
+        [Input("numNodeGroups")]
+        public Input<int>? NumNodeGroups { get; set; }
+
+        /// <summary>
+        /// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
         /// </summary>
         [Input("numberCacheClusters")]
         public Input<int>? NumberCacheClusters { get; set; }
@@ -865,6 +946,18 @@ namespace Pulumi.Aws.ElastiCache
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("preferredCacheClusterAzs")]
+        private InputList<string>? _preferredCacheClusterAzs;
+
+        /// <summary>
+        /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
+        /// </summary>
+        public InputList<string> PreferredCacheClusterAzs
+        {
+            get => _preferredCacheClusterAzs ?? (_preferredCacheClusterAzs = new InputList<string>());
+            set => _preferredCacheClusterAzs = value;
+        }
+
         /// <summary>
         /// (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         /// </summary>
@@ -876,6 +969,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("readerEndpointAddress")]
         public Input<string>? ReaderEndpointAddress { get; set; }
+
+        /// <summary>
+        /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// </summary>
+        [Input("replicasPerNodeGroup")]
+        public Input<int>? ReplicasPerNodeGroup { get; set; }
 
         /// <summary>
         /// User-created description for the replication group.

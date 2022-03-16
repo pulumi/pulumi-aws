@@ -690,45 +690,29 @@ func (i FileSystemLifecyclePolicyArgs) ToFileSystemLifecyclePolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyOutput)
 }
 
-func (i FileSystemLifecyclePolicyArgs) ToFileSystemLifecyclePolicyPtrOutput() FileSystemLifecyclePolicyPtrOutput {
-	return i.ToFileSystemLifecyclePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i FileSystemLifecyclePolicyArgs) ToFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyOutput).ToFileSystemLifecyclePolicyPtrOutputWithContext(ctx)
-}
-
-// FileSystemLifecyclePolicyPtrInput is an input type that accepts FileSystemLifecyclePolicyArgs, FileSystemLifecyclePolicyPtr and FileSystemLifecyclePolicyPtrOutput values.
-// You can construct a concrete instance of `FileSystemLifecyclePolicyPtrInput` via:
+// FileSystemLifecyclePolicyArrayInput is an input type that accepts FileSystemLifecyclePolicyArray and FileSystemLifecyclePolicyArrayOutput values.
+// You can construct a concrete instance of `FileSystemLifecyclePolicyArrayInput` via:
 //
-//          FileSystemLifecyclePolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type FileSystemLifecyclePolicyPtrInput interface {
+//          FileSystemLifecyclePolicyArray{ FileSystemLifecyclePolicyArgs{...} }
+type FileSystemLifecyclePolicyArrayInput interface {
 	pulumi.Input
 
-	ToFileSystemLifecyclePolicyPtrOutput() FileSystemLifecyclePolicyPtrOutput
-	ToFileSystemLifecyclePolicyPtrOutputWithContext(context.Context) FileSystemLifecyclePolicyPtrOutput
+	ToFileSystemLifecyclePolicyArrayOutput() FileSystemLifecyclePolicyArrayOutput
+	ToFileSystemLifecyclePolicyArrayOutputWithContext(context.Context) FileSystemLifecyclePolicyArrayOutput
 }
 
-type fileSystemLifecyclePolicyPtrType FileSystemLifecyclePolicyArgs
+type FileSystemLifecyclePolicyArray []FileSystemLifecyclePolicyInput
 
-func FileSystemLifecyclePolicyPtr(v *FileSystemLifecyclePolicyArgs) FileSystemLifecyclePolicyPtrInput {
-	return (*fileSystemLifecyclePolicyPtrType)(v)
+func (FileSystemLifecyclePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemLifecyclePolicy)(nil)).Elem()
 }
 
-func (*fileSystemLifecyclePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemLifecyclePolicy)(nil)).Elem()
+func (i FileSystemLifecyclePolicyArray) ToFileSystemLifecyclePolicyArrayOutput() FileSystemLifecyclePolicyArrayOutput {
+	return i.ToFileSystemLifecyclePolicyArrayOutputWithContext(context.Background())
 }
 
-func (i *fileSystemLifecyclePolicyPtrType) ToFileSystemLifecyclePolicyPtrOutput() FileSystemLifecyclePolicyPtrOutput {
-	return i.ToFileSystemLifecyclePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *fileSystemLifecyclePolicyPtrType) ToFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyPtrOutput)
+func (i FileSystemLifecyclePolicyArray) ToFileSystemLifecyclePolicyArrayOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyArrayOutput)
 }
 
 type FileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
@@ -745,16 +729,6 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithCo
 	return o
 }
 
-func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyPtrOutput() FileSystemLifecyclePolicyPtrOutput {
-	return o.ToFileSystemLifecyclePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemLifecyclePolicy) *FileSystemLifecyclePolicy {
-		return &v
-	}).(FileSystemLifecyclePolicyPtrOutput)
-}
-
 // Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
 func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
@@ -765,48 +739,24 @@ func (o FileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulum
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringPtrOutput)
 }
 
-type FileSystemLifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
+type FileSystemLifecyclePolicyArrayOutput struct{ *pulumi.OutputState }
 
-func (FileSystemLifecyclePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemLifecyclePolicy)(nil)).Elem()
+func (FileSystemLifecyclePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemLifecyclePolicy)(nil)).Elem()
 }
 
-func (o FileSystemLifecyclePolicyPtrOutput) ToFileSystemLifecyclePolicyPtrOutput() FileSystemLifecyclePolicyPtrOutput {
+func (o FileSystemLifecyclePolicyArrayOutput) ToFileSystemLifecyclePolicyArrayOutput() FileSystemLifecyclePolicyArrayOutput {
 	return o
 }
 
-func (o FileSystemLifecyclePolicyPtrOutput) ToFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyPtrOutput {
+func (o FileSystemLifecyclePolicyArrayOutput) ToFileSystemLifecyclePolicyArrayOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyArrayOutput {
 	return o
 }
 
-func (o FileSystemLifecyclePolicyPtrOutput) Elem() FileSystemLifecyclePolicyOutput {
-	return o.ApplyT(func(v *FileSystemLifecyclePolicy) FileSystemLifecyclePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemLifecyclePolicy
-		return ret
+func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSystemLifecyclePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemLifecyclePolicy {
+		return vs[0].([]FileSystemLifecyclePolicy)[vs[1].(int)]
 	}).(FileSystemLifecyclePolicyOutput)
-}
-
-// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-func (o FileSystemLifecyclePolicyPtrOutput) TransitionToIa() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemLifecyclePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TransitionToIa
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-func (o FileSystemLifecyclePolicyPtrOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemLifecyclePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TransitionToPrimaryStorageClass
-	}).(pulumi.StringPtrOutput)
 }
 
 type FileSystemSizeInByte struct {
@@ -1328,7 +1278,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBackupPolicyInput)(nil)).Elem(), BackupPolicyBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBackupPolicyPtrInput)(nil)).Elem(), BackupPolicyBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyPtrInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyArrayInput)(nil)).Elem(), FileSystemLifecyclePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteInput)(nil)).Elem(), FileSystemSizeInByteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteArrayInput)(nil)).Elem(), FileSystemSizeInByteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPosixUserInput)(nil)).Elem(), GetAccessPointPosixUserArgs{})
@@ -1347,7 +1297,7 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyBackupPolicyOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
-	pulumi.RegisterOutputType(FileSystemLifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemLifecyclePolicyArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPosixUserOutput{})

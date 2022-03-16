@@ -19,20 +19,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/athena"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		hogeBucket, err := s3.NewBucket(ctx, "hogeBucket", nil)
+// 		hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("hoge"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = athena.NewDatabase(ctx, "hogeDatabase", &athena.DatabaseArgs{
 // 			Name:   pulumi.String("database_name"),
-// 			Bucket: hogeBucket.Bucket,
+// 			Bucket: hogeBucketV2.Bucket,
 // 		})
 // 		if err != nil {
 // 			return err

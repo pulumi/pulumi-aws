@@ -170,20 +170,23 @@ class DomainNameDomainNameConfigurationArgs:
                  endpoint_type: pulumi.Input[str],
                  security_policy: pulumi.Input[str],
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                 ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
                  target_domain_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] certificate_arn: The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-               Use the `acm.Certificate` resource to configure an ACM certificate.
-        :param pulumi.Input[str] endpoint_type: The endpoint type. Valid values: `REGIONAL`.
-        :param pulumi.Input[str] security_policy: The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-        :param pulumi.Input[str] hosted_zone_id: The Amazon Route 53 Hosted Zone ID of the endpoint.
-        :param pulumi.Input[str] target_domain_name: The target domain name.
+        :param pulumi.Input[str] certificate_arn: ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+        :param pulumi.Input[str] endpoint_type: Endpoint type. Valid values: `REGIONAL`.
+        :param pulumi.Input[str] security_policy: Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+        :param pulumi.Input[str] hosted_zone_id: Amazon Route 53 Hosted Zone ID of the endpoint.
+        :param pulumi.Input[str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        :param pulumi.Input[str] target_domain_name: Target domain name.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "security_policy", security_policy)
         if hosted_zone_id is not None:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if ownership_verification_certificate_arn is not None:
+            pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if target_domain_name is not None:
             pulumi.set(__self__, "target_domain_name", target_domain_name)
 
@@ -191,8 +194,7 @@ class DomainNameDomainNameConfigurationArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-        Use the `acm.Certificate` resource to configure an ACM certificate.
+        ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -204,7 +206,7 @@ class DomainNameDomainNameConfigurationArgs:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[str]:
         """
-        The endpoint type. Valid values: `REGIONAL`.
+        Endpoint type. Valid values: `REGIONAL`.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -216,7 +218,7 @@ class DomainNameDomainNameConfigurationArgs:
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> pulumi.Input[str]:
         """
-        The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+        Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         """
         return pulumi.get(self, "security_policy")
 
@@ -228,7 +230,7 @@ class DomainNameDomainNameConfigurationArgs:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Route 53 Hosted Zone ID of the endpoint.
+        Amazon Route 53 Hosted Zone ID of the endpoint.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -237,10 +239,22 @@ class DomainNameDomainNameConfigurationArgs:
         pulumi.set(self, "hosted_zone_id", value)
 
     @property
+    @pulumi.getter(name="ownershipVerificationCertificateArn")
+    def ownership_verification_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        """
+        return pulumi.get(self, "ownership_verification_certificate_arn")
+
+    @ownership_verification_certificate_arn.setter
+    def ownership_verification_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ownership_verification_certificate_arn", value)
+
+    @property
     @pulumi.getter(name="targetDomainName")
     def target_domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The target domain name.
+        Target domain name.
         """
         return pulumi.get(self, "target_domain_name")
 
@@ -255,9 +269,8 @@ class DomainNameMutualTlsAuthenticationArgs:
                  truststore_uri: pulumi.Input[str],
                  truststore_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-               The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
-        :param pulumi.Input[str] truststore_version: The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        :param pulumi.Input[str] truststore_uri: Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        :param pulumi.Input[str] truststore_version: Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
@@ -267,8 +280,7 @@ class DomainNameMutualTlsAuthenticationArgs:
     @pulumi.getter(name="truststoreUri")
     def truststore_uri(self) -> pulumi.Input[str]:
         """
-        An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-        The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
         """
         return pulumi.get(self, "truststore_uri")
 
@@ -280,7 +292,7 @@ class DomainNameMutualTlsAuthenticationArgs:
     @pulumi.getter(name="truststoreVersion")
     def truststore_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         return pulumi.get(self, "truststore_version")
 

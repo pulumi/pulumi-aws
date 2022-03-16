@@ -175,8 +175,8 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
-        analytics = aws.s3.Bucket("analytics")
+        example = aws.s3.BucketV2("example", bucket="example")
+        analytics = aws.s3.BucketV2("analytics", bucket="analytics destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.bucket,
             storage_class_analysis=aws.s3.AnalyticsConfigurationStorageClassAnalysisArgs(
@@ -189,13 +189,13 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### Add analytics configuration with S3 bucket object filter
+        ### Add analytics configuration with S3 object filter
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.bucket,
             filter=aws.s3.AnalyticsConfigurationFilterArgs(
@@ -238,8 +238,8 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
-        analytics = aws.s3.Bucket("analytics")
+        example = aws.s3.BucketV2("example", bucket="example")
+        analytics = aws.s3.BucketV2("analytics", bucket="analytics destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.bucket,
             storage_class_analysis=aws.s3.AnalyticsConfigurationStorageClassAnalysisArgs(
@@ -252,13 +252,13 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### Add analytics configuration with S3 bucket object filter
+        ### Add analytics configuration with S3 object filter
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.Bucket("example")
+        example = aws.s3.BucketV2("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.bucket,
             filter=aws.s3.AnalyticsConfigurationFilterArgs(

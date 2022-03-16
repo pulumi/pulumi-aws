@@ -48,6 +48,30 @@ Object.defineProperty(exports, "defaultTags", {
     enumerable: true,
 });
 
+/**
+ * Address of the EC2 metadata service endpoint to use. Can also be configured using the
+ * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+ */
+export declare const ec2MetadataServiceEndpoint: string | undefined;
+Object.defineProperty(exports, "ec2MetadataServiceEndpoint", {
+    get() {
+        return __config.get("ec2MetadataServiceEndpoint");
+    },
+    enumerable: true,
+});
+
+/**
+ * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+ * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+ */
+export declare const ec2MetadataServiceEndpointMode: string | undefined;
+Object.defineProperty(exports, "ec2MetadataServiceEndpointMode", {
+    get() {
+        return __config.get("ec2MetadataServiceEndpointMode");
+    },
+    enumerable: true,
+});
+
 export declare const endpoints: outputs.config.Endpoints[] | undefined;
 Object.defineProperty(exports, "endpoints", {
     get() {
@@ -132,14 +156,27 @@ Object.defineProperty(exports, "region", {
 });
 
 /**
- * Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
- * default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+ * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+ * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
  * Specific to the Amazon S3 service.
  */
 export declare const s3ForcePathStyle: boolean | undefined;
 Object.defineProperty(exports, "s3ForcePathStyle", {
     get() {
         return __config.getObject<boolean>("s3ForcePathStyle");
+    },
+    enumerable: true,
+});
+
+/**
+ * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+ * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+ * Specific to the Amazon S3 service.
+ */
+export declare const s3UsePathStyle: boolean | undefined;
+Object.defineProperty(exports, "s3UsePathStyle", {
+    get() {
+        return __config.getObject<boolean>("s3UsePathStyle");
     },
     enumerable: true,
 });
@@ -156,12 +193,34 @@ Object.defineProperty(exports, "secretKey", {
 });
 
 /**
- * The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+ * List of paths to shared config files. If not set, defaults to [~/.aws/config].
+ */
+export declare const sharedConfigFiles: string[] | undefined;
+Object.defineProperty(exports, "sharedConfigFiles", {
+    get() {
+        return __config.getObject<string[]>("sharedConfigFiles");
+    },
+    enumerable: true,
+});
+
+/**
+ * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
  */
 export declare const sharedCredentialsFile: string | undefined;
 Object.defineProperty(exports, "sharedCredentialsFile", {
     get() {
         return __config.get("sharedCredentialsFile");
+    },
+    enumerable: true,
+});
+
+/**
+ * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+ */
+export declare const sharedCredentialsFiles: string[] | undefined;
+Object.defineProperty(exports, "sharedCredentialsFiles", {
+    get() {
+        return __config.getObject<string[]>("sharedCredentialsFiles");
     },
     enumerable: true,
 });
@@ -189,6 +248,9 @@ Object.defineProperty(exports, "skipGetEc2Platforms", {
     enumerable: true,
 });
 
+/**
+ * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+ */
 export declare const skipMetadataApiCheck: boolean;
 Object.defineProperty(exports, "skipMetadataApiCheck", {
     get() {
@@ -227,6 +289,28 @@ export declare const token: string | undefined;
 Object.defineProperty(exports, "token", {
     get() {
         return __config.get("token");
+    },
+    enumerable: true,
+});
+
+/**
+ * Resolve an endpoint with DualStack capability
+ */
+export declare const useDualstackEndpoint: boolean | undefined;
+Object.defineProperty(exports, "useDualstackEndpoint", {
+    get() {
+        return __config.getObject<boolean>("useDualstackEndpoint");
+    },
+    enumerable: true,
+});
+
+/**
+ * Resolve an endpoint with FIPS capability
+ */
+export declare const useFipsEndpoint: boolean | undefined;
+Object.defineProperty(exports, "useFipsEndpoint", {
+    get() {
+        return __config.getObject<boolean>("useFipsEndpoint");
     },
     enumerable: true,
 });

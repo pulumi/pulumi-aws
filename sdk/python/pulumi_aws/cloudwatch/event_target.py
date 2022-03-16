@@ -769,7 +769,7 @@ class EventTarget(pulumi.CustomResource):
         \"\"\")
         event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
-            actions=["events.PutEvents"],
+            actions=["events:PutEvents"],
             resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
         )])
         event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
@@ -1039,7 +1039,7 @@ class EventTarget(pulumi.CustomResource):
         \"\"\")
         event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
-            actions=["events.PutEvents"],
+            actions=["events:PutEvents"],
             resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
         )])
         event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)

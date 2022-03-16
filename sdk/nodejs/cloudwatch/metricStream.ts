@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `});
- * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "metric-stream-test-bucket"});
  * const firehoseToS3Role = new aws.iam.Role("firehoseToS3Role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -81,6 +81,10 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
+ * });
+ * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ *     bucket: bucket.id,
+ *     acl: "private",
  * });
  * const firehoseToS3RolePolicy = new aws.iam.RolePolicy("firehoseToS3RolePolicy", {
  *     role: firehoseToS3Role.id,

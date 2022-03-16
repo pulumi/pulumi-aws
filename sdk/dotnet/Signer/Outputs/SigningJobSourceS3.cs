@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Signer.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// Key name of the bucket object that contains your unsigned code.
+        /// Key name of the object that contains your unsigned code.
         /// </summary>
         public readonly string Key;
         /// <summary>

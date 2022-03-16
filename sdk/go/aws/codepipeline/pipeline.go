@@ -21,11 +21,11 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codepipeline"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codestarconnections"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -37,8 +37,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		codepipelineBucket, err := s3.NewBucket(ctx, "codepipelineBucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
+// 		codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipelineBucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("test-bucket"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -57,12 +57,14 @@ import (
 // 		}
 // 		_, err = codepipeline.NewPipeline(ctx, "codepipeline", &codepipeline.PipelineArgs{
 // 			RoleArn: codepipelineRole.Arn,
-// 			ArtifactStore: &codepipeline.PipelineArtifactStoreArgs{
-// 				Location: codepipelineBucket.Bucket,
-// 				Type:     pulumi.String("S3"),
-// 				EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-// 					Id:   pulumi.String(s3kmskey.Arn),
-// 					Type: pulumi.String("KMS"),
+// 			ArtifactStores: codepipeline.PipelineArtifactStoreArray{
+// 				&codepipeline.PipelineArtifactStoreArgs{
+// 					Location: codepipelineBucket.Bucket,
+// 					Type:     pulumi.String("S3"),
+// 					EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
+// 						Id:   pulumi.String(s3kmskey.Arn),
+// 						Type: pulumi.String("KMS"),
+// 					},
 // 				},
 // 			},
 // 			Stages: codepipeline.PipelineStageArray{
@@ -134,6 +136,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "codepipelineBucketAcl", &s3.BucketAclV2Args{
+// 			Bucket: codepipelineBucket.ID(),
+// 			Acl:    pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = iam.NewRolePolicy(ctx, "codepipelinePolicy", &iam.RolePolicyArgs{
 // 			Role: codepipelineRole.ID(),
 // 			Policy: pulumi.All(codepipelineBucket.Arn, codepipelineBucket.Arn, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
@@ -164,7 +173,7 @@ type Pipeline struct {
 	// The codepipeline ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	ArtifactStore PipelineArtifactStoreOutput `pulumi:"artifactStore"`
+	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -184,8 +193,8 @@ func NewPipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ArtifactStore == nil {
-		return nil, errors.New("invalid value for required argument 'ArtifactStore'")
+	if args.ArtifactStores == nil {
+		return nil, errors.New("invalid value for required argument 'ArtifactStores'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -218,7 +227,7 @@ type pipelineState struct {
 	// The codepipeline ARN.
 	Arn *string `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	ArtifactStore *PipelineArtifactStore `pulumi:"artifactStore"`
+	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -235,7 +244,7 @@ type PipelineState struct {
 	// The codepipeline ARN.
 	Arn pulumi.StringPtrInput
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	ArtifactStore PipelineArtifactStorePtrInput
+	ArtifactStores PipelineArtifactStoreArrayInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -254,7 +263,7 @@ func (PipelineState) ElementType() reflect.Type {
 
 type pipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	ArtifactStore PipelineArtifactStore `pulumi:"artifactStore"`
+	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -268,7 +277,7 @@ type pipelineArgs struct {
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	ArtifactStore PipelineArtifactStoreInput
+	ArtifactStores PipelineArtifactStoreArrayInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.

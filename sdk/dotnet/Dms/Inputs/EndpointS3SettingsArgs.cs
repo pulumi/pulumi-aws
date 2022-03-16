@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dms.Inputs
     public sealed class EndpointS3SettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// S3 Bucket Object prefix.
+        /// S3 Object prefix.
         /// </summary>
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }

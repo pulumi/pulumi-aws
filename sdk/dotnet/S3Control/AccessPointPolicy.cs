@@ -22,12 +22,13 @@ namespace Pulumi.Aws.S3Control
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
     ///         {
-    ///             Bucket = exampleBucket.Id,
+    ///             Bucket = exampleBucketV2.Id,
     ///             PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
     ///             {
     ///                 BlockPublicAcls = true,

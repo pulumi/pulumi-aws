@@ -10,160 +10,110 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AccountThrottleSettings struct {
+type AccountThrottleSetting struct {
 	// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
 	BurstLimit *int `pulumi:"burstLimit"`
 	// The number of times API Gateway allows the API to be called per second on average (RPS).
 	RateLimit *float64 `pulumi:"rateLimit"`
 }
 
-// AccountThrottleSettingsInput is an input type that accepts AccountThrottleSettingsArgs and AccountThrottleSettingsOutput values.
-// You can construct a concrete instance of `AccountThrottleSettingsInput` via:
+// AccountThrottleSettingInput is an input type that accepts AccountThrottleSettingArgs and AccountThrottleSettingOutput values.
+// You can construct a concrete instance of `AccountThrottleSettingInput` via:
 //
-//          AccountThrottleSettingsArgs{...}
-type AccountThrottleSettingsInput interface {
+//          AccountThrottleSettingArgs{...}
+type AccountThrottleSettingInput interface {
 	pulumi.Input
 
-	ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput
-	ToAccountThrottleSettingsOutputWithContext(context.Context) AccountThrottleSettingsOutput
+	ToAccountThrottleSettingOutput() AccountThrottleSettingOutput
+	ToAccountThrottleSettingOutputWithContext(context.Context) AccountThrottleSettingOutput
 }
 
-type AccountThrottleSettingsArgs struct {
+type AccountThrottleSettingArgs struct {
 	// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
 	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
 	// The number of times API Gateway allows the API to be called per second on average (RPS).
 	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
 }
 
-func (AccountThrottleSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountThrottleSettings)(nil)).Elem()
+func (AccountThrottleSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountThrottleSetting)(nil)).Elem()
 }
 
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput {
-	return i.ToAccountThrottleSettingsOutputWithContext(context.Background())
+func (i AccountThrottleSettingArgs) ToAccountThrottleSettingOutput() AccountThrottleSettingOutput {
+	return i.ToAccountThrottleSettingOutputWithContext(context.Background())
 }
 
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsOutputWithContext(ctx context.Context) AccountThrottleSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingsOutput)
+func (i AccountThrottleSettingArgs) ToAccountThrottleSettingOutputWithContext(ctx context.Context) AccountThrottleSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingOutput)
 }
 
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
-	return i.ToAccountThrottleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingsOutput).ToAccountThrottleSettingsPtrOutputWithContext(ctx)
-}
-
-// AccountThrottleSettingsPtrInput is an input type that accepts AccountThrottleSettingsArgs, AccountThrottleSettingsPtr and AccountThrottleSettingsPtrOutput values.
-// You can construct a concrete instance of `AccountThrottleSettingsPtrInput` via:
+// AccountThrottleSettingArrayInput is an input type that accepts AccountThrottleSettingArray and AccountThrottleSettingArrayOutput values.
+// You can construct a concrete instance of `AccountThrottleSettingArrayInput` via:
 //
-//          AccountThrottleSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type AccountThrottleSettingsPtrInput interface {
+//          AccountThrottleSettingArray{ AccountThrottleSettingArgs{...} }
+type AccountThrottleSettingArrayInput interface {
 	pulumi.Input
 
-	ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput
-	ToAccountThrottleSettingsPtrOutputWithContext(context.Context) AccountThrottleSettingsPtrOutput
+	ToAccountThrottleSettingArrayOutput() AccountThrottleSettingArrayOutput
+	ToAccountThrottleSettingArrayOutputWithContext(context.Context) AccountThrottleSettingArrayOutput
 }
 
-type accountThrottleSettingsPtrType AccountThrottleSettingsArgs
+type AccountThrottleSettingArray []AccountThrottleSettingInput
 
-func AccountThrottleSettingsPtr(v *AccountThrottleSettingsArgs) AccountThrottleSettingsPtrInput {
-	return (*accountThrottleSettingsPtrType)(v)
+func (AccountThrottleSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountThrottleSetting)(nil)).Elem()
 }
 
-func (*accountThrottleSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountThrottleSettings)(nil)).Elem()
+func (i AccountThrottleSettingArray) ToAccountThrottleSettingArrayOutput() AccountThrottleSettingArrayOutput {
+	return i.ToAccountThrottleSettingArrayOutputWithContext(context.Background())
 }
 
-func (i *accountThrottleSettingsPtrType) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
-	return i.ToAccountThrottleSettingsPtrOutputWithContext(context.Background())
+func (i AccountThrottleSettingArray) ToAccountThrottleSettingArrayOutputWithContext(ctx context.Context) AccountThrottleSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingArrayOutput)
 }
 
-func (i *accountThrottleSettingsPtrType) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingsPtrOutput)
+type AccountThrottleSettingOutput struct{ *pulumi.OutputState }
+
+func (AccountThrottleSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountThrottleSetting)(nil)).Elem()
 }
 
-type AccountThrottleSettingsOutput struct{ *pulumi.OutputState }
-
-func (AccountThrottleSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountThrottleSettings)(nil)).Elem()
-}
-
-func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput {
+func (o AccountThrottleSettingOutput) ToAccountThrottleSettingOutput() AccountThrottleSettingOutput {
 	return o
 }
 
-func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsOutputWithContext(ctx context.Context) AccountThrottleSettingsOutput {
+func (o AccountThrottleSettingOutput) ToAccountThrottleSettingOutputWithContext(ctx context.Context) AccountThrottleSettingOutput {
 	return o
-}
-
-func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
-	return o.ToAccountThrottleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountThrottleSettings) *AccountThrottleSettings {
-		return &v
-	}).(AccountThrottleSettingsPtrOutput)
 }
 
 // The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-func (o AccountThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+func (o AccountThrottleSettingOutput) BurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountThrottleSetting) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
 // The number of times API Gateway allows the API to be called per second on average (RPS).
-func (o AccountThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v AccountThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+func (o AccountThrottleSettingOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AccountThrottleSetting) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
 
-type AccountThrottleSettingsPtrOutput struct{ *pulumi.OutputState }
+type AccountThrottleSettingArrayOutput struct{ *pulumi.OutputState }
 
-func (AccountThrottleSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountThrottleSettings)(nil)).Elem()
+func (AccountThrottleSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountThrottleSetting)(nil)).Elem()
 }
 
-func (o AccountThrottleSettingsPtrOutput) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
+func (o AccountThrottleSettingArrayOutput) ToAccountThrottleSettingArrayOutput() AccountThrottleSettingArrayOutput {
 	return o
 }
 
-func (o AccountThrottleSettingsPtrOutput) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
+func (o AccountThrottleSettingArrayOutput) ToAccountThrottleSettingArrayOutputWithContext(ctx context.Context) AccountThrottleSettingArrayOutput {
 	return o
 }
 
-func (o AccountThrottleSettingsPtrOutput) Elem() AccountThrottleSettingsOutput {
-	return o.ApplyT(func(v *AccountThrottleSettings) AccountThrottleSettings {
-		if v != nil {
-			return *v
-		}
-		var ret AccountThrottleSettings
-		return ret
-	}).(AccountThrottleSettingsOutput)
-}
-
-// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-func (o AccountThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AccountThrottleSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BurstLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of times API Gateway allows the API to be called per second on average (RPS).
-func (o AccountThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AccountThrottleSettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.RateLimit
-	}).(pulumi.Float64PtrOutput)
+func (o AccountThrottleSettingArrayOutput) Index(i pulumi.IntInput) AccountThrottleSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountThrottleSetting {
+		return vs[0].([]AccountThrottleSetting)[vs[1].(int)]
+	}).(AccountThrottleSettingOutput)
 }
 
 type DocumentationPartLocation struct {
@@ -380,7 +330,7 @@ func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DomainNameEndpointConfiguration struct {
-	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types string `pulumi:"types"`
 }
 
@@ -396,7 +346,7 @@ type DomainNameEndpointConfigurationInput interface {
 }
 
 type DomainNameEndpointConfigurationArgs struct {
-	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types pulumi.StringInput `pulumi:"types"`
 }
 
@@ -477,7 +427,7 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
 
-// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
 }
@@ -506,7 +456,7 @@ func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfi
 	}).(DomainNameEndpointConfigurationOutput)
 }
 
-// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameEndpointConfiguration) *string {
 		if v == nil {
@@ -517,10 +467,9 @@ func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringPtrOutput
 }
 
 type DomainNameMutualTlsAuthentication struct {
-	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 	TruststoreUri string `pulumi:"truststoreUri"`
-	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion *string `pulumi:"truststoreVersion"`
 }
 
@@ -536,10 +485,9 @@ type DomainNameMutualTlsAuthenticationInput interface {
 }
 
 type DomainNameMutualTlsAuthenticationArgs struct {
-	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+	// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 	TruststoreUri pulumi.StringInput `pulumi:"truststoreUri"`
-	// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+	// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
 }
 
@@ -620,13 +568,12 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) string { return v.TruststoreUri }).(pulumi.StringOutput)
 }
 
-// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
 }
@@ -655,8 +602,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAu
 	}).(DomainNameMutualTlsAuthenticationOutput)
 }
 
-// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
-// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -666,7 +612,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -2196,8 +2142,8 @@ func (o GetRestApiEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingsInput)(nil)).Elem(), AccountThrottleSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingsPtrInput)(nil)).Elem(), AccountThrottleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingInput)(nil)).Elem(), AccountThrottleSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingArrayInput)(nil)).Elem(), AccountThrottleSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationPtrInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
@@ -2224,8 +2170,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNameEndpointConfigurationArrayInput)(nil)).Elem(), GetDomainNameEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestApiEndpointConfigurationInput)(nil)).Elem(), GetRestApiEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestApiEndpointConfigurationArrayInput)(nil)).Elem(), GetRestApiEndpointConfigurationArray{})
-	pulumi.RegisterOutputType(AccountThrottleSettingsOutput{})
-	pulumi.RegisterOutputType(AccountThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AccountThrottleSettingOutput{})
+	pulumi.RegisterOutputType(AccountThrottleSettingArrayOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})

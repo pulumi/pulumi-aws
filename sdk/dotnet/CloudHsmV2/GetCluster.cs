@@ -122,7 +122,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
         /// The number of available cluster certificates may vary depending on state of the cluster.
         /// </summary>
-        public readonly Outputs.GetClusterClusterCertificatesResult ClusterCertificates;
+        public readonly ImmutableArray<Outputs.GetClusterClusterCertificateResult> ClusterCertificates;
         public readonly string ClusterId;
         public readonly string ClusterState;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.CloudHsmV2
 
         [OutputConstructor]
         private GetClusterResult(
-            Outputs.GetClusterClusterCertificatesResult clusterCertificates,
+            ImmutableArray<Outputs.GetClusterClusterCertificateResult> clusterCertificates,
 
             string clusterId,
 

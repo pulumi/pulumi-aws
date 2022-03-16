@@ -23,21 +23,23 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesisanalyticsv2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example-flink-application"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleBucketObject, err := s3.NewBucketObject(ctx, "exampleBucketObject", &s3.BucketObjectArgs{
-// 			Bucket: exampleBucket.Bucket,
+// 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+// 			Bucket: exampleBucketV2.Bucket,
 // 			Key:    pulumi.String("example-flink-application"),
-// 			Source: pulumi.NewFileAsset("flink-app.jar"),
+// 			Source: pulumi.String("flink-app.jar"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -49,8 +51,8 @@ import (
 // 				ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 // 					CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
 // 						S3ContentLocation: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{
-// 							BucketArn: exampleBucket.Arn,
-// 							FileKey:   exampleBucketObject.Key,
+// 							BucketArn: exampleBucketV2.Arn,
+// 							FileKey:   exampleBucketObjectv2.Key,
 // 						},
 // 					},
 // 					CodeContentType: pulumi.String("ZIPFILE"),
@@ -106,8 +108,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesisanalyticsv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -228,21 +230,23 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesisanalyticsv2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example-flink-application"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleBucketObject, err := s3.NewBucketObject(ctx, "exampleBucketObject", &s3.BucketObjectArgs{
-// 			Bucket: exampleBucket.Bucket,
+// 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+// 			Bucket: exampleBucketV2.Bucket,
 // 			Key:    pulumi.String("example-flink-application"),
-// 			Source: pulumi.NewFileAsset("flink-app.jar"),
+// 			Source: pulumi.String("flink-app.jar"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -254,8 +258,8 @@ import (
 // 				ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 // 					CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
 // 						S3ContentLocation: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{
-// 							BucketArn: exampleBucket.Arn,
-// 							FileKey:   exampleBucketObject.Key,
+// 							BucketArn: exampleBucketV2.Arn,
+// 							FileKey:   exampleBucketObjectv2.Key,
 // 						},
 // 					},
 // 					CodeContentType: pulumi.String("ZIPFILE"),

@@ -10,7 +10,10 @@ from .. import _utilities
 
 __all__ = [
     'EndpointAuthenticationOptionArgs',
+    'EndpointClientConnectOptionsArgs',
+    'EndpointClientLoginBannerOptionsArgs',
     'EndpointConnectionLogOptionsArgs',
+    'GetEndpointFilterArgs',
 ]
 
 @pulumi.input_type
@@ -100,6 +103,84 @@ class EndpointAuthenticationOptionArgs:
 
 
 @pulumi.input_type
+class EndpointClientConnectOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 lambda_function_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether connection logging is enabled.
+        :param pulumi.Input[str] lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if lambda_function_arn is not None:
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether connection logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @lambda_function_arn.setter
+    def lambda_function_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_function_arn", value)
+
+
+@pulumi.input_type
+class EndpointClientLoginBannerOptionsArgs:
+    def __init__(__self__, *,
+                 banner_text: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        :param pulumi.Input[bool] enabled: Indicates whether connection logging is enabled.
+        """
+        if banner_text is not None:
+            pulumi.set(__self__, "banner_text", banner_text)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="bannerText")
+    def banner_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        """
+        return pulumi.get(self, "banner_text")
+
+    @banner_text.setter
+    def banner_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "banner_text", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether connection logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class EndpointConnectionLogOptionsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -151,5 +232,42 @@ class EndpointConnectionLogOptionsArgs:
     @cloudwatch_log_stream.setter
     def cloudwatch_log_stream(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloudwatch_log_stream", value)
+
+
+@pulumi.input_type
+class GetEndpointFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 

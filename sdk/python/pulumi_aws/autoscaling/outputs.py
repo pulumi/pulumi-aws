@@ -1149,10 +1149,10 @@ class PolicyStepAdjustment(dict):
                up. A negative value scales down.
         :param str metric_interval_lower_bound: The lower bound for the
                difference between the alarm threshold and the CloudWatch metric.
-               Without a value, AWS will treat this bound as infinity.
+               Without a value, AWS will treat this bound as negative infinity.
         :param str metric_interval_upper_bound: The upper bound for the
                difference between the alarm threshold and the CloudWatch metric.
-               Without a value, AWS will treat this bound as infinity. The upper bound
+               Without a value, AWS will treat this bound as positive infinity. The upper bound
                must be greater than the lower bound.
         """
         pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
@@ -1177,7 +1177,7 @@ class PolicyStepAdjustment(dict):
         """
         The lower bound for the
         difference between the alarm threshold and the CloudWatch metric.
-        Without a value, AWS will treat this bound as infinity.
+        Without a value, AWS will treat this bound as negative infinity.
         """
         return pulumi.get(self, "metric_interval_lower_bound")
 
@@ -1187,7 +1187,7 @@ class PolicyStepAdjustment(dict):
         """
         The upper bound for the
         difference between the alarm threshold and the CloudWatch metric.
-        Without a value, AWS will treat this bound as infinity. The upper bound
+        Without a value, AWS will treat this bound as positive infinity. The upper bound
         must be greater than the lower bound.
         """
         return pulumi.get(self, "metric_interval_upper_bound")

@@ -46,9 +46,12 @@ namespace Pulumi.Aws.Efs
     ///     {
     ///         var fooWithLifecylePolicy = new Aws.Efs.FileSystem("fooWithLifecylePolicy", new Aws.Efs.FileSystemArgs
     ///         {
-    ///             LifecyclePolicy = new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
+    ///             LifecyclePolicies = 
     ///             {
-    ///                 TransitionToIa = "AFTER_30_DAYS",
+    ///                 new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
+    ///                 {
+    ///                     TransitionToIa = "AFTER_30_DAYS",
+    ///                 },
     ///             },
     ///         });
     ///     }
@@ -115,8 +118,8 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         /// </summary>
-        [Output("lifecyclePolicy")]
-        public Output<Outputs.FileSystemLifecyclePolicy?> LifecyclePolicy { get; private set; } = null!;
+        [Output("lifecyclePolicies")]
+        public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
 
         /// <summary>
         /// The current number of mount targets that the file system has.
@@ -239,11 +242,17 @@ namespace Pulumi.Aws.Efs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("lifecyclePolicies")]
+        private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _lifecyclePolicies;
+
         /// <summary>
         /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         /// </summary>
-        [Input("lifecyclePolicy")]
-        public Input<Inputs.FileSystemLifecyclePolicyArgs>? LifecyclePolicy { get; set; }
+        public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
+        {
+            get => _lifecyclePolicies ?? (_lifecyclePolicies = new InputList<Inputs.FileSystemLifecyclePolicyArgs>());
+            set => _lifecyclePolicies = value;
+        }
 
         /// <summary>
         /// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
@@ -327,11 +336,17 @@ namespace Pulumi.Aws.Efs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("lifecyclePolicies")]
+        private InputList<Inputs.FileSystemLifecyclePolicyGetArgs>? _lifecyclePolicies;
+
         /// <summary>
         /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         /// </summary>
-        [Input("lifecyclePolicy")]
-        public Input<Inputs.FileSystemLifecyclePolicyGetArgs>? LifecyclePolicy { get; set; }
+        public InputList<Inputs.FileSystemLifecyclePolicyGetArgs> LifecyclePolicies
+        {
+            get => _lifecyclePolicies ?? (_lifecyclePolicies = new InputList<Inputs.FileSystemLifecyclePolicyGetArgs>());
+            set => _lifecyclePolicies = value;
+        }
 
         /// <summary>
         /// The current number of mount targets that the file system has.

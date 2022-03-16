@@ -19,6 +19,12 @@ type Provider struct {
 
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
+	// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+	// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+	Ec2MetadataServiceEndpoint pulumi.StringPtrOutput `pulumi:"ec2MetadataServiceEndpoint"`
+	// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+	// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+	Ec2MetadataServiceEndpointMode pulumi.StringPtrOutput `pulumi:"ec2MetadataServiceEndpointMode"`
 	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
 	// `HTTPS_PROXY` environment variables.
 	HttpProxy pulumi.StringPtrOutput `pulumi:"httpProxy"`
@@ -28,7 +34,9 @@ type Provider struct {
 	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
-	// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+	// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+	//
+	// Deprecated: Use shared_credentials_files instead.
 	SharedCredentialsFile pulumi.StringPtrOutput `pulumi:"sharedCredentialsFile"`
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token pulumi.StringPtrOutput `pulumi:"token"`
@@ -73,9 +81,15 @@ type providerArgs struct {
 	AllowedAccountIds []string            `pulumi:"allowedAccountIds"`
 	AssumeRole        *ProviderAssumeRole `pulumi:"assumeRole"`
 	// Configuration block with settings to default resource tags across all resources.
-	DefaultTags         *ProviderDefaultTags `pulumi:"defaultTags"`
-	Endpoints           []ProviderEndpoint   `pulumi:"endpoints"`
-	ForbiddenAccountIds []string             `pulumi:"forbiddenAccountIds"`
+	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
+	// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+	// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+	Ec2MetadataServiceEndpoint *string `pulumi:"ec2MetadataServiceEndpoint"`
+	// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+	// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+	Ec2MetadataServiceEndpointMode *string            `pulumi:"ec2MetadataServiceEndpointMode"`
+	Endpoints                      []ProviderEndpoint `pulumi:"endpoints"`
+	ForbiddenAccountIds            []string           `pulumi:"forbiddenAccountIds"`
 	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
 	// `HTTPS_PROXY` environment variables.
 	HttpProxy *string `pulumi:"httpProxy"`
@@ -89,19 +103,32 @@ type providerArgs struct {
 	Profile *string `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 	Region *string `pulumi:"region"`
-	// Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-	// default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
+	//
+	// Deprecated: Use s3_use_path_style instead.
 	S3ForcePathStyle *bool `pulumi:"s3ForcePathStyle"`
+	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+	// Specific to the Amazon S3 service.
+	S3UsePathStyle *bool `pulumi:"s3UsePathStyle"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey *string `pulumi:"secretKey"`
-	// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+	// List of paths to shared config files. If not set, defaults to [~/.aws/config].
+	SharedConfigFiles []string `pulumi:"sharedConfigFiles"`
+	// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+	//
+	// Deprecated: Use shared_credentials_files instead.
 	SharedCredentialsFile *string `pulumi:"sharedCredentialsFile"`
+	// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+	SharedCredentialsFiles []string `pulumi:"sharedCredentialsFiles"`
 	// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 	// available/implemented.
 	SkipCredentialsValidation *bool `pulumi:"skipCredentialsValidation"`
 	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-	SkipGetEc2Platforms  *bool `pulumi:"skipGetEc2Platforms"`
+	SkipGetEc2Platforms *bool `pulumi:"skipGetEc2Platforms"`
+	// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 	SkipMetadataApiCheck *bool `pulumi:"skipMetadataApiCheck"`
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 	// not public (yet).
@@ -110,6 +137,10 @@ type providerArgs struct {
 	SkipRequestingAccountId *bool `pulumi:"skipRequestingAccountId"`
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token *string `pulumi:"token"`
+	// Resolve an endpoint with DualStack capability
+	UseDualstackEndpoint *bool `pulumi:"useDualstackEndpoint"`
+	// Resolve an endpoint with FIPS capability
+	UseFipsEndpoint *bool `pulumi:"useFipsEndpoint"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -119,9 +150,15 @@ type ProviderArgs struct {
 	AllowedAccountIds pulumi.StringArrayInput
 	AssumeRole        ProviderAssumeRolePtrInput
 	// Configuration block with settings to default resource tags across all resources.
-	DefaultTags         ProviderDefaultTagsPtrInput
-	Endpoints           ProviderEndpointArrayInput
-	ForbiddenAccountIds pulumi.StringArrayInput
+	DefaultTags ProviderDefaultTagsPtrInput
+	// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+	// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+	Ec2MetadataServiceEndpoint pulumi.StringPtrInput
+	// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+	// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+	Ec2MetadataServiceEndpointMode pulumi.StringPtrInput
+	Endpoints                      ProviderEndpointArrayInput
+	ForbiddenAccountIds            pulumi.StringArrayInput
 	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
 	// `HTTPS_PROXY` environment variables.
 	HttpProxy pulumi.StringPtrInput
@@ -135,19 +172,32 @@ type ProviderArgs struct {
 	Profile pulumi.StringPtrInput
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 	Region pulumi.StringPtrInput
-	// Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-	// default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
+	//
+	// Deprecated: Use s3_use_path_style instead.
 	S3ForcePathStyle pulumi.BoolPtrInput
+	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+	// Specific to the Amazon S3 service.
+	S3UsePathStyle pulumi.BoolPtrInput
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrInput
-	// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+	// List of paths to shared config files. If not set, defaults to [~/.aws/config].
+	SharedConfigFiles pulumi.StringArrayInput
+	// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+	//
+	// Deprecated: Use shared_credentials_files instead.
 	SharedCredentialsFile pulumi.StringPtrInput
+	// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+	SharedCredentialsFiles pulumi.StringArrayInput
 	// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 	// available/implemented.
 	SkipCredentialsValidation pulumi.BoolPtrInput
 	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-	SkipGetEc2Platforms  pulumi.BoolPtrInput
+	SkipGetEc2Platforms pulumi.BoolPtrInput
+	// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 	SkipMetadataApiCheck pulumi.BoolPtrInput
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 	// not public (yet).
@@ -156,6 +206,10 @@ type ProviderArgs struct {
 	SkipRequestingAccountId pulumi.BoolPtrInput
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token pulumi.StringPtrInput
+	// Resolve an endpoint with DualStack capability
+	UseDualstackEndpoint pulumi.BoolPtrInput
+	// Resolve an endpoint with FIPS capability
+	UseFipsEndpoint pulumi.BoolPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

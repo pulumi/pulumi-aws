@@ -20,13 +20,13 @@ namespace Pulumi.Aws.ElastiCache.Outputs
         /// <summary>
         /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         /// </summary>
-        public readonly int ReplicasPerNodeGroup;
+        public readonly int? ReplicasPerNodeGroup;
 
         [OutputConstructor]
         private ReplicationGroupClusterMode(
             int? numNodeGroups,
 
-            int replicasPerNodeGroup)
+            int? replicasPerNodeGroup)
         {
             NumNodeGroups = numNodeGroups;
             ReplicasPerNodeGroup = replicasPerNodeGroup;

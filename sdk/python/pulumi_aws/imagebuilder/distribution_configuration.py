@@ -246,6 +246,9 @@ class DistributionConfiguration(pulumi.CustomResource):
                 launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
                     user_ids=["123456789012"],
                 ),
+                launch_template_configuration=[{
+                    "launchTemplateId": "lt-0aaa1bcde2ff3456",
+                }],
                 name="example-{{ imagebuilder:buildDate }}",
             ),
             region="us-east-1",
@@ -290,6 +293,9 @@ class DistributionConfiguration(pulumi.CustomResource):
                 launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
                     user_ids=["123456789012"],
                 ),
+                launch_template_configuration=[{
+                    "launchTemplateId": "lt-0aaa1bcde2ff3456",
+                }],
                 name="example-{{ imagebuilder:buildDate }}",
             ),
             region="us-east-1",

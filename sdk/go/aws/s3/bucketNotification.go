@@ -24,14 +24,16 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("your-bucket-name"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -70,14 +72,16 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sqs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("your-bucket-name"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -116,10 +120,10 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -140,7 +144,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("your-bucket-name"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -183,10 +189,10 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -207,7 +213,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("your-bucket-name"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -276,14 +284,16 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sqs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucket, err := s3.NewBucket(ctx, "bucket", nil)
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("your-bucket-name"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

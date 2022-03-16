@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **NOTE:** The `s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `s3.BucketObjectv2` instead, where new features and fixes will be added.
+//
 // The S3 object data source allows access to the metadata and
 // _optionally_ (see below) content of an object stored inside S3 bucket.
 //
@@ -24,8 +26,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -61,9 +63,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -102,6 +104,8 @@ func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts 
 // A collection of arguments for invoking getBucketObject.
 type LookupBucketObjectArgs struct {
 	// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	//
+	// Deprecated: Use the aws_s3_object data source instead
 	Bucket string `pulumi:"bucket"`
 	// The full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
@@ -115,7 +119,8 @@ type LookupBucketObjectArgs struct {
 // A collection of values returned by getBucketObject.
 type LookupBucketObjectResult struct {
 	// Object data (see **limitations above** to understand cases in which this field is actually available)
-	Body   string `pulumi:"body"`
+	Body string `pulumi:"body"`
+	// Deprecated: Use the aws_s3_object data source instead
 	Bucket string `pulumi:"bucket"`
 	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
@@ -177,6 +182,8 @@ func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutput
 // A collection of arguments for invoking getBucketObject.
 type LookupBucketObjectOutputArgs struct {
 	// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	//
+	// Deprecated: Use the aws_s3_object data source instead
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The full path to the object inside the bucket
 	Key   pulumi.StringInput    `pulumi:"key"`
@@ -211,6 +218,7 @@ func (o LookupBucketObjectResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
+// Deprecated: Use the aws_s3_object data source instead
 func (o LookupBucketObjectResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Bucket }).(pulumi.StringOutput)
 }

@@ -112,6 +112,10 @@ export interface GetAmiResult {
      */
     readonly blockDeviceMappings: outputs.GetAmiBlockDeviceMapping[];
     /**
+     * The boot mode of the image.
+     */
+    readonly bootMode: string;
+    /**
      * The date and time the image was created.
      */
     readonly creationDate: string;

@@ -15,6 +15,7 @@ __all__ = [
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission',
     'DistributionConfigurationDistributionContainerDistributionConfiguration',
     'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository',
+    'DistributionConfigurationDistributionLaunchTemplateConfiguration',
     'ImageImageTestsConfiguration',
     'ImageOutputResource',
     'ImageOutputResourceAmi',
@@ -23,12 +24,16 @@ __all__ = [
     'ImageRecipeBlockDeviceMapping',
     'ImageRecipeBlockDeviceMappingEbs',
     'ImageRecipeComponent',
+    'ImageRecipeComponentParameter',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationLoggingS3Logs',
     'GetComponentsFilterResult',
     'GetDistributionConfigurationDistributionResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult',
+    'GetDistributionConfigurationDistributionContainerDistributionConfigurationResult',
+    'GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult',
+    'GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult',
     'GetDistributionConfigurationsFilterResult',
     'GetImageImageTestsConfigurationResult',
     'GetImageOutputResourceResult',
@@ -38,6 +43,7 @@ __all__ = [
     'GetImageRecipeBlockDeviceMappingResult',
     'GetImageRecipeBlockDeviceMappingEbResult',
     'GetImageRecipeComponentResult',
+    'GetImageRecipeComponentParameterResult',
     'GetImageRecipesFilterResult',
     'GetInfrastructureConfigurationLoggingResult',
     'GetInfrastructureConfigurationLoggingS3LogResult',
@@ -53,6 +59,8 @@ class DistributionConfigurationDistribution(dict):
             suggest = "ami_distribution_configuration"
         elif key == "containerDistributionConfiguration":
             suggest = "container_distribution_configuration"
+        elif key == "launchTemplateConfigurations":
+            suggest = "launch_template_configurations"
         elif key == "licenseConfigurationArns":
             suggest = "license_configuration_arns"
 
@@ -71,11 +79,13 @@ class DistributionConfigurationDistribution(dict):
                  region: str,
                  ami_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfiguration'] = None,
                  container_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfiguration'] = None,
+                 launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']] = None,
                  license_configuration_arns: Optional[Sequence[str]] = None):
         """
         :param str region: AWS Region for the distribution.
         :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
         pulumi.set(__self__, "region", region)
@@ -83,6 +93,8 @@ class DistributionConfigurationDistribution(dict):
             pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
         if container_distribution_configuration is not None:
             pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
+        if launch_template_configurations is not None:
+            pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
 
@@ -109,6 +121,14 @@ class DistributionConfigurationDistribution(dict):
         Configuration block with container distribution settings. Detailed below.
         """
         return pulumi.get(self, "container_distribution_configuration")
+
+    @property
+    @pulumi.getter(name="launchTemplateConfigurations")
+    def launch_template_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']]:
+        """
+        Set of launch template configuration settings that apply to image distribution. Detailed below.
+        """
+        return pulumi.get(self, "launch_template_configurations")
 
     @property
     @pulumi.getter(name="licenseConfigurationArns")
@@ -376,6 +396,53 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
         The service in which this image is registered. Valid values: `ECR`.
         """
         return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateId":
+            suggest = "launch_template_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionLaunchTemplateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionLaunchTemplateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionLaunchTemplateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 launch_template_id: str,
+                 default: Optional[bool] = None):
+        """
+        :param str launch_template_id: The ID of the Amazon EC2 launch template to use.
+        :param bool default: Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+        """
+        pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> str:
+        """
+        The ID of the Amazon EC2 launch template to use.
+        """
+        return pulumi.get(self, "launch_template_id")
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[bool]:
+        """
+        Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+        """
+        return pulumi.get(self, "default")
 
 
 @pulumi.output_type
@@ -842,11 +909,15 @@ class ImageRecipeComponent(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 component_arn: str):
+                 component_arn: str,
+                 parameters: Optional[Sequence['outputs.ImageRecipeComponentParameter']] = None):
         """
         :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        :param Sequence['ImageRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
         pulumi.set(__self__, "component_arn", component_arn)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -855,6 +926,43 @@ class ImageRecipeComponent(dict):
         Amazon Resource Name (ARN) of the Image Builder Component to associate.
         """
         return pulumi.get(self, "component_arn")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ImageRecipeComponentParameter']]:
+        """
+        Configuration block(s) for parameters to configure the component. Detailed below.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ImageRecipeComponentParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the component parameter.
+        :param str value: The value for the named component parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the component parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the named component parameter.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -974,14 +1082,20 @@ class GetComponentsFilterResult(dict):
 class GetDistributionConfigurationDistributionResult(dict):
     def __init__(__self__, *,
                  ami_distribution_configurations: Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult'],
+                 container_distribution_configurations: Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult'],
+                 launch_template_configurations: Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult'],
                  license_configuration_arns: Sequence[str],
                  region: str):
         """
         :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configurations: Nested list of AMI distribution configuration.
+        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configurations: Nested list of container distribution configurations.
+        :param Sequence['GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Nested list of launch template configurations.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param str region: AWS Region of distribution.
         """
         pulumi.set(__self__, "ami_distribution_configurations", ami_distribution_configurations)
+        pulumi.set(__self__, "container_distribution_configurations", container_distribution_configurations)
+        pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
         pulumi.set(__self__, "region", region)
 
@@ -992,6 +1106,22 @@ class GetDistributionConfigurationDistributionResult(dict):
         Nested list of AMI distribution configuration.
         """
         return pulumi.get(self, "ami_distribution_configurations")
+
+    @property
+    @pulumi.getter(name="containerDistributionConfigurations")
+    def container_distribution_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult']:
+        """
+        Nested list of container distribution configurations.
+        """
+        return pulumi.get(self, "container_distribution_configurations")
+
+    @property
+    @pulumi.getter(name="launchTemplateConfigurations")
+    def launch_template_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult']:
+        """
+        Nested list of launch template configurations.
+        """
+        return pulumi.get(self, "launch_template_configurations")
 
     @property
     @pulumi.getter(name="licenseConfigurationArns")
@@ -1021,7 +1151,7 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
                  target_account_ids: Sequence[str]):
         """
         :param Mapping[str, str] ami_tags: Key-value map of tags to apply to distributed AMI.
-        :param str description: Description to apply to distributed AMI.
+        :param str description: Description of the container distribution configuration.
         :param str kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
         :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs'] launch_permissions: Nested list of EC2 launch permissions.
         :param str name: Name of the distribution configuration.
@@ -1046,7 +1176,7 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
     @pulumi.getter
     def description(self) -> str:
         """
-        Description to apply to distributed AMI.
+        Description of the container distribution configuration.
         """
         return pulumi.get(self, "description")
 
@@ -1110,6 +1240,104 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
         Set of AWS Account identifiers.
         """
         return pulumi.get(self, "user_ids")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionContainerDistributionConfigurationResult(dict):
+    def __init__(__self__, *,
+                 container_tags: Sequence[str],
+                 description: str,
+                 target_repositories: Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult']):
+        """
+        :param Sequence[str] container_tags: Set of tags that are attached to the container distribution configuration.
+        :param str description: Description of the container distribution configuration.
+        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs'] target_repositories: Set of destination repositories for the container distribution configuration.
+        """
+        pulumi.set(__self__, "container_tags", container_tags)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "target_repositories", target_repositories)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Sequence[str]:
+        """
+        Set of tags that are attached to the container distribution configuration.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the container distribution configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="targetRepositories")
+    def target_repositories(self) -> Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult']:
+        """
+        Set of destination repositories for the container distribution configuration.
+        """
+        return pulumi.get(self, "target_repositories")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult(dict):
+    def __init__(__self__, *,
+                 repository_name: str,
+                 service: str):
+        """
+        :param str repository_name: Name of the container repository where the output container image is stored.
+        :param str service: Service in which the image is registered.
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        Name of the container repository where the output container image is stored.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        Service in which the image is registered.
+        """
+        return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(dict):
+    def __init__(__self__, *,
+                 default: bool,
+                 launch_template_id: str):
+        """
+        :param bool default: Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+        :param str launch_template_id: ID of the Amazon EC2 launch template.
+        """
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "launch_template_id", launch_template_id)
+
+    @property
+    @pulumi.getter
+    def default(self) -> bool:
+        """
+        Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> str:
+        """
+        ID of the Amazon EC2 launch template.
+        """
+        return pulumi.get(self, "launch_template_id")
 
 
 @pulumi.output_type
@@ -1446,11 +1674,14 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
 @pulumi.output_type
 class GetImageRecipeComponentResult(dict):
     def __init__(__self__, *,
-                 component_arn: str):
+                 component_arn: str,
+                 parameters: Sequence['outputs.GetImageRecipeComponentParameterResult']):
         """
         :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component.
+        :param Sequence['GetImageRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
         """
         pulumi.set(__self__, "component_arn", component_arn)
+        pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -1459,6 +1690,43 @@ class GetImageRecipeComponentResult(dict):
         Amazon Resource Name (ARN) of the Image Builder Component.
         """
         return pulumi.get(self, "component_arn")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetImageRecipeComponentParameterResult']:
+        """
+        Set of parameters that are used to configure the component.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class GetImageRecipeComponentParameterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Name of the image recipe.
+        :param str value: Value of the component parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the image recipe.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the component parameter.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

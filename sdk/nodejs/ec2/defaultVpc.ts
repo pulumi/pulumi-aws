@@ -5,17 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
- * in the current region.
- *
- * For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
- * **This is an advanced resource**, and has special caveats to be aware of when
- * using it. Please read this document in its entirety before using this resource.
- *
- * The `aws.ec2.DefaultVpc` behaves differently from normal resources, in that
- * this provider does not _create_ this resource, but instead "adopts" it
- * into management.
- *
  * ## Example Usage
  *
  * Basic usage with tags:
@@ -67,79 +56,38 @@ export class DefaultVpc extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultVpc.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of VPC
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether or not an Amazon-provided IPv6 CIDR
-     * block with a /56 prefix length for the VPC was assigned
-     */
-    public /*out*/ readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean>;
-    /**
-     * The CIDR block of the VPC
+     * The primary IPv4 CIDR block for the VPC
      */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
-    /**
-     * The ID of the network ACL created by default on VPC creation
-     */
     public /*out*/ readonly defaultNetworkAclId!: pulumi.Output<string>;
-    /**
-     * The ID of the route table created by default on VPC creation
-     */
     public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
-    /**
-     * The ID of the security group created by default on VPC creation
-     */
     public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string>;
     public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
-    /**
-     * A boolean flag to enable/disable ClassicLink
-     * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-     */
     public readonly enableClassiclink!: pulumi.Output<boolean>;
     public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
-    /**
-     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-     */
-    public readonly enableDnsHostnames!: pulumi.Output<boolean>;
-    /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
-     */
+    public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly existingDefaultVpc!: pulumi.Output<boolean>;
     /**
-     * Tenancy of instances spin up within VPC.
+     * Whether destroying the resource deletes the default VPC. Default: `false`
+     */
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
+     * The allowed tenancy of instances launched into the VPC
      */
     public /*out*/ readonly instanceTenancy!: pulumi.Output<string>;
-    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
-    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
-    /**
-     * The association ID for the IPv6 CIDR block of the VPC
-     */
     public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string>;
-    /**
-     * The IPv6 CIDR block of the VPC
-     */
     public readonly ipv6CidrBlock!: pulumi.Output<string>;
     public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string>;
     public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
-    /**
-     * The ID of the main route table associated with
-     * this VPC. Note that you can change a VPC's main route table by using an
-     * `aws.ec2.MainRouteTableAssociation`
-     */
     public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
-    /**
-     * The ID of the AWS account that owns the VPC.
-     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DefaultVpc resource with the given unique name, arguments, and options.
@@ -165,9 +113,9 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["enableClassiclinkDnsSupport"] = state ? state.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
+            resourceInputs["existingDefaultVpc"] = state ? state.existingDefaultVpc : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
-            resourceInputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
             resourceInputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
             resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = state ? state.ipv6CidrBlockNetworkBorderGroup : undefined;
@@ -179,29 +127,29 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DefaultVpcArgs | undefined;
+            resourceInputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
             resourceInputs["enableClassiclink"] = args ? args.enableClassiclink : undefined;
             resourceInputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
             resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
             resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["assignGeneratedIpv6CidrBlock"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["defaultNetworkAclId"] = undefined /*out*/;
             resourceInputs["defaultRouteTableId"] = undefined /*out*/;
             resourceInputs["defaultSecurityGroupId"] = undefined /*out*/;
             resourceInputs["dhcpOptionsId"] = undefined /*out*/;
+            resourceInputs["existingDefaultVpc"] = undefined /*out*/;
             resourceInputs["instanceTenancy"] = undefined /*out*/;
             resourceInputs["ipv6AssociationId"] = undefined /*out*/;
             resourceInputs["mainRouteTableId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultVpc.__pulumiType, name, resourceInputs, opts);
@@ -212,77 +160,36 @@ export class DefaultVpc extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultVpc resources.
  */
 export interface DefaultVpcState {
-    /**
-     * Amazon Resource Name (ARN) of VPC
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether or not an Amazon-provided IPv6 CIDR
-     * block with a /56 prefix length for the VPC was assigned
-     */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
-     * The CIDR block of the VPC
+     * The primary IPv4 CIDR block for the VPC
      */
     cidrBlock?: pulumi.Input<string>;
-    /**
-     * The ID of the network ACL created by default on VPC creation
-     */
     defaultNetworkAclId?: pulumi.Input<string>;
-    /**
-     * The ID of the route table created by default on VPC creation
-     */
     defaultRouteTableId?: pulumi.Input<string>;
-    /**
-     * The ID of the security group created by default on VPC creation
-     */
     defaultSecurityGroupId?: pulumi.Input<string>;
     dhcpOptionsId?: pulumi.Input<string>;
-    /**
-     * A boolean flag to enable/disable ClassicLink
-     * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-     */
     enableClassiclink?: pulumi.Input<boolean>;
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
-    /**
-     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-     */
     enableDnsHostnames?: pulumi.Input<boolean>;
-    /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
-     */
     enableDnsSupport?: pulumi.Input<boolean>;
+    existingDefaultVpc?: pulumi.Input<boolean>;
     /**
-     * Tenancy of instances spin up within VPC.
+     * Whether destroying the resource deletes the default VPC. Default: `false`
+     */
+    forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * The allowed tenancy of instances launched into the VPC
      */
     instanceTenancy?: pulumi.Input<string>;
-    ipv4IpamPoolId?: pulumi.Input<string>;
-    ipv4NetmaskLength?: pulumi.Input<number>;
-    /**
-     * The association ID for the IPv6 CIDR block of the VPC
-     */
     ipv6AssociationId?: pulumi.Input<string>;
-    /**
-     * The IPv6 CIDR block of the VPC
-     */
     ipv6CidrBlock?: pulumi.Input<string>;
     ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     ipv6IpamPoolId?: pulumi.Input<string>;
     ipv6NetmaskLength?: pulumi.Input<number>;
-    /**
-     * The ID of the main route table associated with
-     * this VPC. Note that you can change a VPC's main route table by using an
-     * `aws.ec2.MainRouteTableAssociation`
-     */
     mainRouteTableId?: pulumi.Input<string>;
-    /**
-     * The ID of the AWS account that owns the VPC.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -291,32 +198,19 @@ export interface DefaultVpcState {
  * The set of arguments for constructing a DefaultVpc resource.
  */
 export interface DefaultVpcArgs {
-    /**
-     * A boolean flag to enable/disable ClassicLink
-     * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-     */
+    assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     enableClassiclink?: pulumi.Input<boolean>;
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
-    /**
-     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-     */
     enableDnsHostnames?: pulumi.Input<boolean>;
-    /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
-     */
     enableDnsSupport?: pulumi.Input<boolean>;
-    ipv4IpamPoolId?: pulumi.Input<string>;
-    ipv4NetmaskLength?: pulumi.Input<number>;
     /**
-     * The IPv6 CIDR block of the VPC
+     * Whether destroying the resource deletes the default VPC. Default: `false`
      */
+    forceDestroy?: pulumi.Input<boolean>;
     ipv6CidrBlock?: pulumi.Input<string>;
     ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     ipv6IpamPoolId?: pulumi.Input<string>;
     ipv6NetmaskLength?: pulumi.Input<number>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetDomainNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+        /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
         /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetDomainNameInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+        /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -126,23 +126,23 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetDomainNameResult
     {
         /// <summary>
-        /// The ARN of the found custom domain name.
+        /// ARN of the found custom domain name.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
+        /// ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
         /// </summary>
         public readonly string CertificateArn;
         /// <summary>
-        /// The name of the certificate that is used by edge-optimized endpoint for this domain name.
+        /// Name of the certificate that is used by edge-optimized endpoint for this domain name.
         /// </summary>
         public readonly string CertificateName;
         /// <summary>
-        /// The upload date associated with the domain certificate.
+        /// Upload date associated with the domain certificate.
         /// </summary>
         public readonly string CertificateUploadDate;
         /// <summary>
-        /// The hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         /// </summary>
         public readonly string CloudfrontDomainName;
         /// <summary>
@@ -159,23 +159,23 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN for an AWS-managed certificate that is used for validating the regional domain name.
+        /// ARN for an AWS-managed certificate that is used for validating the regional domain name.
         /// </summary>
         public readonly string RegionalCertificateArn;
         /// <summary>
-        /// The user-friendly name of the certificate that is used by regional endpoint for this domain name.
+        /// User-friendly name of the certificate that is used by regional endpoint for this domain name.
         /// </summary>
         public readonly string RegionalCertificateName;
         /// <summary>
-        /// The hostname for the custom domain's regional endpoint.
+        /// Hostname for the custom domain's regional endpoint.
         /// </summary>
         public readonly string RegionalDomainName;
         /// <summary>
-        /// The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
+        /// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         /// </summary>
         public readonly string RegionalZoneId;
         /// <summary>
-        /// The security policy for the domain name.
+        /// Security policy for the domain name.
         /// </summary>
         public readonly string SecurityPolicy;
         /// <summary>

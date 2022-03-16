@@ -396,7 +396,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         example = aws.servicecatalog.ProvisioningArtifact("example",
             product_id=aws_servicecatalog_product["example"]["id"],
             type="CLOUD_FORMATION_TEMPLATE",
-            template_url=f"https://{aws_s3_bucket['example']['bucket_regional_domain_name']}/{aws_s3_bucket_object['example']['key']}")
+            template_url=f"https://{aws_s3_bucket['example']['bucket_regional_domain_name']}/{aws_s3_object['example']['key']}")
         ```
 
         ## Import
@@ -445,7 +445,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         example = aws.servicecatalog.ProvisioningArtifact("example",
             product_id=aws_servicecatalog_product["example"]["id"],
             type="CLOUD_FORMATION_TEMPLATE",
-            template_url=f"https://{aws_s3_bucket['example']['bucket_regional_domain_name']}/{aws_s3_bucket_object['example']['key']}")
+            template_url=f"https://{aws_s3_bucket['example']['bucket_regional_domain_name']}/{aws_s3_object['example']['key']}")
         ```
 
         ## Import

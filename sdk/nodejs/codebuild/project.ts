@@ -14,7 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {acl: "private"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     acl: "private",
+ * });
  * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -81,8 +85,8 @@ import * as utilities from "../utilities";
  *         "s3:*"
  *       ],
  *       "Resource": [
- *         "${exampleBucket.arn}",
- *         "${exampleBucket.arn}/*"
+ *         "${exampleBucketV2.arn}",
+ *         "${exampleBucketV2.arn}/*"
  *       ]
  *     }
  *   ]
@@ -98,7 +102,7 @@ import * as utilities from "../utilities";
  *     },
  *     cache: {
  *         type: "S3",
- *         location: exampleBucket.bucket,
+ *         location: exampleBucketV2.bucket,
  *     },
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
@@ -124,7 +128,7 @@ import * as utilities from "../utilities";
  *         },
  *         s3Logs: {
  *             status: "ENABLED",
- *             location: pulumi.interpolate`${exampleBucket.id}/build-log`,
+ *             location: pulumi.interpolate`${exampleBucketV2.id}/build-log`,
  *         },
  *     },
  *     source: {

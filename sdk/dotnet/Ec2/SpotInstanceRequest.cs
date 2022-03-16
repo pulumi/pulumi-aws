@@ -179,13 +179,7 @@ namespace Pulumi.Aws.Ec2
         /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
         /// </summary>
         [Output("instanceInterruptionBehavior")]
-        public Output<string> InstanceInterruptionBehavior { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        /// </summary>
-        [Output("instanceInterruptionBehaviour")]
-        public Output<string> InstanceInterruptionBehaviour { get; private set; } = null!;
+        public Output<string?> InstanceInterruptionBehavior { get; private set; } = null!;
 
         [Output("instanceState")]
         public Output<string> InstanceState { get; private set; } = null!;
@@ -595,12 +589,6 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
         /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        /// </summary>
-        [Input("instanceInterruptionBehaviour")]
-        public Input<string>? InstanceInterruptionBehaviour { get; set; }
-
-        /// <summary>
         /// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
@@ -952,12 +940,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
-
-        /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        /// </summary>
-        [Input("instanceInterruptionBehaviour")]
-        public Input<string>? InstanceInterruptionBehaviour { get; set; }
 
         [Input("instanceState")]
         public Input<string>? InstanceState { get; set; }

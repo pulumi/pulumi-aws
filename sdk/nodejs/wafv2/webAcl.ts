@@ -269,7 +269,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The web ACL capacity units (WCUs) currently being used by this web ACL.
+     * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
@@ -277,20 +277,20 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
     /**
-     * The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
      */
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
     /**
-     * A friendly description of the WebACL.
+     * Friendly description of the WebACL.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
-     * The label string.
+     * Label string.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
     /**
@@ -298,11 +298,11 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -373,7 +373,7 @@ export interface WebAclState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The web ACL capacity units (WCUs) currently being used by this web ACL.
+     * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -381,20 +381,20 @@ export interface WebAclState {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
-     * The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
      */
     defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
     /**
-     * A friendly description of the WebACL.
+     * Friendly description of the WebACL.
      */
     description?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
     /**
-     * The label string.
+     * Label string.
      */
     name?: pulumi.Input<string>;
     /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
     /**
@@ -402,11 +402,11 @@ export interface WebAclState {
      */
     scope?: pulumi.Input<string>;
     /**
-     * An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -424,19 +424,19 @@ export interface WebAclArgs {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
-     * The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
      */
     defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
     /**
-     * A friendly description of the WebACL.
+     * Friendly description of the WebACL.
      */
     description?: pulumi.Input<string>;
     /**
-     * The label string.
+     * Label string.
      */
     name?: pulumi.Input<string>;
     /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
     /**
@@ -444,11 +444,11 @@ export interface WebAclArgs {
      */
     scope: pulumi.Input<string>;
     /**
-     * An map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

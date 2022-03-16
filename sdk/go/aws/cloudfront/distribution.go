@@ -31,18 +31,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
+// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("mybucket"),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("My bucket"),
 // 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "bAcl", &s3.BucketAclV2Args{
+// 			Bucket: bucketV2.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -51,7 +58,7 @@ import (
 // 		_, err = cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
 // 			Origins: cloudfront.DistributionOriginArray{
 // 				&cloudfront.DistributionOriginArgs{
-// 					DomainName: bucket.BucketRegionalDomainName,
+// 					DomainName: bucketV2.BucketRegionalDomainName,
 // 					OriginId:   pulumi.String(s3OriginId),
 // 					S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
 // 						OriginAccessIdentity: pulumi.String("origin-access-identity/cloudfront/ABCDEFG1234567"),
@@ -184,7 +191,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

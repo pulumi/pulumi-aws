@@ -2907,11 +2907,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 type PolicyStepAdjustment struct {
 	// The lower bound for the
 	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as infinity.
+	// Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound *string `pulumi:"metricIntervalLowerBound"`
 	// The upper bound for the
 	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as infinity. The upper bound
+	// Without a value, AWS will treat this bound as positive infinity. The upper bound
 	// must be greater than the lower bound.
 	MetricIntervalUpperBound *string `pulumi:"metricIntervalUpperBound"`
 	// The number of members by which to
@@ -2934,11 +2934,11 @@ type PolicyStepAdjustmentInput interface {
 type PolicyStepAdjustmentArgs struct {
 	// The lower bound for the
 	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as infinity.
+	// Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound pulumi.StringPtrInput `pulumi:"metricIntervalLowerBound"`
 	// The upper bound for the
 	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as infinity. The upper bound
+	// Without a value, AWS will treat this bound as positive infinity. The upper bound
 	// must be greater than the lower bound.
 	MetricIntervalUpperBound pulumi.StringPtrInput `pulumi:"metricIntervalUpperBound"`
 	// The number of members by which to
@@ -3000,14 +3000,14 @@ func (o PolicyStepAdjustmentOutput) ToPolicyStepAdjustmentOutputWithContext(ctx 
 
 // The lower bound for the
 // difference between the alarm threshold and the CloudWatch metric.
-// Without a value, AWS will treat this bound as infinity.
+// Without a value, AWS will treat this bound as negative infinity.
 func (o PolicyStepAdjustmentOutput) MetricIntervalLowerBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepAdjustment) *string { return v.MetricIntervalLowerBound }).(pulumi.StringPtrOutput)
 }
 
 // The upper bound for the
 // difference between the alarm threshold and the CloudWatch metric.
-// Without a value, AWS will treat this bound as infinity. The upper bound
+// Without a value, AWS will treat this bound as positive infinity. The upper bound
 // must be greater than the lower bound.
 func (o PolicyStepAdjustmentOutput) MetricIntervalUpperBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepAdjustment) *string { return v.MetricIntervalUpperBound }).(pulumi.StringPtrOutput)

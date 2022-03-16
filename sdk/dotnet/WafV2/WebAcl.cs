@@ -346,7 +346,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The web ACL capacity units (WCUs) currently being used by this web ACL.
+        /// Web ACL capacity units (WCUs) currently being used by this web ACL.
         /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
@@ -358,13 +358,13 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
-        /// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
 
         /// <summary>
-        /// A friendly description of the WebACL.
+        /// Friendly description of the WebACL.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -373,13 +373,13 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
-        /// The label string.
+        /// Label string.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.WebAclRule>> Rules { get; private set; } = null!;
@@ -391,13 +391,13 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -467,19 +467,19 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;
 
         /// <summary>
-        /// A friendly description of the WebACL.
+        /// Friendly description of the WebACL.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The label string.
+        /// Label string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclRuleArgs>? _rules;
 
         /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleArgs> Rules
         {
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -518,7 +518,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -546,7 +546,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The web ACL capacity units (WCUs) currently being used by this web ACL.
+        /// Web ACL capacity units (WCUs) currently being used by this web ACL.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -564,13 +564,13 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         /// </summary>
         [Input("defaultAction")]
         public Input<Inputs.WebAclDefaultActionGetArgs>? DefaultAction { get; set; }
 
         /// <summary>
-        /// A friendly description of the WebACL.
+        /// Friendly description of the WebACL.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -579,7 +579,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? LockToken { get; set; }
 
         /// <summary>
-        /// The label string.
+        /// Label string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -588,7 +588,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclRuleGetArgs>? _rules;
 
         /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleGetArgs> Rules
         {
@@ -606,7 +606,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -618,7 +618,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

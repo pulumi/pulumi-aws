@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/gamelift"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -29,7 +29,7 @@ import (
 // 			OperatingSystem: pulumi.String("WINDOWS_2012"),
 // 			StorageLocation: &gamelift.BuildStorageLocationArgs{
 // 				Bucket:  pulumi.Any(aws_s3_bucket.Test.Bucket),
-// 				Key:     pulumi.Any(aws_s3_bucket_object.Test.Key),
+// 				Key:     pulumi.Any(aws_s3_object.Test.Key),
 // 				RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{

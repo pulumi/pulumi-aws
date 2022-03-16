@@ -23,8 +23,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/guardduty"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -36,13 +36,18 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-// 			Acl: pulumi.String("private"),
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+// 			Bucket: bucket.ID(),
+// 			Acl:    pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		myThreatIntelSetBucketObject, err := s3.NewBucketObject(ctx, "myThreatIntelSetBucketObject", &s3.BucketObjectArgs{
+// 		myThreatIntelSetBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "myThreatIntelSetBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Acl:     pulumi.String("public-read"),
 // 			Content: pulumi.String("10.0.0.0/8\n"),
 // 			Bucket:  bucket.ID(),
@@ -55,7 +60,7 @@ import (
 // 			Activate:   pulumi.Bool(true),
 // 			DetectorId: primary.ID(),
 // 			Format:     pulumi.String("TXT"),
-// 			Location: pulumi.All(myThreatIntelSetBucketObject.Bucket, myThreatIntelSetBucketObject.Key).ApplyT(func(_args []interface{}) (string, error) {
+// 			Location: pulumi.All(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 // 				bucket := _args[0].(string)
 // 				key := _args[1].(string)
 // 				return fmt.Sprintf("%v%v%v%v", "https://s3.amazonaws.com/", bucket, "/", key), nil

@@ -28,14 +28,17 @@ namespace Pulumi.Aws.Ecr
     ///         {
     ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///             {
-    ///                 Rule = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 Rules = 
     ///                 {
-    ///                     Destinations = 
+    ///                     new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
     ///                     {
-    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         Destinations = 
     ///                         {
-    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
-    ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                             {
+    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
+    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
@@ -61,19 +64,22 @@ namespace Pulumi.Aws.Ecr
     ///         {
     ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///             {
-    ///                 Rule = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 Rules = 
     ///                 {
-    ///                     Destinations = 
+    ///                     new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
     ///                     {
-    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         Destinations = 
     ///                         {
-    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
-    ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
-    ///                         },
-    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
-    ///                         {
-    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[1]),
-    ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                             {
+    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
+    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                             },
+    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                             {
+    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[1]),
+    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
@@ -100,22 +106,25 @@ namespace Pulumi.Aws.Ecr
     ///         {
     ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///             {
-    ///                 Rule = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 Rules = 
     ///                 {
-    ///                     Destinations = 
+    ///                     new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
     ///                     {
-    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         Destinations = 
     ///                         {
-    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
-    ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                             {
+    ///                                 Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
+    ///                                 RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                             },
     ///                         },
-    ///                     },
-    ///                     RepositoryFilters = 
-    ///                     {
-    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
+    ///                         RepositoryFilters = 
     ///                         {
-    ///                             Filter = "prod-microservice",
-    ///                             FilterType = "PREFIX_MATCH",
+    ///                             new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
+    ///                             {
+    ///                                 Filter = "prod-microservice",
+    ///                                 FilterType = "PREFIX_MATCH",
+    ///                             },
     ///                         },
     ///                     },
     ///                 },

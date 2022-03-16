@@ -21,6 +21,8 @@ type AmiCopyEbsBlockDevice struct {
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops *int `pulumi:"iops"`
+	// The ARN of the Outpost on which the snapshot is stored.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The id of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
@@ -57,6 +59,8 @@ type AmiCopyEbsBlockDeviceArgs struct {
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The ARN of the Outpost on which the snapshot is stored.
+	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
 	// The id of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
@@ -142,6 +146,11 @@ func (o AmiCopyEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 // created volumes will support.
 func (o AmiCopyEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Outpost on which the snapshot is stored.
+func (o AmiCopyEbsBlockDeviceOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // The id of an EBS snapshot that will be used to initialize the created
@@ -308,6 +317,8 @@ type AmiEbsBlockDevice struct {
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops *int `pulumi:"iops"`
+	// The ARN of the Outpost on which the snapshot is stored.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The id of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
@@ -344,6 +355,8 @@ type AmiEbsBlockDeviceArgs struct {
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The ARN of the Outpost on which the snapshot is stored.
+	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
 	// The id of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
@@ -429,6 +442,11 @@ func (o AmiEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 // created volumes will support.
 func (o AmiEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Outpost on which the snapshot is stored.
+func (o AmiEbsBlockDeviceOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // The id of an EBS snapshot that will be used to initialize the created
@@ -595,6 +613,8 @@ type AmiFromInstanceEbsBlockDevice struct {
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops *int `pulumi:"iops"`
+	// The ARN of the Outpost on which the snapshot is stored.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The id of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
@@ -631,6 +651,8 @@ type AmiFromInstanceEbsBlockDeviceArgs struct {
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The ARN of the Outpost on which the snapshot is stored.
+	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
 	// The id of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
@@ -716,6 +738,11 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 // created volumes will support.
 func (o AmiFromInstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Outpost on which the snapshot is stored.
+func (o AmiFromInstanceEbsBlockDeviceOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // The id of an EBS snapshot that will be used to initialize the created
@@ -9540,6 +9567,8 @@ type RouteTableRoute struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
+	//
+	// Deprecated: Use network_interface_id instead
 	InstanceId *string `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
@@ -9580,6 +9609,8 @@ type RouteTableRouteArgs struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
+	//
+	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
@@ -9674,6 +9705,8 @@ func (o RouteTableRouteOutput) GatewayId() pulumi.StringPtrOutput {
 }
 
 // Identifier of an EC2 instance.
+//
+// Deprecated: Use network_interface_id instead
 func (o RouteTableRouteOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
@@ -15606,6 +15639,115 @@ func (o GetDedicatedHostFilterArrayOutput) Index(i pulumi.IntInput) GetDedicated
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDedicatedHostFilter {
 		return vs[0].([]GetDedicatedHostFilter)[vs[1].(int)]
 	}).(GetDedicatedHostFilterOutput)
+}
+
+type GetEipsFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetEipsFilterInput is an input type that accepts GetEipsFilterArgs and GetEipsFilterOutput values.
+// You can construct a concrete instance of `GetEipsFilterInput` via:
+//
+//          GetEipsFilterArgs{...}
+type GetEipsFilterInput interface {
+	pulumi.Input
+
+	ToGetEipsFilterOutput() GetEipsFilterOutput
+	ToGetEipsFilterOutputWithContext(context.Context) GetEipsFilterOutput
+}
+
+type GetEipsFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetEipsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEipsFilter)(nil)).Elem()
+}
+
+func (i GetEipsFilterArgs) ToGetEipsFilterOutput() GetEipsFilterOutput {
+	return i.ToGetEipsFilterOutputWithContext(context.Background())
+}
+
+func (i GetEipsFilterArgs) ToGetEipsFilterOutputWithContext(ctx context.Context) GetEipsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEipsFilterOutput)
+}
+
+// GetEipsFilterArrayInput is an input type that accepts GetEipsFilterArray and GetEipsFilterArrayOutput values.
+// You can construct a concrete instance of `GetEipsFilterArrayInput` via:
+//
+//          GetEipsFilterArray{ GetEipsFilterArgs{...} }
+type GetEipsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetEipsFilterArrayOutput() GetEipsFilterArrayOutput
+	ToGetEipsFilterArrayOutputWithContext(context.Context) GetEipsFilterArrayOutput
+}
+
+type GetEipsFilterArray []GetEipsFilterInput
+
+func (GetEipsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEipsFilter)(nil)).Elem()
+}
+
+func (i GetEipsFilterArray) ToGetEipsFilterArrayOutput() GetEipsFilterArrayOutput {
+	return i.ToGetEipsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetEipsFilterArray) ToGetEipsFilterArrayOutputWithContext(ctx context.Context) GetEipsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEipsFilterArrayOutput)
+}
+
+type GetEipsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetEipsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEipsFilter)(nil)).Elem()
+}
+
+func (o GetEipsFilterOutput) ToGetEipsFilterOutput() GetEipsFilterOutput {
+	return o
+}
+
+func (o GetEipsFilterOutput) ToGetEipsFilterOutputWithContext(ctx context.Context) GetEipsFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+func (o GetEipsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEipsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
+func (o GetEipsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEipsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetEipsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEipsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEipsFilter)(nil)).Elem()
+}
+
+func (o GetEipsFilterArrayOutput) ToGetEipsFilterArrayOutput() GetEipsFilterArrayOutput {
+	return o
+}
+
+func (o GetEipsFilterArrayOutput) ToGetEipsFilterArrayOutputWithContext(ctx context.Context) GetEipsFilterArrayOutput {
+	return o
+}
+
+func (o GetEipsFilterArrayOutput) Index(i pulumi.IntInput) GetEipsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEipsFilter {
+		return vs[0].([]GetEipsFilter)[vs[1].(int)]
+	}).(GetEipsFilterOutput)
 }
 
 type GetElasticIpFilter struct {
@@ -24716,6 +24858,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomerGatewayFilterArrayInput)(nil)).Elem(), GetCustomerGatewayFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedHostFilterInput)(nil)).Elem(), GetDedicatedHostFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedHostFilterArrayInput)(nil)).Elem(), GetDedicatedHostFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEipsFilterInput)(nil)).Elem(), GetEipsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEipsFilterArrayInput)(nil)).Elem(), GetEipsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticIpFilterInput)(nil)).Elem(), GetElasticIpFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticIpFilterArrayInput)(nil)).Elem(), GetElasticIpFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceCreditSpecificationInput)(nil)).Elem(), GetInstanceCreditSpecificationArgs{})
@@ -25073,6 +25217,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetDedicatedHostFilterOutput{})
 	pulumi.RegisterOutputType(GetDedicatedHostFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetEipsFilterOutput{})
+	pulumi.RegisterOutputType(GetEipsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetElasticIpFilterOutput{})
 	pulumi.RegisterOutputType(GetElasticIpFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceCreditSpecificationOutput{})

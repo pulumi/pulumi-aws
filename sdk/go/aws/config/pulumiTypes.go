@@ -11,6 +11,8 @@ import (
 )
 
 type AssumeRole struct {
+	Duration *string `pulumi:"duration"`
+	// Deprecated: Use assume_role.0.duration instead
 	DurationSeconds   *int              `pulumi:"durationSeconds"`
 	ExternalId        *string           `pulumi:"externalId"`
 	Policy            *string           `pulumi:"policy"`
@@ -33,6 +35,8 @@ type AssumeRoleInput interface {
 }
 
 type AssumeRoleArgs struct {
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// Deprecated: Use assume_role.0.duration instead
 	DurationSeconds   pulumi.IntPtrInput      `pulumi:"durationSeconds"`
 	ExternalId        pulumi.StringPtrInput   `pulumi:"externalId"`
 	Policy            pulumi.StringPtrInput   `pulumi:"policy"`
@@ -69,6 +73,11 @@ func (o AssumeRoleOutput) ToAssumeRoleOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+func (o AssumeRoleOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRole) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: Use assume_role.0.duration instead
 func (o AssumeRoleOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -156,6 +165,7 @@ type Endpoints struct {
 	Acm                             *string `pulumi:"acm"`
 	Acmpca                          *string `pulumi:"acmpca"`
 	Alexaforbusiness                *string `pulumi:"alexaforbusiness"`
+	Amg                             *string `pulumi:"amg"`
 	Amp                             *string `pulumi:"amp"`
 	Amplify                         *string `pulumi:"amplify"`
 	Amplifybackend                  *string `pulumi:"amplifybackend"`
@@ -276,6 +286,7 @@ type Endpoints struct {
 	Globalaccelerator               *string `pulumi:"globalaccelerator"`
 	Glue                            *string `pulumi:"glue"`
 	Gluedatabrew                    *string `pulumi:"gluedatabrew"`
+	Grafana                         *string `pulumi:"grafana"`
 	Greengrass                      *string `pulumi:"greengrass"`
 	Greengrassv2                    *string `pulumi:"greengrassv2"`
 	Groundstation                   *string `pulumi:"groundstation"`
@@ -332,6 +343,7 @@ type Endpoints struct {
 	Macie                           *string `pulumi:"macie"`
 	Macie2                          *string `pulumi:"macie2"`
 	Managedblockchain               *string `pulumi:"managedblockchain"`
+	Managedgrafana                  *string `pulumi:"managedgrafana"`
 	Marketplacecatalog              *string `pulumi:"marketplacecatalog"`
 	Marketplacecommerceanalytics    *string `pulumi:"marketplacecommerceanalytics"`
 	Marketplaceentitlement          *string `pulumi:"marketplaceentitlement"`
@@ -471,6 +483,7 @@ type EndpointsArgs struct {
 	Acm                             pulumi.StringPtrInput `pulumi:"acm"`
 	Acmpca                          pulumi.StringPtrInput `pulumi:"acmpca"`
 	Alexaforbusiness                pulumi.StringPtrInput `pulumi:"alexaforbusiness"`
+	Amg                             pulumi.StringPtrInput `pulumi:"amg"`
 	Amp                             pulumi.StringPtrInput `pulumi:"amp"`
 	Amplify                         pulumi.StringPtrInput `pulumi:"amplify"`
 	Amplifybackend                  pulumi.StringPtrInput `pulumi:"amplifybackend"`
@@ -591,6 +604,7 @@ type EndpointsArgs struct {
 	Globalaccelerator               pulumi.StringPtrInput `pulumi:"globalaccelerator"`
 	Glue                            pulumi.StringPtrInput `pulumi:"glue"`
 	Gluedatabrew                    pulumi.StringPtrInput `pulumi:"gluedatabrew"`
+	Grafana                         pulumi.StringPtrInput `pulumi:"grafana"`
 	Greengrass                      pulumi.StringPtrInput `pulumi:"greengrass"`
 	Greengrassv2                    pulumi.StringPtrInput `pulumi:"greengrassv2"`
 	Groundstation                   pulumi.StringPtrInput `pulumi:"groundstation"`
@@ -647,6 +661,7 @@ type EndpointsArgs struct {
 	Macie                           pulumi.StringPtrInput `pulumi:"macie"`
 	Macie2                          pulumi.StringPtrInput `pulumi:"macie2"`
 	Managedblockchain               pulumi.StringPtrInput `pulumi:"managedblockchain"`
+	Managedgrafana                  pulumi.StringPtrInput `pulumi:"managedgrafana"`
 	Marketplacecatalog              pulumi.StringPtrInput `pulumi:"marketplacecatalog"`
 	Marketplacecommerceanalytics    pulumi.StringPtrInput `pulumi:"marketplacecommerceanalytics"`
 	Marketplaceentitlement          pulumi.StringPtrInput `pulumi:"marketplaceentitlement"`
@@ -838,6 +853,10 @@ func (o EndpointsOutput) Acmpca() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Alexaforbusiness() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Alexaforbusiness }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Amg() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Amg }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Amp() pulumi.StringPtrOutput {
@@ -1320,6 +1339,10 @@ func (o EndpointsOutput) Gluedatabrew() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Gluedatabrew }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Grafana() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Grafana }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Greengrass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Greengrass }).(pulumi.StringPtrOutput)
 }
@@ -1542,6 +1565,10 @@ func (o EndpointsOutput) Macie2() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Managedblockchain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Managedblockchain }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Managedgrafana() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Managedgrafana }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Marketplacecatalog() pulumi.StringPtrOutput {

@@ -5,9 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * > **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
+ *
  * > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
  *
- * The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+ * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
  */
 export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {
     if (!opts) {
@@ -32,6 +34,8 @@ export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.Invok
 export interface GetBucketObjectsArgs {
     /**
      * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     *
+     * @deprecated Use the aws_s3_objects data source instead
      */
     bucket: string;
     /**
@@ -64,6 +68,9 @@ export interface GetBucketObjectsArgs {
  * A collection of values returned by getBucketObjects.
  */
 export interface GetBucketObjectsResult {
+    /**
+     * @deprecated Use the aws_s3_objects data source instead
+     */
     readonly bucket: string;
     /**
      * List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
@@ -99,6 +106,8 @@ export function getBucketObjectsOutput(args: GetBucketObjectsOutputArgs, opts?: 
 export interface GetBucketObjectsOutputArgs {
     /**
      * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     *
+     * @deprecated Use the aws_s3_objects data source instead
      */
     bucket: pulumi.Input<string>;
     /**

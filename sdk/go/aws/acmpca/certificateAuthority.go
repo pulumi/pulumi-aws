@@ -22,7 +22,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/acmpca"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -53,15 +53,17 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/acmpca"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -75,8 +77,8 @@ import (
 // 						pulumi.String("s3:PutObjectAcl"),
 // 					},
 // 					Resources: pulumi.StringArray{
-// 						exampleBucket.Arn,
-// 						exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
+// 						exampleBucketV2.Arn,
+// 						exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
 // 							return fmt.Sprintf("%v%v", arn, "/*"), nil
 // 						}).(pulumi.StringOutput),
 // 					},
@@ -92,7 +94,7 @@ import (
 // 			},
 // 		}, nil)
 // 		exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-// 			Bucket: exampleBucket.ID(),
+// 			Bucket: exampleBucketV2.ID(),
 // 			Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (string, error) {
 // 				return acmpcaBucketAccess.Json, nil
 // 			}).(pulumi.StringOutput),
@@ -113,7 +115,7 @@ import (
 // 					CustomCname:      pulumi.String("crl.example.com"),
 // 					Enabled:          pulumi.Bool(true),
 // 					ExpirationInDays: pulumi.Int(7),
-// 					S3BucketName:     exampleBucket.ID(),
+// 					S3BucketName:     exampleBucketV2.ID(),
 // 				},
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
@@ -159,11 +161,13 @@ type CertificateAuthority struct {
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrOutput `pulumi:"revocationConfiguration"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial pulumi.StringOutput `pulumi:"serial"`
-	// Status of the certificate authority.
+	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
+	//
+	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -223,11 +227,13 @@ type certificateAuthorityState struct {
 	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial *string `pulumi:"serial"`
-	// Status of the certificate authority.
+	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
+	//
+	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
 	Status *string `pulumi:"status"`
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
@@ -256,11 +262,13 @@ type CertificateAuthorityState struct {
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial pulumi.StringPtrInput
-	// Status of the certificate authority.
+	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
+	//
+	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
 	Status pulumi.StringPtrInput
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput

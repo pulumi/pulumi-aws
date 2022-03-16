@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  *
  * const barPipeline = new aws.codepipeline.Pipeline("barPipeline", {
  *     roleArn: aws_iam_role.bar.arn,
- *     artifactStore: {
+ *     artifactStores: [{
  *         location: aws_s3_bucket.bar.bucket,
  *         type: "S3",
  *         encryptionKey: {
  *             id: data.aws_kms_alias.s3kmskey.arn,
  *             type: "KMS",
  *         },
- *     },
+ *     }],
  *     stages: [
  *         {
  *             name: "Source",

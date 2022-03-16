@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatementGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The string to match against.
+        /// String to match against.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

@@ -509,7 +509,7 @@ func (o SigningJobSignedObjectArrayOutput) Index(i pulumi.IntInput) SigningJobSi
 type SigningJobSignedObjectS3 struct {
 	// Name of the S3 bucket.
 	Bucket *string `pulumi:"bucket"`
-	// Key name of the bucket object that contains your unsigned code.
+	// Key name of the object that contains your unsigned code.
 	Key *string `pulumi:"key"`
 }
 
@@ -527,7 +527,7 @@ type SigningJobSignedObjectS3Input interface {
 type SigningJobSignedObjectS3Args struct {
 	// Name of the S3 bucket.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// Key name of the bucket object that contains your unsigned code.
+	// Key name of the object that contains your unsigned code.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
@@ -587,7 +587,7 @@ func (o SigningJobSignedObjectS3Output) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobSignedObjectS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// Key name of the bucket object that contains your unsigned code.
+// Key name of the object that contains your unsigned code.
 func (o SigningJobSignedObjectS3Output) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobSignedObjectS3) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -752,7 +752,7 @@ func (o SigningJobSourcePtrOutput) S3() SigningJobSourceS3PtrOutput {
 type SigningJobSourceS3 struct {
 	// Name of the S3 bucket.
 	Bucket string `pulumi:"bucket"`
-	// Key name of the bucket object that contains your unsigned code.
+	// Key name of the object that contains your unsigned code.
 	Key string `pulumi:"key"`
 	// Version of your source image in your version enabled S3 bucket.
 	Version string `pulumi:"version"`
@@ -772,7 +772,7 @@ type SigningJobSourceS3Input interface {
 type SigningJobSourceS3Args struct {
 	// Name of the S3 bucket.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Key name of the bucket object that contains your unsigned code.
+	// Key name of the object that contains your unsigned code.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Version of your source image in your version enabled S3 bucket.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -860,7 +860,7 @@ func (o SigningJobSourceS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Key name of the bucket object that contains your unsigned code.
+// Key name of the object that contains your unsigned code.
 func (o SigningJobSourceS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -904,7 +904,7 @@ func (o SigningJobSourceS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key name of the bucket object that contains your unsigned code.
+// Key name of the object that contains your unsigned code.
 func (o SigningJobSourceS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobSourceS3) *string {
 		if v == nil {

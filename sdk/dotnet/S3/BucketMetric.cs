@@ -23,18 +23,19 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var example_entire_bucket = new Aws.S3.BucketMetric("example-entire-bucket", new Aws.S3.BucketMetricArgs
     ///         {
-    ///             Bucket = example.BucketName,
+    ///             Bucket = example.Bucket,
     ///         });
     ///     }
     /// 
     /// }
     /// ```
-    /// ### Add metrics configuration with S3 bucket object filter
+    /// ### Add metrics configuration with S3 object filter
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -44,12 +45,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var example_filtered = new Aws.S3.BucketMetric("example-filtered", new Aws.S3.BucketMetricArgs
     ///         {
-    ///             Bucket = example.BucketName,
+    ///             Bucket = example.Bucket,
     ///             Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///             {
     ///                 Prefix = "documents/",

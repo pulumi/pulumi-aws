@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudFormation
     ///     {
     ///         var example = new Aws.CloudFormation.CloudFormationType("example", new Aws.CloudFormation.CloudFormationTypeArgs
     ///         {
-    ///             SchemaHandlerPackage = $"s3://{aws_s3_bucket_object.Example.Bucket}/{aws_s3_bucket_object.Example.Key}",
+    ///             SchemaHandlerPackage = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
     ///             Type = "RESOURCE",
     ///             TypeName = "ExampleCompany::ExampleService::ExampleResource",
     ///             LoggingConfig = new Aws.CloudFormation.Inputs.CloudFormationTypeLoggingConfigArgs

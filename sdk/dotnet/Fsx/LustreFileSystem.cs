@@ -154,6 +154,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        /// </summary>
+        [Output("logConfiguration")]
+        public Output<Outputs.LustreFileSystemLogConfiguration> LogConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The value to be used when mounting the filesystem.
         /// </summary>
         [Output("mountName")]
@@ -350,6 +356,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.LustreFileSystemLogConfigurationArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
         /// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
         /// </summary>
         [Input("perUnitStorageThroughput")]
@@ -499,6 +511,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.LustreFileSystemLogConfigurationGetArgs>? LogConfiguration { get; set; }
 
         /// <summary>
         /// The value to be used when mounting the filesystem.

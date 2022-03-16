@@ -32,6 +32,7 @@ from .get_coip_pool import *
 from .get_coip_pools import *
 from .get_customer_gateway import *
 from .get_dedicated_host import *
+from .get_eips import *
 from .get_elastic_ip import *
 from .get_instance import *
 from .get_instance_type import *
@@ -88,6 +89,7 @@ from .managed_prefix_list import *
 from .managed_prefix_list_entry import *
 from .nat_gateway import *
 from .network_acl import *
+from .network_acl_association import *
 from .network_acl_rule import *
 from .network_interface import *
 from .network_interface_attachment import *

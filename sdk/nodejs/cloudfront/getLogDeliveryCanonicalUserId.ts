@@ -15,11 +15,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLogDeliveryCanonicalUserId = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {grants: [{
- *     id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
- *     type: "CanonicalUser",
- *     permissions: ["FULL_CONTROL"],
- * }]});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     accessControlPolicy: {
+ *         grants: [{
+ *             grantee: {
+ *                 id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
+ *                 type: "CanonicalUser",
+ *             },
+ *             permission: "FULL_CONTROL",
+ *         }],
+ *     },
+ * });
  * ```
  */
 export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {

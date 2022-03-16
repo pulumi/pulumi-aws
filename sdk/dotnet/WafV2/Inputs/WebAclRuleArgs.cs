@@ -13,19 +13,19 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See Action below for details.
+        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See Action below for details.
         /// </summary>
         [Input("action")]
         public Input<Inputs.WebAclRuleActionArgs>? Action { get; set; }
 
         /// <summary>
-        /// A friendly name of the rule.
+        /// Friendly name of the rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See Override Action below for details.
+        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See Override Action below for details.
         /// </summary>
         [Input("overrideAction")]
         public Input<Inputs.WebAclRuleOverrideActionArgs>? OverrideAction { get; set; }

@@ -27,9 +27,18 @@ namespace Pulumi.Aws
         ///     public MyStack()
         ///     {
         ///         var main = Output.Create(Aws.GetBillingServiceAccount.InvokeAsync());
-        ///         var billingLogs = new Aws.S3.Bucket("billingLogs", new Aws.S3.BucketArgs
+        ///         var billingLogs = new Aws.S3.BucketV2("billingLogs", new Aws.S3.BucketV2Args
         ///         {
+        ///             Bucket = "my-billing-tf-test-bucket",
+        ///         });
+        ///         var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new Aws.S3.BucketAclV2Args
+        ///         {
+        ///             Bucket = billingLogs.Id,
         ///             Acl = "private",
+        ///         });
+        ///         var allowBillingLogging = new Aws.S3.BucketPolicy("allowBillingLogging", new Aws.S3.BucketPolicyArgs
+        ///         {
+        ///             Bucket = billingLogs.Id,
         ///             Policy = Output.Tuple(main, main).Apply(values =&gt;
         ///             {
         ///                 var main = values.Item1;
@@ -64,7 +73,6 @@ namespace Pulumi.Aws
         ///     }}
         ///   ]
         /// }}
-        /// 
         /// ";
         ///             }),
         ///         });

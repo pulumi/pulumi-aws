@@ -16,6 +16,7 @@ export * from "./getFunction";
 export * from "./getLogDeliveryCanonicalUserId";
 export * from "./getOriginAccessIdentity";
 export * from "./getOriginRequestPolicy";
+export * from "./getRealtimeLogConfig";
 export * from "./getResponseHeadersPolicy";
 export * from "./keyGroup";
 export * from "./monitoringSubscription";

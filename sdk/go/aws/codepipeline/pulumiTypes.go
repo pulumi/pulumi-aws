@@ -55,45 +55,29 @@ func (i PipelineArtifactStoreArgs) ToPipelineArtifactStoreOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreOutput)
 }
 
-func (i PipelineArtifactStoreArgs) ToPipelineArtifactStorePtrOutput() PipelineArtifactStorePtrOutput {
-	return i.ToPipelineArtifactStorePtrOutputWithContext(context.Background())
-}
-
-func (i PipelineArtifactStoreArgs) ToPipelineArtifactStorePtrOutputWithContext(ctx context.Context) PipelineArtifactStorePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreOutput).ToPipelineArtifactStorePtrOutputWithContext(ctx)
-}
-
-// PipelineArtifactStorePtrInput is an input type that accepts PipelineArtifactStoreArgs, PipelineArtifactStorePtr and PipelineArtifactStorePtrOutput values.
-// You can construct a concrete instance of `PipelineArtifactStorePtrInput` via:
+// PipelineArtifactStoreArrayInput is an input type that accepts PipelineArtifactStoreArray and PipelineArtifactStoreArrayOutput values.
+// You can construct a concrete instance of `PipelineArtifactStoreArrayInput` via:
 //
-//          PipelineArtifactStoreArgs{...}
-//
-//  or:
-//
-//          nil
-type PipelineArtifactStorePtrInput interface {
+//          PipelineArtifactStoreArray{ PipelineArtifactStoreArgs{...} }
+type PipelineArtifactStoreArrayInput interface {
 	pulumi.Input
 
-	ToPipelineArtifactStorePtrOutput() PipelineArtifactStorePtrOutput
-	ToPipelineArtifactStorePtrOutputWithContext(context.Context) PipelineArtifactStorePtrOutput
+	ToPipelineArtifactStoreArrayOutput() PipelineArtifactStoreArrayOutput
+	ToPipelineArtifactStoreArrayOutputWithContext(context.Context) PipelineArtifactStoreArrayOutput
 }
 
-type pipelineArtifactStorePtrType PipelineArtifactStoreArgs
+type PipelineArtifactStoreArray []PipelineArtifactStoreInput
 
-func PipelineArtifactStorePtr(v *PipelineArtifactStoreArgs) PipelineArtifactStorePtrInput {
-	return (*pipelineArtifactStorePtrType)(v)
+func (PipelineArtifactStoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineArtifactStore)(nil)).Elem()
 }
 
-func (*pipelineArtifactStorePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipelineArtifactStore)(nil)).Elem()
+func (i PipelineArtifactStoreArray) ToPipelineArtifactStoreArrayOutput() PipelineArtifactStoreArrayOutput {
+	return i.ToPipelineArtifactStoreArrayOutputWithContext(context.Background())
 }
 
-func (i *pipelineArtifactStorePtrType) ToPipelineArtifactStorePtrOutput() PipelineArtifactStorePtrOutput {
-	return i.ToPipelineArtifactStorePtrOutputWithContext(context.Background())
-}
-
-func (i *pipelineArtifactStorePtrType) ToPipelineArtifactStorePtrOutputWithContext(ctx context.Context) PipelineArtifactStorePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStorePtrOutput)
+func (i PipelineArtifactStoreArray) ToPipelineArtifactStoreArrayOutputWithContext(ctx context.Context) PipelineArtifactStoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreArrayOutput)
 }
 
 type PipelineArtifactStoreOutput struct{ *pulumi.OutputState }
@@ -108,16 +92,6 @@ func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutput() PipelineArt
 
 func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutputWithContext(ctx context.Context) PipelineArtifactStoreOutput {
 	return o
-}
-
-func (o PipelineArtifactStoreOutput) ToPipelineArtifactStorePtrOutput() PipelineArtifactStorePtrOutput {
-	return o.ToPipelineArtifactStorePtrOutputWithContext(context.Background())
-}
-
-func (o PipelineArtifactStoreOutput) ToPipelineArtifactStorePtrOutputWithContext(ctx context.Context) PipelineArtifactStorePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineArtifactStore) *PipelineArtifactStore {
-		return &v
-	}).(PipelineArtifactStorePtrOutput)
 }
 
 // The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
@@ -140,68 +114,24 @@ func (o PipelineArtifactStoreOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type PipelineArtifactStorePtrOutput struct{ *pulumi.OutputState }
+type PipelineArtifactStoreArrayOutput struct{ *pulumi.OutputState }
 
-func (PipelineArtifactStorePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipelineArtifactStore)(nil)).Elem()
+func (PipelineArtifactStoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineArtifactStore)(nil)).Elem()
 }
 
-func (o PipelineArtifactStorePtrOutput) ToPipelineArtifactStorePtrOutput() PipelineArtifactStorePtrOutput {
+func (o PipelineArtifactStoreArrayOutput) ToPipelineArtifactStoreArrayOutput() PipelineArtifactStoreArrayOutput {
 	return o
 }
 
-func (o PipelineArtifactStorePtrOutput) ToPipelineArtifactStorePtrOutputWithContext(ctx context.Context) PipelineArtifactStorePtrOutput {
+func (o PipelineArtifactStoreArrayOutput) ToPipelineArtifactStoreArrayOutputWithContext(ctx context.Context) PipelineArtifactStoreArrayOutput {
 	return o
 }
 
-func (o PipelineArtifactStorePtrOutput) Elem() PipelineArtifactStoreOutput {
-	return o.ApplyT(func(v *PipelineArtifactStore) PipelineArtifactStore {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineArtifactStore
-		return ret
+func (o PipelineArtifactStoreArrayOutput) Index(i pulumi.IntInput) PipelineArtifactStoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineArtifactStore {
+		return vs[0].([]PipelineArtifactStore)[vs[1].(int)]
 	}).(PipelineArtifactStoreOutput)
-}
-
-// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
-func (o PipelineArtifactStorePtrOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v *PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionKey
-	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
-}
-
-// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipelineArtifactStore) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-func (o PipelineArtifactStorePtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipelineArtifactStore) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Region
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the artifact store, such as Amazon S3
-func (o PipelineArtifactStorePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipelineArtifactStore) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineArtifactStoreEncryptionKey struct {
@@ -926,7 +856,7 @@ func (o WebhookFilterArrayOutput) Index(i pulumi.IntInput) WebhookFilterOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreInput)(nil)).Elem(), PipelineArtifactStoreArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStorePtrInput)(nil)).Elem(), PipelineArtifactStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreArrayInput)(nil)).Elem(), PipelineArtifactStoreArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreEncryptionKeyInput)(nil)).Elem(), PipelineArtifactStoreEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreEncryptionKeyPtrInput)(nil)).Elem(), PipelineArtifactStoreEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageInput)(nil)).Elem(), PipelineStageArgs{})
@@ -938,7 +868,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterInput)(nil)).Elem(), WebhookFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterArrayInput)(nil)).Elem(), WebhookFilterArray{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreOutput{})
-	pulumi.RegisterOutputType(PipelineArtifactStorePtrOutput{})
+	pulumi.RegisterOutputType(PipelineArtifactStoreArrayOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(PipelineStageOutput{})

@@ -86,12 +86,13 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
     ///         {
-    ///             LogDestination = exampleBucket.Arn,
+    ///             LogDestination = exampleBucketV2.Arn,
     ///             LogDestinationType = "s3",
     ///             TrafficType = "ALL",
     ///             VpcId = aws_vpc.Example.Id,
@@ -110,12 +111,13 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
     ///         {
-    ///             LogDestination = exampleBucket.Arn,
+    ///             LogDestination = exampleBucketV2.Arn,
     ///             LogDestinationType = "s3",
     ///             TrafficType = "ALL",
     ///             VpcId = aws_vpc.Example.Id,

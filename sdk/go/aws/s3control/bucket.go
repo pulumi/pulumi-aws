@@ -13,7 +13,7 @@ import (
 
 // Provides a resource to manage an S3 Control Bucket.
 //
-// > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Buckets in an AWS Partition, see the `s3.Bucket` resource.
+// > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Buckets in an AWS Partition, see the `s3.BucketV2` resource.
 //
 // ## Example Usage
 //
@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3control"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

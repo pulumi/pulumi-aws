@@ -82,6 +82,27 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// 
     /// }
     /// ```
+    /// ### ALB Target Group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lambda_example = new Aws.LB.TargetGroup("lambda-example", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             TargetType = "alb",
+    ///             Port = 80,
+    ///             Protocol = "TCP",
+    ///             VpcId = aws_vpc.Main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -210,7 +231,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string?> TargetType { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
@@ -364,7 +385,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? TargetType { get; set; }
 
         /// <summary>
-        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -503,7 +524,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? TargetType { get; set; }
 
         /// <summary>
-        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

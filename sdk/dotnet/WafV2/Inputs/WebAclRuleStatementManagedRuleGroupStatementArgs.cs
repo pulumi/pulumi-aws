@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The name of the managed rule group.
+        /// Name of the managed rule group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -37,10 +37,16 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>? ScopeDownStatement { get; set; }
 
         /// <summary>
-        /// The name of the managed rule group vendor.
+        /// Name of the managed rule group vendor.
         /// </summary>
         [Input("vendorName", required: true)]
         public Input<string> VendorName { get; set; } = null!;
+
+        /// <summary>
+        /// Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public WebAclRuleStatementManagedRuleGroupStatementArgs()
         {

@@ -48,7 +48,7 @@ class NfsFileShareArgs:
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs'] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
-        :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
@@ -247,7 +247,7 @@ class NfsFileShareArgs:
     @pulumi.getter(name="objectAcl")
     def object_acl(self) -> Optional[pulumi.Input[str]]:
         """
-        Access Control List permission for S3 bucket objects. Defaults to `private`.
+        Access Control List permission for S3 objects. Defaults to `private`.
         """
         return pulumi.get(self, "object_acl")
 
@@ -345,7 +345,7 @@ class _NfsFileShareState:
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs'] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
-        :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -571,7 +571,7 @@ class _NfsFileShareState:
     @pulumi.getter(name="objectAcl")
     def object_acl(self) -> Optional[pulumi.Input[str]]:
         """
-        Access Control List permission for S3 bucket objects. Defaults to `private`.
+        Access Control List permission for S3 objects. Defaults to `private`.
         """
         return pulumi.get(self, "object_acl")
 
@@ -726,7 +726,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
-        :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -891,7 +891,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
-        :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -1044,7 +1044,7 @@ class NfsFileShare(pulumi.CustomResource):
     @pulumi.getter(name="objectAcl")
     def object_acl(self) -> pulumi.Output[Optional[str]]:
         """
-        Access Control List permission for S3 bucket objects. Defaults to `private`.
+        Access Control List permission for S3 objects. Defaults to `private`.
         """
         return pulumi.get(self, "object_acl")
 

@@ -25,7 +25,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -80,9 +80,9 @@ type NetworkAclRule struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrOutput `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	IcmpCode pulumi.StringPtrOutput `pulumi:"icmpCode"`
+	IcmpCode pulumi.IntPtrOutput `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType pulumi.StringPtrOutput `pulumi:"icmpType"`
+	IcmpType pulumi.IntPtrOutput `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
 	// The ID of the network ACL.
@@ -145,9 +145,9 @@ type networkAclRuleState struct {
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	IcmpCode *string `pulumi:"icmpCode"`
+	IcmpCode *int `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType *string `pulumi:"icmpType"`
+	IcmpType *int `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The ID of the network ACL.
@@ -170,9 +170,9 @@ type NetworkAclRuleState struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	IcmpCode pulumi.StringPtrInput
+	IcmpCode pulumi.IntPtrInput
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType pulumi.StringPtrInput
+	IcmpType pulumi.IntPtrInput
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The ID of the network ACL.
@@ -199,9 +199,9 @@ type networkAclRuleArgs struct {
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	IcmpCode *string `pulumi:"icmpCode"`
+	IcmpCode *int `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType *string `pulumi:"icmpType"`
+	IcmpType *int `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The ID of the network ACL.
@@ -225,9 +225,9 @@ type NetworkAclRuleArgs struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	IcmpCode pulumi.StringPtrInput
+	IcmpCode pulumi.IntPtrInput
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType pulumi.StringPtrInput
+	IcmpType pulumi.IntPtrInput
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The ID of the network ACL.

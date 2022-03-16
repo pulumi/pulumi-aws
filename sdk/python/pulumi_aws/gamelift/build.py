@@ -242,7 +242,7 @@ class Build(pulumi.CustomResource):
             operating_system="WINDOWS_2012",
             storage_location=aws.gamelift.BuildStorageLocationArgs(
                 bucket=aws_s3_bucket["test"]["bucket"],
-                key=aws_s3_bucket_object["test"]["key"],
+                key=aws_s3_object["test"]["key"],
                 role_arn=aws_iam_role["test"]["arn"],
             ),
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["test"]]))
@@ -279,7 +279,7 @@ class Build(pulumi.CustomResource):
             operating_system="WINDOWS_2012",
             storage_location=aws.gamelift.BuildStorageLocationArgs(
                 bucket=aws_s3_bucket["test"]["bucket"],
-                key=aws_s3_bucket_object["test"]["key"],
+                key=aws_s3_object["test"]["key"],
                 role_arn=aws_iam_role["test"]["arn"],
             ),
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["test"]]))

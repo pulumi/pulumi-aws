@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementSqliMatchStatement
     {
         /// <summary>
-        /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        /// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch? FieldToMatch;
         /// <summary>

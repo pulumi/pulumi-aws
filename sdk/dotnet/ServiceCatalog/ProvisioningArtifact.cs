@@ -33,7 +33,7 @@ namespace Pulumi.Aws.ServiceCatalog
     ///         {
     ///             ProductId = aws_servicecatalog_product.Example.Id,
     ///             Type = "CLOUD_FORMATION_TEMPLATE",
-    ///             TemplateUrl = $"https://{aws_s3_bucket.Example.Bucket_regional_domain_name}/{aws_s3_bucket_object.Example.Key}",
+    ///             TemplateUrl = $"https://{aws_s3_bucket.Example.Bucket_regional_domain_name}/{aws_s3_object.Example.Key}",
     ///         });
     ///     }
     /// 

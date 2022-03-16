@@ -343,8 +343,8 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket.id)
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
         ```
         ### S3 on Outposts Bucket
 
@@ -404,8 +404,8 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket.id)
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
         ```
         ### S3 on Outposts Bucket
 

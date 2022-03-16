@@ -91,31 +91,31 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /**
-     * The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+     * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
      */
     public /*out*/ readonly apiMappingSelectionExpression!: pulumi.Output<string>;
     /**
-     * The ARN of the domain name.
+     * ARN of the domain name.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The domain name. Must be between 1 and 512 characters in length.
+     * Domain name. Must be between 1 and 512 characters in length.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The domain name configuration.
+     * Domain name configuration. See below.
      */
     public readonly domainNameConfiguration!: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
-     * The mutual TLS authentication configuration for the domain name.
+     * Mutual TLS authentication configuration for the domain name.
      */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
     /**
-     * A map of tags to assign to the domain name. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -165,31 +165,31 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameState {
     /**
-     * The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+     * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
      */
     apiMappingSelectionExpression?: pulumi.Input<string>;
     /**
-     * The ARN of the domain name.
+     * ARN of the domain name.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The domain name. Must be between 1 and 512 characters in length.
+     * Domain name. Must be between 1 and 512 characters in length.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The domain name configuration.
+     * Domain name configuration. See below.
      */
     domainNameConfiguration?: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
-     * The mutual TLS authentication configuration for the domain name.
+     * Mutual TLS authentication configuration for the domain name.
      */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
     /**
-     * A map of tags to assign to the domain name. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -199,19 +199,19 @@ export interface DomainNameState {
  */
 export interface DomainNameArgs {
     /**
-     * The domain name. Must be between 1 and 512 characters in length.
+     * Domain name. Must be between 1 and 512 characters in length.
      */
     domainName: pulumi.Input<string>;
     /**
-     * The domain name configuration.
+     * Domain name configuration. See below.
      */
     domainNameConfiguration: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
-     * The mutual TLS authentication configuration for the domain name.
+     * Mutual TLS authentication configuration for the domain name.
      */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
     /**
-     * A map of tags to assign to the domain name. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

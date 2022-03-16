@@ -52,6 +52,7 @@ import * as utilities from "../utilities";
  *     locale: "us-east-1",
  *     description: "public ipv6",
  *     advertisable: false,
+ *     awsService: "ec2",
  * });
  * const ipv6TestPublicVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr", {
  *     ipamPoolId: ipv6TestPublicVpcIpamPool.id,

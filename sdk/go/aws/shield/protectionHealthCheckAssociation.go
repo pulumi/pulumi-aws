@@ -25,10 +25,10 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/route53"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/shield"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

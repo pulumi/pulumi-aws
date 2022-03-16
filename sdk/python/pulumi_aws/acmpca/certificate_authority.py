@@ -146,9 +146,9 @@ class _CertificateAuthorityState:
         :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        :param pulumi.Input[str] status: Status of the certificate authority.
+        :param pulumi.Input[str] status: (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         """
         if arn is not None:
@@ -173,6 +173,9 @@ class _CertificateAuthorityState:
             pulumi.set(__self__, "revocation_configuration", revocation_configuration)
         if serial is not None:
             pulumi.set(__self__, "serial", serial)
+        if status is not None:
+            warnings.warn("""The reported value of the \"status\" attribute is often inaccurate. Use the resource's \"enabled\" attribute to explicitly set status.""", DeprecationWarning)
+            pulumi.log.warn("""status is deprecated: The reported value of the \"status\" attribute is often inaccurate. Use the resource's \"enabled\" attribute to explicitly set status.""")
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -318,7 +321,7 @@ class _CertificateAuthorityState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the certificate authority.
+        (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         """
         return pulumi.get(self, "status")
 
@@ -342,7 +345,7 @@ class _CertificateAuthorityState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -403,7 +406,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
@@ -412,8 +415,8 @@ class CertificateAuthority(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                example_bucket.arn,
-                example_bucket.arn.apply(lambda arn: f"{arn}/*"),
+                example_bucket_v2.arn,
+                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
             ],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 identifiers=["acm-pca.amazonaws.com"],
@@ -421,7 +424,7 @@ class CertificateAuthority(pulumi.CustomResource):
             )],
         )])
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
-            bucket=example_bucket.id,
+            bucket=example_bucket_v2.id,
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
             certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
@@ -436,7 +439,7 @@ class CertificateAuthority(pulumi.CustomResource):
                     custom_cname="crl.example.com",
                     enabled=True,
                     expiration_in_days=7,
-                    s3_bucket_name=example_bucket.id,
+                    s3_bucket_name=example_bucket_v2.id,
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
@@ -493,7 +496,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
@@ -502,8 +505,8 @@ class CertificateAuthority(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                example_bucket.arn,
-                example_bucket.arn.apply(lambda arn: f"{arn}/*"),
+                example_bucket_v2.arn,
+                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
             ],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 identifiers=["acm-pca.amazonaws.com"],
@@ -511,7 +514,7 @@ class CertificateAuthority(pulumi.CustomResource):
             )],
         )])
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
-            bucket=example_bucket.id,
+            bucket=example_bucket_v2.id,
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
             certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
@@ -526,7 +529,7 @@ class CertificateAuthority(pulumi.CustomResource):
                     custom_cname="crl.example.com",
                     enabled=True,
                     expiration_in_days=7,
-                    s3_bucket_name=example_bucket.id,
+                    s3_bucket_name=example_bucket_v2.id,
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
@@ -633,9 +636,9 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        :param pulumi.Input[str] status: Status of the certificate authority.
+        :param pulumi.Input[str] status: (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -751,7 +754,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Status of the certificate authority.
+        (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         """
         return pulumi.get(self, "status")
 
@@ -767,7 +770,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

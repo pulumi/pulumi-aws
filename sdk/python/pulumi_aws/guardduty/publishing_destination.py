@@ -172,8 +172,8 @@ class PublishingDestination(pulumi.CustomResource):
 
         current_caller_identity = aws.get_caller_identity()
         current_region = aws.get_region()
-        gd_bucket = aws.s3.Bucket("gdBucket",
-            acl="private",
+        gd_bucket = aws.s3.BucketV2("gdBucket",
+            bucket="example",
             force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -216,6 +216,9 @@ class PublishingDestination(pulumi.CustomResource):
             ),
         ])
         test_gd = aws.guardduty.Detector("testGd", enable=True)
+        gd_bucket_acl = aws.s3.BucketAclV2("gdBucketAcl",
+            bucket=gd_bucket.id,
+            acl="private")
         gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
             bucket=gd_bucket.id,
             policy=bucket_pol.json)
@@ -264,8 +267,8 @@ class PublishingDestination(pulumi.CustomResource):
 
         current_caller_identity = aws.get_caller_identity()
         current_region = aws.get_region()
-        gd_bucket = aws.s3.Bucket("gdBucket",
-            acl="private",
+        gd_bucket = aws.s3.BucketV2("gdBucket",
+            bucket="example",
             force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -308,6 +311,9 @@ class PublishingDestination(pulumi.CustomResource):
             ),
         ])
         test_gd = aws.guardduty.Detector("testGd", enable=True)
+        gd_bucket_acl = aws.s3.BucketAclV2("gdBucketAcl",
+            bucket=gd_bucket.id,
+            acl="private")
         gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
             bucket=gd_bucket.id,
             policy=bucket_pol.json)

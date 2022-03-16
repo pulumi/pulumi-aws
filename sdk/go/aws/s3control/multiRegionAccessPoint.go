@@ -20,9 +20,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3control"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,11 +40,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		fooBucket, err := s3.NewBucket(ctx, "fooBucket", nil, pulumi.Provider(aws.Primary_region))
+// 		fooBucket, err := s3.NewBucketV2(ctx, "fooBucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example-bucket-foo"),
+// 		}, pulumi.Provider(aws.Primary_region))
 // 		if err != nil {
 // 			return err
 // 		}
-// 		barBucket, err := s3.NewBucket(ctx, "barBucket", nil, pulumi.Provider(aws.Secondary_region))
+// 		barBucket, err := s3.NewBucketV2(ctx, "barBucket", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example-bucket-bar"),
+// 		}, pulumi.Provider(aws.Secondary_region))
 // 		if err != nil {
 // 			return err
 // 		}

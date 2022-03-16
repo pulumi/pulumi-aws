@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.Bucket`).
+ * A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
  * ### Basic Usage
  *
  * ```typescript

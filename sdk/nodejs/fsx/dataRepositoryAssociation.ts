@@ -16,7 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {acl: "private"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "my-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     acl: "private",
+ * });
  * const exampleLustreFileSystem = new aws.fsx.LustreFileSystem("exampleLustreFileSystem", {
  *     storageCapacity: 1200,
  *     subnetIds: [aws_subnet.example.id],
@@ -25,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleDataRepositoryAssociation = new aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", {
  *     fileSystemId: exampleLustreFileSystem.id,
- *     dataRepositoryPath: pulumi.interpolate`s3://${exampleBucket.id}`,
+ *     dataRepositoryPath: pulumi.interpolate`s3://${exampleBucketV2.id}`,
  *     fileSystemPath: "/my-bucket",
  *     s3: {
  *         autoExportPolicy: {

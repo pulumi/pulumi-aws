@@ -2537,7 +2537,7 @@ type IntentFulfillmentActivity struct {
 	// Required if type is CodeHook. Attributes are documented under code_hook.
 	CodeHook *IntentFulfillmentActivityCodeHook `pulumi:"codeHook"`
 	// How the intent should be fulfilled, either by running a Lambda function or by
-	// returning the slot data to the client application.
+	// returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
 	Type string `pulumi:"type"`
 }
 
@@ -2557,7 +2557,7 @@ type IntentFulfillmentActivityArgs struct {
 	// Required if type is CodeHook. Attributes are documented under code_hook.
 	CodeHook IntentFulfillmentActivityCodeHookPtrInput `pulumi:"codeHook"`
 	// How the intent should be fulfilled, either by running a Lambda function or by
-	// returning the slot data to the client application.
+	// returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2645,7 +2645,7 @@ func (o IntentFulfillmentActivityOutput) CodeHook() IntentFulfillmentActivityCod
 }
 
 // How the intent should be fulfilled, either by running a Lambda function or by
-// returning the slot data to the client application.
+// returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
 func (o IntentFulfillmentActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentFulfillmentActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2686,7 +2686,7 @@ func (o IntentFulfillmentActivityPtrOutput) CodeHook() IntentFulfillmentActivity
 }
 
 // How the intent should be fulfilled, either by running a Lambda function or by
-// returning the slot data to the client application.
+// returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
 func (o IntentFulfillmentActivityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentFulfillmentActivity) *string {
 		if v == nil {

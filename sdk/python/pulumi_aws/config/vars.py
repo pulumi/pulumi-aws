@@ -38,6 +38,22 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('defaultTags')
 
     @property
+    def ec2_metadata_service_endpoint(self) -> Optional[str]:
+        """
+        Address of the EC2 metadata service endpoint to use. Can also be configured using the
+        `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        """
+        return __config__.get('ec2MetadataServiceEndpoint')
+
+    @property
+    def ec2_metadata_service_endpoint_mode(self) -> Optional[str]:
+        """
+        Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+        `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        """
+        return __config__.get('ec2MetadataServiceEndpointMode')
+
+    @property
     def endpoints(self) -> Optional[str]:
         return __config__.get('endpoints')
 
@@ -91,11 +107,20 @@ class _ExportableConfig(types.ModuleType):
     @property
     def s3_force_path_style(self) -> Optional[bool]:
         """
-        Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-        default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+        Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
         Specific to the Amazon S3 service.
         """
         return __config__.get_bool('s3ForcePathStyle')
+
+    @property
+    def s3_use_path_style(self) -> Optional[bool]:
+        """
+        Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+        default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+        Specific to the Amazon S3 service.
+        """
+        return __config__.get_bool('s3UsePathStyle')
 
     @property
     def secret_key(self) -> Optional[str]:
@@ -105,11 +130,25 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('secretKey')
 
     @property
+    def shared_config_files(self) -> Optional[str]:
+        """
+        List of paths to shared config files. If not set, defaults to [~/.aws/config].
+        """
+        return __config__.get('sharedConfigFiles')
+
+    @property
     def shared_credentials_file(self) -> Optional[str]:
         """
-        The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         """
         return __config__.get('sharedCredentialsFile')
+
+    @property
+    def shared_credentials_files(self) -> Optional[str]:
+        """
+        List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
+        """
+        return __config__.get('sharedCredentialsFiles')
 
     @property
     def skip_credentials_validation(self) -> bool:
@@ -128,6 +167,9 @@ class _ExportableConfig(types.ModuleType):
 
     @property
     def skip_metadata_api_check(self) -> bool:
+        """
+        Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        """
         return __config__.get_bool('skipMetadataApiCheck') or True
 
     @property
@@ -151,4 +193,18 @@ class _ExportableConfig(types.ModuleType):
         session token. A session token is only required if you are using temporary security credentials.
         """
         return __config__.get('token')
+
+    @property
+    def use_dualstack_endpoint(self) -> Optional[bool]:
+        """
+        Resolve an endpoint with DualStack capability
+        """
+        return __config__.get_bool('useDualstackEndpoint')
+
+    @property
+    def use_fips_endpoint(self) -> Optional[bool]:
+        """
+        Resolve an endpoint with FIPS capability
+        """
+        return __config__.get_bool('useFipsEndpoint')
 

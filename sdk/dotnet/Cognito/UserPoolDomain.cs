@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Cognito
     ///         });
     ///         var main = new Aws.Cognito.UserPoolDomain("main", new Aws.Cognito.UserPoolDomainArgs
     ///         {
-    ///             Domain = "example-domain.example.com",
+    ///             Domain = "example-domain",
     ///             CertificateArn = aws_acm_certificate.Cert.Arn,
     ///             UserPoolId = exampleUserPool.Id,
     ///         });
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> CloudfrontDistributionArn { get; private set; } = null!;
 
         /// <summary>
-        /// The domain string.
+        /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// The domain string.
+        /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CloudfrontDistributionArn { get; set; }
 
         /// <summary>
-        /// The domain string.
+        /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }

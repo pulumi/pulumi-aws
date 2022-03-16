@@ -104,6 +104,12 @@ namespace Pulumi.Aws.AutoScaling
         [Output("elb")]
         public Output<string?> Elb { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of a load balancer target group.
+        /// </summary>
+        [Output("lbTargetGroupArn")]
+        public Output<string?> LbTargetGroupArn { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Attachment resource with the given unique name, arguments, and options.
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.AutoScaling
         [Input("elb")]
         public Input<string>? Elb { get; set; }
 
+        /// <summary>
+        /// The ARN of a load balancer target group.
+        /// </summary>
+        [Input("lbTargetGroupArn")]
+        public Input<string>? LbTargetGroupArn { get; set; }
+
         public AttachmentArgs()
         {
         }
@@ -192,6 +204,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("elb")]
         public Input<string>? Elb { get; set; }
+
+        /// <summary>
+        /// The ARN of a load balancer target group.
+        /// </summary>
+        [Input("lbTargetGroupArn")]
+        public Input<string>? LbTargetGroupArn { get; set; }
 
         public AttachmentState()
         {

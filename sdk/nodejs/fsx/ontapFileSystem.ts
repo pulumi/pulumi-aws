@@ -157,6 +157,9 @@ export class OntapFileSystem extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+     */
     public readonly throughputCapacity!: pulumi.Output<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
@@ -330,6 +333,9 @@ export interface OntapFileSystemState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+     */
     throughputCapacity?: pulumi.Input<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
@@ -401,6 +407,9 @@ export interface OntapFileSystemArgs {
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+     */
     throughputCapacity: pulumi.Input<number>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.

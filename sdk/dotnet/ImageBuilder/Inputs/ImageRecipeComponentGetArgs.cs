@@ -18,6 +18,18 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         [Input("componentArn", required: true)]
         public Input<string> ComponentArn { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputList<Inputs.ImageRecipeComponentParameterGetArgs>? _parameters;
+
+        /// <summary>
+        /// Configuration block(s) for parameters to configure the component. Detailed below.
+        /// </summary>
+        public InputList<Inputs.ImageRecipeComponentParameterGetArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ImageRecipeComponentParameterGetArgs>());
+            set => _parameters = value;
+        }
+
         public ImageRecipeComponentGetArgs()
         {
         }

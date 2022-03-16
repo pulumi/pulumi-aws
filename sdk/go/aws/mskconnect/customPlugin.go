@@ -20,21 +20,23 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/mskconnect"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("example"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleBucketObject, err := s3.NewBucketObject(ctx, "exampleBucketObject", &s3.BucketObjectArgs{
-// 			Bucket: exampleBucket.ID(),
+// 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+// 			Bucket: exampleBucketV2.ID(),
 // 			Key:    pulumi.String("debezium.zip"),
-// 			Source: pulumi.NewFileAsset("debezium.zip"),
+// 			Source: pulumi.String("debezium.zip"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -43,8 +45,8 @@ import (
 // 			ContentType: pulumi.String("ZIP"),
 // 			Location: &mskconnect.CustomPluginLocationArgs{
 // 				S3: &mskconnect.CustomPluginLocationS3Args{
-// 					BucketArn: exampleBucket.Arn,
-// 					FileKey:   exampleBucketObject.Key,
+// 					BucketArn: exampleBucketV2.Arn,
+// 					FileKey:   exampleBucketObjectv2.Key,
 // 				},
 // 			},
 // 		})

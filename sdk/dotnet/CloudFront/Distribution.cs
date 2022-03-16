@@ -34,13 +34,18 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     public MyStack()
     ///     {
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Acl = "private",
+    ///             Bucket = "mybucket",
     ///             Tags = 
     ///             {
     ///                 { "Name", "My bucket" },
     ///             },
+    ///         });
+    ///         var bAcl = new Aws.S3.BucketAclV2("bAcl", new Aws.S3.BucketAclV2Args
+    ///         {
+    ///             Bucket = bucketV2.Id,
+    ///             Acl = "private",
     ///         });
     ///         var s3OriginId = "myS3Origin";
     ///         var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new Aws.CloudFront.DistributionArgs
@@ -49,7 +54,7 @@ namespace Pulumi.Aws.CloudFront
     ///             {
     ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///                 {
-    ///                     DomainName = bucket.BucketRegionalDomainName,
+    ///                     DomainName = bucketV2.BucketRegionalDomainName,
     ///                     OriginId = s3OriginId,
     ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                     {

@@ -468,7 +468,7 @@ class Component(pulumi.CustomResource):
 
         example = aws.imagebuilder.Component("example",
             platform="Linux",
-            uri=f"s3://{aws_s3_bucket_object['example']['bucket']}/{aws_s3_bucket_object['example']['key']}",
+            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
             version="1.0.0")
         ```
 
@@ -513,7 +513,7 @@ class Component(pulumi.CustomResource):
 
         example = aws.imagebuilder.Component("example",
             platform="Linux",
-            uri=f"s3://{aws_s3_bucket_object['example']['bucket']}/{aws_s3_bucket_object['example']['key']}",
+            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
             version="1.0.0")
         ```
 

@@ -22,14 +22,16 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucket(ctx, "example", nil)
+// 		example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+// 			Bucket: pulumi.String("my-tf-test-bucket"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

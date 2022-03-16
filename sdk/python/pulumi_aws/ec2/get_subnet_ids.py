@@ -93,6 +93,8 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
 
     This resource can be useful for getting back a set of subnet ids for a vpc.
 
+    > **NOTE:** The `ec2.get_subnet_ids` data source has been deprecated and will be removed in a future version. Use the `ec2.get_subnets` data source instead.
+
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
@@ -126,6 +128,8 @@ def get_subnet_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     `ec2.get_subnet_ids` provides a set of ids for a vpc_id
 
     This resource can be useful for getting back a set of subnet ids for a vpc.
+
+    > **NOTE:** The `ec2.get_subnet_ids` data source has been deprecated and will be removed in a future version. Use the `ec2.get_subnets` data source instead.
 
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.

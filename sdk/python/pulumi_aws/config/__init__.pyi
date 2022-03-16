@@ -23,6 +23,18 @@ defaultTags: Optional[str]
 Configuration block with settings to default resource tags across all resources.
 """
 
+ec2MetadataServiceEndpoint: Optional[str]
+"""
+Address of the EC2 metadata service endpoint to use. Can also be configured using the
+`AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+"""
+
+ec2MetadataServiceEndpointMode: Optional[str]
+"""
+Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+`AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+"""
+
 endpoints: Optional[str]
 
 forbiddenAccountIds: Optional[str]
@@ -60,8 +72,15 @@ The region where AWS operations will take place. Examples are us-east-1, us-west
 
 s3ForcePathStyle: Optional[bool]
 """
-Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
-default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
+Specific to the Amazon S3 service.
+"""
+
+s3UsePathStyle: Optional[bool]
+"""
+Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
+default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 Specific to the Amazon S3 service.
 """
 
@@ -70,9 +89,19 @@ secretKey: Optional[str]
 The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 """
 
+sharedConfigFiles: Optional[str]
+"""
+List of paths to shared config files. If not set, defaults to [~/.aws/config].
+"""
+
 sharedCredentialsFile: Optional[str]
 """
-The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
+"""
+
+sharedCredentialsFiles: Optional[str]
+"""
+List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
 """
 
 skipCredentialsValidation: bool
@@ -87,6 +116,9 @@ Skip getting the supported EC2 platforms. Used by users that don't have ec2:Desc
 """
 
 skipMetadataApiCheck: bool
+"""
+Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+"""
 
 skipRegionValidation: bool
 """
@@ -102,5 +134,15 @@ Skip requesting the account ID. Used for AWS API implementations that do not hav
 token: Optional[str]
 """
 session token. A session token is only required if you are using temporary security credentials.
+"""
+
+useDualstackEndpoint: Optional[bool]
+"""
+Resolve an endpoint with DualStack capability
+"""
+
+useFipsEndpoint: Optional[bool]
+"""
+Resolve an endpoint with FIPS capability
 """
 

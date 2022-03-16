@@ -21,7 +21,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codepipeline"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
 // 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -30,12 +30,14 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		barPipeline, err := codepipeline.NewPipeline(ctx, "barPipeline", &codepipeline.PipelineArgs{
 // 			RoleArn: pulumi.Any(aws_iam_role.Bar.Arn),
-// 			ArtifactStore: &codepipeline.PipelineArtifactStoreArgs{
-// 				Location: pulumi.Any(aws_s3_bucket.Bar.Bucket),
-// 				Type:     pulumi.String("S3"),
-// 				EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-// 					Id:   pulumi.Any(data.Aws_kms_alias.S3kmskey.Arn),
-// 					Type: pulumi.String("KMS"),
+// 			ArtifactStores: codepipeline.PipelineArtifactStoreArray{
+// 				&codepipeline.PipelineArtifactStoreArgs{
+// 					Location: pulumi.Any(aws_s3_bucket.Bar.Bucket),
+// 					Type:     pulumi.String("S3"),
+// 					EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
+// 						Id:   pulumi.Any(data.Aws_kms_alias.S3kmskey.Arn),
+// 						Type: pulumi.String("KMS"),
+// 					},
 // 				},
 // 			},
 // 			Stages: codepipeline.PipelineStageArray{

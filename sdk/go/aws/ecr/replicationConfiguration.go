@@ -18,8 +18,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecr"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -35,11 +35,13 @@ import (
 // 		}
 // 		_, err = ecr.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &ecr.ReplicationConfigurationArgs{
 // 			ReplicationConfiguration: &ecr.ReplicationConfigurationReplicationConfigurationArgs{
-// 				Rule: &ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
-// 					Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
-// 						&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-// 							Region:     pulumi.String(exampleRegions.Names[0]),
-// 							RegistryId: pulumi.String(current.AccountId),
+// 				Rules: ecr.ReplicationConfigurationReplicationConfigurationRuleArray{
+// 					&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
+// 						Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
+// 							&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
+// 								Region:     pulumi.String(exampleRegions.Names[0]),
+// 								RegistryId: pulumi.String(current.AccountId),
+// 							},
 // 						},
 // 					},
 // 				},
@@ -58,8 +60,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecr"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -75,15 +77,17 @@ import (
 // 		}
 // 		_, err = ecr.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &ecr.ReplicationConfigurationArgs{
 // 			ReplicationConfiguration: &ecr.ReplicationConfigurationReplicationConfigurationArgs{
-// 				Rule: &ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
-// 					Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
-// 						&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-// 							Region:     pulumi.String(exampleRegions.Names[0]),
-// 							RegistryId: pulumi.String(current.AccountId),
-// 						},
-// 						&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-// 							Region:     pulumi.String(exampleRegions.Names[1]),
-// 							RegistryId: pulumi.String(current.AccountId),
+// 				Rules: ecr.ReplicationConfigurationReplicationConfigurationRuleArray{
+// 					&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
+// 						Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
+// 							&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
+// 								Region:     pulumi.String(exampleRegions.Names[0]),
+// 								RegistryId: pulumi.String(current.AccountId),
+// 							},
+// 							&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
+// 								Region:     pulumi.String(exampleRegions.Names[1]),
+// 								RegistryId: pulumi.String(current.AccountId),
+// 							},
 // 						},
 // 					},
 // 				},
@@ -103,8 +107,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecr"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -120,17 +124,19 @@ import (
 // 		}
 // 		_, err = ecr.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &ecr.ReplicationConfigurationArgs{
 // 			ReplicationConfiguration: &ecr.ReplicationConfigurationReplicationConfigurationArgs{
-// 				Rule: &ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
-// 					Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
-// 						&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-// 							Region:     pulumi.String(exampleRegions.Names[0]),
-// 							RegistryId: pulumi.String(current.AccountId),
+// 				Rules: ecr.ReplicationConfigurationReplicationConfigurationRuleArray{
+// 					&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
+// 						Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
+// 							&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
+// 								Region:     pulumi.String(exampleRegions.Names[0]),
+// 								RegistryId: pulumi.String(current.AccountId),
+// 							},
 // 						},
-// 					},
-// 					RepositoryFilters: ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{
-// 						&ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{
-// 							Filter:     pulumi.String("prod-microservice"),
-// 							FilterType: pulumi.String("PREFIX_MATCH"),
+// 						RepositoryFilters: ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{
+// 							&ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{
+// 								Filter:     pulumi.String("prod-microservice"),
+// 								FilterType: pulumi.String("PREFIX_MATCH"),
+// 							},
 // 						},
 // 					},
 // 				},

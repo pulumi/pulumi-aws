@@ -185,6 +185,9 @@ namespace Pulumi.Aws.Fsx
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+        /// </summary>
         [Output("throughputCapacity")]
         public Output<int> ThroughputCapacity { get; private set; } = null!;
 
@@ -354,6 +357,9 @@ namespace Pulumi.Aws.Fsx
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+        /// </summary>
         [Input("throughputCapacity", required: true)]
         public Input<int> ThroughputCapacity { get; set; } = null!;
 
@@ -532,6 +538,9 @@ namespace Pulumi.Aws.Fsx
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+        /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }
 

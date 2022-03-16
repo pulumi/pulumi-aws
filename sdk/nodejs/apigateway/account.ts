@@ -98,7 +98,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    public /*out*/ readonly throttleSettings!: pulumi.Output<outputs.apigateway.AccountThrottleSettings>;
+    public /*out*/ readonly throttleSettings!: pulumi.Output<outputs.apigateway.AccountThrottleSetting[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -136,7 +136,7 @@ export interface AccountState {
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    throttleSettings?: pulumi.Input<inputs.apigateway.AccountThrottleSettings>;
+    throttleSettings?: pulumi.Input<pulumi.Input<inputs.apigateway.AccountThrottleSetting>[]>;
 }
 
 /**

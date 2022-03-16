@@ -56,7 +56,7 @@ class GetRouteTablesResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A set of all the route table ids found. This data source will fail if none are found.
+        A set of all the route table ids found.
         """
         return pulumi.get(self, "ids")
 

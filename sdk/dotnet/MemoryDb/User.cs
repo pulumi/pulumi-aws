@@ -10,6 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MemoryDb
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRandomPassword = new Random.RandomPassword("exampleRandomPassword", new Random.RandomPasswordArgs
+    ///         {
+    ///             Length = 16,
+    ///         });
+    ///         var exampleUser = new Aws.MemoryDb.User("exampleUser", new Aws.MemoryDb.UserArgs
+    ///         {
+    ///             UserName = "my-user",
+    ///             AccessString = "on ~* &amp;* +@all",
+    ///             AuthenticationMode = new Aws.MemoryDb.Inputs.UserAuthenticationModeArgs
+    ///             {
+    ///                 Type = "password",
+    ///                 Passwords = 
+    ///                 {
+    ///                     exampleRandomPassword.Result,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Use the `user_name` to import a user. For example

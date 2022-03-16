@@ -16,8 +16,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.guardduty.Detector("primary", {enable: true});
- * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
- * const myThreatIntelSetBucketObject = new aws.s3.BucketObject("myThreatIntelSetBucketObject", {
+ * const bucket = new aws.s3.BucketV2("bucket", {});
+ * // ... other configuration ...
+ * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ *     bucket: bucket.id,
+ *     acl: "private",
+ * });
+ * const myThreatIntelSetBucketObjectv2 = new aws.s3.BucketObjectv2("myThreatIntelSetBucketObjectv2", {
  *     acl: "public-read",
  *     content: "10.0.0.0/8\n",
  *     bucket: bucket.id,
@@ -27,7 +32,7 @@ import * as utilities from "../utilities";
  *     activate: true,
  *     detectorId: primary.id,
  *     format: "TXT",
- *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObject.bucket}/${myThreatIntelSetBucketObject.key}`,
+ *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObjectv2.bucket}/${myThreatIntelSetBucketObjectv2.key}`,
  * });
  * ```
  *

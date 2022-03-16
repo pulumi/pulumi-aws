@@ -5,9 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
- * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- *
  * ## Example Usage
  * ### Using default security group
  *
@@ -82,10 +79,14 @@ export class NetworkAssociation extends pulumi.CustomResource {
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     /**
      * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+     *
+     * @deprecated Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
     /**
-     * The current state of the target network association.
+     * **Deprecated** The current state of the target network association.
+     *
+     * @deprecated This attribute has been deprecated.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -150,10 +151,14 @@ export interface NetworkAssociationState {
     clientVpnEndpointId?: pulumi.Input<string>;
     /**
      * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+     *
+     * @deprecated Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The current state of the target network association.
+     * **Deprecated** The current state of the target network association.
+     *
+     * @deprecated This attribute has been deprecated.
      */
     status?: pulumi.Input<string>;
     /**
@@ -176,6 +181,8 @@ export interface NetworkAssociationArgs {
     clientVpnEndpointId: pulumi.Input<string>;
     /**
      * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+     *
+     * @deprecated Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

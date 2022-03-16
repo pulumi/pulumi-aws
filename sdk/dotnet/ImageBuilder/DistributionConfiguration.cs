@@ -41,6 +41,13 @@ namespace Pulumi.Aws.ImageBuilder
     ///                                 "123456789012",
     ///                             },
     ///                         },
+    ///                         LaunchTemplateConfiguration = 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "launchTemplateId", "lt-0aaa1bcde2ff3456" },
+    ///                             },
+    ///                         },
     ///                         Name = "example-{{ imagebuilder:buildDate }}",
     ///                     },
     ///                     Region = "us-east-1",

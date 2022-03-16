@@ -196,7 +196,7 @@ import * as utilities from "../utilities";
  * const eventBusInvokeRemoteEventBusPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
- *         actions: ["events.PutEvents"],
+ *         actions: ["events:PutEvents"],
  *         resources: ["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
  *     }],
  * });

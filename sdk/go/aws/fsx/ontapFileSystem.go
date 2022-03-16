@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/fsx"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -107,8 +107,9 @@ type OntapFileSystem struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
-	ThroughputCapacity pulumi.IntOutput       `pulumi:"throughputCapacity"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -195,8 +196,9 @@ type ontapFileSystemState struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll            map[string]string `pulumi:"tagsAll"`
-	ThroughputCapacity *int              `pulumi:"throughputCapacity"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+	ThroughputCapacity *int `pulumi:"throughputCapacity"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId *string `pulumi:"vpcId"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -243,7 +245,8 @@ type OntapFileSystemState struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll            pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
 	ThroughputCapacity pulumi.IntPtrInput
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringPtrInput
@@ -283,8 +286,9 @@ type ontapFileSystemArgs struct {
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags               map[string]string `pulumi:"tags"`
-	ThroughputCapacity int               `pulumi:"throughputCapacity"`
+	Tags map[string]string `pulumi:"tags"`
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
+	ThroughputCapacity int `pulumi:"throughputCapacity"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
 }
@@ -318,7 +322,8 @@ type OntapFileSystemArgs struct {
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags               pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
 	ThroughputCapacity pulumi.IntInput
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringPtrInput

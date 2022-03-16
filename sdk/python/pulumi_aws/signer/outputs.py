@@ -150,7 +150,7 @@ class SigningJobSignedObjectS3(dict):
                  key: Optional[str] = None):
         """
         :param str bucket: Name of the S3 bucket.
-        :param str key: Key name of the bucket object that contains your unsigned code.
+        :param str key: Key name of the object that contains your unsigned code.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -169,7 +169,7 @@ class SigningJobSignedObjectS3(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Key name of the bucket object that contains your unsigned code.
+        Key name of the object that contains your unsigned code.
         """
         return pulumi.get(self, "key")
 
@@ -200,7 +200,7 @@ class SigningJobSourceS3(dict):
                  version: str):
         """
         :param str bucket: Name of the S3 bucket.
-        :param str key: Key name of the bucket object that contains your unsigned code.
+        :param str key: Key name of the object that contains your unsigned code.
         :param str version: Version of your source image in your version enabled S3 bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -219,7 +219,7 @@ class SigningJobSourceS3(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        Key name of the bucket object that contains your unsigned code.
+        Key name of the object that contains your unsigned code.
         """
         return pulumi.get(self, "key")
 

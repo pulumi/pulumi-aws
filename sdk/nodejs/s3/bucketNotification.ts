@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
  * const topic = new aws.sns.Topic("topic", {policy: pulumi.interpolate`{
  *     "Version":"2012-10-17",
  *     "Statement":[{
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
  * const queue = new aws.sqs.Queue("queue", {policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  *     handler: "exports.example",
  *     runtime: "go1.x",
  * });
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
  * const allowBucket = new aws.lambda.Permission("allowBucket", {
  *     action: "lambda:InvokeFunction",
  *     "function": func.arn,
@@ -140,7 +140,7 @@ import * as utilities from "../utilities";
  *     handler: "exports.example",
  *     runtime: "go1.x",
  * });
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
  * const allowBucket1 = new aws.lambda.Permission("allowBucket1", {
  *     action: "lambda:InvokeFunction",
  *     "function": func1.arn,
@@ -187,7 +187,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
  * const queue = new aws.sqs.Queue("queue", {policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [

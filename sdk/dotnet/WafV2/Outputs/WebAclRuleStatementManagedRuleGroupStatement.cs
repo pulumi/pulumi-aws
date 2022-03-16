@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule> ExcludedRules;
         /// <summary>
-        /// The name of the managed rule group.
+        /// Name of the managed rule group.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -26,9 +26,13 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? ScopeDownStatement;
         /// <summary>
-        /// The name of the managed rule group vendor.
+        /// Name of the managed rule group vendor.
         /// </summary>
         public readonly string VendorName;
+        /// <summary>
+        /// Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatement(
@@ -38,12 +42,15 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? scopeDownStatement,
 
-            string vendorName)
+            string vendorName,
+
+            string? version)
         {
             ExcludedRules = excludedRules;
             Name = name;
             ScopeDownStatement = scopeDownStatement;
             VendorName = vendorName;
+            Version = version;
         }
     }
 }

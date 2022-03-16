@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/efs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -43,15 +43,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/efs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := efs.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs.FileSystemArgs{
-// 			LifecyclePolicy: &efs.FileSystemLifecyclePolicyArgs{
-// 				TransitionToIa: pulumi.String("AFTER_30_DAYS"),
+// 			LifecyclePolicies: efs.FileSystemLifecyclePolicyArray{
+// 				&efs.FileSystemLifecyclePolicyArgs{
+// 					TransitionToIa: pulumi.String("AFTER_30_DAYS"),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {
@@ -90,7 +92,7 @@ type FileSystem struct {
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
-	LifecyclePolicy FileSystemLifecyclePolicyPtrOutput `pulumi:"lifecyclePolicy"`
+	LifecyclePolicies FileSystemLifecyclePolicyArrayOutput `pulumi:"lifecyclePolicies"`
 	// The current number of mount targets that the file system has.
 	NumberOfMountTargets pulumi.IntOutput `pulumi:"numberOfMountTargets"`
 	// The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
@@ -156,7 +158,7 @@ type fileSystemState struct {
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
-	LifecyclePolicy *FileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The current number of mount targets that the file system has.
 	NumberOfMountTargets *int `pulumi:"numberOfMountTargets"`
 	// The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
@@ -194,7 +196,7 @@ type FileSystemState struct {
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
-	LifecyclePolicy FileSystemLifecyclePolicyPtrInput
+	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The current number of mount targets that the file system has.
 	NumberOfMountTargets pulumi.IntPtrInput
 	// The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
@@ -230,7 +232,7 @@ type fileSystemArgs struct {
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
-	LifecyclePolicy *FileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
@@ -255,7 +257,7 @@ type FileSystemArgs struct {
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
-	LifecyclePolicy FileSystemLifecyclePolicyPtrInput
+	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
