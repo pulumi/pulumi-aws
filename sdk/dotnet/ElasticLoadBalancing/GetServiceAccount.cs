@@ -31,7 +31,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         ///         var main = Output.Create(Aws.Elb.GetServiceAccount.InvokeAsync());
         ///         var elbLogs = new Aws.S3.BucketV2("elbLogs", new Aws.S3.BucketV2Args
         ///         {
-        ///             Bucket = "my-elb-tf-test-bucket",
         ///         });
         ///         var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new Aws.S3.BucketAclV2Args
         ///         {
@@ -112,7 +111,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         ///         var main = Output.Create(Aws.Elb.GetServiceAccount.InvokeAsync());
         ///         var elbLogs = new Aws.S3.BucketV2("elbLogs", new Aws.S3.BucketV2Args
         ///         {
-        ///             Bucket = "my-elb-tf-test-bucket",
         ///         });
         ///         var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new Aws.S3.BucketAclV2Args
         ///         {

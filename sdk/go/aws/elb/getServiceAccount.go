@@ -32,9 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		elbLogs, err := s3.NewBucketV2(ctx, "elbLogs", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my-elb-tf-test-bucket"),
-// 		})
+// 		elbLogs, err := s3.NewBucketV2(ctx, "elbLogs", nil)
 // 		if err != nil {
 // 			return err
 // 		}

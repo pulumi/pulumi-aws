@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Athena
     ///     {
     ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "hoge",
     ///         });
     ///         var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new Aws.Athena.DatabaseArgs
     ///         {

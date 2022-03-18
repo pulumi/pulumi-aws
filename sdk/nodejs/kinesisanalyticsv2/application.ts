@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example-flink-application"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketV2.bucket,
  *     key: "example-flink-application",
- *     source: "flink-app.jar",
+ *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
  *     runtimeEnvironment: "FLINK-1_8",
@@ -181,11 +181,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example-flink-application"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketV2.bucket,
  *     key: "example-flink-application",
- *     source: "flink-app.jar",
+ *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
  *     runtimeEnvironment: "FLINK-1_8",

@@ -26,9 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("example"),
-// 		})
+// 		example, err := s3.NewBucketV2(ctx, "example", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -54,9 +52,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("example"),
-// 		})
+// 		example, err := s3.NewBucketV2(ctx, "example", nil)
 // 		if err != nil {
 // 			return err
 // 		}

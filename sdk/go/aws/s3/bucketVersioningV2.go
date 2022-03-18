@@ -29,9 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("example-bucket"),
-// 		})
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -73,9 +71,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("yotto"),
-// 		})
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -91,7 +87,7 @@ import (
 // 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Bucket: exampleBucketVersioningV2.Bucket,
 // 			Key:    pulumi.String("droeloe"),
-// 			Source: pulumi.String("example.txt"),
+// 			Source: pulumi.NewFileAsset("example.txt"),
 // 		})
 // 		if err != nil {
 // 			return err

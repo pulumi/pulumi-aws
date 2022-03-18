@@ -536,7 +536,7 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",
@@ -549,7 +549,7 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",
@@ -650,7 +650,7 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",
@@ -663,7 +663,7 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
             log_destination_type="s3",

@@ -24,7 +24,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-bucket",
     ///         });
     ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
     ///         {
@@ -87,7 +86,6 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var versioningBucket = new Aws.S3.BucketV2("versioningBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-versioning-bucket",
     ///         });
     ///         var versioningBucketAcl = new Aws.S3.BucketAclV2("versioningBucketAcl", new Aws.S3.BucketAclV2Args
     ///         {

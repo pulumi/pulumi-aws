@@ -24,7 +24,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new Aws.S3.BucketOwnershipControlsArgs
     ///         {

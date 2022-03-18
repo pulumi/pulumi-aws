@@ -27,7 +27,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "your-bucket-name",
     ///         });
     ///         var topic = new Aws.Sns.Topic("topic", new Aws.Sns.TopicArgs
     ///         {
@@ -77,7 +76,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "your-bucket-name",
     ///         });
     ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
     ///         {
@@ -152,7 +150,6 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "your-bucket-name",
     ///         });
     ///         var allowBucket = new Aws.Lambda.Permission("allowBucket", new Aws.Lambda.PermissionArgs
     ///         {
@@ -223,7 +220,6 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "your-bucket-name",
     ///         });
     ///         var allowBucket1 = new Aws.Lambda.Permission("allowBucket1", new Aws.Lambda.PermissionArgs
     ///         {
@@ -295,7 +291,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "your-bucket-name",
     ///         });
     ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
     ///         {

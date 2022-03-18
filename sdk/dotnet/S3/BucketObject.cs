@@ -28,7 +28,6 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -58,7 +57,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -88,7 +86,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -118,7 +115,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketV2ObjectLockConfigurationArgs
     ///             {
     ///                 ObjectLockEnabled = "Enabled",

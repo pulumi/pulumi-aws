@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codestarconnections.Connection("example", {providerType: "GitHub"});
- * const codepipelineBucket = new aws.s3.BucketV2("codepipelineBucket", {bucket: "test-bucket"});
+ * const codepipelineBucket = new aws.s3.BucketV2("codepipelineBucket", {});
  * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

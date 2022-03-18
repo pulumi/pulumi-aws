@@ -607,12 +607,10 @@ class BucketV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            bucket="my-tf-test-bucket",
-            tags={
-                "Name": "My bucket",
-                "Environment": "Dev",
-            })
+        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
+            "Name": "My bucket",
+            "Environment": "Dev",
+        })
         example = aws.s3.BucketAclV2("example",
             bucket=bucket_v2.id,
             acl="private")
@@ -693,12 +691,10 @@ class BucketV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            bucket="my-tf-test-bucket",
-            tags={
-                "Name": "My bucket",
-                "Environment": "Dev",
-            })
+        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
+            "Name": "My bucket",
+            "Environment": "Dev",
+        })
         example = aws.s3.BucketAclV2("example",
             bucket=bucket_v2.id,
             acl="private")

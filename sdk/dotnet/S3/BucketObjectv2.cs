@@ -30,7 +30,6 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -41,7 +40,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             Key = "someobject",
     ///             Bucket = examplebucket.Id,
-    ///             Source = "index.html",
+    ///             Source = new FileAsset("index.html"),
     ///             KmsKeyId = examplekms.Arn,
     ///         });
     ///     }
@@ -60,7 +59,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -71,7 +69,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             Key = "someobject",
     ///             Bucket = examplebucket.Id,
-    ///             Source = "index.html",
+    ///             Source = new FileAsset("index.html"),
     ///             ServerSideEncryption = "aws:kms",
     ///         });
     ///     }
@@ -90,7 +88,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -101,7 +98,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             Key = "someobject",
     ///             Bucket = examplebucket.Id,
-    ///             Source = "index.html",
+    ///             Source = new FileAsset("index.html"),
     ///             ServerSideEncryption = "AES256",
     ///         });
     ///     }
@@ -120,7 +117,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "examplebuckettftest",
     ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketV2ObjectLockConfigurationArgs
     ///             {
     ///                 ObjectLockEnabled = "Enabled",
@@ -143,7 +139,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             Key = "someobject",
     ///             Bucket = examplebucket.Id,
-    ///             Source = "important.txt",
+    ///             Source = new FileAsset("important.txt"),
     ///             ObjectLockLegalHoldStatus = "ON",
     ///             ObjectLockMode = "GOVERNANCE",
     ///             ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
@@ -292,7 +288,7 @@ namespace Pulumi.Aws.S3
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
         /// </summary>
         [Output("source")]
-        public Output<string?> Source { get; private set; } = null!;
+        public Output<AssetOrArchive?> Source { get; private set; } = null!;
 
         [Output("sourceHash")]
         public Output<string?> SourceHash { get; private set; } = null!;
@@ -448,8 +444,8 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Name of the object once it is in the bucket.
         /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        [Input("key")]
+        public Input<string>? Key { get; set; }
 
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -494,7 +490,7 @@ namespace Pulumi.Aws.S3
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
         /// </summary>
         [Input("source")]
-        public Input<string>? Source { get; set; }
+        public Input<AssetOrArchive>? Source { get; set; }
 
         [Input("sourceHash")]
         public Input<string>? SourceHash { get; set; }
@@ -663,7 +659,7 @@ namespace Pulumi.Aws.S3
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
         /// </summary>
         [Input("source")]
-        public Input<string>? Source { get; set; }
+        public Input<AssetOrArchive>? Source { get; set; }
 
         [Input("sourceHash")]
         public Input<string>? SourceHash { get; set; }

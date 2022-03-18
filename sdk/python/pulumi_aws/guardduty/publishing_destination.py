@@ -172,9 +172,7 @@ class PublishingDestination(pulumi.CustomResource):
 
         current_caller_identity = aws.get_caller_identity()
         current_region = aws.get_region()
-        gd_bucket = aws.s3.BucketV2("gdBucket",
-            bucket="example",
-            force_destroy=True)
+        gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow PutObject",
@@ -267,9 +265,7 @@ class PublishingDestination(pulumi.CustomResource):
 
         current_caller_identity = aws.get_caller_identity()
         current_region = aws.get_region()
-        gd_bucket = aws.s3.BucketV2("gdBucket",
-            bucket="example",
-            force_destroy=True)
+        gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="Allow PutObject",

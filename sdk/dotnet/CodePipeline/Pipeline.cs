@@ -28,7 +28,6 @@ namespace Pulumi.Aws.CodePipeline
     ///         });
     ///         var codepipelineBucket = new Aws.S3.BucketV2("codepipelineBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "test-bucket",
     ///         });
     ///         var codepipelineRole = new Aws.Iam.Role("codepipelineRole", new Aws.Iam.RoleArgs
     ///         {

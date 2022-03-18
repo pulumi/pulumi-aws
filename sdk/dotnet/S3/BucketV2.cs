@@ -27,7 +27,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-test-bucket",
     ///             Tags = 
     ///             {
     ///                 { "Name", "My bucket" },

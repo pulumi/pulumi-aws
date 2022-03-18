@@ -42,9 +42,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my_tf_test_bucket"),
-// 		})
+// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -90,9 +88,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my_tf_test_bucket"),
-// 		})
+// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -134,9 +130,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my_tf_test_bucket"),
-// 		})
+// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -439,9 +433,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my_tf_test_bucket"),
-// 		})
+// 		_, err = s3.NewBucketV2(ctx, "bucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}

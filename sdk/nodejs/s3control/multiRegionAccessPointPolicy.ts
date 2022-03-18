@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentPartition = aws.getPartition({});
- * const fooBucket = new aws.s3.BucketV2("fooBucket", {bucket: "example-bucket-foo"});
+ * const fooBucket = new aws.s3.BucketV2("fooBucket", {});
  * const exampleMultiRegionAccessPoint = new aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", {details: {
  *     name: "example",
  *     regions: [{

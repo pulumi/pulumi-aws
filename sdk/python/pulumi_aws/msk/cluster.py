@@ -566,7 +566,7 @@ class Cluster(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
         test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
@@ -697,7 +697,7 @@ class Cluster(pulumi.CustomResource):
         sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
         kms = aws.kms.Key("kms", description="example")
         test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket", bucket="msk-broker-logs-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")

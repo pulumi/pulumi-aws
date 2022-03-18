@@ -42,7 +42,6 @@ namespace Pulumi.Aws.CloudWatch
     ///         });
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "metric-stream-test-bucket",
     ///         });
     ///         var firehoseToS3Role = new Aws.Iam.Role("firehoseToS3Role", new Aws.Iam.RoleArgs
     ///         {

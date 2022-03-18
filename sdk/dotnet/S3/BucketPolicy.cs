@@ -25,7 +25,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-test-bucket",
     ///         });
     ///         var allowAccessFromAnotherAccountPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {

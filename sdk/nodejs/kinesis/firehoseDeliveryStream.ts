@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "tf-test-bucket"});
+ * const bucket = new aws.s3.BucketV2("bucket", {});
  * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "tf-test-bucket"});
+ * const bucket = new aws.s3.BucketV2("bucket", {});
  * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
  *     bucket: bucket.id,
  *     acl: "private",

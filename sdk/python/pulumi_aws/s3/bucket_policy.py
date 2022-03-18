@@ -106,7 +106,7 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-test-bucket")
+        example = aws.s3.BucketV2("example")
         allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
@@ -155,7 +155,7 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-test-bucket")
+        example = aws.s3.BucketV2("example")
         allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",

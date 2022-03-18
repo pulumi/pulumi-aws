@@ -45,7 +45,6 @@ namespace Pulumi.Aws.CodeBuild
     ///         });
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-test",
     ///         });
     ///         var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new Aws.CodeBuild.ReportGroupArgs
     ///         {

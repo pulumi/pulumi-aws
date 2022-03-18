@@ -26,7 +26,6 @@ namespace Pulumi.Aws.GuardDuty
     ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
     ///         var gdBucket = new Aws.S3.BucketV2("gdBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///             ForceDestroy = true,
     ///         });
     ///         var bucketPol = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs

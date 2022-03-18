@@ -25,11 +25,9 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var testBucketV2 = new Aws.S3.BucketV2("testBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-test-bucket",
     ///         });
     ///         var inventory = new Aws.S3.BucketV2("inventory", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-inventory-bucket",
     ///         });
     ///         var testInventory = new Aws.S3.Inventory("testInventory", new Aws.S3.InventoryArgs
     ///         {
@@ -64,11 +62,9 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var test = new Aws.S3.BucketV2("test", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-test-bucket",
     ///         });
     ///         var inventory = new Aws.S3.BucketV2("inventory", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-inventory-bucket",
     ///         });
     ///         var test_prefix = new Aws.S3.Inventory("test-prefix", new Aws.S3.InventoryArgs
     ///         {

@@ -26,7 +26,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "mybucket",
     ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketV2ObjectLockConfigurationArgs
     ///             {
     ///                 ObjectLockEnabled = "Enabled",

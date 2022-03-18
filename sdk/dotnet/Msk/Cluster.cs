@@ -61,7 +61,6 @@ namespace Pulumi.Aws.Msk
     ///         });
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "msk-broker-logs-bucket",
     ///         });
     ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
     ///         {

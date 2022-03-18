@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mybucket = new aws.s3.BucketV2("mybucket", {bucket: "mybucket"});
+ * const mybucket = new aws.s3.BucketV2("mybucket", {});
  * const example = new aws.s3.BucketAccelerateConfigurationV2("example", {
  *     bucket: mybucket.bucket,
  *     status: "Enabled",

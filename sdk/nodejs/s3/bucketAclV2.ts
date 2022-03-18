@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const example = new aws.s3.BucketV2("example", {});
  * const exampleBucketAcl = new aws.s3.BucketAclV2("exampleBucketAcl", {
  *     bucket: example.id,
  *     acl: "private",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.s3.getCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "my-tf-example-bucket"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {

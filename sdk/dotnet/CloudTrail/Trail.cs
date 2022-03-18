@@ -33,7 +33,6 @@ namespace Pulumi.Aws.CloudTrail
     ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my_tf_test_bucket",
     ///         });
     ///         var bucketPolicy = new Aws.S3.BucketPolicy("bucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {
@@ -102,7 +101,6 @@ namespace Pulumi.Aws.CloudTrail
     ///     {
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my_tf_test_bucket",
     ///         });
     ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
     ///         {
@@ -144,7 +142,6 @@ namespace Pulumi.Aws.CloudTrail
     ///     {
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my_tf_test_bucket",
     ///         });
     ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
     ///         {
@@ -471,7 +468,6 @@ namespace Pulumi.Aws.CloudTrail
     ///         });
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my_tf_test_bucket",
     ///         });
     ///         var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new Aws.CloudTrail.TrailArgs
     ///         {

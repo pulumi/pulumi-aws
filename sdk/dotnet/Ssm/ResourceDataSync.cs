@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test-bucket-1234",
     ///         });
     ///         var hogeBucketPolicy = new Aws.S3.BucketPolicy("hogeBucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {

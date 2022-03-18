@@ -29,7 +29,6 @@ namespace Pulumi.Aws
         ///         var main = Output.Create(Aws.GetBillingServiceAccount.InvokeAsync());
         ///         var billingLogs = new Aws.S3.BucketV2("billingLogs", new Aws.S3.BucketV2Args
         ///         {
-        ///             Bucket = "my-billing-tf-test-bucket",
         ///         });
         ///         var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new Aws.S3.BucketAclV2Args
         ///         {

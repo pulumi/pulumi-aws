@@ -34,9 +34,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
-// 		})
+// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -50,7 +48,7 @@ import (
 // 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Key:      pulumi.String("someobject"),
 // 			Bucket:   examplebucket.ID(),
-// 			Source:   pulumi.String("index.html"),
+// 			Source:   pulumi.NewFileAsset("index.html"),
 // 			KmsKeyId: examplekms.Arn,
 // 		})
 // 		if err != nil {
@@ -72,9 +70,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
-// 		})
+// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -88,7 +84,7 @@ import (
 // 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Key:                  pulumi.String("someobject"),
 // 			Bucket:               examplebucket.ID(),
-// 			Source:               pulumi.String("index.html"),
+// 			Source:               pulumi.NewFileAsset("index.html"),
 // 			ServerSideEncryption: pulumi.String("aws:kms"),
 // 		})
 // 		if err != nil {
@@ -110,9 +106,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
-// 		})
+// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -126,7 +120,7 @@ import (
 // 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Key:                  pulumi.String("someobject"),
 // 			Bucket:               examplebucket.ID(),
-// 			Source:               pulumi.String("index.html"),
+// 			Source:               pulumi.NewFileAsset("index.html"),
 // 			ServerSideEncryption: pulumi.String("AES256"),
 // 		})
 // 		if err != nil {
@@ -149,7 +143,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
 // 			ObjectLockConfiguration: &s3.BucketV2ObjectLockConfigurationArgs{
 // 				ObjectLockEnabled: pulumi.String("Enabled"),
 // 			},
@@ -176,7 +169,7 @@ import (
 // 		_, err = s3.NewBucketObjectv2(ctx, "examplebucketObject", &s3.BucketObjectv2Args{
 // 			Key:                       pulumi.String("someobject"),
 // 			Bucket:                    examplebucket.ID(),
-// 			Source:                    pulumi.String("important.txt"),
+// 			Source:                    pulumi.NewFileAsset("important.txt"),
 // 			ObjectLockLegalHoldStatus: pulumi.String("ON"),
 // 			ObjectLockMode:            pulumi.String("GOVERNANCE"),
 // 			ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
@@ -246,8 +239,8 @@ type BucketObjectv2 struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.StringPtrOutput `pulumi:"source"`
-	SourceHash pulumi.StringPtrOutput `pulumi:"sourceHash"`
+	Source     pulumi.AssetOrArchiveOutput `pulumi:"source"`
+	SourceHash pulumi.StringPtrOutput      `pulumi:"sourceHash"`
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -269,9 +262,6 @@ func NewBucketObjectv2(ctx *pulumi.Context,
 
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
-	}
-	if args.Key == nil {
-		return nil, errors.New("invalid value for required argument 'Key'")
 	}
 	var resource BucketObjectv2
 	err := ctx.RegisterResource("aws:s3/bucketObjectv2:BucketObjectv2", name, args, &resource, opts...)
@@ -298,7 +288,7 @@ type bucketObjectv2State struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl *string `pulumi:"acl"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-	Bucket *string `pulumi:"bucket"`
+	Bucket interface{} `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -333,8 +323,8 @@ type bucketObjectv2State struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     *string `pulumi:"source"`
-	SourceHash *string `pulumi:"sourceHash"`
+	Source     pulumi.AssetOrArchive `pulumi:"source"`
+	SourceHash *string               `pulumi:"sourceHash"`
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -351,7 +341,7 @@ type BucketObjectv2State struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl pulumi.StringPtrInput
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-	Bucket pulumi.StringPtrInput
+	Bucket pulumi.Input
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -386,7 +376,7 @@ type BucketObjectv2State struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.StringPtrInput
+	Source     pulumi.AssetOrArchiveInput
 	SourceHash pulumi.StringPtrInput
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
@@ -408,7 +398,7 @@ type bucketObjectv2Args struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl *string `pulumi:"acl"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-	Bucket string `pulumi:"bucket"`
+	Bucket interface{} `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -430,7 +420,7 @@ type bucketObjectv2Args struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
-	Key      string  `pulumi:"key"`
+	Key      *string `pulumi:"key"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
@@ -443,8 +433,8 @@ type bucketObjectv2Args struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     *string `pulumi:"source"`
-	SourceHash *string `pulumi:"sourceHash"`
+	Source     pulumi.AssetOrArchive `pulumi:"source"`
+	SourceHash *string               `pulumi:"sourceHash"`
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -460,7 +450,7 @@ type BucketObjectv2Args struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl pulumi.StringPtrInput
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-	Bucket pulumi.StringInput
+	Bucket pulumi.Input
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -482,7 +472,7 @@ type BucketObjectv2Args struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the object once it is in the bucket.
-	Key      pulumi.StringInput
+	Key      pulumi.StringPtrInput
 	KmsKeyId pulumi.StringPtrInput
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
@@ -495,7 +485,7 @@ type BucketObjectv2Args struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.StringPtrInput
+	Source     pulumi.AssetOrArchiveInput
 	SourceHash pulumi.StringPtrInput
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput

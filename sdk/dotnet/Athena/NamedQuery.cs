@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Athena
     ///     {
     ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test",
     ///         });
     ///         var testKey = new Aws.Kms.Key("testKey", new Aws.Kms.KeyArgs
     ///         {

@@ -33,14 +33,12 @@ namespace Pulumi.Aws.S3Control
     ///         });
     ///         var fooBucket = new Aws.S3.BucketV2("fooBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example-bucket-foo",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Primary_region,
     ///         });
     ///         var barBucket = new Aws.S3.BucketV2("barBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example-bucket-bar",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Secondary_region,

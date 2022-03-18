@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getBillingServiceAccount({});
- * const billingLogs = new aws.s3.BucketV2("billingLogs", {bucket: "my-billing-tf-test-bucket"});
+ * const billingLogs = new aws.s3.BucketV2("billingLogs", {});
  * const billingLogsAcl = new aws.s3.BucketAclV2("billingLogsAcl", {
  *     bucket: billingLogs.id,
  *     acl: "private",

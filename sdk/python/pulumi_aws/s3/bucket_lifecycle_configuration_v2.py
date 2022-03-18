@@ -140,7 +140,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
@@ -184,7 +184,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     status="Enabled",
                 ),
             ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket", bucket="my-versioning-bucket")
+        versioning_bucket = aws.s3.BucketV2("versioningBucket")
         versioning_bucket_acl = aws.s3.BucketAclV2("versioningBucketAcl",
             bucket=versioning_bucket.id,
             acl="private")
@@ -266,7 +266,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
@@ -310,7 +310,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     status="Enabled",
                 ),
             ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket", bucket="my-versioning-bucket")
+        versioning_bucket = aws.s3.BucketV2("versioningBucket")
         versioning_bucket_acl = aws.s3.BucketAclV2("versioningBucketAcl",
             bucket=versioning_bucket.id,
             acl="private")

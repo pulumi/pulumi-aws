@@ -28,9 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("tf-test-bucket-1234"),
-// 		})
+// 		hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}

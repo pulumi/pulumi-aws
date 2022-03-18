@@ -273,7 +273,7 @@ class ReportGroup(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="my-test")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
@@ -338,7 +338,7 @@ class ReportGroup(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="my-test")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(

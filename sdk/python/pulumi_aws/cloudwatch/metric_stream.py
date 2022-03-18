@@ -391,7 +391,7 @@ class MetricStream(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -517,7 +517,7 @@ class MetricStream(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [

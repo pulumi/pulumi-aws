@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example-awsconfig",
     ///             ForceDestroy = true,
     ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs

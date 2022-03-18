@@ -289,7 +289,7 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
             key="example-key",
@@ -370,7 +370,7 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
             key="example-key",

@@ -36,7 +36,6 @@ namespace Pulumi.Aws.CloudFront
     ///     {
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "mybucket",
     ///             Tags = 
     ///             {
     ///                 { "Name", "My bucket" },

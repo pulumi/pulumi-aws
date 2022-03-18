@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `});
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "metric-stream-test-bucket"});
+ * const bucket = new aws.s3.BucketV2("bucket", {});
  * const firehoseToS3Role = new aws.iam.Role("firehoseToS3Role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

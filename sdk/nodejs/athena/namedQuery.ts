@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {bucket: "tf-test"});
+ * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
  * const testKey = new aws.kms.Key("testKey", {
  *     deletionWindowInDays: 7,
  *     description: "Athena KMS Key",

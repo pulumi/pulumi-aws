@@ -31,9 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("your-bucket-name"),
-// 		})
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -79,9 +77,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("your-bucket-name"),
-// 		})
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -144,9 +140,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("your-bucket-name"),
-// 		})
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -213,9 +207,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("your-bucket-name"),
-// 		})
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -291,9 +283,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("your-bucket-name"),
-// 		})
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}

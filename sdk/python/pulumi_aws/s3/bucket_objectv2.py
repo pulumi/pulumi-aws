@@ -14,7 +14,6 @@ __all__ = ['BucketObjectv2Args', 'BucketObjectv2']
 class BucketObjectv2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
-                 key: pulumi.Input[str],
                  acl: Optional[pulumi.Input[str]] = None,
                  bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_control: Optional[pulumi.Input[str]] = None,
@@ -26,13 +25,14 @@ class BucketObjectv2Args:
                  content_type: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,7 +41,6 @@ class BucketObjectv2Args:
         """
         The set of arguments for constructing a BucketObjectv2 resource.
         :param pulumi.Input[str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-        :param pulumi.Input[str] key: Name of the object once it is in the bucket.
         :param pulumi.Input[str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         :param pulumi.Input[bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -53,19 +52,19 @@ class BucketObjectv2Args:
         :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] etag: ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+        :param pulumi.Input[str] key: Name of the object once it is in the bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        :param pulumi.Input[str] source: Path to a file that will be read and uploaded as raw bytes for the object content.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
         if bucket_key_enabled is not None:
@@ -88,6 +87,8 @@ class BucketObjectv2Args:
             pulumi.set(__self__, "etag", etag)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if metadata is not None:
@@ -124,18 +125,6 @@ class BucketObjectv2Args:
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        Name of the object once it is in the bucket.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
@@ -270,6 +259,18 @@ class BucketObjectv2Args:
         pulumi.set(self, "force_destroy", value)
 
     @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the object once it is in the bucket.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "kms_key_id")
@@ -340,14 +341,14 @@ class BucketObjectv2Args:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[str]]:
+    def source(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
         """
         Path to a file that will be read and uploaded as raw bytes for the object content.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[str]]):
+    def source(self, value: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]):
         pulumi.set(self, "source", value)
 
     @property
@@ -430,7 +431,7 @@ class _BucketObjectv2State:
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -457,7 +458,7 @@ class _BucketObjectv2State:
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        :param pulumi.Input[str] source: Path to a file that will be read and uploaded as raw bytes for the object content.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
@@ -744,14 +745,14 @@ class _BucketObjectv2State:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[str]]:
+    def source(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
         """
         Path to a file that will be read and uploaded as raw bytes for the object content.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[str]]):
+    def source(self, value: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]):
         pulumi.set(self, "source", value)
 
     @property
@@ -848,7 +849,7 @@ class BucketObjectv2(pulumi.CustomResource):
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -868,14 +869,14 @@ class BucketObjectv2(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.BucketV2("examplebucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             key="someobject",
             bucket=examplebucket.id,
-            source="index.html",
+            source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
         ### Server Side Encryption with S3 Default Master Key
@@ -884,14 +885,14 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.BucketV2("examplebucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             key="someobject",
             bucket=examplebucket.id,
-            source="index.html",
+            source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
         ### Server Side Encryption with AWS-Managed Key
@@ -900,14 +901,14 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.BucketV2("examplebucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             key="someobject",
             bucket=examplebucket.id,
-            source="index.html",
+            source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
         ### S3 Object Lock
@@ -916,11 +917,9 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
-            bucket="examplebuckettftest",
-            object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
-                object_lock_enabled="Enabled",
-            ))
+        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
+            object_lock_enabled="Enabled",
+        ))
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
@@ -932,7 +931,7 @@ class BucketObjectv2(pulumi.CustomResource):
         examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
             key="someobject",
             bucket=examplebucket.id,
-            source="important.txt",
+            source=pulumi.FileAsset("important.txt"),
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
@@ -974,7 +973,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        :param pulumi.Input[str] source: Path to a file that will be read and uploaded as raw bytes for the object content.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
@@ -999,14 +998,14 @@ class BucketObjectv2(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.BucketV2("examplebucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             key="someobject",
             bucket=examplebucket.id,
-            source="index.html",
+            source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
         ### Server Side Encryption with S3 Default Master Key
@@ -1015,14 +1014,14 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.BucketV2("examplebucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             key="someobject",
             bucket=examplebucket.id,
-            source="index.html",
+            source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
         ### Server Side Encryption with AWS-Managed Key
@@ -1031,14 +1030,14 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.BucketV2("examplebucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             key="someobject",
             bucket=examplebucket.id,
-            source="index.html",
+            source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
         ### S3 Object Lock
@@ -1047,11 +1046,9 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
-            bucket="examplebuckettftest",
-            object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
-                object_lock_enabled="Enabled",
-            ))
+        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
+            object_lock_enabled="Enabled",
+        ))
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
@@ -1063,7 +1060,7 @@ class BucketObjectv2(pulumi.CustomResource):
         examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
             key="someobject",
             bucket=examplebucket.id,
-            source="important.txt",
+            source=pulumi.FileAsset("important.txt"),
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
@@ -1119,7 +1116,7 @@ class BucketObjectv2(pulumi.CustomResource):
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1151,8 +1148,6 @@ class BucketObjectv2(pulumi.CustomResource):
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["etag"] = etag
             __props__.__dict__["force_destroy"] = force_destroy
-            if key is None and not opts.urn:
-                raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["metadata"] = metadata
@@ -1196,7 +1191,7 @@ class BucketObjectv2(pulumi.CustomResource):
             object_lock_mode: Optional[pulumi.Input[str]] = None,
             object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
             server_side_encryption: Optional[pulumi.Input[str]] = None,
-            source: Optional[pulumi.Input[str]] = None,
+            source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
             source_hash: Optional[pulumi.Input[str]] = None,
             storage_class: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1228,7 +1223,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        :param pulumi.Input[str] source: Path to a file that will be read and uploaded as raw bytes for the object content.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
@@ -1418,7 +1413,7 @@ class BucketObjectv2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Output[Optional[str]]:
+    def source(self) -> pulumi.Output[Optional[Union[pulumi.Asset, pulumi.Archive]]]:
         """
         Path to a file that will be read and uploaded as raw bytes for the object content.
         """

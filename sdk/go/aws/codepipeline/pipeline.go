@@ -37,9 +37,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipelineBucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("test-bucket"),
-// 		})
+// 		codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipelineBucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}

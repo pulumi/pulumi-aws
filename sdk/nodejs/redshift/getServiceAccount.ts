@@ -15,10 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.redshift.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {
- *     bucket: "tf-redshift-logging-test-bucket",
- *     forceDestroy: true,
- * });
+ * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
  * const allowAuditLogging = new aws.s3.BucketPolicy("allowAuditLogging", {
  *     bucket: bucket.id,
  *     policy: Promise.all([main, main]).then(([main, main1]) => `{
