@@ -24,7 +24,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-example-bucket",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var logBucket = new Aws.S3.BucketV2("logBucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-log-bucket",
     ///         });
     ///         var logBucketAcl = new Aws.S3.BucketAclV2("logBucketAcl", new Aws.S3.BucketAclV2Args
     ///         {

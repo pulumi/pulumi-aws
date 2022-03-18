@@ -32,9 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
-// 		})
+// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -70,9 +68,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
-// 		})
+// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -108,9 +104,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
-// 		})
+// 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -147,7 +141,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("examplebuckettftest"),
 // 			ObjectLockConfiguration: &s3.BucketV2ObjectLockConfigurationArgs{
 // 				ObjectLockEnabled: pulumi.String("Enabled"),
 // 			},

@@ -15,10 +15,7 @@ import * as utilities from "../utilities";
  *
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentRegion = aws.getRegion({});
- * const gdBucket = new aws.s3.BucketV2("gdBucket", {
- *     bucket: "example",
- *     forceDestroy: true,
- * });
+ * const gdBucket = new aws.s3.BucketV2("gdBucket", {forceDestroy: true});
  * const bucketPol = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {

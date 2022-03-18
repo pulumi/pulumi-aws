@@ -136,7 +136,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
-        foo_bucket = aws.s3.BucketV2("fooBucket", bucket="example-bucket-foo")
+        foo_bucket = aws.s3.BucketV2("fooBucket")
         example_multi_region_access_point = aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
             name="example",
             regions=[aws.s3control.MultiRegionAccessPointDetailsRegionArgs(
@@ -194,7 +194,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
-        foo_bucket = aws.s3.BucketV2("fooBucket", bucket="example-bucket-foo")
+        foo_bucket = aws.s3.BucketV2("fooBucket")
         example_multi_region_access_point = aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
             name="example",
             regions=[aws.s3control.MultiRegionAccessPointDetailsRegionArgs(

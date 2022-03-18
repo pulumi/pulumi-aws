@@ -16,7 +16,7 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-test-bucket"});
+ * const example = new aws.s3.BucketV2("example", {});
  * const allowAccessFromAnotherAccountPolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         principals: [{

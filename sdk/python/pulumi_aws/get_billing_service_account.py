@@ -65,7 +65,7 @@ def get_billing_service_account(opts: Optional[pulumi.InvokeOptions] = None) -> 
     import pulumi_aws as aws
 
     main = aws.get_billing_service_account()
-    billing_logs = aws.s3.BucketV2("billingLogs", bucket="my-billing-tf-test-bucket")
+    billing_logs = aws.s3.BucketV2("billingLogs")
     billing_logs_acl = aws.s3.BucketAclV2("billingLogsAcl",
         bucket=billing_logs.id,
         acl="private")

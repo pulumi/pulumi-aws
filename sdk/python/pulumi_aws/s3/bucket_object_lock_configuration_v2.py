@@ -208,11 +208,9 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
-            bucket="mybucket",
-            object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
-                object_lock_enabled="Enabled",
-            ))
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
+            object_lock_enabled="Enabled",
+        ))
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
             bucket=example_bucket_v2.bucket,
             rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
@@ -262,11 +260,9 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
-            bucket="mybucket",
-            object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
-                object_lock_enabled="Enabled",
-            ))
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
+            object_lock_enabled="Enabled",
+        ))
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
             bucket=example_bucket_v2.bucket,
             rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(

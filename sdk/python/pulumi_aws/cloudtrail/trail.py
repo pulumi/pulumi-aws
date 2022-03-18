@@ -627,7 +627,7 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
             bucket=bucket_v2.id,
             policy=pulumi.Output.all(bucket_v2.id, bucket_v2.id).apply(lambda bucketV2Id, bucketV2Id1: f\"\"\"  {{
@@ -676,7 +676,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         example = aws.cloudtrail.Trail("example",
             s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
@@ -695,7 +695,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         example = aws.cloudtrail.Trail("example",
             s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
@@ -872,7 +872,7 @@ class Trail(pulumi.CustomResource):
           ]
         }}
         \"\"\")
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         example_trail = aws.cloudtrail.Trail("exampleTrail",
             s3_bucket_name=data["aws_s3_bucket"]["important-bucket"]["id"],
             s3_key_prefix="prefix",
@@ -932,7 +932,7 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
             bucket=bucket_v2.id,
             policy=pulumi.Output.all(bucket_v2.id, bucket_v2.id).apply(lambda bucketV2Id, bucketV2Id1: f\"\"\"  {{
@@ -981,7 +981,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         example = aws.cloudtrail.Trail("example",
             s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
@@ -1000,7 +1000,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         example = aws.cloudtrail.Trail("example",
             s3_bucket_name=bucket_v2.id,
             s3_key_prefix="prefix",
@@ -1177,7 +1177,7 @@ class Trail(pulumi.CustomResource):
           ]
         }}
         \"\"\")
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="my_tf_test_bucket")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         example_trail = aws.cloudtrail.Trail("exampleTrail",
             s3_bucket_name=data["aws_s3_bucket"]["important-bucket"]["id"],
             s3_key_prefix="prefix",

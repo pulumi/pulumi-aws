@@ -173,7 +173,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.BucketV2("example")
         example_bucket_acl = aws.s3.BucketAclV2("exampleBucketAcl",
             bucket=example.id,
             acl="private")
@@ -185,7 +185,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.s3.get_canonical_user_id()
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="my-tf-example-bucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
             access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
@@ -258,7 +258,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.BucketV2("example")
         example_bucket_acl = aws.s3.BucketAclV2("exampleBucketAcl",
             bucket=example.id,
             acl="private")
@@ -270,7 +270,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.s3.get_canonical_user_id()
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="my-tf-example-bucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
             access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(

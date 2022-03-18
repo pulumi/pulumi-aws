@@ -30,8 +30,8 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `});
- * const destinationBucketV2 = new aws.s3.BucketV2("destinationBucketV2", {bucket: "tf-test-bucket-destination-12345"});
- * const sourceBucketV2 = new aws.s3.BucketV2("sourceBucketV2", {bucket: "tf-test-bucket-source-12345"}, {
+ * const destinationBucketV2 = new aws.s3.BucketV2("destinationBucketV2", {});
+ * const sourceBucketV2 = new aws.s3.BucketV2("sourceBucketV2", {}, {
  *     provider: aws.central,
  * });
  * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: pulumi.interpolate`{
@@ -115,14 +115,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const eastBucketV2 = new aws.s3.BucketV2("eastBucketV2", {bucket: "tf-test-bucket-east-12345"});
+ * const eastBucketV2 = new aws.s3.BucketV2("eastBucketV2", {});
  * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("eastBucketVersioningV2", {
  *     bucket: eastBucketV2.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const westBucketV2 = new aws.s3.BucketV2("westBucketV2", {bucket: "tf-test-bucket-west-12345"}, {
+ * const westBucketV2 = new aws.s3.BucketV2("westBucketV2", {}, {
  *     provider: west,
  * });
  * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("westBucketVersioningV2", {

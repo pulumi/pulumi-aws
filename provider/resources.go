@@ -2407,8 +2407,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_shield_protection_health_check_association": {Tok: awsResource(shieldMod, "ProtectionHealthCheckAssociation")},
 
 			// S3
-			"aws_s3_account_public_access_block":                 {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
-			"aws_s3_bucket":                                      {Tok: awsResource(s3Mod, "BucketV2")},
+			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
+			"aws_s3_bucket": {
+				Tok: awsResource(s3Mod, "BucketV2"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
+						return strings.ToLower(name)
+					}),
+				},
+			},
 			"aws_s3_bucket_accelerate_configuration":             {Tok: awsResource(s3Mod, "BucketAccelerateConfigurationV2")},
 			"aws_s3_bucket_acl":                                  {Tok: awsResource(s3Mod, "BucketAclV2")},
 			"aws_s3_bucket_cors_configuration":                   {Tok: awsResource(s3Mod, "BucketCorsConfigurationV2")},
@@ -2419,7 +2426,33 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket_server_side_encryption_configuration": {Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfigurationV2")},
 			"aws_s3_bucket_versioning":                           {Tok: awsResource(s3Mod, "BucketVersioningV2")},
 			"aws_s3_bucket_website_configuration":                {Tok: awsResource(s3Mod, "BucketWebsiteConfigurationV2")},
-			"aws_s3_object":                                      {Tok: awsResource(s3Mod, "BucketObjectv2")},
+			"aws_s3_object": {
+				Tok:      awsResource(s3Mod, "BucketObjectv2"),
+				IDFields: []string{"bucket", "key"},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"bucket": {
+						// Prefer a strongly typed Bucket reference.
+						Type: "string",
+						// But also permit a string in cases where all we have is a name.
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
+					},
+					"key": {
+						// By default, use the name as the key.  It may of course be overridden.
+						Default: &tfbridge.DefaultInfo{
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Maxlen:    0,
+								Randlen:   0,
+								Transform: nil,
+							}),
+						},
+					},
+					"source": {
+						Asset: &tfbridge.AssetTranslation{
+							Kind: tfbridge.FileAsset,
+						},
+					},
+				},
+			},
 			"aws_s3_bucket_legacy": {
 				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{

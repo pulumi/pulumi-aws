@@ -43,15 +43,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		destinationBucketV2, err := s3.NewBucketV2(ctx, "destinationBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("tf-test-bucket-destination-12345"),
-// 		})
+// 		destinationBucketV2, err := s3.NewBucketV2(ctx, "destinationBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		sourceBucketV2, err := s3.NewBucketV2(ctx, "sourceBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("tf-test-bucket-source-12345"),
-// 		}, pulumi.Provider(aws.Central))
+// 		sourceBucketV2, err := s3.NewBucketV2(ctx, "sourceBucketV2", nil, pulumi.Provider(aws.Central))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -134,9 +130,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		eastBucketV2, err := s3.NewBucketV2(ctx, "eastBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("tf-test-bucket-east-12345"),
-// 		})
+// 		eastBucketV2, err := s3.NewBucketV2(ctx, "eastBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -149,9 +143,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		westBucketV2, err := s3.NewBucketV2(ctx, "westBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("tf-test-bucket-west-12345"),
-// 		}, pulumi.Provider(west))
+// 		westBucketV2, err := s3.NewBucketV2(ctx, "westBucketV2", nil, pulumi.Provider(west))
 // 		if err != nil {
 // 			return err
 // 		}

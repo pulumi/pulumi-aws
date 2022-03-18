@@ -108,7 +108,7 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2", bucket="tf-test-bucket-1234")
+        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
         hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
             bucket=hoge_bucket_v2.bucket,
             policy=\"\"\"{
@@ -174,7 +174,7 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2", bucket="tf-test-bucket-1234")
+        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
         hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
             bucket=hoge_bucket_v2.bucket,
             policy=\"\"\"{

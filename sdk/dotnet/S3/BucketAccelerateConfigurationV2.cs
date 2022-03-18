@@ -24,7 +24,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var mybucket = new Aws.S3.BucketV2("mybucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "mybucket",
     ///         });
     ///         var example = new Aws.S3.BucketAccelerateConfigurationV2("example", new Aws.S3.BucketAccelerateConfigurationV2Args
     ///         {

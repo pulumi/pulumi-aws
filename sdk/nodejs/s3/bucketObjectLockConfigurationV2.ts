@@ -16,12 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {
- *     bucket: "mybucket",
- *     objectLockConfiguration: {
- *         objectLockEnabled: "Enabled",
- *     },
- * });
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {objectLockConfiguration: {
+ *     objectLockEnabled: "Enabled",
+ * }});
  * const exampleBucketObjectLockConfigurationV2 = new aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", {
  *     bucket: exampleBucketV2.bucket,
  *     rule: {

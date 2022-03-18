@@ -88,7 +88,6 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
     ///         {
@@ -113,7 +112,6 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
     ///         {

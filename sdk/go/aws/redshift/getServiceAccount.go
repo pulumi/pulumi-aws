@@ -33,7 +33,6 @@ import (
 // 			return err
 // 		}
 // 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Bucket:       pulumi.String("tf-redshift-logging-test-bucket"),
 // 			ForceDestroy: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

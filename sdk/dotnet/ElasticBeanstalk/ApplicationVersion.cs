@@ -34,13 +34,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///     {
     ///         var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tftest.applicationversion.bucket",
     ///         });
     ///         var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("defaultBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
     ///             Bucket = defaultBucketV2.Id,
     ///             Key = "beanstalk/go-v1.zip",
-    ///             Source = "go-v1.zip",
+    ///             Source = new FileAsset("go-v1.zip"),
     ///         });
     ///         var defaultApplication = new Aws.ElasticBeanstalk.Application("defaultApplication", new Aws.ElasticBeanstalk.ApplicationArgs
     ///         {

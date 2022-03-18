@@ -156,9 +156,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2", bucket="tf-test-bucket-destination-12345")
-        source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", bucket="tf-test-bucket-source-12345",
-        opts=pulumi.ResourceOptions(provider=aws["central"]))
+        destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2")
+        source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", opts=pulumi.ResourceOptions(provider=aws["central"]))
         replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(source_bucket_v2.arn, source_bucket_v2.arn, destination_bucket_v2.arn).apply(lambda sourceBucketV2Arn, sourceBucketV2Arn1, destinationBucketV2Arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -233,14 +232,13 @@ class BucketReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        east_bucket_v2 = aws.s3.BucketV2("eastBucketV2", bucket="tf-test-bucket-east-12345")
+        east_bucket_v2 = aws.s3.BucketV2("eastBucketV2")
         east_bucket_versioning_v2 = aws.s3.BucketVersioningV2("eastBucketVersioningV2",
             bucket=east_bucket_v2.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        west_bucket_v2 = aws.s3.BucketV2("westBucketV2", bucket="tf-test-bucket-west-12345",
-        opts=pulumi.ResourceOptions(provider=west))
+        west_bucket_v2 = aws.s3.BucketV2("westBucketV2", opts=pulumi.ResourceOptions(provider=west))
         west_bucket_versioning_v2 = aws.s3.BucketVersioningV2("westBucketVersioningV2",
             bucket=west_bucket_v2.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
@@ -321,9 +319,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
           ]
         }
         \"\"\")
-        destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2", bucket="tf-test-bucket-destination-12345")
-        source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", bucket="tf-test-bucket-source-12345",
-        opts=pulumi.ResourceOptions(provider=aws["central"]))
+        destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2")
+        source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", opts=pulumi.ResourceOptions(provider=aws["central"]))
         replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(source_bucket_v2.arn, source_bucket_v2.arn, destination_bucket_v2.arn).apply(lambda sourceBucketV2Arn, sourceBucketV2Arn1, destinationBucketV2Arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -398,14 +395,13 @@ class BucketReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        east_bucket_v2 = aws.s3.BucketV2("eastBucketV2", bucket="tf-test-bucket-east-12345")
+        east_bucket_v2 = aws.s3.BucketV2("eastBucketV2")
         east_bucket_versioning_v2 = aws.s3.BucketVersioningV2("eastBucketVersioningV2",
             bucket=east_bucket_v2.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        west_bucket_v2 = aws.s3.BucketV2("westBucketV2", bucket="tf-test-bucket-west-12345",
-        opts=pulumi.ResourceOptions(provider=west))
+        west_bucket_v2 = aws.s3.BucketV2("westBucketV2", opts=pulumi.ResourceOptions(provider=west))
         west_bucket_versioning_v2 = aws.s3.BucketVersioningV2("westBucketVersioningV2",
             bucket=west_bucket_v2.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(

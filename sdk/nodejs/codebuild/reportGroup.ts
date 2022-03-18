@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "my-test"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleReportGroup = new aws.codebuild.ReportGroup("exampleReportGroup", {
  *     type: "TEST",
  *     exportConfig: {

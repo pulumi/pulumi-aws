@@ -25,13 +25,12 @@ namespace Pulumi.Aws.MskConnect
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
     ///             Bucket = exampleBucketV2.Id,
     ///             Key = "debezium.zip",
-    ///             Source = "debezium.zip",
+    ///             Source = new FileAsset("debezium.zip"),
     ///         });
     ///         var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("exampleCustomPlugin", new Aws.MskConnect.CustomPluginArgs
     ///         {

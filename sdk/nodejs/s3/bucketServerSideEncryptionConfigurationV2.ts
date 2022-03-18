@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     description: "This key is used to encrypt bucket objects",
  *     deletionWindowInDays: 10,
  * });
- * const mybucket = new aws.s3.BucketV2("mybucket", {bucket: "mybucket"});
+ * const mybucket = new aws.s3.BucketV2("mybucket", {});
  * const example = new aws.s3.BucketServerSideEncryptionConfigurationV2("example", {
  *     bucket: mybucket.bucket,
  *     rules: [{

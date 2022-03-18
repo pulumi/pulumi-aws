@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example-bucket"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "yotto"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
  *     bucket: exampleBucketV2.id,
  *     versioningConfiguration: {
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketVersioningV2.bucket,
  *     key: "droeloe",
- *     source: "example.txt",
+ *     source: new pulumi.asset.FileAsset("example.txt"),
  * });
  * ```
  *

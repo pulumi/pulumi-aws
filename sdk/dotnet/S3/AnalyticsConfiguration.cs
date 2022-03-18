@@ -25,11 +25,9 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var analytics = new Aws.S3.BucketV2("analytics", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "analytics destination",
     ///         });
     ///         var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new Aws.S3.AnalyticsConfigurationArgs
     ///         {
@@ -64,7 +62,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new Aws.S3.AnalyticsConfigurationArgs
     ///         {

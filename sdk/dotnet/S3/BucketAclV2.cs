@@ -23,7 +23,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-example-bucket",
     ///         });
     ///         var exampleBucketAcl = new Aws.S3.BucketAclV2("exampleBucketAcl", new Aws.S3.BucketAclV2Args
     ///         {
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.S3
     ///         var current = Output.Create(Aws.S3.GetCanonicalUserId.InvokeAsync());
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "my-tf-example-bucket",
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {

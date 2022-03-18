@@ -36,16 +36,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("tftest.applicationversion.bucket"),
-// 		})
+// 		defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "defaultBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Bucket: defaultBucketV2.ID(),
 // 			Key:    pulumi.String("beanstalk/go-v1.zip"),
-// 			Source: pulumi.String("go-v1.zip"),
+// 			Source: pulumi.NewFileAsset("go-v1.zip"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -36,9 +36,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("metric-stream-test-bucket"),
-// 		})
+// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
 // 		if err != nil {
 // 			return err
 // 		}

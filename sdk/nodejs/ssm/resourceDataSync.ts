@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {bucket: "tf-test-bucket-1234"});
+ * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
  * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
  *     bucket: hogeBucketV2.bucket,
  *     policy: `{

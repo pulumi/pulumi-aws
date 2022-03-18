@@ -30,7 +30,6 @@ namespace Pulumi.Aws.CloudTrail
         ///         var main = Output.Create(Aws.CloudTrail.GetServiceAccount.InvokeAsync());
         ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
         ///         {
-        ///             Bucket = "tf-cloudtrail-logging-test-bucket",
         ///             ForceDestroy = true,
         ///         });
         ///         var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new Aws.S3.BucketPolicyArgs
@@ -95,7 +94,6 @@ namespace Pulumi.Aws.CloudTrail
         ///         var main = Output.Create(Aws.CloudTrail.GetServiceAccount.InvokeAsync());
         ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
         ///         {
-        ///             Bucket = "tf-cloudtrail-logging-test-bucket",
         ///             ForceDestroy = true,
         ///         });
         ///         var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new Aws.S3.BucketPolicyArgs

@@ -31,9 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("awsconfig-example"),
-// 		})
+// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}

@@ -174,7 +174,7 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2", bucket="hoge")
+        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
         hoge_database = aws.athena.Database("hogeDatabase",
             name="database_name",
             bucket=hoge_bucket_v2.bucket)
@@ -202,7 +202,7 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2", bucket="hoge")
+        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
         hoge_database = aws.athena.Database("hogeDatabase",
             name="database_name",
             bucket=hoge_bucket_v2.bucket)

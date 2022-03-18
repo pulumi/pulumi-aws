@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "my-bucket"});
+ * const bucket = new aws.s3.BucketV2("bucket", {});
  * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
  *     bucket: bucket.id,
  *     acl: "private",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.BucketV2("versioningBucket", {bucket: "my-versioning-bucket"});
+ * const versioningBucket = new aws.s3.BucketV2("versioningBucket", {});
  * const versioningBucketAcl = new aws.s3.BucketAclV2("versioningBucketAcl", {
  *     bucket: versioningBucket.id,
  *     acl: "private",

@@ -140,7 +140,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="mybucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
             bucket=example_bucket_v2.bucket,
             cors_rules=[
@@ -196,7 +196,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="mybucket")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
             bucket=example_bucket_v2.bucket,
             cors_rules=[

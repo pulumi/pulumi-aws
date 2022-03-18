@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "awsconfig-example",
     ///         });
     ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
     ///         {

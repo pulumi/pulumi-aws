@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elbLogs", {bucket: "my-elb-tf-test-bucket"});
+ * const elbLogs = new aws.s3.BucketV2("elbLogs", {});
  * const elbLogsAcl = new aws.s3.BucketAclV2("elbLogsAcl", {
  *     bucket: elbLogs.id,
  *     acl: "private",

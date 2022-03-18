@@ -977,11 +977,9 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            bucket="mybucket",
-            tags={
-                "Name": "My bucket",
-            })
+        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
+            "Name": "My bucket",
+        })
         b_acl = aws.s3.BucketAclV2("bAcl",
             bucket=bucket_v2.id,
             acl="private")
@@ -1236,11 +1234,9 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            bucket="mybucket",
-            tags={
-                "Name": "My bucket",
-            })
+        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
+            "Name": "My bucket",
+        })
         b_acl = aws.s3.BucketAclV2("bAcl",
             bucket=bucket_v2.id,
             acl="private")

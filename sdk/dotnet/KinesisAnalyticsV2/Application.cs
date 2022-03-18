@@ -28,13 +28,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example-flink-application",
     ///         });
     ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
     ///             Bucket = exampleBucketV2.Bucket,
     ///             Key = "example-flink-application",
-    ///             Source = "flink-app.jar",
+    ///             Source = new FileAsset("flink-app.jar"),
     ///         });
     ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
     ///         {
@@ -265,13 +264,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///     {
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example-flink-application",
     ///         });
     ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
     ///         {
     ///             Bucket = exampleBucketV2.Bucket,
     ///             Key = "example-flink-application",
-    ///             Source = "flink-app.jar",
+    ///             Source = new FileAsset("flink-app.jar"),
     ///         });
     ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
     ///         {

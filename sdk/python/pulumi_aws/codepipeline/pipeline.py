@@ -238,7 +238,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket", bucket="test-bucket")
+        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
         codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -388,7 +388,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codestarconnections.Connection("example", provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket", bucket="test-bucket")
+        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
         codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [

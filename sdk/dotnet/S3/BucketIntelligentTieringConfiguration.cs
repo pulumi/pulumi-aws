@@ -25,7 +25,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration("example-entire-bucket", new Aws.S3.BucketIntelligentTieringConfigurationArgs
     ///         {
@@ -60,7 +59,6 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "example",
     ///         });
     ///         var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration("example-filtered", new Aws.S3.BucketIntelligentTieringConfigurationArgs
     ///         {

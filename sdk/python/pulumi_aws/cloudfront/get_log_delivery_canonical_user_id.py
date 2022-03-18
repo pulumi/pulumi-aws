@@ -65,7 +65,7 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
     import pulumi_aws as aws
 
     example_log_delivery_canonical_user_id = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+    example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
     example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
         bucket=example_bucket_v2.id,
         access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
@@ -109,7 +109,7 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     import pulumi_aws as aws
 
     example_log_delivery_canonical_user_id = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example")
+    example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
     example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
         bucket=example_bucket_v2.id,
         access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(

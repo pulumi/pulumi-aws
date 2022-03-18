@@ -28,7 +28,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my-tf-test-bucket"),
 // 			Tags: pulumi.StringMap{
 // 				"Name":        pulumi.String("My bucket"),
 // 				"Environment": pulumi.String("Dev"),

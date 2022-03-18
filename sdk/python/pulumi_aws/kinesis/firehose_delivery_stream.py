@@ -535,7 +535,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -595,7 +595,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
@@ -883,7 +883,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -943,7 +943,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.BucketV2("bucket")
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")

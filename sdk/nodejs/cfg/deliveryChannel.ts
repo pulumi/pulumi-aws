@@ -16,10 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
- *     bucket: "example-awsconfig",
- *     forceDestroy: true,
- * });
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {forceDestroy: true});
  * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

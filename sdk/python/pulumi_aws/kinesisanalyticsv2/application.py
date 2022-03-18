@@ -438,11 +438,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source="flink-app.jar")
+            source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],
@@ -598,11 +598,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source="flink-app.jar")
+            source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],
@@ -665,11 +665,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source="flink-app.jar")
+            source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],
@@ -825,11 +825,11 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket="example-flink-application")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.bucket,
             key="example-flink-application",
-            source="flink-app.jar")
+            source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
             runtime_environment="FLINK-1_8",
             service_execution_role=aws_iam_role["example"]["arn"],

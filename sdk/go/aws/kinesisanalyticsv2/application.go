@@ -30,16 +30,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("example-flink-application"),
-// 		})
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Bucket: exampleBucketV2.Bucket,
 // 			Key:    pulumi.String("example-flink-application"),
-// 			Source: pulumi.String("flink-app.jar"),
+// 			Source: pulumi.NewFileAsset("flink-app.jar"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -237,16 +235,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("example-flink-application"),
-// 		})
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Bucket: exampleBucketV2.Bucket,
 // 			Key:    pulumi.String("example-flink-application"),
-// 			Source: pulumi.String("flink-app.jar"),
+// 			Source: pulumi.NewFileAsset("flink-app.jar"),
 // 		})
 // 		if err != nil {
 // 			return err

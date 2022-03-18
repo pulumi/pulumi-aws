@@ -108,7 +108,7 @@ class RecorderStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="awsconfig-example")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
@@ -180,7 +180,7 @@ class RecorderStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", bucket="awsconfig-example")
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))

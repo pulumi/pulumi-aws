@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {Bucket} from "./index";
+
 /**
  * Provides an S3 object resource.
  *
@@ -18,7 +20,7 @@ import * as utilities from "../utilities";
  *     description: "KMS key 1",
  *     deletionWindowInDays: 7,
  * });
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
@@ -26,7 +28,7 @@ import * as utilities from "../utilities";
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
- *     source: "index.html",
+ *     source: new pulumi.asset.FileAsset("index.html"),
  *     kmsKeyId: examplekms.arn,
  * });
  * ```
@@ -36,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
@@ -44,7 +46,7 @@ import * as utilities from "../utilities";
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
- *     source: "index.html",
+ *     source: new pulumi.asset.FileAsset("index.html"),
  *     serverSideEncryption: "aws:kms",
  * });
  * ```
@@ -54,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
@@ -62,7 +64,7 @@ import * as utilities from "../utilities";
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
- *     source: "index.html",
+ *     source: new pulumi.asset.FileAsset("index.html"),
  *     serverSideEncryption: "AES256",
  * });
  * ```
@@ -72,12 +74,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {
- *     bucket: "examplebuckettftest",
- *     objectLockConfiguration: {
- *         objectLockEnabled: "Enabled",
- *     },
- * });
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {objectLockConfiguration: {
+ *     objectLockEnabled: "Enabled",
+ * }});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
@@ -91,7 +90,7 @@ import * as utilities from "../utilities";
  * const examplebucketObject = new aws.s3.BucketObjectv2("examplebucketObject", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
- *     source: "important.txt",
+ *     source: new pulumi.asset.FileAsset("important.txt"),
  *     objectLockLegalHoldStatus: "ON",
  *     objectLockMode: "GOVERNANCE",
  *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
@@ -219,7 +218,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     public readonly sourceHash!: pulumi.Output<string | undefined>;
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
@@ -286,9 +285,6 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'key'");
-            }
             resourceInputs["acl"] = args ? args.acl : undefined;
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["bucketKeyEnabled"] = args ? args.bucketKeyEnabled : undefined;
@@ -332,7 +328,7 @@ export interface BucketObjectv2State {
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | Bucket>;
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
@@ -401,7 +397,7 @@ export interface BucketObjectv2State {
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     sourceHash?: pulumi.Input<string>;
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
@@ -436,7 +432,7 @@ export interface BucketObjectv2Args {
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
-    bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string | Bucket>;
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
@@ -480,7 +476,7 @@ export interface BucketObjectv2Args {
     /**
      * Name of the object once it is in the bucket.
      */
-    key: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -505,7 +501,7 @@ export interface BucketObjectv2Args {
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     sourceHash?: pulumi.Input<string>;
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".

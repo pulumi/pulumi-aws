@@ -46,11 +46,9 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var destinationBucketV2 = new Aws.S3.BucketV2("destinationBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test-bucket-destination-12345",
     ///         });
     ///         var sourceBucketV2 = new Aws.S3.BucketV2("sourceBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test-bucket-source-12345",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Central,
@@ -171,7 +169,6 @@ namespace Pulumi.Aws.S3
     ///         // ... other configuration ...
     ///         var eastBucketV2 = new Aws.S3.BucketV2("eastBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test-bucket-east-12345",
     ///         });
     ///         var eastBucketVersioningV2 = new Aws.S3.BucketVersioningV2("eastBucketVersioningV2", new Aws.S3.BucketVersioningV2Args
     ///         {
@@ -183,7 +180,6 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var westBucketV2 = new Aws.S3.BucketV2("westBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test-bucket-west-12345",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = west,

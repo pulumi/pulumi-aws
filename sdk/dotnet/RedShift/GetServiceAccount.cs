@@ -30,7 +30,6 @@ namespace Pulumi.Aws.RedShift
         ///         var main = Output.Create(Aws.RedShift.GetServiceAccount.InvokeAsync());
         ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
         ///         {
-        ///             Bucket = "tf-redshift-logging-test-bucket",
         ///             ForceDestroy = true,
         ///         });
         ///         var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new Aws.S3.BucketPolicyArgs
@@ -95,7 +94,6 @@ namespace Pulumi.Aws.RedShift
         ///         var main = Output.Create(Aws.RedShift.GetServiceAccount.InvokeAsync());
         ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
         ///         {
-        ///             Bucket = "tf-redshift-logging-test-bucket",
         ///             ForceDestroy = true,
         ///         });
         ///         var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new Aws.S3.BucketPolicyArgs

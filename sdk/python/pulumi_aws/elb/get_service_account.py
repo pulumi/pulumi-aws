@@ -77,7 +77,7 @@ def get_service_account(region: Optional[str] = None,
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.BucketV2("elbLogs", bucket="my-elb-tf-test-bucket")
+    elb_logs = aws.s3.BucketV2("elbLogs")
     elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
         bucket=elb_logs.id,
         acl="private")
@@ -148,7 +148,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.BucketV2("elbLogs", bucket="my-elb-tf-test-bucket")
+    elb_logs = aws.s3.BucketV2("elbLogs")
     elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
         bucket=elb_logs.id,
         acl="private")

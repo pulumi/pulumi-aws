@@ -26,15 +26,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my-tf-test-bucket"),
-// 		})
+// 		testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		inventory, err := s3.NewBucketV2(ctx, "inventory", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my-tf-inventory-bucket"),
-// 		})
+// 		inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -70,15 +66,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my-tf-test-bucket"),
-// 		})
+// 		test, err := s3.NewBucketV2(ctx, "test", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		inventory, err := s3.NewBucketV2(ctx, "inventory", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("my-tf-inventory-bucket"),
-// 		})
+// 		inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
 // 		if err != nil {
 // 			return err
 // 		}

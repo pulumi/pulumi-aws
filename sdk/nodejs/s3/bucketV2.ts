@@ -17,13 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
- *     bucket: "my-tf-test-bucket",
- *     tags: {
- *         Name: "My bucket",
- *         Environment: "Dev",
- *     },
- * });
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {tags: {
+ *     Name: "My bucket",
+ *     Environment: "Dev",
+ * }});
  * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: bucketV2.id,
  *     acl: "private",

@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucket: "example"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketV2.id,
  *     key: "example-key",

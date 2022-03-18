@@ -26,12 +26,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
- *     bucket: "mybucket",
- *     tags: {
- *         Name: "My bucket",
- *     },
- * });
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {tags: {
+ *     Name: "My bucket",
+ * }});
  * const bAcl = new aws.s3.BucketAclV2("bAcl", {
  *     bucket: bucketV2.id,
  *     acl: "private",

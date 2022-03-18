@@ -242,9 +242,7 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            bucket="example-awsconfig",
-            force_destroy=True)
+        bucket_v2 = aws.s3.BucketV2("bucketV2", force_destroy=True)
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -316,9 +314,7 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            bucket="example-awsconfig",
-            force_destroy=True)
+        bucket_v2 = aws.s3.BucketV2("bucketV2", force_destroy=True)
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [

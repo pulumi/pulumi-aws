@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "awsconfig-example"});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket});
  * const fooRecorderStatus = new aws.cfg.RecorderStatus("fooRecorderStatus", {isEnabled: true}, {
  *     dependsOn: [fooDeliveryChannel],

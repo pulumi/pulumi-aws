@@ -27,16 +27,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			Bucket: pulumi.String("example"),
-// 		})
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
 // 			Bucket: exampleBucketV2.ID(),
 // 			Key:    pulumi.String("debezium.zip"),
-// 			Source: pulumi.String("debezium.zip"),
+// 			Source: pulumi.NewFileAsset("debezium.zip"),
 // 		})
 // 		if err != nil {
 // 			return err

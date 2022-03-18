@@ -27,7 +27,6 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test-bucket",
     ///         });
     ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
     ///         {
@@ -119,7 +118,6 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = "tf-test-bucket",
     ///         });
     ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
     ///         {

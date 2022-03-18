@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
  *     bucket: bucketV2.id,
  *     policy: pulumi.all([bucketV2.id, bucketV2.id, current]).apply(([bucketV2Id, bucketV2Id1, current]) => `  {
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const example = new aws.cloudtrail.Trail("example", {
  *     s3BucketName: bucketV2.id,
  *     s3KeyPrefix: "prefix",
@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const example = new aws.cloudtrail.Trail("example", {
  *     s3BucketName: bucketV2.id,
  *     s3KeyPrefix: "prefix",
@@ -292,7 +292,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {bucket: "my_tf_test_bucket"});
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
  *     s3BucketName: data.aws_s3_bucket["important-bucket"].id,
  *     s3KeyPrefix: "prefix",
