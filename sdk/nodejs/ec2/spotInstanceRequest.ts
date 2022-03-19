@@ -45,6 +45,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Spot instance requests can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ import aws:ec2/spotInstanceRequest:SpotInstanceRequest cheap_worker sir-12345678
+ * ```
  */
 export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
