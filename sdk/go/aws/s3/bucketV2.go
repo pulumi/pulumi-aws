@@ -184,6 +184,12 @@ func NewBucketV2(ctx *pulumi.Context,
 		args = &BucketV2Args{}
 	}
 
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:s3/bucket:Bucket"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BucketV2
 	err := ctx.RegisterResource("aws:s3/bucketV2:BucketV2", name, args, &resource, opts...)
 	if err != nil {
