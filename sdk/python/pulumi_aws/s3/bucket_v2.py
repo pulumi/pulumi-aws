@@ -806,6 +806,8 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
             __props__.__dict__["websites"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucket:Bucket")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketV2, __self__).__init__(
             'aws:s3/bucketV2:BucketV2',
             resource_name,

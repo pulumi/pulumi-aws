@@ -253,6 +253,10 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []st
 	return ""
 }
 
+func stringRef(s string) *string {
+	return &s
+}
+
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
@@ -2414,6 +2418,11 @@ func Provider() tfbridge.ProviderInfo {
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
+				},
+				Aliases: []tfbridge.AliasInfo{
+					{
+						Type: stringRef("aws:s3/bucket:Bucket"),
+					},
 				},
 			},
 			"aws_s3_bucket_accelerate_configuration":             {Tok: awsResource(s3Mod, "BucketAccelerateConfigurationV2")},
