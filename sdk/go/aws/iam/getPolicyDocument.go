@@ -138,6 +138,12 @@ func GetPolicyDocumentOutput(ctx *pulumi.Context, args GetPolicyDocumentOutputAr
 		ApplyT(func(v interface{}) (GetPolicyDocumentResult, error) {
 			args := v.(GetPolicyDocumentArgs)
 			r, err := GetPolicyDocument(ctx, &args, opts...)
+			if err != nil {
+				return nil, err
+			}
+			if r == nil {
+				return nil, fmt.Errorf("expected either result or error to be nil, not both")
+			}
 			return *r, err
 		}).(GetPolicyDocumentResultOutput)
 }
