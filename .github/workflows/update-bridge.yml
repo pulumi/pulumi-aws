@@ -2,7 +2,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PULUMI_EXTRA_MAPPING_ERROR: false
   PULUMI_MISSING_MAPPING_ERROR: false
-  VERSION_PREFIX: 5.0.0
+
 jobs:
   update_bridge:
     name: update-bridge

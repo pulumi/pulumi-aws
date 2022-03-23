@@ -12,11 +12,10 @@ import (
 )
 
 func TestAccWebserverGo(t *testing.T) {
-	t.Skipf("Skip while running a provider upgrade")
 	test := integration.ProgramTestOptions{
 		Dir: filepath.Join(getCwd(t), "webserver-go"),
 		Dependencies: []string{
-			"github.com/pulumi/pulumi-aws/sdk/v3",
+			"github.com/pulumi/pulumi-aws/sdk/v5",
 		},
 		Config: map[string]string{"aws:region": getEnvRegion(t)},
 	}
