@@ -134,7 +134,8 @@ type Queue struct {
 	// The identifier for the Queue.
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
+	QuickConnectIds            pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
+	QuickConnectIdsAssociateds pulumi.StringArrayOutput `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -195,7 +196,8 @@ type queueState struct {
 	// The identifier for the Queue.
 	QueueId *string `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds []string `pulumi:"quickConnectIds"`
+	QuickConnectIds            []string `pulumi:"quickConnectIds"`
+	QuickConnectIdsAssociateds []string `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -222,7 +224,8 @@ type QueueState struct {
 	// The identifier for the Queue.
 	QueueId pulumi.StringPtrInput
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds pulumi.StringArrayInput
+	QuickConnectIds            pulumi.StringArrayInput
+	QuickConnectIdsAssociateds pulumi.StringArrayInput
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the Queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -254,8 +257,6 @@ type queueArgs struct {
 	Status *string `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -278,8 +279,6 @@ type QueueArgs struct {
 	Status pulumi.StringPtrInput
 	// Tags to apply to the Queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {

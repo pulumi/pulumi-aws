@@ -10,14 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
-    /// Provides an AutoScaling Scaling Policy resource.
-    /// 
-    /// &gt; **NOTE:** You may want to omit `desired_capacity` attribute from attached `aws.autoscaling.Group`
-    /// when using autoscaling policies. It's good practice to pick either
-    /// [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
-    /// or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
-    /// (policy-based) scaling.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -47,6 +39,151 @@ namespace Pulumi.Aws.AutoScaling
     ///             AdjustmentType = "ChangeInCapacity",
     ///             Cooldown = 300,
     ///             AutoscalingGroupName = bar.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Create predictive scaling policy using customized metrics
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AutoScaling.Policy("example", new Aws.AutoScaling.PolicyArgs
+    ///         {
+    ///             AutoscalingGroupName = "my-test-asg",
+    ///             PolicyType = "PredictiveScaling",
+    ///             PredictiveScalingConfiguration = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationArgs
+    ///             {
+    ///                 MetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs
+    ///                 {
+    ///                     CustomizedCapacityMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs
+    ///                     {
+    ///                         MetricDataQueries = 
+    ///                         {
+    ///                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs
+    ///                             {
+    ///                                 Expression = "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
+    ///                                 Id = "capacity_sum",
+    ///                                 ReturnData = false,
+    ///                             },
+    ///                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs
+    ///                             {
+    ///                                 Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
+    ///                                 Id = "load_sum",
+    ///                                 ReturnData = false,
+    ///                             },
+    ///                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs
+    ///                             {
+    ///                                 Expression = "load_sum / capacity_sum",
+    ///                                 Id = "weighted_average",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     CustomizedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs
+    ///                     {
+    ///                         MetricDataQueries = 
+    ///                         {
+    ///                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs
+    ///                             {
+    ///                                 Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
+    ///                                 Id = "load_sum",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     CustomizedScalingMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs
+    ///                     {
+    ///                         MetricDataQueries = 
+    ///                         {
+    ///                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
+    ///                             {
+    ///                                 Id = "scaling",
+    ///                                 MetricStat = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs
+    ///                                 {
+    ///                                     Metric = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs
+    ///                                     {
+    ///                                         Dimensions = 
+    ///                                         {
+    ///                                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs
+    ///                                             {
+    ///                                                 Name = "AutoScalingGroupName",
+    ///                                                 Value = "my-test-asg",
+    ///                                             },
+    ///                                         },
+    ///                                         MetricName = "CPUUtilization",
+    ///                                         Namespace = "AWS/EC2",
+    ///                                     },
+    ///                                     Stat = "Average",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     TargetValue = 10,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Create predictive scaling policy using customized scaling and predefined load metric
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AutoScaling.Policy("example", new Aws.AutoScaling.PolicyArgs
+    ///         {
+    ///             AutoscalingGroupName = "my-test-asg",
+    ///             PolicyType = "PredictiveScaling",
+    ///             PredictiveScalingConfiguration = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationArgs
+    ///             {
+    ///                 MetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs
+    ///                 {
+    ///                     CustomizedScalingMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs
+    ///                     {
+    ///                         MetricDataQueries = 
+    ///                         {
+    ///                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
+    ///                             {
+    ///                                 Id = "scaling",
+    ///                                 MetricStat = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs
+    ///                                 {
+    ///                                     Metric = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs
+    ///                                     {
+    ///                                         Dimensions = 
+    ///                                         {
+    ///                                             new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs
+    ///                                             {
+    ///                                                 Name = "AutoScalingGroupName",
+    ///                                                 Value = "my-test-asg",
+    ///                                             },
+    ///                                         },
+    ///                                         MetricName = "CPUUtilization",
+    ///                                         Namespace = "AWS/EC2",
+    ///                                     },
+    ///                                     Stat = "Average",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     PredefinedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs
+    ///                     {
+    ///                         PredefinedMetricType = "ASGTotalCPUUtilization",
+    ///                         ResourceLabel = "testLabel",
+    ///                     },
+    ///                     TargetValue = 10,
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

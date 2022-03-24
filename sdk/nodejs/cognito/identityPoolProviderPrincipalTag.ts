@@ -9,10 +9,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.,
+ * Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example <identity-pool-id>:<identity_provider_name>
+ *  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
  * ```
  */
 export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
@@ -44,12 +44,12 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
     }
 
     /**
-     * An identity pool ID in the format REGION:GUID.
+     * An identity pool ID.
      */
     public readonly identityPoolId!: pulumi.Output<string>;
     /**
-     * The name of the identity provider
-     * * `principalTags`: (Optional: []) - String to string map of variables
+     * The name of the identity provider.
+     * * `principalTags`: (Optional: []) - String to string map of variables.
      * * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
      */
     public readonly identityProviderName!: pulumi.Output<string>;
@@ -96,12 +96,12 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
  */
 export interface IdentityPoolProviderPrincipalTagState {
     /**
-     * An identity pool ID in the format REGION:GUID.
+     * An identity pool ID.
      */
     identityPoolId?: pulumi.Input<string>;
     /**
-     * The name of the identity provider
-     * * `principalTags`: (Optional: []) - String to string map of variables
+     * The name of the identity provider.
+     * * `principalTags`: (Optional: []) - String to string map of variables.
      * * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
      */
     identityProviderName?: pulumi.Input<string>;
@@ -114,12 +114,12 @@ export interface IdentityPoolProviderPrincipalTagState {
  */
 export interface IdentityPoolProviderPrincipalTagArgs {
     /**
-     * An identity pool ID in the format REGION:GUID.
+     * An identity pool ID.
      */
     identityPoolId: pulumi.Input<string>;
     /**
-     * The name of the identity provider
-     * * `principalTags`: (Optional: []) - String to string map of variables
+     * The name of the identity provider.
+     * * `principalTags`: (Optional: []) - String to string map of variables.
      * * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
      */
     identityProviderName: pulumi.Input<string>;

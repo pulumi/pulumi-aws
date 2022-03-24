@@ -24,6 +24,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
+        /// <summary>
+        /// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+        /// </summary>
+        [Input("timezone")]
+        public Input<string>? Timezone { get; set; }
+
         public ImagePipelineScheduleGetArgs()
         {
         }

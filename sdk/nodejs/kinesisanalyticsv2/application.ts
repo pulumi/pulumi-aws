@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
  * const exampleLogStream = new aws.cloudwatch.LogStream("exampleLogStream", {logGroupName: exampleLogGroup.name});
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
- *     runtimeEnvironment: "SQL-1.0",
+ *     runtimeEnvironment: "SQL-1_0",
  *     serviceExecutionRole: aws_iam_role.example.arn,
  *     applicationConfiguration: {
  *         applicationCodeConfiguration: {

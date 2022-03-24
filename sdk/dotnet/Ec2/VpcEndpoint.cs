@@ -10,15 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a VPC Endpoint resource.
-    /// 
-    /// &gt; **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
-    /// Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
-    /// Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
-    /// a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
-    /// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
-    /// Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
     /// ## Example Usage
     /// ### Basic
     /// 
@@ -204,7 +195,8 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> RouteTableIds { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+        /// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+        /// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
@@ -228,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -332,7 +324,8 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+        /// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+        /// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -362,7 +355,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -484,7 +477,8 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+        /// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+        /// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -520,7 +514,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

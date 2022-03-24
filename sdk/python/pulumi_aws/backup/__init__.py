@@ -5,12 +5,16 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .framework import *
+from .get_framework import *
 from .get_plan import *
+from .get_report_plan import *
 from .get_selection import *
 from .get_vault import *
 from .global_settings import *
 from .plan import *
 from .region_settings import *
+from .report_plan import *
 from .selection import *
 from .vault import *
 from .vault_lock_configuration import *

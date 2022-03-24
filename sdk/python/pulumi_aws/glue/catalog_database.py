@@ -16,6 +16,7 @@ __all__ = ['CatalogDatabaseArgs', 'CatalogDatabase']
 class CatalogDatabaseArgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class CatalogDatabaseArgs:
         """
         The set of arguments for constructing a CatalogDatabase resource.
         :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -32,6 +34,8 @@ class CatalogDatabaseArgs:
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
+        if create_table_default_permissions is not None:
+            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location_uri is not None:
@@ -54,6 +58,18 @@ class CatalogDatabaseArgs:
     @catalog_id.setter
     def catalog_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="createTableDefaultPermissions")
+    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]:
+        """
+        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        """
+        return pulumi.get(self, "create_table_default_permissions")
+
+    @create_table_default_permissions.setter
+    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]):
+        pulumi.set(self, "create_table_default_permissions", value)
 
     @property
     @pulumi.getter
@@ -121,6 +137,7 @@ class _CatalogDatabaseState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -130,6 +147,7 @@ class _CatalogDatabaseState:
         Input properties used for looking up and filtering CatalogDatabase resources.
         :param pulumi.Input[str] arn: ARN of the Glue Catalog Database.
         :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -140,6 +158,8 @@ class _CatalogDatabaseState:
             pulumi.set(__self__, "arn", arn)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
+        if create_table_default_permissions is not None:
+            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location_uri is not None:
@@ -174,6 +194,18 @@ class _CatalogDatabaseState:
     @catalog_id.setter
     def catalog_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="createTableDefaultPermissions")
+    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]:
+        """
+        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        """
+        return pulumi.get(self, "create_table_default_permissions")
+
+    @create_table_default_permissions.setter
+    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]):
+        pulumi.set(self, "create_table_default_permissions", value)
 
     @property
     @pulumi.getter
@@ -242,6 +274,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -259,6 +292,21 @@ class CatalogDatabase(pulumi.CustomResource):
 
         aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
         ```
+        ### Create Table Default Permissions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase",
+            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
+                permissions=["SELECT"],
+                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
+                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
+                ),
+            )],
+            name="MyCatalogDatabase")
+        ```
 
         ## Import
 
@@ -271,6 +319,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -293,6 +342,21 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
+        ```
+        ### Create Table Default Permissions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase",
+            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
+                permissions=["SELECT"],
+                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
+                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
+                ),
+            )],
+            name="MyCatalogDatabase")
         ```
 
         ## Import
@@ -319,6 +383,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -337,6 +402,7 @@ class CatalogDatabase(pulumi.CustomResource):
             __props__ = CatalogDatabaseArgs.__new__(CatalogDatabaseArgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
+            __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
             __props__.__dict__["description"] = description
             __props__.__dict__["location_uri"] = location_uri
             __props__.__dict__["name"] = name
@@ -355,6 +421,7 @@ class CatalogDatabase(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
+            create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             location_uri: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -369,6 +436,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Glue Catalog Database.
         :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -381,6 +449,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["catalog_id"] = catalog_id
+        __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
         __props__.__dict__["description"] = description
         __props__.__dict__["location_uri"] = location_uri
         __props__.__dict__["name"] = name
@@ -403,6 +472,14 @@ class CatalogDatabase(pulumi.CustomResource):
         ID of the Data Catalog in which the database resides.
         """
         return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter(name="createTableDefaultPermissions")
+    def create_table_default_permissions(self) -> pulumi.Output[Sequence['outputs.CatalogDatabaseCreateTableDefaultPermission']]:
+        """
+        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        """
+        return pulumi.get(self, "create_table_default_permissions")
 
     @property
     @pulumi.getter

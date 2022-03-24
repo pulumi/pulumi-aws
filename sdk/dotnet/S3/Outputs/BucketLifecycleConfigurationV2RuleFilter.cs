@@ -14,19 +14,19 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLifecycleConfigurationV2RuleFilter
     {
         /// <summary>
-        /// Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
+        /// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleFilterAnd? And;
         /// <summary>
-        /// Minimum object size to which the rule applies.
+        /// Minimum object size (in bytes) to which the rule applies.
         /// </summary>
-        public readonly int? ObjectSizeGreaterThan;
+        public readonly string? ObjectSizeGreaterThan;
         /// <summary>
-        /// Maximum object size to which the rule applies.
+        /// Maximum object size (in bytes) to which the rule applies.
         /// </summary>
-        public readonly int? ObjectSizeLessThan;
+        public readonly string? ObjectSizeLessThan;
         /// <summary>
-        /// Prefix identifying one or more objects to which the rule applies.
+        /// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
@@ -38,9 +38,9 @@ namespace Pulumi.Aws.S3.Outputs
         private BucketLifecycleConfigurationV2RuleFilter(
             Outputs.BucketLifecycleConfigurationV2RuleFilterAnd? and,
 
-            int? objectSizeGreaterThan,
+            string? objectSizeGreaterThan,
 
-            int? objectSizeLessThan,
+            string? objectSizeLessThan,
 
             string? prefix,
 

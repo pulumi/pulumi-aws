@@ -29,7 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Fleets cannot be imported at this time.
+ * Gamelift Fleets can be imported using the ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+ * ```
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -64,9 +68,17 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Build ARN.
+     */
+    public /*out*/ readonly buildArn!: pulumi.Output<string>;
+    /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
-    public readonly buildId!: pulumi.Output<string>;
+    public readonly buildId!: pulumi.Output<string | undefined>;
+    /**
+     * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+     */
+    public readonly certificateConfiguration!: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration>;
     /**
      * Human-readable description of the fleet.
      */
@@ -74,7 +86,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[] | undefined>;
+    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[]>;
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      */
@@ -102,6 +114,7 @@ export class Fleet extends pulumi.CustomResource {
     public readonly newGameSessionProtectionPolicy!: pulumi.Output<string | undefined>;
     /**
      * Operating system of the fleet's computing resources.
+     * <<<<<<< HEAD
      */
     public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
     /**
@@ -113,11 +126,20 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Script ARN.
+     */
+    public /*out*/ readonly scriptArn!: pulumi.Output<string>;
+    /**
+     * ID of the Gamelift Script to be deployed on the fleet.
+     */
+    public readonly scriptId!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * >>>>>>> v4.1.0
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -135,7 +157,9 @@ export class Fleet extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["buildArn"] = state ? state.buildArn : undefined;
             resourceInputs["buildId"] = state ? state.buildId : undefined;
+            resourceInputs["certificateConfiguration"] = state ? state.certificateConfiguration : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["ec2InboundPermissions"] = state ? state.ec2InboundPermissions : undefined;
             resourceInputs["ec2InstanceType"] = state ? state.ec2InstanceType : undefined;
@@ -148,17 +172,17 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
             resourceInputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
             resourceInputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
+            resourceInputs["scriptArn"] = state ? state.scriptArn : undefined;
+            resourceInputs["scriptId"] = state ? state.scriptId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if ((!args || args.buildId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'buildId'");
-            }
             if ((!args || args.ec2InstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ec2InstanceType'");
             }
             resourceInputs["buildId"] = args ? args.buildId : undefined;
+            resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
             resourceInputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
@@ -169,10 +193,13 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
             resourceInputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
             resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
+            resourceInputs["scriptId"] = args ? args.scriptId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["buildArn"] = undefined /*out*/;
             resourceInputs["logPaths"] = undefined /*out*/;
             resourceInputs["operatingSystem"] = undefined /*out*/;
+            resourceInputs["scriptArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -189,9 +216,17 @@ export interface FleetState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Build ARN.
+     */
+    buildArn?: pulumi.Input<string>;
+    /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
     buildId?: pulumi.Input<string>;
+    /**
+     * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+     */
+    certificateConfiguration?: pulumi.Input<inputs.gamelift.FleetCertificateConfiguration>;
     /**
      * Human-readable description of the fleet.
      */
@@ -227,6 +262,7 @@ export interface FleetState {
     newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**
      * Operating system of the fleet's computing resources.
+     * <<<<<<< HEAD
      */
     operatingSystem?: pulumi.Input<string>;
     /**
@@ -238,11 +274,20 @@ export interface FleetState {
      */
     runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Script ARN.
+     */
+    scriptArn?: pulumi.Input<string>;
+    /**
+     * ID of the Gamelift Script to be deployed on the fleet.
+     */
+    scriptId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * >>>>>>> v4.1.0
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -254,7 +299,11 @@ export interface FleetArgs {
     /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
-    buildId: pulumi.Input<string>;
+    buildId?: pulumi.Input<string>;
+    /**
+     * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+     */
+    certificateConfiguration?: pulumi.Input<inputs.gamelift.FleetCertificateConfiguration>;
     /**
      * Human-readable description of the fleet.
      */
@@ -296,7 +345,11 @@ export interface FleetArgs {
      */
     runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * ID of the Gamelift Script to be deployed on the fleet.
+     */
+    scriptId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

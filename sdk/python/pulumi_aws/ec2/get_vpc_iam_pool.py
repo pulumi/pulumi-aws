@@ -278,7 +278,16 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool()
+    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="description",
+            values=["*test*"],
+        ),
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="address-family",
+            values=["ipv4"],
+        ),
+    ])
     test_vpc = aws.ec2.Vpc("testVpc",
         ipv4_ipam_pool_id=test_vpc_iam_pool.id,
         ipv4_netmask_length=28)
@@ -349,7 +358,16 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool()
+    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="description",
+            values=["*test*"],
+        ),
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="address-family",
+            values=["ipv4"],
+        ),
+    ])
     test_vpc = aws.ec2.Vpc("testVpc",
         ipv4_ipam_pool_id=test_vpc_iam_pool.id,
         ipv4_netmask_length=28)

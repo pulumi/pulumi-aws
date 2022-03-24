@@ -127,6 +127,10 @@ namespace Pulumi.Aws.ImageBuilder
     {
         public readonly string Arn;
         /// <summary>
+        /// Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
+        public readonly string ContainerRecipeArn;
+        /// <summary>
         /// Date the image pipeline was created.
         /// </summary>
         public readonly string DateCreated;
@@ -159,7 +163,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         public readonly string ImageRecipeArn;
         /// <summary>
@@ -195,6 +199,8 @@ namespace Pulumi.Aws.ImageBuilder
         private GetImagePipelineResult(
             string arn,
 
+            string containerRecipeArn,
+
             string dateCreated,
 
             string dateLastRun,
@@ -228,6 +234,7 @@ namespace Pulumi.Aws.ImageBuilder
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            ContainerRecipeArn = containerRecipeArn;
             DateCreated = dateCreated;
             DateLastRun = dateLastRun;
             DateNextRun = dateNextRun;

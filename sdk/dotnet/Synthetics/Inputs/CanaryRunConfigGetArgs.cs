@@ -18,6 +18,18 @@ namespace Pulumi.Aws.Synthetics.Inputs
         [Input("activeTracing")]
         public Input<bool>? ActiveTracing { get; set; }
 
+        [Input("environmentVariables")]
+        private InputMap<string>? _environmentVariables;
+
+        /// <summary>
+        /// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+        /// </summary>
+        public InputMap<string> EnvironmentVariables
+        {
+            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
+            set => _environmentVariables = value;
+        }
+
         /// <summary>
         /// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         /// </summary>

@@ -6,13 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource for controlling versioning on an S3 bucket.
- * Deleting this resource will suspend versioning on the associated S3 bucket.
- * For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
- *
- * > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
- *
  * ## Example Usage
+ * ### With Versioning Enabled
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,6 +22,24 @@ import * as utilities from "../utilities";
  *     bucket: exampleBucketV2.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
+ *     },
+ * });
+ * ```
+ * ### With Versioning Disabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     acl: "private",
+ * });
+ * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
+ *     bucket: exampleBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Disabled",
  *     },
  * });
  * ```
@@ -58,13 +71,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket versioning can be imported using the `bucket`, e.g.
+ * S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
  * ```
  *
- *  In addition, S3 bucket versioning can be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`), e.g.
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012

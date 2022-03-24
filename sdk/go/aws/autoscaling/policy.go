@@ -11,14 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AutoScaling Scaling Policy resource.
-//
-// > **NOTE:** You may want to omit `desiredCapacity` attribute from attached `autoscaling.Group`
-// when using autoscaling policies. It's good practice to pick either
-// [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
-// or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
-// (policy-based) scaling.
-//
 // ## Example Usage
 //
 // ```go
@@ -51,6 +43,132 @@ import (
 // 			AdjustmentType:       pulumi.String("ChangeInCapacity"),
 // 			Cooldown:             pulumi.Int(300),
 // 			AutoscalingGroupName: bar.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Create predictive scaling policy using customized metrics
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+// 			AutoscalingGroupName: pulumi.String("my-test-asg"),
+// 			PolicyType:           pulumi.String("PredictiveScaling"),
+// 			PredictiveScalingConfiguration: &autoscaling.PolicyPredictiveScalingConfigurationArgs{
+// 				MetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs{
+// 					CustomizedCapacityMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs{
+// 						MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray{
+// 							&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{
+// 								Expression: pulumi.String("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))"),
+// 								Id:         pulumi.String("capacity_sum"),
+// 								ReturnData: pulumi.Bool(false),
+// 							},
+// 							&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{
+// 								Expression: pulumi.String("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))"),
+// 								Id:         pulumi.String("load_sum"),
+// 								ReturnData: pulumi.Bool(false),
+// 							},
+// 							&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs{
+// 								Expression: pulumi.String("load_sum / capacity_sum"),
+// 								Id:         pulumi.String("weighted_average"),
+// 							},
+// 						},
+// 					},
+// 					CustomizedLoadMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs{
+// 						MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArray{
+// 							&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs{
+// 								Expression: pulumi.String("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))"),
+// 								Id:         pulumi.String("load_sum"),
+// 							},
+// 						},
+// 					},
+// 					CustomizedScalingMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{
+// 						MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray{
+// 							&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{
+// 								Id: pulumi.String("scaling"),
+// 								MetricStat: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs{
+// 									Metric: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs{
+// 										Dimensions: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{
+// 											&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{
+// 												Name:  pulumi.String("AutoScalingGroupName"),
+// 												Value: pulumi.String("my-test-asg"),
+// 											},
+// 										},
+// 										MetricName: pulumi.String("CPUUtilization"),
+// 										Namespace:  pulumi.String("AWS/EC2"),
+// 									},
+// 									Stat: pulumi.String("Average"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 					TargetValue: pulumi.Int(10),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Create predictive scaling policy using customized scaling and predefined load metric
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+// 			AutoscalingGroupName: pulumi.String("my-test-asg"),
+// 			PolicyType:           pulumi.String("PredictiveScaling"),
+// 			PredictiveScalingConfiguration: &autoscaling.PolicyPredictiveScalingConfigurationArgs{
+// 				MetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs{
+// 					CustomizedScalingMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs{
+// 						MetricDataQueries: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray{
+// 							&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs{
+// 								Id: pulumi.String("scaling"),
+// 								MetricStat: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs{
+// 									Metric: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs{
+// 										Dimensions: autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray{
+// 											&autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs{
+// 												Name:  pulumi.String("AutoScalingGroupName"),
+// 												Value: pulumi.String("my-test-asg"),
+// 											},
+// 										},
+// 										MetricName: pulumi.String("CPUUtilization"),
+// 										Namespace:  pulumi.String("AWS/EC2"),
+// 									},
+// 									Stat: pulumi.String("Average"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 					PredefinedLoadMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{
+// 						PredefinedMetricType: pulumi.String("ASGTotalCPUUtilization"),
+// 						ResourceLabel:        pulumi.String("testLabel"),
+// 					},
+// 					TargetValue: pulumi.Int(10),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

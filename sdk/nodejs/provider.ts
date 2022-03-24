@@ -33,6 +33,11 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly accessKey!: pulumi.Output<string | undefined>;
     /**
+     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+     * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     */
+    public readonly customCaBundle!: pulumi.Output<string | undefined>;
+    /**
      * Address of the EC2 metadata service endpoint to use. Can also be configured using the
      * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      */
@@ -66,6 +71,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly sharedCredentialsFile!: pulumi.Output<string | undefined>;
     /**
+     * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+     */
+    public readonly stsRegion!: pulumi.Output<string | undefined>;
+    /**
      * session token. A session token is only required if you are using temporary security credentials.
      */
     public readonly token!: pulumi.Output<string | undefined>;
@@ -84,6 +93,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["accessKey"] = args ? args.accessKey : undefined;
             resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
+            resourceInputs["customCaBundle"] = args ? args.customCaBundle : undefined;
             resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             resourceInputs["ec2MetadataServiceEndpoint"] = args ? args.ec2MetadataServiceEndpoint : undefined;
             resourceInputs["ec2MetadataServiceEndpointMode"] = args ? args.ec2MetadataServiceEndpointMode : undefined;
@@ -106,6 +116,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["skipMetadataApiCheck"] = pulumi.output((args ? args.skipMetadataApiCheck : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
+            resourceInputs["stsRegion"] = args ? args.stsRegion : undefined;
             resourceInputs["token"] = args ? args.token : undefined;
             resourceInputs["useDualstackEndpoint"] = pulumi.output(args ? args.useDualstackEndpoint : undefined).apply(JSON.stringify);
             resourceInputs["useFipsEndpoint"] = pulumi.output(args ? args.useFipsEndpoint : undefined).apply(JSON.stringify);
@@ -125,6 +136,11 @@ export interface ProviderArgs {
     accessKey?: pulumi.Input<string>;
     allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     assumeRole?: pulumi.Input<inputs.ProviderAssumeRole>;
+    /**
+     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+     * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     */
+    customCaBundle?: pulumi.Input<string>;
     /**
      * Configuration block with settings to default resource tags across all resources.
      */
@@ -220,6 +236,10 @@ export interface ProviderArgs {
      * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
      */
     skipRequestingAccountId?: pulumi.Input<boolean>;
+    /**
+     * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+     */
+    stsRegion?: pulumi.Input<string>;
     /**
      * session token. A session token is only required if you are using temporary security credentials.
      */

@@ -10,6 +10,218 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GetConnectFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetConnectFilterInput is an input type that accepts GetConnectFilterArgs and GetConnectFilterOutput values.
+// You can construct a concrete instance of `GetConnectFilterInput` via:
+//
+//          GetConnectFilterArgs{...}
+type GetConnectFilterInput interface {
+	pulumi.Input
+
+	ToGetConnectFilterOutput() GetConnectFilterOutput
+	ToGetConnectFilterOutputWithContext(context.Context) GetConnectFilterOutput
+}
+
+type GetConnectFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetConnectFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectFilter)(nil)).Elem()
+}
+
+func (i GetConnectFilterArgs) ToGetConnectFilterOutput() GetConnectFilterOutput {
+	return i.ToGetConnectFilterOutputWithContext(context.Background())
+}
+
+func (i GetConnectFilterArgs) ToGetConnectFilterOutputWithContext(ctx context.Context) GetConnectFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectFilterOutput)
+}
+
+// GetConnectFilterArrayInput is an input type that accepts GetConnectFilterArray and GetConnectFilterArrayOutput values.
+// You can construct a concrete instance of `GetConnectFilterArrayInput` via:
+//
+//          GetConnectFilterArray{ GetConnectFilterArgs{...} }
+type GetConnectFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectFilterArrayOutput() GetConnectFilterArrayOutput
+	ToGetConnectFilterArrayOutputWithContext(context.Context) GetConnectFilterArrayOutput
+}
+
+type GetConnectFilterArray []GetConnectFilterInput
+
+func (GetConnectFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectFilter)(nil)).Elem()
+}
+
+func (i GetConnectFilterArray) ToGetConnectFilterArrayOutput() GetConnectFilterArrayOutput {
+	return i.ToGetConnectFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectFilterArray) ToGetConnectFilterArrayOutputWithContext(ctx context.Context) GetConnectFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectFilterArrayOutput)
+}
+
+type GetConnectFilterOutput struct{ *pulumi.OutputState }
+
+func (GetConnectFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectFilter)(nil)).Elem()
+}
+
+func (o GetConnectFilterOutput) ToGetConnectFilterOutput() GetConnectFilterOutput {
+	return o
+}
+
+func (o GetConnectFilterOutput) ToGetConnectFilterOutputWithContext(ctx context.Context) GetConnectFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetConnectFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetConnectFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConnectFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetConnectFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectFilter)(nil)).Elem()
+}
+
+func (o GetConnectFilterArrayOutput) ToGetConnectFilterArrayOutput() GetConnectFilterArrayOutput {
+	return o
+}
+
+func (o GetConnectFilterArrayOutput) ToGetConnectFilterArrayOutputWithContext(ctx context.Context) GetConnectFilterArrayOutput {
+	return o
+}
+
+func (o GetConnectFilterArrayOutput) Index(i pulumi.IntInput) GetConnectFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectFilter {
+		return vs[0].([]GetConnectFilter)[vs[1].(int)]
+	}).(GetConnectFilterOutput)
+}
+
+type GetConnectPeerFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetConnectPeerFilterInput is an input type that accepts GetConnectPeerFilterArgs and GetConnectPeerFilterOutput values.
+// You can construct a concrete instance of `GetConnectPeerFilterInput` via:
+//
+//          GetConnectPeerFilterArgs{...}
+type GetConnectPeerFilterInput interface {
+	pulumi.Input
+
+	ToGetConnectPeerFilterOutput() GetConnectPeerFilterOutput
+	ToGetConnectPeerFilterOutputWithContext(context.Context) GetConnectPeerFilterOutput
+}
+
+type GetConnectPeerFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetConnectPeerFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectPeerFilter)(nil)).Elem()
+}
+
+func (i GetConnectPeerFilterArgs) ToGetConnectPeerFilterOutput() GetConnectPeerFilterOutput {
+	return i.ToGetConnectPeerFilterOutputWithContext(context.Background())
+}
+
+func (i GetConnectPeerFilterArgs) ToGetConnectPeerFilterOutputWithContext(ctx context.Context) GetConnectPeerFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectPeerFilterOutput)
+}
+
+// GetConnectPeerFilterArrayInput is an input type that accepts GetConnectPeerFilterArray and GetConnectPeerFilterArrayOutput values.
+// You can construct a concrete instance of `GetConnectPeerFilterArrayInput` via:
+//
+//          GetConnectPeerFilterArray{ GetConnectPeerFilterArgs{...} }
+type GetConnectPeerFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectPeerFilterArrayOutput() GetConnectPeerFilterArrayOutput
+	ToGetConnectPeerFilterArrayOutputWithContext(context.Context) GetConnectPeerFilterArrayOutput
+}
+
+type GetConnectPeerFilterArray []GetConnectPeerFilterInput
+
+func (GetConnectPeerFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectPeerFilter)(nil)).Elem()
+}
+
+func (i GetConnectPeerFilterArray) ToGetConnectPeerFilterArrayOutput() GetConnectPeerFilterArrayOutput {
+	return i.ToGetConnectPeerFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectPeerFilterArray) ToGetConnectPeerFilterArrayOutputWithContext(ctx context.Context) GetConnectPeerFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectPeerFilterArrayOutput)
+}
+
+type GetConnectPeerFilterOutput struct{ *pulumi.OutputState }
+
+func (GetConnectPeerFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectPeerFilter)(nil)).Elem()
+}
+
+func (o GetConnectPeerFilterOutput) ToGetConnectPeerFilterOutput() GetConnectPeerFilterOutput {
+	return o
+}
+
+func (o GetConnectPeerFilterOutput) ToGetConnectPeerFilterOutputWithContext(ctx context.Context) GetConnectPeerFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetConnectPeerFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectPeerFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetConnectPeerFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConnectPeerFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetConnectPeerFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectPeerFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectPeerFilter)(nil)).Elem()
+}
+
+func (o GetConnectPeerFilterArrayOutput) ToGetConnectPeerFilterArrayOutput() GetConnectPeerFilterArrayOutput {
+	return o
+}
+
+func (o GetConnectPeerFilterArrayOutput) ToGetConnectPeerFilterArrayOutputWithContext(ctx context.Context) GetConnectPeerFilterArrayOutput {
+	return o
+}
+
+func (o GetConnectPeerFilterArrayOutput) Index(i pulumi.IntInput) GetConnectPeerFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectPeerFilter {
+		return vs[0].([]GetConnectPeerFilter)[vs[1].(int)]
+	}).(GetConnectPeerFilterOutput)
+}
+
 type GetDirectConnectGatewayAttachmentFilter struct {
 	// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 	Name string `pulumi:"name"`
@@ -114,6 +326,430 @@ func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectConnectGatewayAttachmentFilter {
 		return vs[0].([]GetDirectConnectGatewayAttachmentFilter)[vs[1].(int)]
 	}).(GetDirectConnectGatewayAttachmentFilterOutput)
+}
+
+type GetMulticastDomainAssociationType struct {
+	// The ID of the subnet associated with the transit gateway multicast domain.
+	SubnetId string `pulumi:"subnetId"`
+	// The ID of the transit gateway attachment.
+	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+}
+
+// GetMulticastDomainAssociationTypeInput is an input type that accepts GetMulticastDomainAssociationTypeArgs and GetMulticastDomainAssociationTypeOutput values.
+// You can construct a concrete instance of `GetMulticastDomainAssociationTypeInput` via:
+//
+//          GetMulticastDomainAssociationTypeArgs{...}
+type GetMulticastDomainAssociationTypeInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainAssociationTypeOutput() GetMulticastDomainAssociationTypeOutput
+	ToGetMulticastDomainAssociationTypeOutputWithContext(context.Context) GetMulticastDomainAssociationTypeOutput
+}
+
+type GetMulticastDomainAssociationTypeArgs struct {
+	// The ID of the subnet associated with the transit gateway multicast domain.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// The ID of the transit gateway attachment.
+	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
+}
+
+func (GetMulticastDomainAssociationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainAssociationType)(nil)).Elem()
+}
+
+func (i GetMulticastDomainAssociationTypeArgs) ToGetMulticastDomainAssociationTypeOutput() GetMulticastDomainAssociationTypeOutput {
+	return i.ToGetMulticastDomainAssociationTypeOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainAssociationTypeArgs) ToGetMulticastDomainAssociationTypeOutputWithContext(ctx context.Context) GetMulticastDomainAssociationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainAssociationTypeOutput)
+}
+
+// GetMulticastDomainAssociationTypeArrayInput is an input type that accepts GetMulticastDomainAssociationTypeArray and GetMulticastDomainAssociationTypeArrayOutput values.
+// You can construct a concrete instance of `GetMulticastDomainAssociationTypeArrayInput` via:
+//
+//          GetMulticastDomainAssociationTypeArray{ GetMulticastDomainAssociationTypeArgs{...} }
+type GetMulticastDomainAssociationTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainAssociationTypeArrayOutput() GetMulticastDomainAssociationTypeArrayOutput
+	ToGetMulticastDomainAssociationTypeArrayOutputWithContext(context.Context) GetMulticastDomainAssociationTypeArrayOutput
+}
+
+type GetMulticastDomainAssociationTypeArray []GetMulticastDomainAssociationTypeInput
+
+func (GetMulticastDomainAssociationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainAssociationType)(nil)).Elem()
+}
+
+func (i GetMulticastDomainAssociationTypeArray) ToGetMulticastDomainAssociationTypeArrayOutput() GetMulticastDomainAssociationTypeArrayOutput {
+	return i.ToGetMulticastDomainAssociationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainAssociationTypeArray) ToGetMulticastDomainAssociationTypeArrayOutputWithContext(ctx context.Context) GetMulticastDomainAssociationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainAssociationTypeArrayOutput)
+}
+
+type GetMulticastDomainAssociationTypeOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainAssociationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainAssociationType)(nil)).Elem()
+}
+
+func (o GetMulticastDomainAssociationTypeOutput) ToGetMulticastDomainAssociationTypeOutput() GetMulticastDomainAssociationTypeOutput {
+	return o
+}
+
+func (o GetMulticastDomainAssociationTypeOutput) ToGetMulticastDomainAssociationTypeOutputWithContext(ctx context.Context) GetMulticastDomainAssociationTypeOutput {
+	return o
+}
+
+// The ID of the subnet associated with the transit gateway multicast domain.
+func (o GetMulticastDomainAssociationTypeOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMulticastDomainAssociationType) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The ID of the transit gateway attachment.
+func (o GetMulticastDomainAssociationTypeOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMulticastDomainAssociationType) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+type GetMulticastDomainAssociationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainAssociationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainAssociationType)(nil)).Elem()
+}
+
+func (o GetMulticastDomainAssociationTypeArrayOutput) ToGetMulticastDomainAssociationTypeArrayOutput() GetMulticastDomainAssociationTypeArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainAssociationTypeArrayOutput) ToGetMulticastDomainAssociationTypeArrayOutputWithContext(ctx context.Context) GetMulticastDomainAssociationTypeArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainAssociationTypeArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainAssociationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMulticastDomainAssociationType {
+		return vs[0].([]GetMulticastDomainAssociationType)[vs[1].(int)]
+	}).(GetMulticastDomainAssociationTypeOutput)
+}
+
+type GetMulticastDomainFilter struct {
+	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetMulticastDomainFilterInput is an input type that accepts GetMulticastDomainFilterArgs and GetMulticastDomainFilterOutput values.
+// You can construct a concrete instance of `GetMulticastDomainFilterInput` via:
+//
+//          GetMulticastDomainFilterArgs{...}
+type GetMulticastDomainFilterInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainFilterOutput() GetMulticastDomainFilterOutput
+	ToGetMulticastDomainFilterOutputWithContext(context.Context) GetMulticastDomainFilterOutput
+}
+
+type GetMulticastDomainFilterArgs struct {
+	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetMulticastDomainFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainFilter)(nil)).Elem()
+}
+
+func (i GetMulticastDomainFilterArgs) ToGetMulticastDomainFilterOutput() GetMulticastDomainFilterOutput {
+	return i.ToGetMulticastDomainFilterOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainFilterArgs) ToGetMulticastDomainFilterOutputWithContext(ctx context.Context) GetMulticastDomainFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainFilterOutput)
+}
+
+// GetMulticastDomainFilterArrayInput is an input type that accepts GetMulticastDomainFilterArray and GetMulticastDomainFilterArrayOutput values.
+// You can construct a concrete instance of `GetMulticastDomainFilterArrayInput` via:
+//
+//          GetMulticastDomainFilterArray{ GetMulticastDomainFilterArgs{...} }
+type GetMulticastDomainFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainFilterArrayOutput() GetMulticastDomainFilterArrayOutput
+	ToGetMulticastDomainFilterArrayOutputWithContext(context.Context) GetMulticastDomainFilterArrayOutput
+}
+
+type GetMulticastDomainFilterArray []GetMulticastDomainFilterInput
+
+func (GetMulticastDomainFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainFilter)(nil)).Elem()
+}
+
+func (i GetMulticastDomainFilterArray) ToGetMulticastDomainFilterArrayOutput() GetMulticastDomainFilterArrayOutput {
+	return i.ToGetMulticastDomainFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainFilterArray) ToGetMulticastDomainFilterArrayOutputWithContext(ctx context.Context) GetMulticastDomainFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainFilterArrayOutput)
+}
+
+type GetMulticastDomainFilterOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainFilter)(nil)).Elem()
+}
+
+func (o GetMulticastDomainFilterOutput) ToGetMulticastDomainFilterOutput() GetMulticastDomainFilterOutput {
+	return o
+}
+
+func (o GetMulticastDomainFilterOutput) ToGetMulticastDomainFilterOutputWithContext(ctx context.Context) GetMulticastDomainFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+func (o GetMulticastDomainFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMulticastDomainFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+func (o GetMulticastDomainFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetMulticastDomainFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetMulticastDomainFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainFilter)(nil)).Elem()
+}
+
+func (o GetMulticastDomainFilterArrayOutput) ToGetMulticastDomainFilterArrayOutput() GetMulticastDomainFilterArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainFilterArrayOutput) ToGetMulticastDomainFilterArrayOutputWithContext(ctx context.Context) GetMulticastDomainFilterArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainFilterArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMulticastDomainFilter {
+		return vs[0].([]GetMulticastDomainFilter)[vs[1].(int)]
+	}).(GetMulticastDomainFilterOutput)
+}
+
+type GetMulticastDomainMember struct {
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress string `pulumi:"groupIpAddress"`
+	// The group members' network interface ID.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+}
+
+// GetMulticastDomainMemberInput is an input type that accepts GetMulticastDomainMemberArgs and GetMulticastDomainMemberOutput values.
+// You can construct a concrete instance of `GetMulticastDomainMemberInput` via:
+//
+//          GetMulticastDomainMemberArgs{...}
+type GetMulticastDomainMemberInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainMemberOutput() GetMulticastDomainMemberOutput
+	ToGetMulticastDomainMemberOutputWithContext(context.Context) GetMulticastDomainMemberOutput
+}
+
+type GetMulticastDomainMemberArgs struct {
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress pulumi.StringInput `pulumi:"groupIpAddress"`
+	// The group members' network interface ID.
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+}
+
+func (GetMulticastDomainMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainMember)(nil)).Elem()
+}
+
+func (i GetMulticastDomainMemberArgs) ToGetMulticastDomainMemberOutput() GetMulticastDomainMemberOutput {
+	return i.ToGetMulticastDomainMemberOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainMemberArgs) ToGetMulticastDomainMemberOutputWithContext(ctx context.Context) GetMulticastDomainMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainMemberOutput)
+}
+
+// GetMulticastDomainMemberArrayInput is an input type that accepts GetMulticastDomainMemberArray and GetMulticastDomainMemberArrayOutput values.
+// You can construct a concrete instance of `GetMulticastDomainMemberArrayInput` via:
+//
+//          GetMulticastDomainMemberArray{ GetMulticastDomainMemberArgs{...} }
+type GetMulticastDomainMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainMemberArrayOutput() GetMulticastDomainMemberArrayOutput
+	ToGetMulticastDomainMemberArrayOutputWithContext(context.Context) GetMulticastDomainMemberArrayOutput
+}
+
+type GetMulticastDomainMemberArray []GetMulticastDomainMemberInput
+
+func (GetMulticastDomainMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainMember)(nil)).Elem()
+}
+
+func (i GetMulticastDomainMemberArray) ToGetMulticastDomainMemberArrayOutput() GetMulticastDomainMemberArrayOutput {
+	return i.ToGetMulticastDomainMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainMemberArray) ToGetMulticastDomainMemberArrayOutputWithContext(ctx context.Context) GetMulticastDomainMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainMemberArrayOutput)
+}
+
+type GetMulticastDomainMemberOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainMember)(nil)).Elem()
+}
+
+func (o GetMulticastDomainMemberOutput) ToGetMulticastDomainMemberOutput() GetMulticastDomainMemberOutput {
+	return o
+}
+
+func (o GetMulticastDomainMemberOutput) ToGetMulticastDomainMemberOutputWithContext(ctx context.Context) GetMulticastDomainMemberOutput {
+	return o
+}
+
+// The IP address assigned to the transit gateway multicast group.
+func (o GetMulticastDomainMemberOutput) GroupIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMulticastDomainMember) string { return v.GroupIpAddress }).(pulumi.StringOutput)
+}
+
+// The group members' network interface ID.
+func (o GetMulticastDomainMemberOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMulticastDomainMember) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+type GetMulticastDomainMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainMember)(nil)).Elem()
+}
+
+func (o GetMulticastDomainMemberArrayOutput) ToGetMulticastDomainMemberArrayOutput() GetMulticastDomainMemberArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainMemberArrayOutput) ToGetMulticastDomainMemberArrayOutputWithContext(ctx context.Context) GetMulticastDomainMemberArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainMemberArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMulticastDomainMember {
+		return vs[0].([]GetMulticastDomainMember)[vs[1].(int)]
+	}).(GetMulticastDomainMemberOutput)
+}
+
+type GetMulticastDomainSource struct {
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress string `pulumi:"groupIpAddress"`
+	// The group members' network interface ID.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+}
+
+// GetMulticastDomainSourceInput is an input type that accepts GetMulticastDomainSourceArgs and GetMulticastDomainSourceOutput values.
+// You can construct a concrete instance of `GetMulticastDomainSourceInput` via:
+//
+//          GetMulticastDomainSourceArgs{...}
+type GetMulticastDomainSourceInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainSourceOutput() GetMulticastDomainSourceOutput
+	ToGetMulticastDomainSourceOutputWithContext(context.Context) GetMulticastDomainSourceOutput
+}
+
+type GetMulticastDomainSourceArgs struct {
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress pulumi.StringInput `pulumi:"groupIpAddress"`
+	// The group members' network interface ID.
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+}
+
+func (GetMulticastDomainSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainSource)(nil)).Elem()
+}
+
+func (i GetMulticastDomainSourceArgs) ToGetMulticastDomainSourceOutput() GetMulticastDomainSourceOutput {
+	return i.ToGetMulticastDomainSourceOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainSourceArgs) ToGetMulticastDomainSourceOutputWithContext(ctx context.Context) GetMulticastDomainSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainSourceOutput)
+}
+
+// GetMulticastDomainSourceArrayInput is an input type that accepts GetMulticastDomainSourceArray and GetMulticastDomainSourceArrayOutput values.
+// You can construct a concrete instance of `GetMulticastDomainSourceArrayInput` via:
+//
+//          GetMulticastDomainSourceArray{ GetMulticastDomainSourceArgs{...} }
+type GetMulticastDomainSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetMulticastDomainSourceArrayOutput() GetMulticastDomainSourceArrayOutput
+	ToGetMulticastDomainSourceArrayOutputWithContext(context.Context) GetMulticastDomainSourceArrayOutput
+}
+
+type GetMulticastDomainSourceArray []GetMulticastDomainSourceInput
+
+func (GetMulticastDomainSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainSource)(nil)).Elem()
+}
+
+func (i GetMulticastDomainSourceArray) ToGetMulticastDomainSourceArrayOutput() GetMulticastDomainSourceArrayOutput {
+	return i.ToGetMulticastDomainSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetMulticastDomainSourceArray) ToGetMulticastDomainSourceArrayOutputWithContext(ctx context.Context) GetMulticastDomainSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainSourceArrayOutput)
+}
+
+type GetMulticastDomainSourceOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMulticastDomainSource)(nil)).Elem()
+}
+
+func (o GetMulticastDomainSourceOutput) ToGetMulticastDomainSourceOutput() GetMulticastDomainSourceOutput {
+	return o
+}
+
+func (o GetMulticastDomainSourceOutput) ToGetMulticastDomainSourceOutputWithContext(ctx context.Context) GetMulticastDomainSourceOutput {
+	return o
+}
+
+// The IP address assigned to the transit gateway multicast group.
+func (o GetMulticastDomainSourceOutput) GroupIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMulticastDomainSource) string { return v.GroupIpAddress }).(pulumi.StringOutput)
+}
+
+// The group members' network interface ID.
+func (o GetMulticastDomainSourceOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMulticastDomainSource) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+type GetMulticastDomainSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMulticastDomainSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMulticastDomainSource)(nil)).Elem()
+}
+
+func (o GetMulticastDomainSourceArrayOutput) ToGetMulticastDomainSourceArrayOutput() GetMulticastDomainSourceArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainSourceArrayOutput) ToGetMulticastDomainSourceArrayOutputWithContext(ctx context.Context) GetMulticastDomainSourceArrayOutput {
+	return o
+}
+
+func (o GetMulticastDomainSourceArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMulticastDomainSource {
+		return vs[0].([]GetMulticastDomainSource)[vs[1].(int)]
+	}).(GetMulticastDomainSourceOutput)
 }
 
 type GetPeeringAttachmentFilter struct {
@@ -546,6 +1182,112 @@ func (o GetVpcAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpcAttach
 	}).(GetVpcAttachmentFilterOutput)
 }
 
+type GetVpcAttachmentsFilter struct {
+	// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcAttachmentsFilterInput is an input type that accepts GetVpcAttachmentsFilterArgs and GetVpcAttachmentsFilterOutput values.
+// You can construct a concrete instance of `GetVpcAttachmentsFilterInput` via:
+//
+//          GetVpcAttachmentsFilterArgs{...}
+type GetVpcAttachmentsFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcAttachmentsFilterOutput() GetVpcAttachmentsFilterOutput
+	ToGetVpcAttachmentsFilterOutputWithContext(context.Context) GetVpcAttachmentsFilterOutput
+}
+
+type GetVpcAttachmentsFilterArgs struct {
+	// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcAttachmentsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcAttachmentsFilter)(nil)).Elem()
+}
+
+func (i GetVpcAttachmentsFilterArgs) ToGetVpcAttachmentsFilterOutput() GetVpcAttachmentsFilterOutput {
+	return i.ToGetVpcAttachmentsFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcAttachmentsFilterArgs) ToGetVpcAttachmentsFilterOutputWithContext(ctx context.Context) GetVpcAttachmentsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentsFilterOutput)
+}
+
+// GetVpcAttachmentsFilterArrayInput is an input type that accepts GetVpcAttachmentsFilterArray and GetVpcAttachmentsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcAttachmentsFilterArrayInput` via:
+//
+//          GetVpcAttachmentsFilterArray{ GetVpcAttachmentsFilterArgs{...} }
+type GetVpcAttachmentsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcAttachmentsFilterArrayOutput() GetVpcAttachmentsFilterArrayOutput
+	ToGetVpcAttachmentsFilterArrayOutputWithContext(context.Context) GetVpcAttachmentsFilterArrayOutput
+}
+
+type GetVpcAttachmentsFilterArray []GetVpcAttachmentsFilterInput
+
+func (GetVpcAttachmentsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcAttachmentsFilter)(nil)).Elem()
+}
+
+func (i GetVpcAttachmentsFilterArray) ToGetVpcAttachmentsFilterArrayOutput() GetVpcAttachmentsFilterArrayOutput {
+	return i.ToGetVpcAttachmentsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcAttachmentsFilterArray) ToGetVpcAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetVpcAttachmentsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentsFilterArrayOutput)
+}
+
+type GetVpcAttachmentsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcAttachmentsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcAttachmentsFilter)(nil)).Elem()
+}
+
+func (o GetVpcAttachmentsFilterOutput) ToGetVpcAttachmentsFilterOutput() GetVpcAttachmentsFilterOutput {
+	return o
+}
+
+func (o GetVpcAttachmentsFilterOutput) ToGetVpcAttachmentsFilterOutputWithContext(ctx context.Context) GetVpcAttachmentsFilterOutput {
+	return o
+}
+
+// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
+func (o GetVpcAttachmentsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcAttachmentsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetVpcAttachmentsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcAttachmentsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcAttachmentsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcAttachmentsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcAttachmentsFilter)(nil)).Elem()
+}
+
+func (o GetVpcAttachmentsFilterArrayOutput) ToGetVpcAttachmentsFilterArrayOutput() GetVpcAttachmentsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcAttachmentsFilterArrayOutput) ToGetVpcAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetVpcAttachmentsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcAttachmentsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcAttachmentsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcAttachmentsFilter {
+		return vs[0].([]GetVpcAttachmentsFilter)[vs[1].(int)]
+	}).(GetVpcAttachmentsFilterOutput)
+}
+
 type GetVpnAttachmentFilter struct {
 	// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 	Name string `pulumi:"name"`
@@ -653,8 +1395,20 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectFilterInput)(nil)).Elem(), GetConnectFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectFilterArrayInput)(nil)).Elem(), GetConnectFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectPeerFilterInput)(nil)).Elem(), GetConnectPeerFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectPeerFilterArrayInput)(nil)).Elem(), GetConnectPeerFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectConnectGatewayAttachmentFilterInput)(nil)).Elem(), GetDirectConnectGatewayAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectConnectGatewayAttachmentFilterArrayInput)(nil)).Elem(), GetDirectConnectGatewayAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainAssociationTypeInput)(nil)).Elem(), GetMulticastDomainAssociationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainAssociationTypeArrayInput)(nil)).Elem(), GetMulticastDomainAssociationTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainFilterInput)(nil)).Elem(), GetMulticastDomainFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainFilterArrayInput)(nil)).Elem(), GetMulticastDomainFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainMemberInput)(nil)).Elem(), GetMulticastDomainMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainMemberArrayInput)(nil)).Elem(), GetMulticastDomainMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainSourceInput)(nil)).Elem(), GetMulticastDomainSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainSourceArrayInput)(nil)).Elem(), GetMulticastDomainSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterInput)(nil)).Elem(), GetPeeringAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterArrayInput)(nil)).Elem(), GetPeeringAttachmentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterInput)(nil)).Elem(), GetRouteTableFilterArgs{})
@@ -663,10 +1417,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayFilterArrayInput)(nil)).Elem(), GetTransitGatewayFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentFilterInput)(nil)).Elem(), GetVpcAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentFilterArrayInput)(nil)).Elem(), GetVpcAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentsFilterInput)(nil)).Elem(), GetVpcAttachmentsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentsFilterArrayInput)(nil)).Elem(), GetVpcAttachmentsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterInput)(nil)).Elem(), GetVpnAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterArrayInput)(nil)).Elem(), GetVpnAttachmentFilterArray{})
+	pulumi.RegisterOutputType(GetConnectFilterOutput{})
+	pulumi.RegisterOutputType(GetConnectFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectPeerFilterOutput{})
+	pulumi.RegisterOutputType(GetConnectPeerFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectConnectGatewayAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetDirectConnectGatewayAttachmentFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainAssociationTypeOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainAssociationTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainFilterOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainMemberOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainSourceOutput{})
+	pulumi.RegisterOutputType(GetMulticastDomainSourceArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetPeeringAttachmentFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterOutput{})
@@ -675,6 +1443,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTransitGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcAttachmentFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcAttachmentsFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcAttachmentsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetVpnAttachmentFilterArrayOutput{})
 }

@@ -120,6 +120,12 @@ namespace Pulumi.Aws.Ssm
         public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the SSM association
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the SSM association.
         /// </summary>
         [Output("associationId")]
@@ -196,6 +202,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.AssociationTarget>> Targets { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// </summary>
+        [Output("waitForSuccessTimeoutSeconds")]
+        public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
 
 
         /// <summary>
@@ -333,6 +345,12 @@ namespace Pulumi.Aws.Ssm
             set => _targets = value;
         }
 
+        /// <summary>
+        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// </summary>
+        [Input("waitForSuccessTimeoutSeconds")]
+        public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
+
         public AssociationArgs()
         {
         }
@@ -345,6 +363,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("applyOnlyAtCronInterval")]
         public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
+
+        /// <summary>
+        /// The ARN of the SSM association
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// The ID of the SSM association.
@@ -435,6 +459,12 @@ namespace Pulumi.Aws.Ssm
             get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetGetArgs>());
             set => _targets = value;
         }
+
+        /// <summary>
+        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// </summary>
+        [Input("waitForSuccessTimeoutSeconds")]
+        public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
 
         public AssociationState()
         {

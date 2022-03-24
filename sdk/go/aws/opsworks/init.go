@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "aws:opsworks/customLayer:CustomLayer":
 		r = &CustomLayer{}
+	case "aws:opsworks/ecsClusterLayer:EcsClusterLayer":
+		r = &EcsClusterLayer{}
 	case "aws:opsworks/gangliaLayer:GangliaLayer":
 		r = &GangliaLayer{}
 	case "aws:opsworks/haproxyLayer:HaproxyLayer":
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"opsworks/customLayer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opsworks/ecsClusterLayer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

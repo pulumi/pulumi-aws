@@ -82,7 +82,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Configuration block to define the attachment of the ENI. See below.
+     * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
     public readonly attachments!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachment[]>;
     /**
@@ -255,7 +255,7 @@ export interface NetworkInterfaceState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Configuration block to define the attachment of the ENI. See below.
+     * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
     attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
     /**
@@ -349,7 +349,7 @@ export interface NetworkInterfaceState {
  */
 export interface NetworkInterfaceArgs {
     /**
-     * Configuration block to define the attachment of the ENI. See below.
+     * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
     attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
     /**

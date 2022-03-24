@@ -11,18 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Auto Scaling Group resource.
-//
-// > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
-//
-// > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-// both a standalone `autoscaling.Attachment` resource
-// (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
-// with `loadBalancers` and `targetGroupArns` defined in-line. These two methods are not
-// mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
-// `loadBalancers` or `targetGroupArns`, the `autoscaling.Group` resource must be configured
-// to ignore changes to the `loadBalancers` and `targetGroupArns` arguments.
-//
 // ## Example Usage
 // ### With Latest Version Of Launch Template
 //

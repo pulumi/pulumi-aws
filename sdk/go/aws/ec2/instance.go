@@ -228,9 +228,9 @@ type Instance struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserData pulumi.StringOutput `pulumi:"userData"`
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
 	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags pulumi.StringMapOutput `pulumi:"volumeTags"`
@@ -358,9 +358,9 @@ type instanceState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserData *string `pulumi:"userData"`
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
@@ -460,9 +460,9 @@ type InstanceState struct {
 	TagsAll pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserData pulumi.StringPtrInput
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserDataBase64 pulumi.StringPtrInput
 	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags pulumi.StringMapInput
@@ -548,9 +548,9 @@ type instanceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserData *string `pulumi:"userData"`
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
@@ -633,9 +633,9 @@ type InstanceArgs struct {
 	Tags pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserData pulumi.StringPtrInput
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
 	UserDataBase64 pulumi.StringPtrInput
 	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags pulumi.StringMapInput

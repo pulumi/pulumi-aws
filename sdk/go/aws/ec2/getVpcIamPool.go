@@ -32,7 +32,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testVpcIamPool, err := ec2.GetVpcIamPool(ctx, nil, nil)
+// 		testVpcIamPool, err := ec2.GetVpcIamPool(ctx, &ec2.GetVpcIamPoolArgs{
+// 			Filters: []ec2.GetVpcIamPoolFilter{
+// 				ec2.GetVpcIamPoolFilter{
+// 					Name: "description",
+// 					Values: []string{
+// 						"*test*",
+// 					},
+// 				},
+// 				ec2.GetVpcIamPoolFilter{
+// 					Name: "address-family",
+// 					Values: []string{
+// 						"ipv4",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}

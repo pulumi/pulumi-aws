@@ -657,7 +657,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="audioCodecOptions")
-    def audio_codec_options(self) -> pulumi.Output[Optional['outputs.PresetAudioCodecOptions']]:
+    def audio_codec_options(self) -> pulumi.Output['outputs.PresetAudioCodecOptions']:
         """
         Codec options for the audio parameters (documented below)
         """

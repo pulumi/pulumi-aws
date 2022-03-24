@@ -115,10 +115,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketV2ObjectLockConfigurationArgs
-    ///             {
-    ///                 ObjectLockEnabled = "Enabled",
-    ///             },
+    ///             ObjectLockEnabled = true,
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {

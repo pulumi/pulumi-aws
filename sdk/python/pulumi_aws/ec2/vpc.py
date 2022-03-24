@@ -293,7 +293,6 @@ class _VpcState:
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[str] ipv6_association_id: The association ID for the IPv6 CIDR block.
-               * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
@@ -525,7 +524,6 @@ class _VpcState:
     def ipv6_association_id(self) -> Optional[pulumi.Input[str]]:
         """
         The association ID for the IPv6 CIDR block.
-        * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         """
         return pulumi.get(self, "ipv6_association_id")
 
@@ -917,7 +915,6 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[str] ipv6_association_id: The association ID for the IPv6 CIDR block.
-               * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
@@ -1075,7 +1072,6 @@ class Vpc(pulumi.CustomResource):
     def ipv6_association_id(self) -> pulumi.Output[str]:
         """
         The association ID for the IPv6 CIDR block.
-        * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         """
         return pulumi.get(self, "ipv6_association_id")
 

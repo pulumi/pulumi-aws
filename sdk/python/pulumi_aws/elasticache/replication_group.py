@@ -62,7 +62,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
         :param pulumi.Input['ReplicationGroupClusterModeArgs'] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-        :param pulumi.Input[str] description: User-created description for the replication group.
+        :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -79,7 +79,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[int] port: Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_cache_cluster_azs: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
         :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param pulumi.Input[str] replication_group_description: User-created description for the replication group.
+        :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -275,7 +275,7 @@ class ReplicationGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        User-created description for the replication group.
+        User-created description for the replication group. Must not be empty.
         """
         return pulumi.get(self, "description")
 
@@ -479,7 +479,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        User-created description for the replication group.
+        User-created description for the replication group. Must not be empty.
         """
         return pulumi.get(self, "replication_group_description")
 
@@ -678,7 +678,7 @@ class _ReplicationGroupState:
         :param pulumi.Input['ReplicationGroupClusterModeArgs'] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] configuration_endpoint_address: Address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-        :param pulumi.Input[str] description: User-created description for the replication group.
+        :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: Running version of the cache engine.
@@ -699,7 +699,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] primary_endpoint_address: (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         :param pulumi.Input[str] reader_endpoint_address: (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
         :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param pulumi.Input[str] replication_group_description: User-created description for the replication group.
+        :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -947,7 +947,7 @@ class _ReplicationGroupState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        User-created description for the replication group.
+        User-created description for the replication group. Must not be empty.
         """
         return pulumi.get(self, "description")
 
@@ -1199,7 +1199,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        User-created description for the replication group.
+        User-created description for the replication group. Must not be empty.
         """
         return pulumi.get(self, "replication_group_description")
 
@@ -1523,7 +1523,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
         :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-        :param pulumi.Input[str] description: User-created description for the replication group.
+        :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -1540,7 +1540,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[int] port: Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_cache_cluster_azs: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
         :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param pulumi.Input[str] replication_group_description: User-created description for the replication group.
+        :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -1873,7 +1873,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] configuration_endpoint_address: Address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-        :param pulumi.Input[str] description: User-created description for the replication group.
+        :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: Running version of the cache engine.
@@ -1894,7 +1894,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] primary_endpoint_address: (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         :param pulumi.Input[str] reader_endpoint_address: (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
         :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param pulumi.Input[str] replication_group_description: User-created description for the replication group.
+        :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -2049,7 +2049,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        User-created description for the replication group.
+        User-created description for the replication group. Must not be empty.
         """
         return pulumi.get(self, "description")
 
@@ -2217,7 +2217,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> pulumi.Output[str]:
         """
-        User-created description for the replication group.
+        User-created description for the replication group. Must not be empty.
         """
         return pulumi.get(self, "replication_group_description")
 

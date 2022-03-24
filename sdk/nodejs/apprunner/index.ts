@@ -9,12 +9,14 @@ export * from "./autoScalingConfigurationVersion";
 export * from "./connection";
 export * from "./customDomainAssociation";
 export * from "./service";
+export * from "./vpcConnector";
 
 // Import resources to register:
 import { AutoScalingConfigurationVersion } from "./autoScalingConfigurationVersion";
 import { Connection } from "./connection";
 import { CustomDomainAssociation } from "./customDomainAssociation";
 import { Service } from "./service";
+import { VpcConnector } from "./vpcConnector";
 
 const _module = {
     version: utilities.getVersion(),
@@ -28,6 +30,8 @@ const _module = {
                 return new CustomDomainAssociation(name, <any>undefined, { urn })
             case "aws:apprunner/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "aws:apprunner/vpcConnector:VpcConnector":
+                return new VpcConnector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -37,3 +41,4 @@ pulumi.runtime.registerResourceModule("aws", "apprunner/autoScalingConfiguration
 pulumi.runtime.registerResourceModule("aws", "apprunner/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/customDomainAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/service", _module)
+pulumi.runtime.registerResourceModule("aws", "apprunner/vpcConnector", _module)

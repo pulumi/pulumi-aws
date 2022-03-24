@@ -18,6 +18,15 @@ __all__ = [
     'QuickConnectQuickConnectConfigPhoneConfigArgs',
     'QuickConnectQuickConnectConfigQueueConfigArgs',
     'QuickConnectQuickConnectConfigUserConfigArgs',
+    'RoutingProfileMediaConcurrencyArgs',
+    'RoutingProfileQueueConfigArgs',
+    'RoutingProfileQueueConfigsAssociatedArgs',
+    'UserHierarchyStructureHierarchyStructureArgs',
+    'UserHierarchyStructureHierarchyStructureLevelFiveArgs',
+    'UserHierarchyStructureHierarchyStructureLevelFourArgs',
+    'UserHierarchyStructureHierarchyStructureLevelOneArgs',
+    'UserHierarchyStructureHierarchyStructureLevelThreeArgs',
+    'UserHierarchyStructureHierarchyStructureLevelTwoArgs',
     'GetBotAssociationLexBotArgs',
 ]
 
@@ -404,6 +413,602 @@ class QuickConnectQuickConnectConfigUserConfigArgs:
     @user_id.setter
     def user_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_id", value)
+
+
+@pulumi.input_type
+class RoutingProfileMediaConcurrencyArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input[str],
+                 concurrency: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param pulumi.Input[int] concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "concurrency", concurrency)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input[str]:
+        """
+        Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        """
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        """
+        return pulumi.get(self, "concurrency")
+
+    @concurrency.setter
+    def concurrency(self, value: pulumi.Input[int]):
+        pulumi.set(self, "concurrency", value)
+
+
+@pulumi.input_type
+class RoutingProfileQueueConfigArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input[str],
+                 delay: pulumi.Input[int],
+                 priority: pulumi.Input[int],
+                 queue_id: pulumi.Input[str],
+                 queue_arn: Optional[pulumi.Input[str]] = None,
+                 queue_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param pulumi.Input[int] delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        :param pulumi.Input[int] priority: Specifies the order in which contacts are to be handled for the queue.
+        :param pulumi.Input[str] queue_id: Specifies the identifier for the queue.
+        :param pulumi.Input[str] queue_arn: Specifies the ARN for the queue.
+        :param pulumi.Input[str] queue_name: Specifies the name for the queue.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "queue_id", queue_id)
+        if queue_arn is not None:
+            pulumi.set(__self__, "queue_arn", queue_arn)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input[str]:
+        """
+        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        """
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def delay(self) -> pulumi.Input[int]:
+        """
+        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        """
+        return pulumi.get(self, "delay")
+
+    @delay.setter
+    def delay(self, value: pulumi.Input[int]):
+        pulumi.set(self, "delay", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Specifies the order in which contacts are to be handled for the queue.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier for the queue.
+        """
+        return pulumi.get(self, "queue_id")
+
+    @queue_id.setter
+    def queue_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "queue_id", value)
+
+    @property
+    @pulumi.getter(name="queueArn")
+    def queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ARN for the queue.
+        """
+        return pulumi.get(self, "queue_arn")
+
+    @queue_arn.setter
+    def queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_arn", value)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name for the queue.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_name", value)
+
+
+@pulumi.input_type
+class RoutingProfileQueueConfigsAssociatedArgs:
+    def __init__(__self__, *,
+                 channel: Optional[pulumi.Input[str]] = None,
+                 delay: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 queue_arn: Optional[pulumi.Input[str]] = None,
+                 queue_id: Optional[pulumi.Input[str]] = None,
+                 queue_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param pulumi.Input[int] delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        :param pulumi.Input[int] priority: Specifies the order in which contacts are to be handled for the queue.
+        :param pulumi.Input[str] queue_arn: Specifies the ARN for the queue.
+        :param pulumi.Input[str] queue_id: Specifies the identifier for the queue.
+        :param pulumi.Input[str] queue_name: Specifies the name for the queue.
+        """
+        if channel is not None:
+            pulumi.set(__self__, "channel", channel)
+        if delay is not None:
+            pulumi.set(__self__, "delay", delay)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if queue_arn is not None:
+            pulumi.set(__self__, "queue_arn", queue_arn)
+        if queue_id is not None:
+            pulumi.set(__self__, "queue_id", queue_id)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        """
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        """
+        return pulumi.get(self, "delay")
+
+    @delay.setter
+    def delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delay", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the order in which contacts are to be handled for the queue.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="queueArn")
+    def queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ARN for the queue.
+        """
+        return pulumi.get(self, "queue_arn")
+
+    @queue_arn.setter
+    def queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_arn", value)
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier for the queue.
+        """
+        return pulumi.get(self, "queue_id")
+
+    @queue_id.setter
+    def queue_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_id", value)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name for the queue.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_name", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureHierarchyStructureArgs:
+    def __init__(__self__, *,
+                 level_five: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']] = None,
+                 level_four: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']] = None,
+                 level_one: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']] = None,
+                 level_three: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']] = None,
+                 level_two: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']] = None):
+        """
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs'] level_five: A block that defines the details of level five. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs'] level_four: A block that defines the details of level four. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs'] level_one: A block that defines the details of level one. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_three: A block that defines the details of level three. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_two: A block that defines the details of level two. The level block is documented below.
+        """
+        if level_five is not None:
+            pulumi.set(__self__, "level_five", level_five)
+        if level_four is not None:
+            pulumi.set(__self__, "level_four", level_four)
+        if level_one is not None:
+            pulumi.set(__self__, "level_one", level_one)
+        if level_three is not None:
+            pulumi.set(__self__, "level_three", level_three)
+        if level_two is not None:
+            pulumi.set(__self__, "level_two", level_two)
+
+    @property
+    @pulumi.getter(name="levelFive")
+    def level_five(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]:
+        """
+        A block that defines the details of level five. The level block is documented below.
+        """
+        return pulumi.get(self, "level_five")
+
+    @level_five.setter
+    def level_five(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]):
+        pulumi.set(self, "level_five", value)
+
+    @property
+    @pulumi.getter(name="levelFour")
+    def level_four(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']]:
+        """
+        A block that defines the details of level four. The level block is documented below.
+        """
+        return pulumi.get(self, "level_four")
+
+    @level_four.setter
+    def level_four(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']]):
+        pulumi.set(self, "level_four", value)
+
+    @property
+    @pulumi.getter(name="levelOne")
+    def level_one(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']]:
+        """
+        A block that defines the details of level one. The level block is documented below.
+        """
+        return pulumi.get(self, "level_one")
+
+    @level_one.setter
+    def level_one(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']]):
+        pulumi.set(self, "level_one", value)
+
+    @property
+    @pulumi.getter(name="levelThree")
+    def level_three(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]:
+        """
+        A block that defines the details of level three. The level block is documented below.
+        """
+        return pulumi.get(self, "level_three")
+
+    @level_three.setter
+    def level_three(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]):
+        pulumi.set(self, "level_three", value)
+
+    @property
+    @pulumi.getter(name="levelTwo")
+    def level_two(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]:
+        """
+        A block that defines the details of level two. The level block is documented below.
+        """
+        return pulumi.get(self, "level_two")
+
+    @level_two.setter
+    def level_two(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]):
+        pulumi.set(self, "level_two", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[str] id: The identifier of the hierarchy level.
+        """
+        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureHierarchyStructureLevelFourArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[str] id: The identifier of the hierarchy level.
+        """
+        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureHierarchyStructureLevelOneArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[str] id: The identifier of the hierarchy level.
+        """
+        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[str] id: The identifier of the hierarchy level.
+        """
+        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[str] id: The identifier of the hierarchy level.
+        """
+        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

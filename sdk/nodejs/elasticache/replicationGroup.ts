@@ -213,7 +213,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly dataTieringEnabled!: pulumi.Output<boolean>;
     /**
-     * User-created description for the replication group.
+     * User-created description for the replication group. Must not be empty.
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -299,7 +299,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly replicasPerNodeGroup!: pulumi.Output<number>;
     /**
-     * User-created description for the replication group.
+     * User-created description for the replication group. Must not be empty.
      *
      * @deprecated Use description instead
      */
@@ -509,7 +509,7 @@ export interface ReplicationGroupState {
      */
     dataTieringEnabled?: pulumi.Input<boolean>;
     /**
-     * User-created description for the replication group.
+     * User-created description for the replication group. Must not be empty.
      */
     description?: pulumi.Input<string>;
     /**
@@ -595,7 +595,7 @@ export interface ReplicationGroupState {
      */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
-     * User-created description for the replication group.
+     * User-created description for the replication group. Must not be empty.
      *
      * @deprecated Use description instead
      */
@@ -683,7 +683,7 @@ export interface ReplicationGroupArgs {
      */
     dataTieringEnabled?: pulumi.Input<boolean>;
     /**
-     * User-created description for the replication group.
+     * User-created description for the replication group. Must not be empty.
      */
     description?: pulumi.Input<string>;
     /**
@@ -753,7 +753,7 @@ export interface ReplicationGroupArgs {
      */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
-     * User-created description for the replication group.
+     * User-created description for the replication group. Must not be empty.
      *
      * @deprecated Use description instead
      */

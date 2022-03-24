@@ -117,10 +117,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplebucket = new Aws.S3.BucketV2("examplebucket", new Aws.S3.BucketV2Args
     ///         {
-    ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketV2ObjectLockConfigurationArgs
-    ///             {
-    ///                 ObjectLockEnabled = "Enabled",
-    ///             },
+    ///             ObjectLockEnabled = true,
     ///         });
     ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
     ///         {
@@ -511,18 +508,6 @@ namespace Pulumi.Aws.S3
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>

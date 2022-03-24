@@ -256,7 +256,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> DataTieringEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// User-created description for the replication group.
+        /// User-created description for the replication group. Must not be empty.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<int> ReplicasPerNodeGroup { get; private set; } = null!;
 
         /// <summary>
-        /// User-created description for the replication group.
+        /// User-created description for the replication group. Must not be empty.
         /// </summary>
         [Output("replicationGroupDescription")]
         public Output<string> ReplicationGroupDescription { get; private set; } = null!;
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? DataTieringEnabled { get; set; }
 
         /// <summary>
-        /// User-created description for the replication group.
+        /// User-created description for the replication group. Must not be empty.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -662,7 +662,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<int>? ReplicasPerNodeGroup { get; set; }
 
         /// <summary>
-        /// User-created description for the replication group.
+        /// User-created description for the replication group. Must not be empty.
         /// </summary>
         [Input("replicationGroupDescription")]
         public Input<string>? ReplicationGroupDescription { get; set; }
@@ -839,7 +839,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? DataTieringEnabled { get; set; }
 
         /// <summary>
-        /// User-created description for the replication group.
+        /// User-created description for the replication group. Must not be empty.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -977,7 +977,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<int>? ReplicasPerNodeGroup { get; set; }
 
         /// <summary>
-        /// User-created description for the replication group.
+        /// User-created description for the replication group. Must not be empty.
         /// </summary>
         [Input("replicationGroupDescription")]
         public Input<string>? ReplicationGroupDescription { get; set; }

@@ -117,7 +117,7 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Codec options for the audio parameters (documented below)
      */
-    public readonly audioCodecOptions!: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions | undefined>;
+    public readonly audioCodecOptions!: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */

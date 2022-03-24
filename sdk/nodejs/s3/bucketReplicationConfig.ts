@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Provides an independent configuration resource for S3 bucket [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html).
  *
+ * > **NOTE:** S3 Buckets only support a single replication configuration. Declaring multiple `aws.s3.BucketReplicationConfig` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+ *
  * ## Example Usage
  * ### Using replication configuration
  *
@@ -83,6 +85,8 @@ import * as utilities from "../utilities";
  * const sourceBucketAcl = new aws.s3.BucketAclV2("sourceBucketAcl", {
  *     bucket: sourceBucketV2.id,
  *     acl: "private",
+ * }, {
+ *     provider: aws.central,
  * });
  * const sourceBucketVersioningV2 = new aws.s3.BucketVersioningV2("sourceBucketVersioningV2", {
  *     bucket: sourceBucketV2.id,
@@ -97,7 +101,9 @@ import * as utilities from "../utilities";
  *     bucket: sourceBucketV2.id,
  *     rules: [{
  *         id: "foobar",
- *         prefix: "foo",
+ *         filter: {
+ *             prefix: "foo",
+ *         },
  *         status: "Enabled",
  *         destination: {
  *             bucket: destinationBucketV2.arn,
@@ -105,6 +111,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }, {
+ *     provider: aws.central,
  *     dependsOn: [sourceBucketVersioningV2],
  * });
  * ```
@@ -123,7 +130,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const westBucketV2 = new aws.s3.BucketV2("westBucketV2", {}, {
- *     provider: west,
+ *     provider: aws.west,
  * });
  * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("westBucketVersioningV2", {
  *     bucket: westBucketV2.id,
@@ -131,14 +138,16 @@ import * as utilities from "../utilities";
  *         status: "Enabled",
  *     },
  * }, {
- *     provider: west,
+ *     provider: aws.west,
  * });
  * const eastToWest = new aws.s3.BucketReplicationConfig("eastToWest", {
  *     role: aws_iam_role.east_replication.arn,
  *     bucket: eastBucketV2.id,
  *     rules: [{
  *         id: "foobar",
- *         prefix: "foo",
+ *         filter: {
+ *             prefix: "foo",
+ *         },
  *         status: "Enabled",
  *         destination: {
  *             bucket: westBucketV2.arn,
@@ -153,7 +162,9 @@ import * as utilities from "../utilities";
  *     bucket: westBucketV2.id,
  *     rules: [{
  *         id: "foobar",
- *         prefix: "foo",
+ *         filter: {
+ *             prefix: "foo",
+ *         },
  *         status: "Enabled",
  *         destination: {
  *             bucket: eastBucketV2.arn,
@@ -161,6 +172,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }, {
+ *     provider: aws.west,
  *     dependsOn: [westBucketVersioningV2],
  * });
  * ```
@@ -210,9 +222,14 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string>;
     /**
-     * Set of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication documented below.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketReplicationConfigRule[]>;
+    /**
+     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     */
+    public readonly token!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BucketReplicationConfig resource with the given unique name, arguments, and options.
@@ -230,6 +247,7 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
         } else {
             const args = argsOrState as BucketReplicationConfigArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -244,6 +262,7 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["token"] = args ? args.token : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketReplicationConfig.__pulumiType, name, resourceInputs, opts);
@@ -263,9 +282,14 @@ export interface BucketReplicationConfigState {
      */
     role?: pulumi.Input<string>;
     /**
-     * Set of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication documented below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
+    /**
+     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     */
+    token?: pulumi.Input<string>;
 }
 
 /**
@@ -281,7 +305,12 @@ export interface BucketReplicationConfigArgs {
      */
     role: pulumi.Input<string>;
     /**
-     * Set of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication documented below.
      */
     rules: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
+    /**
+     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     */
+    token?: pulumi.Input<string>;
 }

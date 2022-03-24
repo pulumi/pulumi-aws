@@ -864,9 +864,11 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 type InstanceRestoreToPointInTime struct {
 	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 	RestoreTime *string `pulumi:"restoreTime"`
-	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+	// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+	SourceDbInstanceAutomatedBackupsArn *string `pulumi:"sourceDbInstanceAutomatedBackupsArn"`
+	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 	SourceDbInstanceIdentifier *string `pulumi:"sourceDbInstanceIdentifier"`
-	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
 	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
@@ -886,9 +888,11 @@ type InstanceRestoreToPointInTimeInput interface {
 type InstanceRestoreToPointInTimeArgs struct {
 	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 	RestoreTime pulumi.StringPtrInput `pulumi:"restoreTime"`
-	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+	// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+	SourceDbInstanceAutomatedBackupsArn pulumi.StringPtrInput `pulumi:"sourceDbInstanceAutomatedBackupsArn"`
+	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 	SourceDbInstanceIdentifier pulumi.StringPtrInput `pulumi:"sourceDbInstanceIdentifier"`
-	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 	SourceDbiResourceId pulumi.StringPtrInput `pulumi:"sourceDbiResourceId"`
 	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
 	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
@@ -976,12 +980,17 @@ func (o InstanceRestoreToPointInTimeOutput) RestoreTime() pulumi.StringPtrOutput
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.RestoreTime }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+func (o InstanceRestoreToPointInTimeOutput) SourceDbInstanceAutomatedBackupsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbInstanceAutomatedBackupsArn }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 func (o InstanceRestoreToPointInTimeOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 func (o InstanceRestoreToPointInTimeOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbiResourceId }).(pulumi.StringPtrOutput)
 }
@@ -1025,7 +1034,17 @@ func (o InstanceRestoreToPointInTimePtrOutput) RestoreTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceAutomatedBackupsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDbInstanceAutomatedBackupsArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
 		if v == nil {
@@ -1035,7 +1054,7 @@ func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceIdentifier() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 func (o InstanceRestoreToPointInTimePtrOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
 		if v == nil {

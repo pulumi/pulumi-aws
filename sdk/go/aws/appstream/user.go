@@ -29,7 +29,7 @@ import (
 // 			AuthenticationType: pulumi.String("USERPOOL"),
 // 			FirstName:          pulumi.String("FIRST NAME"),
 // 			LastName:           pulumi.String("LAST NAME"),
-// 			UserName:           pulumi.String("EMAIL ADDRESS"),
+// 			UserName:           pulumi.String("EMAIL"),
 // 		})
 // 		if err != nil {
 // 			return err

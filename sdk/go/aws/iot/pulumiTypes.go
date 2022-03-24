@@ -862,6 +862,112 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) StateValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleCloudwatchLog struct {
+	// The CloudWatch log group name.
+	LogGroupName string `pulumi:"logGroupName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// TopicRuleCloudwatchLogInput is an input type that accepts TopicRuleCloudwatchLogArgs and TopicRuleCloudwatchLogOutput values.
+// You can construct a concrete instance of `TopicRuleCloudwatchLogInput` via:
+//
+//          TopicRuleCloudwatchLogArgs{...}
+type TopicRuleCloudwatchLogInput interface {
+	pulumi.Input
+
+	ToTopicRuleCloudwatchLogOutput() TopicRuleCloudwatchLogOutput
+	ToTopicRuleCloudwatchLogOutputWithContext(context.Context) TopicRuleCloudwatchLogOutput
+}
+
+type TopicRuleCloudwatchLogArgs struct {
+	// The CloudWatch log group name.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TopicRuleCloudwatchLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleCloudwatchLog)(nil)).Elem()
+}
+
+func (i TopicRuleCloudwatchLogArgs) ToTopicRuleCloudwatchLogOutput() TopicRuleCloudwatchLogOutput {
+	return i.ToTopicRuleCloudwatchLogOutputWithContext(context.Background())
+}
+
+func (i TopicRuleCloudwatchLogArgs) ToTopicRuleCloudwatchLogOutputWithContext(ctx context.Context) TopicRuleCloudwatchLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchLogOutput)
+}
+
+// TopicRuleCloudwatchLogArrayInput is an input type that accepts TopicRuleCloudwatchLogArray and TopicRuleCloudwatchLogArrayOutput values.
+// You can construct a concrete instance of `TopicRuleCloudwatchLogArrayInput` via:
+//
+//          TopicRuleCloudwatchLogArray{ TopicRuleCloudwatchLogArgs{...} }
+type TopicRuleCloudwatchLogArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleCloudwatchLogArrayOutput() TopicRuleCloudwatchLogArrayOutput
+	ToTopicRuleCloudwatchLogArrayOutputWithContext(context.Context) TopicRuleCloudwatchLogArrayOutput
+}
+
+type TopicRuleCloudwatchLogArray []TopicRuleCloudwatchLogInput
+
+func (TopicRuleCloudwatchLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleCloudwatchLog)(nil)).Elem()
+}
+
+func (i TopicRuleCloudwatchLogArray) ToTopicRuleCloudwatchLogArrayOutput() TopicRuleCloudwatchLogArrayOutput {
+	return i.ToTopicRuleCloudwatchLogArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleCloudwatchLogArray) ToTopicRuleCloudwatchLogArrayOutputWithContext(ctx context.Context) TopicRuleCloudwatchLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchLogArrayOutput)
+}
+
+type TopicRuleCloudwatchLogOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleCloudwatchLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleCloudwatchLog)(nil)).Elem()
+}
+
+func (o TopicRuleCloudwatchLogOutput) ToTopicRuleCloudwatchLogOutput() TopicRuleCloudwatchLogOutput {
+	return o
+}
+
+func (o TopicRuleCloudwatchLogOutput) ToTopicRuleCloudwatchLogOutputWithContext(ctx context.Context) TopicRuleCloudwatchLogOutput {
+	return o
+}
+
+// The CloudWatch log group name.
+func (o TopicRuleCloudwatchLogOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleCloudwatchLog) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+// The IAM role ARN that allows access to the CloudWatch alarm.
+func (o TopicRuleCloudwatchLogOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleCloudwatchLog) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type TopicRuleCloudwatchLogArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleCloudwatchLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleCloudwatchLog)(nil)).Elem()
+}
+
+func (o TopicRuleCloudwatchLogArrayOutput) ToTopicRuleCloudwatchLogArrayOutput() TopicRuleCloudwatchLogArrayOutput {
+	return o
+}
+
+func (o TopicRuleCloudwatchLogArrayOutput) ToTopicRuleCloudwatchLogArrayOutputWithContext(ctx context.Context) TopicRuleCloudwatchLogArrayOutput {
+	return o
+}
+
+func (o TopicRuleCloudwatchLogArrayOutput) Index(i pulumi.IntInput) TopicRuleCloudwatchLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleCloudwatchLog {
+		return vs[0].([]TopicRuleCloudwatchLog)[vs[1].(int)]
+	}).(TopicRuleCloudwatchLogOutput)
+}
+
 type TopicRuleCloudwatchMetric struct {
 	// The CloudWatch metric name.
 	MetricName string `pulumi:"metricName"`
@@ -1860,6 +1966,7 @@ func (o TopicRuleElasticsearchPtrOutput) Type() pulumi.StringPtrOutput {
 
 type TopicRuleErrorAction struct {
 	CloudwatchAlarm  *TopicRuleErrorActionCloudwatchAlarm  `pulumi:"cloudwatchAlarm"`
+	CloudwatchLogs   *TopicRuleErrorActionCloudwatchLogs   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric *TopicRuleErrorActionCloudwatchMetric `pulumi:"cloudwatchMetric"`
 	Dynamodb         *TopicRuleErrorActionDynamodb         `pulumi:"dynamodb"`
 	Dynamodbv2       *TopicRuleErrorActionDynamodbv2       `pulumi:"dynamodbv2"`
@@ -1889,6 +1996,7 @@ type TopicRuleErrorActionInput interface {
 
 type TopicRuleErrorActionArgs struct {
 	CloudwatchAlarm  TopicRuleErrorActionCloudwatchAlarmPtrInput  `pulumi:"cloudwatchAlarm"`
+	CloudwatchLogs   TopicRuleErrorActionCloudwatchLogsPtrInput   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric TopicRuleErrorActionCloudwatchMetricPtrInput `pulumi:"cloudwatchMetric"`
 	Dynamodb         TopicRuleErrorActionDynamodbPtrInput         `pulumi:"dynamodb"`
 	Dynamodbv2       TopicRuleErrorActionDynamodbv2PtrInput       `pulumi:"dynamodbv2"`
@@ -1986,6 +2094,10 @@ func (o TopicRuleErrorActionOutput) CloudwatchAlarm() TopicRuleErrorActionCloudw
 	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionCloudwatchAlarm { return v.CloudwatchAlarm }).(TopicRuleErrorActionCloudwatchAlarmPtrOutput)
 }
 
+func (o TopicRuleErrorActionOutput) CloudwatchLogs() TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionCloudwatchLogs { return v.CloudwatchLogs }).(TopicRuleErrorActionCloudwatchLogsPtrOutput)
+}
+
 func (o TopicRuleErrorActionOutput) CloudwatchMetric() TopicRuleErrorActionCloudwatchMetricPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionCloudwatchMetric { return v.CloudwatchMetric }).(TopicRuleErrorActionCloudwatchMetricPtrOutput)
 }
@@ -2073,6 +2185,15 @@ func (o TopicRuleErrorActionPtrOutput) CloudwatchAlarm() TopicRuleErrorActionClo
 		}
 		return v.CloudwatchAlarm
 	}).(TopicRuleErrorActionCloudwatchAlarmPtrOutput)
+}
+
+func (o TopicRuleErrorActionPtrOutput) CloudwatchLogs() TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorAction) *TopicRuleErrorActionCloudwatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogs
+	}).(TopicRuleErrorActionCloudwatchLogsPtrOutput)
 }
 
 func (o TopicRuleErrorActionPtrOutput) CloudwatchMetric() TopicRuleErrorActionCloudwatchMetricPtrOutput {
@@ -2392,6 +2513,162 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) StateValue() pulumi.String
 			return nil
 		}
 		return &v.StateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleErrorActionCloudwatchLogs struct {
+	// The CloudWatch log group name.
+	LogGroupName string `pulumi:"logGroupName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// TopicRuleErrorActionCloudwatchLogsInput is an input type that accepts TopicRuleErrorActionCloudwatchLogsArgs and TopicRuleErrorActionCloudwatchLogsOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionCloudwatchLogsInput` via:
+//
+//          TopicRuleErrorActionCloudwatchLogsArgs{...}
+type TopicRuleErrorActionCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionCloudwatchLogsOutput() TopicRuleErrorActionCloudwatchLogsOutput
+	ToTopicRuleErrorActionCloudwatchLogsOutputWithContext(context.Context) TopicRuleErrorActionCloudwatchLogsOutput
+}
+
+type TopicRuleErrorActionCloudwatchLogsArgs struct {
+	// The CloudWatch log group name.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TopicRuleErrorActionCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionCloudwatchLogs)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionCloudwatchLogsArgs) ToTopicRuleErrorActionCloudwatchLogsOutput() TopicRuleErrorActionCloudwatchLogsOutput {
+	return i.ToTopicRuleErrorActionCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionCloudwatchLogsArgs) ToTopicRuleErrorActionCloudwatchLogsOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionCloudwatchLogsOutput)
+}
+
+func (i TopicRuleErrorActionCloudwatchLogsArgs) ToTopicRuleErrorActionCloudwatchLogsPtrOutput() TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return i.ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionCloudwatchLogsArgs) ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionCloudwatchLogsOutput).ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// TopicRuleErrorActionCloudwatchLogsPtrInput is an input type that accepts TopicRuleErrorActionCloudwatchLogsArgs, TopicRuleErrorActionCloudwatchLogsPtr and TopicRuleErrorActionCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionCloudwatchLogsPtrInput` via:
+//
+//          TopicRuleErrorActionCloudwatchLogsArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleErrorActionCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionCloudwatchLogsPtrOutput() TopicRuleErrorActionCloudwatchLogsPtrOutput
+	ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(context.Context) TopicRuleErrorActionCloudwatchLogsPtrOutput
+}
+
+type topicRuleErrorActionCloudwatchLogsPtrType TopicRuleErrorActionCloudwatchLogsArgs
+
+func TopicRuleErrorActionCloudwatchLogsPtr(v *TopicRuleErrorActionCloudwatchLogsArgs) TopicRuleErrorActionCloudwatchLogsPtrInput {
+	return (*topicRuleErrorActionCloudwatchLogsPtrType)(v)
+}
+
+func (*topicRuleErrorActionCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *topicRuleErrorActionCloudwatchLogsPtrType) ToTopicRuleErrorActionCloudwatchLogsPtrOutput() TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return i.ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleErrorActionCloudwatchLogsPtrType) ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionCloudwatchLogsPtrOutput)
+}
+
+type TopicRuleErrorActionCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionCloudwatchLogs)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionCloudwatchLogsOutput) ToTopicRuleErrorActionCloudwatchLogsOutput() TopicRuleErrorActionCloudwatchLogsOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionCloudwatchLogsOutput) ToTopicRuleErrorActionCloudwatchLogsOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchLogsOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionCloudwatchLogsOutput) ToTopicRuleErrorActionCloudwatchLogsPtrOutput() TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return o.ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleErrorActionCloudwatchLogsOutput) ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionCloudwatchLogs) *TopicRuleErrorActionCloudwatchLogs {
+		return &v
+	}).(TopicRuleErrorActionCloudwatchLogsPtrOutput)
+}
+
+// The CloudWatch log group name.
+func (o TopicRuleErrorActionCloudwatchLogsOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchLogs) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+// The IAM role ARN that allows access to the CloudWatch alarm.
+func (o TopicRuleErrorActionCloudwatchLogsOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchLogs) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type TopicRuleErrorActionCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionCloudwatchLogs)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) ToTopicRuleErrorActionCloudwatchLogsPtrOutput() TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) ToTopicRuleErrorActionCloudwatchLogsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) Elem() TopicRuleErrorActionCloudwatchLogsOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchLogs) TopicRuleErrorActionCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionCloudwatchLogs
+		return ret
+	}).(TopicRuleErrorActionCloudwatchLogsOutput)
+}
+
+// The CloudWatch log group name.
+func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IAM role ARN that allows access to the CloudWatch alarm.
+func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6670,6 +6947,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPtrInput)(nil)).Elem(), ThingTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmInput)(nil)).Elem(), TopicRuleCloudwatchAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmPtrInput)(nil)).Elem(), TopicRuleCloudwatchAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchLogInput)(nil)).Elem(), TopicRuleCloudwatchLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchLogArrayInput)(nil)).Elem(), TopicRuleCloudwatchLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricInput)(nil)).Elem(), TopicRuleCloudwatchMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricPtrInput)(nil)).Elem(), TopicRuleCloudwatchMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbInput)(nil)).Elem(), TopicRuleDynamodbArgs{})
@@ -6684,6 +6963,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionPtrInput)(nil)).Elem(), TopicRuleErrorActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionCloudwatchAlarmInput)(nil)).Elem(), TopicRuleErrorActionCloudwatchAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionCloudwatchAlarmPtrInput)(nil)).Elem(), TopicRuleErrorActionCloudwatchAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionCloudwatchLogsInput)(nil)).Elem(), TopicRuleErrorActionCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionCloudwatchLogsPtrInput)(nil)).Elem(), TopicRuleErrorActionCloudwatchLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionCloudwatchMetricInput)(nil)).Elem(), TopicRuleErrorActionCloudwatchMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionCloudwatchMetricPtrInput)(nil)).Elem(), TopicRuleErrorActionCloudwatchMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionDynamodbInput)(nil)).Elem(), TopicRuleErrorActionDynamodbArgs{})
@@ -6746,6 +7027,8 @@ func init() {
 	pulumi.RegisterOutputType(ThingTypePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleCloudwatchLogOutput{})
+	pulumi.RegisterOutputType(TopicRuleCloudwatchLogArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbOutput{})
@@ -6760,6 +7043,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleErrorActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionCloudwatchAlarmOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionCloudwatchAlarmPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionCloudwatchLogsPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionCloudwatchMetricOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionCloudwatchMetricPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionDynamodbOutput{})

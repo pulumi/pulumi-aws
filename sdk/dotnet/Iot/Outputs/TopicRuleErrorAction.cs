@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleErrorAction
     {
         public readonly Outputs.TopicRuleErrorActionCloudwatchAlarm? CloudwatchAlarm;
+        public readonly Outputs.TopicRuleErrorActionCloudwatchLogs? CloudwatchLogs;
         public readonly Outputs.TopicRuleErrorActionCloudwatchMetric? CloudwatchMetric;
         public readonly Outputs.TopicRuleErrorActionDynamodb? Dynamodb;
         public readonly Outputs.TopicRuleErrorActionDynamodbv2? Dynamodbv2;
@@ -32,6 +33,8 @@ namespace Pulumi.Aws.Iot.Outputs
         [OutputConstructor]
         private TopicRuleErrorAction(
             Outputs.TopicRuleErrorActionCloudwatchAlarm? cloudwatchAlarm,
+
+            Outputs.TopicRuleErrorActionCloudwatchLogs? cloudwatchLogs,
 
             Outputs.TopicRuleErrorActionCloudwatchMetric? cloudwatchMetric,
 
@@ -62,6 +65,7 @@ namespace Pulumi.Aws.Iot.Outputs
             Outputs.TopicRuleErrorActionStepFunctions? stepFunctions)
         {
             CloudwatchAlarm = cloudwatchAlarm;
+            CloudwatchLogs = cloudwatchLogs;
             CloudwatchMetric = cloudwatchMetric;
             Dynamodb = dynamodb;
             Dynamodbv2 = dynamodbv2;

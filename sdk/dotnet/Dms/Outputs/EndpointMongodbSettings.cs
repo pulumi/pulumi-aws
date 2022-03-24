@@ -14,27 +14,27 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class EndpointMongodbSettings
     {
         /// <summary>
-        /// Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
+        /// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         /// </summary>
         public readonly string? AuthMechanism;
         /// <summary>
-        /// Authentication database name. Not used when `auth_type` is `no`. Defaults to `admin`.
+        /// Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
         /// </summary>
         public readonly string? AuthSource;
         /// <summary>
-        /// Authentication type to access the MongoDB source endpoint. Defaults to `password`.
+        /// Authentication type to access the MongoDB source endpoint. Default is `password`.
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
-        /// Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Defaults to `1000`.
+        /// Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
         /// </summary>
         public readonly string? DocsToInvestigate;
         /// <summary>
-        /// Document ID. Use this setting when `nesting_level` is set to `none`. Defaults to `false`.
+        /// Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         /// </summary>
         public readonly string? ExtractDocId;
         /// <summary>
-        /// Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+        /// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
         /// </summary>
         public readonly string? NestingLevel;
 

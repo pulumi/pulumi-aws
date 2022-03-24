@@ -10,193 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
-    /// 
-    /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
-    /// 
-    /// ## Example Usage
-    /// ### New MySQL Global Cluster
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Rds.GlobalCluster("example", new Aws.Rds.GlobalClusterArgs
-    ///         {
-    ///             GlobalClusterIdentifier = "global-test",
-    ///             Engine = "aurora",
-    ///             EngineVersion = "5.6.mysql_aurora.1.22.2",
-    ///             DatabaseName = "example_db",
-    ///         });
-    ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             ClusterIdentifier = "test-primary-cluster",
-    ///             MasterUsername = "username",
-    ///             MasterPassword = "somepass123",
-    ///             DatabaseName = "example_db",
-    ///             GlobalClusterIdentifier = example.Id,
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary,
-    ///         });
-    ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             Identifier = "test-primary-cluster-instance",
-    ///             ClusterIdentifier = primaryCluster.Id,
-    ///             InstanceClass = "db.r4.large",
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary,
-    ///         });
-    ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             ClusterIdentifier = "test-secondary-cluster",
-    ///             GlobalClusterIdentifier = example.Id,
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Secondary,
-    ///         });
-    ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             Identifier = "test-secondary-cluster-instance",
-    ///             ClusterIdentifier = secondaryCluster.Id,
-    ///             InstanceClass = "db.r4.large",
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Secondary,
-    ///             DependsOn = 
-    ///             {
-    ///                 primaryClusterInstance,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### New PostgreSQL Global Cluster
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primary = new Aws.Provider("primary", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-east-2",
-    ///         });
-    ///         var secondary = new Aws.Provider("secondary", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-east-1",
-    ///         });
-    ///         var example = new Aws.Rds.GlobalCluster("example", new Aws.Rds.GlobalClusterArgs
-    ///         {
-    ///             GlobalClusterIdentifier = "global-test",
-    ///             Engine = "aurora-postgresql",
-    ///             EngineVersion = "11.9",
-    ///             DatabaseName = "example_db",
-    ///         });
-    ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             ClusterIdentifier = "test-primary-cluster",
-    ///             MasterUsername = "username",
-    ///             MasterPassword = "somepass123",
-    ///             DatabaseName = "example_db",
-    ///             GlobalClusterIdentifier = example.Id,
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary,
-    ///         });
-    ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             Identifier = "test-primary-cluster-instance",
-    ///             ClusterIdentifier = primaryCluster.Id,
-    ///             InstanceClass = "db.r4.large",
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary,
-    ///         });
-    ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             ClusterIdentifier = "test-secondary-cluster",
-    ///             GlobalClusterIdentifier = example.Id,
-    ///             SkipFinalSnapshot = true,
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Secondary,
-    ///             DependsOn = 
-    ///             {
-    ///                 primaryClusterInstance,
-    ///             },
-    ///         });
-    ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             Engine = example.Engine,
-    ///             EngineVersion = example.EngineVersion,
-    ///             Identifier = "test-secondary-cluster-instance",
-    ///             ClusterIdentifier = secondaryCluster.Id,
-    ///             InstanceClass = "db.r4.large",
-    ///             DbSubnetGroupName = "default",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Secondary,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### New Global Cluster From Existing DB Cluster
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // ... other configuration ...
-    ///         var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new Aws.Rds.ClusterArgs
-    ///         {
-    ///         });
-    ///         var exampleGlobalCluster = new Aws.Rds.GlobalCluster("exampleGlobalCluster", new Aws.Rds.GlobalClusterArgs
-    ///         {
-    ///             ForceDestroy = true,
-    ///             GlobalClusterIdentifier = "example",
-    ///             SourceDbClusterIdentifier = exampleCluster.Arn,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.,
@@ -238,16 +51,9 @@ namespace Pulumi.Aws.Rds
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
-        /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
-        /// <summary>
-        /// Engine version of the Aurora global database.
-        /// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
-        /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
@@ -258,7 +64,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// The global cluster identifier.
+        /// Global cluster identifier.
         /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string> GlobalClusterIdentifier { get; private set; } = null!;
@@ -345,16 +151,9 @@ namespace Pulumi.Aws.Rds
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
-        /// <summary>
-        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
-        /// <summary>
-        /// Engine version of the Aurora global database.
-        /// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
-        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
@@ -365,7 +164,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The global cluster identifier.
+        /// Global cluster identifier.
         /// </summary>
         [Input("globalClusterIdentifier", required: true)]
         public Input<string> GlobalClusterIdentifier { get; set; } = null!;
@@ -407,16 +206,9 @@ namespace Pulumi.Aws.Rds
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
-        /// <summary>
-        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
-        /// <summary>
-        /// Engine version of the Aurora global database.
-        /// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
-        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
@@ -427,7 +219,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The global cluster identifier.
+        /// Global cluster identifier.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }

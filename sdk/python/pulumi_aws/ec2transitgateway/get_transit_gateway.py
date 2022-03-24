@@ -22,7 +22,7 @@ class GetTransitGatewayResult:
     """
     A collection of values returned by getTransitGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, filters=None, id=None, owner_id=None, propagation_default_route_table_id=None, tags=None, vpn_ecmp_support=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, filters=None, id=None, multicast_support=None, owner_id=None, propagation_default_route_table_id=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, int):
             raise TypeError("Expected argument 'amazon_side_asn' to be a int")
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -53,6 +53,9 @@ class GetTransitGatewayResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if multicast_support and not isinstance(multicast_support, str):
+            raise TypeError("Expected argument 'multicast_support' to be a str")
+        pulumi.set(__self__, "multicast_support", multicast_support)
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
@@ -62,6 +65,9 @@ class GetTransitGatewayResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if transit_gateway_cidr_blocks and not isinstance(transit_gateway_cidr_blocks, list):
+            raise TypeError("Expected argument 'transit_gateway_cidr_blocks' to be a list")
+        pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support and not isinstance(vpn_ecmp_support, str):
             raise TypeError("Expected argument 'vpn_ecmp_support' to be a str")
         pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
@@ -94,7 +100,7 @@ class GetTransitGatewayResult:
     @pulumi.getter(name="autoAcceptSharedAttachments")
     def auto_accept_shared_attachments(self) -> str:
         """
-        Whether resource attachment requests are automatically accepted.
+        Whether resource attachment requests are automatically accepted
         """
         return pulumi.get(self, "auto_accept_shared_attachments")
 
@@ -102,7 +108,7 @@ class GetTransitGatewayResult:
     @pulumi.getter(name="defaultRouteTableAssociation")
     def default_route_table_association(self) -> str:
         """
-        Whether resource attachments are automatically associated with the default association route table.
+        Whether resource attachments are automatically associated with the default association route table
         """
         return pulumi.get(self, "default_route_table_association")
 
@@ -110,7 +116,7 @@ class GetTransitGatewayResult:
     @pulumi.getter(name="defaultRouteTablePropagation")
     def default_route_table_propagation(self) -> str:
         """
-        Whether resource attachments automatically propagate routes to the default propagation route table.
+        Whether resource attachments automatically propagate routes to the default propagation route table
         """
         return pulumi.get(self, "default_route_table_propagation")
 
@@ -126,7 +132,7 @@ class GetTransitGatewayResult:
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> str:
         """
-        Whether DNS support is enabled.
+        Whether DNS support is enabled
         """
         return pulumi.get(self, "dns_support")
 
@@ -144,6 +150,14 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="multicastSupport")
+    def multicast_support(self) -> str:
+        """
+        Whether Multicast support is enabled
+        """
+        return pulumi.get(self, "multicast_support")
+
+    @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
@@ -155,7 +169,7 @@ class GetTransitGatewayResult:
     @pulumi.getter(name="propagationDefaultRouteTableId")
     def propagation_default_route_table_id(self) -> str:
         """
-        Identifier of the default propagation route table.
+        Identifier of the default propagation route table
         """
         return pulumi.get(self, "propagation_default_route_table_id")
 
@@ -168,10 +182,18 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="transitGatewayCidrBlocks")
+    def transit_gateway_cidr_blocks(self) -> Sequence[str]:
+        """
+        The list of associated CIDR blocks
+        """
+        return pulumi.get(self, "transit_gateway_cidr_blocks")
+
+    @property
     @pulumi.getter(name="vpnEcmpSupport")
     def vpn_ecmp_support(self) -> str:
         """
-        Whether VPN Equal Cost Multipath Protocol support is enabled.
+        Whether VPN Equal Cost Multipath Protocol support is enabled
         """
         return pulumi.get(self, "vpn_ecmp_support")
 
@@ -192,9 +214,11 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             dns_support=self.dns_support,
             filters=self.filters,
             id=self.id,
+            multicast_support=self.multicast_support,
             owner_id=self.owner_id,
             propagation_default_route_table_id=self.propagation_default_route_table_id,
             tags=self.tags,
+            transit_gateway_cidr_blocks=self.transit_gateway_cidr_blocks,
             vpn_ecmp_support=self.vpn_ecmp_support)
 
 
@@ -252,9 +276,11 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
         dns_support=__ret__.dns_support,
         filters=__ret__.filters,
         id=__ret__.id,
+        multicast_support=__ret__.multicast_support,
         owner_id=__ret__.owner_id,
         propagation_default_route_table_id=__ret__.propagation_default_route_table_id,
         tags=__ret__.tags,
+        transit_gateway_cidr_blocks=__ret__.transit_gateway_cidr_blocks,
         vpn_ecmp_support=__ret__.vpn_ecmp_support)
 
 

@@ -19,7 +19,9 @@ class TransitGatewayArgs:
                  default_route_table_propagation: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
+                 multicast_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TransitGateway resource.
@@ -30,6 +32,7 @@ class TransitGatewayArgs:
         :param pulumi.Input[str] description: Description of the EC2 Transit Gateway.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
         if amazon_side_asn is not None:
@@ -44,8 +47,12 @@ class TransitGatewayArgs:
             pulumi.set(__self__, "description", description)
         if dns_support is not None:
             pulumi.set(__self__, "dns_support", dns_support)
+        if multicast_support is not None:
+            pulumi.set(__self__, "multicast_support", multicast_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transit_gateway_cidr_blocks is not None:
+            pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support is not None:
             pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
@@ -122,6 +129,15 @@ class TransitGatewayArgs:
         pulumi.set(self, "dns_support", value)
 
     @property
+    @pulumi.getter(name="multicastSupport")
+    def multicast_support(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multicast_support")
+
+    @multicast_support.setter
+    def multicast_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multicast_support", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -132,6 +148,18 @@ class TransitGatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayCidrBlocks")
+    def transit_gateway_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+        """
+        return pulumi.get(self, "transit_gateway_cidr_blocks")
+
+    @transit_gateway_cidr_blocks.setter
+    def transit_gateway_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transit_gateway_cidr_blocks", value)
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")
@@ -157,10 +185,12 @@ class _TransitGatewayState:
                  default_route_table_propagation: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
+                 multicast_support: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TransitGateway resources.
@@ -176,6 +206,7 @@ class _TransitGatewayState:
         :param pulumi.Input[str] propagation_default_route_table_id: Identifier of the default propagation route table
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
         if amazon_side_asn is not None:
@@ -194,6 +225,8 @@ class _TransitGatewayState:
             pulumi.set(__self__, "description", description)
         if dns_support is not None:
             pulumi.set(__self__, "dns_support", dns_support)
+        if multicast_support is not None:
+            pulumi.set(__self__, "multicast_support", multicast_support)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
         if propagation_default_route_table_id is not None:
@@ -202,6 +235,8 @@ class _TransitGatewayState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if transit_gateway_cidr_blocks is not None:
+            pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support is not None:
             pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
@@ -302,6 +337,15 @@ class _TransitGatewayState:
         pulumi.set(self, "dns_support", value)
 
     @property
+    @pulumi.getter(name="multicastSupport")
+    def multicast_support(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multicast_support")
+
+    @multicast_support.setter
+    def multicast_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multicast_support", value)
+
+    @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -350,6 +394,18 @@ class _TransitGatewayState:
         pulumi.set(self, "tags_all", value)
 
     @property
+    @pulumi.getter(name="transitGatewayCidrBlocks")
+    def transit_gateway_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+        """
+        return pulumi.get(self, "transit_gateway_cidr_blocks")
+
+    @transit_gateway_cidr_blocks.setter
+    def transit_gateway_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transit_gateway_cidr_blocks", value)
+
+    @property
     @pulumi.getter(name="vpnEcmpSupport")
     def vpn_ecmp_support(self) -> Optional[pulumi.Input[str]]:
         """
@@ -373,7 +429,9 @@ class TransitGateway(pulumi.CustomResource):
                  default_route_table_propagation: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
+                 multicast_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -405,6 +463,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the EC2 Transit Gateway.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
         ...
@@ -454,7 +513,9 @@ class TransitGateway(pulumi.CustomResource):
                  default_route_table_propagation: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
+                 multicast_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -474,7 +535,9 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["default_route_table_propagation"] = default_route_table_propagation
             __props__.__dict__["description"] = description
             __props__.__dict__["dns_support"] = dns_support
+            __props__.__dict__["multicast_support"] = multicast_support
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_default_route_table_id"] = None
@@ -499,10 +562,12 @@ class TransitGateway(pulumi.CustomResource):
             default_route_table_propagation: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dns_support: Optional[pulumi.Input[str]] = None,
+            multicast_support: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             vpn_ecmp_support: Optional[pulumi.Input[str]] = None) -> 'TransitGateway':
         """
         Get an existing TransitGateway resource's state with the given name, id, and optional extra
@@ -523,6 +588,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] propagation_default_route_table_id: Identifier of the default propagation route table
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -537,10 +603,12 @@ class TransitGateway(pulumi.CustomResource):
         __props__.__dict__["default_route_table_propagation"] = default_route_table_propagation
         __props__.__dict__["description"] = description
         __props__.__dict__["dns_support"] = dns_support
+        __props__.__dict__["multicast_support"] = multicast_support
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["propagation_default_route_table_id"] = propagation_default_route_table_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
         __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
         return TransitGateway(resource_name, opts=opts, __props__=__props__)
 
@@ -609,6 +677,11 @@ class TransitGateway(pulumi.CustomResource):
         return pulumi.get(self, "dns_support")
 
     @property
+    @pulumi.getter(name="multicastSupport")
+    def multicast_support(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "multicast_support")
+
+    @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
         """
@@ -639,6 +712,14 @@ class TransitGateway(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="transitGatewayCidrBlocks")
+    def transit_gateway_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+        """
+        return pulumi.get(self, "transit_gateway_cidr_blocks")
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")

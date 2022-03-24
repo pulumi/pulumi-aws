@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppConfig
     /// Provides an AppConfig Hosted Configuration Version resource.
     /// 
     /// ## Example Usage
+    /// ### Freeform
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -28,11 +29,72 @@ namespace Pulumi.Aws.AppConfig
     ///         {
     ///             ApplicationId = aws_appconfig_application.Example.Id,
     ///             ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
-    ///             Description = "Example Hosted Configuration Version",
+    ///             Description = "Example Freeform Hosted Configuration Version",
     ///             ContentType = "application/json",
     ///             Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 { "foo", "bar" },
+    ///                 { "fruit", new[]
+    ///                     {
+    ///                         "apple",
+    ///                         "pear",
+    ///                         "orange",
+    ///                     }
+    ///                  },
+    ///                 { "isThingEnabled", true },
+    ///             }),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Feature Flags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppConfig.HostedConfigurationVersion("example", new Aws.AppConfig.HostedConfigurationVersionArgs
+    ///         {
+    ///             ApplicationId = aws_appconfig_application.Example.Id,
+    ///             ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+    ///             Description = "Example Freeform Hosted Configuration Version",
+    ///             ContentType = "application/json",
+    ///             Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "flags", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "foo", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "name", "foo" },
+    ///                         { "_deprecation", new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "status", "planned" },
+    ///                         } },
+    ///                     } },
+    ///                     { "bar", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "name", "bar" },
+    ///                     } },
+    ///                 } },
+    ///                 { "values", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "foo", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "enabled", "true" },
+    ///                     } },
+    ///                     { "bar", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "enabled", "true" },
+    ///                     } },
+    ///                 } },
+    ///                 { "version", "1" },
     ///             }),
     ///         });
     ///     }

@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateMetadataOptionResult
     {
-        /// <summary>
-        /// The state of the metadata service: `enabled`, `disabled`.
-        /// </summary>
         public readonly string HttpEndpoint;
-        /// <summary>
-        /// The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
-        /// </summary>
         public readonly string HttpProtocolIpv6;
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests.
-        /// </summary>
         public readonly int HttpPutResponseHopLimit;
-        /// <summary>
-        /// If session tokens are required: `optional`, `required`.
-        /// </summary>
         public readonly string HttpTokens;
-        /// <summary>
-        /// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
-        /// </summary>
         public readonly string InstanceMetadataTags;
 
         [OutputConstructor]

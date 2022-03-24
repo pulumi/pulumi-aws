@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomDomainAssociation{}
 	case "aws:apprunner/service:Service":
 		r = &Service{}
+	case "aws:apprunner/vpcConnector:VpcConnector":
+		r = &VpcConnector{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"apprunner/service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"apprunner/vpcConnector",
 		&module{version},
 	)
 }

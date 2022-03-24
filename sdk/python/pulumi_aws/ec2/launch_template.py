@@ -41,6 +41,7 @@ class LaunchTemplateArgs:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
+                 private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
@@ -79,18 +80,18 @@ class LaunchTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
-        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
         :param pulumi.Input['LaunchTemplatePlacementArgs'] placement: The placement of the instance. See Placement below for more details.
+        :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
-        :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
+        :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         if block_device_mappings is not None:
@@ -145,6 +146,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
+        if private_dns_name_options is not None:
+            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
         if security_group_names is not None:
@@ -434,9 +437,6 @@ class LaunchTemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -481,6 +481,18 @@ class LaunchTemplateArgs:
         pulumi.set(self, "placement", value)
 
     @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]:
+        """
+        The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        """
+        return pulumi.get(self, "private_dns_name_options")
+
+    @private_dns_name_options.setter
+    def private_dns_name_options(self, value: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]):
+        pulumi.set(self, "private_dns_name_options", value)
+
+    @property
     @pulumi.getter(name="ramDiskId")
     def ram_disk_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -521,7 +533,7 @@ class LaunchTemplateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -545,7 +557,7 @@ class LaunchTemplateArgs:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        The Base64-encoded user data to provide when launching the instance.
+        The base64-encoded user data to provide when launching the instance.
         """
         return pulumi.get(self, "user_data")
 
@@ -597,6 +609,7 @@ class _LaunchTemplateState:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
+                 private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
@@ -638,19 +651,19 @@ class _LaunchTemplateState:
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
-        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
         :param pulumi.Input['LaunchTemplatePlacementArgs'] placement: The placement of the instance. See Placement below for more details.
+        :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
-        :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
+        :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         if arn is not None:
@@ -709,6 +722,8 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
+        if private_dns_name_options is not None:
+            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
         if security_group_names is not None:
@@ -1024,9 +1039,6 @@ class _LaunchTemplateState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1071,6 +1083,18 @@ class _LaunchTemplateState:
         pulumi.set(self, "placement", value)
 
     @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]:
+        """
+        The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        """
+        return pulumi.get(self, "private_dns_name_options")
+
+    @private_dns_name_options.setter
+    def private_dns_name_options(self, value: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]):
+        pulumi.set(self, "private_dns_name_options", value)
+
+    @property
     @pulumi.getter(name="ramDiskId")
     def ram_disk_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1111,7 +1135,7 @@ class _LaunchTemplateState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1147,7 +1171,7 @@ class _LaunchTemplateState:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        The Base64-encoded user data to provide when launching the instance.
+        The base64-encoded user data to provide when launching the instance.
         """
         return pulumi.get(self, "user_data")
 
@@ -1199,6 +1223,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateNetworkInterfaceArgs']]]]] = None,
                  placement: Optional[pulumi.Input[pulumi.InputType['LaunchTemplatePlacementArgs']]] = None,
+                 private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplatePrivateDnsNameOptionsArgs']]] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]]] = None,
@@ -1321,18 +1346,18 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
-        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplatePlacementArgs']] placement: The placement of the instance. See Placement below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplatePrivateDnsNameOptionsArgs']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
-        :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
+        :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         ...
@@ -1465,6 +1490,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateNetworkInterfaceArgs']]]]] = None,
                  placement: Optional[pulumi.Input[pulumi.InputType['LaunchTemplatePlacementArgs']]] = None,
+                 private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplatePrivateDnsNameOptionsArgs']]] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]]] = None,
@@ -1510,6 +1536,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement"] = placement
+            __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["ram_disk_id"] = ram_disk_id
             __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["tag_specifications"] = tag_specifications
@@ -1558,6 +1585,7 @@ class LaunchTemplate(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateNetworkInterfaceArgs']]]]] = None,
             placement: Optional[pulumi.Input[pulumi.InputType['LaunchTemplatePlacementArgs']]] = None,
+            private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplatePrivateDnsNameOptionsArgs']]] = None,
             ram_disk_id: Optional[pulumi.Input[str]] = None,
             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]]] = None,
@@ -1604,19 +1632,19 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
-        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplatePlacementArgs']] placement: The placement of the instance. See Placement below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplatePrivateDnsNameOptionsArgs']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
-        :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
+        :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1651,6 +1679,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["network_interfaces"] = network_interfaces
         __props__.__dict__["placement"] = placement
+        __props__.__dict__["private_dns_name_options"] = private_dns_name_options
         __props__.__dict__["ram_disk_id"] = ram_disk_id
         __props__.__dict__["security_group_names"] = security_group_names
         __props__.__dict__["tag_specifications"] = tag_specifications
@@ -1863,9 +1892,6 @@ class LaunchTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -1892,6 +1918,14 @@ class LaunchTemplate(pulumi.CustomResource):
         The placement of the instance. See Placement below for more details.
         """
         return pulumi.get(self, "placement")
+
+    @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplatePrivateDnsNameOptions']]:
+        """
+        The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        """
+        return pulumi.get(self, "private_dns_name_options")
 
     @property
     @pulumi.getter(name="ramDiskId")
@@ -1922,7 +1956,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1946,7 +1980,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[str]]:
         """
-        The Base64-encoded user data to provide when launching the instance.
+        The base64-encoded user data to provide when launching the instance.
         """
         return pulumi.get(self, "user_data")
 

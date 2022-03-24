@@ -27,6 +27,7 @@ namespace Pulumi.Aws.Quicksight
     ///             Email = "author@example.com",
     ///             IamArn = "arn:aws:iam::123456789012:user/Example",
     ///             IdentityType = "IAM",
+    ///             Namespace = "foo",
     ///             SessionName = "an-author",
     ///             UserRole = "AUTHOR",
     ///         });
@@ -73,7 +74,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> IdentityType { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
+        /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
@@ -167,7 +168,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> IdentityType { get; set; } = null!;
 
         /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
+        /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -228,7 +229,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? IdentityType { get; set; }
 
         /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
+        /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

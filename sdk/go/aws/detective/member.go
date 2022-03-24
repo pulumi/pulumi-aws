@@ -13,6 +13,37 @@ import (
 
 // Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGraph, err := detective.NewGraph(ctx, "exampleGraph", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = detective.NewMember(ctx, "exampleMember", &detective.MemberArgs{
+// 			AccountId:                pulumi.String("AWS ACCOUNT ID"),
+// 			EmailAddress:             pulumi.String("EMAIL"),
+// 			GraphArn:                 exampleGraph.ID(),
+// 			Message:                  pulumi.String("Message of the invitation"),
+// 			DisableEmailNotification: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.

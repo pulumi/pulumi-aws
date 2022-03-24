@@ -56,6 +56,10 @@ export interface GetImageResult {
      */
     readonly buildVersionArn: string;
     /**
+     * Amazon Resource Name (ARN) of the container recipe.
+     */
+    readonly containerRecipeArn: string;
+    /**
      * Date the image was created.
      */
     readonly dateCreated: string;
@@ -72,7 +76,7 @@ export interface GetImageResult {
      */
     readonly id: string;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+     * Amazon Resource Name (ARN) of the image recipe.
      */
     readonly imageRecipeArn: string;
     /**

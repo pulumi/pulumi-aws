@@ -22,6 +22,7 @@ class ReplicationTaskArgs:
                  cdc_start_position: Optional[pulumi.Input[str]] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
+                 start_replication_task: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationTask resource.
@@ -34,6 +35,7 @@ class ReplicationTaskArgs:
         :param pulumi.Input[str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[str] cdc_start_time: The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+        :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "migration_type", migration_type)
@@ -48,6 +50,8 @@ class ReplicationTaskArgs:
             pulumi.set(__self__, "cdc_start_time", cdc_start_time)
         if replication_task_settings is not None:
             pulumi.set(__self__, "replication_task_settings", replication_task_settings)
+        if start_replication_task is not None:
+            pulumi.set(__self__, "start_replication_task", start_replication_task)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -160,6 +164,18 @@ class ReplicationTaskArgs:
         pulumi.set(self, "replication_task_settings", value)
 
     @property
+    @pulumi.getter(name="startReplicationTask")
+    def start_replication_task(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to run or stop the replication task.
+        """
+        return pulumi.get(self, "start_replication_task")
+
+    @start_replication_task.setter
+    def start_replication_task(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_replication_task", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -183,6 +199,8 @@ class _ReplicationTaskState:
                  replication_task_id: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
+                 start_replication_task: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  table_mappings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -197,6 +215,8 @@ class _ReplicationTaskState:
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
+        :param pulumi.Input[str] status: Replication Task status.
         :param pulumi.Input[str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -218,6 +238,10 @@ class _ReplicationTaskState:
             pulumi.set(__self__, "replication_task_settings", replication_task_settings)
         if source_endpoint_arn is not None:
             pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
+        if start_replication_task is not None:
+            pulumi.set(__self__, "start_replication_task", start_replication_task)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if table_mappings is not None:
             pulumi.set(__self__, "table_mappings", table_mappings)
         if tags is not None:
@@ -324,6 +348,30 @@ class _ReplicationTaskState:
         pulumi.set(self, "source_endpoint_arn", value)
 
     @property
+    @pulumi.getter(name="startReplicationTask")
+    def start_replication_task(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to run or stop the replication task.
+        """
+        return pulumi.get(self, "start_replication_task")
+
+    @start_replication_task.setter
+    def start_replication_task(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_replication_task", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Replication Task status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
     @pulumi.getter(name="tableMappings")
     def table_mappings(self) -> Optional[pulumi.Input[str]]:
         """
@@ -384,6 +432,7 @@ class ReplicationTask(pulumi.CustomResource):
                  replication_task_id: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
+                 start_replication_task: Optional[pulumi.Input[bool]] = None,
                  table_mappings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
@@ -429,6 +478,7 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
         :param pulumi.Input[str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
@@ -493,6 +543,7 @@ class ReplicationTask(pulumi.CustomResource):
                  replication_task_id: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
+                 start_replication_task: Optional[pulumi.Input[bool]] = None,
                  table_mappings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
@@ -523,6 +574,7 @@ class ReplicationTask(pulumi.CustomResource):
             if source_endpoint_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_endpoint_arn'")
             __props__.__dict__["source_endpoint_arn"] = source_endpoint_arn
+            __props__.__dict__["start_replication_task"] = start_replication_task
             if table_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'table_mappings'")
             __props__.__dict__["table_mappings"] = table_mappings
@@ -531,6 +583,7 @@ class ReplicationTask(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_endpoint_arn'")
             __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
             __props__.__dict__["replication_task_arn"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
         super(ReplicationTask, __self__).__init__(
             'aws:dms/replicationTask:ReplicationTask',
@@ -550,6 +603,8 @@ class ReplicationTask(pulumi.CustomResource):
             replication_task_id: Optional[pulumi.Input[str]] = None,
             replication_task_settings: Optional[pulumi.Input[str]] = None,
             source_endpoint_arn: Optional[pulumi.Input[str]] = None,
+            start_replication_task: Optional[pulumi.Input[bool]] = None,
+            status: Optional[pulumi.Input[str]] = None,
             table_mappings: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -569,6 +624,8 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
+        :param pulumi.Input[str] status: Replication Task status.
         :param pulumi.Input[str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -586,6 +643,8 @@ class ReplicationTask(pulumi.CustomResource):
         __props__.__dict__["replication_task_id"] = replication_task_id
         __props__.__dict__["replication_task_settings"] = replication_task_settings
         __props__.__dict__["source_endpoint_arn"] = source_endpoint_arn
+        __props__.__dict__["start_replication_task"] = start_replication_task
+        __props__.__dict__["status"] = status
         __props__.__dict__["table_mappings"] = table_mappings
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -594,7 +653,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdcStartPosition")
-    def cdc_start_position(self) -> pulumi.Output[Optional[str]]:
+    def cdc_start_position(self) -> pulumi.Output[str]:
         """
         Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         """
@@ -655,6 +714,22 @@ class ReplicationTask(pulumi.CustomResource):
         The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         """
         return pulumi.get(self, "source_endpoint_arn")
+
+    @property
+    @pulumi.getter(name="startReplicationTask")
+    def start_replication_task(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to run or stop the replication task.
+        """
+        return pulumi.get(self, "start_replication_task")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        Replication Task status.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="tableMappings")

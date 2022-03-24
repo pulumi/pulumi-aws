@@ -9,6 +9,7 @@ export * from "./activation";
 export * from "./association";
 export * from "./document";
 export * from "./getDocument";
+export * from "./getInstances";
 export * from "./getParameter";
 export * from "./getParametersByPath";
 export * from "./getPatchBaseline";

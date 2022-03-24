@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+        /// Configuration block(s) with block device mappings for the image recipe. Detailed below.
         /// </summary>
         [Output("blockDeviceMappings")]
         public Output<ImmutableArray<Outputs.ImageRecipeBlockDeviceMapping>> BlockDeviceMappings { get; private set; } = null!;
@@ -129,6 +129,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+        /// </summary>
+        [Output("systemsManagerAgent")]
+        public Output<Outputs.ImageRecipeSystemsManagerAgent> SystemsManagerAgent { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -210,7 +216,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputList<Inputs.ImageRecipeBlockDeviceMappingArgs>? _blockDeviceMappings;
 
         /// <summary>
-        /// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+        /// Configuration block(s) with block device mappings for the image recipe. Detailed below.
         /// </summary>
         public InputList<Inputs.ImageRecipeBlockDeviceMappingArgs> BlockDeviceMappings
         {
@@ -247,6 +253,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
+
+        /// <summary>
+        /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+        /// </summary>
+        [Input("systemsManagerAgent")]
+        public Input<Inputs.ImageRecipeSystemsManagerAgentArgs>? SystemsManagerAgent { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -295,7 +307,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputList<Inputs.ImageRecipeBlockDeviceMappingGetArgs>? _blockDeviceMappings;
 
         /// <summary>
-        /// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+        /// Configuration block(s) with block device mappings for the image recipe. Detailed below.
         /// </summary>
         public InputList<Inputs.ImageRecipeBlockDeviceMappingGetArgs> BlockDeviceMappings
         {
@@ -350,6 +362,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
+
+        /// <summary>
+        /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+        /// </summary>
+        [Input("systemsManagerAgent")]
+        public Input<Inputs.ImageRecipeSystemsManagerAgentGetArgs>? SystemsManagerAgent { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

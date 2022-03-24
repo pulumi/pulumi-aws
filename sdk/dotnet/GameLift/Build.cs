@@ -31,12 +31,6 @@ namespace Pulumi.Aws.GameLift
     ///                 Key = aws_s3_object.Test.Key,
     ///                 RoleArn = aws_iam_role.Test.Arn,
     ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_iam_role_policy.Test,
-    ///             },
     ///         });
     ///     }
     /// 
@@ -45,7 +39,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Builds cannot be imported at this time.
+    /// Gamelift Builds can be imported using the ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/build:Build")]
     public partial class Build : Pulumi.CustomResource

@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Organizations
     ///     {
     ///         var example = new Aws.Organizations.DelegatedAdministrator("example", new Aws.Organizations.DelegatedAdministratorArgs
     ///         {
-    ///             AccountId = "AWS ACCOUNT ID",
-    ///             ServicePrincipal = "Service principal",
+    ///             AccountId = "123456789012",
+    ///             ServicePrincipal = "principal",
     ///         });
     ///     }
     /// 

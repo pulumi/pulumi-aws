@@ -15,13 +15,16 @@ export * from "./getHoursOfOperation";
 export * from "./getInstance";
 export * from "./getLambdaFunctionAssociation";
 export * from "./getPrompt";
+export * from "./getQueue";
 export * from "./getQuickConnect";
 export * from "./hoursOfOperation";
 export * from "./instance";
 export * from "./lambdaFunctionAssociation";
 export * from "./queue";
 export * from "./quickConnect";
+export * from "./routingProfile";
 export * from "./securityProfile";
+export * from "./userHierarchyStructure";
 
 // Import resources to register:
 import { BotAssociation } from "./botAssociation";
@@ -32,7 +35,9 @@ import { Instance } from "./instance";
 import { LambdaFunctionAssociation } from "./lambdaFunctionAssociation";
 import { Queue } from "./queue";
 import { QuickConnect } from "./quickConnect";
+import { RoutingProfile } from "./routingProfile";
 import { SecurityProfile } from "./securityProfile";
+import { UserHierarchyStructure } from "./userHierarchyStructure";
 
 const _module = {
     version: utilities.getVersion(),
@@ -54,8 +59,12 @@ const _module = {
                 return new Queue(name, <any>undefined, { urn })
             case "aws:connect/quickConnect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
+            case "aws:connect/routingProfile:RoutingProfile":
+                return new RoutingProfile(name, <any>undefined, { urn })
             case "aws:connect/securityProfile:SecurityProfile":
                 return new SecurityProfile(name, <any>undefined, { urn })
+            case "aws:connect/userHierarchyStructure:UserHierarchyStructure":
+                return new UserHierarchyStructure(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -69,4 +78,6 @@ pulumi.runtime.registerResourceModule("aws", "connect/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/lambdaFunctionAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/queue", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/quickConnect", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/routingProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/securityProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/userHierarchyStructure", _module)

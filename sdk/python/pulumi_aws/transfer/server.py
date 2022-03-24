@@ -26,6 +26,8 @@ class ServerArgs:
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+                 pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -43,6 +45,8 @@ class ServerArgs:
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
@@ -73,6 +77,10 @@ class ServerArgs:
             pulumi.set(__self__, "invocation_role", invocation_role)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if post_authentication_login_banner is not None:
+            pulumi.set(__self__, "post_authentication_login_banner", post_authentication_login_banner)
+        if pre_authentication_login_banner is not None:
+            pulumi.set(__self__, "pre_authentication_login_banner", pre_authentication_login_banner)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
         if security_policy_name is not None:
@@ -215,6 +223,30 @@ class ServerArgs:
         pulumi.set(self, "logging_role", value)
 
     @property
+    @pulumi.getter(name="postAuthenticationLoginBanner")
+    def post_authentication_login_banner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        """
+        return pulumi.get(self, "post_authentication_login_banner")
+
+    @post_authentication_login_banner.setter
+    def post_authentication_login_banner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "post_authentication_login_banner", value)
+
+    @property
+    @pulumi.getter(name="preAuthenticationLoginBanner")
+    def pre_authentication_login_banner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+        """
+        return pulumi.get(self, "pre_authentication_login_banner")
+
+    @pre_authentication_login_banner.setter
+    def pre_authentication_login_banner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pre_authentication_login_banner", value)
+
+    @property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -283,6 +315,8 @@ class _ServerState:
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+                 pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -304,6 +338,8 @@ class _ServerState:
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
@@ -341,6 +377,10 @@ class _ServerState:
             pulumi.set(__self__, "invocation_role", invocation_role)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if post_authentication_login_banner is not None:
+            pulumi.set(__self__, "post_authentication_login_banner", post_authentication_login_banner)
+        if pre_authentication_login_banner is not None:
+            pulumi.set(__self__, "pre_authentication_login_banner", pre_authentication_login_banner)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
         if security_policy_name is not None:
@@ -521,6 +561,30 @@ class _ServerState:
         pulumi.set(self, "logging_role", value)
 
     @property
+    @pulumi.getter(name="postAuthenticationLoginBanner")
+    def post_authentication_login_banner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        """
+        return pulumi.get(self, "post_authentication_login_banner")
+
+    @post_authentication_login_banner.setter
+    def post_authentication_login_banner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "post_authentication_login_banner", value)
+
+    @property
+    @pulumi.getter(name="preAuthenticationLoginBanner")
+    def pre_authentication_login_banner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+        """
+        return pulumi.get(self, "pre_authentication_login_banner")
+
+    @pre_authentication_login_banner.setter
+    def pre_authentication_login_banner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pre_authentication_login_banner", value)
+
+    @property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -600,6 +664,8 @@ class Server(pulumi.CustomResource):
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+                 pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -707,6 +773,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
@@ -836,6 +904,8 @@ class Server(pulumi.CustomResource):
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+                 pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -863,6 +933,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["invocation_role"] = invocation_role
             __props__.__dict__["logging_role"] = logging_role
+            __props__.__dict__["post_authentication_login_banner"] = post_authentication_login_banner
+            __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["tags"] = tags
@@ -895,6 +967,8 @@ class Server(pulumi.CustomResource):
             identity_provider_type: Optional[pulumi.Input[str]] = None,
             invocation_role: Optional[pulumi.Input[str]] = None,
             logging_role: Optional[pulumi.Input[str]] = None,
+            post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
+            pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_policy_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -921,6 +995,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
@@ -948,6 +1024,8 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["identity_provider_type"] = identity_provider_type
         __props__.__dict__["invocation_role"] = invocation_role
         __props__.__dict__["logging_role"] = logging_role
+        __props__.__dict__["post_authentication_login_banner"] = post_authentication_login_banner
+        __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
         __props__.__dict__["protocols"] = protocols
         __props__.__dict__["security_policy_name"] = security_policy_name
         __props__.__dict__["tags"] = tags
@@ -1066,6 +1144,22 @@ class Server(pulumi.CustomResource):
         Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         """
         return pulumi.get(self, "logging_role")
+
+    @property
+    @pulumi.getter(name="postAuthenticationLoginBanner")
+    def post_authentication_login_banner(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        """
+        return pulumi.get(self, "post_authentication_login_banner")
+
+    @property
+    @pulumi.getter(name="preAuthenticationLoginBanner")
+    def pre_authentication_login_banner(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+        """
+        return pulumi.get(self, "pre_authentication_login_banner")
 
     @property
     @pulumi.getter

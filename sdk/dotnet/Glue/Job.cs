@@ -63,6 +63,29 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// ### Streaming Job
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///             {
+    ///                 Name = "gluestreaming",
+    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.script",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Enabling CloudWatch Logs and Metrics
     /// 
     /// ```csharp
@@ -195,7 +218,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> SecurityConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -207,10 +230,10 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours).
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
         /// </summary>
         [Output("timeout")]
-        public Output<int?> Timeout { get; private set; } = null!;
+        public Output<int> Timeout { get; private set; } = null!;
 
         /// <summary>
         /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -370,7 +393,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -379,7 +402,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours).
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -509,7 +532,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -530,7 +553,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours).
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

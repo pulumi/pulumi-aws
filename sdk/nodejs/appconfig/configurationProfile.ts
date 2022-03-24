@@ -101,6 +101,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
+    /**
      * A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */
     public readonly validators!: pulumi.Output<outputs.appconfig.ConfigurationProfileValidator[] | undefined>;
@@ -127,6 +131,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["retrievalRoleArn"] = state ? state.retrievalRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["validators"] = state ? state.validators : undefined;
         } else {
             const args = argsOrState as ConfigurationProfileArgs | undefined;
@@ -142,6 +147,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validators"] = args ? args.validators : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
@@ -193,6 +199,10 @@ export interface ConfigurationProfileState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+     */
+    type?: pulumi.Input<string>;
+    /**
      * A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */
     validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidator>[]>;
@@ -226,6 +236,10 @@ export interface ConfigurationProfileArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+     */
+    type?: pulumi.Input<string>;
     /**
      * A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */

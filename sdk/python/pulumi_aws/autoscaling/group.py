@@ -1294,18 +1294,6 @@ class Group(pulumi.CustomResource):
                  warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None,
                  __props__=None):
         """
-        Provides an Auto Scaling Group resource.
-
-        > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-
-        > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-        both a standalone `autoscaling.Attachment` resource
-        (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
-        with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
-        mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
-        `load_balancers` or `target_group_arns`, the `autoscaling.Group` resource must be configured
-        to ignore changes to the `load_balancers` and `target_group_arns` arguments.
-
         ## Example Usage
         ### With Latest Version Of Launch Template
 
@@ -1645,18 +1633,6 @@ class Group(pulumi.CustomResource):
                  args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Auto Scaling Group resource.
-
-        > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-
-        > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-        both a standalone `autoscaling.Attachment` resource
-        (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
-        with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
-        mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
-        `load_balancers` or `target_group_arns`, the `autoscaling.Group` resource must be configured
-        to ignore changes to the `load_balancers` and `target_group_arns` arguments.
-
         ## Example Usage
         ### With Latest Version Of Launch Template
 

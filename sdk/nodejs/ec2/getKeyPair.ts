@@ -55,6 +55,9 @@ export interface GetKeyPairArgs {
      * The Key Pair name.
      */
     keyName?: string;
+    /**
+     * The Key Pair ID.
+     */
     keyPairId?: string;
     /**
      * Any tags assigned to the Key Pair.
@@ -103,6 +106,9 @@ export interface GetKeyPairOutputArgs {
      * The Key Pair name.
      */
     keyName?: pulumi.Input<string>;
+    /**
+     * The Key Pair ID.
+     */
     keyPairId?: pulumi.Input<string>;
     /**
      * Any tags assigned to the Key Pair.

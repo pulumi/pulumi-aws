@@ -187,12 +187,9 @@ export class Record extends pulumi.CustomResource {
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-     */
     public readonly records!: pulumi.Output<string[] | undefined>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
      */
     public readonly setIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -313,12 +310,9 @@ export interface RecordState {
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
     name?: pulumi.Input<string>;
-    /**
-     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-     */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
      */
     setIdentifier?: pulumi.Input<string>;
     /**
@@ -376,12 +370,9 @@ export interface RecordArgs {
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
     name: pulumi.Input<string>;
-    /**
-     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-     */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
      */
     setIdentifier?: pulumi.Input<string>;
     /**

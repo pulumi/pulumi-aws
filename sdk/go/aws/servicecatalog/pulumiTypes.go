@@ -242,6 +242,121 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProvisionedProductOutputType struct {
+	// The description of the output.
+	Description *string `pulumi:"description"`
+	// Parameter key.
+	Key *string `pulumi:"key"`
+	// Parameter value.
+	Value *string `pulumi:"value"`
+}
+
+// ProvisionedProductOutputTypeInput is an input type that accepts ProvisionedProductOutputTypeArgs and ProvisionedProductOutputTypeOutput values.
+// You can construct a concrete instance of `ProvisionedProductOutputTypeInput` via:
+//
+//          ProvisionedProductOutputTypeArgs{...}
+type ProvisionedProductOutputTypeInput interface {
+	pulumi.Input
+
+	ToProvisionedProductOutputTypeOutput() ProvisionedProductOutputTypeOutput
+	ToProvisionedProductOutputTypeOutputWithContext(context.Context) ProvisionedProductOutputTypeOutput
+}
+
+type ProvisionedProductOutputTypeArgs struct {
+	// The description of the output.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Parameter key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Parameter value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ProvisionedProductOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedProductOutputType)(nil)).Elem()
+}
+
+func (i ProvisionedProductOutputTypeArgs) ToProvisionedProductOutputTypeOutput() ProvisionedProductOutputTypeOutput {
+	return i.ToProvisionedProductOutputTypeOutputWithContext(context.Background())
+}
+
+func (i ProvisionedProductOutputTypeArgs) ToProvisionedProductOutputTypeOutputWithContext(ctx context.Context) ProvisionedProductOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductOutputTypeOutput)
+}
+
+// ProvisionedProductOutputTypeArrayInput is an input type that accepts ProvisionedProductOutputTypeArray and ProvisionedProductOutputTypeArrayOutput values.
+// You can construct a concrete instance of `ProvisionedProductOutputTypeArrayInput` via:
+//
+//          ProvisionedProductOutputTypeArray{ ProvisionedProductOutputTypeArgs{...} }
+type ProvisionedProductOutputTypeArrayInput interface {
+	pulumi.Input
+
+	ToProvisionedProductOutputTypeArrayOutput() ProvisionedProductOutputTypeArrayOutput
+	ToProvisionedProductOutputTypeArrayOutputWithContext(context.Context) ProvisionedProductOutputTypeArrayOutput
+}
+
+type ProvisionedProductOutputTypeArray []ProvisionedProductOutputTypeInput
+
+func (ProvisionedProductOutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProvisionedProductOutputType)(nil)).Elem()
+}
+
+func (i ProvisionedProductOutputTypeArray) ToProvisionedProductOutputTypeArrayOutput() ProvisionedProductOutputTypeArrayOutput {
+	return i.ToProvisionedProductOutputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ProvisionedProductOutputTypeArray) ToProvisionedProductOutputTypeArrayOutputWithContext(ctx context.Context) ProvisionedProductOutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductOutputTypeArrayOutput)
+}
+
+type ProvisionedProductOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedProductOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedProductOutputType)(nil)).Elem()
+}
+
+func (o ProvisionedProductOutputTypeOutput) ToProvisionedProductOutputTypeOutput() ProvisionedProductOutputTypeOutput {
+	return o
+}
+
+func (o ProvisionedProductOutputTypeOutput) ToProvisionedProductOutputTypeOutputWithContext(ctx context.Context) ProvisionedProductOutputTypeOutput {
+	return o
+}
+
+// The description of the output.
+func (o ProvisionedProductOutputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Parameter key.
+func (o ProvisionedProductOutputTypeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Parameter value.
+func (o ProvisionedProductOutputTypeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ProvisionedProductOutputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedProductOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProvisionedProductOutputType)(nil)).Elem()
+}
+
+func (o ProvisionedProductOutputTypeArrayOutput) ToProvisionedProductOutputTypeArrayOutput() ProvisionedProductOutputTypeArrayOutput {
+	return o
+}
+
+func (o ProvisionedProductOutputTypeArrayOutput) ToProvisionedProductOutputTypeArrayOutputWithContext(ctx context.Context) ProvisionedProductOutputTypeArrayOutput {
+	return o
+}
+
+func (o ProvisionedProductOutputTypeArrayOutput) Index(i pulumi.IntInput) ProvisionedProductOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProvisionedProductOutputType {
+		return vs[0].([]ProvisionedProductOutputType)[vs[1].(int)]
+	}).(ProvisionedProductOutputTypeOutput)
+}
+
 type ProvisionedProductProvisioningParameter struct {
 	// Parameter key.
 	Key string `pulumi:"key"`
@@ -1174,6 +1289,8 @@ func (o GetPortfolioConstraintsDetailArrayOutput) Index(i pulumi.IntInput) GetPo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersPtrInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductOutputTypeInput)(nil)).Elem(), ProvisionedProductOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductOutputTypeArrayInput)(nil)).Elem(), ProvisionedProductOutputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductProvisioningParameterInput)(nil)).Elem(), ProvisionedProductProvisioningParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductProvisioningParameterArrayInput)(nil)).Elem(), ProvisionedProductProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductStackSetProvisioningPreferencesInput)(nil)).Elem(), ProvisionedProductStackSetProvisioningPreferencesArgs{})
@@ -1188,6 +1305,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPortfolioConstraintsDetailArrayInput)(nil)).Elem(), GetPortfolioConstraintsDetailArray{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersOutput{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersPtrOutput{})
+	pulumi.RegisterOutputType(ProvisionedProductOutputTypeOutput{})
+	pulumi.RegisterOutputType(ProvisionedProductOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductStackSetProvisioningPreferencesOutput{})

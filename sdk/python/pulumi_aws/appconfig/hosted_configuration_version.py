@@ -229,6 +229,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         Provides an AppConfig Hosted Configuration Version resource.
 
         ## Example Usage
+        ### Freeform
 
         ```python
         import pulumi
@@ -238,10 +239,51 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         example = aws.appconfig.HostedConfigurationVersion("example",
             application_id=aws_appconfig_application["example"]["id"],
             configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Hosted Configuration Version",
+            description="Example Freeform Hosted Configuration Version",
             content_type="application/json",
             content=json.dumps({
                 "foo": "bar",
+                "fruit": [
+                    "apple",
+                    "pear",
+                    "orange",
+                ],
+                "isThingEnabled": True,
+            }))
+        ```
+        ### Feature Flags
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.appconfig.HostedConfigurationVersion("example",
+            application_id=aws_appconfig_application["example"]["id"],
+            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            description="Example Freeform Hosted Configuration Version",
+            content_type="application/json",
+            content=json.dumps({
+                "flags": {
+                    "foo": {
+                        "name": "foo",
+                        "_deprecation": {
+                            "status": "planned",
+                        },
+                    },
+                    "bar": {
+                        "name": "bar",
+                    },
+                },
+                "values": {
+                    "foo": {
+                        "enabled": "true",
+                    },
+                    "bar": {
+                        "enabled": "true",
+                    },
+                },
+                "version": "1",
             }))
         ```
 
@@ -271,6 +313,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         Provides an AppConfig Hosted Configuration Version resource.
 
         ## Example Usage
+        ### Freeform
 
         ```python
         import pulumi
@@ -280,10 +323,51 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         example = aws.appconfig.HostedConfigurationVersion("example",
             application_id=aws_appconfig_application["example"]["id"],
             configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Hosted Configuration Version",
+            description="Example Freeform Hosted Configuration Version",
             content_type="application/json",
             content=json.dumps({
                 "foo": "bar",
+                "fruit": [
+                    "apple",
+                    "pear",
+                    "orange",
+                ],
+                "isThingEnabled": True,
+            }))
+        ```
+        ### Feature Flags
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.appconfig.HostedConfigurationVersion("example",
+            application_id=aws_appconfig_application["example"]["id"],
+            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
+            description="Example Freeform Hosted Configuration Version",
+            content_type="application/json",
+            content=json.dumps({
+                "flags": {
+                    "foo": {
+                        "name": "foo",
+                        "_deprecation": {
+                            "status": "planned",
+                        },
+                    },
+                    "bar": {
+                        "name": "bar",
+                    },
+                },
+                "values": {
+                    "foo": {
+                        "enabled": "true",
+                    },
+                    "bar": {
+                        "enabled": "true",
+                    },
+                },
+                "version": "1",
             }))
         ```
 

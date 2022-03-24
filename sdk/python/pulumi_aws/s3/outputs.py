@@ -1026,10 +1026,10 @@ class BucketLifecycleConfigurationV2Rule(dict):
         :param str status: Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
         :param 'BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs' abort_incomplete_multipart_upload: Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
         :param 'BucketLifecycleConfigurationV2RuleExpirationArgs' expiration: Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
-        :param 'BucketLifecycleConfigurationV2RuleFilterArgs' filter: Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+        :param 'BucketLifecycleConfigurationV2RuleFilterArgs' filter: Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
         :param 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs' noncurrent_version_expiration: Configuration block that specifies when noncurrent object versions expire documented below.
         :param Sequence['BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
-        :param str prefix: Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+        :param str prefix: **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
         :param Sequence['BucketLifecycleConfigurationV2RuleTransitionArgs'] transitions: Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
         """
         pulumi.set(__self__, "id", id)
@@ -1085,7 +1085,7 @@ class BucketLifecycleConfigurationV2Rule(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketLifecycleConfigurationV2RuleFilter']:
         """
-        Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+        Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
         """
         return pulumi.get(self, "filter")
 
@@ -1109,7 +1109,7 @@ class BucketLifecycleConfigurationV2Rule(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+        **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
         """
         return pulumi.get(self, "prefix")
 
@@ -1182,7 +1182,7 @@ class BucketLifecycleConfigurationV2RuleExpiration(dict):
                  days: Optional[int] = None,
                  expired_object_delete_marker: Optional[bool] = None):
         """
-        :param str date: The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+        :param str date: The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param int days: The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         :param bool expired_object_delete_marker: Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
         """
@@ -1197,7 +1197,7 @@ class BucketLifecycleConfigurationV2RuleExpiration(dict):
     @pulumi.getter
     def date(self) -> Optional[str]:
         """
-        The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+        The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "date")
 
@@ -1243,15 +1243,15 @@ class BucketLifecycleConfigurationV2RuleFilter(dict):
 
     def __init__(__self__, *,
                  and_: Optional['outputs.BucketLifecycleConfigurationV2RuleFilterAnd'] = None,
-                 object_size_greater_than: Optional[int] = None,
-                 object_size_less_than: Optional[int] = None,
+                 object_size_greater_than: Optional[str] = None,
+                 object_size_less_than: Optional[str] = None,
                  prefix: Optional[str] = None,
                  tag: Optional['outputs.BucketLifecycleConfigurationV2RuleFilterTag'] = None):
         """
-        :param 'BucketLifecycleConfigurationV2RuleFilterAndArgs' and_: Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
-        :param int object_size_greater_than: Minimum object size to which the rule applies.
-        :param int object_size_less_than: Maximum object size to which the rule applies.
-        :param str prefix: Prefix identifying one or more objects to which the rule applies.
+        :param 'BucketLifecycleConfigurationV2RuleFilterAndArgs' and_: Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+        :param str object_size_greater_than: Minimum object size (in bytes) to which the rule applies.
+        :param str object_size_less_than: Maximum object size (in bytes) to which the rule applies.
+        :param str prefix: Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
         :param 'BucketLifecycleConfigurationV2RuleFilterTagArgs' tag: A configuration block for specifying a tag key and value documented below.
         """
         if and_ is not None:
@@ -1269,23 +1269,23 @@ class BucketLifecycleConfigurationV2RuleFilter(dict):
     @pulumi.getter(name="and")
     def and_(self) -> Optional['outputs.BucketLifecycleConfigurationV2RuleFilterAnd']:
         """
-        Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
+        Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
         """
         return pulumi.get(self, "and_")
 
     @property
     @pulumi.getter(name="objectSizeGreaterThan")
-    def object_size_greater_than(self) -> Optional[int]:
+    def object_size_greater_than(self) -> Optional[str]:
         """
-        Minimum object size to which the rule applies.
+        Minimum object size (in bytes) to which the rule applies.
         """
         return pulumi.get(self, "object_size_greater_than")
 
     @property
     @pulumi.getter(name="objectSizeLessThan")
-    def object_size_less_than(self) -> Optional[int]:
+    def object_size_less_than(self) -> Optional[str]:
         """
-        Maximum object size to which the rule applies.
+        Maximum object size (in bytes) to which the rule applies.
         """
         return pulumi.get(self, "object_size_less_than")
 
@@ -1293,7 +1293,7 @@ class BucketLifecycleConfigurationV2RuleFilter(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Prefix identifying one or more objects to which the rule applies.
+        Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
         """
         return pulumi.get(self, "prefix")
 
@@ -1333,9 +1333,10 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        :param int object_size_greater_than: Minimum object size to which the rule applies.
-        :param int object_size_less_than: Maximum object size to which the rule applies.
-        :param str prefix: Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+        :param int object_size_greater_than: Minimum object size to which the rule applies. Value must be at least `0` if specified.
+        :param int object_size_less_than: Maximum object size to which the rule applies. Value must be at least `1` if specified.
+        :param str prefix: Prefix identifying one or more objects to which the rule applies.
+        :param Mapping[str, str] tags: Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
         """
         if object_size_greater_than is not None:
             pulumi.set(__self__, "object_size_greater_than", object_size_greater_than)
@@ -1350,7 +1351,7 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
     @pulumi.getter(name="objectSizeGreaterThan")
     def object_size_greater_than(self) -> Optional[int]:
         """
-        Minimum object size to which the rule applies.
+        Minimum object size to which the rule applies. Value must be at least `0` if specified.
         """
         return pulumi.get(self, "object_size_greater_than")
 
@@ -1358,7 +1359,7 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
     @pulumi.getter(name="objectSizeLessThan")
     def object_size_less_than(self) -> Optional[int]:
         """
-        Maximum object size to which the rule applies.
+        Maximum object size to which the rule applies. Value must be at least `1` if specified.
         """
         return pulumi.get(self, "object_size_less_than")
 
@@ -1366,13 +1367,16 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+        Prefix identifying one or more objects to which the rule applies.
         """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -1427,10 +1431,10 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 newer_noncurrent_versions: Optional[int] = None,
+                 newer_noncurrent_versions: Optional[str] = None,
                  noncurrent_days: Optional[int] = None):
         """
-        :param int newer_noncurrent_versions: The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+        :param str newer_noncurrent_versions: The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         :param int noncurrent_days: The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         """
         if newer_noncurrent_versions is not None:
@@ -1440,7 +1444,7 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
-    def newer_noncurrent_versions(self) -> Optional[int]:
+    def newer_noncurrent_versions(self) -> Optional[str]:
         """
         The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
@@ -1480,11 +1484,11 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
 
     def __init__(__self__, *,
                  storage_class: str,
-                 newer_noncurrent_versions: Optional[int] = None,
+                 newer_noncurrent_versions: Optional[str] = None,
                  noncurrent_days: Optional[int] = None):
         """
         :param str storage_class: The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
-        :param int newer_noncurrent_versions: The number of noncurrent versions Amazon S3 will retain.
+        :param str newer_noncurrent_versions: The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         :param int noncurrent_days: The number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
         pulumi.set(__self__, "storage_class", storage_class)
@@ -1503,9 +1507,9 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
-    def newer_noncurrent_versions(self) -> Optional[int]:
+    def newer_noncurrent_versions(self) -> Optional[str]:
         """
-        The number of noncurrent versions Amazon S3 will retain.
+        The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
         return pulumi.get(self, "newer_noncurrent_versions")
 
@@ -1543,8 +1547,8 @@ class BucketLifecycleConfigurationV2RuleTransition(dict):
                  days: Optional[int] = None):
         """
         :param str storage_class: The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
-        :param str date: The date objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
-        :param int days: The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+        :param str date: The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+        :param int days: The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if date is not None:
@@ -1564,7 +1568,7 @@ class BucketLifecycleConfigurationV2RuleTransition(dict):
     @pulumi.getter
     def date(self) -> Optional[str]:
         """
-        The date objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+        The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
         """
         return pulumi.get(self, "date")
 
@@ -1572,7 +1576,7 @@ class BucketLifecycleConfigurationV2RuleTransition(dict):
     @pulumi.getter
     def days(self) -> Optional[int]:
         """
-        The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+        The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """
         return pulumi.get(self, "days")
 
@@ -2621,9 +2625,9 @@ class BucketReplicationConfigRule(dict):
         :param str status: The status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
         :param 'BucketReplicationConfigRuleDeleteMarkerReplicationArgs' delete_marker_replication: Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
         :param 'BucketReplicationConfigRuleExistingObjectReplicationArgs' existing_object_replication: Replicate existing objects in the source bucket according to the rule configurations documented below.
-        :param 'BucketReplicationConfigRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies documented below.
+        :param 'BucketReplicationConfigRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-        :param str prefix: Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        :param str prefix: Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
         :param int priority: The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         :param 'BucketReplicationConfigRuleSourceSelectionCriteriaArgs' source_selection_criteria: Specifies special object selection criteria documented below.
         """
@@ -2680,7 +2684,7 @@ class BucketReplicationConfigRule(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketReplicationConfigRuleFilter']:
         """
-        Filter that identifies subset of objects to which the replication rule applies documented below.
+        Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
         """
         return pulumi.get(self, "filter")
 
@@ -2696,7 +2700,7 @@ class BucketReplicationConfigRule(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
         """
         return pulumi.get(self, "prefix")
 
@@ -4073,7 +4077,7 @@ class BucketV2LifecycleRule(dict):
         :param Sequence['BucketV2LifecycleRuleNoncurrentVersionExpirationArgs'] noncurrent_version_expirations: When noncurrent object versions expire.
         :param Sequence['BucketV2LifecycleRuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: When noncurrent object versions transition.
         :param str prefix: Object keyname prefix identifying one or more objects to which the rule applies
-        :param Mapping[str, str] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param Mapping[str, str] tags: A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         :param Sequence['BucketV2LifecycleRuleTransitionArgs'] transitions: Specifies when an Amazon S3 object transitions to a specified storage class.
         """
         if abort_incomplete_multipart_upload_days is not None:
@@ -4155,7 +4159,7 @@ class BucketV2LifecycleRule(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -4425,21 +4429,22 @@ class BucketV2ObjectLockConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 object_lock_enabled: str,
+                 object_lock_enabled: Optional[str] = None,
                  rules: Optional[Sequence['outputs.BucketV2ObjectLockConfigurationRule']] = None):
         """
-        :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+        :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
         :param Sequence['BucketV2ObjectLockConfigurationRuleArgs'] rules: (required) Information about a particular server-side encryption configuration rule.
         """
-        pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+        if object_lock_enabled is not None:
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="objectLockEnabled")
-    def object_lock_enabled(self) -> str:
+    def object_lock_enabled(self) -> Optional[str]:
         """
-        Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+        Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
         """
         return pulumi.get(self, "object_lock_enabled")
 
@@ -4888,7 +4893,7 @@ class BucketV2ReplicationConfigurationRuleFilter(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         :param str prefix: Object keyname prefix identifying one or more objects to which the rule applies
-        :param Mapping[str, str] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param Mapping[str, str] tags: A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -4907,7 +4912,7 @@ class BucketV2ReplicationConfigurationRuleFilter(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -5283,7 +5288,7 @@ class BucketVersioningV2VersioningConfiguration(dict):
                  status: str,
                  mfa_delete: Optional[str] = None):
         """
-        :param str status: The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+        :param str status: The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
         :param str mfa_delete: Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
         """
         pulumi.set(__self__, "status", status)
@@ -5294,7 +5299,7 @@ class BucketVersioningV2VersioningConfiguration(dict):
     @pulumi.getter
     def status(self) -> str:
         """
-        The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+        The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
         """
         return pulumi.get(self, "status")
 

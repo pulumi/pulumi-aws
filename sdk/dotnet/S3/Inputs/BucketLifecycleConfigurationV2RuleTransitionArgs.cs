@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketLifecycleConfigurationV2RuleTransitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+        /// The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
         /// </summary>
         [Input("date")]
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+        /// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }

@@ -306,6 +306,8 @@ func (o CanaryArtifactConfigS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrO
 type CanaryRunConfig struct {
 	// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
 	ActiveTracing *bool `pulumi:"activeTracing"`
+	// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
 	MemoryInMb *int `pulumi:"memoryInMb"`
 	// Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
@@ -326,6 +328,8 @@ type CanaryRunConfigInput interface {
 type CanaryRunConfigArgs struct {
 	// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
 	ActiveTracing pulumi.BoolPtrInput `pulumi:"activeTracing"`
+	// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
 	// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
 	MemoryInMb pulumi.IntPtrInput `pulumi:"memoryInMb"`
 	// Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
@@ -414,6 +418,11 @@ func (o CanaryRunConfigOutput) ActiveTracing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *bool { return v.ActiveTracing }).(pulumi.BoolPtrOutput)
 }
 
+// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CanaryRunConfig) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
 // Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
 func (o CanaryRunConfigOutput) MemoryInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *int { return v.MemoryInMb }).(pulumi.IntPtrOutput)
@@ -456,6 +465,16 @@ func (o CanaryRunConfigPtrOutput) ActiveTracing() pulumi.BoolPtrOutput {
 		}
 		return v.ActiveTracing
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CanaryRunConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentVariables
+	}).(pulumi.StringMapOutput)
 }
 
 // Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.

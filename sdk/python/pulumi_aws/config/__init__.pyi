@@ -18,6 +18,12 @@ allowedAccountIds: Optional[str]
 
 assumeRole: Optional[str]
 
+customCaBundle: Optional[str]
+"""
+File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+variable. (Setting `ca_bundle` in the shared config file is not supported.)
+"""
+
 defaultTags: Optional[str]
 """
 Configuration block with settings to default resource tags across all resources.
@@ -129,6 +135,11 @@ not public (yet).
 skipRequestingAccountId: Optional[bool]
 """
 Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
+"""
+
+stsRegion: Optional[str]
+"""
+The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
 """
 
 token: Optional[str]

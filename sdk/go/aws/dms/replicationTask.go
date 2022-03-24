@@ -59,7 +59,7 @@ type ReplicationTask struct {
 	pulumi.CustomResourceState
 
 	// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
-	CdcStartPosition pulumi.StringPtrOutput `pulumi:"cdcStartPosition"`
+	CdcStartPosition pulumi.StringOutput `pulumi:"cdcStartPosition"`
 	// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
 	CdcStartTime pulumi.StringPtrOutput `pulumi:"cdcStartTime"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -74,6 +74,10 @@ type ReplicationTask struct {
 	ReplicationTaskSettings pulumi.StringPtrOutput `pulumi:"replicationTaskSettings"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringOutput `pulumi:"sourceEndpointArn"`
+	// Whether to run or stop the replication task.
+	StartReplicationTask pulumi.BoolPtrOutput `pulumi:"startReplicationTask"`
+	// Replication Task status.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringOutput `pulumi:"tableMappings"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -147,6 +151,10 @@ type replicationTaskState struct {
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn *string `pulumi:"sourceEndpointArn"`
+	// Whether to run or stop the replication task.
+	StartReplicationTask *bool `pulumi:"startReplicationTask"`
+	// Replication Task status.
+	Status *string `pulumi:"status"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings *string `pulumi:"tableMappings"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -174,6 +182,10 @@ type ReplicationTaskState struct {
 	ReplicationTaskSettings pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringPtrInput
+	// Whether to run or stop the replication task.
+	StartReplicationTask pulumi.BoolPtrInput
+	// Replication Task status.
+	Status pulumi.StringPtrInput
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -203,6 +215,8 @@ type replicationTaskArgs struct {
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn string `pulumi:"sourceEndpointArn"`
+	// Whether to run or stop the replication task.
+	StartReplicationTask *bool `pulumi:"startReplicationTask"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings string `pulumi:"tableMappings"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -227,6 +241,8 @@ type ReplicationTaskArgs struct {
 	ReplicationTaskSettings pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringInput
+	// Whether to run or stop the replication task.
+	StartReplicationTask pulumi.BoolPtrInput
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

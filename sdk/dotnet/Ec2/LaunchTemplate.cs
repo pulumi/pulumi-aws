@@ -294,9 +294,6 @@ namespace Pulumi.Aws.Ec2
         [Output("monitoring")]
         public Output<Outputs.LaunchTemplateMonitoring?> Monitoring { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -320,6 +317,12 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplatePlacement?> Placement { get; private set; } = null!;
 
         /// <summary>
+        /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Output("privateDnsNameOptions")]
+        public Output<Outputs.LaunchTemplatePrivateDnsNameOptions?> PrivateDnsNameOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the RAM disk.
         /// </summary>
         [Output("ramDiskId")]
@@ -339,7 +342,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -357,7 +360,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> UpdateDefaultVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The Base64-encoded user data to provide when launching the instance.
+        /// The base64-encoded user data to provide when launching the instance.
         /// </summary>
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
@@ -571,9 +574,6 @@ namespace Pulumi.Aws.Ec2
         [Input("monitoring")]
         public Input<Inputs.LaunchTemplateMonitoringArgs>? Monitoring { get; set; }
 
-        /// <summary>
-        /// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -601,6 +601,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("placement")]
         public Input<Inputs.LaunchTemplatePlacementArgs>? Placement { get; set; }
+
+        /// <summary>
+        /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Input("privateDnsNameOptions")]
+        public Input<Inputs.LaunchTemplatePrivateDnsNameOptionsArgs>? PrivateDnsNameOptions { get; set; }
 
         /// <summary>
         /// The ID of the RAM disk.
@@ -637,7 +643,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -652,7 +658,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? UpdateDefaultVersion { get; set; }
 
         /// <summary>
-        /// The Base64-encoded user data to provide when launching the instance.
+        /// The base64-encoded user data to provide when launching the instance.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
@@ -845,9 +851,6 @@ namespace Pulumi.Aws.Ec2
         [Input("monitoring")]
         public Input<Inputs.LaunchTemplateMonitoringGetArgs>? Monitoring { get; set; }
 
-        /// <summary>
-        /// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -875,6 +878,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("placement")]
         public Input<Inputs.LaunchTemplatePlacementGetArgs>? Placement { get; set; }
+
+        /// <summary>
+        /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Input("privateDnsNameOptions")]
+        public Input<Inputs.LaunchTemplatePrivateDnsNameOptionsGetArgs>? PrivateDnsNameOptions { get; set; }
 
         /// <summary>
         /// The ID of the RAM disk.
@@ -911,7 +920,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -938,7 +947,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? UpdateDefaultVersion { get; set; }
 
         /// <summary>
-        /// The Base64-encoded user data to provide when launching the instance.
+        /// The base64-encoded user data to provide when launching the instance.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }

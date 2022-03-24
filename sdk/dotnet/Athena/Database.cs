@@ -22,13 +22,13 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     public MyStack()
     ///     {
-    ///         var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2", new Aws.S3.BucketV2Args
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {
     ///         });
-    ///         var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new Aws.Athena.DatabaseArgs
+    ///         var exampleDatabase = new Aws.Athena.Database("exampleDatabase", new Aws.Athena.DatabaseArgs
     ///         {
     ///             Name = "database_name",
-    ///             Bucket = hogeBucketV2.Bucket,
+    ///             Bucket = exampleBucketV2.Bucket,
     ///         });
     ///     }
     /// 
@@ -39,16 +39,34 @@ namespace Pulumi.Aws.Athena
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of s3 bucket to save the results of the query execution.
+        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
-        [Output("bucket")]
-        public Output<string> Bucket { get; private set; } = null!;
+        [Output("aclConfiguration")]
+        public Output<Outputs.DatabaseAclConfiguration?> AclConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+        /// Name of S3 bucket to save the results of the query execution.
+        /// </summary>
+        [Output("bucket")]
+        public Output<string?> Bucket { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the database.
+        /// </summary>
+        [Output("comment")]
+        public Output<string?> Comment { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.DatabaseEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// </summary>
+        [Output("expectedBucketOwner")]
+        public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
         /// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
@@ -70,7 +88,7 @@ namespace Pulumi.Aws.Athena
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
+        public Database(string name, DatabaseArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:athena/database:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -109,16 +127,34 @@ namespace Pulumi.Aws.Athena
     public sealed class DatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of s3 bucket to save the results of the query execution.
+        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
-        [Input("bucket", required: true)]
-        public Input<string> Bucket { get; set; } = null!;
+        [Input("aclConfiguration")]
+        public Input<Inputs.DatabaseAclConfigurationArgs>? AclConfiguration { get; set; }
 
         /// <summary>
-        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+        /// Name of S3 bucket to save the results of the query execution.
+        /// </summary>
+        [Input("bucket")]
+        public Input<string>? Bucket { get; set; }
+
+        /// <summary>
+        /// Description of the database.
+        /// </summary>
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DatabaseEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
         /// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
@@ -140,16 +176,34 @@ namespace Pulumi.Aws.Athena
     public sealed class DatabaseState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of s3 bucket to save the results of the query execution.
+        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        /// </summary>
+        [Input("aclConfiguration")]
+        public Input<Inputs.DatabaseAclConfigurationGetArgs>? AclConfiguration { get; set; }
+
+        /// <summary>
+        /// Name of S3 bucket to save the results of the query execution.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+        /// Description of the database.
+        /// </summary>
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DatabaseEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
         /// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.

@@ -35,6 +35,7 @@ __all__ = [
     'GetNodeGroupResourceResult',
     'GetNodeGroupResourceAutoscalingGroupResult',
     'GetNodeGroupScalingConfigResult',
+    'GetNodeGroupTaintResult',
 ]
 
 @pulumi.output_type
@@ -1078,5 +1079,45 @@ class GetNodeGroupScalingConfigResult(dict):
         Minimum number of worker nodes.
         """
         return pulumi.get(self, "min_size")
+
+
+@pulumi.output_type
+class GetNodeGroupTaintResult(dict):
+    def __init__(__self__, *,
+                 effect: str,
+                 key: str,
+                 value: str):
+        """
+        :param str effect: The effect of the taint.
+        :param str key: The key of the taint.
+        :param str value: The value of the taint.
+        """
+        pulumi.set(__self__, "effect", effect)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def effect(self) -> str:
+        """
+        The effect of the taint.
+        """
+        return pulumi.get(self, "effect")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key of the taint.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the taint.
+        """
+        return pulumi.get(self, "value")
 
 

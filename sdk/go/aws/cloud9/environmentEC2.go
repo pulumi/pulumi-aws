@@ -127,8 +127,18 @@ type EnvironmentEC2 struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes pulumi.IntPtrOutput `pulumi:"automaticStopTimeMinutes"`
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// The description of the environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The name of the environment.
@@ -181,8 +191,18 @@ type environmentEC2State struct {
 	Arn *string `pulumi:"arn"`
 	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes *int `pulumi:"automaticStopTimeMinutes"`
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType *string `pulumi:"connectionType"`
 	// The description of the environment.
 	Description *string `pulumi:"description"`
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId *string `pulumi:"imageId"`
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType *string `pulumi:"instanceType"`
 	// The name of the environment.
@@ -204,8 +224,18 @@ type EnvironmentEC2State struct {
 	Arn pulumi.StringPtrInput
 	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes pulumi.IntPtrInput
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType pulumi.StringPtrInput
 	// The description of the environment.
 	Description pulumi.StringPtrInput
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId pulumi.StringPtrInput
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringPtrInput
 	// The name of the environment.
@@ -229,8 +259,18 @@ func (EnvironmentEC2State) ElementType() reflect.Type {
 type environmentEC2Args struct {
 	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes *int `pulumi:"automaticStopTimeMinutes"`
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType *string `pulumi:"connectionType"`
 	// The description of the environment.
 	Description *string `pulumi:"description"`
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId *string `pulumi:"imageId"`
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType string `pulumi:"instanceType"`
 	// The name of the environment.
@@ -247,8 +287,18 @@ type environmentEC2Args struct {
 type EnvironmentEC2Args struct {
 	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes pulumi.IntPtrInput
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType pulumi.StringPtrInput
 	// The description of the environment.
 	Description pulumi.StringPtrInput
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId pulumi.StringPtrInput
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringInput
 	// The name of the environment.

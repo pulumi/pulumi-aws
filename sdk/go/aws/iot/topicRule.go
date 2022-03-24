@@ -89,6 +89,7 @@ type TopicRule struct {
 	// The ARN of the topic rule
 	Arn              pulumi.StringOutput                `pulumi:"arn"`
 	CloudwatchAlarm  TopicRuleCloudwatchAlarmPtrOutput  `pulumi:"cloudwatchAlarm"`
+	CloudwatchLogs   TopicRuleCloudwatchLogArrayOutput  `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric TopicRuleCloudwatchMetricPtrOutput `pulumi:"cloudwatchMetric"`
 	// The description of the rule.
 	Description   pulumi.StringPtrOutput          `pulumi:"description"`
@@ -97,7 +98,7 @@ type TopicRule struct {
 	Elasticsearch TopicRuleElasticsearchPtrOutput `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrOutput   `pulumi:"errorAction"`
 	Firehose     TopicRuleFirehosePtrOutput      `pulumi:"firehose"`
 	IotAnalytics TopicRuleIotAnalyticArrayOutput `pulumi:"iotAnalytics"`
@@ -115,7 +116,7 @@ type TopicRule struct {
 	SqlVersion    pulumi.StringOutput              `pulumi:"sqlVersion"`
 	Sqs           TopicRuleSqsPtrOutput            `pulumi:"sqs"`
 	StepFunctions TopicRuleStepFunctionArrayOutput `pulumi:"stepFunctions"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -162,6 +163,7 @@ type topicRuleState struct {
 	// The ARN of the topic rule
 	Arn              *string                    `pulumi:"arn"`
 	CloudwatchAlarm  *TopicRuleCloudwatchAlarm  `pulumi:"cloudwatchAlarm"`
+	CloudwatchLogs   []TopicRuleCloudwatchLog   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric *TopicRuleCloudwatchMetric `pulumi:"cloudwatchMetric"`
 	// The description of the rule.
 	Description   *string                 `pulumi:"description"`
@@ -170,7 +172,7 @@ type topicRuleState struct {
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
 	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
 	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
@@ -188,7 +190,7 @@ type topicRuleState struct {
 	SqlVersion    *string                 `pulumi:"sqlVersion"`
 	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -198,6 +200,7 @@ type TopicRuleState struct {
 	// The ARN of the topic rule
 	Arn              pulumi.StringPtrInput
 	CloudwatchAlarm  TopicRuleCloudwatchAlarmPtrInput
+	CloudwatchLogs   TopicRuleCloudwatchLogArrayInput
 	CloudwatchMetric TopicRuleCloudwatchMetricPtrInput
 	// The description of the rule.
 	Description   pulumi.StringPtrInput
@@ -206,7 +209,7 @@ type TopicRuleState struct {
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolPtrInput
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrInput
 	Firehose     TopicRuleFirehosePtrInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
@@ -224,7 +227,7 @@ type TopicRuleState struct {
 	SqlVersion    pulumi.StringPtrInput
 	Sqs           TopicRuleSqsPtrInput
 	StepFunctions TopicRuleStepFunctionArrayInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -236,6 +239,7 @@ func (TopicRuleState) ElementType() reflect.Type {
 
 type topicRuleArgs struct {
 	CloudwatchAlarm  *TopicRuleCloudwatchAlarm  `pulumi:"cloudwatchAlarm"`
+	CloudwatchLogs   []TopicRuleCloudwatchLog   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric *TopicRuleCloudwatchMetric `pulumi:"cloudwatchMetric"`
 	// The description of the rule.
 	Description   *string                 `pulumi:"description"`
@@ -244,7 +248,7 @@ type topicRuleArgs struct {
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
 	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
 	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
@@ -262,13 +266,14 @@ type topicRuleArgs struct {
 	SqlVersion    string                  `pulumi:"sqlVersion"`
 	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TopicRule resource.
 type TopicRuleArgs struct {
 	CloudwatchAlarm  TopicRuleCloudwatchAlarmPtrInput
+	CloudwatchLogs   TopicRuleCloudwatchLogArrayInput
 	CloudwatchMetric TopicRuleCloudwatchMetricPtrInput
 	// The description of the rule.
 	Description   pulumi.StringPtrInput
@@ -277,7 +282,7 @@ type TopicRuleArgs struct {
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolInput
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrInput
 	Firehose     TopicRuleFirehosePtrInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
@@ -295,7 +300,7 @@ type TopicRuleArgs struct {
 	SqlVersion    pulumi.StringInput
 	Sqs           TopicRuleSqsPtrInput
 	StepFunctions TopicRuleStepFunctionArrayInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

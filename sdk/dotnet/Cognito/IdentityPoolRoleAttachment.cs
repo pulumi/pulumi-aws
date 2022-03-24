@@ -110,17 +110,17 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.,
+    /// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example &lt;identity-pool-id&gt;
+    ///  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2_abc123
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
     public partial class IdentityPoolRoleAttachment : Pulumi.CustomResource
     {
         /// <summary>
-        /// An identity pool ID in the format REGION:GUID.
+        /// An identity pool ID in the format `REGION_GUID`.
         /// </summary>
         [Output("identityPoolId")]
         public Output<string> IdentityPoolId { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class IdentityPoolRoleAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An identity pool ID in the format REGION:GUID.
+        /// An identity pool ID in the format `REGION_GUID`.
         /// </summary>
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class IdentityPoolRoleAttachmentState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An identity pool ID in the format REGION:GUID.
+        /// An identity pool ID in the format `REGION_GUID`.
         /// </summary>
         [Input("identityPoolId")]
         public Input<string>? IdentityPoolId { get; set; }

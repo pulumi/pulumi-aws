@@ -80,7 +80,7 @@ import (
 // `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/resourceServer:ResourceServer example xxx_yyyyy|https://example.com
+//  $ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
 // ```
 type ResourceServer struct {
 	pulumi.CustomResourceState

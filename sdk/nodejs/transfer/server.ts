@@ -187,6 +187,14 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
+     * Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+     */
+    public readonly postAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
+    /**
+     * Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+     */
+    public readonly preAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
      * * `SFTP`: File transfer over SSH
      * * `FTPS`: File transfer with TLS encryption
@@ -237,6 +245,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["identityProviderType"] = state ? state.identityProviderType : undefined;
             resourceInputs["invocationRole"] = state ? state.invocationRole : undefined;
             resourceInputs["loggingRole"] = state ? state.loggingRole : undefined;
+            resourceInputs["postAuthenticationLoginBanner"] = state ? state.postAuthenticationLoginBanner : undefined;
+            resourceInputs["preAuthenticationLoginBanner"] = state ? state.preAuthenticationLoginBanner : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
             resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -255,6 +265,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
             resourceInputs["invocationRole"] = args ? args.invocationRole : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["postAuthenticationLoginBanner"] = args ? args.postAuthenticationLoginBanner : undefined;
+            resourceInputs["preAuthenticationLoginBanner"] = args ? args.preAuthenticationLoginBanner : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -330,6 +342,14 @@ export interface ServerState {
      */
     loggingRole?: pulumi.Input<string>;
     /**
+     * Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+     */
+    postAuthenticationLoginBanner?: pulumi.Input<string>;
+    /**
+     * Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+     */
+    preAuthenticationLoginBanner?: pulumi.Input<string>;
+    /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
      * * `SFTP`: File transfer over SSH
      * * `FTPS`: File transfer with TLS encryption
@@ -402,6 +422,14 @@ export interface ServerArgs {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     loggingRole?: pulumi.Input<string>;
+    /**
+     * Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+     */
+    postAuthenticationLoginBanner?: pulumi.Input<string>;
+    /**
+     * Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+     */
+    preAuthenticationLoginBanner?: pulumi.Input<string>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
      * * `SFTP`: File transfer over SSH

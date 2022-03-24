@@ -4246,6 +4246,24 @@ export namespace apprunner {
         memory?: string;
     }
 
+    export interface ServiceNetworkConfiguration {
+        /**
+         * Network configuration settings for outbound message traffic.
+         */
+        egressConfiguration?: outputs.apprunner.ServiceNetworkConfigurationEgressConfiguration;
+    }
+
+    export interface ServiceNetworkConfigurationEgressConfiguration {
+        /**
+         * The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+         */
+        egressType: string;
+        /**
+         * The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+         */
+        vpcConnectorArn?: string;
+    }
+
     export interface ServiceSourceConfiguration {
         /**
          * Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
@@ -4803,6 +4821,13 @@ export namespace appsync {
 }
 
 export namespace athena {
+    export interface DatabaseAclConfiguration {
+        /**
+         * The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+         */
+        s3AclOption: string;
+    }
+
     export interface DatabaseEncryptionConfiguration {
         /**
          * The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
@@ -5112,7 +5137,19 @@ export namespace autoscaling {
 
     export interface PolicyPredictiveScalingConfigurationMetricSpecification {
         /**
-         * The load metric specification.
+         * The customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
+         */
+        customizedCapacityMetricSpecification?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification;
+        /**
+         * The customized load metric specification.
+         */
+        customizedLoadMetricSpecification?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification;
+        /**
+         * The customized scaling metric specification.
+         */
+        customizedScalingMetricSpecification?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification;
+        /**
+         * The predefined load metric specification.
          */
         predefinedLoadMetricSpecification?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification;
         /**
@@ -5120,13 +5157,226 @@ export namespace autoscaling {
          */
         predefinedMetricPairSpecification?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification;
         /**
-         * The scaling metric specification.
+         * The predefined scaling metric specification.
          */
         predefinedScalingMetricSpecification?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification;
         /**
          * The target value for the metric.
          */
         targetValue: number;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification {
+        /**
+         * A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         */
+        metricDataQueries: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery[];
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
+        /**
+         * The math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
+         */
+        expression?: string;
+        /**
+         * A short name for the metric used in predictive scaling policy.
+         */
+        id: string;
+        /**
+         * A human-readable label for this metric or expression.
+         */
+        label?: string;
+        /**
+         * A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+         */
+        metricStat?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat;
+        /**
+         * A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+         */
+        returnData?: boolean;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat {
+        /**
+         * A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+         */
+        metric: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric;
+        /**
+         * The statistic of the metrics to return.
+         */
+        stat: string;
+        /**
+         * The unit of the metrics to return.
+         */
+        unit?: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension[];
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension {
+        /**
+         * The name of the dimension.
+         */
+        name: string;
+        /**
+         * The value of the dimension.
+         */
+        value: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
+        /**
+         * A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         */
+        metricDataQueries: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery[];
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery {
+        /**
+         * The math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
+         */
+        expression?: string;
+        /**
+         * A short name for the metric used in predictive scaling policy.
+         */
+        id: string;
+        /**
+         * A human-readable label for this metric or expression.
+         */
+        label?: string;
+        /**
+         * A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+         */
+        metricStat?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat;
+        /**
+         * A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+         */
+        returnData?: boolean;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat {
+        /**
+         * A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+         */
+        metric: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric;
+        /**
+         * The statistic of the metrics to return.
+         */
+        stat: string;
+        /**
+         * The unit of the metrics to return.
+         */
+        unit?: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension[];
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension {
+        /**
+         * The name of the dimension.
+         */
+        name: string;
+        /**
+         * The value of the dimension.
+         */
+        value: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification {
+        /**
+         * A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         */
+        metricDataQueries: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery[];
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery {
+        /**
+         * The math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
+         */
+        expression?: string;
+        /**
+         * A short name for the metric used in predictive scaling policy.
+         */
+        id: string;
+        /**
+         * A human-readable label for this metric or expression.
+         */
+        label?: string;
+        /**
+         * A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+         */
+        metricStat?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat;
+        /**
+         * A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+         */
+        returnData?: boolean;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat {
+        /**
+         * A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+         */
+        metric: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric;
+        /**
+         * The statistic of the metrics to return.
+         */
+        stat: string;
+        /**
+         * The unit of the metrics to return.
+         */
+        unit?: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: outputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension[];
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension {
+        /**
+         * The name of the dimension.
+         */
+        name: string;
+        /**
+         * The value of the dimension.
+         */
+        value: string;
     }
 
     export interface PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
@@ -5221,7 +5471,7 @@ export namespace autoscaling {
          */
         statistic: string;
         /**
-         * The unit of the metric.
+         * The unit of the metrics to return.
          */
         unit?: string;
     }
@@ -5262,7 +5512,6 @@ export namespace autoscaling {
          */
         value: string;
     }
-
 }
 
 export namespace autoscalingplans {
@@ -5458,6 +5707,118 @@ export namespace autoscalingplans {
 }
 
 export namespace backup {
+    export interface FrameworkControl {
+        /**
+         * One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+         */
+        inputParameters?: outputs.backup.FrameworkControlInputParameter[];
+        /**
+         * The name of a parameter, for example, BackupPlanFrequency.
+         */
+        name: string;
+        /**
+         * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+         */
+        scope?: outputs.backup.FrameworkControlScope;
+    }
+
+    export interface FrameworkControlInputParameter {
+        /**
+         * The name of a parameter, for example, BackupPlanFrequency.
+         */
+        name?: string;
+        /**
+         * The value of parameter, for example, hourly.
+         */
+        value?: string;
+    }
+
+    export interface FrameworkControlScope {
+        /**
+         * The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+         */
+        complianceResourceIds?: string[];
+        /**
+         * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         */
+        complianceResourceTypes?: string[];
+        /**
+         * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         */
+        tags?: {[key: string]: string};
+    }
+
+    export interface GetFrameworkControl {
+        /**
+         * One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+         */
+        inputParameters: outputs.backup.GetFrameworkControlInputParameter[];
+        /**
+         * The backup framework name.
+         */
+        name: string;
+        /**
+         * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+         */
+        scopes: outputs.backup.GetFrameworkControlScope[];
+    }
+
+    export interface GetFrameworkControlInputParameter {
+        /**
+         * The backup framework name.
+         */
+        name: string;
+        /**
+         * The value of parameter, for example, hourly.
+         */
+        value: string;
+    }
+
+    export interface GetFrameworkControlScope {
+        /**
+         * The ID of the only AWS resource that you want your control scope to contain.
+         */
+        complianceResourceIds: string[];
+        /**
+         * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         */
+        complianceResourceTypes: string[];
+        /**
+         * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         */
+        tags: {[key: string]: string};
+    }
+
+    export interface GetReportPlanReportDeliveryChannel {
+        /**
+         * A list of the format of your reports: CSV, JSON, or both.
+         */
+        formats: string[];
+        /**
+         * The unique name of the S3 bucket that receives your reports.
+         */
+        s3BucketName: string;
+        /**
+         * The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+         */
+        s3KeyPrefix: string;
+    }
+
+    export interface GetReportPlanReportSetting {
+        /**
+         * Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+         */
+        frameworkArns: string[];
+        /**
+         * Specifies the number of frameworks a report covers.
+         */
+        numberOfFrameworks: number;
+        /**
+         * Identifies the report template for the report. Reports are built using a report template.
+         */
+        reportTemplate: string;
+    }
+
     export interface PlanAdvancedBackupSetting {
         /**
          * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
@@ -5539,6 +5900,36 @@ export namespace backup {
          * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: number;
+    }
+
+    export interface ReportPlanReportDeliveryChannel {
+        /**
+         * A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+         */
+        formats?: string[];
+        /**
+         * The unique name of the S3 bucket that receives your reports.
+         */
+        s3BucketName: string;
+        /**
+         * The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+         */
+        s3KeyPrefix?: string;
+    }
+
+    export interface ReportPlanReportSetting {
+        /**
+         * Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+         */
+        frameworkArns?: string[];
+        /**
+         * Specifies the number of frameworks a report covers.
+         */
+        numberOfFrameworks?: number;
+        /**
+         * Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+         */
+        reportTemplate: string;
     }
 
     export interface SelectionCondition {
@@ -7607,6 +7998,48 @@ export namespace cloudsearch {
 }
 
 export namespace cloudtrail {
+    export interface EventDataStoreAdvancedEventSelector {
+        /**
+         * Specifies the selector statements in an advanced event selector. Fields documented below.
+         */
+        fieldSelectors: outputs.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelector[];
+        /**
+         * Specifies the name of the advanced event selector.
+         */
+        name: string;
+    }
+
+    export interface EventDataStoreAdvancedEventSelectorFieldSelector {
+        /**
+         * A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+         */
+        endsWiths: string[];
+        /**
+         * A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+         */
+        equals: string[];
+        /**
+         * Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+         */
+        field: string;
+        /**
+         * A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+         */
+        notEndsWiths: string[];
+        /**
+         * A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+         */
+        notEquals: string[];
+        /**
+         * A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+         */
+        notStartsWiths: string[];
+        /**
+         * A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+         */
+        startsWiths: string[];
+    }
+
     export interface TrailAdvancedEventSelector {
         /**
          * Specifies the selector statements in an advanced event selector. Fields documented below.
@@ -7681,7 +8114,7 @@ export namespace cloudtrail {
 
     export interface TrailInsightSelector {
         /**
-         * Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
+         * Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
          */
         insightType: string;
     }
@@ -9678,6 +10111,7 @@ export namespace config {
         cloudwatch?: string;
         cloudwatchevents?: string;
         cloudwatchlogs?: string;
+        cloudwatchrum?: string;
         codeartifact?: string;
         codebuild?: string;
         codecommit?: string;
@@ -9784,6 +10218,7 @@ export namespace config {
         kafka?: string;
         kafkaconnect?: string;
         kendra?: string;
+        keyspaces?: string;
         kinesis?: string;
         kinesisanalytics?: string;
         kinesisanalyticsv2?: string;
@@ -10001,6 +10436,21 @@ export namespace connect {
         minutes: number;
     }
 
+    export interface GetQueueOutboundCallerConfig {
+        /**
+         * Specifies the caller ID name.
+         */
+        outboundCallerIdName: string;
+        /**
+         * Specifies the caller ID number.
+         */
+        outboundCallerIdNumberId: string;
+        /**
+         * Specifies the outbound whisper flow to be used during an outbound call.
+         */
+        outboundFlowId: string;
+    }
+
     export interface GetQuickConnectQuickConnectConfig {
         /**
          * Specifies the phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
@@ -10149,6 +10599,168 @@ export namespace connect {
         userId: string;
     }
 
+    export interface RoutingProfileMediaConcurrency {
+        /**
+         * Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+         */
+        channel: string;
+        /**
+         * Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+         */
+        concurrency: number;
+    }
+
+    export interface RoutingProfileQueueConfig {
+        /**
+         * Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+         */
+        channel: string;
+        /**
+         * Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+         */
+        delay: number;
+        /**
+         * Specifies the order in which contacts are to be handled for the queue.
+         */
+        priority: number;
+        /**
+         * Specifies the ARN for the queue.
+         */
+        queueArn: string;
+        /**
+         * Specifies the identifier for the queue.
+         */
+        queueId: string;
+        /**
+         * Specifies the name for the queue.
+         */
+        queueName: string;
+    }
+
+    export interface RoutingProfileQueueConfigsAssociated {
+        /**
+         * Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+         */
+        channel: string;
+        /**
+         * Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+         */
+        delay: number;
+        /**
+         * Specifies the order in which contacts are to be handled for the queue.
+         */
+        priority: number;
+        /**
+         * Specifies the ARN for the queue.
+         */
+        queueArn: string;
+        /**
+         * Specifies the identifier for the queue.
+         */
+        queueId: string;
+        /**
+         * Specifies the name for the queue.
+         */
+        queueName: string;
+    }
+
+    export interface UserHierarchyStructureHierarchyStructure {
+        /**
+         * A block that defines the details of level five. The level block is documented below.
+         */
+        levelFive: outputs.connect.UserHierarchyStructureHierarchyStructureLevelFive;
+        /**
+         * A block that defines the details of level four. The level block is documented below.
+         */
+        levelFour: outputs.connect.UserHierarchyStructureHierarchyStructureLevelFour;
+        /**
+         * A block that defines the details of level one. The level block is documented below.
+         */
+        levelOne: outputs.connect.UserHierarchyStructureHierarchyStructureLevelOne;
+        /**
+         * A block that defines the details of level three. The level block is documented below.
+         */
+        levelThree: outputs.connect.UserHierarchyStructureHierarchyStructureLevelThree;
+        /**
+         * A block that defines the details of level two. The level block is documented below.
+         */
+        levelTwo: outputs.connect.UserHierarchyStructureHierarchyStructureLevelTwo;
+    }
+
+    export interface UserHierarchyStructureHierarchyStructureLevelFive {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyStructureHierarchyStructureLevelFour {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyStructureHierarchyStructureLevelOne {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyStructureHierarchyStructureLevelThree {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyStructureHierarchyStructureLevelTwo {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
 }
 
 export namespace datapipeline {
@@ -10213,6 +10825,9 @@ export namespace datapipeline {
     }
 
     export interface PipelineDefinitionParameterObject {
+        /**
+         * Configuration block for attributes of the parameter object. See below
+         */
         attributes?: outputs.datapipeline.PipelineDefinitionParameterObjectAttribute[];
         /**
          * ID of the parameter value.
@@ -10668,19 +11283,19 @@ export namespace dlm {
 export namespace dms {
     export interface EndpointElasticsearchSettings {
         /**
-         * Endpoint for the Elasticsearch cluster.
+         * Endpoint for the OpenSearch cluster.
          */
         endpointUri: string;
         /**
-         * Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+         * Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
          */
         errorRetryDuration?: number;
         /**
-         * Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+         * Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
          */
         fullLoadErrorPercentage?: number;
         /**
-         * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
+         * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
          */
         serviceAccessRoleArn: string;
     }
@@ -10691,31 +11306,31 @@ export namespace dms {
          */
         broker: string;
         /**
-         * Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
          */
         includeControlDetails?: boolean;
         /**
-         * Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+         * Include NULL and empty columns in the target. Default is `false`.
          */
         includeNullAndEmpty?: boolean;
         /**
-         * Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+         * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
          */
         includePartitionValue?: boolean;
         /**
-         * Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+         * Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
          */
         includeTableAlterOperations?: boolean;
         /**
-         * Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). The default is `false`.
+         * Provides detailed transaction information from the source database. Default is `false`.
          */
         includeTransactionDetails?: boolean;
         /**
-         * The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+         * Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
          */
         messageFormat?: string;
         /**
-         * The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+         * Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
          */
         messageMaxBytes?: number;
         /**
@@ -10723,15 +11338,15 @@ export namespace dms {
          */
         noHexPrefix?: boolean;
         /**
-         * Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
          */
         partitionIncludeSchemaTable?: boolean;
         /**
-         * The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         * Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
          */
         saslPassword?: string;
         /**
-         * The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         * Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
          */
         saslUsername?: string;
         /**
@@ -10739,124 +11354,184 @@ export namespace dms {
          */
         securityProtocol?: string;
         /**
-         * The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+         * ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
          */
         sslCaCertificateArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+         * ARN of the client certificate used to securely connect to a Kafka target endpoint.
          */
         sslClientCertificateArn?: string;
         /**
-         * The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+         * ARN for the client private key used to securely connect to a Kafka target endpoint.
          */
         sslClientKeyArn?: string;
         /**
-         * The password for the client private key used to securely connect to a Kafka target endpoint.
+         * Password for the client private key used to securely connect to a Kafka target endpoint.
          */
         sslClientKeyPassword?: string;
         /**
-         * Kafka topic for migration. Defaults to `kafka-default-topic`.
+         * Kafka topic for migration. Default is `kafka-default-topic`.
          */
         topic?: string;
     }
 
     export interface EndpointKinesisSettings {
         /**
-         * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
          */
         includeControlDetails?: boolean;
         /**
-         * Include NULL and empty columns in the target. The default is `false`.
+         * Include NULL and empty columns in the target. Default is `false`.
          */
         includeNullAndEmpty?: boolean;
         /**
-         * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+         * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
          */
         includePartitionValue?: boolean;
         /**
-         * Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+         * Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
          */
         includeTableAlterOperations?: boolean;
         /**
-         * Provides detailed transaction information from the source database. The default is `false`.
+         * Provides detailed transaction information from the source database. Default is `false`.
          */
         includeTransactionDetails?: boolean;
         /**
-         * Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+         * Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
          */
         messageFormat?: string;
         /**
-         * Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
          */
         partitionIncludeSchemaTable?: boolean;
         /**
-         * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
+         * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
          */
         serviceAccessRoleArn?: string;
         /**
-         * Amazon Resource Name (ARN) of the Kinesis data stream.
+         * ARN of the Kinesis data stream.
          */
         streamArn?: string;
     }
 
     export interface EndpointMongodbSettings {
         /**
-         * Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
+         * Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
          */
         authMechanism?: string;
         /**
-         * Authentication database name. Not used when `authType` is `no`. Defaults to `admin`.
+         * Authentication database name. Not used when `authType` is `no`. Default is `admin`.
          */
         authSource?: string;
         /**
-         * Authentication type to access the MongoDB source endpoint. Defaults to `password`.
+         * Authentication type to access the MongoDB source endpoint. Default is `password`.
          */
         authType?: string;
         /**
-         * Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Defaults to `1000`.
+         * Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
          */
         docsToInvestigate?: string;
         /**
-         * Document ID. Use this setting when `nestingLevel` is set to `none`. Defaults to `false`.
+         * Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
          */
         extractDocId?: string;
         /**
-         * Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+         * Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
          */
         nestingLevel?: string;
     }
 
     export interface EndpointS3Settings {
         /**
-         * S3 Object prefix.
+         * Whether to add column name information to the .csv output file. Default is `false`.
+         */
+        addColumnName?: boolean;
+        /**
+         * S3 object prefix.
          */
         bucketFolder?: string;
         /**
-         * S3 Bucket name.
+         * S3 bucket name.
          */
         bucketName?: string;
         /**
-         * Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+         * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+         */
+        cannedAclForObjects?: string;
+        /**
+         * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+         */
+        cdcInsertsAndUpdates?: boolean;
+        /**
+         * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+         */
+        cdcInsertsOnly?: boolean;
+        /**
+         * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
+         */
+        cdcMaxBatchInterval?: number;
+        /**
+         * Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+         */
+        cdcMinFileSize?: number;
+        /**
+         * Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+         */
+        cdcPath?: string;
+        /**
+         * Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
          */
         compressionType?: string;
         /**
-         * Delimiter used to separate columns in the source files. Defaults to `,`.
+         * Delimiter used to separate columns in the source files. Default is `,`.
          */
         csvDelimiter?: string;
         /**
-         * Delimiter used to separate rows in the source files. Defaults to `\n`.
+         * String to use for all columns not included in the supplemental log.
+         */
+        csvNoSupValue?: string;
+        /**
+         * String to as null when writing to the target.
+         */
+        csvNullValue?: string;
+        /**
+         * Delimiter used to separate rows in the source files. Default is `\n`.
          */
         csvRowDelimiter?: string;
         /**
-         * The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+         * Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
          */
         dataFormat?: string;
         /**
-         * Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+         * Size of one data page in bytes. Default is `1048576` (1 MiB).
+         */
+        dataPageSize?: number;
+        /**
+         * Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
+         */
+        datePartitionDelimiter?: string;
+        /**
+         * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
          */
         datePartitionEnabled?: boolean;
         /**
-         * The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+         * Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
+         */
+        datePartitionSequence?: string;
+        /**
+         * Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
+         */
+        dictPageSizeLimit?: number;
+        /**
+         * Whether to enable statistics for Parquet pages and row groups. Default is `true`.
+         */
+        enableStatistics?: boolean;
+        /**
+         * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. Default is `rleDictionary`.
+         */
+        encodingType?: string;
+        /**
+         * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
          */
         encryptionMode?: string;
         /**
@@ -10864,21 +11539,53 @@ export namespace dms {
          */
         externalTableDefinition?: string;
         /**
-         * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+         * When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+         */
+        ignoreHeadersRow?: number;
+        /**
+         * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+         */
+        includeOpForFullLoad?: boolean;
+        /**
+         * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+         */
+        maxFileSize?: number;
+        /**
+         * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
          */
         parquetTimestampInMillisecond?: boolean;
         /**
-         * The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+         * Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
          */
         parquetVersion?: string;
         /**
-         * If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+         * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`.
+         */
+        preserveTransactions?: boolean;
+        /**
+         * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
+         */
+        rfc4180?: boolean;
+        /**
+         * Number of rows in a row group. Default is `10000`.
+         */
+        rowGroupLength?: number;
+        /**
+         * If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
          */
         serverSideEncryptionKmsKeyId?: string;
         /**
-         * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+         * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
          */
         serviceAccessRoleArn?: string;
+        /**
+         * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
+         */
+        timestampColumnName?: string;
+        /**
+         * Whether to use `csvNoSupValue` for columns not included in the supplemental log.
+         */
+        useCsvNoSupValue?: boolean;
     }
 
 }
@@ -12109,6 +12816,21 @@ export namespace ec2 {
         volumeType: string;
     }
 
+    export interface GetLaunchTemplateCapacityReservationSpecification {
+        capacityReservationPreference: string;
+        capacityReservationTargets: outputs.ec2.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget[];
+    }
+
+    export interface GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
+        capacityReservationId: string;
+        capacityReservationResourceGroupArn: string;
+    }
+
+    export interface GetLaunchTemplateCpuOption {
+        coreCount: number;
+        threadsPerCore: number;
+    }
+
     export interface GetLaunchTemplateCreditSpecification {
         cpuCredits: string;
     }
@@ -12117,10 +12839,11 @@ export namespace ec2 {
         type: string;
     }
 
+    export interface GetLaunchTemplateElasticInferenceAccelerator {
+        type: string;
+    }
+
     export interface GetLaunchTemplateEnclaveOption {
-        /**
-         * Whether Nitro Enclaves are enabled.
-         */
         enabled: boolean;
     }
 
@@ -12140,9 +12863,6 @@ export namespace ec2 {
     }
 
     export interface GetLaunchTemplateIamInstanceProfile {
-        /**
-         * Amazon Resource Name (ARN) of the launch template.
-         */
         arn: string;
         /**
          * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
@@ -12163,33 +12883,19 @@ export namespace ec2 {
         validUntil: string;
     }
 
+    export interface GetLaunchTemplateLicenseSpecification {
+        licenseConfigurationArn: string;
+    }
+
     export interface GetLaunchTemplateMetadataOption {
-        /**
-         * The state of the metadata service: `enabled`, `disabled`.
-         */
         httpEndpoint: string;
-        /**
-         * The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
-         */
         httpProtocolIpv6: string;
-        /**
-         * The desired HTTP PUT response hop limit for instance metadata requests.
-         */
         httpPutResponseHopLimit: number;
-        /**
-         * If session tokens are required: `optional`, `required`.
-         */
         httpTokens: string;
-        /**
-         * If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
-         */
         instanceMetadataTags: string;
     }
 
     export interface GetLaunchTemplateMonitoring {
-        /**
-         * Whether Nitro Enclaves are enabled.
-         */
         enabled: boolean;
     }
 
@@ -12197,17 +12903,18 @@ export namespace ec2 {
         associateCarrierIpAddress: string;
         associatePublicIpAddress?: boolean;
         deleteOnTermination?: boolean;
-        /**
-         * Description of the launch template.
-         */
         description: string;
         deviceIndex: number;
         interfaceType: string;
         ipv4AddressCount: number;
         ipv4Addresses: string[];
+        ipv4PrefixCount: number;
+        ipv4Prefixes: string[];
         ipv6AddressCount: number;
         ipv6Addresses: string[];
-        networkCardIndex?: number;
+        ipv6PrefixCount: number;
+        ipv6Prefixes: string[];
+        networkCardIndex: number;
         networkInterfaceId: string;
         privateIpAddress: string;
         securityGroups: string[];
@@ -12223,6 +12930,12 @@ export namespace ec2 {
         partitionNumber: number;
         spreadDomain: string;
         tenancy: string;
+    }
+
+    export interface GetLaunchTemplatePrivateDnsNameOption {
+        enableResourceNameDnsARecord: boolean;
+        enableResourceNameDnsAaaaRecord: boolean;
+        hostnameType: string;
     }
 
     export interface GetLaunchTemplateTagSpecification {
@@ -12955,7 +13668,8 @@ export namespace ec2 {
 
     export interface LaunchConfigurationEphemeralBlockDevice {
         deviceName: string;
-        virtualName: string;
+        noDevice?: boolean;
+        virtualName?: string;
     }
 
     export interface LaunchConfigurationMetadataOptions {
@@ -13055,9 +13769,13 @@ export namespace ec2 {
 
     export interface LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
         /**
-         * The ID of the Capacity Reservation to target.
+         * The ID of the Capacity Reservation in which to run the instance.
          */
         capacityReservationId?: string;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
+        capacityReservationResourceGroupArn?: string;
     }
 
     export interface LaunchTemplateCpuOptions {
@@ -13224,6 +13942,14 @@ export namespace ec2 {
          */
         ipv4Addresses?: string[];
         /**
+         * The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
+         */
+        ipv4PrefixCount?: number;
+        /**
+         * One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
+         */
+        ipv4Prefixes?: string[];
+        /**
          * The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
          */
         ipv6AddressCount?: number;
@@ -13231,6 +13957,14 @@ export namespace ec2 {
          * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
          */
         ipv6Addresses?: string[];
+        /**
+         * The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
+         */
+        ipv6PrefixCount?: number;
+        /**
+         * One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
+         */
+        ipv6Prefixes?: string[];
         /**
          * The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
          */
@@ -13286,6 +14020,21 @@ export namespace ec2 {
          * The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
          */
         tenancy?: string;
+    }
+
+    export interface LaunchTemplatePrivateDnsNameOptions {
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+         */
+        enableResourceNameDnsARecord?: boolean;
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+         */
+        enableResourceNameDnsAaaaRecord?: boolean;
+        /**
+         * The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+         */
+        hostnameType?: string;
     }
 
     export interface LaunchTemplateTagSpecification {
@@ -14182,6 +14931,28 @@ export namespace ec2clientvpn {
 }
 
 export namespace ec2transitgateway {
+    export interface GetConnectFilter {
+        /**
+         * Name of the filter.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetConnectPeerFilter {
+        /**
+         * Name of the filter.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
     export interface GetDirectConnectGatewayAttachmentFilter {
         /**
          * The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
@@ -14191,6 +14962,50 @@ export namespace ec2transitgateway {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetMulticastDomainAssociation {
+        /**
+         * The ID of the subnet associated with the transit gateway multicast domain.
+         */
+        subnetId: string;
+        /**
+         * The ID of the transit gateway attachment.
+         */
+        transitGatewayAttachmentId: string;
+    }
+
+    export interface GetMulticastDomainFilter {
+        /**
+         * The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetMulticastDomainMember {
+        /**
+         * The IP address assigned to the transit gateway multicast group.
+         */
+        groupIpAddress: string;
+        /**
+         * The group members' network interface ID.
+         */
+        networkInterfaceId: string;
+    }
+
+    export interface GetMulticastDomainSource {
+        /**
+         * The IP address assigned to the transit gateway multicast group.
+         */
+        groupIpAddress: string;
+        /**
+         * The group members' network interface ID.
+         */
+        networkInterfaceId: string;
     }
 
     export interface GetPeeringAttachmentFilter {
@@ -14231,6 +15046,17 @@ export namespace ec2transitgateway {
     export interface GetVpcAttachmentFilter {
         /**
          * Name of the filter.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetVpcAttachmentsFilter {
+        /**
+         * Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
          */
         name: string;
         /**
@@ -15179,6 +16005,21 @@ export namespace eks {
          * Minimum number of worker nodes.
          */
         minSize: number;
+    }
+
+    export interface GetNodeGroupTaint {
+        /**
+         * The effect of the taint.
+         */
+        effect: string;
+        /**
+         * The key of the taint.
+         */
+        key: string;
+        /**
+         * The value of the taint.
+         */
+        value: string;
     }
 
     export interface IdentityProviderConfigOidc {
@@ -16758,7 +17599,7 @@ export namespace elastictranscoder {
         /**
          * The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
          */
-        bitRate?: string;
+        bitRate: string;
         /**
          * The number of audio channels in the output file
          */
@@ -16777,19 +17618,19 @@ export namespace elastictranscoder {
         /**
          * The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
          */
-        bitDepth?: string;
+        bitDepth: string;
         /**
          * The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
          */
-        bitOrder?: string;
+        bitOrder: string;
         /**
          * If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
          */
-        profile?: string;
+        profile: string;
         /**
          * Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
          */
-        signed?: string;
+        signed: string;
     }
 
     export interface PresetThumbnails {
@@ -16835,7 +17676,7 @@ export namespace elastictranscoder {
         /**
          * The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
          */
-        bitRate?: string;
+        bitRate: string;
         /**
          * The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
          */
@@ -18041,9 +18882,20 @@ export namespace gamelift {
          */
         key: string;
         /**
+         * A specific version of the file. If not set, the latest version of the file is retrieved.
+         */
+        objectVersion?: string;
+        /**
          * ARN of the access role that allows Amazon GameLift to access your S3 bucket.
          */
         roleArn: string;
+    }
+
+    export interface FleetCertificateConfiguration {
+        /**
+         * Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+         */
+        certificateType?: string;
     }
 
     export interface FleetEc2InboundPermission {
@@ -18106,6 +18958,53 @@ export namespace gamelift {
         parameters?: string;
     }
 
+    export interface GameServerGroupAutoScalingPolicy {
+        /**
+         * Length of time, in seconds, it takes for a new instance to start
+         * new game server processes and register with GameLift FleetIQ.
+         * Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+         * because it avoids prematurely starting new instances. Defaults to `60`.
+         */
+        estimatedInstanceWarmup: number;
+        targetTrackingConfiguration: outputs.gamelift.GameServerGroupAutoScalingPolicyTargetTrackingConfiguration;
+    }
+
+    export interface GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
+        /**
+         * Desired value to use with a game server group target-based scaling policy.
+         */
+        targetValue: number;
+    }
+
+    export interface GameServerGroupInstanceDefinition {
+        /**
+         * An EC2 instance type.
+         */
+        instanceType: string;
+        /**
+         * Instance weighting that indicates how much this instance type contributes
+         * to the total capacity of a game server group.
+         * Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
+         * the most cost-effective options.
+         */
+        weightedCapacity?: string;
+    }
+
+    export interface GameServerGroupLaunchTemplate {
+        /**
+         * A unique identifier for an existing EC2 launch template.
+         */
+        id: string;
+        /**
+         * A readable identifier for an existing EC2 launch template.
+         */
+        name: string;
+        /**
+         * The version of the EC2 launch template to use. If none is set, the default is the first version created.
+         */
+        version?: string;
+    }
+
     export interface GameSessionQueuePlayerLatencyPolicy {
         /**
          * Maximum latency value that is allowed for any player.
@@ -18115,6 +19014,25 @@ export namespace gamelift {
          * Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
          */
         policyDurationSeconds?: number;
+    }
+
+    export interface ScriptStorageLocation {
+        /**
+         * Name of your S3 bucket.
+         */
+        bucket: string;
+        /**
+         * Name of the zip file containing your script files.
+         */
+        key: string;
+        /**
+         * A specific version of the file. If not set, the latest version of the file is retrieved.
+         */
+        objectVersion?: string;
+        /**
+         * ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+         */
+        roleArn: string;
     }
 
 }
@@ -18212,6 +19130,24 @@ export namespace globalaccelerator {
 }
 
 export namespace glue {
+    export interface CatalogDatabaseCreateTableDefaultPermission {
+        /**
+         * The permissions that are granted to the principal.
+         */
+        permissions?: string[];
+        /**
+         * The principal who is granted permissions.. See `principal` below.
+         */
+        principal?: outputs.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipal;
+    }
+
+    export interface CatalogDatabaseCreateTableDefaultPermissionPrincipal {
+        /**
+         * An identifier for the Lake Formation principal.
+         */
+        dataLakePrincipalIdentifier?: string;
+    }
+
     export interface CatalogDatabaseTargetDatabase {
         /**
          * ID of the Data Catalog in which the database resides.
@@ -18731,7 +19667,7 @@ export namespace glue {
 
     export interface JobCommand {
         /**
-         * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+         * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
          */
         name?: string;
         /**
@@ -19013,6 +19949,17 @@ export namespace glue {
         notifyDelayAfter?: number;
     }
 
+    export interface TriggerEventBatchingCondition {
+        /**
+         * Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+         */
+        batchSize: number;
+        /**
+         * Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+         */
+        batchWindow?: number;
+    }
+
     export interface TriggerPredicate {
         /**
          * A list of the conditions that determine when the trigger will fire. See Conditions.
@@ -19057,6 +20004,7 @@ export namespace glue {
          */
         uri: string;
     }
+
 }
 
 export namespace guardduty {
@@ -19260,6 +20208,100 @@ export namespace identitystore {
 }
 
 export namespace imagebuilder {
+    export interface ContainerRecipeComponent {
+        /**
+         * Amazon Resource Name (ARN) of the Image Builder Component to associate.
+         */
+        componentArn: string;
+        /**
+         * Configuration block(s) for parameters to configure the component. Detailed below.
+         */
+        parameters?: outputs.imagebuilder.ContainerRecipeComponentParameter[];
+    }
+
+    export interface ContainerRecipeComponentParameter {
+        /**
+         * The name of the component parameter.
+         */
+        name: string;
+        /**
+         * The value for the named component parameter.
+         */
+        value: string;
+    }
+
+    export interface ContainerRecipeInstanceConfiguration {
+        /**
+         * Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+         */
+        blockDeviceMappings?: outputs.imagebuilder.ContainerRecipeInstanceConfigurationBlockDeviceMapping[];
+        /**
+         * The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+         */
+        image?: string;
+    }
+
+    export interface ContainerRecipeInstanceConfigurationBlockDeviceMapping {
+        /**
+         * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+         */
+        deviceName?: string;
+        /**
+         * Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+         */
+        ebs?: outputs.imagebuilder.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs;
+        /**
+         * Set to `true` to remove a mapping from the parent image.
+         */
+        noDevice?: boolean;
+        /**
+         * Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+         */
+        virtualName?: string;
+    }
+
+    export interface ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
+        /**
+         * Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+         */
+        deleteOnTermination?: string;
+        /**
+         * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+         */
+        encrypted?: string;
+        /**
+         * Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+         */
+        iops?: number;
+        /**
+         * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         */
+        kmsKeyId?: string;
+        /**
+         * Identifier of the EC2 Volume Snapshot.
+         */
+        snapshotId?: string;
+        /**
+         * Size of the volume, in GiB.
+         */
+        volumeSize?: number;
+        /**
+         * Type of the volume. For example, `gp2` or `io2`.
+         */
+        volumeType?: string;
+    }
+
+    export interface ContainerRecipeTargetRepository {
+        /**
+         * The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+         */
+        repositoryName: string;
+        /**
+         * The service in which this image is registered. Valid values: `ECR`.
+         */
+        service: string;
+    }
+
     export interface DistributionConfigurationDistribution {
         /**
          * Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
@@ -19361,6 +20403,111 @@ export namespace imagebuilder {
     export interface GetComponentsFilter {
         /**
          * The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetContainerRecipeComponent {
+        /**
+         * Amazon Resource Name (ARN) of the Image Builder Component.
+         */
+        componentArn: string;
+        /**
+         * Set of parameters that are used to configure the component.
+         */
+        parameters: outputs.imagebuilder.GetContainerRecipeComponentParameter[];
+    }
+
+    export interface GetContainerRecipeComponentParameter {
+        /**
+         * Name of the container recipe.
+         */
+        name: string;
+        /**
+         * Value of the component parameter.
+         */
+        value: string;
+    }
+
+    export interface GetContainerRecipeInstanceConfiguration {
+        /**
+         * Set of objects with block device mappings for the instance configuration.
+         */
+        blockDeviceMappings: outputs.imagebuilder.GetContainerRecipeInstanceConfigurationBlockDeviceMapping[];
+        /**
+         * AMI ID of the base image for container build and test instance.
+         */
+        image: string;
+    }
+
+    export interface GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
+        /**
+         * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+         */
+        deviceName: string;
+        /**
+         * Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+         */
+        ebs: outputs.imagebuilder.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb[];
+        /**
+         * Whether to remove a mapping from the parent image.
+         */
+        noDevice: string;
+        /**
+         * Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+         */
+        virtualName: string;
+    }
+
+    export interface GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb {
+        /**
+         * Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+         */
+        deleteOnTermination: boolean;
+        /**
+         * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+         */
+        encrypted: boolean;
+        /**
+         * Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+         */
+        iops: number;
+        /**
+         * KMS key used to encrypt the container image.
+         */
+        kmsKeyId: string;
+        /**
+         * Identifier of the EC2 Volume Snapshot.
+         */
+        snapshotId: string;
+        /**
+         * Size of the volume, in GiB.
+         */
+        volumeSize: number;
+        /**
+         * Type of the volume. For example, `gp2` or `io2`.
+         */
+        volumeType: string;
+    }
+
+    export interface GetContainerRecipeTargetRepository {
+        /**
+         * Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+         */
+        repositoryName: string;
+        /**
+         * Service in which this image is registered.
+         */
+        service: string;
+    }
+
+    export interface GetContainerRecipesFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
          */
         name: string;
         /**
@@ -19714,6 +20861,10 @@ export namespace imagebuilder {
          * Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
          */
         scheduleExpression: string;
+        /**
+         * The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+         */
+        timezone: string;
     }
 
     export interface ImageRecipeBlockDeviceMapping {
@@ -19786,6 +20937,13 @@ export namespace imagebuilder {
          * The value for the named component parameter.
          */
         value: string;
+    }
+
+    export interface ImageRecipeSystemsManagerAgent {
+        /**
+         * Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+         */
+        uninstallAfterBuild: boolean;
     }
 
     export interface InfrastructureConfigurationLogging {
@@ -19869,6 +21027,17 @@ export namespace iot {
          * The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
          */
         stateValue: string;
+    }
+
+    export interface TopicRuleCloudwatchLog {
+        /**
+         * The CloudWatch log group name.
+         */
+        logGroupName: string;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: string;
     }
 
     export interface TopicRuleCloudwatchMetric {
@@ -19984,6 +21153,7 @@ export namespace iot {
 
     export interface TopicRuleErrorAction {
         cloudwatchAlarm?: outputs.iot.TopicRuleErrorActionCloudwatchAlarm;
+        cloudwatchLogs?: outputs.iot.TopicRuleErrorActionCloudwatchLogs;
         cloudwatchMetric?: outputs.iot.TopicRuleErrorActionCloudwatchMetric;
         dynamodb?: outputs.iot.TopicRuleErrorActionDynamodb;
         dynamodbv2?: outputs.iot.TopicRuleErrorActionDynamodbv2;
@@ -20017,6 +21187,17 @@ export namespace iot {
          * The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
          */
         stateValue: string;
+    }
+
+    export interface TopicRuleErrorActionCloudwatchLogs {
+        /**
+         * The CloudWatch log group name.
+         */
+        logGroupName: string;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: string;
     }
 
     export interface TopicRuleErrorActionCloudwatchMetric {
@@ -20917,6 +22098,9 @@ export namespace kinesis {
          * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
          */
         dataFormatConversionConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration;
+        /**
+         * The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+         */
         dynamicPartitioningConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration;
         /**
          * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
@@ -20966,7 +22150,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration {
         /**
-         * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+         * Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
          */
         enabled?: boolean;
         /**
@@ -21140,11 +22324,11 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
         /**
-         * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+         * Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
          */
         enabled?: boolean;
         /**
-         * The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+         * Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
          */
         retryDuration?: number;
     }
@@ -25166,6 +26350,113 @@ export namespace networkfirewall {
 
 }
 
+export namespace networkmanager {
+    export interface DeviceAwsLocation {
+        /**
+         * The Amazon Resource Name (ARN) of the subnet that the device is located in.
+         */
+        subnetArn?: string;
+        /**
+         * The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+         */
+        zone?: string;
+    }
+
+    export interface DeviceLocation {
+        /**
+         * The physical address.
+         */
+        address?: string;
+        /**
+         * The latitude.
+         */
+        latitude?: string;
+        /**
+         * The longitude.
+         */
+        longitude?: string;
+    }
+
+    export interface GetDeviceAwsLocation {
+        /**
+         * The Amazon Resource Name (ARN) of the subnet that the device is located in.
+         */
+        subnetArn: string;
+        /**
+         * The Zone that the device is located in.
+         */
+        zone: string;
+    }
+
+    export interface GetDeviceLocation {
+        /**
+         * The physical address.
+         */
+        address: string;
+        /**
+         * The latitude.
+         */
+        latitude: string;
+        /**
+         * The longitude.
+         */
+        longitude: string;
+    }
+
+    export interface GetLinkBandwidth {
+        /**
+         * Download speed in Mbps.
+         */
+        downloadSpeed: number;
+        /**
+         * Upload speed in Mbps.
+         */
+        uploadSpeed: number;
+    }
+
+    export interface GetSiteLocation {
+        /**
+         * Address of the location.
+         */
+        address: string;
+        /**
+         * Latitude of the location.
+         */
+        latitude: string;
+        /**
+         * Longitude of the location.
+         */
+        longitude: string;
+    }
+
+    export interface LinkBandwidth {
+        /**
+         * Download speed in Mbps.
+         */
+        downloadSpeed?: number;
+        /**
+         * Upload speed in Mbps.
+         */
+        uploadSpeed?: number;
+    }
+
+    export interface SiteLocation {
+        /**
+         * Address of the location.
+         */
+        address?: string;
+        /**
+         * Latitude of the location.
+         */
+        latitude?: string;
+        /**
+         * Longitude of the location.
+         */
+        longitude?: string;
+    }
+
+}
+
 export namespace opsworks {
     export interface ApplicationAppSource {
         /**
@@ -25283,6 +26574,53 @@ export namespace opsworks {
         /**
          * Encrypt the volume.
          */
+        encrypted?: boolean;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: number;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: string;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: number;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: string;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: number;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: string;
+    }
+
+    export interface EcsClusterLayerCloudwatchConfiguration {
+        enabled?: boolean;
+        logStreams?: outputs.opsworks.EcsClusterLayerCloudwatchConfigurationLogStream[];
+    }
+
+    export interface EcsClusterLayerCloudwatchConfigurationLogStream {
+        batchCount?: number;
+        batchSize?: number;
+        bufferDuration?: number;
+        datetimeFormat?: string;
+        encoding?: string;
+        file: string;
+        fileFingerprintLines?: string;
+        initialPosition?: string;
+        logGroupName: string;
+        multilineStartPattern?: string;
+        timeZone?: string;
+    }
+
+    export interface EcsClusterLayerEbsVolume {
         encrypted?: boolean;
         /**
          * For PIOPS volumes, the IOPS per disk.
@@ -26584,11 +27922,15 @@ export namespace rds {
          */
         restoreTime?: string;
         /**
-         * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+         * The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+         */
+        sourceDbInstanceAutomatedBackupsArn?: string;
+        /**
+         * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
          */
         sourceDbInstanceIdentifier?: string;
         /**
-         * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+         * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
          */
         sourceDbiResourceId?: string;
         /**
@@ -27014,6 +28356,197 @@ export namespace route53 {
 
 }
 
+export namespace route53domains {
+    export interface RegisteredDomainAdminContact {
+        /**
+         * First line of the contact's address.
+         */
+        addressLine1: string;
+        /**
+         * Second line of contact's address, if any.
+         */
+        addressLine2: string;
+        /**
+         * The city of the contact's address.
+         */
+        city: string;
+        /**
+         * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+         */
+        contactType: string;
+        /**
+         * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+         */
+        countryCode: string;
+        /**
+         * Email address of the contact.
+         */
+        email: string;
+        /**
+         * A key-value map of parameters required by certain top-level domains.
+         */
+        extraParams: {[key: string]: string};
+        /**
+         * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        fax: string;
+        /**
+         * First name of contact.
+         */
+        firstName: string;
+        /**
+         * Last name of contact.
+         */
+        lastName: string;
+        /**
+         * Name of the organization for contact types other than `PERSON`.
+         */
+        organizationName: string;
+        /**
+         * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        phoneNumber: string;
+        /**
+         * The state or province of the contact's city.
+         */
+        state: string;
+        /**
+         * The zip or postal code of the contact's address.
+         */
+        zipCode: string;
+    }
+
+    export interface RegisteredDomainNameServer {
+        /**
+         * Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
+         */
+        glueIps?: string[];
+        /**
+         * The fully qualified host name of the name server.
+         */
+        name: string;
+    }
+
+    export interface RegisteredDomainRegistrantContact {
+        /**
+         * First line of the contact's address.
+         */
+        addressLine1: string;
+        /**
+         * Second line of contact's address, if any.
+         */
+        addressLine2: string;
+        /**
+         * The city of the contact's address.
+         */
+        city: string;
+        /**
+         * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+         */
+        contactType: string;
+        /**
+         * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+         */
+        countryCode: string;
+        /**
+         * Email address of the contact.
+         */
+        email: string;
+        /**
+         * A key-value map of parameters required by certain top-level domains.
+         */
+        extraParams: {[key: string]: string};
+        /**
+         * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        fax: string;
+        /**
+         * First name of contact.
+         */
+        firstName: string;
+        /**
+         * Last name of contact.
+         */
+        lastName: string;
+        /**
+         * Name of the organization for contact types other than `PERSON`.
+         */
+        organizationName: string;
+        /**
+         * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        phoneNumber: string;
+        /**
+         * The state or province of the contact's city.
+         */
+        state: string;
+        /**
+         * The zip or postal code of the contact's address.
+         */
+        zipCode: string;
+    }
+
+    export interface RegisteredDomainTechContact {
+        /**
+         * First line of the contact's address.
+         */
+        addressLine1: string;
+        /**
+         * Second line of contact's address, if any.
+         */
+        addressLine2: string;
+        /**
+         * The city of the contact's address.
+         */
+        city: string;
+        /**
+         * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+         */
+        contactType: string;
+        /**
+         * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+         */
+        countryCode: string;
+        /**
+         * Email address of the contact.
+         */
+        email: string;
+        /**
+         * A key-value map of parameters required by certain top-level domains.
+         */
+        extraParams: {[key: string]: string};
+        /**
+         * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        fax: string;
+        /**
+         * First name of contact.
+         */
+        firstName: string;
+        /**
+         * Last name of contact.
+         */
+        lastName: string;
+        /**
+         * Name of the organization for contact types other than `PERSON`.
+         */
+        organizationName: string;
+        /**
+         * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        phoneNumber: string;
+        /**
+         * The state or province of the contact's city.
+         */
+        state: string;
+        /**
+         * The zip or postal code of the contact's address.
+         */
+        zipCode: string;
+    }
+
+}
+
 export namespace route53recoverycontrol {
     export interface ClusterClusterEndpoint {
         /**
@@ -27359,7 +28892,7 @@ export namespace s3 {
          */
         expiration?: outputs.s3.BucketLifecycleConfigurationV2RuleExpiration;
         /**
-         * Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+         * Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
          */
         filter?: outputs.s3.BucketLifecycleConfigurationV2RuleFilter;
         /**
@@ -27375,7 +28908,9 @@ export namespace s3 {
          */
         noncurrentVersionTransitions?: outputs.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition[];
         /**
-         * Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+         * **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
+         *
+         * @deprecated Use filter instead
          */
         prefix?: string;
         /**
@@ -27397,7 +28932,7 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleExpiration {
         /**
-         * The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+         * The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          */
         date?: string;
         /**
@@ -27412,19 +28947,19 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleFilter {
         /**
-         * Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
+         * Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
          */
         and?: outputs.s3.BucketLifecycleConfigurationV2RuleFilterAnd;
         /**
-         * Minimum object size to which the rule applies.
+         * Minimum object size (in bytes) to which the rule applies.
          */
-        objectSizeGreaterThan?: number;
+        objectSizeGreaterThan?: string;
         /**
-         * Maximum object size to which the rule applies.
+         * Maximum object size (in bytes) to which the rule applies.
          */
-        objectSizeLessThan?: number;
+        objectSizeLessThan?: string;
         /**
-         * Prefix identifying one or more objects to which the rule applies.
+         * Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
          */
         prefix?: string;
         /**
@@ -27435,17 +28970,20 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleFilterAnd {
         /**
-         * Minimum object size to which the rule applies.
+         * Minimum object size to which the rule applies. Value must be at least `0` if specified.
          */
         objectSizeGreaterThan?: number;
         /**
-         * Maximum object size to which the rule applies.
+         * Maximum object size to which the rule applies. Value must be at least `1` if specified.
          */
         objectSizeLessThan?: number;
         /**
-         * Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+         * Prefix identifying one or more objects to which the rule applies.
          */
         prefix?: string;
+        /**
+         * Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+         */
         tags?: {[key: string]: string};
     }
 
@@ -27464,7 +29002,7 @@ export namespace s3 {
         /**
          * The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
          */
-        newerNoncurrentVersions?: number;
+        newerNoncurrentVersions?: string;
         /**
          * The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
          */
@@ -27473,9 +29011,9 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition {
         /**
-         * The number of noncurrent versions Amazon S3 will retain.
+         * The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
          */
-        newerNoncurrentVersions?: number;
+        newerNoncurrentVersions?: string;
         /**
          * The number of days an object is noncurrent before Amazon S3 can perform the associated action.
          */
@@ -27488,11 +29026,11 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleTransition {
         /**
-         * The date objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+         * The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
          */
         date?: string;
         /**
-         * The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+         * The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
          */
         days?: number;
         /**
@@ -27786,15 +29324,17 @@ export namespace s3 {
          */
         existingObjectReplication?: outputs.s3.BucketReplicationConfigRuleExistingObjectReplication;
         /**
-         * Filter that identifies subset of objects to which the replication rule applies documented below.
+         * Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
          */
         filter?: outputs.s3.BucketReplicationConfigRuleFilter;
         /**
          * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
-        id?: string;
+        id: string;
         /**
-         * Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+         * Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
+         *
+         * @deprecated Use filter instead
          */
         prefix?: string;
         /**
@@ -28256,7 +29796,7 @@ export namespace s3 {
          */
         prefix: string;
         /**
-         * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
          *
          * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
          */
@@ -28352,9 +29892,11 @@ export namespace s3 {
 
     export interface BucketV2ObjectLockConfiguration {
         /**
-         * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+         * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+         *
+         * @deprecated Use the top-level parameter object_lock_enabled instead
          */
-        objectLockEnabled: string;
+        objectLockEnabled?: string;
         /**
          * (required) Information about a particular server-side encryption configuration rule.
          *
@@ -28551,7 +30093,7 @@ export namespace s3 {
          */
         prefix: string;
         /**
-         * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
          *
          * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
          */
@@ -28674,7 +30216,7 @@ export namespace s3 {
          */
         mfaDelete: string;
         /**
-         * The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+         * The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
          */
         status: string;
     }
@@ -31658,6 +33200,21 @@ export namespace servicecatalog {
         type?: string;
     }
 
+    export interface ProvisionedProductOutput {
+        /**
+         * The description of the output.
+         */
+        description: string;
+        /**
+         * Parameter key.
+         */
+        key: string;
+        /**
+         * Parameter value.
+         */
+        value: string;
+    }
+
     export interface ProvisionedProductProvisioningParameter {
         /**
          * Parameter key.
@@ -31722,7 +33279,6 @@ export namespace servicecatalog {
          */
         version: string;
     }
-
 }
 
 export namespace servicediscovery {
@@ -32148,6 +33704,17 @@ export namespace ssm {
         type?: string;
     }
 
+    export interface GetInstancesFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
     export interface MaintenanceWindowTargetTarget {
         key: string;
         values: string[];
@@ -32330,7 +33897,7 @@ export namespace ssm {
          */
         enableNonSecurity?: boolean;
         /**
-         * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+         * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
          */
         patchFilters: outputs.ssm.PatchBaselineApprovalRulePatchFilter[];
     }
@@ -32382,7 +33949,6 @@ export namespace ssm {
          */
         syncFormat?: string;
     }
-
 }
 
 export namespace storagegateway {
@@ -32495,6 +34061,10 @@ export namespace synthetics {
          * Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
          */
         activeTracing?: boolean;
+        /**
+         * Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+         */
+        environmentVariables?: {[key: string]: string};
         /**
          * Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
          */

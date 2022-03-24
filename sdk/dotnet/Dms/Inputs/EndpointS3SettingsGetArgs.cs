@@ -13,49 +13,139 @@ namespace Pulumi.Aws.Dms.Inputs
     public sealed class EndpointS3SettingsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// S3 Object prefix.
+        /// Whether to add column name information to the .csv output file. Default is `false`.
+        /// </summary>
+        [Input("addColumnName")]
+        public Input<bool>? AddColumnName { get; set; }
+
+        /// <summary>
+        /// S3 object prefix.
         /// </summary>
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }
 
         /// <summary>
-        /// S3 Bucket name.
+        /// S3 bucket name.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+        /// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+        /// </summary>
+        [Input("cannedAclForObjects")]
+        public Input<string>? CannedAclForObjects { get; set; }
+
+        /// <summary>
+        /// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+        /// </summary>
+        [Input("cdcInsertsAndUpdates")]
+        public Input<bool>? CdcInsertsAndUpdates { get; set; }
+
+        /// <summary>
+        /// Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        /// </summary>
+        [Input("cdcInsertsOnly")]
+        public Input<bool>? CdcInsertsOnly { get; set; }
+
+        /// <summary>
+        /// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
+        /// </summary>
+        [Input("cdcMaxBatchInterval")]
+        public Input<int>? CdcMaxBatchInterval { get; set; }
+
+        /// <summary>
+        /// Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+        /// </summary>
+        [Input("cdcMinFileSize")]
+        public Input<int>? CdcMinFileSize { get; set; }
+
+        /// <summary>
+        /// Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        /// </summary>
+        [Input("cdcPath")]
+        public Input<string>? CdcPath { get; set; }
+
+        /// <summary>
+        /// Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
         /// </summary>
         [Input("compressionType")]
         public Input<string>? CompressionType { get; set; }
 
         /// <summary>
-        /// Delimiter used to separate columns in the source files. Defaults to `,`.
+        /// Delimiter used to separate columns in the source files. Default is `,`.
         /// </summary>
         [Input("csvDelimiter")]
         public Input<string>? CsvDelimiter { get; set; }
 
         /// <summary>
-        /// Delimiter used to separate rows in the source files. Defaults to `\n`.
+        /// String to use for all columns not included in the supplemental log.
+        /// </summary>
+        [Input("csvNoSupValue")]
+        public Input<string>? CsvNoSupValue { get; set; }
+
+        /// <summary>
+        /// String to as null when writing to the target.
+        /// </summary>
+        [Input("csvNullValue")]
+        public Input<string>? CsvNullValue { get; set; }
+
+        /// <summary>
+        /// Delimiter used to separate rows in the source files. Default is `\n`.
         /// </summary>
         [Input("csvRowDelimiter")]
         public Input<string>? CsvRowDelimiter { get; set; }
 
         /// <summary>
-        /// The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+        /// Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
 
         /// <summary>
-        /// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+        /// Size of one data page in bytes. Default is `1048576` (1 MiB).
+        /// </summary>
+        [Input("dataPageSize")]
+        public Input<int>? DataPageSize { get; set; }
+
+        /// <summary>
+        /// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
+        /// </summary>
+        [Input("datePartitionDelimiter")]
+        public Input<string>? DatePartitionDelimiter { get; set; }
+
+        /// <summary>
+        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
         /// </summary>
         [Input("datePartitionEnabled")]
         public Input<bool>? DatePartitionEnabled { get; set; }
 
         /// <summary>
-        /// The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
+        /// </summary>
+        [Input("datePartitionSequence")]
+        public Input<string>? DatePartitionSequence { get; set; }
+
+        /// <summary>
+        /// Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
+        /// </summary>
+        [Input("dictPageSizeLimit")]
+        public Input<int>? DictPageSizeLimit { get; set; }
+
+        /// <summary>
+        /// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
+        /// </summary>
+        [Input("enableStatistics")]
+        public Input<bool>? EnableStatistics { get; set; }
+
+        /// <summary>
+        /// Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
+        /// </summary>
+        [Input("encodingType")]
+        public Input<string>? EncodingType { get; set; }
+
+        /// <summary>
+        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
@@ -67,28 +157,76 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? ExternalTableDefinition { get; set; }
 
         /// <summary>
-        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        /// </summary>
+        [Input("ignoreHeadersRow")]
+        public Input<int>? IgnoreHeadersRow { get; set; }
+
+        /// <summary>
+        /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        /// </summary>
+        [Input("includeOpForFullLoad")]
+        public Input<bool>? IncludeOpForFullLoad { get; set; }
+
+        /// <summary>
+        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        /// </summary>
+        [Input("maxFileSize")]
+        public Input<int>? MaxFileSize { get; set; }
+
+        /// <summary>
+        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         /// </summary>
         [Input("parquetTimestampInMillisecond")]
         public Input<bool>? ParquetTimestampInMillisecond { get; set; }
 
         /// <summary>
-        /// The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        /// Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
         /// </summary>
         [Input("parquetVersion")]
         public Input<string>? ParquetVersion { get; set; }
 
         /// <summary>
-        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
+        /// </summary>
+        [Input("preserveTransactions")]
+        public Input<bool>? PreserveTransactions { get; set; }
+
+        /// <summary>
+        /// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
+        /// </summary>
+        [Input("rfc4180")]
+        public Input<bool>? Rfc4180 { get; set; }
+
+        /// <summary>
+        /// Number of rows in a row group. Default is `10000`.
+        /// </summary>
+        [Input("rowGroupLength")]
+        public Input<int>? RowGroupLength { get; set; }
+
+        /// <summary>
+        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }
+
+        /// <summary>
+        /// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
+        /// </summary>
+        [Input("timestampColumnName")]
+        public Input<string>? TimestampColumnName { get; set; }
+
+        /// <summary>
+        /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
+        /// </summary>
+        [Input("useCsvNoSupValue")]
+        public Input<bool>? UseCsvNoSupValue { get; set; }
 
         public EndpointS3SettingsGetArgs()
         {

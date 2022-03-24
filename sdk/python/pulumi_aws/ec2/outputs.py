@@ -63,6 +63,7 @@ __all__ = [
     'LaunchTemplateMonitoring',
     'LaunchTemplateNetworkInterface',
     'LaunchTemplatePlacement',
+    'LaunchTemplatePrivateDnsNameOptions',
     'LaunchTemplateTagSpecification',
     'ManagedPrefixListEntry',
     'NetworkAclEgress',
@@ -138,18 +139,24 @@ __all__ = [
     'GetLaunchConfigurationRootBlockDeviceResult',
     'GetLaunchTemplateBlockDeviceMappingResult',
     'GetLaunchTemplateBlockDeviceMappingEbResult',
+    'GetLaunchTemplateCapacityReservationSpecificationResult',
+    'GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult',
+    'GetLaunchTemplateCpuOptionResult',
     'GetLaunchTemplateCreditSpecificationResult',
     'GetLaunchTemplateElasticGpuSpecificationResult',
+    'GetLaunchTemplateElasticInferenceAcceleratorResult',
     'GetLaunchTemplateEnclaveOptionResult',
     'GetLaunchTemplateFilterResult',
     'GetLaunchTemplateHibernationOptionResult',
     'GetLaunchTemplateIamInstanceProfileResult',
     'GetLaunchTemplateInstanceMarketOptionResult',
     'GetLaunchTemplateInstanceMarketOptionSpotOptionResult',
+    'GetLaunchTemplateLicenseSpecificationResult',
     'GetLaunchTemplateMetadataOptionResult',
     'GetLaunchTemplateMonitoringResult',
     'GetLaunchTemplateNetworkInterfaceResult',
     'GetLaunchTemplatePlacementResult',
+    'GetLaunchTemplatePrivateDnsNameOptionResult',
     'GetLaunchTemplateTagSpecificationResult',
     'GetLocalGatewayFilterResult',
     'GetLocalGatewayRouteTableFilterResult',
@@ -2896,6 +2903,8 @@ class LaunchConfigurationEphemeralBlockDevice(dict):
         suggest = None
         if key == "deviceName":
             suggest = "device_name"
+        elif key == "noDevice":
+            suggest = "no_device"
         elif key == "virtualName":
             suggest = "virtual_name"
 
@@ -2912,9 +2921,13 @@ class LaunchConfigurationEphemeralBlockDevice(dict):
 
     def __init__(__self__, *,
                  device_name: str,
-                 virtual_name: str):
+                 no_device: Optional[bool] = None,
+                 virtual_name: Optional[str] = None):
         pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2922,8 +2935,13 @@ class LaunchConfigurationEphemeralBlockDevice(dict):
         return pulumi.get(self, "device_name")
 
     @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[bool]:
+        return pulumi.get(self, "no_device")
+
+    @property
     @pulumi.getter(name="virtualName")
-    def virtual_name(self) -> str:
+    def virtual_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_name")
 
 
@@ -3338,6 +3356,8 @@ class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(di
         suggest = None
         if key == "capacityReservationId":
             suggest = "capacity_reservation_id"
+        elif key == "capacityReservationResourceGroupArn":
+            suggest = "capacity_reservation_resource_group_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
@@ -3351,20 +3371,32 @@ class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(di
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 capacity_reservation_id: Optional[str] = None):
+                 capacity_reservation_id: Optional[str] = None,
+                 capacity_reservation_resource_group_arn: Optional[str] = None):
         """
-        :param str capacity_reservation_id: The ID of the Capacity Reservation to target.
+        :param str capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        :param str capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
 
     @property
     @pulumi.getter(name="capacityReservationId")
     def capacity_reservation_id(self) -> Optional[str]:
         """
-        The ID of the Capacity Reservation to target.
+        The ID of the Capacity Reservation in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_id")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[str]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
 
 @pulumi.output_type
@@ -3868,10 +3900,18 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "ipv4_address_count"
         elif key == "ipv4Addresses":
             suggest = "ipv4_addresses"
+        elif key == "ipv4PrefixCount":
+            suggest = "ipv4_prefix_count"
+        elif key == "ipv4Prefixes":
+            suggest = "ipv4_prefixes"
         elif key == "ipv6AddressCount":
             suggest = "ipv6_address_count"
         elif key == "ipv6Addresses":
             suggest = "ipv6_addresses"
+        elif key == "ipv6PrefixCount":
+            suggest = "ipv6_prefix_count"
+        elif key == "ipv6Prefixes":
+            suggest = "ipv6_prefixes"
         elif key == "networkCardIndex":
             suggest = "network_card_index"
         elif key == "networkInterfaceId":
@@ -3903,8 +3943,12 @@ class LaunchTemplateNetworkInterface(dict):
                  interface_type: Optional[str] = None,
                  ipv4_address_count: Optional[int] = None,
                  ipv4_addresses: Optional[Sequence[str]] = None,
+                 ipv4_prefix_count: Optional[int] = None,
+                 ipv4_prefixes: Optional[Sequence[str]] = None,
                  ipv6_address_count: Optional[int] = None,
                  ipv6_addresses: Optional[Sequence[str]] = None,
+                 ipv6_prefix_count: Optional[int] = None,
+                 ipv6_prefixes: Optional[Sequence[str]] = None,
                  network_card_index: Optional[int] = None,
                  network_interface_id: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
@@ -3919,8 +3963,12 @@ class LaunchTemplateNetworkInterface(dict):
         :param str interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         :param int ipv4_address_count: The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         :param Sequence[str] ipv4_addresses: One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+        :param int ipv4_prefix_count: The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        :param Sequence[str] ipv4_prefixes: One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
         :param int ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
         :param Sequence[str] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        :param int ipv6_prefix_count: The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        :param Sequence[str] ipv6_prefixes: One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
         :param int network_card_index: The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
         :param str network_interface_id: The ID of the network interface to attach.
         :param str private_ip_address: The primary private IPv4 address.
@@ -3943,10 +3991,18 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
         if ipv4_addresses is not None:
             pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if ipv4_prefix_count is not None:
+            pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+        if ipv4_prefixes is not None:
+            pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
             pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if ipv6_prefix_count is not None:
+            pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+        if ipv6_prefixes is not None:
+            pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
         if network_card_index is not None:
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
@@ -4023,6 +4079,22 @@ class LaunchTemplateNetworkInterface(dict):
         return pulumi.get(self, "ipv4_addresses")
 
     @property
+    @pulumi.getter(name="ipv4PrefixCount")
+    def ipv4_prefix_count(self) -> Optional[int]:
+        """
+        The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        """
+        return pulumi.get(self, "ipv4_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv4Prefixes")
+    def ipv4_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+        """
+        return pulumi.get(self, "ipv4_prefixes")
+
+    @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[int]:
         """
@@ -4037,6 +4109,22 @@ class LaunchTemplateNetworkInterface(dict):
         One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
         """
         return pulumi.get(self, "ipv6_addresses")
+
+    @property
+    @pulumi.getter(name="ipv6PrefixCount")
+    def ipv6_prefix_count(self) -> Optional[int]:
+        """
+        The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        """
+        return pulumi.get(self, "ipv6_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv6Prefixes")
+    def ipv6_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+        """
+        return pulumi.get(self, "ipv6_prefixes")
 
     @property
     @pulumi.getter(name="networkCardIndex")
@@ -4207,6 +4295,70 @@ class LaunchTemplatePlacement(dict):
         The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
         """
         return pulumi.get(self, "tenancy")
+
+
+@pulumi.output_type
+class LaunchTemplatePrivateDnsNameOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResourceNameDnsARecord":
+            suggest = "enable_resource_name_dns_a_record"
+        elif key == "enableResourceNameDnsAaaaRecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
+        elif key == "hostnameType":
+            suggest = "hostname_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplatePrivateDnsNameOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplatePrivateDnsNameOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplatePrivateDnsNameOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
+        """
+        :param bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        :param str hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[str]:
+        """
+        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        return pulumi.get(self, "hostname_type")
 
 
 @pulumi.output_type
@@ -8730,6 +8882,63 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
 
 
 @pulumi.output_type
+class GetLaunchTemplateCapacityReservationSpecificationResult(dict):
+    def __init__(__self__, *,
+                 capacity_reservation_preference: str,
+                 capacity_reservation_targets: Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult']):
+        pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        pulumi.set(__self__, "capacity_reservation_targets", capacity_reservation_targets)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> str:
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @property
+    @pulumi.getter(name="capacityReservationTargets")
+    def capacity_reservation_targets(self) -> Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult']:
+        return pulumi.get(self, "capacity_reservation_targets")
+
+
+@pulumi.output_type
+class GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult(dict):
+    def __init__(__self__, *,
+                 capacity_reservation_id: str,
+                 capacity_reservation_resource_group_arn: str):
+        pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> str:
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> str:
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+
+@pulumi.output_type
+class GetLaunchTemplateCpuOptionResult(dict):
+    def __init__(__self__, *,
+                 core_count: int,
+                 threads_per_core: int):
+        pulumi.set(__self__, "core_count", core_count)
+        pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> int:
+        return pulumi.get(self, "core_count")
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> int:
+        return pulumi.get(self, "threads_per_core")
+
+
+@pulumi.output_type
 class GetLaunchTemplateCreditSpecificationResult(dict):
     def __init__(__self__, *,
                  cpu_credits: str):
@@ -8754,20 +8963,26 @@ class GetLaunchTemplateElasticGpuSpecificationResult(dict):
 
 
 @pulumi.output_type
+class GetLaunchTemplateElasticInferenceAcceleratorResult(dict):
+    def __init__(__self__, *,
+                 type: str):
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class GetLaunchTemplateEnclaveOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
-        """
-        :param bool enabled: Whether Nitro Enclaves are enabled.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Whether Nitro Enclaves are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -8818,7 +9033,6 @@ class GetLaunchTemplateIamInstanceProfileResult(dict):
                  arn: str,
                  name: str):
         """
-        :param str arn: Amazon Resource Name (ARN) of the launch template.
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
         """
         pulumi.set(__self__, "arn", arn)
@@ -8827,9 +9041,6 @@ class GetLaunchTemplateIamInstanceProfileResult(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        Amazon Resource Name (ARN) of the launch template.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -8901,6 +9112,18 @@ class GetLaunchTemplateInstanceMarketOptionSpotOptionResult(dict):
 
 
 @pulumi.output_type
+class GetLaunchTemplateLicenseSpecificationResult(dict):
+    def __init__(__self__, *,
+                 license_configuration_arn: str):
+        pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> str:
+        return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
 class GetLaunchTemplateMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_endpoint: str,
@@ -8908,13 +9131,6 @@ class GetLaunchTemplateMetadataOptionResult(dict):
                  http_put_response_hop_limit: int,
                  http_tokens: str,
                  instance_metadata_tags: str):
-        """
-        :param str http_endpoint: The state of the metadata service: `enabled`, `disabled`.
-        :param str http_protocol_ipv6: The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
-        :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
-        :param str http_tokens: If session tokens are required: `optional`, `required`.
-        :param str instance_metadata_tags: If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
-        """
         pulumi.set(__self__, "http_endpoint", http_endpoint)
         pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
@@ -8924,41 +9140,26 @@ class GetLaunchTemplateMetadataOptionResult(dict):
     @property
     @pulumi.getter(name="httpEndpoint")
     def http_endpoint(self) -> str:
-        """
-        The state of the metadata service: `enabled`, `disabled`.
-        """
         return pulumi.get(self, "http_endpoint")
 
     @property
     @pulumi.getter(name="httpProtocolIpv6")
     def http_protocol_ipv6(self) -> str:
-        """
-        The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
-        """
         return pulumi.get(self, "http_protocol_ipv6")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> int:
-        """
-        The desired HTTP PUT response hop limit for instance metadata requests.
-        """
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @property
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> str:
-        """
-        If session tokens are required: `optional`, `required`.
-        """
         return pulumi.get(self, "http_tokens")
 
     @property
     @pulumi.getter(name="instanceMetadataTags")
     def instance_metadata_tags(self) -> str:
-        """
-        If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
-        """
         return pulumi.get(self, "instance_metadata_tags")
 
 
@@ -8966,17 +9167,11 @@ class GetLaunchTemplateMetadataOptionResult(dict):
 class GetLaunchTemplateMonitoringResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
-        """
-        :param bool enabled: Whether Nitro Enclaves are enabled.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Whether Nitro Enclaves are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -8989,26 +9184,32 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
                  interface_type: str,
                  ipv4_address_count: int,
                  ipv4_addresses: Sequence[str],
+                 ipv4_prefix_count: int,
+                 ipv4_prefixes: Sequence[str],
                  ipv6_address_count: int,
                  ipv6_addresses: Sequence[str],
+                 ipv6_prefix_count: int,
+                 ipv6_prefixes: Sequence[str],
+                 network_card_index: int,
                  network_interface_id: str,
                  private_ip_address: str,
                  security_groups: Sequence[str],
                  subnet_id: str,
                  associate_public_ip_address: Optional[bool] = None,
-                 delete_on_termination: Optional[bool] = None,
-                 network_card_index: Optional[int] = None):
-        """
-        :param str description: Description of the launch template.
-        """
+                 delete_on_termination: Optional[bool] = None):
         pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "interface_type", interface_type)
         pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+        pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
         pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+        pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
+        pulumi.set(__self__, "network_card_index", network_card_index)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "security_groups", security_groups)
@@ -9017,8 +9218,6 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        if network_card_index is not None:
-            pulumi.set(__self__, "network_card_index", network_card_index)
 
     @property
     @pulumi.getter(name="associateCarrierIpAddress")
@@ -9028,9 +9227,6 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the launch template.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -9054,6 +9250,16 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
         return pulumi.get(self, "ipv4_addresses")
 
     @property
+    @pulumi.getter(name="ipv4PrefixCount")
+    def ipv4_prefix_count(self) -> int:
+        return pulumi.get(self, "ipv4_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv4Prefixes")
+    def ipv4_prefixes(self) -> Sequence[str]:
+        return pulumi.get(self, "ipv4_prefixes")
+
+    @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> int:
         return pulumi.get(self, "ipv6_address_count")
@@ -9062,6 +9268,21 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Sequence[str]:
         return pulumi.get(self, "ipv6_addresses")
+
+    @property
+    @pulumi.getter(name="ipv6PrefixCount")
+    def ipv6_prefix_count(self) -> int:
+        return pulumi.get(self, "ipv6_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv6Prefixes")
+    def ipv6_prefixes(self) -> Sequence[str]:
+        return pulumi.get(self, "ipv6_prefixes")
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> int:
+        return pulumi.get(self, "network_card_index")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
@@ -9092,11 +9313,6 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[bool]:
         return pulumi.get(self, "delete_on_termination")
-
-    @property
-    @pulumi.getter(name="networkCardIndex")
-    def network_card_index(self) -> Optional[int]:
-        return pulumi.get(self, "network_card_index")
 
 
 @pulumi.output_type
@@ -9158,6 +9374,32 @@ class GetLaunchTemplatePlacementResult(dict):
     @pulumi.getter
     def tenancy(self) -> str:
         return pulumi.get(self, "tenancy")
+
+
+@pulumi.output_type
+class GetLaunchTemplatePrivateDnsNameOptionResult(dict):
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: bool,
+                 enable_resource_name_dns_aaaa_record: bool,
+                 hostname_type: str):
+        pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> bool:
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> bool:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> str:
+        return pulumi.get(self, "hostname_type")
 
 
 @pulumi.output_type

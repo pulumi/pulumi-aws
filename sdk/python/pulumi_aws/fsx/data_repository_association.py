@@ -22,8 +22,7 @@ class DataRepositoryAssociationArgs:
                  delete_data_in_filesystem: Optional[pulumi.Input[bool]] = None,
                  imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
                  s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataRepositoryAssociation resource.
         :param pulumi.Input[str] data_repository_path: The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
@@ -35,7 +34,6 @@ class DataRepositoryAssociationArgs:
         :param pulumi.Input['DataRepositoryAssociationS3Args'] s3: See the `s3` configuration block. Max of 1.
                The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the data repository association. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
         pulumi.set(__self__, "file_system_id", file_system_id)
@@ -50,8 +48,6 @@ class DataRepositoryAssociationArgs:
             pulumi.set(__self__, "s3", s3)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="dataRepositoryPath")
@@ -149,18 +145,6 @@ class DataRepositoryAssociationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -358,7 +342,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
                  s3: Optional[pulumi.Input[pulumi.InputType['DataRepositoryAssociationS3Args']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a FSx for Lustre Data Repository Association. See [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html) for more information.
@@ -421,7 +404,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataRepositoryAssociationS3Args']] s3: See the `s3` configuration block. Max of 1.
                The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the data repository association. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -502,7 +484,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
                  s3: Optional[pulumi.Input[pulumi.InputType['DataRepositoryAssociationS3Args']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -529,9 +510,9 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             __props__.__dict__["imported_file_chunk_size"] = imported_file_chunk_size
             __props__.__dict__["s3"] = s3
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(DataRepositoryAssociation, __self__).__init__(
             'aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation',
             resource_name,

@@ -51,6 +51,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// - Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
+        [Output("containerRecipeArn")]
+        public Output<string?> ContainerRecipeArn { get; private set; } = null!;
+
+        /// <summary>
         /// Date the image was created.
         /// </summary>
         [Output("dateCreated")]
@@ -69,10 +75,10 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("imageRecipeArn")]
-        public Output<string> ImageRecipeArn { get; private set; } = null!;
+        public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
@@ -175,6 +181,12 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class ImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// - Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
+        [Input("containerRecipeArn")]
+        public Input<string>? ContainerRecipeArn { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         /// </summary>
         [Input("distributionConfigurationArn")]
@@ -187,10 +199,10 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
-        [Input("imageRecipeArn", required: true)]
-        public Input<string> ImageRecipeArn { get; set; } = null!;
+        [Input("imageRecipeArn")]
+        public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
@@ -230,6 +242,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// - Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
+        [Input("containerRecipeArn")]
+        public Input<string>? ContainerRecipeArn { get; set; }
+
+        /// <summary>
         /// Date the image was created.
         /// </summary>
         [Input("dateCreated")]
@@ -248,7 +266,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }

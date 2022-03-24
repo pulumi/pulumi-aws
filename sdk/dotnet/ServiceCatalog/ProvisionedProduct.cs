@@ -131,6 +131,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
 
         /// <summary>
+        /// The set of outputs for the product created.
+        /// </summary>
+        [Output("outputs")]
+        public Output<ImmutableArray<Outputs.ProvisionedProductOutput>> Outputs { get; private set; } = null!;
+
+        /// <summary>
         /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
         /// </summary>
         [Output("pathId")]
@@ -445,6 +451,18 @@ namespace Pulumi.Aws.ServiceCatalog
         {
             get => _notificationArns ?? (_notificationArns = new InputList<string>());
             set => _notificationArns = value;
+        }
+
+        [Input("outputs")]
+        private InputList<Inputs.ProvisionedProductOutputGetArgs>? _outputs;
+
+        /// <summary>
+        /// The set of outputs for the product created.
+        /// </summary>
+        public InputList<Inputs.ProvisionedProductOutputGetArgs> Outputs
+        {
+            get => _outputs ?? (_outputs = new InputList<Inputs.ProvisionedProductOutputGetArgs>());
+            set => _outputs = value;
         }
 
         /// <summary>

@@ -60,7 +60,7 @@ func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsArgs struct {
-	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
+	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
 	Name string `pulumi:"name"`
 }
 
@@ -86,7 +86,7 @@ func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts .
 
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsOutputArgs struct {
-	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
+	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

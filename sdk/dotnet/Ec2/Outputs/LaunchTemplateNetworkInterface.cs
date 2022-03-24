@@ -46,6 +46,14 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Ipv4Addresses;
         /// <summary>
+        /// The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        /// </summary>
+        public readonly int? Ipv4PrefixCount;
+        /// <summary>
+        /// One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv4Prefixes;
+        /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
         /// </summary>
         public readonly int? Ipv6AddressCount;
@@ -53,6 +61,14 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
         /// </summary>
         public readonly ImmutableArray<string> Ipv6Addresses;
+        /// <summary>
+        /// The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        /// </summary>
+        public readonly int? Ipv6PrefixCount;
+        /// <summary>
+        /// One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv6Prefixes;
         /// <summary>
         /// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
         /// </summary>
@@ -92,9 +108,17 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> ipv4Addresses,
 
+            int? ipv4PrefixCount,
+
+            ImmutableArray<string> ipv4Prefixes,
+
             int? ipv6AddressCount,
 
             ImmutableArray<string> ipv6Addresses,
+
+            int? ipv6PrefixCount,
+
+            ImmutableArray<string> ipv6Prefixes,
 
             int? networkCardIndex,
 
@@ -114,8 +138,12 @@ namespace Pulumi.Aws.Ec2.Outputs
             InterfaceType = interfaceType;
             Ipv4AddressCount = ipv4AddressCount;
             Ipv4Addresses = ipv4Addresses;
+            Ipv4PrefixCount = ipv4PrefixCount;
+            Ipv4Prefixes = ipv4Prefixes;
             Ipv6AddressCount = ipv6AddressCount;
             Ipv6Addresses = ipv6Addresses;
+            Ipv6PrefixCount = ipv6PrefixCount;
+            Ipv6Prefixes = ipv6Prefixes;
             NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
             PrivateIpAddress = privateIpAddress;

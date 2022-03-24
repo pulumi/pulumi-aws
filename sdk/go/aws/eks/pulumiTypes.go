@@ -3236,6 +3236,121 @@ func (o GetNodeGroupScalingConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGr
 	}).(GetNodeGroupScalingConfigOutput)
 }
 
+type GetNodeGroupTaint struct {
+	// The effect of the taint.
+	Effect string `pulumi:"effect"`
+	// The key of the taint.
+	Key string `pulumi:"key"`
+	// The value of the taint.
+	Value string `pulumi:"value"`
+}
+
+// GetNodeGroupTaintInput is an input type that accepts GetNodeGroupTaintArgs and GetNodeGroupTaintOutput values.
+// You can construct a concrete instance of `GetNodeGroupTaintInput` via:
+//
+//          GetNodeGroupTaintArgs{...}
+type GetNodeGroupTaintInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupTaintOutput() GetNodeGroupTaintOutput
+	ToGetNodeGroupTaintOutputWithContext(context.Context) GetNodeGroupTaintOutput
+}
+
+type GetNodeGroupTaintArgs struct {
+	// The effect of the taint.
+	Effect pulumi.StringInput `pulumi:"effect"`
+	// The key of the taint.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the taint.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetNodeGroupTaintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupTaint)(nil)).Elem()
+}
+
+func (i GetNodeGroupTaintArgs) ToGetNodeGroupTaintOutput() GetNodeGroupTaintOutput {
+	return i.ToGetNodeGroupTaintOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupTaintArgs) ToGetNodeGroupTaintOutputWithContext(ctx context.Context) GetNodeGroupTaintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupTaintOutput)
+}
+
+// GetNodeGroupTaintArrayInput is an input type that accepts GetNodeGroupTaintArray and GetNodeGroupTaintArrayOutput values.
+// You can construct a concrete instance of `GetNodeGroupTaintArrayInput` via:
+//
+//          GetNodeGroupTaintArray{ GetNodeGroupTaintArgs{...} }
+type GetNodeGroupTaintArrayInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupTaintArrayOutput() GetNodeGroupTaintArrayOutput
+	ToGetNodeGroupTaintArrayOutputWithContext(context.Context) GetNodeGroupTaintArrayOutput
+}
+
+type GetNodeGroupTaintArray []GetNodeGroupTaintInput
+
+func (GetNodeGroupTaintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupTaint)(nil)).Elem()
+}
+
+func (i GetNodeGroupTaintArray) ToGetNodeGroupTaintArrayOutput() GetNodeGroupTaintArrayOutput {
+	return i.ToGetNodeGroupTaintArrayOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupTaintArray) ToGetNodeGroupTaintArrayOutputWithContext(ctx context.Context) GetNodeGroupTaintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupTaintArrayOutput)
+}
+
+type GetNodeGroupTaintOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupTaintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupTaint)(nil)).Elem()
+}
+
+func (o GetNodeGroupTaintOutput) ToGetNodeGroupTaintOutput() GetNodeGroupTaintOutput {
+	return o
+}
+
+func (o GetNodeGroupTaintOutput) ToGetNodeGroupTaintOutputWithContext(ctx context.Context) GetNodeGroupTaintOutput {
+	return o
+}
+
+// The effect of the taint.
+func (o GetNodeGroupTaintOutput) Effect() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupTaint) string { return v.Effect }).(pulumi.StringOutput)
+}
+
+// The key of the taint.
+func (o GetNodeGroupTaintOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupTaint) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the taint.
+func (o GetNodeGroupTaintOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupTaint) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetNodeGroupTaintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupTaintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupTaint)(nil)).Elem()
+}
+
+func (o GetNodeGroupTaintArrayOutput) ToGetNodeGroupTaintArrayOutput() GetNodeGroupTaintArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupTaintArrayOutput) ToGetNodeGroupTaintArrayOutputWithContext(ctx context.Context) GetNodeGroupTaintArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupTaintArrayOutput) Index(i pulumi.IntInput) GetNodeGroupTaintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNodeGroupTaint {
+		return vs[0].([]GetNodeGroupTaint)[vs[1].(int)]
+	}).(GetNodeGroupTaintOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityArrayInput)(nil)).Elem(), ClusterCertificateAuthorityArray{})
@@ -3285,6 +3400,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupResourceAutoscalingGroupArrayInput)(nil)).Elem(), GetNodeGroupResourceAutoscalingGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigInput)(nil)).Elem(), GetNodeGroupScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigArrayInput)(nil)).Elem(), GetNodeGroupScalingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupTaintInput)(nil)).Elem(), GetNodeGroupTaintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupTaintArrayInput)(nil)).Elem(), GetNodeGroupTaintArray{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
@@ -3333,4 +3450,6 @@ func init() {
 	pulumi.RegisterOutputType(GetNodeGroupResourceAutoscalingGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupScalingConfigOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupScalingConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupTaintOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupTaintArrayOutput{})
 }

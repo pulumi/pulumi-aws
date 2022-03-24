@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.BucketLifecycleConfigurationV2RuleExpirationArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+        /// Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketLifecycleConfigurationV2RuleFilterArgs>? Filter { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+        /// **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

@@ -11,15 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a VPC Endpoint resource.
-//
-// > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
-// Route Tables - (an association between a VPC endpoint and a single `routeTableId`) and
-// Subnets - (an association between a VPC endpoint and a single `subnetId`) and
-// a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
-// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
-// Doing so will cause a conflict of associations and will overwrite the association.
-//
 // ## Example Usage
 // ### Basic
 //
@@ -176,7 +167,8 @@ type VpcEndpoint struct {
 	RequesterManaged pulumi.BoolOutput `pulumi:"requesterManaged"`
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
-	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
@@ -184,7 +176,7 @@ type VpcEndpoint struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -252,7 +244,8 @@ type vpcEndpointState struct {
 	RequesterManaged *bool `pulumi:"requesterManaged"`
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds []string `pulumi:"routeTableIds"`
-	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
@@ -260,7 +253,7 @@ type vpcEndpointState struct {
 	State *string `pulumi:"state"`
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -294,7 +287,8 @@ type VpcEndpointState struct {
 	RequesterManaged pulumi.BoolPtrInput
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds pulumi.StringArrayInput
-	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput
@@ -302,7 +296,7 @@ type VpcEndpointState struct {
 	State pulumi.StringPtrInput
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -326,13 +320,14 @@ type vpcEndpointArgs struct {
 	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds []string `pulumi:"routeTableIds"`
-	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName string `pulumi:"serviceName"`
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
@@ -351,13 +346,14 @@ type VpcEndpointArgs struct {
 	PrivateDnsEnabled pulumi.BoolPtrInput
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds pulumi.StringArrayInput
-	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringInput
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrInput

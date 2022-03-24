@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Cognito
     /// Cognito User Pools can be imported using the `id`, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/userPool:UserPool pool &lt;id&gt;
+    ///  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPool:UserPool")]

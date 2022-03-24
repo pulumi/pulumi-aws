@@ -31,6 +31,14 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('assumeRole')
 
     @property
+    def custom_ca_bundle(self) -> Optional[str]:
+        """
+        File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+        variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        """
+        return __config__.get('customCaBundle')
+
+    @property
     def default_tags(self) -> Optional[str]:
         """
         Configuration block with settings to default resource tags across all resources.
@@ -186,6 +194,13 @@ class _ExportableConfig(types.ModuleType):
         Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         """
         return __config__.get_bool('skipRequestingAccountId')
+
+    @property
+    def sts_region(self) -> Optional[str]:
+        """
+        The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        """
+        return __config__.get('stsRegion')
 
     @property
     def token(self) -> Optional[str]:

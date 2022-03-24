@@ -23,6 +23,7 @@ export * from "./getPartition";
 export * from "./getPrefixList";
 export * from "./getRegion";
 export * from "./getRegions";
+export * from "./getService";
 export * from "./provider";
 export * from "./region";
 export * from "./tags";
@@ -110,6 +111,7 @@ import * as gamelift from "./gamelift";
 import * as glacier from "./glacier";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
+import * as grafana from "./grafana";
 import * as guardduty from "./guardduty";
 import * as iam from "./iam";
 import * as identitystore from "./identitystore";
@@ -137,6 +139,7 @@ import * as mskconnect from "./mskconnect";
 import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
+import * as networkmanager from "./networkmanager";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
@@ -150,6 +153,7 @@ import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
 import * as route53 from "./route53";
+import * as route53domains from "./route53domains";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53recoveryreadiness from "./route53recoveryreadiness";
 import * as s3 from "./s3";
@@ -265,6 +269,7 @@ export {
     glacier,
     globalaccelerator,
     glue,
+    grafana,
     guardduty,
     iam,
     identitystore,
@@ -292,6 +297,7 @@ export {
     mwaa,
     neptune,
     networkfirewall,
+    networkmanager,
     opsworks,
     organizations,
     outposts,
@@ -305,6 +311,7 @@ export {
     resourcegroups,
     resourcegroupstaggingapi,
     route53,
+    route53domains,
     route53recoverycontrol,
     route53recoveryreadiness,
     s3,

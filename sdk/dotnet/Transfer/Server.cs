@@ -255,6 +255,18 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> LoggingRole { get; private set; } = null!;
 
         /// <summary>
+        /// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        /// </summary>
+        [Output("postAuthenticationLoginBanner")]
+        public Output<string?> PostAuthenticationLoginBanner { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+        /// </summary>
+        [Output("preAuthenticationLoginBanner")]
+        public Output<string?> PreAuthenticationLoginBanner { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         /// * `SFTP`: File transfer over SSH
         /// * `FTPS`: File transfer with TLS encryption
@@ -399,6 +411,18 @@ namespace Pulumi.Aws.Transfer
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
 
+        /// <summary>
+        /// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        /// </summary>
+        [Input("postAuthenticationLoginBanner")]
+        public Input<string>? PostAuthenticationLoginBanner { get; set; }
+
+        /// <summary>
+        /// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+        /// </summary>
+        [Input("preAuthenticationLoginBanner")]
+        public Input<string>? PreAuthenticationLoginBanner { get; set; }
+
         [Input("protocols")]
         private InputList<string>? _protocols;
 
@@ -528,6 +552,18 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        /// <summary>
+        /// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+        /// </summary>
+        [Input("postAuthenticationLoginBanner")]
+        public Input<string>? PostAuthenticationLoginBanner { get; set; }
+
+        /// <summary>
+        /// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+        /// </summary>
+        [Input("preAuthenticationLoginBanner")]
+        public Input<string>? PreAuthenticationLoginBanner { get; set; }
 
         [Input("protocols")]
         private InputList<string>? _protocols;

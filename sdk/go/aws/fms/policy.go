@@ -66,6 +66,9 @@ import (
 // 					return json0, nil
 // 				}).(pulumi.StringOutput),
 // 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("example-fms-policy"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -88,6 +91,8 @@ type Policy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources pulumi.BoolPtrOutput `pulumi:"deleteAllPolicyResources"`
+	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+	DeleteUnusedFmManagedResources pulumi.BoolPtrOutput `pulumi:"deleteUnusedFmManagedResources"`
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrOutput `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -108,6 +113,10 @@ type Policy struct {
 	ResourceTypeLists pulumi.StringArrayOutput `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataOutput `pulumi:"securityServicePolicyData"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -148,6 +157,8 @@ type policyState struct {
 	Arn *string `pulumi:"arn"`
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`
+	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+	DeleteUnusedFmManagedResources *bool `pulumi:"deleteUnusedFmManagedResources"`
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -168,12 +179,18 @@ type policyState struct {
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type PolicyState struct {
 	Arn pulumi.StringPtrInput
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources pulumi.BoolPtrInput
+	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+	DeleteUnusedFmManagedResources pulumi.BoolPtrInput
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -194,6 +211,10 @@ type PolicyState struct {
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataPtrInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (PolicyState) ElementType() reflect.Type {
@@ -203,6 +224,8 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`
+	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+	DeleteUnusedFmManagedResources *bool `pulumi:"deleteUnusedFmManagedResources"`
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -221,12 +244,18 @@ type policyArgs struct {
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources pulumi.BoolPtrInput
+	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+	DeleteUnusedFmManagedResources pulumi.BoolPtrInput
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -245,6 +274,10 @@ type PolicyArgs struct {
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

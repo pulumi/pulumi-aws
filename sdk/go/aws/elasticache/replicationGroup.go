@@ -224,7 +224,7 @@ type ReplicationGroup struct {
 	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
 	DataTieringEnabled pulumi.BoolOutput `pulumi:"dataTieringEnabled"`
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
@@ -268,7 +268,7 @@ type ReplicationGroup struct {
 	ReaderEndpointAddress pulumi.StringOutput `pulumi:"readerEndpointAddress"`
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup pulumi.IntOutput `pulumi:"replicasPerNodeGroup"`
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription pulumi.StringOutput `pulumi:"replicationGroupDescription"`
@@ -349,7 +349,7 @@ type replicationGroupState struct {
 	ConfigurationEndpointAddress *string `pulumi:"configurationEndpointAddress"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	Description *string `pulumi:"description"`
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
@@ -393,7 +393,7 @@ type replicationGroupState struct {
 	ReaderEndpointAddress *string `pulumi:"readerEndpointAddress"`
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription *string `pulumi:"replicationGroupDescription"`
@@ -446,7 +446,7 @@ type ReplicationGroupState struct {
 	ConfigurationEndpointAddress pulumi.StringPtrInput
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
 	DataTieringEnabled pulumi.BoolPtrInput
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringPtrInput
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
@@ -490,7 +490,7 @@ type ReplicationGroupState struct {
 	ReaderEndpointAddress pulumi.StringPtrInput
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription pulumi.StringPtrInput
@@ -541,7 +541,7 @@ type replicationGroupArgs struct {
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	Description *string `pulumi:"description"`
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
@@ -577,7 +577,7 @@ type replicationGroupArgs struct {
 	PreferredCacheClusterAzs []string `pulumi:"preferredCacheClusterAzs"`
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription *string `pulumi:"replicationGroupDescription"`
@@ -624,7 +624,7 @@ type ReplicationGroupArgs struct {
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
 	DataTieringEnabled pulumi.BoolPtrInput
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringPtrInput
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
@@ -660,7 +660,7 @@ type ReplicationGroupArgs struct {
 	PreferredCacheClusterAzs pulumi.StringArrayInput
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
-	// User-created description for the replication group.
+	// User-created description for the replication group. Must not be empty.
 	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription pulumi.StringPtrInput

@@ -189,7 +189,7 @@ class DomainPermissions(pulumi.CustomResource):
 
         example_key = aws.kms.Key("exampleKey", description="domain key")
         example_domain = aws.codeartifact.Domain("exampleDomain",
-            domain="example.com",
+            domain="example",
             encryption_key=example_key.arn)
         test = aws.codeartifact.DomainPermissions("test",
             domain=example_domain.domain,
@@ -239,7 +239,7 @@ class DomainPermissions(pulumi.CustomResource):
 
         example_key = aws.kms.Key("exampleKey", description="domain key")
         example_domain = aws.codeartifact.Domain("exampleDomain",
-            domain="example.com",
+            domain="example",
             encryption_key=example_key.arn)
         test = aws.codeartifact.DomainPermissions("test",
             domain=example_domain.domain,

@@ -104,6 +104,7 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly cloudwatchAlarm!: pulumi.Output<outputs.iot.TopicRuleCloudwatchAlarm | undefined>;
+    public readonly cloudwatchLogs!: pulumi.Output<outputs.iot.TopicRuleCloudwatchLog[] | undefined>;
     public readonly cloudwatchMetric!: pulumi.Output<outputs.iot.TopicRuleCloudwatchMetric | undefined>;
     /**
      * The description of the rule.
@@ -117,7 +118,7 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
      */
     public readonly errorAction!: pulumi.Output<outputs.iot.TopicRuleErrorAction | undefined>;
     public readonly firehose!: pulumi.Output<outputs.iot.TopicRuleFirehose | undefined>;
@@ -143,7 +144,7 @@ export class TopicRule extends pulumi.CustomResource {
     public readonly sqs!: pulumi.Output<outputs.iot.TopicRuleSqs | undefined>;
     public readonly stepFunctions!: pulumi.Output<outputs.iot.TopicRuleStepFunction[] | undefined>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -166,6 +167,7 @@ export class TopicRule extends pulumi.CustomResource {
             const state = argsOrState as TopicRuleState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["cloudwatchAlarm"] = state ? state.cloudwatchAlarm : undefined;
+            resourceInputs["cloudwatchLogs"] = state ? state.cloudwatchLogs : undefined;
             resourceInputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dynamodb"] = state ? state.dynamodb : undefined;
@@ -200,6 +202,7 @@ export class TopicRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sqlVersion'");
             }
             resourceInputs["cloudwatchAlarm"] = args ? args.cloudwatchAlarm : undefined;
+            resourceInputs["cloudwatchLogs"] = args ? args.cloudwatchLogs : undefined;
             resourceInputs["cloudwatchMetric"] = args ? args.cloudwatchMetric : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamodb"] = args ? args.dynamodb : undefined;
@@ -238,6 +241,7 @@ export interface TopicRuleState {
      */
     arn?: pulumi.Input<string>;
     cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>;
+    cloudwatchLogs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchLog>[]>;
     cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>;
     /**
      * The description of the rule.
@@ -251,7 +255,7 @@ export interface TopicRuleState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
      */
     errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
@@ -277,7 +281,7 @@ export interface TopicRuleState {
     sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
     stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -291,6 +295,7 @@ export interface TopicRuleState {
  */
 export interface TopicRuleArgs {
     cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>;
+    cloudwatchLogs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchLog>[]>;
     cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>;
     /**
      * The description of the rule.
@@ -304,7 +309,7 @@ export interface TopicRuleArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
      */
     errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
@@ -330,7 +335,7 @@ export interface TopicRuleArgs {
     sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
     stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

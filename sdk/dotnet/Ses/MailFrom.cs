@@ -12,9 +12,10 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES domain MAIL FROM resource.
     /// 
-    /// &gt; **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the `aws.ses.DomainIdentity` resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+    /// &gt; **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
     /// 
     /// ## Example Usage
+    /// ### Domain Identity MAIL FROM
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -63,6 +64,30 @@ namespace Pulumi.Aws.Ses
     /// 
     /// }
     /// ```
+    /// ### Email Identity MAIL FROM
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Example SES Email Identity
+    ///         var exampleEmailIdentity = new Aws.Ses.EmailIdentity("exampleEmailIdentity", new Aws.Ses.EmailIdentityArgs
+    ///         {
+    ///             Email = "user@example.com",
+    ///         });
+    ///         var exampleMailFrom = new Aws.Ses.MailFrom("exampleMailFrom", new Aws.Ses.MailFromArgs
+    ///         {
+    ///             Domain = exampleEmailIdentity.Email,
+    ///             MailFromDomain = "mail.example.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -82,7 +107,7 @@ namespace Pulumi.Aws.Ses
         public Output<string?> BehaviorOnMxFailure { get; private set; } = null!;
 
         /// <summary>
-        /// Verified domain name to generate DKIM tokens for.
+        /// Verified domain name or email identity to generate DKIM tokens for.
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
@@ -146,7 +171,7 @@ namespace Pulumi.Aws.Ses
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
         /// <summary>
-        /// Verified domain name to generate DKIM tokens for.
+        /// Verified domain name or email identity to generate DKIM tokens for.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -171,7 +196,7 @@ namespace Pulumi.Aws.Ses
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
         /// <summary>
-        /// Verified domain name to generate DKIM tokens for.
+        /// Verified domain name or email identity to generate DKIM tokens for.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }

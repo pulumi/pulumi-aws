@@ -26,11 +26,11 @@ namespace Pulumi.Aws.RedShift
         /// {
         ///     public MyStack()
         ///     {
-        ///         var testCluster = Output.Create(Aws.RedShift.GetCluster.InvokeAsync(new Aws.RedShift.GetClusterArgs
+        ///         var example = Output.Create(Aws.RedShift.GetCluster.InvokeAsync(new Aws.RedShift.GetClusterArgs
         ///         {
-        ///             ClusterIdentifier = "test-cluster",
+        ///             ClusterIdentifier = "example-cluster",
         ///         }));
-        ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+        ///         var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
         ///         {
         ///             Destination = "redshift",
         ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
@@ -44,17 +44,17 @@ namespace Pulumi.Aws.RedShift
         ///             RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///             {
         ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///                 ClusterJdbcurl = Output.Tuple(testCluster, testCluster).Apply(values =&gt;
+        ///                 ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
         ///                 {
-        ///                     var testCluster = values.Item1;
-        ///                     var testCluster1 = values.Item2;
-        ///                     return $"jdbc:redshift://{testCluster.Endpoint}/{testCluster1.DatabaseName}";
+        ///                     var example = values.Item1;
+        ///                     var example1 = values.Item2;
+        ///                     return $"jdbc:redshift://{example.Endpoint}/{example1.DatabaseName}";
         ///                 }),
-        ///                 Username = "testuser",
-        ///                 Password = "T3stPass",
-        ///                 DataTableName = "test-table",
+        ///                 Username = "exampleuser",
+        ///                 Password = "Exampl3Pass",
+        ///                 DataTableName = "example-table",
         ///                 CopyOptions = "delimiter '|'",
-        ///                 DataTableColumns = "test-col",
+        ///                 DataTableColumns = "example-col",
         ///             },
         ///         });
         ///     }
@@ -82,11 +82,11 @@ namespace Pulumi.Aws.RedShift
         /// {
         ///     public MyStack()
         ///     {
-        ///         var testCluster = Output.Create(Aws.RedShift.GetCluster.InvokeAsync(new Aws.RedShift.GetClusterArgs
+        ///         var example = Output.Create(Aws.RedShift.GetCluster.InvokeAsync(new Aws.RedShift.GetClusterArgs
         ///         {
-        ///             ClusterIdentifier = "test-cluster",
+        ///             ClusterIdentifier = "example-cluster",
         ///         }));
-        ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+        ///         var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
         ///         {
         ///             Destination = "redshift",
         ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
@@ -100,17 +100,17 @@ namespace Pulumi.Aws.RedShift
         ///             RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///             {
         ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///                 ClusterJdbcurl = Output.Tuple(testCluster, testCluster).Apply(values =&gt;
+        ///                 ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
         ///                 {
-        ///                     var testCluster = values.Item1;
-        ///                     var testCluster1 = values.Item2;
-        ///                     return $"jdbc:redshift://{testCluster.Endpoint}/{testCluster1.DatabaseName}";
+        ///                     var example = values.Item1;
+        ///                     var example1 = values.Item2;
+        ///                     return $"jdbc:redshift://{example.Endpoint}/{example1.DatabaseName}";
         ///                 }),
-        ///                 Username = "testuser",
-        ///                 Password = "T3stPass",
-        ///                 DataTableName = "test-table",
+        ///                 Username = "exampleuser",
+        ///                 Password = "Exampl3Pass",
+        ///                 DataTableName = "example-table",
         ///                 CopyOptions = "delimiter '|'",
-        ///                 DataTableColumns = "test-col",
+        ///                 DataTableColumns = "example-col",
         ///             },
         ///         });
         ///     }
@@ -191,6 +191,10 @@ namespace Pulumi.Aws.RedShift
         /// The availability zone of the cluster
         /// </summary>
         public readonly string AvailabilityZone;
+        /// <summary>
+        /// Indicates whether the cluster is able to be relocated to another availability zone.
+        /// </summary>
+        public readonly bool AvailabilityZoneRelocationEnabled;
         /// <summary>
         /// The name of the S3 bucket where the log files are to be stored
         /// </summary>
@@ -309,6 +313,8 @@ namespace Pulumi.Aws.RedShift
 
             string availabilityZone,
 
+            bool availabilityZoneRelocationEnabled,
+
             string bucketName,
 
             string clusterIdentifier,
@@ -368,6 +374,7 @@ namespace Pulumi.Aws.RedShift
             AllowVersionUpgrade = allowVersionUpgrade;
             AutomatedSnapshotRetentionPeriod = automatedSnapshotRetentionPeriod;
             AvailabilityZone = availabilityZone;
+            AvailabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
             BucketName = bucketName;
             ClusterIdentifier = clusterIdentifier;
             ClusterParameterGroupName = clusterParameterGroupName;

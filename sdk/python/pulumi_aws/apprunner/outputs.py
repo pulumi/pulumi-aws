@@ -14,6 +14,8 @@ __all__ = [
     'ServiceEncryptionConfiguration',
     'ServiceHealthCheckConfiguration',
     'ServiceInstanceConfiguration',
+    'ServiceNetworkConfiguration',
+    'ServiceNetworkConfigurationEgressConfiguration',
     'ServiceSourceConfiguration',
     'ServiceSourceConfigurationAuthenticationConfiguration',
     'ServiceSourceConfigurationCodeRepository',
@@ -270,6 +272,92 @@ class ServiceInstanceConfiguration(dict):
         The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class ServiceNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressConfiguration":
+            suggest = "egress_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress_configuration: Optional['outputs.ServiceNetworkConfigurationEgressConfiguration'] = None):
+        """
+        :param 'ServiceNetworkConfigurationEgressConfigurationArgs' egress_configuration: Network configuration settings for outbound message traffic.
+        """
+        if egress_configuration is not None:
+            pulumi.set(__self__, "egress_configuration", egress_configuration)
+
+    @property
+    @pulumi.getter(name="egressConfiguration")
+    def egress_configuration(self) -> Optional['outputs.ServiceNetworkConfigurationEgressConfiguration']:
+        """
+        Network configuration settings for outbound message traffic.
+        """
+        return pulumi.get(self, "egress_configuration")
+
+
+@pulumi.output_type
+class ServiceNetworkConfigurationEgressConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressType":
+            suggest = "egress_type"
+        elif key == "vpcConnectorArn":
+            suggest = "vpc_connector_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkConfigurationEgressConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNetworkConfigurationEgressConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNetworkConfigurationEgressConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress_type: Optional[str] = None,
+                 vpc_connector_arn: Optional[str] = None):
+        """
+        :param str egress_type: The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        :param str vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        """
+        if egress_type is not None:
+            pulumi.set(__self__, "egress_type", egress_type)
+        if vpc_connector_arn is not None:
+            pulumi.set(__self__, "vpc_connector_arn", vpc_connector_arn)
+
+    @property
+    @pulumi.getter(name="egressType")
+    def egress_type(self) -> Optional[str]:
+        """
+        The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        """
+        return pulumi.get(self, "egress_type")
+
+    @property
+    @pulumi.getter(name="vpcConnectorArn")
+    def vpc_connector_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        """
+        return pulumi.get(self, "vpc_connector_arn")
 
 
 @pulumi.output_type

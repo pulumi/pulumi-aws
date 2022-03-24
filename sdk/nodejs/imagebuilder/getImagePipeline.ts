@@ -51,6 +51,10 @@ export interface GetImagePipelineArgs {
 export interface GetImagePipelineResult {
     readonly arn: string;
     /**
+     * Amazon Resource Name (ARN) of the container recipe.
+     */
+    readonly containerRecipeArn: string;
+    /**
      * Date the image pipeline was created.
      */
     readonly dateCreated: string;
@@ -83,7 +87,7 @@ export interface GetImagePipelineResult {
      */
     readonly id: string;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+     * Amazon Resource Name (ARN) of the image recipe.
      */
     readonly imageRecipeArn: string;
     /**

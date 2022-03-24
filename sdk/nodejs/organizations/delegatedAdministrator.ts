@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.organizations.DelegatedAdministrator("example", {
- *     accountId: "AWS ACCOUNT ID",
- *     servicePrincipal: "Service principal",
+ *     accountId: "123456789012",
+ *     servicePrincipal: "principal",
  * });
  * ```
  *

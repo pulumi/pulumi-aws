@@ -22,6 +22,10 @@ namespace Pulumi.Aws.GameLift.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
+        /// A specific version of the file. If not set, the latest version of the file is retrieved.
+        /// </summary>
+        public readonly string? ObjectVersion;
+        /// <summary>
         /// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         /// </summary>
         public readonly string RoleArn;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.GameLift.Outputs
 
             string key,
 
+            string? objectVersion,
+
             string roleArn)
         {
             Bucket = bucket;
             Key = key;
+            ObjectVersion = objectVersion;
             RoleArn = roleArn;
         }
     }

@@ -104,6 +104,32 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * ```
+ * ### RDS Multi-AZ Cluster
+ *
+ * > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
+ *
+ * To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storageType`, `allocatedStorage`, `iops` and `dbClusterInstanceClass` attributes.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rds.Cluster("example", {
+ *     allocatedStorage: 100,
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
+ *     clusterIdentifier: "example",
+ *     dbClusterInstanceClass: "db.r6gd.xlarge",
+ *     engine: "mysql",
+ *     iops: 1000,
+ *     masterPassword: "mustbeeightcharaters",
+ *     masterUsername: "test",
+ *     storageType: "io1",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -141,6 +167,10 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+     */
+    public readonly allocatedStorage!: pulumi.Output<number>;
     /**
      * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
      */
@@ -190,6 +220,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+     */
+    public readonly dbClusterInstanceClass!: pulumi.Output<string | undefined>;
+    /**
      * A cluster parameter group to associate with the cluster.
      */
     public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
@@ -222,7 +256,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -257,6 +291,10 @@ export class Cluster extends pulumi.CustomResource {
      * A List of ARNs for the IAM roles to associate to the RDS Cluster.
      */
     public readonly iamRoles!: pulumi.Output<string[]>;
+    /**
+     * The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     */
+    public readonly iops!: pulumi.Output<number | undefined>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
@@ -312,11 +350,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sourceRegion!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+     * Specifies whether the DB cluster is encrypted
      */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A map of tags to assign to the DB cluster.
+     * Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+     */
+    public readonly storageType!: pulumi.Output<string | undefined>;
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -341,6 +383,7 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            resourceInputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             resourceInputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
             resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
@@ -353,6 +396,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
             resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["dbClusterInstanceClass"] = state ? state.dbClusterInstanceClass : undefined;
             resourceInputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             resourceInputs["dbInstanceParameterGroupName"] = state ? state.dbInstanceParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
@@ -370,6 +414,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             resourceInputs["iamDatabaseAuthenticationEnabled"] = state ? state.iamDatabaseAuthenticationEnabled : undefined;
             resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
+            resourceInputs["iops"] = state ? state.iops : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
@@ -385,11 +430,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
+            resourceInputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
             resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -400,6 +447,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterMembers"] = args ? args.clusterMembers : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["dbClusterInstanceClass"] = args ? args.dbClusterInstanceClass : undefined;
             resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             resourceInputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
@@ -414,6 +462,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             resourceInputs["iamDatabaseAuthenticationEnabled"] = args ? args.iamDatabaseAuthenticationEnabled : undefined;
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
+            resourceInputs["iops"] = args ? args.iops : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["masterPassword"] = args ? args.masterPassword : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
@@ -428,6 +477,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -447,6 +497,10 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+     */
+    allocatedStorage?: pulumi.Input<number>;
     /**
      * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
      */
@@ -496,6 +550,10 @@ export interface ClusterState {
      */
     databaseName?: pulumi.Input<string>;
     /**
+     * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+     */
+    dbClusterInstanceClass?: pulumi.Input<string>;
+    /**
      * A cluster parameter group to associate with the cluster.
      */
     dbClusterParameterGroupName?: pulumi.Input<string>;
@@ -528,7 +586,7 @@ export interface ClusterState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine?: pulumi.Input<string | enums.rds.EngineType>;
     /**
@@ -563,6 +621,10 @@ export interface ClusterState {
      * A List of ARNs for the IAM roles to associate to the RDS Cluster.
      */
     iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     */
+    iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
@@ -618,11 +680,15 @@ export interface ClusterState {
      */
     sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+     * Specifies whether the DB cluster is encrypted
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the DB cluster.
+     * Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+     */
+    storageType?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -639,6 +705,10 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+     */
+    allocatedStorage?: pulumi.Input<number>;
     /**
      * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
      */
@@ -680,6 +750,10 @@ export interface ClusterArgs {
      */
     databaseName?: pulumi.Input<string>;
     /**
+     * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+     */
+    dbClusterInstanceClass?: pulumi.Input<string>;
+    /**
      * A cluster parameter group to associate with the cluster.
      */
     dbClusterParameterGroupName?: pulumi.Input<string>;
@@ -708,7 +782,7 @@ export interface ClusterArgs {
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine?: pulumi.Input<string | enums.rds.EngineType>;
     /**
@@ -735,6 +809,10 @@ export interface ClusterArgs {
      * A List of ARNs for the IAM roles to associate to the RDS Cluster.
      */
     iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     */
+    iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
@@ -785,11 +863,15 @@ export interface ClusterArgs {
      */
     sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+     * Specifies whether the DB cluster is encrypted
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the DB cluster.
+     * Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+     */
+    storageType?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

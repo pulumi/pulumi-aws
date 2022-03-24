@@ -15,11 +15,12 @@ __all__ = ['ImagePipelineArgs', 'ImagePipeline']
 @pulumi.input_type
 class ImagePipelineArgs:
     def __init__(__self__, *,
-                 image_recipe_arn: pulumi.Input[str],
                  infrastructure_configuration_arn: pulumi.Input[str],
+                 container_recipe_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_recipe_arn: Optional[pulumi.Input[str]] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
@@ -27,25 +28,29 @@ class ImagePipelineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
-        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] name: Name of the image pipeline.
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if container_recipe_arn is not None:
+            pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if distribution_configuration_arn is not None:
             pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
             pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if image_recipe_arn is not None:
+            pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_tests_configuration is not None:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if name is not None:
@@ -58,18 +63,6 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="imageRecipeArn")
-    def image_recipe_arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
-        """
-        return pulumi.get(self, "image_recipe_arn")
-
-    @image_recipe_arn.setter
-    def image_recipe_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image_recipe_arn", value)
-
-    @property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Input[str]:
         """
@@ -80,6 +73,18 @@ class ImagePipelineArgs:
     @infrastructure_configuration_arn.setter
     def infrastructure_configuration_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "infrastructure_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="containerRecipeArn")
+    def container_recipe_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the container recipe.
+        """
+        return pulumi.get(self, "container_recipe_arn")
+
+    @container_recipe_arn.setter
+    def container_recipe_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_recipe_arn", value)
 
     @property
     @pulumi.getter
@@ -116,6 +121,18 @@ class ImagePipelineArgs:
     @enhanced_image_metadata_enabled.setter
     def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enhanced_image_metadata_enabled", value)
+
+    @property
+    @pulumi.getter(name="imageRecipeArn")
+    def image_recipe_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the image recipe.
+        """
+        return pulumi.get(self, "image_recipe_arn")
+
+    @image_recipe_arn.setter
+    def image_recipe_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_recipe_arn", value)
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")
@@ -182,6 +199,7 @@ class ImagePipelineArgs:
 class _ImagePipelineState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 container_recipe_arn: Optional[pulumi.Input[str]] = None,
                  date_created: Optional[pulumi.Input[str]] = None,
                  date_last_run: Optional[pulumi.Input[str]] = None,
                  date_next_run: Optional[pulumi.Input[str]] = None,
@@ -201,6 +219,7 @@ class _ImagePipelineState:
         """
         Input properties used for looking up and filtering ImagePipeline resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image pipeline.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] date_created: Date the image pipeline was created.
         :param pulumi.Input[str] date_last_run: Date the image pipeline was last run.
         :param pulumi.Input[str] date_next_run: Date the image pipeline will run next.
@@ -208,7 +227,7 @@ class _ImagePipelineState:
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
@@ -220,6 +239,8 @@ class _ImagePipelineState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if container_recipe_arn is not None:
+            pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if date_created is not None:
             pulumi.set(__self__, "date_created", date_created)
         if date_last_run is not None:
@@ -264,6 +285,18 @@ class _ImagePipelineState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="containerRecipeArn")
+    def container_recipe_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the container recipe.
+        """
+        return pulumi.get(self, "container_recipe_arn")
+
+    @container_recipe_arn.setter
+    def container_recipe_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_recipe_arn", value)
 
     @property
     @pulumi.getter(name="dateCreated")
@@ -353,7 +386,7 @@ class _ImagePipelineState:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        Amazon Resource Name (ARN) of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -463,6 +496,7 @@ class ImagePipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_recipe_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
@@ -501,10 +535,11 @@ class ImagePipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
@@ -558,6 +593,7 @@ class ImagePipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_recipe_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
@@ -580,11 +616,10 @@ class ImagePipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ImagePipelineArgs.__new__(ImagePipelineArgs)
 
+            __props__.__dict__["container_recipe_arn"] = container_recipe_arn
             __props__.__dict__["description"] = description
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
-            if image_recipe_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'image_recipe_arn'")
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             if infrastructure_configuration_arn is None and not opts.urn:
@@ -612,6 +647,7 @@ class ImagePipeline(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            container_recipe_arn: Optional[pulumi.Input[str]] = None,
             date_created: Optional[pulumi.Input[str]] = None,
             date_last_run: Optional[pulumi.Input[str]] = None,
             date_next_run: Optional[pulumi.Input[str]] = None,
@@ -636,6 +672,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image pipeline.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] date_created: Date the image pipeline was created.
         :param pulumi.Input[str] date_last_run: Date the image pipeline was last run.
         :param pulumi.Input[str] date_next_run: Date the image pipeline will run next.
@@ -643,7 +680,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
@@ -658,6 +695,7 @@ class ImagePipeline(pulumi.CustomResource):
         __props__ = _ImagePipelineState.__new__(_ImagePipelineState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["container_recipe_arn"] = container_recipe_arn
         __props__.__dict__["date_created"] = date_created
         __props__.__dict__["date_last_run"] = date_last_run
         __props__.__dict__["date_next_run"] = date_next_run
@@ -683,6 +721,14 @@ class ImagePipeline(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the image pipeline.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="containerRecipeArn")
+    def container_recipe_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        Amazon Resource Name (ARN) of the container recipe.
+        """
+        return pulumi.get(self, "container_recipe_arn")
 
     @property
     @pulumi.getter(name="dateCreated")
@@ -742,9 +788,9 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageRecipeArn")
-    def image_recipe_arn(self) -> pulumi.Output[str]:
+    def image_recipe_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        Amazon Resource Name (ARN) of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 

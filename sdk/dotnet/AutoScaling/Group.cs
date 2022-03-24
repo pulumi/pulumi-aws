@@ -10,18 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
-    /// Provides an Auto Scaling Group resource.
-    /// 
-    /// &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-    /// 
-    /// &gt; **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-    /// both a standalone `aws.autoscaling.Attachment` resource
-    /// (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
-    /// with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
-    /// mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
-    /// `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
-    /// to ignore changes to the `load_balancers` and `target_group_arns` arguments.
-    /// 
     /// ## Example Usage
     /// ### With Latest Version Of Launch Template
     /// 

@@ -503,7 +503,7 @@ class Application(pulumi.CustomResource):
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
         example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="SQL-1.0",
+            runtime_environment="SQL-1_0",
             service_execution_role=aws_iam_role["example"]["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
@@ -730,7 +730,7 @@ class Application(pulumi.CustomResource):
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
         example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
         example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="SQL-1.0",
+            runtime_environment="SQL-1_0",
             service_execution_role=aws_iam_role["example"]["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(

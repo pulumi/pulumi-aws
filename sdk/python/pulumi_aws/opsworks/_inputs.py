@@ -15,6 +15,9 @@ __all__ = [
     'CustomLayerCloudwatchConfigurationArgs',
     'CustomLayerCloudwatchConfigurationLogStreamArgs',
     'CustomLayerEbsVolumeArgs',
+    'EcsClusterLayerCloudwatchConfigurationArgs',
+    'EcsClusterLayerCloudwatchConfigurationLogStreamArgs',
+    'EcsClusterLayerEbsVolumeArgs',
     'GangliaLayerCloudwatchConfigurationArgs',
     'GangliaLayerCloudwatchConfigurationLogStreamArgs',
     'GangliaLayerEbsVolumeArgs',
@@ -545,6 +548,282 @@ class CustomLayerEbsVolumeArgs:
         """
         Encrypt the volume.
         """
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="raidLevel")
+    def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
+        return pulumi.get(self, "raid_level")
+
+    @raid_level.setter
+    def raid_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "raid_level", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class EcsClusterLayerCloudwatchConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_streams is not None:
+            pulumi.set(__self__, "log_streams", log_streams)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logStreams")
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        return pulumi.get(self, "log_streams")
+
+    @log_streams.setter
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgs']]]]):
+        pulumi.set(self, "log_streams", value)
+
+
+@pulumi.input_type
+class EcsClusterLayerCloudwatchConfigurationLogStreamArgs:
+    def __init__(__self__, *,
+                 file: pulumi.Input[str],
+                 log_group_name: pulumi.Input[str],
+                 batch_count: Optional[pulumi.Input[int]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 buffer_duration: Optional[pulumi.Input[int]] = None,
+                 datetime_format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[str]] = None,
+                 file_fingerprint_lines: Optional[pulumi.Input[str]] = None,
+                 initial_position: Optional[pulumi.Input[str]] = None,
+                 multiline_start_pattern: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if batch_count is not None:
+            pulumi.set(__self__, "batch_count", batch_count)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if buffer_duration is not None:
+            pulumi.set(__self__, "buffer_duration", buffer_duration)
+        if datetime_format is not None:
+            pulumi.set(__self__, "datetime_format", datetime_format)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if file_fingerprint_lines is not None:
+            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+        if initial_position is not None:
+            pulumi.set(__self__, "initial_position", initial_position)
+        if multiline_start_pattern is not None:
+            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def file(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="batchCount")
+    def batch_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_count")
+
+    @batch_count.setter
+    def batch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_count", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bufferDuration")
+    def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "buffer_duration")
+
+    @buffer_duration.setter
+    def buffer_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_duration", value)
+
+    @property
+    @pulumi.getter(name="datetimeFormat")
+    def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "datetime_format")
+
+    @datetime_format.setter
+    def datetime_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datetime_format", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="fileFingerprintLines")
+    def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_fingerprint_lines")
+
+    @file_fingerprint_lines.setter
+    def file_fingerprint_lines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_fingerprint_lines", value)
+
+    @property
+    @pulumi.getter(name="initialPosition")
+    def initial_position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "initial_position")
+
+    @initial_position.setter
+    def initial_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_position", value)
+
+    @property
+    @pulumi.getter(name="multilineStartPattern")
+    def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "multiline_start_pattern")
+
+    @multiline_start_pattern.setter
+    def multiline_start_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multiline_start_pattern", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class EcsClusterLayerEbsVolumeArgs:
+    def __init__(__self__, *,
+                 mount_point: pulumi.Input[str],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 raid_level: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+        pulumi.set(__self__, "mount_point", mount_point)
+        pulumi.set(__self__, "number_of_disks", number_of_disks)
+        pulumi.set(__self__, "size", size)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if raid_level is not None:
+            pulumi.set(__self__, "raid_level", raid_level)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        return pulumi.get(self, "mount_point")
+
+    @mount_point.setter
+    def mount_point(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_point", value)
+
+    @property
+    @pulumi.getter(name="numberOfDisks")
+    def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
+        return pulumi.get(self, "number_of_disks")
+
+    @number_of_disks.setter
+    def number_of_disks(self, value: pulumi.Input[int]):
+        pulumi.set(self, "number_of_disks", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter

@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./application";
 export * from "./customLayer";
+export * from "./ecsClusterLayer";
 export * from "./gangliaLayer";
 export * from "./haproxyLayer";
 export * from "./instance";
@@ -25,6 +26,7 @@ export * from "./userProfile";
 // Import resources to register:
 import { Application } from "./application";
 import { CustomLayer } from "./customLayer";
+import { EcsClusterLayer } from "./ecsClusterLayer";
 import { GangliaLayer } from "./gangliaLayer";
 import { HaproxyLayer } from "./haproxyLayer";
 import { Instance } from "./instance";
@@ -48,6 +50,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws:opsworks/customLayer:CustomLayer":
                 return new CustomLayer(name, <any>undefined, { urn })
+            case "aws:opsworks/ecsClusterLayer:EcsClusterLayer":
+                return new EcsClusterLayer(name, <any>undefined, { urn })
             case "aws:opsworks/gangliaLayer:GangliaLayer":
                 return new GangliaLayer(name, <any>undefined, { urn })
             case "aws:opsworks/haproxyLayer:HaproxyLayer":
@@ -83,6 +87,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "opsworks/application", _module)
 pulumi.runtime.registerResourceModule("aws", "opsworks/customLayer", _module)
+pulumi.runtime.registerResourceModule("aws", "opsworks/ecsClusterLayer", _module)
 pulumi.runtime.registerResourceModule("aws", "opsworks/gangliaLayer", _module)
 pulumi.runtime.registerResourceModule("aws", "opsworks/haproxyLayer", _module)
 pulumi.runtime.registerResourceModule("aws", "opsworks/instance", _module)

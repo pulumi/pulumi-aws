@@ -7,9 +7,10 @@ import * as utilities from "../utilities";
 /**
  * Provides an SES domain MAIL FROM resource.
  *
- * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the `aws.ses.DomainIdentity` resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+ * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
  *
  * ## Example Usage
+ * ### Domain Identity MAIL FROM
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -37,6 +38,19 @@ import * as utilities from "../utilities";
  *     type: "TXT",
  *     ttl: "600",
  *     records: ["v=spf1 include:amazonses.com -all"],
+ * });
+ * ```
+ * ### Email Identity MAIL FROM
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Example SES Email Identity
+ * const exampleEmailIdentity = new aws.ses.EmailIdentity("exampleEmailIdentity", {email: "user@example.com"});
+ * const exampleMailFrom = new aws.ses.MailFrom("exampleMailFrom", {
+ *     domain: exampleEmailIdentity.email,
+ *     mailFromDomain: "mail.example.com",
  * });
  * ```
  *
@@ -81,7 +95,7 @@ export class MailFrom extends pulumi.CustomResource {
      */
     public readonly behaviorOnMxFailure!: pulumi.Output<string | undefined>;
     /**
-     * Verified domain name to generate DKIM tokens for.
+     * Verified domain name or email identity to generate DKIM tokens for.
      */
     public readonly domain!: pulumi.Output<string>;
     /**
@@ -131,7 +145,7 @@ export interface MailFromState {
      */
     behaviorOnMxFailure?: pulumi.Input<string>;
     /**
-     * Verified domain name to generate DKIM tokens for.
+     * Verified domain name or email identity to generate DKIM tokens for.
      */
     domain?: pulumi.Input<string>;
     /**
@@ -149,7 +163,7 @@ export interface MailFromArgs {
      */
     behaviorOnMxFailure?: pulumi.Input<string>;
     /**
-     * Verified domain name to generate DKIM tokens for.
+     * Verified domain name or email identity to generate DKIM tokens for.
      */
     domain: pulumi.Input<string>;
     /**

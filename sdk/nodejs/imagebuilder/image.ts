@@ -62,6 +62,10 @@ export class Image extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * - Amazon Resource Name (ARN) of the container recipe.
+     */
+    public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
+    /**
      * Date the image was created.
      */
     public /*out*/ readonly dateCreated!: pulumi.Output<string>;
@@ -74,9 +78,9 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+     * Amazon Resource Name (ARN) of the image recipe.
      */
-    public readonly imageRecipeArn!: pulumi.Output<string>;
+    public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
@@ -128,6 +132,7 @@ export class Image extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ImageState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["containerRecipeArn"] = state ? state.containerRecipeArn : undefined;
             resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
             resourceInputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
@@ -143,12 +148,10 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
-            if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'imageRecipeArn'");
-            }
             if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
+            resourceInputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
             resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
             resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
@@ -178,6 +181,10 @@ export interface ImageState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * - Amazon Resource Name (ARN) of the container recipe.
+     */
+    containerRecipeArn?: pulumi.Input<string>;
+    /**
      * Date the image was created.
      */
     dateCreated?: pulumi.Input<string>;
@@ -190,7 +197,7 @@ export interface ImageState {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+     * Amazon Resource Name (ARN) of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string>;
     /**
@@ -236,6 +243,10 @@ export interface ImageState {
  */
 export interface ImageArgs {
     /**
+     * - Amazon Resource Name (ARN) of the container recipe.
+     */
+    containerRecipeArn?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      */
     distributionConfigurationArn?: pulumi.Input<string>;
@@ -244,9 +255,9 @@ export interface ImageArgs {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+     * Amazon Resource Name (ARN) of the image recipe.
      */
-    imageRecipeArn: pulumi.Input<string>;
+    imageRecipeArn?: pulumi.Input<string>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */

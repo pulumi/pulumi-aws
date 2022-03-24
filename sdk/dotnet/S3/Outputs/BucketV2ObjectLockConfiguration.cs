@@ -14,9 +14,9 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ObjectLockConfiguration
     {
         /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+        /// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
         /// </summary>
-        public readonly string ObjectLockEnabled;
+        public readonly string? ObjectLockEnabled;
         /// <summary>
         /// (required) Information about a particular server-side encryption configuration rule.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.S3.Outputs
 
         [OutputConstructor]
         private BucketV2ObjectLockConfiguration(
-            string objectLockEnabled,
+            string? objectLockEnabled,
 
             ImmutableArray<Outputs.BucketV2ObjectLockConfigurationRule> rules)
         {

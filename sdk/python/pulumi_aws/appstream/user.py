@@ -273,7 +273,7 @@ class User(pulumi.CustomResource):
             authentication_type="USERPOOL",
             first_name="FIRST NAME",
             last_name="LAST NAME",
-            user_name="EMAIL ADDRESS")
+            user_name="EMAIL")
         ```
 
         ## Import
@@ -312,7 +312,7 @@ class User(pulumi.CustomResource):
             authentication_type="USERPOOL",
             first_name="FIRST NAME",
             last_name="LAST NAME",
-            user_name="EMAIL ADDRESS")
+            user_name="EMAIL")
         ```
 
         ## Import

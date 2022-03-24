@@ -788,7 +788,7 @@ class UserPoolClient(pulumi.CustomResource):
         Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client <user_pool_id>/<user_pool_client_id>
+         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
 
         :param str resource_name: The name of the resource.
@@ -899,7 +899,7 @@ class UserPoolClient(pulumi.CustomResource):
         Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client <user_pool_id>/<user_pool_client_id>
+         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
 
         :param str resource_name: The name of the resource.

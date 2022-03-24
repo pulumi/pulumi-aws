@@ -132,114 +132,15 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationV2RuleArgs']]]]] = None,
                  __props__=None):
         """
-        Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
-            bucket=bucket.bucket,
-            rules=[
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="log",
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        days=90,
-                    ),
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                            prefix="log/",
-                            tags={
-                                "rule": "log",
-                                "autoclean": "true",
-                            },
-                        ),
-                    ),
-                    status="Enabled",
-                    transitions=[
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
-                    ],
-                ),
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="tmp",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="tmp/",
-                    ),
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        date="2023-01-13T00:00:00Z",
-                    ),
-                    status="Enabled",
-                ),
-            ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket")
-        versioning_bucket_acl = aws.s3.BucketAclV2("versioningBucketAcl",
-            bucket=versioning_bucket.id,
-            acl="private")
-        versioning = aws.s3.BucketVersioningV2("versioning",
-            bucket=versioning_bucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        versioning_bucket_config = aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config",
-            bucket=versioning_bucket.bucket,
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="config",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    prefix="config/",
-                ),
-                noncurrent_version_expiration=aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs(
-                    noncurrent_days=90,
-                ),
-                noncurrent_version_transitions=[
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=60,
-                        storage_class="GLACIER",
-                    ),
-                ],
-                status="Enabled",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
-        ```
-        ## Usage Notes
-
-        > **NOTE:** To avoid conflicts always add the following lifecycle object to the `s3.BucketV2` resource of the source bucket.
-
-        This resource implements the same features that are provided by the `lifecycle_rule` object of the `s3.BucketV2` resource. To avoid conflicts or unexpected apply results, a lifecycle configuration is needed on the `s3.BucketV2` to ignore changes to the internal `lifecycle_rule` object.  Failure to add the `lifecycle` configuration to the `s3.BucketV2` will result in conflicting state results.
-
-        ```python
-        import pulumi
-        ```
-
-        The `s3.BucketLifecycleConfigurationV2` resource provides the following features that are not available in the `s3.BucketV2` resource:
-
-        * `filter` - Added to the `rule` configuration block documented below.
-
         ## Import
 
-        S3 bucket lifecycle configuration can be imported using the `bucket`, e.g.
+        S3 bucket lifecycle configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
 
-         In addition, S3 bucket lifecycle configuration can be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
@@ -258,114 +159,15 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                  args: BucketLifecycleConfigurationV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
-            bucket=bucket.bucket,
-            rules=[
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="log",
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        days=90,
-                    ),
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                            prefix="log/",
-                            tags={
-                                "rule": "log",
-                                "autoclean": "true",
-                            },
-                        ),
-                    ),
-                    status="Enabled",
-                    transitions=[
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
-                    ],
-                ),
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="tmp",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="tmp/",
-                    ),
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        date="2023-01-13T00:00:00Z",
-                    ),
-                    status="Enabled",
-                ),
-            ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket")
-        versioning_bucket_acl = aws.s3.BucketAclV2("versioningBucketAcl",
-            bucket=versioning_bucket.id,
-            acl="private")
-        versioning = aws.s3.BucketVersioningV2("versioning",
-            bucket=versioning_bucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        versioning_bucket_config = aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config",
-            bucket=versioning_bucket.bucket,
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="config",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    prefix="config/",
-                ),
-                noncurrent_version_expiration=aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs(
-                    noncurrent_days=90,
-                ),
-                noncurrent_version_transitions=[
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=60,
-                        storage_class="GLACIER",
-                    ),
-                ],
-                status="Enabled",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
-        ```
-        ## Usage Notes
-
-        > **NOTE:** To avoid conflicts always add the following lifecycle object to the `s3.BucketV2` resource of the source bucket.
-
-        This resource implements the same features that are provided by the `lifecycle_rule` object of the `s3.BucketV2` resource. To avoid conflicts or unexpected apply results, a lifecycle configuration is needed on the `s3.BucketV2` to ignore changes to the internal `lifecycle_rule` object.  Failure to add the `lifecycle` configuration to the `s3.BucketV2` will result in conflicting state results.
-
-        ```python
-        import pulumi
-        ```
-
-        The `s3.BucketLifecycleConfigurationV2` resource provides the following features that are not available in the `s3.BucketV2` resource:
-
-        * `filter` - Added to the `rule` configuration block documented below.
-
         ## Import
 
-        S3 bucket lifecycle configuration can be imported using the `bucket`, e.g.
+        S3 bucket lifecycle configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
 
-         In addition, S3 bucket lifecycle configuration can be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012

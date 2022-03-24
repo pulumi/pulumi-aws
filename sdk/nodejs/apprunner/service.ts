@@ -38,6 +38,12 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     networkConfiguration: {
+ *         egressConfiguration: {
+ *             egressType: "VPC",
+ *             vpcConnectorArn: aws_apprunner_vpc_connector.connector.arn,
+ *         },
+ *     },
  *     tags: {
  *         Name: "example-apprunner-service",
  *     },
@@ -123,6 +129,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly instanceConfiguration!: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration>;
     /**
+     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     */
+    public readonly networkConfiguration!: pulumi.Output<outputs.apprunner.ServiceNetworkConfiguration>;
+    /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
@@ -143,7 +153,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -169,6 +179,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["healthCheckConfiguration"] = state ? state.healthCheckConfiguration : undefined;
             resourceInputs["instanceConfiguration"] = state ? state.instanceConfiguration : undefined;
+            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             resourceInputs["serviceId"] = state ? state.serviceId : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
@@ -188,6 +199,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
             resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -227,6 +239,10 @@ export interface ServiceState {
      */
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
     /**
+     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     */
+    networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfiguration>;
+    /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
     serviceId?: pulumi.Input<string>;
@@ -247,7 +263,7 @@ export interface ServiceState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -277,6 +293,10 @@ export interface ServiceArgs {
      */
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
     /**
+     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     */
+    networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfiguration>;
+    /**
      * Name of the service.
      */
     serviceName: pulumi.Input<string>;
@@ -285,7 +305,7 @@ export interface ServiceArgs {
      */
     sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

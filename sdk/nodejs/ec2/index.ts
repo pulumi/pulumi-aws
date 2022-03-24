@@ -62,6 +62,7 @@ export * from "./getRouteTable";
 export * from "./getRouteTables";
 export * from "./getSecurityGroup";
 export * from "./getSecurityGroups";
+export * from "./getSerialConsoleAccess";
 export * from "./getSpotPrice";
 export * from "./getSubnet";
 export * from "./getSubnetIds";
@@ -80,6 +81,7 @@ export * from "./instance";
 export * from "./instancePlatform";
 export * from "./instanceType";
 export * from "./internetGateway";
+export * from "./internetGatewayAttachment";
 export * from "./keyPair";
 export * from "./launchConfiguration";
 export * from "./launchTemplate";
@@ -92,6 +94,7 @@ export * from "./natGateway";
 export * from "./networkAcl";
 export * from "./networkAclAssociation";
 export * from "./networkAclRule";
+export * from "./networkInsightsPath";
 export * from "./networkInterface";
 export * from "./networkInterfaceAttachment";
 export * from "./networkInterfaceSecurityGroupAttachment";
@@ -104,7 +107,9 @@ export * from "./route";
 export * from "./routeTable";
 export * from "./routeTableAssociation";
 export * from "./securityGroup";
+export * from "./securityGroupAssociation";
 export * from "./securityGroupRule";
+export * from "./serialConsoleAccess";
 export * from "./snapshotCreateVolumePermission";
 export * from "./spotDatafeedSubscription";
 export * from "./spotFleetRequest";
@@ -125,6 +130,7 @@ export * from "./vpcDhcpOptionsAssociation";
 export * from "./vpcEndpoint";
 export * from "./vpcEndpointConnectionAccepter";
 export * from "./vpcEndpointConnectionNotification";
+export * from "./vpcEndpointPolicy";
 export * from "./vpcEndpointRouteTableAssociation";
 export * from "./vpcEndpointService";
 export * from "./vpcEndpointServiceAllowedPrinciple";
@@ -172,6 +178,7 @@ import { Fleet } from "./fleet";
 import { FlowLog } from "./flowLog";
 import { Instance } from "./instance";
 import { InternetGateway } from "./internetGateway";
+import { InternetGatewayAttachment } from "./internetGatewayAttachment";
 import { KeyPair } from "./keyPair";
 import { LaunchConfiguration } from "./launchConfiguration";
 import { LaunchTemplate } from "./launchTemplate";
@@ -184,6 +191,7 @@ import { NatGateway } from "./natGateway";
 import { NetworkAcl } from "./networkAcl";
 import { NetworkAclAssociation } from "./networkAclAssociation";
 import { NetworkAclRule } from "./networkAclRule";
+import { NetworkInsightsPath } from "./networkInsightsPath";
 import { NetworkInterface } from "./networkInterface";
 import { NetworkInterfaceAttachment } from "./networkInterfaceAttachment";
 import { NetworkInterfaceSecurityGroupAttachment } from "./networkInterfaceSecurityGroupAttachment";
@@ -194,7 +202,9 @@ import { Route } from "./route";
 import { RouteTable } from "./routeTable";
 import { RouteTableAssociation } from "./routeTableAssociation";
 import { SecurityGroup } from "./securityGroup";
+import { SecurityGroupAssociation } from "./securityGroupAssociation";
 import { SecurityGroupRule } from "./securityGroupRule";
+import { SerialConsoleAccess } from "./serialConsoleAccess";
 import { SnapshotCreateVolumePermission } from "./snapshotCreateVolumePermission";
 import { SpotDatafeedSubscription } from "./spotDatafeedSubscription";
 import { SpotFleetRequest } from "./spotFleetRequest";
@@ -214,6 +224,7 @@ import { VpcDhcpOptionsAssociation } from "./vpcDhcpOptionsAssociation";
 import { VpcEndpoint } from "./vpcEndpoint";
 import { VpcEndpointConnectionAccepter } from "./vpcEndpointConnectionAccepter";
 import { VpcEndpointConnectionNotification } from "./vpcEndpointConnectionNotification";
+import { VpcEndpointPolicy } from "./vpcEndpointPolicy";
 import { VpcEndpointRouteTableAssociation } from "./vpcEndpointRouteTableAssociation";
 import { VpcEndpointService } from "./vpcEndpointService";
 import { VpcEndpointServiceAllowedPrinciple } from "./vpcEndpointServiceAllowedPrinciple";
@@ -283,6 +294,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws:ec2/internetGateway:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
+            case "aws:ec2/internetGatewayAttachment:InternetGatewayAttachment":
+                return new InternetGatewayAttachment(name, <any>undefined, { urn })
             case "aws:ec2/keyPair:KeyPair":
                 return new KeyPair(name, <any>undefined, { urn })
             case "aws:ec2/launchConfiguration:LaunchConfiguration":
@@ -307,6 +320,8 @@ const _module = {
                 return new NetworkAclAssociation(name, <any>undefined, { urn })
             case "aws:ec2/networkAclRule:NetworkAclRule":
                 return new NetworkAclRule(name, <any>undefined, { urn })
+            case "aws:ec2/networkInsightsPath:NetworkInsightsPath":
+                return new NetworkInsightsPath(name, <any>undefined, { urn })
             case "aws:ec2/networkInterface:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
             case "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment":
@@ -327,8 +342,12 @@ const _module = {
                 return new RouteTableAssociation(name, <any>undefined, { urn })
             case "aws:ec2/securityGroup:SecurityGroup":
                 return new SecurityGroup(name, <any>undefined, { urn })
+            case "aws:ec2/securityGroupAssociation:SecurityGroupAssociation":
+                return new SecurityGroupAssociation(name, <any>undefined, { urn })
             case "aws:ec2/securityGroupRule:SecurityGroupRule":
                 return new SecurityGroupRule(name, <any>undefined, { urn })
+            case "aws:ec2/serialConsoleAccess:SerialConsoleAccess":
+                return new SerialConsoleAccess(name, <any>undefined, { urn })
             case "aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission":
                 return new SnapshotCreateVolumePermission(name, <any>undefined, { urn })
             case "aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription":
@@ -367,6 +386,8 @@ const _module = {
                 return new VpcEndpointConnectionAccepter(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification":
                 return new VpcEndpointConnectionNotification(name, <any>undefined, { urn })
+            case "aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy":
+                return new VpcEndpointPolicy(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation":
                 return new VpcEndpointRouteTableAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointService:VpcEndpointService":
@@ -434,6 +455,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/flowLog", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/internetGateway", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/internetGatewayAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/keyPair", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/launchConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/launchTemplate", _module)
@@ -446,6 +468,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/natGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclRule", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsPath", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterface", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterfaceAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterfaceSecurityGroupAttachment", _module)
@@ -456,7 +479,9 @@ pulumi.runtime.registerResourceModule("aws", "ec2/route", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/routeTable", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/routeTableAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/securityGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/securityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/securityGroupRule", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/serialConsoleAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/snapshotCreateVolumePermission", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/spotDatafeedSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/spotFleetRequest", _module)
@@ -476,6 +501,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptionsAssociation", _m
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionNotification", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointRouteTableAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointService", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointServiceAllowedPrinciple", _module)

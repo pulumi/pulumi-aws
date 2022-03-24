@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Cognito
     /// Cognito User Pool Domains can be imported using the `domain`, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main &lt;domain&gt;
+    ///  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]

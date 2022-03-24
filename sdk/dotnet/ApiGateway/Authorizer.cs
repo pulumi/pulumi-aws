@@ -104,6 +104,12 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Authorizer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the API Gateway Authorizer
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>
         [Output("authorizerCredentials")]
@@ -272,6 +278,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class AuthorizerState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the API Gateway Authorizer
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>

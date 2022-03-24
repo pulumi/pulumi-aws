@@ -9,13 +9,78 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GetConnectFilterResult',
+    'GetConnectPeerFilterResult',
     'GetDirectConnectGatewayAttachmentFilterResult',
+    'GetMulticastDomainAssociationResult',
+    'GetMulticastDomainFilterResult',
+    'GetMulticastDomainMemberResult',
+    'GetMulticastDomainSourceResult',
     'GetPeeringAttachmentFilterResult',
     'GetRouteTableFilterResult',
     'GetTransitGatewayFilterResult',
     'GetVpcAttachmentFilterResult',
+    'GetVpcAttachmentsFilterResult',
     'GetVpnAttachmentFilterResult',
 ]
+
+@pulumi.output_type
+class GetConnectFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetConnectPeerFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
 
 @pulumi.output_type
 class GetDirectConnectGatewayAttachmentFilterResult(dict):
@@ -44,6 +109,122 @@ class GetDirectConnectGatewayAttachmentFilterResult(dict):
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetMulticastDomainAssociationResult(dict):
+    def __init__(__self__, *,
+                 subnet_id: str,
+                 transit_gateway_attachment_id: str):
+        """
+        :param str subnet_id: The ID of the subnet associated with the transit gateway multicast domain.
+        :param str transit_gateway_attachment_id: The ID of the transit gateway attachment.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The ID of the subnet associated with the transit gateway multicast domain.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> str:
+        """
+        The ID of the transit gateway attachment.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+
+@pulumi.output_type
+class GetMulticastDomainFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetMulticastDomainMemberResult(dict):
+    def __init__(__self__, *,
+                 group_ip_address: str,
+                 network_interface_id: str):
+        """
+        :param str group_ip_address: The IP address assigned to the transit gateway multicast group.
+        :param str network_interface_id: The group members' network interface ID.
+        """
+        pulumi.set(__self__, "group_ip_address", group_ip_address)
+        pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @property
+    @pulumi.getter(name="groupIpAddress")
+    def group_ip_address(self) -> str:
+        """
+        The IP address assigned to the transit gateway multicast group.
+        """
+        return pulumi.get(self, "group_ip_address")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        """
+        The group members' network interface ID.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+
+@pulumi.output_type
+class GetMulticastDomainSourceResult(dict):
+    def __init__(__self__, *,
+                 group_ip_address: str,
+                 network_interface_id: str):
+        """
+        :param str group_ip_address: The IP address assigned to the transit gateway multicast group.
+        :param str network_interface_id: The group members' network interface ID.
+        """
+        pulumi.set(__self__, "group_ip_address", group_ip_address)
+        pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @property
+    @pulumi.getter(name="groupIpAddress")
+    def group_ip_address(self) -> str:
+        """
+        The IP address assigned to the transit gateway multicast group.
+        """
+        return pulumi.get(self, "group_ip_address")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        """
+        The group members' network interface ID.
+        """
+        return pulumi.get(self, "network_interface_id")
 
 
 @pulumi.output_type
@@ -154,6 +335,35 @@ class GetVpcAttachmentFilterResult(dict):
     def name(self) -> str:
         """
         Name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcAttachmentsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
         """
         return pulumi.get(self, "name")
 

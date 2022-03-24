@@ -430,7 +430,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
@@ -505,7 +505,6 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["versioning"] = args ? args.versioning : undefined;
             resourceInputs["website"] = args ? args.website : undefined;
             resourceInputs["websiteDomain"] = args ? args.websiteDomain : undefined;
@@ -513,6 +512,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["bucketDomainName"] = undefined /*out*/;
             resourceInputs["bucketRegionalDomainName"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Bucket.__pulumiType, name, resourceInputs, opts);
@@ -703,10 +703,6 @@ export interface BucketArgs {
      * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */

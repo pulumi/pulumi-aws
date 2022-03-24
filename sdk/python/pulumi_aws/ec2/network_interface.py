@@ -38,7 +38,7 @@ class NetworkInterfaceArgs:
         """
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[str] description: Description for the network interface.
         :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -111,7 +111,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter
     def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]:
         """
-        Configuration block to define the attachment of the ENI. See below.
+        Configuration block to define the attachment of the ENI. See Attachment below for more details!
         """
         return pulumi.get(self, "attachments")
 
@@ -359,7 +359,7 @@ class _NetworkInterfaceState:
         """
         Input properties used for looking up and filtering NetworkInterface resources.
         :param pulumi.Input[str] arn: ARN of the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[str] description: Description for the network interface.
         :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -450,7 +450,7 @@ class _NetworkInterfaceState:
     @pulumi.getter
     def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]:
         """
-        Configuration block to define the attachment of the ENI. See below.
+        Configuration block to define the attachment of the ENI. See Attachment below for more details!
         """
         return pulumi.get(self, "attachments")
 
@@ -806,7 +806,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Configuration block to define the attachment of the ENI. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[str] description: Description for the network interface.
         :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -992,7 +992,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Configuration block to define the attachment of the ENI. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[str] description: Description for the network interface.
         :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -1058,7 +1058,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter
     def attachments(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceAttachment']]:
         """
-        Configuration block to define the attachment of the ENI. See below.
+        Configuration block to define the attachment of the ENI. See Attachment below for more details!
         """
         return pulumi.get(self, "attachments")
 

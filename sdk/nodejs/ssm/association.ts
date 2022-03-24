@@ -92,6 +92,10 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly applyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
     /**
+     * The ARN of the SSM association
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The ID of the SSM association.
      */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
@@ -113,6 +117,8 @@ export class Association extends pulumi.CustomResource {
     public readonly documentVersion!: pulumi.Output<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     *
+     * @deprecated use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
      */
     public readonly instanceId!: pulumi.Output<string | undefined>;
     /**
@@ -143,6 +149,10 @@ export class Association extends pulumi.CustomResource {
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
     public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[]>;
+    /**
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     */
+    public readonly waitForSuccessTimeoutSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -158,6 +168,7 @@ export class Association extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AssociationState | undefined;
             resourceInputs["applyOnlyAtCronInterval"] = state ? state.applyOnlyAtCronInterval : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["associationId"] = state ? state.associationId : undefined;
             resourceInputs["associationName"] = state ? state.associationName : undefined;
             resourceInputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
@@ -171,6 +182,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
             resourceInputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["waitForSuccessTimeoutSeconds"] = state ? state.waitForSuccessTimeoutSeconds : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
             resourceInputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
@@ -186,6 +198,8 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -201,6 +215,10 @@ export interface AssociationState {
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      */
     applyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    /**
+     * The ARN of the SSM association
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The ID of the SSM association.
      */
@@ -223,6 +241,8 @@ export interface AssociationState {
     documentVersion?: pulumi.Input<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     *
+     * @deprecated use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
      */
     instanceId?: pulumi.Input<string>;
     /**
@@ -253,6 +273,10 @@ export interface AssociationState {
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    /**
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     */
+    waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -281,6 +305,8 @@ export interface AssociationArgs {
     documentVersion?: pulumi.Input<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     *
+     * @deprecated use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
      */
     instanceId?: pulumi.Input<string>;
     /**
@@ -311,4 +337,8 @@ export interface AssociationArgs {
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    /**
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     */
+    waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
 }

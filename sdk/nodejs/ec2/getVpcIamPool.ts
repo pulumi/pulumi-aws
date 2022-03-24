@@ -22,7 +22,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpcIamPool = aws.ec2.getVpcIamPool({});
+ * const testVpcIamPool = aws.ec2.getVpcIamPool({
+ *     filters: [
+ *         {
+ *             name: "description",
+ *             values: ["*test*"],
+ *         },
+ *         {
+ *             name: "address-family",
+ *             values: ["ipv4"],
+ *         },
+ *     ],
+ * });
  * const testVpc = new aws.ec2.Vpc("testVpc", {
  *     ipv4IpamPoolId: testVpcIamPool.then(testVpcIamPool => testVpcIamPool.id),
  *     ipv4NetmaskLength: 28,

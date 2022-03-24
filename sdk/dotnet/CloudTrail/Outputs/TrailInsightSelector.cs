@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudTrail.Outputs
     public sealed class TrailInsightSelector
     {
         /// <summary>
-        /// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
+        /// Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
         /// </summary>
         public readonly string InsightType;
 

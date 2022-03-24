@@ -67,6 +67,23 @@ class InvitationAccepter(pulumi.CustomResource):
         """
         Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary_graph = aws.detective.Graph("primaryGraph")
+        primary_member = aws.detective.Member("primaryMember",
+            account_id="ACCOUNT ID",
+            email_address="EMAIL",
+            graph_arn=primary_graph.id,
+            message="Message of the invite")
+        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
+        opts=pulumi.ResourceOptions(provider="awsalternate",
+            depends_on=[primary_member]))
+        ```
+
         ## Import
 
         `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
@@ -87,6 +104,23 @@ class InvitationAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary_graph = aws.detective.Graph("primaryGraph")
+        primary_member = aws.detective.Member("primaryMember",
+            account_id="ACCOUNT ID",
+            email_address="EMAIL",
+            graph_arn=primary_graph.id,
+            message="Message of the invite")
+        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
+        opts=pulumi.ResourceOptions(provider="awsalternate",
+            depends_on=[primary_member]))
+        ```
 
         ## Import
 

@@ -9,18 +9,6 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
 import {Metric} from "./index";
 
 /**
- * Provides an Auto Scaling Group resource.
- *
- * > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
- *
- * > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
- * both a standalone `aws.autoscaling.Attachment` resource
- * (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
- * with `loadBalancers` and `targetGroupArns` defined in-line. These two methods are not
- * mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
- * `loadBalancers` or `targetGroupArns`, the `aws.autoscaling.Group` resource must be configured
- * to ignore changes to the `loadBalancers` and `targetGroupArns` arguments.
- *
  * ## Example Usage
  * ### With Latest Version Of Launch Template
  *

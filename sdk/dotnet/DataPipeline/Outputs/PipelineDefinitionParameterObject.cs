@@ -13,6 +13,9 @@ namespace Pulumi.Aws.DataPipeline.Outputs
     [OutputType]
     public sealed class PipelineDefinitionParameterObject
     {
+        /// <summary>
+        /// Configuration block for attributes of the parameter object. See below
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineDefinitionParameterObjectAttribute> Attributes;
         /// <summary>
         /// ID of the parameter value.

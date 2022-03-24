@@ -22,13 +22,19 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerators=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if block_device_mappings and not isinstance(block_device_mappings, list):
             raise TypeError("Expected argument 'block_device_mappings' to be a list")
         pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if capacity_reservation_specifications and not isinstance(capacity_reservation_specifications, list):
+            raise TypeError("Expected argument 'capacity_reservation_specifications' to be a list")
+        pulumi.set(__self__, "capacity_reservation_specifications", capacity_reservation_specifications)
+        if cpu_options and not isinstance(cpu_options, list):
+            raise TypeError("Expected argument 'cpu_options' to be a list")
+        pulumi.set(__self__, "cpu_options", cpu_options)
         if credit_specifications and not isinstance(credit_specifications, list):
             raise TypeError("Expected argument 'credit_specifications' to be a list")
         pulumi.set(__self__, "credit_specifications", credit_specifications)
@@ -47,6 +53,9 @@ class GetLaunchTemplateResult:
         if elastic_gpu_specifications and not isinstance(elastic_gpu_specifications, list):
             raise TypeError("Expected argument 'elastic_gpu_specifications' to be a list")
         pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+        if elastic_inference_accelerators and not isinstance(elastic_inference_accelerators, list):
+            raise TypeError("Expected argument 'elastic_inference_accelerators' to be a list")
+        pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
         if enclave_options and not isinstance(enclave_options, list):
             raise TypeError("Expected argument 'enclave_options' to be a list")
         pulumi.set(__self__, "enclave_options", enclave_options)
@@ -83,6 +92,9 @@ class GetLaunchTemplateResult:
         if latest_version and not isinstance(latest_version, int):
             raise TypeError("Expected argument 'latest_version' to be a int")
         pulumi.set(__self__, "latest_version", latest_version)
+        if license_specifications and not isinstance(license_specifications, list):
+            raise TypeError("Expected argument 'license_specifications' to be a list")
+        pulumi.set(__self__, "license_specifications", license_specifications)
         if metadata_options and not isinstance(metadata_options, list):
             raise TypeError("Expected argument 'metadata_options' to be a list")
         pulumi.set(__self__, "metadata_options", metadata_options)
@@ -98,6 +110,9 @@ class GetLaunchTemplateResult:
         if placements and not isinstance(placements, list):
             raise TypeError("Expected argument 'placements' to be a list")
         pulumi.set(__self__, "placements", placements)
+        if private_dns_name_options and not isinstance(private_dns_name_options, list):
+            raise TypeError("Expected argument 'private_dns_name_options' to be a list")
+        pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if ram_disk_id and not isinstance(ram_disk_id, str):
             raise TypeError("Expected argument 'ram_disk_id' to be a str")
         pulumi.set(__self__, "ram_disk_id", ram_disk_id)
@@ -120,76 +135,61 @@ class GetLaunchTemplateResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        Amazon Resource Name (ARN) of the launch template.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Sequence['outputs.GetLaunchTemplateBlockDeviceMappingResult']:
-        """
-        Specify volumes to attach to the instance besides the volumes specified by the AMI.
-        """
         return pulumi.get(self, "block_device_mappings")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecifications")
+    def capacity_reservation_specifications(self) -> Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationResult']:
+        return pulumi.get(self, "capacity_reservation_specifications")
+
+    @property
+    @pulumi.getter(name="cpuOptions")
+    def cpu_options(self) -> Sequence['outputs.GetLaunchTemplateCpuOptionResult']:
+        return pulumi.get(self, "cpu_options")
 
     @property
     @pulumi.getter(name="creditSpecifications")
     def credit_specifications(self) -> Sequence['outputs.GetLaunchTemplateCreditSpecificationResult']:
-        """
-        Customize the credit specification of the instance. See Credit
-        Specification below for more details.
-        """
         return pulumi.get(self, "credit_specifications")
 
     @property
     @pulumi.getter(name="defaultVersion")
     def default_version(self) -> int:
-        """
-        The default version of the launch template.
-        """
         return pulumi.get(self, "default_version")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the launch template.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> bool:
-        """
-        If `true`, enables [EC2 Instance
-        Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
-        """
         return pulumi.get(self, "disable_api_termination")
 
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> str:
-        """
-        If `true`, the launched EC2 instance will be EBS-optimized.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
     def elastic_gpu_specifications(self) -> Sequence['outputs.GetLaunchTemplateElasticGpuSpecificationResult']:
-        """
-        The elastic GPU to attach to the instance. See Elastic GPU
-        below for more details.
-        """
         return pulumi.get(self, "elastic_gpu_specifications")
+
+    @property
+    @pulumi.getter(name="elasticInferenceAccelerators")
+    def elastic_inference_accelerators(self) -> Sequence['outputs.GetLaunchTemplateElasticInferenceAcceleratorResult']:
+        return pulumi.get(self, "elastic_inference_accelerators")
 
     @property
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> Sequence['outputs.GetLaunchTemplateEnclaveOptionResult']:
-        """
-        The enclave options of the Instance.
-        """
         return pulumi.get(self, "enclave_options")
 
     @property
@@ -200,18 +200,11 @@ class GetLaunchTemplateResult:
     @property
     @pulumi.getter(name="hibernationOptions")
     def hibernation_options(self) -> Sequence['outputs.GetLaunchTemplateHibernationOptionResult']:
-        """
-        The hibernation options for the instance.
-        """
         return pulumi.get(self, "hibernation_options")
 
     @property
     @pulumi.getter(name="iamInstanceProfiles")
     def iam_instance_profiles(self) -> Sequence['outputs.GetLaunchTemplateIamInstanceProfileResult']:
-        """
-        The IAM Instance Profile to launch the instance with. See Instance Profile
-        below for more details.
-        """
         return pulumi.get(self, "iam_instance_profiles")
 
     @property
@@ -225,146 +218,101 @@ class GetLaunchTemplateResult:
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> str:
-        """
-        The AMI from which to launch the instance.
-        """
         return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
     def instance_initiated_shutdown_behavior(self) -> str:
-        """
-        Shutdown behavior for the instance. Can be `stop` or `terminate`.
-        (Default: `stop`).
-        """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @property
     @pulumi.getter(name="instanceMarketOptions")
     def instance_market_options(self) -> Sequence['outputs.GetLaunchTemplateInstanceMarketOptionResult']:
-        """
-        The market (purchasing) option for the instance.
-        below for details.
-        """
         return pulumi.get(self, "instance_market_options")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
-        """
-        The type of the instance.
-        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> str:
-        """
-        The kernel ID.
-        """
         return pulumi.get(self, "kernel_id")
 
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> str:
-        """
-        The key name to use for the instance.
-        """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="latestVersion")
     def latest_version(self) -> int:
-        """
-        The latest version of the launch template.
-        """
         return pulumi.get(self, "latest_version")
+
+    @property
+    @pulumi.getter(name="licenseSpecifications")
+    def license_specifications(self) -> Sequence['outputs.GetLaunchTemplateLicenseSpecificationResult']:
+        return pulumi.get(self, "license_specifications")
 
     @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Sequence['outputs.GetLaunchTemplateMetadataOptionResult']:
-        """
-        The metadata options for the instance.
-        """
         return pulumi.get(self, "metadata_options")
 
     @property
     @pulumi.getter
     def monitorings(self) -> Sequence['outputs.GetLaunchTemplateMonitoringResult']:
-        """
-        The monitoring option for the instance.
-        """
         return pulumi.get(self, "monitorings")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Sequence['outputs.GetLaunchTemplateNetworkInterfaceResult']:
-        """
-        Customize network interfaces to be attached at instance boot time. See Network
-        Interfaces below for more details.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter
     def placements(self) -> Sequence['outputs.GetLaunchTemplatePlacementResult']:
-        """
-        The placement of the instance.
-        """
         return pulumi.get(self, "placements")
+
+    @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Sequence['outputs.GetLaunchTemplatePrivateDnsNameOptionResult']:
+        return pulumi.get(self, "private_dns_name_options")
 
     @property
     @pulumi.getter(name="ramDiskId")
     def ram_disk_id(self) -> str:
-        """
-        The ID of the RAM disk.
-        """
         return pulumi.get(self, "ram_disk_id")
 
     @property
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Sequence[str]:
-        """
-        A list of security group names to associate with. If you are creating Instances in a VPC, use
-        `vpc_security_group_ids` instead.
-        """
         return pulumi.get(self, "security_group_names")
 
     @property
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Sequence['outputs.GetLaunchTemplateTagSpecificationResult']:
-        """
-        The tags to apply to the resources during launch.
-        """
         return pulumi.get(self, "tag_specifications")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        (Optional) A map of tags to assign to the launch template.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userData")
     def user_data(self) -> str:
-        """
-        The Base64-encoded user data to provide when launching the instance.
-        """
         return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[str]:
-        """
-        A list of security group IDs to associate with.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 
@@ -376,12 +324,15 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
         return GetLaunchTemplateResult(
             arn=self.arn,
             block_device_mappings=self.block_device_mappings,
+            capacity_reservation_specifications=self.capacity_reservation_specifications,
+            cpu_options=self.cpu_options,
             credit_specifications=self.credit_specifications,
             default_version=self.default_version,
             description=self.description,
             disable_api_termination=self.disable_api_termination,
             ebs_optimized=self.ebs_optimized,
             elastic_gpu_specifications=self.elastic_gpu_specifications,
+            elastic_inference_accelerators=self.elastic_inference_accelerators,
             enclave_options=self.enclave_options,
             filters=self.filters,
             hibernation_options=self.hibernation_options,
@@ -394,11 +345,13 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             kernel_id=self.kernel_id,
             key_name=self.key_name,
             latest_version=self.latest_version,
+            license_specifications=self.license_specifications,
             metadata_options=self.metadata_options,
             monitorings=self.monitorings,
             name=self.name,
             network_interfaces=self.network_interfaces,
             placements=self.placements,
+            private_dns_name_options=self.private_dns_name_options,
             ram_disk_id=self.ram_disk_id,
             security_group_names=self.security_group_names,
             tag_specifications=self.tag_specifications,
@@ -455,12 +408,15 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
     return AwaitableGetLaunchTemplateResult(
         arn=__ret__.arn,
         block_device_mappings=__ret__.block_device_mappings,
+        capacity_reservation_specifications=__ret__.capacity_reservation_specifications,
+        cpu_options=__ret__.cpu_options,
         credit_specifications=__ret__.credit_specifications,
         default_version=__ret__.default_version,
         description=__ret__.description,
         disable_api_termination=__ret__.disable_api_termination,
         ebs_optimized=__ret__.ebs_optimized,
         elastic_gpu_specifications=__ret__.elastic_gpu_specifications,
+        elastic_inference_accelerators=__ret__.elastic_inference_accelerators,
         enclave_options=__ret__.enclave_options,
         filters=__ret__.filters,
         hibernation_options=__ret__.hibernation_options,
@@ -473,11 +429,13 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
         kernel_id=__ret__.kernel_id,
         key_name=__ret__.key_name,
         latest_version=__ret__.latest_version,
+        license_specifications=__ret__.license_specifications,
         metadata_options=__ret__.metadata_options,
         monitorings=__ret__.monitorings,
         name=__ret__.name,
         network_interfaces=__ret__.network_interfaces,
         placements=__ret__.placements,
+        private_dns_name_options=__ret__.private_dns_name_options,
         ram_disk_id=__ret__.ram_disk_id,
         security_group_names=__ret__.security_group_names,
         tag_specifications=__ret__.tag_specifications,

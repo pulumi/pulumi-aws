@@ -20,7 +20,7 @@ class GetPublicKeyResult:
     """
     A collection of values returned by getPublicKey.
     """
-    def __init__(__self__, arn=None, customer_master_key_spec=None, encryption_algorithms=None, grant_tokens=None, id=None, key_id=None, key_usage=None, public_key=None, signing_algorithms=None):
+    def __init__(__self__, arn=None, customer_master_key_spec=None, encryption_algorithms=None, grant_tokens=None, id=None, key_id=None, key_usage=None, public_key=None, public_key_pem=None, signing_algorithms=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetPublicKeyResult:
         if public_key and not isinstance(public_key, str):
             raise TypeError("Expected argument 'public_key' to be a str")
         pulumi.set(__self__, "public_key", public_key)
+        if public_key_pem and not isinstance(public_key_pem, str):
+            raise TypeError("Expected argument 'public_key_pem' to be a str")
+        pulumi.set(__self__, "public_key_pem", public_key_pem)
         if signing_algorithms and not isinstance(signing_algorithms, list):
             raise TypeError("Expected argument 'signing_algorithms' to be a list")
         pulumi.set(__self__, "signing_algorithms", signing_algorithms)
@@ -108,6 +111,14 @@ class GetPublicKeyResult:
         return pulumi.get(self, "public_key")
 
     @property
+    @pulumi.getter(name="publicKeyPem")
+    def public_key_pem(self) -> str:
+        """
+        Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
+        """
+        return pulumi.get(self, "public_key_pem")
+
+    @property
     @pulumi.getter(name="signingAlgorithms")
     def signing_algorithms(self) -> Sequence[str]:
         """
@@ -130,6 +141,7 @@ class AwaitableGetPublicKeyResult(GetPublicKeyResult):
             key_id=self.key_id,
             key_usage=self.key_usage,
             public_key=self.public_key,
+            public_key_pem=self.public_key_pem,
             signing_algorithms=self.signing_algorithms)
 
 
@@ -177,6 +189,7 @@ def get_public_key(grant_tokens: Optional[Sequence[str]] = None,
         key_id=__ret__.key_id,
         key_usage=__ret__.key_usage,
         public_key=__ret__.public_key,
+        public_key_pem=__ret__.public_key_pem,
         signing_algorithms=__ret__.signing_algorithms)
 
 

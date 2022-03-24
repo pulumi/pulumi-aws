@@ -106,6 +106,9 @@ namespace Pulumi.Aws.Iot
         [Output("cloudwatchAlarm")]
         public Output<Outputs.TopicRuleCloudwatchAlarm?> CloudwatchAlarm { get; private set; } = null!;
 
+        [Output("cloudwatchLogs")]
+        public Output<ImmutableArray<Outputs.TopicRuleCloudwatchLog>> CloudwatchLogs { get; private set; } = null!;
+
         [Output("cloudwatchMetric")]
         public Output<Outputs.TopicRuleCloudwatchMetric?> CloudwatchMetric { get; private set; } = null!;
 
@@ -131,7 +134,7 @@ namespace Pulumi.Aws.Iot
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         /// </summary>
         [Output("errorAction")]
         public Output<Outputs.TopicRuleErrorAction?> ErrorAction { get; private set; } = null!;
@@ -185,7 +188,7 @@ namespace Pulumi.Aws.Iot
         public Output<ImmutableArray<Outputs.TopicRuleStepFunction>> StepFunctions { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -245,6 +248,14 @@ namespace Pulumi.Aws.Iot
         [Input("cloudwatchAlarm")]
         public Input<Inputs.TopicRuleCloudwatchAlarmArgs>? CloudwatchAlarm { get; set; }
 
+        [Input("cloudwatchLogs")]
+        private InputList<Inputs.TopicRuleCloudwatchLogArgs>? _cloudwatchLogs;
+        public InputList<Inputs.TopicRuleCloudwatchLogArgs> CloudwatchLogs
+        {
+            get => _cloudwatchLogs ?? (_cloudwatchLogs = new InputList<Inputs.TopicRuleCloudwatchLogArgs>());
+            set => _cloudwatchLogs = value;
+        }
+
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricArgs>? CloudwatchMetric { get; set; }
 
@@ -275,7 +286,7 @@ namespace Pulumi.Aws.Iot
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionArgs>? ErrorAction { get; set; }
@@ -347,7 +358,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -370,6 +381,14 @@ namespace Pulumi.Aws.Iot
 
         [Input("cloudwatchAlarm")]
         public Input<Inputs.TopicRuleCloudwatchAlarmGetArgs>? CloudwatchAlarm { get; set; }
+
+        [Input("cloudwatchLogs")]
+        private InputList<Inputs.TopicRuleCloudwatchLogGetArgs>? _cloudwatchLogs;
+        public InputList<Inputs.TopicRuleCloudwatchLogGetArgs> CloudwatchLogs
+        {
+            get => _cloudwatchLogs ?? (_cloudwatchLogs = new InputList<Inputs.TopicRuleCloudwatchLogGetArgs>());
+            set => _cloudwatchLogs = value;
+        }
 
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricGetArgs>? CloudwatchMetric { get; set; }
@@ -401,7 +420,7 @@ namespace Pulumi.Aws.Iot
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionGetArgs>? ErrorAction { get; set; }
@@ -473,7 +492,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

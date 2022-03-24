@@ -149,6 +149,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Output("callAs")]
+        public Output<string?> CallAs { get; private set; } = null!;
+
+        /// <summary>
         /// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         /// </summary>
         [Output("deploymentTargets")]
@@ -243,6 +249,12 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Input("callAs")]
+        public Input<string>? CallAs { get; set; }
+
+        /// <summary>
         /// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         /// </summary>
         [Input("deploymentTargets")]
@@ -290,6 +302,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Input("callAs")]
+        public Input<string>? CallAs { get; set; }
 
         /// <summary>
         /// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.

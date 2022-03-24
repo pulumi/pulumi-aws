@@ -25,6 +25,12 @@ namespace Pulumi.Aws.GameLift.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
+        /// A specific version of the file. If not set, the latest version of the file is retrieved.
+        /// </summary>
+        [Input("objectVersion")]
+        public Input<string>? ObjectVersion { get; set; }
+
+        /// <summary>
         /// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         /// </summary>
         [Input("roleArn", required: true)]

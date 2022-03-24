@@ -34,9 +34,9 @@ type LookupInternetGatewayArgs struct {
 // A collection of values returned by getInternetGateway.
 type LookupInternetGatewayResult struct {
 	// The ARN of the Internet Gateway.
-	Arn         string                         `pulumi:"arn"`
-	Attachments []GetInternetGatewayAttachment `pulumi:"attachments"`
-	Filters     []GetInternetGatewayFilter     `pulumi:"filters"`
+	Arn         string                             `pulumi:"arn"`
+	Attachments []GetInternetGatewayAttachmentType `pulumi:"attachments"`
+	Filters     []GetInternetGatewayFilter         `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	InternetGatewayId string `pulumi:"internetGatewayId"`
@@ -89,8 +89,8 @@ func (o LookupInternetGatewayResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o LookupInternetGatewayResultOutput) Attachments() GetInternetGatewayAttachmentArrayOutput {
-	return o.ApplyT(func(v LookupInternetGatewayResult) []GetInternetGatewayAttachment { return v.Attachments }).(GetInternetGatewayAttachmentArrayOutput)
+func (o LookupInternetGatewayResultOutput) Attachments() GetInternetGatewayAttachmentTypeArrayOutput {
+	return o.ApplyT(func(v LookupInternetGatewayResult) []GetInternetGatewayAttachmentType { return v.Attachments }).(GetInternetGatewayAttachmentTypeArrayOutput)
 }
 
 func (o LookupInternetGatewayResultOutput) Filters() GetInternetGatewayFilterArrayOutput {

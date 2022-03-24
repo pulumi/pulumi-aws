@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * const primaryGraph = new aws.detective.Graph("primaryGraph", {});
  * const primaryMember = new aws.detective.Member("primaryMember", {
  *     accountId: "ACCOUNT ID",
- *     email: "EMAIL",
+ *     emailAddress: "EMAIL",
  *     graphArn: primaryGraph.id,
  *     message: "Message of the invite",
  * });
- * const member = new aws.detective.InvitationAccepter("member", {graphArn: primaryMember.graphArn}, {
+ * const member = new aws.detective.InvitationAccepter("member", {graphArn: primaryGraph.graphArn}, {
  *     provider: "awsalternate",
- *     dependsOn: [aws_detective_member.test],
+ *     dependsOn: [primaryMember],
  * });
  * ```
  *

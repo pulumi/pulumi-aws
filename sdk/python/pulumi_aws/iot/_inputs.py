@@ -15,6 +15,7 @@ __all__ = [
     'ThingGroupPropertiesAttributePayloadArgs',
     'ThingTypePropertiesArgs',
     'TopicRuleCloudwatchAlarmArgs',
+    'TopicRuleCloudwatchLogArgs',
     'TopicRuleCloudwatchMetricArgs',
     'TopicRuleDynamodbArgs',
     'TopicRuleDynamodbv2Args',
@@ -22,6 +23,7 @@ __all__ = [
     'TopicRuleElasticsearchArgs',
     'TopicRuleErrorActionArgs',
     'TopicRuleErrorActionCloudwatchAlarmArgs',
+    'TopicRuleErrorActionCloudwatchLogsArgs',
     'TopicRuleErrorActionCloudwatchMetricArgs',
     'TopicRuleErrorActionDynamodbArgs',
     'TopicRuleErrorActionDynamodbv2Args',
@@ -291,6 +293,43 @@ class TopicRuleCloudwatchAlarmArgs:
     @state_value.setter
     def state_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "state_value", value)
+
+
+@pulumi.input_type
+class TopicRuleCloudwatchLogArgs:
+    def __init__(__self__, *,
+                 log_group_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_group_name: The CloudWatch log group name.
+        :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        """
+        The CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
 
 
 @pulumi.input_type
@@ -700,6 +739,7 @@ class TopicRuleElasticsearchArgs:
 class TopicRuleErrorActionArgs:
     def __init__(__self__, *,
                  cloudwatch_alarm: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgs']] = None,
+                 cloudwatch_logs: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgs']] = None,
                  cloudwatch_metric: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgs']] = None,
                  dynamodb: Optional[pulumi.Input['TopicRuleErrorActionDynamodbArgs']] = None,
                  dynamodbv2: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2Args']] = None,
@@ -716,6 +756,8 @@ class TopicRuleErrorActionArgs:
                  step_functions: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']] = None):
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
             pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
         if dynamodb is not None:
@@ -753,6 +795,15 @@ class TopicRuleErrorActionArgs:
     @cloudwatch_alarm.setter
     def cloudwatch_alarm(self, value: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgs']]):
         pulumi.set(self, "cloudwatch_alarm", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgs']]:
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgs']]):
+        pulumi.set(self, "cloudwatch_logs", value)
 
     @property
     @pulumi.getter(name="cloudwatchMetric")
@@ -946,6 +997,43 @@ class TopicRuleErrorActionCloudwatchAlarmArgs:
     @state_value.setter
     def state_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "state_value", value)
+
+
+@pulumi.input_type
+class TopicRuleErrorActionCloudwatchLogsArgs:
+    def __init__(__self__, *,
+                 log_group_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_group_name: The CloudWatch log group name.
+        :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        """
+        The CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CatalogDatabaseCreateTableDefaultPermission',
+    'CatalogDatabaseCreateTableDefaultPermissionPrincipal',
     'CatalogDatabaseTargetDatabase',
     'CatalogTablePartitionIndex',
     'CatalogTablePartitionKey',
@@ -57,6 +59,7 @@ __all__ = [
     'SecurityConfigurationEncryptionConfigurationS3Encryption',
     'TriggerAction',
     'TriggerActionNotificationProperty',
+    'TriggerEventBatchingCondition',
     'TriggerPredicate',
     'TriggerPredicateCondition',
     'UserDefinedFunctionResourceUri',
@@ -68,6 +71,73 @@ __all__ = [
     'GetScriptDagNodeResult',
     'GetScriptDagNodeArgResult',
 ]
+
+@pulumi.output_type
+class CatalogDatabaseCreateTableDefaultPermission(dict):
+    def __init__(__self__, *,
+                 permissions: Optional[Sequence[str]] = None,
+                 principal: Optional['outputs.CatalogDatabaseCreateTableDefaultPermissionPrincipal'] = None):
+        """
+        :param Sequence[str] permissions: The permissions that are granted to the principal.
+        :param 'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs' principal: The principal who is granted permissions.. See `principal` below.
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence[str]]:
+        """
+        The permissions that are granted to the principal.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional['outputs.CatalogDatabaseCreateTableDefaultPermissionPrincipal']:
+        """
+        The principal who is granted permissions.. See `principal` below.
+        """
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class CatalogDatabaseCreateTableDefaultPermissionPrincipal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLakePrincipalIdentifier":
+            suggest = "data_lake_principal_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogDatabaseCreateTableDefaultPermissionPrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogDatabaseCreateTableDefaultPermissionPrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogDatabaseCreateTableDefaultPermissionPrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: Optional[str] = None):
+        """
+        :param str data_lake_principal_identifier: An identifier for the Lake Formation principal.
+        """
+        if data_lake_principal_identifier is not None:
+            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> Optional[str]:
+        """
+        An identifier for the Lake Formation principal.
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
 
 @pulumi.output_type
 class CatalogDatabaseTargetDatabase(dict):
@@ -1810,7 +1880,7 @@ class JobCommand(dict):
                  python_version: Optional[str] = None):
         """
         :param str script_location: Specifies the S3 path to a script that executes a job.
-        :param str name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        :param str name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         :param str python_version: The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
         """
         pulumi.set(__self__, "script_location", script_location)
@@ -1831,7 +1901,7 @@ class JobCommand(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         """
         return pulumi.get(self, "name")
 
@@ -2957,6 +3027,55 @@ class TriggerActionNotificationProperty(dict):
         After a job run starts, the number of minutes to wait before sending a job run delay notification.
         """
         return pulumi.get(self, "notify_delay_after")
+
+
+@pulumi.output_type
+class TriggerEventBatchingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchSize":
+            suggest = "batch_size"
+        elif key == "batchWindow":
+            suggest = "batch_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerEventBatchingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerEventBatchingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerEventBatchingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 batch_size: int,
+                 batch_window: Optional[int] = None):
+        """
+        :param int batch_size: Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+        :param int batch_window: Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+        """
+        pulumi.set(__self__, "batch_size", batch_size)
+        if batch_window is not None:
+            pulumi.set(__self__, "batch_window", batch_window)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> int:
+        """
+        Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="batchWindow")
+    def batch_window(self) -> Optional[int]:
+        """
+        Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+        """
+        return pulumi.get(self, "batch_window")
 
 
 @pulumi.output_type

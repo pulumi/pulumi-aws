@@ -28,6 +28,10 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := amp.NewWorkspace(ctx, "demo", &amp.WorkspaceArgs{
 // 			Alias: pulumi.String("prometheus-test"),
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("production"),
+// 				"Owner":       pulumi.String("abhi"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -53,6 +57,10 @@ type Workspace struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Prometheus endpoint available for this workspace.
 	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -90,6 +98,10 @@ type workspaceState struct {
 	Arn *string `pulumi:"arn"`
 	// Prometheus endpoint available for this workspace.
 	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkspaceState struct {
@@ -99,6 +111,10 @@ type WorkspaceState struct {
 	Arn pulumi.StringPtrInput
 	// Prometheus endpoint available for this workspace.
 	PrometheusEndpoint pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -108,12 +124,16 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias *string `pulumi:"alias"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

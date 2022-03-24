@@ -19,6 +19,9 @@ type Provider struct {
 
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
+	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+	CustomCaBundle pulumi.StringPtrOutput `pulumi:"customCaBundle"`
 	// Address of the EC2 metadata service endpoint to use. Can also be configured using the
 	// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
 	Ec2MetadataServiceEndpoint pulumi.StringPtrOutput `pulumi:"ec2MetadataServiceEndpoint"`
@@ -38,6 +41,8 @@ type Provider struct {
 	//
 	// Deprecated: Use shared_credentials_files instead.
 	SharedCredentialsFile pulumi.StringPtrOutput `pulumi:"sharedCredentialsFile"`
+	// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+	StsRegion pulumi.StringPtrOutput `pulumi:"stsRegion"`
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token pulumi.StringPtrOutput `pulumi:"token"`
 }
@@ -80,6 +85,9 @@ type providerArgs struct {
 	AccessKey         *string             `pulumi:"accessKey"`
 	AllowedAccountIds []string            `pulumi:"allowedAccountIds"`
 	AssumeRole        *ProviderAssumeRole `pulumi:"assumeRole"`
+	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+	CustomCaBundle *string `pulumi:"customCaBundle"`
 	// Configuration block with settings to default resource tags across all resources.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// Address of the EC2 metadata service endpoint to use. Can also be configured using the
@@ -135,6 +143,8 @@ type providerArgs struct {
 	SkipRegionValidation *bool `pulumi:"skipRegionValidation"`
 	// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
 	SkipRequestingAccountId *bool `pulumi:"skipRequestingAccountId"`
+	// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+	StsRegion *string `pulumi:"stsRegion"`
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token *string `pulumi:"token"`
 	// Resolve an endpoint with DualStack capability
@@ -149,6 +159,9 @@ type ProviderArgs struct {
 	AccessKey         pulumi.StringPtrInput
 	AllowedAccountIds pulumi.StringArrayInput
 	AssumeRole        ProviderAssumeRolePtrInput
+	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+	CustomCaBundle pulumi.StringPtrInput
 	// Configuration block with settings to default resource tags across all resources.
 	DefaultTags ProviderDefaultTagsPtrInput
 	// Address of the EC2 metadata service endpoint to use. Can also be configured using the
@@ -204,6 +217,8 @@ type ProviderArgs struct {
 	SkipRegionValidation pulumi.BoolPtrInput
 	// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
 	SkipRequestingAccountId pulumi.BoolPtrInput
+	// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+	StsRegion pulumi.StringPtrInput
 	// session token. A session token is only required if you are using temporary security credentials.
 	Token pulumi.StringPtrInput
 	// Resolve an endpoint with DualStack capability

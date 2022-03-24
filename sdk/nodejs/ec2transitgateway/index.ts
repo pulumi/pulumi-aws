@@ -5,12 +5,22 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./connect";
+export * from "./connectPeer";
+export * from "./getConnect";
+export * from "./getConnectPeer";
 export * from "./getDirectConnectGatewayAttachment";
+export * from "./getMulticastDomain";
 export * from "./getPeeringAttachment";
 export * from "./getRouteTable";
 export * from "./getTransitGateway";
 export * from "./getVpcAttachment";
+export * from "./getVpcAttachments";
 export * from "./getVpnAttachment";
+export * from "./multicastDomain";
+export * from "./multicastDomainAssociation";
+export * from "./multicastGroupMember";
+export * from "./multicastGroupSource";
 export * from "./peeringAttachment";
 export * from "./prefixListReference";
 export * from "./route";
@@ -22,6 +32,12 @@ export * from "./vpcAttachment";
 export * from "./vpcAttachmentAccepter";
 
 // Import resources to register:
+import { Connect } from "./connect";
+import { ConnectPeer } from "./connectPeer";
+import { MulticastDomain } from "./multicastDomain";
+import { MulticastDomainAssociation } from "./multicastDomainAssociation";
+import { MulticastGroupMember } from "./multicastGroupMember";
+import { MulticastGroupSource } from "./multicastGroupSource";
 import { PeeringAttachment } from "./peeringAttachment";
 import { PrefixListReference } from "./prefixListReference";
 import { Route } from "./route";
@@ -36,6 +52,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:ec2transitgateway/connect:Connect":
+                return new Connect(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/connectPeer:ConnectPeer":
+                return new ConnectPeer(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/multicastDomain:MulticastDomain":
+                return new MulticastDomain(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation":
+                return new MulticastDomainAssociation(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember":
+                return new MulticastGroupMember(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource":
+                return new MulticastGroupSource(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/peeringAttachment:PeeringAttachment":
                 return new PeeringAttachment(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
@@ -59,6 +87,12 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connect", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connectPeer", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomain", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomainAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastGroupMember", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastGroupSource", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/prefixListReference", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/route", _module)

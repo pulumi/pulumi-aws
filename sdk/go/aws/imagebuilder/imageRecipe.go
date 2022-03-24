@@ -76,7 +76,7 @@ type ImageRecipe struct {
 
 	// (Required) Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components ImageRecipeComponentArrayOutput `pulumi:"components"`
@@ -92,6 +92,8 @@ type ImageRecipe struct {
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -144,7 +146,7 @@ func GetImageRecipe(ctx *pulumi.Context,
 type imageRecipeState struct {
 	// (Required) Amazon Resource Name (ARN) of the image recipe.
 	Arn *string `pulumi:"arn"`
-	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components []ImageRecipeComponent `pulumi:"components"`
@@ -160,6 +162,8 @@ type imageRecipeState struct {
 	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform *string `pulumi:"platform"`
+	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -175,7 +179,7 @@ type imageRecipeState struct {
 type ImageRecipeState struct {
 	// (Required) Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringPtrInput
-	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components ImageRecipeComponentArrayInput
@@ -191,6 +195,8 @@ type ImageRecipeState struct {
 	ParentImage pulumi.StringPtrInput
 	// Platform of the image recipe.
 	Platform pulumi.StringPtrInput
+	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -208,7 +214,7 @@ func (ImageRecipeState) ElementType() reflect.Type {
 }
 
 type imageRecipeArgs struct {
-	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components []ImageRecipeComponent `pulumi:"components"`
@@ -218,6 +224,8 @@ type imageRecipeArgs struct {
 	Name *string `pulumi:"name"`
 	// Platform of the image recipe.
 	ParentImage string `pulumi:"parentImage"`
+	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
@@ -230,7 +238,7 @@ type imageRecipeArgs struct {
 
 // The set of arguments for constructing a ImageRecipe resource.
 type ImageRecipeArgs struct {
-	// Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components ImageRecipeComponentArrayInput
@@ -240,6 +248,8 @@ type ImageRecipeArgs struct {
 	Name pulumi.StringPtrInput
 	// Platform of the image recipe.
 	ParentImage pulumi.StringInput
+	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.

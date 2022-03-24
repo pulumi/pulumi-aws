@@ -143,9 +143,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			ObjectLockConfiguration: &s3.BucketV2ObjectLockConfigurationArgs{
-// 				ObjectLockEnabled: pulumi.String("Enabled"),
-// 			},
+// 			ObjectLockEnabled: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -439,8 +437,6 @@ type bucketObjectv2Args struct {
 	StorageClass *string `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
@@ -491,8 +487,6 @@ type BucketObjectv2Args struct {
 	StorageClass pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect pulumi.StringPtrInput
 }

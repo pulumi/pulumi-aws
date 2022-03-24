@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

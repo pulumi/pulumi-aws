@@ -96,7 +96,7 @@ def get_user_pools(name: Optional[str] = None,
     ```
 
 
-    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
+    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
     """
     __args__ = dict()
     __args__['name'] = name
@@ -134,6 +134,6 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
+    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
     """
     ...

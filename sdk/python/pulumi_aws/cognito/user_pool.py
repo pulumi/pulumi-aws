@@ -943,7 +943,7 @@ class UserPool(pulumi.CustomResource):
         Cognito User Pools can be imported using the `id`, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/userPool:UserPool pool <id>
+         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -1032,7 +1032,7 @@ class UserPool(pulumi.CustomResource):
         Cognito User Pools can be imported using the `id`, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/userPool:UserPool pool <id>
+         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
 
         :param str resource_name: The name of the resource.

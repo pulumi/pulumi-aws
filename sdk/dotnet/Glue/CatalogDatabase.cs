@@ -30,6 +30,38 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// ### Create Table Default Permissions
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new Aws.Glue.CatalogDatabaseArgs
+    ///         {
+    ///             CreateTableDefaultPermissions = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
+    ///                 {
+    ///                     Permissions = 
+    ///                     {
+    ///                         "SELECT",
+    ///                     },
+    ///                     Principal = new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs
+    ///                     {
+    ///                         DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Name = "MyCatalogDatabase",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -53,6 +85,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
+
+        /// <summary>
+        /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        /// </summary>
+        [Output("createTableDefaultPermissions")]
+        public Output<ImmutableArray<Outputs.CatalogDatabaseCreateTableDefaultPermission>> CreateTableDefaultPermissions { get; private set; } = null!;
 
         /// <summary>
         /// Description of the database.
@@ -136,6 +174,18 @@ namespace Pulumi.Aws.Glue
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        [Input("createTableDefaultPermissions")]
+        private InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>? _createTableDefaultPermissions;
+
+        /// <summary>
+        /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        /// </summary>
+        public InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs> CreateTableDefaultPermissions
+        {
+            get => _createTableDefaultPermissions ?? (_createTableDefaultPermissions = new InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>());
+            set => _createTableDefaultPermissions = value;
+        }
+
         /// <summary>
         /// Description of the database.
         /// </summary>
@@ -190,6 +240,18 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
+
+        [Input("createTableDefaultPermissions")]
+        private InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionGetArgs>? _createTableDefaultPermissions;
+
+        /// <summary>
+        /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        /// </summary>
+        public InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionGetArgs> CreateTableDefaultPermissions
+        {
+            get => _createTableDefaultPermissions ?? (_createTableDefaultPermissions = new InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionGetArgs>());
+            set => _createTableDefaultPermissions = value;
+        }
 
         /// <summary>
         /// Description of the database.

@@ -874,6 +874,458 @@ func (o CustomLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) CustomLayerEbs
 	}).(CustomLayerEbsVolumeOutput)
 }
 
+type EcsClusterLayerCloudwatchConfiguration struct {
+	Enabled    *bool                                             `pulumi:"enabled"`
+	LogStreams []EcsClusterLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
+}
+
+// EcsClusterLayerCloudwatchConfigurationInput is an input type that accepts EcsClusterLayerCloudwatchConfigurationArgs and EcsClusterLayerCloudwatchConfigurationOutput values.
+// You can construct a concrete instance of `EcsClusterLayerCloudwatchConfigurationInput` via:
+//
+//          EcsClusterLayerCloudwatchConfigurationArgs{...}
+type EcsClusterLayerCloudwatchConfigurationInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerCloudwatchConfigurationOutput() EcsClusterLayerCloudwatchConfigurationOutput
+	ToEcsClusterLayerCloudwatchConfigurationOutputWithContext(context.Context) EcsClusterLayerCloudwatchConfigurationOutput
+}
+
+type EcsClusterLayerCloudwatchConfigurationArgs struct {
+	Enabled    pulumi.BoolPtrInput                                       `pulumi:"enabled"`
+	LogStreams EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
+}
+
+func (EcsClusterLayerCloudwatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationArgs) ToEcsClusterLayerCloudwatchConfigurationOutput() EcsClusterLayerCloudwatchConfigurationOutput {
+	return i.ToEcsClusterLayerCloudwatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationArgs) ToEcsClusterLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationOutput)
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationArgs) ToEcsClusterLayerCloudwatchConfigurationPtrOutput() EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return i.ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationArgs) ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationOutput).ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// EcsClusterLayerCloudwatchConfigurationPtrInput is an input type that accepts EcsClusterLayerCloudwatchConfigurationArgs, EcsClusterLayerCloudwatchConfigurationPtr and EcsClusterLayerCloudwatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `EcsClusterLayerCloudwatchConfigurationPtrInput` via:
+//
+//          EcsClusterLayerCloudwatchConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type EcsClusterLayerCloudwatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerCloudwatchConfigurationPtrOutput() EcsClusterLayerCloudwatchConfigurationPtrOutput
+	ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(context.Context) EcsClusterLayerCloudwatchConfigurationPtrOutput
+}
+
+type ecsClusterLayerCloudwatchConfigurationPtrType EcsClusterLayerCloudwatchConfigurationArgs
+
+func EcsClusterLayerCloudwatchConfigurationPtr(v *EcsClusterLayerCloudwatchConfigurationArgs) EcsClusterLayerCloudwatchConfigurationPtrInput {
+	return (*ecsClusterLayerCloudwatchConfigurationPtrType)(v)
+}
+
+func (*ecsClusterLayerCloudwatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (i *ecsClusterLayerCloudwatchConfigurationPtrType) ToEcsClusterLayerCloudwatchConfigurationPtrOutput() EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return i.ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ecsClusterLayerCloudwatchConfigurationPtrType) ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationPtrOutput)
+}
+
+type EcsClusterLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationOutput) ToEcsClusterLayerCloudwatchConfigurationOutput() EcsClusterLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationOutput) ToEcsClusterLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationOutput) ToEcsClusterLayerCloudwatchConfigurationPtrOutput() EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return o.ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationOutput) ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EcsClusterLayerCloudwatchConfiguration) *EcsClusterLayerCloudwatchConfiguration {
+		return &v
+	}).(EcsClusterLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationOutput) LogStreams() EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfiguration) []EcsClusterLayerCloudwatchConfigurationLogStream {
+		return v.LogStreams
+	}).(EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type EcsClusterLayerCloudwatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerCloudwatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerCloudwatchConfiguration)(nil)).Elem()
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) ToEcsClusterLayerCloudwatchConfigurationPtrOutput() EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) Elem() EcsClusterLayerCloudwatchConfigurationOutput {
+	return o.ApplyT(func(v *EcsClusterLayerCloudwatchConfiguration) EcsClusterLayerCloudwatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EcsClusterLayerCloudwatchConfiguration
+		return ret
+	}).(EcsClusterLayerCloudwatchConfigurationOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerCloudwatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) LogStreams() EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o.ApplyT(func(v *EcsClusterLayerCloudwatchConfiguration) []EcsClusterLayerCloudwatchConfigurationLogStream {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreams
+	}).(EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type EcsClusterLayerCloudwatchConfigurationLogStream struct {
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
+	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
+	TimeZone              *string `pulumi:"timeZone"`
+}
+
+// EcsClusterLayerCloudwatchConfigurationLogStreamInput is an input type that accepts EcsClusterLayerCloudwatchConfigurationLogStreamArgs and EcsClusterLayerCloudwatchConfigurationLogStreamOutput values.
+// You can construct a concrete instance of `EcsClusterLayerCloudwatchConfigurationLogStreamInput` via:
+//
+//          EcsClusterLayerCloudwatchConfigurationLogStreamArgs{...}
+type EcsClusterLayerCloudwatchConfigurationLogStreamInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerCloudwatchConfigurationLogStreamOutput() EcsClusterLayerCloudwatchConfigurationLogStreamOutput
+	ToEcsClusterLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamOutput
+}
+
+type EcsClusterLayerCloudwatchConfigurationLogStreamArgs struct {
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
+	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (EcsClusterLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationLogStreamArgs) ToEcsClusterLayerCloudwatchConfigurationLogStreamOutput() EcsClusterLayerCloudwatchConfigurationLogStreamOutput {
+	return i.ToEcsClusterLayerCloudwatchConfigurationLogStreamOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationLogStreamArgs) ToEcsClusterLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+// EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts EcsClusterLayerCloudwatchConfigurationLogStreamArray and EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput values.
+// You can construct a concrete instance of `EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput` via:
+//
+//          EcsClusterLayerCloudwatchConfigurationLogStreamArray{ EcsClusterLayerCloudwatchConfigurationLogStreamArgs{...} }
+type EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput() EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput
+	ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput
+}
+
+type EcsClusterLayerCloudwatchConfigurationLogStreamArray []EcsClusterLayerCloudwatchConfigurationLogStreamInput
+
+func (EcsClusterLayerCloudwatchConfigurationLogStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EcsClusterLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationLogStreamArray) ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput() EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return i.ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerCloudwatchConfigurationLogStreamArray) ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput)
+}
+
+type EcsClusterLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) ToEcsClusterLayerCloudwatchConfigurationLogStreamOutput() EcsClusterLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) ToEcsClusterLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EcsClusterLayerCloudwatchConfigurationLogStream)(nil)).Elem()
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput() EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput {
+	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) EcsClusterLayerCloudwatchConfigurationLogStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EcsClusterLayerCloudwatchConfigurationLogStream {
+		return vs[0].([]EcsClusterLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
+	}).(EcsClusterLayerCloudwatchConfigurationLogStreamOutput)
+}
+
+type EcsClusterLayerEbsVolume struct {
+	Encrypted *bool `pulumi:"encrypted"`
+	// For PIOPS volumes, the IOPS per disk.
+	Iops *int `pulumi:"iops"`
+	// The path to mount the EBS volume on the layer's instances.
+	MountPoint string `pulumi:"mountPoint"`
+	// The number of disks to use for the EBS volume.
+	NumberOfDisks int `pulumi:"numberOfDisks"`
+	// The RAID level to use for the volume.
+	RaidLevel *string `pulumi:"raidLevel"`
+	// The size of the volume in gigabytes.
+	Size int `pulumi:"size"`
+	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+	Type *string `pulumi:"type"`
+}
+
+// EcsClusterLayerEbsVolumeInput is an input type that accepts EcsClusterLayerEbsVolumeArgs and EcsClusterLayerEbsVolumeOutput values.
+// You can construct a concrete instance of `EcsClusterLayerEbsVolumeInput` via:
+//
+//          EcsClusterLayerEbsVolumeArgs{...}
+type EcsClusterLayerEbsVolumeInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerEbsVolumeOutput() EcsClusterLayerEbsVolumeOutput
+	ToEcsClusterLayerEbsVolumeOutputWithContext(context.Context) EcsClusterLayerEbsVolumeOutput
+}
+
+type EcsClusterLayerEbsVolumeArgs struct {
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// For PIOPS volumes, the IOPS per disk.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The path to mount the EBS volume on the layer's instances.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// The number of disks to use for the EBS volume.
+	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
+	// The RAID level to use for the volume.
+	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
+	// The size of the volume in gigabytes.
+	Size pulumi.IntInput `pulumi:"size"`
+	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (EcsClusterLayerEbsVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerEbsVolume)(nil)).Elem()
+}
+
+func (i EcsClusterLayerEbsVolumeArgs) ToEcsClusterLayerEbsVolumeOutput() EcsClusterLayerEbsVolumeOutput {
+	return i.ToEcsClusterLayerEbsVolumeOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerEbsVolumeArgs) ToEcsClusterLayerEbsVolumeOutputWithContext(ctx context.Context) EcsClusterLayerEbsVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerEbsVolumeOutput)
+}
+
+// EcsClusterLayerEbsVolumeArrayInput is an input type that accepts EcsClusterLayerEbsVolumeArray and EcsClusterLayerEbsVolumeArrayOutput values.
+// You can construct a concrete instance of `EcsClusterLayerEbsVolumeArrayInput` via:
+//
+//          EcsClusterLayerEbsVolumeArray{ EcsClusterLayerEbsVolumeArgs{...} }
+type EcsClusterLayerEbsVolumeArrayInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerEbsVolumeArrayOutput() EcsClusterLayerEbsVolumeArrayOutput
+	ToEcsClusterLayerEbsVolumeArrayOutputWithContext(context.Context) EcsClusterLayerEbsVolumeArrayOutput
+}
+
+type EcsClusterLayerEbsVolumeArray []EcsClusterLayerEbsVolumeInput
+
+func (EcsClusterLayerEbsVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EcsClusterLayerEbsVolume)(nil)).Elem()
+}
+
+func (i EcsClusterLayerEbsVolumeArray) ToEcsClusterLayerEbsVolumeArrayOutput() EcsClusterLayerEbsVolumeArrayOutput {
+	return i.ToEcsClusterLayerEbsVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerEbsVolumeArray) ToEcsClusterLayerEbsVolumeArrayOutputWithContext(ctx context.Context) EcsClusterLayerEbsVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerEbsVolumeArrayOutput)
+}
+
+type EcsClusterLayerEbsVolumeOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerEbsVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerEbsVolume)(nil)).Elem()
+}
+
+func (o EcsClusterLayerEbsVolumeOutput) ToEcsClusterLayerEbsVolumeOutput() EcsClusterLayerEbsVolumeOutput {
+	return o
+}
+
+func (o EcsClusterLayerEbsVolumeOutput) ToEcsClusterLayerEbsVolumeOutputWithContext(ctx context.Context) EcsClusterLayerEbsVolumeOutput {
+	return o
+}
+
+func (o EcsClusterLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// For PIOPS volumes, the IOPS per disk.
+func (o EcsClusterLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The path to mount the EBS volume on the layer's instances.
+func (o EcsClusterLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v EcsClusterLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+// The number of disks to use for the EBS volume.
+func (o EcsClusterLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
+	return o.ApplyT(func(v EcsClusterLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+}
+
+// The RAID level to use for the volume.
+func (o EcsClusterLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+}
+
+// The size of the volume in gigabytes.
+func (o EcsClusterLayerEbsVolumeOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v EcsClusterLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+func (o EcsClusterLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type EcsClusterLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EcsClusterLayerEbsVolume)(nil)).Elem()
+}
+
+func (o EcsClusterLayerEbsVolumeArrayOutput) ToEcsClusterLayerEbsVolumeArrayOutput() EcsClusterLayerEbsVolumeArrayOutput {
+	return o
+}
+
+func (o EcsClusterLayerEbsVolumeArrayOutput) ToEcsClusterLayerEbsVolumeArrayOutputWithContext(ctx context.Context) EcsClusterLayerEbsVolumeArrayOutput {
+	return o
+}
+
+func (o EcsClusterLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) EcsClusterLayerEbsVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EcsClusterLayerEbsVolume {
+		return vs[0].([]EcsClusterLayerEbsVolume)[vs[1].(int)]
+	}).(EcsClusterLayerEbsVolumeOutput)
+}
+
 type GangliaLayerCloudwatchConfiguration struct {
 	Enabled    *bool                                          `pulumi:"enabled"`
 	LogStreams []GangliaLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
@@ -5433,6 +5885,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), CustomLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerEbsVolumeInput)(nil)).Elem(), CustomLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerEbsVolumeArrayInput)(nil)).Elem(), CustomLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationLogStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationLogStreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerEbsVolumeInput)(nil)).Elem(), EcsClusterLayerEbsVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerEbsVolumeArrayInput)(nil)).Elem(), EcsClusterLayerEbsVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationLogStreamArgs{})
@@ -5507,6 +5965,12 @@ func init() {
 	pulumi.RegisterOutputType(CustomLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(CustomLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(CustomLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationLogStreamOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerEbsVolumeOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerEbsVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationLogStreamOutput{})

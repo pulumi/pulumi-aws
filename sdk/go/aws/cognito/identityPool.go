@@ -79,10 +79,10 @@ import (
 //
 // ## Import
 //
-// Cognito Identity Pool can be imported using the name, e.g.,
+// Cognito Identity Pool can be imported using its ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/identityPool:IdentityPool mypool <identity-pool-id>
+//  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
 // ```
 type IdentityPool struct {
 	pulumi.CustomResourceState

@@ -137,6 +137,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
     :param str key_name: The Key Pair name.
+    :param str key_pair_id: The Key Pair ID.
     :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
     """
     __args__ = dict()
@@ -190,6 +191,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
     :param str key_name: The Key Pair name.
+    :param str key_pair_id: The Key Pair ID.
     :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
     """
     ...

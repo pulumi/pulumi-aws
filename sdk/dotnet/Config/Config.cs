@@ -56,6 +56,17 @@ namespace Pulumi.Aws
             set => _assumeRole.Set(value);
         }
 
+        private static readonly __Value<string?> _customCaBundle = new __Value<string?>(() => __config.Get("customCaBundle"));
+        /// <summary>
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+        /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// </summary>
+        public static string? CustomCaBundle
+        {
+            get => _customCaBundle.Get();
+            set => _customCaBundle.Set(value);
+        }
+
         private static readonly __Value<Pulumi.Aws.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.Aws.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.Aws.Config.Types.DefaultTags>("defaultTags"));
         /// <summary>
         /// Configuration block with settings to default resource tags across all resources.
@@ -279,6 +290,16 @@ namespace Pulumi.Aws
             set => _skipRequestingAccountId.Set(value);
         }
 
+        private static readonly __Value<string?> _stsRegion = new __Value<string?>(() => __config.Get("stsRegion"));
+        /// <summary>
+        /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        /// </summary>
+        public static string? StsRegion
+        {
+            get => _stsRegion.Get();
+            set => _stsRegion.Set(value);
+        }
+
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
         /// <summary>
         /// session token. A session token is only required if you are using temporary security credentials.
@@ -382,6 +403,7 @@ namespace Pulumi.Aws
                 public string? Cloudwatch { get; set; } = null!;
                 public string? Cloudwatchevents { get; set; } = null!;
                 public string? Cloudwatchlogs { get; set; } = null!;
+                public string? Cloudwatchrum { get; set; } = null!;
                 public string? Codeartifact { get; set; } = null!;
                 public string? Codebuild { get; set; } = null!;
                 public string? Codecommit { get; set; } = null!;
@@ -488,6 +510,7 @@ namespace Pulumi.Aws
                 public string? Kafka { get; set; } = null!;
                 public string? Kafkaconnect { get; set; } = null!;
                 public string? Kendra { get; set; } = null!;
+                public string? Keyspaces { get; set; } = null!;
                 public string? Kinesis { get; set; } = null!;
                 public string? Kinesisanalytics { get; set; } = null!;
                 public string? Kinesisanalyticsv2 { get; set; } = null!;

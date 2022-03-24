@@ -21,13 +21,16 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, arn=None, build_version_arn=None, date_created=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, os_version=None, output_resources=None, platform=None, tags=None, version=None):
+    def __init__(__self__, arn=None, build_version_arn=None, container_recipe_arn=None, date_created=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, os_version=None, output_resources=None, platform=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if build_version_arn and not isinstance(build_version_arn, str):
             raise TypeError("Expected argument 'build_version_arn' to be a str")
         pulumi.set(__self__, "build_version_arn", build_version_arn)
+        if container_recipe_arn and not isinstance(container_recipe_arn, str):
+            raise TypeError("Expected argument 'container_recipe_arn' to be a str")
+        pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if date_created and not isinstance(date_created, str):
             raise TypeError("Expected argument 'date_created' to be a str")
         pulumi.set(__self__, "date_created", date_created)
@@ -82,6 +85,14 @@ class GetImageResult:
         return pulumi.get(self, "build_version_arn")
 
     @property
+    @pulumi.getter(name="containerRecipeArn")
+    def container_recipe_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the container recipe.
+        """
+        return pulumi.get(self, "container_recipe_arn")
+
+    @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> str:
         """
@@ -117,7 +128,7 @@ class GetImageResult:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        Amazon Resource Name (ARN) of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -194,6 +205,7 @@ class AwaitableGetImageResult(GetImageResult):
         return GetImageResult(
             arn=self.arn,
             build_version_arn=self.build_version_arn,
+            container_recipe_arn=self.container_recipe_arn,
             date_created=self.date_created,
             distribution_configuration_arn=self.distribution_configuration_arn,
             enhanced_image_metadata_enabled=self.enhanced_image_metadata_enabled,
@@ -241,6 +253,7 @@ def get_image(arn: Optional[str] = None,
     return AwaitableGetImageResult(
         arn=__ret__.arn,
         build_version_arn=__ret__.build_version_arn,
+        container_recipe_arn=__ret__.container_recipe_arn,
         date_created=__ret__.date_created,
         distribution_configuration_arn=__ret__.distribution_configuration_arn,
         enhanced_image_metadata_enabled=__ret__.enhanced_image_metadata_enabled,

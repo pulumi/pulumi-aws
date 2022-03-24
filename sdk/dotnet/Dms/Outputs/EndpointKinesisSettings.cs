@@ -14,39 +14,39 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class EndpointKinesisSettings
     {
         /// <summary>
-        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         /// </summary>
         public readonly bool? IncludeControlDetails;
         /// <summary>
-        /// Include NULL and empty columns in the target. The default is `false`.
+        /// Include NULL and empty columns in the target. Default is `false`.
         /// </summary>
         public readonly bool? IncludeNullAndEmpty;
         /// <summary>
-        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         /// </summary>
         public readonly bool? IncludePartitionValue;
         /// <summary>
-        /// Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+        /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         /// </summary>
         public readonly bool? IncludeTableAlterOperations;
         /// <summary>
-        /// Provides detailed transaction information from the source database. The default is `false`.
+        /// Provides detailed transaction information from the source database. Default is `false`.
         /// </summary>
         public readonly bool? IncludeTransactionDetails;
         /// <summary>
-        /// Output format for the records created. Defaults to `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        /// Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
         /// </summary>
         public readonly string? MessageFormat;
         /// <summary>
-        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         /// </summary>
         public readonly bool? PartitionIncludeSchemaTable;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
+        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         /// </summary>
         public readonly string? ServiceAccessRoleArn;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Kinesis data stream.
+        /// ARN of the Kinesis data stream.
         /// </summary>
         public readonly string? StreamArn;
 

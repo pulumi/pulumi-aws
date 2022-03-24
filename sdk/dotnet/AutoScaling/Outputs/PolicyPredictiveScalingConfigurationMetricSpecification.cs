@@ -14,7 +14,19 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecification
     {
         /// <summary>
-        /// The load metric specification.
+        /// The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+        /// </summary>
+        public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification? CustomizedCapacityMetricSpecification;
+        /// <summary>
+        /// The customized load metric specification.
+        /// </summary>
+        public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification? CustomizedLoadMetricSpecification;
+        /// <summary>
+        /// The customized scaling metric specification.
+        /// </summary>
+        public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification? CustomizedScalingMetricSpecification;
+        /// <summary>
+        /// The predefined load metric specification.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification? PredefinedLoadMetricSpecification;
         /// <summary>
@@ -22,7 +34,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification? PredefinedMetricPairSpecification;
         /// <summary>
-        /// The scaling metric specification.
+        /// The predefined scaling metric specification.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification? PredefinedScalingMetricSpecification;
         /// <summary>
@@ -32,6 +44,12 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
         [OutputConstructor]
         private PolicyPredictiveScalingConfigurationMetricSpecification(
+            Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification? customizedCapacityMetricSpecification,
+
+            Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification? customizedLoadMetricSpecification,
+
+            Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification? customizedScalingMetricSpecification,
+
             Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification? predefinedLoadMetricSpecification,
 
             Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification? predefinedMetricPairSpecification,
@@ -40,6 +58,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             int targetValue)
         {
+            CustomizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
+            CustomizedLoadMetricSpecification = customizedLoadMetricSpecification;
+            CustomizedScalingMetricSpecification = customizedScalingMetricSpecification;
             PredefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
             PredefinedMetricPairSpecification = predefinedMetricPairSpecification;
             PredefinedScalingMetricSpecification = predefinedScalingMetricSpecification;

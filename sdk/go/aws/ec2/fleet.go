@@ -55,6 +55,8 @@ import (
 type Fleet struct {
 	pulumi.CustomResourceState
 
+	// Reserved.
+	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
 	ExcessCapacityTerminationPolicy pulumi.StringPtrOutput `pulumi:"excessCapacityTerminationPolicy"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
@@ -114,6 +116,8 @@ func GetFleet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Fleet resources.
 type fleetState struct {
+	// Reserved.
+	Context *string `pulumi:"context"`
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
 	ExcessCapacityTerminationPolicy *string `pulumi:"excessCapacityTerminationPolicy"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
@@ -139,6 +143,8 @@ type fleetState struct {
 }
 
 type FleetState struct {
+	// Reserved.
+	Context pulumi.StringPtrInput
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
 	ExcessCapacityTerminationPolicy pulumi.StringPtrInput
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
@@ -168,6 +174,8 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
+	// Reserved.
+	Context *string `pulumi:"context"`
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
 	ExcessCapacityTerminationPolicy *string `pulumi:"excessCapacityTerminationPolicy"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
@@ -192,6 +200,8 @@ type fleetArgs struct {
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
+	// Reserved.
+	Context pulumi.StringPtrInput
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
 	ExcessCapacityTerminationPolicy pulumi.StringPtrInput
 	// Nested argument containing EC2 Launch Template configurations. Defined below.

@@ -9,5 +9,6 @@ from .auto_scaling_configuration_version import *
 from .connection import *
 from .custom_domain_association import *
 from .service import *
+from .vpc_connector import *
 from ._inputs import *
 from . import outputs

@@ -197,6 +197,8 @@ type Trigger struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	EventBatchingConditions TriggerEventBatchingConditionArrayOutput `pulumi:"eventBatchingConditions"`
 	// The name of the trigger.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
@@ -260,6 +262,8 @@ type triggerState struct {
 	Description *string `pulumi:"description"`
 	// Start the trigger. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	EventBatchingConditions []TriggerEventBatchingCondition `pulumi:"eventBatchingConditions"`
 	// The name of the trigger.
 	Name *string `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
@@ -289,6 +293,8 @@ type TriggerState struct {
 	Description pulumi.StringPtrInput
 	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	EventBatchingConditions TriggerEventBatchingConditionArrayInput
 	// The name of the trigger.
 	Name pulumi.StringPtrInput
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
@@ -320,6 +326,8 @@ type triggerArgs struct {
 	Description *string `pulumi:"description"`
 	// Start the trigger. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	EventBatchingConditions []TriggerEventBatchingCondition `pulumi:"eventBatchingConditions"`
 	// The name of the trigger.
 	Name *string `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
@@ -344,6 +352,8 @@ type TriggerArgs struct {
 	Description pulumi.StringPtrInput
 	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	EventBatchingConditions TriggerEventBatchingConditionArrayInput
 	// The name of the trigger.
 	Name pulumi.StringPtrInput
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.

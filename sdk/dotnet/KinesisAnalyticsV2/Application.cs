@@ -125,7 +125,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     ///         });
     ///         var exampleApplication = new Aws.KinesisAnalyticsV2.Application("exampleApplication", new Aws.KinesisAnalyticsV2.ApplicationArgs
     ///         {
-    ///             RuntimeEnvironment = "SQL-1.0",
+    ///             RuntimeEnvironment = "SQL-1_0",
     ///             ServiceExecutionRole = aws_iam_role.Example.Arn,
     ///             ApplicationConfiguration = new Aws.KinesisAnalyticsV2.Inputs.ApplicationApplicationConfigurationArgs
     ///             {

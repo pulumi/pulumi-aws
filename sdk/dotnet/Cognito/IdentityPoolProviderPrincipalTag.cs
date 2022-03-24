@@ -14,24 +14,24 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.,
+    /// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example &lt;identity-pool-id&gt;:&lt;identity_provider_name&gt;
+    ///  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")]
     public partial class IdentityPoolProviderPrincipalTag : Pulumi.CustomResource
     {
         /// <summary>
-        /// An identity pool ID in the format REGION:GUID.
+        /// An identity pool ID.
         /// </summary>
         [Output("identityPoolId")]
         public Output<string> IdentityPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the identity provider
-        /// * `principal_tags`: (Optional: []) - String to string map of variables
+        /// The name of the identity provider.
+        /// * `principal_tags`: (Optional: []) - String to string map of variables.
         /// * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         /// </summary>
         [Output("identityProviderName")]
@@ -90,14 +90,14 @@ namespace Pulumi.Aws.Cognito
     public sealed class IdentityPoolProviderPrincipalTagArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An identity pool ID in the format REGION:GUID.
+        /// An identity pool ID.
         /// </summary>
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the identity provider
-        /// * `principal_tags`: (Optional: []) - String to string map of variables
+        /// The name of the identity provider.
+        /// * `principal_tags`: (Optional: []) - String to string map of variables.
         /// * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         /// </summary>
         [Input("identityProviderName", required: true)]
@@ -122,14 +122,14 @@ namespace Pulumi.Aws.Cognito
     public sealed class IdentityPoolProviderPrincipalTagState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An identity pool ID in the format REGION:GUID.
+        /// An identity pool ID.
         /// </summary>
         [Input("identityPoolId")]
         public Input<string>? IdentityPoolId { get; set; }
 
         /// <summary>
-        /// The name of the identity provider
-        /// * `principal_tags`: (Optional: []) - String to string map of variables
+        /// The name of the identity provider.
+        /// * `principal_tags`: (Optional: []) - String to string map of variables.
         /// * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         /// </summary>
         [Input("identityProviderName")]

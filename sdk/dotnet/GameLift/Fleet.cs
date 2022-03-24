@@ -46,7 +46,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Fleets cannot be imported at this time.
+    /// Gamelift Fleets can be imported using the ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/fleet:Fleet")]
     public partial class Fleet : Pulumi.CustomResource
@@ -58,10 +62,22 @@ namespace Pulumi.Aws.GameLift
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Build ARN.
+        /// </summary>
+        [Output("buildArn")]
+        public Output<string> BuildArn { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the Gamelift Build to be deployed on the fleet.
         /// </summary>
         [Output("buildId")]
-        public Output<string> BuildId { get; private set; } = null!;
+        public Output<string?> BuildId { get; private set; } = null!;
+
+        /// <summary>
+        /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        /// </summary>
+        [Output("certificateConfiguration")]
+        public Output<Outputs.FleetCertificateConfiguration> CertificateConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Human-readable description of the fleet.
@@ -116,6 +132,7 @@ namespace Pulumi.Aws.GameLift
 
         /// <summary>
         /// Operating system of the fleet's computing resources.
+        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
@@ -133,13 +150,26 @@ namespace Pulumi.Aws.GameLift
         public Output<Outputs.FleetRuntimeConfiguration?> RuntimeConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Script ARN.
+        /// </summary>
+        [Output("scriptArn")]
+        public Output<string> ScriptArn { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the Gamelift Script to be deployed on the fleet.
+        /// </summary>
+        [Output("scriptId")]
+        public Output<string?> ScriptId { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.1.0
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -193,8 +223,14 @@ namespace Pulumi.Aws.GameLift
         /// <summary>
         /// ID of the Gamelift Build to be deployed on the fleet.
         /// </summary>
-        [Input("buildId", required: true)]
-        public Input<string> BuildId { get; set; } = null!;
+        [Input("buildId")]
+        public Input<string>? BuildId { get; set; }
+
+        /// <summary>
+        /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        /// </summary>
+        [Input("certificateConfiguration")]
+        public Input<Inputs.FleetCertificateConfigurationArgs>? CertificateConfiguration { get; set; }
 
         /// <summary>
         /// Human-readable description of the fleet.
@@ -268,11 +304,17 @@ namespace Pulumi.Aws.GameLift
         [Input("runtimeConfiguration")]
         public Input<Inputs.FleetRuntimeConfigurationArgs>? RuntimeConfiguration { get; set; }
 
+        /// <summary>
+        /// ID of the Gamelift Script to be deployed on the fleet.
+        /// </summary>
+        [Input("scriptId")]
+        public Input<string>? ScriptId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,10 +336,22 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Build ARN.
+        /// </summary>
+        [Input("buildArn")]
+        public Input<string>? BuildArn { get; set; }
+
+        /// <summary>
         /// ID of the Gamelift Build to be deployed on the fleet.
         /// </summary>
         [Input("buildId")]
         public Input<string>? BuildId { get; set; }
+
+        /// <summary>
+        /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        /// </summary>
+        [Input("certificateConfiguration")]
+        public Input<Inputs.FleetCertificateConfigurationGetArgs>? CertificateConfiguration { get; set; }
 
         /// <summary>
         /// Human-readable description of the fleet.
@@ -369,6 +423,7 @@ namespace Pulumi.Aws.GameLift
 
         /// <summary>
         /// Operating system of the fleet's computing resources.
+        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
@@ -385,11 +440,23 @@ namespace Pulumi.Aws.GameLift
         [Input("runtimeConfiguration")]
         public Input<Inputs.FleetRuntimeConfigurationGetArgs>? RuntimeConfiguration { get; set; }
 
+        /// <summary>
+        /// Script ARN.
+        /// </summary>
+        [Input("scriptArn")]
+        public Input<string>? ScriptArn { get; set; }
+
+        /// <summary>
+        /// ID of the Gamelift Script to be deployed on the fleet.
+        /// </summary>
+        [Input("scriptId")]
+        public Input<string>? ScriptId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -401,7 +468,8 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.1.0
         /// </summary>
         public InputMap<string> TagsAll
         {

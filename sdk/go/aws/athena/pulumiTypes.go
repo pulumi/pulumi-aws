@@ -10,6 +10,143 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DatabaseAclConfiguration struct {
+	// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+	S3AclOption string `pulumi:"s3AclOption"`
+}
+
+// DatabaseAclConfigurationInput is an input type that accepts DatabaseAclConfigurationArgs and DatabaseAclConfigurationOutput values.
+// You can construct a concrete instance of `DatabaseAclConfigurationInput` via:
+//
+//          DatabaseAclConfigurationArgs{...}
+type DatabaseAclConfigurationInput interface {
+	pulumi.Input
+
+	ToDatabaseAclConfigurationOutput() DatabaseAclConfigurationOutput
+	ToDatabaseAclConfigurationOutputWithContext(context.Context) DatabaseAclConfigurationOutput
+}
+
+type DatabaseAclConfigurationArgs struct {
+	// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+	S3AclOption pulumi.StringInput `pulumi:"s3AclOption"`
+}
+
+func (DatabaseAclConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAclConfiguration)(nil)).Elem()
+}
+
+func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationOutput() DatabaseAclConfigurationOutput {
+	return i.ToDatabaseAclConfigurationOutputWithContext(context.Background())
+}
+
+func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationOutputWithContext(ctx context.Context) DatabaseAclConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAclConfigurationOutput)
+}
+
+func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationPtrOutput() DatabaseAclConfigurationPtrOutput {
+	return i.ToDatabaseAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationPtrOutputWithContext(ctx context.Context) DatabaseAclConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAclConfigurationOutput).ToDatabaseAclConfigurationPtrOutputWithContext(ctx)
+}
+
+// DatabaseAclConfigurationPtrInput is an input type that accepts DatabaseAclConfigurationArgs, DatabaseAclConfigurationPtr and DatabaseAclConfigurationPtrOutput values.
+// You can construct a concrete instance of `DatabaseAclConfigurationPtrInput` via:
+//
+//          DatabaseAclConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseAclConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseAclConfigurationPtrOutput() DatabaseAclConfigurationPtrOutput
+	ToDatabaseAclConfigurationPtrOutputWithContext(context.Context) DatabaseAclConfigurationPtrOutput
+}
+
+type databaseAclConfigurationPtrType DatabaseAclConfigurationArgs
+
+func DatabaseAclConfigurationPtr(v *DatabaseAclConfigurationArgs) DatabaseAclConfigurationPtrInput {
+	return (*databaseAclConfigurationPtrType)(v)
+}
+
+func (*databaseAclConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseAclConfiguration)(nil)).Elem()
+}
+
+func (i *databaseAclConfigurationPtrType) ToDatabaseAclConfigurationPtrOutput() DatabaseAclConfigurationPtrOutput {
+	return i.ToDatabaseAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseAclConfigurationPtrType) ToDatabaseAclConfigurationPtrOutputWithContext(ctx context.Context) DatabaseAclConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAclConfigurationPtrOutput)
+}
+
+type DatabaseAclConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAclConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAclConfiguration)(nil)).Elem()
+}
+
+func (o DatabaseAclConfigurationOutput) ToDatabaseAclConfigurationOutput() DatabaseAclConfigurationOutput {
+	return o
+}
+
+func (o DatabaseAclConfigurationOutput) ToDatabaseAclConfigurationOutputWithContext(ctx context.Context) DatabaseAclConfigurationOutput {
+	return o
+}
+
+func (o DatabaseAclConfigurationOutput) ToDatabaseAclConfigurationPtrOutput() DatabaseAclConfigurationPtrOutput {
+	return o.ToDatabaseAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseAclConfigurationOutput) ToDatabaseAclConfigurationPtrOutputWithContext(ctx context.Context) DatabaseAclConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseAclConfiguration) *DatabaseAclConfiguration {
+		return &v
+	}).(DatabaseAclConfigurationPtrOutput)
+}
+
+// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+func (o DatabaseAclConfigurationOutput) S3AclOption() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAclConfiguration) string { return v.S3AclOption }).(pulumi.StringOutput)
+}
+
+type DatabaseAclConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAclConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseAclConfiguration)(nil)).Elem()
+}
+
+func (o DatabaseAclConfigurationPtrOutput) ToDatabaseAclConfigurationPtrOutput() DatabaseAclConfigurationPtrOutput {
+	return o
+}
+
+func (o DatabaseAclConfigurationPtrOutput) ToDatabaseAclConfigurationPtrOutputWithContext(ctx context.Context) DatabaseAclConfigurationPtrOutput {
+	return o
+}
+
+func (o DatabaseAclConfigurationPtrOutput) Elem() DatabaseAclConfigurationOutput {
+	return o.ApplyT(func(v *DatabaseAclConfiguration) DatabaseAclConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseAclConfiguration
+		return ret
+	}).(DatabaseAclConfigurationOutput)
+}
+
+// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+func (o DatabaseAclConfigurationPtrOutput) S3AclOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAclConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3AclOption
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatabaseEncryptionConfiguration struct {
 	// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
 	EncryptionOption string `pulumi:"encryptionOption"`
@@ -873,6 +1010,8 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAclConfigurationInput)(nil)).Elem(), DatabaseAclConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAclConfigurationPtrInput)(nil)).Elem(), DatabaseAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseEncryptionConfigurationInput)(nil)).Elem(), DatabaseEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseEncryptionConfigurationPtrInput)(nil)).Elem(), DatabaseEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationInput)(nil)).Elem(), WorkgroupConfigurationArgs{})
@@ -883,6 +1022,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterOutputType(DatabaseAclConfigurationOutput{})
+	pulumi.RegisterOutputType(DatabaseAclConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(DatabaseEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationOutput{})

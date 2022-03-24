@@ -136,6 +136,7 @@ export class Queue extends pulumi.CustomResource {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
     public readonly quickConnectIds!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly quickConnectIdsAssociateds!: pulumi.Output<string[]>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
@@ -147,7 +148,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -171,6 +172,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["outboundCallerConfig"] = state ? state.outboundCallerConfig : undefined;
             resourceInputs["queueId"] = state ? state.queueId : undefined;
             resourceInputs["quickConnectIds"] = state ? state.quickConnectIds : undefined;
+            resourceInputs["quickConnectIdsAssociateds"] = state ? state.quickConnectIdsAssociateds : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -191,9 +193,10 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["quickConnectIds"] = args ? args.quickConnectIds : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
+            resourceInputs["quickConnectIdsAssociateds"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
@@ -240,6 +243,7 @@ export interface QueueState {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    quickConnectIdsAssociateds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
@@ -294,8 +298,4 @@ export interface QueueArgs {
      * Tags to apply to the Queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

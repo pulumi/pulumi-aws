@@ -57,6 +57,8 @@ type LookupImageResult struct {
 	Arn string `pulumi:"arn"`
 	// Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
 	BuildVersionArn string `pulumi:"buildVersionArn"`
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn string `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated string `pulumi:"dateCreated"`
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
@@ -65,7 +67,7 @@ type LookupImageResult struct {
 	EnhancedImageMetadataEnabled bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn string `pulumi:"imageRecipeArn"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImageImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
@@ -130,6 +132,11 @@ func (o LookupImageResultOutput) BuildVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.BuildVersionArn }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the container recipe.
+func (o LookupImageResultOutput) ContainerRecipeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.ContainerRecipeArn }).(pulumi.StringOutput)
+}
+
 // Date the image was created.
 func (o LookupImageResultOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.DateCreated }).(pulumi.StringOutput)
@@ -150,7 +157,7 @@ func (o LookupImageResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+// Amazon Resource Name (ARN) of the image recipe.
 func (o LookupImageResultOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
 }

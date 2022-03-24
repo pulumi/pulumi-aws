@@ -33,7 +33,6 @@ class BucketArgs:
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versioning: Optional[pulumi.Input['BucketVersioningArgs']] = None,
                  website: Optional[pulumi.Input['BucketWebsiteArgs']] = None,
                  website_domain: Optional[pulumi.Input[str]] = None,
@@ -60,7 +59,6 @@ class BucketArgs:
                developer guide for more information.
         :param pulumi.Input['BucketServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['BucketVersioningArgs'] versioning: A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         :param pulumi.Input['BucketWebsiteArgs'] website: A website object (documented below).
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
@@ -100,8 +98,6 @@ class BucketArgs:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if versioning is not None:
             pulumi.set(__self__, "versioning", versioning)
         if website is not None:
@@ -317,18 +313,6 @@ class BucketArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -815,7 +799,6 @@ class Bucket(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versioning: Optional[pulumi.Input[pulumi.InputType['BucketVersioningArgs']]] = None,
                  website: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteArgs']]] = None,
                  website_domain: Optional[pulumi.Input[str]] = None,
@@ -1140,7 +1123,6 @@ class Bucket(pulumi.CustomResource):
                developer guide for more information.
         :param pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['BucketVersioningArgs']] versioning: A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         :param pulumi.Input[pulumi.InputType['BucketWebsiteArgs']] website: A website object (documented below).
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
@@ -1481,7 +1463,6 @@ class Bucket(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versioning: Optional[pulumi.Input[pulumi.InputType['BucketVersioningArgs']]] = None,
                  website: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteArgs']]] = None,
                  website_domain: Optional[pulumi.Input[str]] = None,
@@ -1515,7 +1496,6 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["request_payer"] = request_payer
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["versioning"] = versioning
             __props__.__dict__["website"] = website
             __props__.__dict__["website_domain"] = website_domain
@@ -1523,6 +1503,7 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["bucket_domain_name"] = None
             __props__.__dict__["bucket_regional_domain_name"] = None
             __props__.__dict__["region"] = None
+            __props__.__dict__["tags_all"] = None
         super(Bucket, __self__).__init__(
             'aws:s3/bucket:Bucket',
             resource_name,

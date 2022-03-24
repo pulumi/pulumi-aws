@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * API Gateway VPC Link can be imported using the `id`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:apigateway/vpcLink:VpcLink example <vpc_link_id>
+ *  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
  * ```
  */
 export class VpcLink extends pulumi.CustomResource {

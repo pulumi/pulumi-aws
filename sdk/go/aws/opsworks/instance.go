@@ -48,47 +48,37 @@ import (
 // Mapping docs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
 // to understand the implications of using these attributes.
 //
-// The `rootBlockDevice` mapping supports the following:
+// ### `ebsBlockDevice`
 //
-// * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
-//   or `"io1"`. (Default: `"standard"`).
-// * `volumeSize` - (Optional) The size of the volume in gigabytes.
-// * `iops` - (Optional) The amount of provisioned
-//   [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-//   This must be set with a `volumeType` of `"io1"`.
-// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
-//   on instance termination (Default: `true`).
-//
-// Modifying any of the `rootBlockDevice` settings requires resource
-// replacement.
-//
-// Each `ebsBlockDevice` supports the following:
-//
-// * `deviceName` - The name of the device to mount.
-// * `snapshotId` - (Optional) The Snapshot ID to mount.
-// * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
-//   or `"io1"`. (Default: `"standard"`).
-// * `volumeSize` - (Optional) The size of the volume in gigabytes.
-// * `iops` - (Optional) The amount of provisioned
-//   [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-//   This must be set with a `volumeType` of `"io1"`.
-// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
-//   on instance termination (Default: `true`).
+// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed on instance termination. Default is `true`.
+// * `deviceName` - (Required) Name of the device to mount.
+// * `iops` - (Optional) Amount of provisioned [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+// * `snapshotId` - (Optional) Snapshot ID to mount.
+// * `volumeSize` - (Optional) Size of the volume in gigabytes.
+// * `volumeType` - (Optional) Type of volume. Valid values are `standard`, `gp2`, or `io1`. Default is `standard`.
 //
 // Modifying any `ebsBlockDevice` currently requires resource replacement.
 //
-// Each `ephemeralBlockDevice` supports the following:
+// ### `ephemeralBlockDevice`
 //
-// * `deviceName` - The name of the block device to mount on the instance.
-// * `virtualName` - The [Instance Store Device
-//   Name](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-//   (e.g., `"ephemeral0"`)
+// * `deviceName` - Name of the block device to mount on the instance.
+// * `virtualName` - The [Instance Store Device Name](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
 //
 // Each AWS Instance type has a different set of Instance Store block devices
 // available for attachment. AWS [publishes a
 // list](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
 // of which ephemeral devices are available on each type. The devices are always
-// identified by the `virtualName` in the format `"ephemeral{0..N}"`.
+// identified by the `virtualName` in the format `ephemeral{0..N}`.
+//
+// ### `rootBlockDevice`
+//
+// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed on instance termination. Default is `true`.
+// * `iops` - (Optional) Amount of provisioned [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+// * `volumeSize` - (Optional) Size of the volume in gigabytes.
+// * `volumeType` - (Optional) Type of volume. Valid values are `standard`, `gp2`, or `io1`. Default is `standard`.
+//
+// Modifying any of the `rootBlockDevice` settings requires resource
+// replacement.
 //
 // > **NOTE:** Currently, changes to `*_block_device` configuration of _existing_
 // resources cannot be automatically detected by this provider. After making updates
@@ -105,85 +95,95 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+	// OpsWorks agent to install. Default is `INHERIT`.
 	AgentVersion pulumi.StringPtrOutput `pulumi:"agentVersion"`
-	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+	// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
 	AmiId pulumi.StringOutput `pulumi:"amiId"`
-	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
+	// Machine architecture for created instances.  Valid values are `x8664` or `i386`. The default is `x8664`.
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
-	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+	// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
 	AutoScalingType pulumi.StringPtrOutput `pulumi:"autoScalingType"`
-	// Name of the availability zone where instances will be created
-	// by default.
-	AvailabilityZone pulumi.StringOutput  `pulumi:"availabilityZone"`
-	CreatedAt        pulumi.StringOutput  `pulumi:"createdAt"`
-	DeleteEbs        pulumi.BoolPtrOutput `pulumi:"deleteEbs"`
-	DeleteEip        pulumi.BoolPtrOutput `pulumi:"deleteEip"`
-	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// Name of the availability zone where instances will be created by default.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// Time that the instance was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Whether to delete EBS volume on deletion. Default is `true`.
+	DeleteEbs pulumi.BoolPtrOutput `pulumi:"deleteEbs"`
+	// Whether to delete the Elastic IP on deletion.
+	DeleteEip pulumi.BoolPtrOutput `pulumi:"deleteEip"`
+	// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
 	EbsBlockDevices InstanceEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
-	// If true, the launched EC2 instance will be EBS-optimized.
+	// Whether the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
-	// EC2 instance ID
+	// EC2 instance ID.
 	Ec2InstanceId pulumi.StringOutput `pulumi:"ec2InstanceId"`
+	// ECS cluster's ARN for container instances.
 	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
-	ElasticIp     pulumi.StringOutput `pulumi:"elasticIp"`
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Instance Elastic IP address.
+	ElasticIp pulumi.StringOutput `pulumi:"elasticIp"`
+	// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
-	// The instance's host name.
-	Hostname            pulumi.StringOutput `pulumi:"hostname"`
+	// Instance's host name.
+	Hostname pulumi.StringOutput `pulumi:"hostname"`
+	// For registered instances, infrastructure class: ec2 or on-premises.
 	InfrastructureClass pulumi.StringOutput `pulumi:"infrastructureClass"`
-	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
+	// Controls where to install OS and package updates when the instance boots.  Default is `true`.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
-	InstanceProfileArn   pulumi.StringOutput  `pulumi:"instanceProfileArn"`
-	// The type of instance to start
-	InstanceType       pulumi.StringPtrOutput `pulumi:"instanceType"`
-	LastServiceErrorId pulumi.StringOutput    `pulumi:"lastServiceErrorId"`
-	// The ids of the layers the instance will belong to.
+	// ARN of the instance's IAM profile.
+	InstanceProfileArn pulumi.StringOutput `pulumi:"instanceProfileArn"`
+	// Type of instance to start.
+	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
+	// ID of the last service error.
+	LastServiceErrorId pulumi.StringOutput `pulumi:"lastServiceErrorId"`
+	// List of the layers the instance will belong to.
 	LayerIds pulumi.StringArrayOutput `pulumi:"layerIds"`
 	// Name of operating system that will be installed.
-	Os       pulumi.StringOutput `pulumi:"os"`
+	Os pulumi.StringOutput `pulumi:"os"`
+	// Instance's platform.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
+	// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
-	// The private IP address assigned to the instance
+	// Private IP address assigned to the instance.
 	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
+	// Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
-	// The public IP address assigned to the instance, if applicable.
-	PublicIp             pulumi.StringOutput `pulumi:"publicIp"`
-	RegisteredBy         pulumi.StringOutput `pulumi:"registeredBy"`
+	// Public IP address assigned to the instance, if applicable.
+	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	// For registered instances, who performed the registration.
+	RegisteredBy pulumi.StringOutput `pulumi:"registeredBy"`
+	// Instance's reported AWS OpsWorks Stacks agent version.
 	ReportedAgentVersion pulumi.StringOutput `pulumi:"reportedAgentVersion"`
-	ReportedOsFamily     pulumi.StringOutput `pulumi:"reportedOsFamily"`
-	ReportedOsName       pulumi.StringOutput `pulumi:"reportedOsName"`
-	ReportedOsVersion    pulumi.StringOutput `pulumi:"reportedOsVersion"`
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// For registered instances, the reported operating system family.
+	ReportedOsFamily pulumi.StringOutput `pulumi:"reportedOsFamily"`
+	// For registered instances, the reported operating system name.
+	ReportedOsName pulumi.StringOutput `pulumi:"reportedOsName"`
+	// For registered instances, the reported operating system version.
+	ReportedOsVersion pulumi.StringOutput `pulumi:"reportedOsVersion"`
+	// Configuration block for the root block device of the instance. See Block Devices below.
 	RootBlockDevices InstanceRootBlockDeviceArrayOutput `pulumi:"rootBlockDevices"`
-	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-	RootDeviceType     pulumi.StringOutput `pulumi:"rootDeviceType"`
+	// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
+	RootDeviceType pulumi.StringOutput `pulumi:"rootDeviceType"`
+	// Root device volume ID.
 	RootDeviceVolumeId pulumi.StringOutput `pulumi:"rootDeviceVolumeId"`
-	// The associated security groups.
-	SecurityGroupIds         pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	SshHostDsaKeyFingerprint pulumi.StringOutput      `pulumi:"sshHostDsaKeyFingerprint"`
-	SshHostRsaKeyFingerprint pulumi.StringOutput      `pulumi:"sshHostRsaKeyFingerprint"`
+	// Associated security groups.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// SSH key's Deep Security Agent (DSA) fingerprint.
+	SshHostDsaKeyFingerprint pulumi.StringOutput `pulumi:"sshHostDsaKeyFingerprint"`
+	// SSH key's RSA fingerprint.
+	SshHostRsaKeyFingerprint pulumi.StringOutput `pulumi:"sshHostRsaKeyFingerprint"`
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringOutput `pulumi:"sshKeyName"`
-	// The id of the stack the instance will belong to.
+	// Identifier of the stack the instance will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
-	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-	State  pulumi.StringPtrOutput `pulumi:"state"`
-	Status pulumi.StringOutput    `pulumi:"status"`
-	// Subnet ID to attach to
+	// Desired state of the instance. Valid values are `running` or `stopped`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// Instance status. Will be one of `booting`, `connectionLost`, `online`, `pending`, `rebooting`, `requested`, `runningSetup`, `setupFailed`, `shuttingDown`, `startFailed`, `stopFailed`, `stopped`, `stopping`, `terminated`, or `terminating`.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Subnet ID to attach to.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+	// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either `"paravirtual"` or `"hvm"`.
+	// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
 	VirtualizationType pulumi.StringOutput `pulumi:"virtualizationType"`
 }
 
@@ -222,168 +222,188 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+	// OpsWorks agent to install. Default is `INHERIT`.
 	AgentVersion *string `pulumi:"agentVersion"`
-	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+	// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
 	AmiId *string `pulumi:"amiId"`
-	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
+	// Machine architecture for created instances.  Valid values are `x8664` or `i386`. The default is `x8664`.
 	Architecture *string `pulumi:"architecture"`
-	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+	// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
 	AutoScalingType *string `pulumi:"autoScalingType"`
-	// Name of the availability zone where instances will be created
-	// by default.
+	// Name of the availability zone where instances will be created by default.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	CreatedAt        *string `pulumi:"createdAt"`
-	DeleteEbs        *bool   `pulumi:"deleteEbs"`
-	DeleteEip        *bool   `pulumi:"deleteEip"`
-	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// Time that the instance was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Whether to delete EBS volume on deletion. Default is `true`.
+	DeleteEbs *bool `pulumi:"deleteEbs"`
+	// Whether to delete the Elastic IP on deletion.
+	DeleteEip *bool `pulumi:"deleteEip"`
+	// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
 	EbsBlockDevices []InstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// If true, the launched EC2 instance will be EBS-optimized.
+	// Whether the launched EC2 instance will be EBS-optimized.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
-	// EC2 instance ID
+	// EC2 instance ID.
 	Ec2InstanceId *string `pulumi:"ec2InstanceId"`
+	// ECS cluster's ARN for container instances.
 	EcsClusterArn *string `pulumi:"ecsClusterArn"`
-	ElasticIp     *string `pulumi:"elasticIp"`
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Instance Elastic IP address.
+	ElasticIp *string `pulumi:"elasticIp"`
+	// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	// The instance's host name.
-	Hostname            *string `pulumi:"hostname"`
+	// Instance's host name.
+	Hostname *string `pulumi:"hostname"`
+	// For registered instances, infrastructure class: ec2 or on-premises.
 	InfrastructureClass *string `pulumi:"infrastructureClass"`
-	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
-	InstallUpdatesOnBoot *bool   `pulumi:"installUpdatesOnBoot"`
-	InstanceProfileArn   *string `pulumi:"instanceProfileArn"`
-	// The type of instance to start
-	InstanceType       *string `pulumi:"instanceType"`
+	// Controls where to install OS and package updates when the instance boots.  Default is `true`.
+	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
+	// ARN of the instance's IAM profile.
+	InstanceProfileArn *string `pulumi:"instanceProfileArn"`
+	// Type of instance to start.
+	InstanceType *string `pulumi:"instanceType"`
+	// ID of the last service error.
 	LastServiceErrorId *string `pulumi:"lastServiceErrorId"`
-	// The ids of the layers the instance will belong to.
+	// List of the layers the instance will belong to.
 	LayerIds []string `pulumi:"layerIds"`
 	// Name of operating system that will be installed.
-	Os       *string `pulumi:"os"`
+	Os *string `pulumi:"os"`
+	// Instance's platform.
 	Platform *string `pulumi:"platform"`
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
+	// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns *string `pulumi:"privateDns"`
-	// The private IP address assigned to the instance
+	// Private IP address assigned to the instance.
 	PrivateIp *string `pulumi:"privateIp"`
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
+	// Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns *string `pulumi:"publicDns"`
-	// The public IP address assigned to the instance, if applicable.
-	PublicIp             *string `pulumi:"publicIp"`
-	RegisteredBy         *string `pulumi:"registeredBy"`
+	// Public IP address assigned to the instance, if applicable.
+	PublicIp *string `pulumi:"publicIp"`
+	// For registered instances, who performed the registration.
+	RegisteredBy *string `pulumi:"registeredBy"`
+	// Instance's reported AWS OpsWorks Stacks agent version.
 	ReportedAgentVersion *string `pulumi:"reportedAgentVersion"`
-	ReportedOsFamily     *string `pulumi:"reportedOsFamily"`
-	ReportedOsName       *string `pulumi:"reportedOsName"`
-	ReportedOsVersion    *string `pulumi:"reportedOsVersion"`
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// For registered instances, the reported operating system family.
+	ReportedOsFamily *string `pulumi:"reportedOsFamily"`
+	// For registered instances, the reported operating system name.
+	ReportedOsName *string `pulumi:"reportedOsName"`
+	// For registered instances, the reported operating system version.
+	ReportedOsVersion *string `pulumi:"reportedOsVersion"`
+	// Configuration block for the root block device of the instance. See Block Devices below.
 	RootBlockDevices []InstanceRootBlockDevice `pulumi:"rootBlockDevices"`
-	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-	RootDeviceType     *string `pulumi:"rootDeviceType"`
+	// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
+	RootDeviceType *string `pulumi:"rootDeviceType"`
+	// Root device volume ID.
 	RootDeviceVolumeId *string `pulumi:"rootDeviceVolumeId"`
-	// The associated security groups.
-	SecurityGroupIds         []string `pulumi:"securityGroupIds"`
-	SshHostDsaKeyFingerprint *string  `pulumi:"sshHostDsaKeyFingerprint"`
-	SshHostRsaKeyFingerprint *string  `pulumi:"sshHostRsaKeyFingerprint"`
+	// Associated security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// SSH key's Deep Security Agent (DSA) fingerprint.
+	SshHostDsaKeyFingerprint *string `pulumi:"sshHostDsaKeyFingerprint"`
+	// SSH key's RSA fingerprint.
+	SshHostRsaKeyFingerprint *string `pulumi:"sshHostRsaKeyFingerprint"`
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName *string `pulumi:"sshKeyName"`
-	// The id of the stack the instance will belong to.
+	// Identifier of the stack the instance will belong to.
 	StackId *string `pulumi:"stackId"`
-	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-	State  *string `pulumi:"state"`
+	// Desired state of the instance. Valid values are `running` or `stopped`.
+	State *string `pulumi:"state"`
+	// Instance status. Will be one of `booting`, `connectionLost`, `online`, `pending`, `rebooting`, `requested`, `runningSetup`, `setupFailed`, `shuttingDown`, `startFailed`, `stopFailed`, `stopped`, `stopping`, `terminated`, or `terminating`.
 	Status *string `pulumi:"status"`
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
-	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+	// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
 	Tenancy *string `pulumi:"tenancy"`
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either `"paravirtual"` or `"hvm"`.
+	// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
 	VirtualizationType *string `pulumi:"virtualizationType"`
 }
 
 type InstanceState struct {
-	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+	// OpsWorks agent to install. Default is `INHERIT`.
 	AgentVersion pulumi.StringPtrInput
-	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+	// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
 	AmiId pulumi.StringPtrInput
-	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
+	// Machine architecture for created instances.  Valid values are `x8664` or `i386`. The default is `x8664`.
 	Architecture pulumi.StringPtrInput
-	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+	// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
 	AutoScalingType pulumi.StringPtrInput
-	// Name of the availability zone where instances will be created
-	// by default.
+	// Name of the availability zone where instances will be created by default.
 	AvailabilityZone pulumi.StringPtrInput
-	CreatedAt        pulumi.StringPtrInput
-	DeleteEbs        pulumi.BoolPtrInput
-	DeleteEip        pulumi.BoolPtrInput
-	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// Time that the instance was created.
+	CreatedAt pulumi.StringPtrInput
+	// Whether to delete EBS volume on deletion. Default is `true`.
+	DeleteEbs pulumi.BoolPtrInput
+	// Whether to delete the Elastic IP on deletion.
+	DeleteEip pulumi.BoolPtrInput
+	// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
 	EbsBlockDevices InstanceEbsBlockDeviceArrayInput
-	// If true, the launched EC2 instance will be EBS-optimized.
+	// Whether the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.BoolPtrInput
-	// EC2 instance ID
+	// EC2 instance ID.
 	Ec2InstanceId pulumi.StringPtrInput
+	// ECS cluster's ARN for container instances.
 	EcsClusterArn pulumi.StringPtrInput
-	ElasticIp     pulumi.StringPtrInput
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Instance Elastic IP address.
+	ElasticIp pulumi.StringPtrInput
+	// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
-	// The instance's host name.
-	Hostname            pulumi.StringPtrInput
+	// Instance's host name.
+	Hostname pulumi.StringPtrInput
+	// For registered instances, infrastructure class: ec2 or on-premises.
 	InfrastructureClass pulumi.StringPtrInput
-	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
+	// Controls where to install OS and package updates when the instance boots.  Default is `true`.
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
-	InstanceProfileArn   pulumi.StringPtrInput
-	// The type of instance to start
-	InstanceType       pulumi.StringPtrInput
+	// ARN of the instance's IAM profile.
+	InstanceProfileArn pulumi.StringPtrInput
+	// Type of instance to start.
+	InstanceType pulumi.StringPtrInput
+	// ID of the last service error.
 	LastServiceErrorId pulumi.StringPtrInput
-	// The ids of the layers the instance will belong to.
+	// List of the layers the instance will belong to.
 	LayerIds pulumi.StringArrayInput
 	// Name of operating system that will be installed.
-	Os       pulumi.StringPtrInput
+	Os pulumi.StringPtrInput
+	// Instance's platform.
 	Platform pulumi.StringPtrInput
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
+	// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns pulumi.StringPtrInput
-	// The private IP address assigned to the instance
+	// Private IP address assigned to the instance.
 	PrivateIp pulumi.StringPtrInput
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
+	// Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns pulumi.StringPtrInput
-	// The public IP address assigned to the instance, if applicable.
-	PublicIp             pulumi.StringPtrInput
-	RegisteredBy         pulumi.StringPtrInput
+	// Public IP address assigned to the instance, if applicable.
+	PublicIp pulumi.StringPtrInput
+	// For registered instances, who performed the registration.
+	RegisteredBy pulumi.StringPtrInput
+	// Instance's reported AWS OpsWorks Stacks agent version.
 	ReportedAgentVersion pulumi.StringPtrInput
-	ReportedOsFamily     pulumi.StringPtrInput
-	ReportedOsName       pulumi.StringPtrInput
-	ReportedOsVersion    pulumi.StringPtrInput
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	// For registered instances, the reported operating system family.
+	ReportedOsFamily pulumi.StringPtrInput
+	// For registered instances, the reported operating system name.
+	ReportedOsName pulumi.StringPtrInput
+	// For registered instances, the reported operating system version.
+	ReportedOsVersion pulumi.StringPtrInput
+	// Configuration block for the root block device of the instance. See Block Devices below.
 	RootBlockDevices InstanceRootBlockDeviceArrayInput
-	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-	RootDeviceType     pulumi.StringPtrInput
+	// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
+	RootDeviceType pulumi.StringPtrInput
+	// Root device volume ID.
 	RootDeviceVolumeId pulumi.StringPtrInput
-	// The associated security groups.
-	SecurityGroupIds         pulumi.StringArrayInput
+	// Associated security groups.
+	SecurityGroupIds pulumi.StringArrayInput
+	// SSH key's Deep Security Agent (DSA) fingerprint.
 	SshHostDsaKeyFingerprint pulumi.StringPtrInput
+	// SSH key's RSA fingerprint.
 	SshHostRsaKeyFingerprint pulumi.StringPtrInput
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringPtrInput
-	// The id of the stack the instance will belong to.
+	// Identifier of the stack the instance will belong to.
 	StackId pulumi.StringPtrInput
-	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-	State  pulumi.StringPtrInput
+	// Desired state of the instance. Valid values are `running` or `stopped`.
+	State pulumi.StringPtrInput
+	// Instance status. Will be one of `booting`, `connectionLost`, `online`, `pending`, `rebooting`, `requested`, `runningSetup`, `setupFailed`, `shuttingDown`, `startFailed`, `stopFailed`, `stopped`, `stopping`, `terminated`, or `terminating`.
 	Status pulumi.StringPtrInput
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
-	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+	// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
 	Tenancy pulumi.StringPtrInput
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either `"paravirtual"` or `"hvm"`.
+	// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
 	VirtualizationType pulumi.StringPtrInput
 }
 
@@ -392,165 +412,129 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+	// OpsWorks agent to install. Default is `INHERIT`.
 	AgentVersion *string `pulumi:"agentVersion"`
-	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+	// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
 	AmiId *string `pulumi:"amiId"`
-	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
+	// Machine architecture for created instances.  Valid values are `x8664` or `i386`. The default is `x8664`.
 	Architecture *string `pulumi:"architecture"`
-	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+	// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
 	AutoScalingType *string `pulumi:"autoScalingType"`
-	// Name of the availability zone where instances will be created
-	// by default.
+	// Name of the availability zone where instances will be created by default.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	CreatedAt        *string `pulumi:"createdAt"`
-	DeleteEbs        *bool   `pulumi:"deleteEbs"`
-	DeleteEip        *bool   `pulumi:"deleteEip"`
-	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// Time that the instance was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Whether to delete EBS volume on deletion. Default is `true`.
+	DeleteEbs *bool `pulumi:"deleteEbs"`
+	// Whether to delete the Elastic IP on deletion.
+	DeleteEip *bool `pulumi:"deleteEip"`
+	// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
 	EbsBlockDevices []InstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// If true, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized  *bool   `pulumi:"ebsOptimized"`
+	// Whether the launched EC2 instance will be EBS-optimized.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// ECS cluster's ARN for container instances.
 	EcsClusterArn *string `pulumi:"ecsClusterArn"`
-	ElasticIp     *string `pulumi:"elasticIp"`
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Instance Elastic IP address.
+	ElasticIp *string `pulumi:"elasticIp"`
+	// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	// The instance's host name.
-	Hostname            *string `pulumi:"hostname"`
+	// Instance's host name.
+	Hostname *string `pulumi:"hostname"`
+	// For registered instances, infrastructure class: ec2 or on-premises.
 	InfrastructureClass *string `pulumi:"infrastructureClass"`
-	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
-	InstallUpdatesOnBoot *bool   `pulumi:"installUpdatesOnBoot"`
-	InstanceProfileArn   *string `pulumi:"instanceProfileArn"`
-	// The type of instance to start
-	InstanceType       *string `pulumi:"instanceType"`
-	LastServiceErrorId *string `pulumi:"lastServiceErrorId"`
-	// The ids of the layers the instance will belong to.
+	// Controls where to install OS and package updates when the instance boots.  Default is `true`.
+	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
+	// ARN of the instance's IAM profile.
+	InstanceProfileArn *string `pulumi:"instanceProfileArn"`
+	// Type of instance to start.
+	InstanceType *string `pulumi:"instanceType"`
+	// List of the layers the instance will belong to.
 	LayerIds []string `pulumi:"layerIds"`
 	// Name of operating system that will be installed.
-	Os       *string `pulumi:"os"`
-	Platform *string `pulumi:"platform"`
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
-	PrivateDns *string `pulumi:"privateDns"`
-	// The private IP address assigned to the instance
-	PrivateIp *string `pulumi:"privateIp"`
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
-	PublicDns *string `pulumi:"publicDns"`
-	// The public IP address assigned to the instance, if applicable.
-	PublicIp             *string `pulumi:"publicIp"`
-	RegisteredBy         *string `pulumi:"registeredBy"`
-	ReportedAgentVersion *string `pulumi:"reportedAgentVersion"`
-	ReportedOsFamily     *string `pulumi:"reportedOsFamily"`
-	ReportedOsName       *string `pulumi:"reportedOsName"`
-	ReportedOsVersion    *string `pulumi:"reportedOsVersion"`
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	Os *string `pulumi:"os"`
+	// Configuration block for the root block device of the instance. See Block Devices below.
 	RootBlockDevices []InstanceRootBlockDevice `pulumi:"rootBlockDevices"`
-	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-	RootDeviceType     *string `pulumi:"rootDeviceType"`
-	RootDeviceVolumeId *string `pulumi:"rootDeviceVolumeId"`
-	// The associated security groups.
-	SecurityGroupIds         []string `pulumi:"securityGroupIds"`
-	SshHostDsaKeyFingerprint *string  `pulumi:"sshHostDsaKeyFingerprint"`
-	SshHostRsaKeyFingerprint *string  `pulumi:"sshHostRsaKeyFingerprint"`
+	// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
+	RootDeviceType *string `pulumi:"rootDeviceType"`
+	// Associated security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName *string `pulumi:"sshKeyName"`
-	// The id of the stack the instance will belong to.
+	// Identifier of the stack the instance will belong to.
 	StackId string `pulumi:"stackId"`
-	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-	State  *string `pulumi:"state"`
+	// Desired state of the instance. Valid values are `running` or `stopped`.
+	State *string `pulumi:"state"`
+	// Instance status. Will be one of `booting`, `connectionLost`, `online`, `pending`, `rebooting`, `requested`, `runningSetup`, `setupFailed`, `shuttingDown`, `startFailed`, `stopFailed`, `stopped`, `stopping`, `terminated`, or `terminating`.
 	Status *string `pulumi:"status"`
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
-	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+	// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
 	Tenancy *string `pulumi:"tenancy"`
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either `"paravirtual"` or `"hvm"`.
+	// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
 	VirtualizationType *string `pulumi:"virtualizationType"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+	// OpsWorks agent to install. Default is `INHERIT`.
 	AgentVersion pulumi.StringPtrInput
-	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+	// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
 	AmiId pulumi.StringPtrInput
-	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
+	// Machine architecture for created instances.  Valid values are `x8664` or `i386`. The default is `x8664`.
 	Architecture pulumi.StringPtrInput
-	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+	// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
 	AutoScalingType pulumi.StringPtrInput
-	// Name of the availability zone where instances will be created
-	// by default.
+	// Name of the availability zone where instances will be created by default.
 	AvailabilityZone pulumi.StringPtrInput
-	CreatedAt        pulumi.StringPtrInput
-	DeleteEbs        pulumi.BoolPtrInput
-	DeleteEip        pulumi.BoolPtrInput
-	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// Time that the instance was created.
+	CreatedAt pulumi.StringPtrInput
+	// Whether to delete EBS volume on deletion. Default is `true`.
+	DeleteEbs pulumi.BoolPtrInput
+	// Whether to delete the Elastic IP on deletion.
+	DeleteEip pulumi.BoolPtrInput
+	// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
 	EbsBlockDevices InstanceEbsBlockDeviceArrayInput
-	// If true, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized  pulumi.BoolPtrInput
+	// Whether the launched EC2 instance will be EBS-optimized.
+	EbsOptimized pulumi.BoolPtrInput
+	// ECS cluster's ARN for container instances.
 	EcsClusterArn pulumi.StringPtrInput
-	ElasticIp     pulumi.StringPtrInput
-	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	// Instance Elastic IP address.
+	ElasticIp pulumi.StringPtrInput
+	// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
-	// The instance's host name.
-	Hostname            pulumi.StringPtrInput
+	// Instance's host name.
+	Hostname pulumi.StringPtrInput
+	// For registered instances, infrastructure class: ec2 or on-premises.
 	InfrastructureClass pulumi.StringPtrInput
-	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
+	// Controls where to install OS and package updates when the instance boots.  Default is `true`.
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
-	InstanceProfileArn   pulumi.StringPtrInput
-	// The type of instance to start
-	InstanceType       pulumi.StringPtrInput
-	LastServiceErrorId pulumi.StringPtrInput
-	// The ids of the layers the instance will belong to.
+	// ARN of the instance's IAM profile.
+	InstanceProfileArn pulumi.StringPtrInput
+	// Type of instance to start.
+	InstanceType pulumi.StringPtrInput
+	// List of the layers the instance will belong to.
 	LayerIds pulumi.StringArrayInput
 	// Name of operating system that will be installed.
-	Os       pulumi.StringPtrInput
-	Platform pulumi.StringPtrInput
-	// The private DNS name assigned to the instance. Can only be
-	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-	// for your VPC
-	PrivateDns pulumi.StringPtrInput
-	// The private IP address assigned to the instance
-	PrivateIp pulumi.StringPtrInput
-	// The public DNS name assigned to the instance. For EC2-VPC, this
-	// is only available if you've enabled DNS hostnames for your VPC
-	PublicDns pulumi.StringPtrInput
-	// The public IP address assigned to the instance, if applicable.
-	PublicIp             pulumi.StringPtrInput
-	RegisteredBy         pulumi.StringPtrInput
-	ReportedAgentVersion pulumi.StringPtrInput
-	ReportedOsFamily     pulumi.StringPtrInput
-	ReportedOsName       pulumi.StringPtrInput
-	ReportedOsVersion    pulumi.StringPtrInput
-	// Customize details about the root block
-	// device of the instance. See Block Devices below for details.
+	Os pulumi.StringPtrInput
+	// Configuration block for the root block device of the instance. See Block Devices below.
 	RootBlockDevices InstanceRootBlockDeviceArrayInput
-	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-	RootDeviceType     pulumi.StringPtrInput
-	RootDeviceVolumeId pulumi.StringPtrInput
-	// The associated security groups.
-	SecurityGroupIds         pulumi.StringArrayInput
-	SshHostDsaKeyFingerprint pulumi.StringPtrInput
-	SshHostRsaKeyFingerprint pulumi.StringPtrInput
+	// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
+	RootDeviceType pulumi.StringPtrInput
+	// Associated security groups.
+	SecurityGroupIds pulumi.StringArrayInput
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringPtrInput
-	// The id of the stack the instance will belong to.
+	// Identifier of the stack the instance will belong to.
 	StackId pulumi.StringInput
-	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-	State  pulumi.StringPtrInput
+	// Desired state of the instance. Valid values are `running` or `stopped`.
+	State pulumi.StringPtrInput
+	// Instance status. Will be one of `booting`, `connectionLost`, `online`, `pending`, `rebooting`, `requested`, `runningSetup`, `setupFailed`, `shuttingDown`, `startFailed`, `stopFailed`, `stopped`, `stopping`, `terminated`, or `terminating`.
 	Status pulumi.StringPtrInput
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
-	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+	// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
 	Tenancy pulumi.StringPtrInput
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either `"paravirtual"` or `"hvm"`.
+	// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
 	VirtualizationType pulumi.StringPtrInput
 }
 

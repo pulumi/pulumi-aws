@@ -12,6 +12,7 @@ from .account_password_policy import *
 from .get_account_alias import *
 from .get_group import *
 from .get_instance_profile import *
+from .get_openid_connect_provider import *
 from .get_policy import *
 from .get_policy_document import *
 from .get_role import *
@@ -35,11 +36,14 @@ from .role_policy_attachment import *
 from .saml_provider import *
 from .server_certificate import *
 from .service_linked_role import *
+from .service_specific_credential import *
+from .signing_certificate import *
 from .ssh_key import *
 from .user import *
 from .user_group_membership import *
 from .user_login_profile import *
 from .user_policy import *
 from .user_policy_attachment import *
+from .virtual_mfa_device import *
 from ._inputs import *
 from . import outputs

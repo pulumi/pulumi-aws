@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        /// Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
         /// </summary>
         public readonly int? RetryDuration;
 

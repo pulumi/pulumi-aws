@@ -118,6 +118,10 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly autoDeployment!: pulumi.Output<outputs.cloudformation.StackSetAutoDeployment | undefined>;
     /**
+     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+     */
+    public readonly callAs!: pulumi.Output<string | undefined>;
+    /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      */
     public readonly capabilities!: pulumi.Output<string[] | undefined>;
@@ -146,7 +150,7 @@ export class StackSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly stackSetId!: pulumi.Output<string>;
     /**
-     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -178,6 +182,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoDeployment"] = state ? state.autoDeployment : undefined;
+            resourceInputs["callAs"] = state ? state.callAs : undefined;
             resourceInputs["capabilities"] = state ? state.capabilities : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["executionRoleName"] = state ? state.executionRoleName : undefined;
@@ -193,6 +198,7 @@ export class StackSet extends pulumi.CustomResource {
             const args = argsOrState as StackSetArgs | undefined;
             resourceInputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
             resourceInputs["autoDeployment"] = args ? args.autoDeployment : undefined;
+            resourceInputs["callAs"] = args ? args.callAs : undefined;
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["executionRoleName"] = args ? args.executionRoleName : undefined;
@@ -228,6 +234,10 @@ export interface StackSetState {
      */
     autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeployment>;
     /**
+     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+     */
+    callAs?: pulumi.Input<string>;
+    /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      */
     capabilities?: pulumi.Input<pulumi.Input<string>[]>;
@@ -256,7 +266,7 @@ export interface StackSetState {
      */
     stackSetId?: pulumi.Input<string>;
     /**
-     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -286,6 +296,10 @@ export interface StackSetArgs {
      */
     autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeployment>;
     /**
+     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+     */
+    callAs?: pulumi.Input<string>;
+    /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      */
     capabilities?: pulumi.Input<pulumi.Input<string>[]>;
@@ -310,7 +324,7 @@ export interface StackSetArgs {
      */
     permissionModel?: pulumi.Input<string>;
     /**
-     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

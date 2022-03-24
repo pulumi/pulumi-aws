@@ -50,14 +50,16 @@ type Image struct {
 
 	// Amazon Resource Name (ARN) of the image.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// - Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
-	ImageRecipeArn pulumi.StringOutput `pulumi:"imageRecipeArn"`
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -85,9 +87,6 @@ func NewImage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ImageRecipeArn == nil {
-		return nil, errors.New("invalid value for required argument 'ImageRecipeArn'")
-	}
 	if args.InfrastructureConfigurationArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
@@ -115,13 +114,15 @@ func GetImage(ctx *pulumi.Context,
 type imageState struct {
 	// Amazon Resource Name (ARN) of the image.
 	Arn *string `pulumi:"arn"`
+	// - Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated *string `pulumi:"dateCreated"`
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
@@ -146,13 +147,15 @@ type imageState struct {
 type ImageState struct {
 	// Amazon Resource Name (ARN) of the image.
 	Arn pulumi.StringPtrInput
+	// - Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrInput
 	// Date the image was created.
 	DateCreated pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
@@ -179,12 +182,14 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
+	// - Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
-	ImageRecipeArn string `pulumi:"imageRecipeArn"`
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -195,12 +200,14 @@ type imageArgs struct {
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
+	// - Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
-	ImageRecipeArn pulumi.StringInput
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.

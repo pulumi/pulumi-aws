@@ -34,7 +34,28 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     public MyStack()
         ///     {
-        ///         var testVpcIamPool = Output.Create(Aws.Ec2.GetVpcIamPool.InvokeAsync());
+        ///         var testVpcIamPool = Output.Create(Aws.Ec2.GetVpcIamPool.InvokeAsync(new Aws.Ec2.GetVpcIamPoolArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
+        ///                 {
+        ///                     Name = "description",
+        ///                     Values = 
+        ///                     {
+        ///                         "*test*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
+        ///                 {
+        ///                     Name = "address-family",
+        ///                     Values = 
+        ///                     {
+        ///                         "ipv4",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
         ///         var testVpc = new Aws.Ec2.Vpc("testVpc", new Aws.Ec2.VpcArgs
         ///         {
         ///             Ipv4IpamPoolId = testVpcIamPool.Apply(testVpcIamPool =&gt; testVpcIamPool.Id),
@@ -73,7 +94,28 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     public MyStack()
         ///     {
-        ///         var testVpcIamPool = Output.Create(Aws.Ec2.GetVpcIamPool.InvokeAsync());
+        ///         var testVpcIamPool = Output.Create(Aws.Ec2.GetVpcIamPool.InvokeAsync(new Aws.Ec2.GetVpcIamPoolArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
+        ///                 {
+        ///                     Name = "description",
+        ///                     Values = 
+        ///                     {
+        ///                         "*test*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetVpcIamPoolFilterArgs
+        ///                 {
+        ///                     Name = "address-family",
+        ///                     Values = 
+        ///                     {
+        ///                         "ipv4",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
         ///         var testVpc = new Aws.Ec2.Vpc("testVpc", new Aws.Ec2.VpcArgs
         ///         {
         ///             Ipv4IpamPoolId = testVpcIamPool.Apply(testVpcIamPool =&gt; testVpcIamPool.Id),

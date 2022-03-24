@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.redshift.Cluster("default", {
+ * const example = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "tf-redshift-cluster",
  *     clusterType: "single-node",
  *     databaseName: "mydb",
  *     masterPassword: "Mustbe8characters",
- *     masterUsername: "foo",
+ *     masterUsername: "exampleuser",
  *     nodeType: "dc1.large",
  * });
  * ```
@@ -73,12 +73,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly automatedSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
-     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The Cluster Identifier. Must be a lower case
-     * string.
+     * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+     */
+    public readonly availabilityZoneRelocationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Cluster Identifier. Must be a lower case string.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
@@ -179,7 +182,9 @@ export class Cluster extends pulumi.CustomResource {
     public readonly ownerAccount!: pulumi.Output<string | undefined>;
     /**
      * The port number on which the cluster accepts incoming connections.
-     * The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+     * The cluster is accessible only via the JDBC and ODBC connection strings.
+     * Part of the connection string requires the port on which the cluster will listen for incoming connections.
+     * Default port is 5439.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
@@ -237,6 +242,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["automatedSnapshotRetentionPeriod"] = state ? state.automatedSnapshotRetentionPeriod : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["availabilityZoneRelocationEnabled"] = state ? state.availabilityZoneRelocationEnabled : undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["clusterNodes"] = state ? state.clusterNodes : undefined;
             resourceInputs["clusterParameterGroupName"] = state ? state.clusterParameterGroupName : undefined;
@@ -282,6 +288,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;
             resourceInputs["automatedSnapshotRetentionPeriod"] = args ? args.automatedSnapshotRetentionPeriod : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["availabilityZoneRelocationEnabled"] = args ? args.availabilityZoneRelocationEnabled : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
             resourceInputs["clusterPublicKey"] = args ? args.clusterPublicKey : undefined;
@@ -340,12 +347,15 @@ export interface ClusterState {
      */
     automatedSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The Cluster Identifier. Must be a lower case
-     * string.
+     * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+     */
+    availabilityZoneRelocationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Cluster Identifier. Must be a lower case string.
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -446,7 +456,9 @@ export interface ClusterState {
     ownerAccount?: pulumi.Input<string>;
     /**
      * The port number on which the cluster accepts incoming connections.
-     * The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+     * The cluster is accessible only via the JDBC and ODBC connection strings.
+     * Part of the connection string requires the port on which the cluster will listen for incoming connections.
+     * Default port is 5439.
      */
     port?: pulumi.Input<number>;
     /**
@@ -501,12 +513,15 @@ export interface ClusterArgs {
      */
     automatedSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The Cluster Identifier. Must be a lower case
-     * string.
+     * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+     */
+    availabilityZoneRelocationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Cluster Identifier. Must be a lower case string.
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
@@ -599,7 +614,9 @@ export interface ClusterArgs {
     ownerAccount?: pulumi.Input<string>;
     /**
      * The port number on which the cluster accepts incoming connections.
-     * The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+     * The cluster is accessible only via the JDBC and ODBC connection strings.
+     * Part of the connection string requires the port on which the cluster will listen for incoming connections.
+     * Default port is 5439.
      */
     port?: pulumi.Input<number>;
     /**

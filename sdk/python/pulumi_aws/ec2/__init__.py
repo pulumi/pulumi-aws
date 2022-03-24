@@ -63,6 +63,7 @@ from .get_route_table import *
 from .get_route_tables import *
 from .get_security_group import *
 from .get_security_groups import *
+from .get_serial_console_access import *
 from .get_spot_price import *
 from .get_subnet import *
 from .get_subnet_ids import *
@@ -79,6 +80,7 @@ from .get_vpcs import *
 from .get_vpn_gateway import *
 from .instance import *
 from .internet_gateway import *
+from .internet_gateway_attachment import *
 from .key_pair import *
 from .launch_configuration import *
 from .launch_template import *
@@ -91,6 +93,7 @@ from .nat_gateway import *
 from .network_acl import *
 from .network_acl_association import *
 from .network_acl_rule import *
+from .network_insights_path import *
 from .network_interface import *
 from .network_interface_attachment import *
 from .network_interface_security_group_attachment import *
@@ -101,7 +104,9 @@ from .route import *
 from .route_table import *
 from .route_table_association import *
 from .security_group import *
+from .security_group_association import *
 from .security_group_rule import *
+from .serial_console_access import *
 from .snapshot_create_volume_permission import *
 from .spot_datafeed_subscription import *
 from .spot_fleet_request import *
@@ -121,6 +126,7 @@ from .vpc_dhcp_options_association import *
 from .vpc_endpoint import *
 from .vpc_endpoint_connection_accepter import *
 from .vpc_endpoint_connection_notification import *
+from .vpc_endpoint_policy import *
 from .vpc_endpoint_route_table_association import *
 from .vpc_endpoint_service import *
 from .vpc_endpoint_service_allowed_principle import *

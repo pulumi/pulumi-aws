@@ -190,6 +190,8 @@ type BuildStorageLocation struct {
 	Bucket string `pulumi:"bucket"`
 	// Name of the zip file containing your build files.
 	Key string `pulumi:"key"`
+	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	ObjectVersion *string `pulumi:"objectVersion"`
 	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 	RoleArn string `pulumi:"roleArn"`
 }
@@ -210,6 +212,8 @@ type BuildStorageLocationArgs struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Name of the zip file containing your build files.
 	Key pulumi.StringInput `pulumi:"key"`
+	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
 	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
@@ -301,6 +305,11 @@ func (o BuildStorageLocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildStorageLocation) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// A specific version of the file. If not set, the latest version of the file is retrieved.
+func (o BuildStorageLocationOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildStorageLocation) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
 // ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 func (o BuildStorageLocationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildStorageLocation) string { return v.RoleArn }).(pulumi.StringOutput)
@@ -350,6 +359,16 @@ func (o BuildStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A specific version of the file. If not set, the latest version of the file is retrieved.
+func (o BuildStorageLocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildStorageLocation) *string {
@@ -357,6 +376,143 @@ func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetCertificateConfiguration struct {
+	// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+	CertificateType *string `pulumi:"certificateType"`
+}
+
+// FleetCertificateConfigurationInput is an input type that accepts FleetCertificateConfigurationArgs and FleetCertificateConfigurationOutput values.
+// You can construct a concrete instance of `FleetCertificateConfigurationInput` via:
+//
+//          FleetCertificateConfigurationArgs{...}
+type FleetCertificateConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetCertificateConfigurationOutput() FleetCertificateConfigurationOutput
+	ToFleetCertificateConfigurationOutputWithContext(context.Context) FleetCertificateConfigurationOutput
+}
+
+type FleetCertificateConfigurationArgs struct {
+	// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
+}
+
+func (FleetCertificateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetCertificateConfiguration)(nil)).Elem()
+}
+
+func (i FleetCertificateConfigurationArgs) ToFleetCertificateConfigurationOutput() FleetCertificateConfigurationOutput {
+	return i.ToFleetCertificateConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetCertificateConfigurationArgs) ToFleetCertificateConfigurationOutputWithContext(ctx context.Context) FleetCertificateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetCertificateConfigurationOutput)
+}
+
+func (i FleetCertificateConfigurationArgs) ToFleetCertificateConfigurationPtrOutput() FleetCertificateConfigurationPtrOutput {
+	return i.ToFleetCertificateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetCertificateConfigurationArgs) ToFleetCertificateConfigurationPtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetCertificateConfigurationOutput).ToFleetCertificateConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetCertificateConfigurationPtrInput is an input type that accepts FleetCertificateConfigurationArgs, FleetCertificateConfigurationPtr and FleetCertificateConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetCertificateConfigurationPtrInput` via:
+//
+//          FleetCertificateConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetCertificateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetCertificateConfigurationPtrOutput() FleetCertificateConfigurationPtrOutput
+	ToFleetCertificateConfigurationPtrOutputWithContext(context.Context) FleetCertificateConfigurationPtrOutput
+}
+
+type fleetCertificateConfigurationPtrType FleetCertificateConfigurationArgs
+
+func FleetCertificateConfigurationPtr(v *FleetCertificateConfigurationArgs) FleetCertificateConfigurationPtrInput {
+	return (*fleetCertificateConfigurationPtrType)(v)
+}
+
+func (*fleetCertificateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetCertificateConfiguration)(nil)).Elem()
+}
+
+func (i *fleetCertificateConfigurationPtrType) ToFleetCertificateConfigurationPtrOutput() FleetCertificateConfigurationPtrOutput {
+	return i.ToFleetCertificateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetCertificateConfigurationPtrType) ToFleetCertificateConfigurationPtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetCertificateConfigurationPtrOutput)
+}
+
+type FleetCertificateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetCertificateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetCertificateConfiguration)(nil)).Elem()
+}
+
+func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationOutput() FleetCertificateConfigurationOutput {
+	return o
+}
+
+func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationOutputWithContext(ctx context.Context) FleetCertificateConfigurationOutput {
+	return o
+}
+
+func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrOutput() FleetCertificateConfigurationPtrOutput {
+	return o.ToFleetCertificateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetCertificateConfiguration) *FleetCertificateConfiguration {
+		return &v
+	}).(FleetCertificateConfigurationPtrOutput)
+}
+
+// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+func (o FleetCertificateConfigurationOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetCertificateConfiguration) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
+}
+
+type FleetCertificateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetCertificateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetCertificateConfiguration)(nil)).Elem()
+}
+
+func (o FleetCertificateConfigurationPtrOutput) ToFleetCertificateConfigurationPtrOutput() FleetCertificateConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetCertificateConfigurationPtrOutput) ToFleetCertificateConfigurationPtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigurationOutput {
+	return o.ApplyT(func(v *FleetCertificateConfiguration) FleetCertificateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetCertificateConfiguration
+		return ret
+	}).(FleetCertificateConfigurationOutput)
+}
+
+// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+func (o FleetCertificateConfigurationPtrOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetCertificateConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -930,6 +1086,599 @@ func (o FleetRuntimeConfigurationServerProcessArrayOutput) Index(i pulumi.IntInp
 	}).(FleetRuntimeConfigurationServerProcessOutput)
 }
 
+type GameServerGroupAutoScalingPolicy struct {
+	// Length of time, in seconds, it takes for a new instance to start
+	// new game server processes and register with GameLift FleetIQ.
+	// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+	// because it avoids prematurely starting new instances. Defaults to `60`.
+	EstimatedInstanceWarmup     *int                                                        `pulumi:"estimatedInstanceWarmup"`
+	TargetTrackingConfiguration GameServerGroupAutoScalingPolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
+}
+
+// GameServerGroupAutoScalingPolicyInput is an input type that accepts GameServerGroupAutoScalingPolicyArgs and GameServerGroupAutoScalingPolicyOutput values.
+// You can construct a concrete instance of `GameServerGroupAutoScalingPolicyInput` via:
+//
+//          GameServerGroupAutoScalingPolicyArgs{...}
+type GameServerGroupAutoScalingPolicyInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAutoScalingPolicyOutput() GameServerGroupAutoScalingPolicyOutput
+	ToGameServerGroupAutoScalingPolicyOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyOutput
+}
+
+type GameServerGroupAutoScalingPolicyArgs struct {
+	// Length of time, in seconds, it takes for a new instance to start
+	// new game server processes and register with GameLift FleetIQ.
+	// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+	// because it avoids prematurely starting new instances. Defaults to `60`.
+	EstimatedInstanceWarmup     pulumi.IntPtrInput                                               `pulumi:"estimatedInstanceWarmup"`
+	TargetTrackingConfiguration GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput `pulumi:"targetTrackingConfiguration"`
+}
+
+func (GameServerGroupAutoScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyOutput() GameServerGroupAutoScalingPolicyOutput {
+	return i.ToGameServerGroupAutoScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyOutput)
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return i.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyOutput).ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupAutoScalingPolicyPtrInput is an input type that accepts GameServerGroupAutoScalingPolicyArgs, GameServerGroupAutoScalingPolicyPtr and GameServerGroupAutoScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupAutoScalingPolicyPtrInput` via:
+//
+//          GameServerGroupAutoScalingPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupAutoScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput
+	ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyPtrOutput
+}
+
+type gameServerGroupAutoScalingPolicyPtrType GameServerGroupAutoScalingPolicyArgs
+
+func GameServerGroupAutoScalingPolicyPtr(v *GameServerGroupAutoScalingPolicyArgs) GameServerGroupAutoScalingPolicyPtrInput {
+	return (*gameServerGroupAutoScalingPolicyPtrType)(v)
+}
+
+func (*gameServerGroupAutoScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i *gameServerGroupAutoScalingPolicyPtrType) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return i.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupAutoScalingPolicyPtrType) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyPtrOutput)
+}
+
+type GameServerGroupAutoScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAutoScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyOutput() GameServerGroupAutoScalingPolicyOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return o.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupAutoScalingPolicy) *GameServerGroupAutoScalingPolicy {
+		return &v
+	}).(GameServerGroupAutoScalingPolicyPtrOutput)
+}
+
+// Length of time, in seconds, it takes for a new instance to start
+// new game server processes and register with GameLift FleetIQ.
+// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+// because it avoids prematurely starting new instances. Defaults to `60`.
+func (o GameServerGroupAutoScalingPolicyOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) *int { return v.EstimatedInstanceWarmup }).(pulumi.IntPtrOutput)
+}
+
+func (o GameServerGroupAutoScalingPolicyOutput) TargetTrackingConfiguration() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput {
+	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
+		return v.TargetTrackingConfiguration
+	}).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput)
+}
+
+type GameServerGroupAutoScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAutoScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o GameServerGroupAutoScalingPolicyPtrOutput) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyPtrOutput) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyPtrOutput) Elem() GameServerGroupAutoScalingPolicyOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) GameServerGroupAutoScalingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GameServerGroupAutoScalingPolicy
+		return ret
+	}).(GameServerGroupAutoScalingPolicyOutput)
+}
+
+// Length of time, in seconds, it takes for a new instance to start
+// new game server processes and register with GameLift FleetIQ.
+// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+// because it avoids prematurely starting new instances. Defaults to `60`.
+func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EstimatedInstanceWarmup
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GameServerGroupAutoScalingPolicyPtrOutput) TargetTrackingConfiguration() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetTrackingConfiguration
+	}).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput)
+}
+
+type GameServerGroupAutoScalingPolicyTargetTrackingConfiguration struct {
+	// Desired value to use with a game server group target-based scaling policy.
+	TargetValue float64 `pulumi:"targetValue"`
+}
+
+// GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput is an input type that accepts GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs and GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput values.
+// You can construct a concrete instance of `GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput` via:
+//
+//          GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{...}
+type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput
+	ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput
+}
+
+type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs struct {
+	// Desired value to use with a game server group target-based scaling policy.
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+}
+
+func (GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAutoScalingPolicyTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput {
+	return i.ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput)
+}
+
+func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return i.ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput).ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx)
+}
+
+// GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput is an input type that accepts GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs, GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtr and GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput values.
+// You can construct a concrete instance of `GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput` via:
+//
+//          GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput
+	ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput
+}
+
+type gameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrType GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs
+
+func GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtr(v *GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput {
+	return (*gameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrType)(v)
+}
+
+func (*gameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAutoScalingPolicyTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (i *gameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrType) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return i.ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrType) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput)
+}
+
+type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupAutoScalingPolicyTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return o.ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupAutoScalingPolicyTargetTrackingConfiguration) *GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
+		return &v
+	}).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput)
+}
+
+// Desired value to use with a game server group target-based scaling policy.
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v GameServerGroupAutoScalingPolicyTargetTrackingConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupAutoScalingPolicyTargetTrackingConfiguration)(nil)).Elem()
+}
+
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
+	return o
+}
+
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) Elem() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicyTargetTrackingConfiguration) GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GameServerGroupAutoScalingPolicyTargetTrackingConfiguration
+		return ret
+	}).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput)
+}
+
+// Desired value to use with a game server group target-based scaling policy.
+func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicyTargetTrackingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+type GameServerGroupInstanceDefinition struct {
+	// An EC2 instance type.
+	InstanceType string `pulumi:"instanceType"`
+	// Instance weighting that indicates how much this instance type contributes
+	// to the total capacity of a game server group.
+	// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
+	// the most cost-effective options.
+	WeightedCapacity *string `pulumi:"weightedCapacity"`
+}
+
+// GameServerGroupInstanceDefinitionInput is an input type that accepts GameServerGroupInstanceDefinitionArgs and GameServerGroupInstanceDefinitionOutput values.
+// You can construct a concrete instance of `GameServerGroupInstanceDefinitionInput` via:
+//
+//          GameServerGroupInstanceDefinitionArgs{...}
+type GameServerGroupInstanceDefinitionInput interface {
+	pulumi.Input
+
+	ToGameServerGroupInstanceDefinitionOutput() GameServerGroupInstanceDefinitionOutput
+	ToGameServerGroupInstanceDefinitionOutputWithContext(context.Context) GameServerGroupInstanceDefinitionOutput
+}
+
+type GameServerGroupInstanceDefinitionArgs struct {
+	// An EC2 instance type.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Instance weighting that indicates how much this instance type contributes
+	// to the total capacity of a game server group.
+	// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
+	// the most cost-effective options.
+	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
+}
+
+func (GameServerGroupInstanceDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (i GameServerGroupInstanceDefinitionArgs) ToGameServerGroupInstanceDefinitionOutput() GameServerGroupInstanceDefinitionOutput {
+	return i.ToGameServerGroupInstanceDefinitionOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupInstanceDefinitionArgs) ToGameServerGroupInstanceDefinitionOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionOutput)
+}
+
+// GameServerGroupInstanceDefinitionArrayInput is an input type that accepts GameServerGroupInstanceDefinitionArray and GameServerGroupInstanceDefinitionArrayOutput values.
+// You can construct a concrete instance of `GameServerGroupInstanceDefinitionArrayInput` via:
+//
+//          GameServerGroupInstanceDefinitionArray{ GameServerGroupInstanceDefinitionArgs{...} }
+type GameServerGroupInstanceDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGameServerGroupInstanceDefinitionArrayOutput() GameServerGroupInstanceDefinitionArrayOutput
+	ToGameServerGroupInstanceDefinitionArrayOutputWithContext(context.Context) GameServerGroupInstanceDefinitionArrayOutput
+}
+
+type GameServerGroupInstanceDefinitionArray []GameServerGroupInstanceDefinitionInput
+
+func (GameServerGroupInstanceDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (i GameServerGroupInstanceDefinitionArray) ToGameServerGroupInstanceDefinitionArrayOutput() GameServerGroupInstanceDefinitionArrayOutput {
+	return i.ToGameServerGroupInstanceDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupInstanceDefinitionArray) ToGameServerGroupInstanceDefinitionArrayOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionArrayOutput)
+}
+
+type GameServerGroupInstanceDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupInstanceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefinitionOutput() GameServerGroupInstanceDefinitionOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefinitionOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionOutput {
+	return o
+}
+
+// An EC2 instance type.
+func (o GameServerGroupInstanceDefinitionOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GameServerGroupInstanceDefinition) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// Instance weighting that indicates how much this instance type contributes
+// to the total capacity of a game server group.
+// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
+// the most cost-effective options.
+func (o GameServerGroupInstanceDefinitionOutput) WeightedCapacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupInstanceDefinition) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
+}
+
+type GameServerGroupInstanceDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupInstanceDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameServerGroupInstanceDefinition)(nil)).Elem()
+}
+
+func (o GameServerGroupInstanceDefinitionArrayOutput) ToGameServerGroupInstanceDefinitionArrayOutput() GameServerGroupInstanceDefinitionArrayOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionArrayOutput) ToGameServerGroupInstanceDefinitionArrayOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionArrayOutput {
+	return o
+}
+
+func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) GameServerGroupInstanceDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameServerGroupInstanceDefinition {
+		return vs[0].([]GameServerGroupInstanceDefinition)[vs[1].(int)]
+	}).(GameServerGroupInstanceDefinitionOutput)
+}
+
+type GameServerGroupLaunchTemplate struct {
+	// A unique identifier for an existing EC2 launch template.
+	Id *string `pulumi:"id"`
+	// A readable identifier for an existing EC2 launch template.
+	Name *string `pulumi:"name"`
+	// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+	Version *string `pulumi:"version"`
+}
+
+// GameServerGroupLaunchTemplateInput is an input type that accepts GameServerGroupLaunchTemplateArgs and GameServerGroupLaunchTemplateOutput values.
+// You can construct a concrete instance of `GameServerGroupLaunchTemplateInput` via:
+//
+//          GameServerGroupLaunchTemplateArgs{...}
+type GameServerGroupLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToGameServerGroupLaunchTemplateOutput() GameServerGroupLaunchTemplateOutput
+	ToGameServerGroupLaunchTemplateOutputWithContext(context.Context) GameServerGroupLaunchTemplateOutput
+}
+
+type GameServerGroupLaunchTemplateArgs struct {
+	// A unique identifier for an existing EC2 launch template.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A readable identifier for an existing EC2 launch template.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GameServerGroupLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplateOutput() GameServerGroupLaunchTemplateOutput {
+	return i.ToGameServerGroupLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplateOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput)
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput).ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// GameServerGroupLaunchTemplatePtrInput is an input type that accepts GameServerGroupLaunchTemplateArgs, GameServerGroupLaunchTemplatePtr and GameServerGroupLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `GameServerGroupLaunchTemplatePtrInput` via:
+//
+//          GameServerGroupLaunchTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type GameServerGroupLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput
+	ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Context) GameServerGroupLaunchTemplatePtrOutput
+}
+
+type gameServerGroupLaunchTemplatePtrType GameServerGroupLaunchTemplateArgs
+
+func GameServerGroupLaunchTemplatePtr(v *GameServerGroupLaunchTemplateArgs) GameServerGroupLaunchTemplatePtrInput {
+	return (*gameServerGroupLaunchTemplatePtrType)(v)
+}
+
+func (*gameServerGroupLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplatePtrOutput)
+}
+
+type GameServerGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplateOutput() GameServerGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplateOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return o.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupLaunchTemplate) *GameServerGroupLaunchTemplate {
+		return &v
+	}).(GameServerGroupLaunchTemplatePtrOutput)
+}
+
+// A unique identifier for an existing EC2 launch template.
+func (o GameServerGroupLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A readable identifier for an existing EC2 launch template.
+func (o GameServerGroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+func (o GameServerGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type GameServerGroupLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemplateOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) GameServerGroupLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret GameServerGroupLaunchTemplate
+		return ret
+	}).(GameServerGroupLaunchTemplateOutput)
+}
+
+// A unique identifier for an existing EC2 launch template.
+func (o GameServerGroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A readable identifier for an existing EC2 launch template.
+func (o GameServerGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type GameSessionQueuePlayerLatencyPolicy struct {
 	// Maximum latency value that is allowed for any player.
 	MaximumIndividualPlayerLatencyMilliseconds int `pulumi:"maximumIndividualPlayerLatencyMilliseconds"`
@@ -1036,11 +1785,207 @@ func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) Index(i pulumi.IntInput)
 	}).(GameSessionQueuePlayerLatencyPolicyOutput)
 }
 
+type ScriptStorageLocation struct {
+	// Name of your S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// Name of the zip file containing your script files.
+	Key string `pulumi:"key"`
+	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	ObjectVersion *string `pulumi:"objectVersion"`
+	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// ScriptStorageLocationInput is an input type that accepts ScriptStorageLocationArgs and ScriptStorageLocationOutput values.
+// You can construct a concrete instance of `ScriptStorageLocationInput` via:
+//
+//          ScriptStorageLocationArgs{...}
+type ScriptStorageLocationInput interface {
+	pulumi.Input
+
+	ToScriptStorageLocationOutput() ScriptStorageLocationOutput
+	ToScriptStorageLocationOutputWithContext(context.Context) ScriptStorageLocationOutput
+}
+
+type ScriptStorageLocationArgs struct {
+	// Name of your S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Name of the zip file containing your script files.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
+	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (ScriptStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStorageLocation)(nil)).Elem()
+}
+
+func (i ScriptStorageLocationArgs) ToScriptStorageLocationOutput() ScriptStorageLocationOutput {
+	return i.ToScriptStorageLocationOutputWithContext(context.Background())
+}
+
+func (i ScriptStorageLocationArgs) ToScriptStorageLocationOutputWithContext(ctx context.Context) ScriptStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStorageLocationOutput)
+}
+
+func (i ScriptStorageLocationArgs) ToScriptStorageLocationPtrOutput() ScriptStorageLocationPtrOutput {
+	return i.ToScriptStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ScriptStorageLocationArgs) ToScriptStorageLocationPtrOutputWithContext(ctx context.Context) ScriptStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStorageLocationOutput).ToScriptStorageLocationPtrOutputWithContext(ctx)
+}
+
+// ScriptStorageLocationPtrInput is an input type that accepts ScriptStorageLocationArgs, ScriptStorageLocationPtr and ScriptStorageLocationPtrOutput values.
+// You can construct a concrete instance of `ScriptStorageLocationPtrInput` via:
+//
+//          ScriptStorageLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScriptStorageLocationPtrInput interface {
+	pulumi.Input
+
+	ToScriptStorageLocationPtrOutput() ScriptStorageLocationPtrOutput
+	ToScriptStorageLocationPtrOutputWithContext(context.Context) ScriptStorageLocationPtrOutput
+}
+
+type scriptStorageLocationPtrType ScriptStorageLocationArgs
+
+func ScriptStorageLocationPtr(v *ScriptStorageLocationArgs) ScriptStorageLocationPtrInput {
+	return (*scriptStorageLocationPtrType)(v)
+}
+
+func (*scriptStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptStorageLocation)(nil)).Elem()
+}
+
+func (i *scriptStorageLocationPtrType) ToScriptStorageLocationPtrOutput() ScriptStorageLocationPtrOutput {
+	return i.ToScriptStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *scriptStorageLocationPtrType) ToScriptStorageLocationPtrOutputWithContext(ctx context.Context) ScriptStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStorageLocationPtrOutput)
+}
+
+type ScriptStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (ScriptStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStorageLocation)(nil)).Elem()
+}
+
+func (o ScriptStorageLocationOutput) ToScriptStorageLocationOutput() ScriptStorageLocationOutput {
+	return o
+}
+
+func (o ScriptStorageLocationOutput) ToScriptStorageLocationOutputWithContext(ctx context.Context) ScriptStorageLocationOutput {
+	return o
+}
+
+func (o ScriptStorageLocationOutput) ToScriptStorageLocationPtrOutput() ScriptStorageLocationPtrOutput {
+	return o.ToScriptStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ScriptStorageLocationOutput) ToScriptStorageLocationPtrOutputWithContext(ctx context.Context) ScriptStorageLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptStorageLocation) *ScriptStorageLocation {
+		return &v
+	}).(ScriptStorageLocationPtrOutput)
+}
+
+// Name of your S3 bucket.
+func (o ScriptStorageLocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStorageLocation) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Name of the zip file containing your script files.
+func (o ScriptStorageLocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStorageLocation) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A specific version of the file. If not set, the latest version of the file is retrieved.
+func (o ScriptStorageLocationOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptStorageLocation) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+func (o ScriptStorageLocationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStorageLocation) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type ScriptStorageLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptStorageLocation)(nil)).Elem()
+}
+
+func (o ScriptStorageLocationPtrOutput) ToScriptStorageLocationPtrOutput() ScriptStorageLocationPtrOutput {
+	return o
+}
+
+func (o ScriptStorageLocationPtrOutput) ToScriptStorageLocationPtrOutputWithContext(ctx context.Context) ScriptStorageLocationPtrOutput {
+	return o
+}
+
+func (o ScriptStorageLocationPtrOutput) Elem() ScriptStorageLocationOutput {
+	return o.ApplyT(func(v *ScriptStorageLocation) ScriptStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ScriptStorageLocation
+		return ret
+	}).(ScriptStorageLocationOutput)
+}
+
+// Name of your S3 bucket.
+func (o ScriptStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the zip file containing your script files.
+func (o ScriptStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// A specific version of the file. If not set, the latest version of the file is retrieved.
+func (o ScriptStorageLocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+func (o ScriptStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyPtrInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationInput)(nil)).Elem(), BuildStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationPtrInput)(nil)).Elem(), BuildStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationInput)(nil)).Elem(), FleetCertificateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationPtrInput)(nil)).Elem(), FleetCertificateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2InboundPermissionInput)(nil)).Elem(), FleetEc2InboundPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2InboundPermissionArrayInput)(nil)).Elem(), FleetEc2InboundPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetResourceCreationLimitPolicyInput)(nil)).Elem(), FleetResourceCreationLimitPolicyArgs{})
@@ -1049,12 +1994,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetRuntimeConfigurationPtrInput)(nil)).Elem(), FleetRuntimeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetRuntimeConfigurationServerProcessInput)(nil)).Elem(), FleetRuntimeConfigurationServerProcessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetRuntimeConfigurationServerProcessArrayInput)(nil)).Elem(), FleetRuntimeConfigurationServerProcessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupAutoScalingPolicyInput)(nil)).Elem(), GameServerGroupAutoScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupAutoScalingPolicyPtrInput)(nil)).Elem(), GameServerGroupAutoScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput)(nil)).Elem(), GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrInput)(nil)).Elem(), GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionArrayInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplateInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplatePtrInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyArrayInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptStorageLocationInput)(nil)).Elem(), ScriptStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptStorageLocationPtrInput)(nil)).Elem(), ScriptStorageLocationArgs{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildStorageLocationOutput{})
 	pulumi.RegisterOutputType(BuildStorageLocationPtrOutput{})
+	pulumi.RegisterOutputType(FleetCertificateConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetCertificateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetEc2InboundPermissionOutput{})
 	pulumi.RegisterOutputType(FleetEc2InboundPermissionArrayOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyOutput{})
@@ -1063,6 +2020,16 @@ func init() {
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationServerProcessOutput{})
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationServerProcessArrayOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput{})
+	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionOutput{})
+	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(GameServerGroupLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ScriptStorageLocationOutput{})
+	pulumi.RegisterOutputType(ScriptStorageLocationPtrOutput{})
 }

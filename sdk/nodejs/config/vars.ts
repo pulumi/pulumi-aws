@@ -38,6 +38,18 @@ Object.defineProperty(exports, "assumeRole", {
 });
 
 /**
+ * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+ * variable. (Setting `ca_bundle` in the shared config file is not supported.)
+ */
+export declare const customCaBundle: string | undefined;
+Object.defineProperty(exports, "customCaBundle", {
+    get() {
+        return __config.get("customCaBundle");
+    },
+    enumerable: true,
+});
+
+/**
  * Configuration block with settings to default resource tags across all resources.
  */
 export declare const defaultTags: outputs.config.DefaultTags | undefined;
@@ -278,6 +290,17 @@ export declare const skipRequestingAccountId: boolean | undefined;
 Object.defineProperty(exports, "skipRequestingAccountId", {
     get() {
         return __config.getObject<boolean>("skipRequestingAccountId");
+    },
+    enumerable: true,
+});
+
+/**
+ * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+ */
+export declare const stsRegion: string | undefined;
+Object.defineProperty(exports, "stsRegion", {
+    get() {
+        return __config.get("stsRegion");
     },
     enumerable: true,
 });

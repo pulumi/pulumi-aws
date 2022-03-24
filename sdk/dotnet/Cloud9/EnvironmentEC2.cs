@@ -126,10 +126,28 @@ namespace Pulumi.Aws.Cloud9
         public Output<int?> AutomaticStopTimeMinutes { get; private set; } = null!;
 
         /// <summary>
+        /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        /// </summary>
+        [Output("connectionType")]
+        public Output<string?> ConnectionType { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the environment.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        /// * `amazonlinux-1-x86_64`
+        /// * `amazonlinux-2-x86_64`
+        /// * `ubuntu-18.04-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        /// </summary>
+        [Output("imageId")]
+        public Output<string?> ImageId { get; private set; } = null!;
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -226,10 +244,28 @@ namespace Pulumi.Aws.Cloud9
         public Input<int>? AutomaticStopTimeMinutes { get; set; }
 
         /// <summary>
+        /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        /// </summary>
+        [Input("connectionType")]
+        public Input<string>? ConnectionType { get; set; }
+
+        /// <summary>
         /// The description of the environment.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        /// * `amazonlinux-1-x86_64`
+        /// * `amazonlinux-2-x86_64`
+        /// * `ubuntu-18.04-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        /// </summary>
+        [Input("imageId")]
+        public Input<string>? ImageId { get; set; }
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -287,10 +323,28 @@ namespace Pulumi.Aws.Cloud9
         public Input<int>? AutomaticStopTimeMinutes { get; set; }
 
         /// <summary>
+        /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        /// </summary>
+        [Input("connectionType")]
+        public Input<string>? ConnectionType { get; set; }
+
+        /// <summary>
         /// The description of the environment.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        /// * `amazonlinux-1-x86_64`
+        /// * `amazonlinux-2-x86_64`
+        /// * `ubuntu-18.04-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        /// </summary>
+        [Input("imageId")]
+        public Input<string>? ImageId { get; set; }
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.

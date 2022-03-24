@@ -53,6 +53,14 @@ namespace Pulumi.Aws.AppRunner
     ///                     },
     ///                 },
     ///             },
+    ///             NetworkConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationArgs
+    ///             {
+    ///                 EgressConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationEgressConfigurationArgs
+    ///                 {
+    ///                     EgressType = "VPC",
+    ///                     VpcConnectorArn = aws_apprunner_vpc_connector.Connector.Arn,
+    ///                 },
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "Name", "example-apprunner-service" },
@@ -139,6 +147,12 @@ namespace Pulumi.Aws.AppRunner
         public Output<Outputs.ServiceInstanceConfiguration> InstanceConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// </summary>
+        [Output("networkConfiguration")]
+        public Output<Outputs.ServiceNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
         [Output("serviceId")]
@@ -169,7 +183,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -251,6 +265,12 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceInstanceConfigurationArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// </summary>
+        [Input("networkConfiguration")]
+        public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the service.
         /// </summary>
         [Input("serviceName", required: true)]
@@ -266,7 +286,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -312,6 +332,12 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceInstanceConfigurationGetArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// </summary>
+        [Input("networkConfiguration")]
+        public Input<Inputs.ServiceNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
         [Input("serviceId")]
@@ -345,7 +371,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
