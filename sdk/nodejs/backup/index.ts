@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./framework";
+export * from "./getFramework";
 export * from "./getPlan";
+export * from "./getReportPlan";
 export * from "./getSelection";
 export * from "./getVault";
 export * from "./globalSettings";
 export * from "./plan";
 export * from "./regionSettings";
+export * from "./reportPlan";
 export * from "./selection";
 export * from "./vault";
 export * from "./vaultLockConfiguration";
@@ -18,9 +22,11 @@ export * from "./vaultNotifications";
 export * from "./vaultPolicy";
 
 // Import resources to register:
+import { Framework } from "./framework";
 import { GlobalSettings } from "./globalSettings";
 import { Plan } from "./plan";
 import { RegionSettings } from "./regionSettings";
+import { ReportPlan } from "./reportPlan";
 import { Selection } from "./selection";
 import { Vault } from "./vault";
 import { VaultLockConfiguration } from "./vaultLockConfiguration";
@@ -31,12 +37,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:backup/framework:Framework":
+                return new Framework(name, <any>undefined, { urn })
             case "aws:backup/globalSettings:GlobalSettings":
                 return new GlobalSettings(name, <any>undefined, { urn })
             case "aws:backup/plan:Plan":
                 return new Plan(name, <any>undefined, { urn })
             case "aws:backup/regionSettings:RegionSettings":
                 return new RegionSettings(name, <any>undefined, { urn })
+            case "aws:backup/reportPlan:ReportPlan":
+                return new ReportPlan(name, <any>undefined, { urn })
             case "aws:backup/selection:Selection":
                 return new Selection(name, <any>undefined, { urn })
             case "aws:backup/vault:Vault":
@@ -52,9 +62,11 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "backup/framework", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/globalSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/plan", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/regionSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "backup/reportPlan", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/selection", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/vault", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/vaultLockConfiguration", _module)

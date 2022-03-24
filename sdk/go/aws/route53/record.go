@@ -229,10 +229,9 @@ type Record struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrOutput `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+	Name    pulumi.StringOutput      `pulumi:"name"`
 	Records pulumi.StringArrayOutput `pulumi:"records"`
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier pulumi.StringPtrOutput `pulumi:"setIdentifier"`
 	// The TTL of the record.
 	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
@@ -300,10 +299,9 @@ type recordState struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy *bool `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name *string `pulumi:"name"`
-	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+	Name    *string  `pulumi:"name"`
 	Records []string `pulumi:"records"`
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier *string `pulumi:"setIdentifier"`
 	// The TTL of the record.
 	Ttl *int `pulumi:"ttl"`
@@ -334,10 +332,9 @@ type RecordState struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrInput
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name pulumi.StringPtrInput
-	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+	Name    pulumi.StringPtrInput
 	Records pulumi.StringArrayInput
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier pulumi.StringPtrInput
 	// The TTL of the record.
 	Ttl pulumi.IntPtrInput
@@ -370,10 +367,9 @@ type recordArgs struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy *bool `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name string `pulumi:"name"`
-	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+	Name    string   `pulumi:"name"`
 	Records []string `pulumi:"records"`
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier *string `pulumi:"setIdentifier"`
 	// The TTL of the record.
 	Ttl *int `pulumi:"ttl"`
@@ -403,10 +399,9 @@ type RecordArgs struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrInput
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name pulumi.StringInput
-	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+	Name    pulumi.StringInput
 	Records pulumi.StringArrayInput
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier pulumi.StringPtrInput
 	// The TTL of the record.
 	Ttl pulumi.IntPtrInput

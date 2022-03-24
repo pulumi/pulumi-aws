@@ -26,7 +26,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleExistingObjectReplication? ExistingObjectReplication;
         /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies documented below.
+        /// Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleFilter? Filter;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        /// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

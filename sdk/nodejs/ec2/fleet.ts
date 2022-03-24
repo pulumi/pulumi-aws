@@ -65,6 +65,10 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     /**
+     * Reserved.
+     */
+    public readonly context!: pulumi.Output<string | undefined>;
+    /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      */
     public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
@@ -122,6 +126,7 @@ export class Fleet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
             resourceInputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
             resourceInputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
@@ -141,6 +146,7 @@ export class Fleet extends pulumi.CustomResource {
             if ((!args || args.targetCapacitySpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
+            resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
             resourceInputs["launchTemplateConfig"] = args ? args.launchTemplateConfig : undefined;
             resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
@@ -162,6 +168,10 @@ export class Fleet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Fleet resources.
  */
 export interface FleetState {
+    /**
+     * Reserved.
+     */
+    context?: pulumi.Input<string>;
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      */
@@ -212,6 +222,10 @@ export interface FleetState {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
+    /**
+     * Reserved.
+     */
+    context?: pulumi.Input<string>;
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      */

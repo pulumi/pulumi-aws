@@ -113,6 +113,10 @@ export class StackSetInstance extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+     */
+    public readonly callAs!: pulumi.Output<string | undefined>;
+    /**
      * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      */
     public readonly deploymentTargets!: pulumi.Output<outputs.cloudformation.StackSetInstanceDeploymentTargets | undefined>;
@@ -155,6 +159,7 @@ export class StackSetInstance extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as StackSetInstanceState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["callAs"] = state ? state.callAs : undefined;
             resourceInputs["deploymentTargets"] = state ? state.deploymentTargets : undefined;
             resourceInputs["organizationalUnitId"] = state ? state.organizationalUnitId : undefined;
             resourceInputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
@@ -168,6 +173,7 @@ export class StackSetInstance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'stackSetName'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["callAs"] = args ? args.callAs : undefined;
             resourceInputs["deploymentTargets"] = args ? args.deploymentTargets : undefined;
             resourceInputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
@@ -189,6 +195,10 @@ export interface StackSetInstanceState {
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+     */
+    callAs?: pulumi.Input<string>;
     /**
      * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      */
@@ -227,6 +237,10 @@ export interface StackSetInstanceArgs {
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+     */
+    callAs?: pulumi.Input<string>;
     /**
      * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      */

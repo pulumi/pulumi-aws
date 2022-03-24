@@ -184,6 +184,10 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string PublicKey;
         /// <summary>
+        /// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
+        /// </summary>
+        public readonly string PublicKeyPem;
+        /// <summary>
         /// Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
         /// </summary>
         public readonly ImmutableArray<string> SigningAlgorithms;
@@ -206,6 +210,8 @@ namespace Pulumi.Aws.Kms
 
             string publicKey,
 
+            string publicKeyPem,
+
             ImmutableArray<string> signingAlgorithms)
         {
             Arn = arn;
@@ -216,6 +222,7 @@ namespace Pulumi.Aws.Kms
             KeyId = keyId;
             KeyUsage = keyUsage;
             PublicKey = publicKey;
+            PublicKeyPem = publicKeyPem;
             SigningAlgorithms = signingAlgorithms;
         }
     }

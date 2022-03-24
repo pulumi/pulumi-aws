@@ -258,6 +258,7 @@ class _ProvisionedProductState:
                  launch_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]] = None,
                  path_id: Optional[pulumi.Input[str]] = None,
                  path_name: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
@@ -285,6 +286,7 @@ class _ProvisionedProductState:
         :param pulumi.Input[str] launch_role_arn: ARN of the launch role associated with the provisioned product.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+        :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]] outputs: The set of outputs for the product created.
         :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog.get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
@@ -322,6 +324,8 @@ class _ProvisionedProductState:
             pulumi.set(__self__, "name", name)
         if notification_arns is not None:
             pulumi.set(__self__, "notification_arns", notification_arns)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
         if path_id is not None:
             pulumi.set(__self__, "path_id", path_id)
         if path_name is not None:
@@ -482,6 +486,18 @@ class _ProvisionedProductState:
     @notification_arns.setter
     def notification_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "notification_arns", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]]:
+        """
+        The set of outputs for the product created.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]]):
+        pulumi.set(self, "outputs", value)
 
     @property
     @pulumi.getter(name="pathId")
@@ -833,6 +849,7 @@ class ProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["last_record_id"] = None
             __props__.__dict__["last_successful_provisioning_record_id"] = None
             __props__.__dict__["launch_role_arn"] = None
+            __props__.__dict__["outputs"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
             __props__.__dict__["tags_all"] = None
@@ -858,6 +875,7 @@ class ProvisionedProduct(pulumi.CustomResource):
             launch_role_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductOutputArgs']]]]] = None,
             path_id: Optional[pulumi.Input[str]] = None,
             path_name: Optional[pulumi.Input[str]] = None,
             product_id: Optional[pulumi.Input[str]] = None,
@@ -890,6 +908,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[str] launch_role_arn: ARN of the launch role associated with the provisioned product.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductOutputArgs']]]] outputs: The set of outputs for the product created.
         :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog.get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
@@ -920,6 +939,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         __props__.__dict__["launch_role_arn"] = launch_role_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_arns"] = notification_arns
+        __props__.__dict__["outputs"] = outputs
         __props__.__dict__["path_id"] = path_id
         __props__.__dict__["path_name"] = path_name
         __props__.__dict__["product_id"] = product_id
@@ -1023,6 +1043,14 @@ class ProvisionedProduct(pulumi.CustomResource):
         Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         """
         return pulumi.get(self, "notification_arns")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> pulumi.Output[Sequence['outputs.ProvisionedProductOutput']]:
+        """
+        The set of outputs for the product created.
+        """
+        return pulumi.get(self, "outputs")
 
     @property
     @pulumi.getter(name="pathId")

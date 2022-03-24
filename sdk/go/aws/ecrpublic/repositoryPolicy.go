@@ -32,7 +32,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleRepository, err := ecrpublic.NewRepository(ctx, "exampleRepository", &ecrpublic.RepositoryArgs{
-// 			RepositoryName: pulumi.String("Example"),
+// 			RepositoryName: pulumi.String("example"),
 // 		})
 // 		if err != nil {
 // 			return err

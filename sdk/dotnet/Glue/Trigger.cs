@@ -213,6 +213,12 @@ namespace Pulumi.Aws.Glue
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// </summary>
+        [Output("eventBatchingConditions")]
+        public Output<ImmutableArray<Outputs.TriggerEventBatchingCondition>> EventBatchingConditions { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the trigger.
         /// </summary>
         [Output("name")]
@@ -336,6 +342,18 @@ namespace Pulumi.Aws.Glue
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("eventBatchingConditions")]
+        private InputList<Inputs.TriggerEventBatchingConditionArgs>? _eventBatchingConditions;
+
+        /// <summary>
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// </summary>
+        public InputList<Inputs.TriggerEventBatchingConditionArgs> EventBatchingConditions
+        {
+            get => _eventBatchingConditions ?? (_eventBatchingConditions = new InputList<Inputs.TriggerEventBatchingConditionArgs>());
+            set => _eventBatchingConditions = value;
+        }
+
         /// <summary>
         /// The name of the trigger.
         /// </summary>
@@ -420,6 +438,18 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("eventBatchingConditions")]
+        private InputList<Inputs.TriggerEventBatchingConditionGetArgs>? _eventBatchingConditions;
+
+        /// <summary>
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// </summary>
+        public InputList<Inputs.TriggerEventBatchingConditionGetArgs> EventBatchingConditions
+        {
+            get => _eventBatchingConditions ?? (_eventBatchingConditions = new InputList<Inputs.TriggerEventBatchingConditionGetArgs>());
+            set => _eventBatchingConditions = value;
+        }
 
         /// <summary>
         /// The name of the trigger.

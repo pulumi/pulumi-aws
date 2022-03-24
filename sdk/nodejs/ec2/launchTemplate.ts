@@ -220,9 +220,6 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     public readonly monitoring!: pulumi.Output<outputs.ec2.LaunchTemplateMonitoring | undefined>;
-    /**
-     * The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -238,6 +235,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly placement!: pulumi.Output<outputs.ec2.LaunchTemplatePlacement | undefined>;
     /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     */
+    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.LaunchTemplatePrivateDnsNameOptions | undefined>;
+    /**
      * The ID of the RAM disk.
      */
     public readonly ramDiskId!: pulumi.Output<string | undefined>;
@@ -251,7 +252,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
     /**
-     * A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -263,7 +264,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly updateDefaultVersion!: pulumi.Output<boolean | undefined>;
     /**
-     * The Base64-encoded user data to provide when launching the instance.
+     * The base64-encoded user data to provide when launching the instance.
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
@@ -312,6 +313,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             resourceInputs["placement"] = state ? state.placement : undefined;
+            resourceInputs["privateDnsNameOptions"] = state ? state.privateDnsNameOptions : undefined;
             resourceInputs["ramDiskId"] = state ? state.ramDiskId : undefined;
             resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             resourceInputs["tagSpecifications"] = state ? state.tagSpecifications : undefined;
@@ -348,6 +350,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             resourceInputs["placement"] = args ? args.placement : undefined;
+            resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
             resourceInputs["ramDiskId"] = args ? args.ramDiskId : undefined;
             resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
@@ -471,9 +474,6 @@ export interface LaunchTemplateState {
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
-    /**
-     * The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -489,6 +489,10 @@ export interface LaunchTemplateState {
      */
     placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement>;
     /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     */
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptions>;
+    /**
      * The ID of the RAM disk.
      */
     ramDiskId?: pulumi.Input<string>;
@@ -502,7 +506,7 @@ export interface LaunchTemplateState {
      */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**
-     * A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -514,7 +518,7 @@ export interface LaunchTemplateState {
      */
     updateDefaultVersion?: pulumi.Input<boolean>;
     /**
-     * The Base64-encoded user data to provide when launching the instance.
+     * The base64-encoded user data to provide when launching the instance.
      */
     userData?: pulumi.Input<string>;
     /**
@@ -622,9 +626,6 @@ export interface LaunchTemplateArgs {
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
-    /**
-     * The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -640,6 +641,10 @@ export interface LaunchTemplateArgs {
      */
     placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement>;
     /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     */
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptions>;
+    /**
      * The ID of the RAM disk.
      */
     ramDiskId?: pulumi.Input<string>;
@@ -653,7 +658,7 @@ export interface LaunchTemplateArgs {
      */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**
-     * A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -661,7 +666,7 @@ export interface LaunchTemplateArgs {
      */
     updateDefaultVersion?: pulumi.Input<boolean>;
     /**
-     * The Base64-encoded user data to provide when launching the instance.
+     * The base64-encoded user data to provide when launching the instance.
      */
     userData?: pulumi.Input<string>;
     /**

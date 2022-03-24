@@ -111,6 +111,12 @@ namespace Pulumi.Aws.AppConfig
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
         /// A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         /// </summary>
         [Output("validators")]
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.AppConfig
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         [Input("validators")]
         private InputList<Inputs.ConfigurationProfileValidatorArgs>? _validators;
 
@@ -288,6 +300,12 @@ namespace Pulumi.Aws.AppConfig
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         [Input("validators")]
         private InputList<Inputs.ConfigurationProfileValidatorGetArgs>? _validators;

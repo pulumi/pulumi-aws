@@ -210,6 +210,7 @@ type Endpoints struct {
 	Cloudwatch                      *string `pulumi:"cloudwatch"`
 	Cloudwatchevents                *string `pulumi:"cloudwatchevents"`
 	Cloudwatchlogs                  *string `pulumi:"cloudwatchlogs"`
+	Cloudwatchrum                   *string `pulumi:"cloudwatchrum"`
 	Codeartifact                    *string `pulumi:"codeartifact"`
 	Codebuild                       *string `pulumi:"codebuild"`
 	Codecommit                      *string `pulumi:"codecommit"`
@@ -316,6 +317,7 @@ type Endpoints struct {
 	Kafka                           *string `pulumi:"kafka"`
 	Kafkaconnect                    *string `pulumi:"kafkaconnect"`
 	Kendra                          *string `pulumi:"kendra"`
+	Keyspaces                       *string `pulumi:"keyspaces"`
 	Kinesis                         *string `pulumi:"kinesis"`
 	Kinesisanalytics                *string `pulumi:"kinesisanalytics"`
 	Kinesisanalyticsv2              *string `pulumi:"kinesisanalyticsv2"`
@@ -528,6 +530,7 @@ type EndpointsArgs struct {
 	Cloudwatch                      pulumi.StringPtrInput `pulumi:"cloudwatch"`
 	Cloudwatchevents                pulumi.StringPtrInput `pulumi:"cloudwatchevents"`
 	Cloudwatchlogs                  pulumi.StringPtrInput `pulumi:"cloudwatchlogs"`
+	Cloudwatchrum                   pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
 	Codeartifact                    pulumi.StringPtrInput `pulumi:"codeartifact"`
 	Codebuild                       pulumi.StringPtrInput `pulumi:"codebuild"`
 	Codecommit                      pulumi.StringPtrInput `pulumi:"codecommit"`
@@ -634,6 +637,7 @@ type EndpointsArgs struct {
 	Kafka                           pulumi.StringPtrInput `pulumi:"kafka"`
 	Kafkaconnect                    pulumi.StringPtrInput `pulumi:"kafkaconnect"`
 	Kendra                          pulumi.StringPtrInput `pulumi:"kendra"`
+	Keyspaces                       pulumi.StringPtrInput `pulumi:"keyspaces"`
 	Kinesis                         pulumi.StringPtrInput `pulumi:"kinesis"`
 	Kinesisanalytics                pulumi.StringPtrInput `pulumi:"kinesisanalytics"`
 	Kinesisanalyticsv2              pulumi.StringPtrInput `pulumi:"kinesisanalyticsv2"`
@@ -1033,6 +1037,10 @@ func (o EndpointsOutput) Cloudwatchevents() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Cloudwatchlogs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchlogs }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Cloudwatchrum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchrum }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Codeartifact() pulumi.StringPtrOutput {
@@ -1457,6 +1465,10 @@ func (o EndpointsOutput) Kafkaconnect() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Kendra() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kendra }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Keyspaces() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Keyspaces }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Kinesis() pulumi.StringPtrOutput {

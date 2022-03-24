@@ -9,6 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CatalogDatabaseCreateTableDefaultPermissionArgs',
+    'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs',
     'CatalogDatabaseTargetDatabaseArgs',
     'CatalogTablePartitionIndexArgs',
     'CatalogTablePartitionKeyArgs',
@@ -56,6 +58,7 @@ __all__ = [
     'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs',
     'TriggerActionArgs',
     'TriggerActionNotificationPropertyArgs',
+    'TriggerEventBatchingConditionArgs',
     'TriggerPredicateArgs',
     'TriggerPredicateConditionArgs',
     'UserDefinedFunctionResourceUriArgs',
@@ -63,6 +66,68 @@ __all__ = [
     'GetScriptDagNodeArgs',
     'GetScriptDagNodeArgArgs',
 ]
+
+@pulumi.input_type
+class CatalogDatabaseCreateTableDefaultPermissionArgs:
+    def __init__(__self__, *,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal: Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The permissions that are granted to the principal.
+        :param pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs'] principal: The principal who is granted permissions.. See `principal` below.
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The permissions that are granted to the principal.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs']]:
+        """
+        The principal who is granted permissions.. See `principal` below.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs']]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_lake_principal_identifier: An identifier for the Lake Formation principal.
+        """
+        if data_lake_principal_identifier is not None:
+            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier for the Lake Formation principal.
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+    @data_lake_principal_identifier.setter
+    def data_lake_principal_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_principal_identifier", value)
+
 
 @pulumi.input_type
 class CatalogDatabaseTargetDatabaseArgs:
@@ -1624,7 +1689,7 @@ class JobCommandArgs:
                  python_version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] script_location: Specifies the S3 path to a script that executes a job.
-        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         :param pulumi.Input[str] python_version: The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
         """
         pulumi.set(__self__, "script_location", script_location)
@@ -1649,7 +1714,7 @@ class JobCommandArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         """
         return pulumi.get(self, "name")
 
@@ -2668,6 +2733,44 @@ class TriggerActionNotificationPropertyArgs:
     @notify_delay_after.setter
     def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "notify_delay_after", value)
+
+
+@pulumi.input_type
+class TriggerEventBatchingConditionArgs:
+    def __init__(__self__, *,
+                 batch_size: pulumi.Input[int],
+                 batch_window: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] batch_size: Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+        :param pulumi.Input[int] batch_window: Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+        """
+        pulumi.set(__self__, "batch_size", batch_size)
+        if batch_window is not None:
+            pulumi.set(__self__, "batch_window", batch_window)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> pulumi.Input[int]:
+        """
+        Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="batchWindow")
+    def batch_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+        """
+        return pulumi.get(self, "batch_window")
+
+    @batch_window.setter
+    def batch_window(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_window", value)
 
 
 @pulumi.input_type

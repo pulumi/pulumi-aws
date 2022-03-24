@@ -40,6 +40,20 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Streaming Job
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.Job("example", {
+ *     roleArn: aws_iam_role.example.arn,
+ *     command: {
+ *         name: "gluestreaming",
+ *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.script`,
+ *     },
+ * });
+ * ```
  * ### Enabling CloudWatch Logs and Metrics
  *
  * ```typescript
@@ -153,7 +167,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -161,9 +175,9 @@ export class Job extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    public readonly timeout!: pulumi.Output<number>;
     /**
      * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
      */
@@ -299,7 +313,7 @@ export interface JobState {
      */
     securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -307,7 +321,7 @@ export interface JobState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
      */
     timeout?: pulumi.Input<number>;
     /**
@@ -377,11 +391,11 @@ export interface JobArgs {
      */
     securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
      */
     timeout?: pulumi.Input<number>;
     /**

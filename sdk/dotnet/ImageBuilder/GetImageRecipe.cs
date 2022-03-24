@@ -127,7 +127,7 @@ namespace Pulumi.Aws.ImageBuilder
     {
         public readonly string Arn;
         /// <summary>
-        /// Set of objects with block device mappings for the the image recipe.
+        /// Set of objects with block device mappings for the image recipe.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageRecipeBlockDeviceMappingResult> BlockDeviceMappings;
         /// <summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Owner;
         /// <summary>
-        /// Platform of the image recipe.
+        /// Base image of the image recipe.
         /// </summary>
         public readonly string ParentImage;
         /// <summary>

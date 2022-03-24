@@ -236,7 +236,7 @@ class UserPoolDomain(pulumi.CustomResource):
         Cognito User Pool Domains can be imported using the `domain`, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main <domain>
+         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,7 +294,7 @@ class UserPoolDomain(pulumi.CustomResource):
         Cognito User Pool Domains can be imported using the `domain`, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main <domain>
+         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
 
         :param str resource_name: The name of the resource.

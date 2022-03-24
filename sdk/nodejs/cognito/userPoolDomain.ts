@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * Cognito User Pool Domains can be imported using the `domain`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main <domain>
+ *  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
  * ```
  */
 export class UserPoolDomain extends pulumi.CustomResource {

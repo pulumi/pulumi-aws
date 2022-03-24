@@ -23,8 +23,7 @@ class DefaultVpcArgs:
                  ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DefaultVpc resource.
         :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
@@ -51,8 +50,6 @@ class DefaultVpcArgs:
             pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
@@ -155,15 +152,6 @@ class DefaultVpcArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -478,7 +466,6 @@ class DefaultVpc(pulumi.CustomResource):
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -560,7 +547,6 @@ class DefaultVpc(pulumi.CustomResource):
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -584,7 +570,6 @@ class DefaultVpc(pulumi.CustomResource):
             __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
             __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["cidr_block"] = None
             __props__.__dict__["default_network_acl_id"] = None
@@ -596,6 +581,7 @@ class DefaultVpc(pulumi.CustomResource):
             __props__.__dict__["ipv6_association_id"] = None
             __props__.__dict__["main_route_table_id"] = None
             __props__.__dict__["owner_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(DefaultVpc, __self__).__init__(
             'aws:ec2/defaultVpc:DefaultVpc',
             resource_name,

@@ -19,6 +19,12 @@ func GetAssumeRole(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:assumeRole")
 }
 
+// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+func GetCustomCaBundle(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:customCaBundle")
+}
+
 // Configuration block with settings to default resource tags across all resources.
 func GetDefaultTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:defaultTags")
@@ -160,6 +166,11 @@ func GetSkipRegionValidation(ctx *pulumi.Context) bool {
 // Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
 func GetSkipRequestingAccountId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:skipRequestingAccountId")
+}
+
+// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+func GetStsRegion(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:stsRegion")
 }
 
 // session token. A session token is only required if you are using temporary security credentials.

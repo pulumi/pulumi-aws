@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
  * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
- *     domain: "example.com",
+ *     domain: "example",
  *     encryptionKey: exampleKey.arn,
  * });
  * const exampleRepository = new aws.codeartifact.Repository("exampleRepository", {

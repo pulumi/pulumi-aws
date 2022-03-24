@@ -21,14 +21,16 @@ import * as utilities from "../utilities";
  *         key: aws_s3_object.test.key,
  *         roleArn: aws_iam_role.test.arn,
  *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy.test],
  * });
  * ```
  *
  * ## Import
  *
- * Gamelift Builds cannot be imported at this time.
+ * Gamelift Builds can be imported using the ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:gamelift/build:Build example <build-id>
+ * ```
  */
 export class Build extends pulumi.CustomResource {
     /**

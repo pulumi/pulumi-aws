@@ -13,7 +13,25 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The load metric specification.
+        /// The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+        /// </summary>
+        [Input("customizedCapacityMetricSpecification")]
+        public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs>? CustomizedCapacityMetricSpecification { get; set; }
+
+        /// <summary>
+        /// The customized load metric specification.
+        /// </summary>
+        [Input("customizedLoadMetricSpecification")]
+        public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs>? CustomizedLoadMetricSpecification { get; set; }
+
+        /// <summary>
+        /// The customized scaling metric specification.
+        /// </summary>
+        [Input("customizedScalingMetricSpecification")]
+        public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs>? CustomizedScalingMetricSpecification { get; set; }
+
+        /// <summary>
+        /// The predefined load metric specification.
         /// </summary>
         [Input("predefinedLoadMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs>? PredefinedLoadMetricSpecification { get; set; }
@@ -25,7 +43,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs>? PredefinedMetricPairSpecification { get; set; }
 
         /// <summary>
-        /// The scaling metric specification.
+        /// The predefined scaling metric specification.
         /// </summary>
         [Input("predefinedScalingMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs>? PredefinedScalingMetricSpecification { get; set; }

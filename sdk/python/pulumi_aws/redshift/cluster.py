@@ -20,6 +20,7 @@ class ClusterArgs:
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
                  cluster_revision_number: Optional[pulumi.Input[str]] = None,
@@ -51,12 +52,12 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case
-               string.
+        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
@@ -82,7 +83,9 @@ class ClusterArgs:
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
-               The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+               The cluster is accessible only via the JDBC and ODBC connection strings.
+               Part of the connection string requires the port on which the cluster will listen for incoming connections.
+               Default port is 5439.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -101,6 +104,8 @@ class ClusterArgs:
             pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_relocation_enabled is not None:
+            pulumi.set(__self__, "availability_zone_relocation_enabled", availability_zone_relocation_enabled)
         if cluster_parameter_group_name is not None:
             pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
         if cluster_public_key is not None:
@@ -164,8 +169,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
         """
-        The Cluster Identifier. Must be a lower case
-        string.
+        The Cluster Identifier. Must be a lower case string.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -213,13 +217,25 @@ class ClusterArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRelocationEnabled")
+    def availability_zone_relocation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        """
+        return pulumi.get(self, "availability_zone_relocation_enabled")
+
+    @availability_zone_relocation_enabled.setter
+    def availability_zone_relocation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "availability_zone_relocation_enabled", value)
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
@@ -470,7 +486,9 @@ class ClusterArgs:
     def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port number on which the cluster accepts incoming connections.
-        The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+        The cluster is accessible only via the JDBC and ODBC connection strings.
+        Part of the connection string requires the port on which the cluster will listen for incoming connections.
+        Default port is 5439.
         """
         return pulumi.get(self, "port")
 
@@ -583,6 +601,7 @@ class _ClusterState:
                  arn: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
@@ -622,9 +641,9 @@ class _ClusterState:
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
-        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case
-               string.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
@@ -653,7 +672,9 @@ class _ClusterState:
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
-               The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+               The cluster is accessible only via the JDBC and ODBC connection strings.
+               Part of the connection string requires the port on which the cluster will listen for incoming connections.
+               Default port is 5439.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -673,6 +694,8 @@ class _ClusterState:
             pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_relocation_enabled is not None:
+            pulumi.set(__self__, "availability_zone_relocation_enabled", availability_zone_relocation_enabled)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_nodes is not None:
@@ -782,7 +805,7 @@ class _ClusterState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -791,11 +814,22 @@ class _ClusterState:
         pulumi.set(self, "availability_zone", value)
 
     @property
+    @pulumi.getter(name="availabilityZoneRelocationEnabled")
+    def availability_zone_relocation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        """
+        return pulumi.get(self, "availability_zone_relocation_enabled")
+
+    @availability_zone_relocation_enabled.setter
+    def availability_zone_relocation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "availability_zone_relocation_enabled", value)
+
+    @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cluster Identifier. Must be a lower case
-        string.
+        The Cluster Identifier. Must be a lower case string.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -1088,7 +1122,9 @@ class _ClusterState:
     def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port number on which the cluster accepts incoming connections.
-        The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+        The cluster is accessible only via the JDBC and ODBC connection strings.
+        Part of the connection string requires the port on which the cluster will listen for incoming connections.
+        Default port is 5439.
         """
         return pulumi.get(self, "port")
 
@@ -1214,6 +1250,7 @@ class Cluster(pulumi.CustomResource):
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
@@ -1255,12 +1292,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.redshift.Cluster("default",
+        example = aws.redshift.Cluster("example",
             cluster_identifier="tf-redshift-cluster",
             cluster_type="single-node",
             database_name="mydb",
             master_password="Mustbe8characters",
-            master_username="foo",
+            master_username="exampleuser",
             node_type="dc1.large")
         ```
 
@@ -1276,9 +1313,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
-        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case
-               string.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
@@ -1305,7 +1342,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
-               The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+               The cluster is accessible only via the JDBC and ODBC connection strings.
+               Part of the connection string requires the port on which the cluster will listen for incoming connections.
+               Default port is 5439.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -1331,12 +1370,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.redshift.Cluster("default",
+        example = aws.redshift.Cluster("example",
             cluster_identifier="tf-redshift-cluster",
             cluster_type="single-node",
             database_name="mydb",
             master_password="Mustbe8characters",
-            master_username="foo",
+            master_username="exampleuser",
             node_type="dc1.large")
         ```
 
@@ -1366,6 +1405,7 @@ class Cluster(pulumi.CustomResource):
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
@@ -1412,6 +1452,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["allow_version_upgrade"] = allow_version_upgrade
             __props__.__dict__["automated_snapshot_retention_period"] = automated_snapshot_retention_period
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["availability_zone_relocation_enabled"] = availability_zone_relocation_enabled
             if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__.__dict__["cluster_identifier"] = cluster_identifier
@@ -1465,6 +1506,7 @@ class Cluster(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
+            availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]]] = None,
             cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
@@ -1509,9 +1551,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
-        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case
-               string.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
@@ -1540,7 +1582,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
-               The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+               The cluster is accessible only via the JDBC and ODBC connection strings.
+               Part of the connection string requires the port on which the cluster will listen for incoming connections.
+               Default port is 5439.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -1560,6 +1604,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["automated_snapshot_retention_period"] = automated_snapshot_retention_period
         __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["availability_zone_relocation_enabled"] = availability_zone_relocation_enabled
         __props__.__dict__["cluster_identifier"] = cluster_identifier
         __props__.__dict__["cluster_nodes"] = cluster_nodes
         __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
@@ -1624,16 +1669,23 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
         """
-        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="availabilityZoneRelocationEnabled")
+    def availability_zone_relocation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        """
+        return pulumi.get(self, "availability_zone_relocation_enabled")
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[str]:
         """
-        The Cluster Identifier. Must be a lower case
-        string.
+        The Cluster Identifier. Must be a lower case string.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -1830,7 +1882,9 @@ class Cluster(pulumi.CustomResource):
     def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port number on which the cluster accepts incoming connections.
-        The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+        The cluster is accessible only via the JDBC and ODBC connection strings.
+        Part of the connection string requires the port on which the cluster will listen for incoming connections.
+        Default port is 5439.
         """
         return pulumi.get(self, "port")
 

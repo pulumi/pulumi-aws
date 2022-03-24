@@ -67,6 +67,24 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
+        /// The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        /// </summary>
+        [Input("ipv4PrefixCount")]
+        public Input<int>? Ipv4PrefixCount { get; set; }
+
+        [Input("ipv4Prefixes")]
+        private InputList<string>? _ipv4Prefixes;
+
+        /// <summary>
+        /// One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+        /// </summary>
+        public InputList<string> Ipv4Prefixes
+        {
+            get => _ipv4Prefixes ?? (_ipv4Prefixes = new InputList<string>());
+            set => _ipv4Prefixes = value;
+        }
+
+        /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
         /// </summary>
         [Input("ipv6AddressCount")]
@@ -82,6 +100,24 @@ namespace Pulumi.Aws.Ec2.Inputs
         {
             get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
             set => _ipv6Addresses = value;
+        }
+
+        /// <summary>
+        /// The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        /// </summary>
+        [Input("ipv6PrefixCount")]
+        public Input<int>? Ipv6PrefixCount { get; set; }
+
+        [Input("ipv6Prefixes")]
+        private InputList<string>? _ipv6Prefixes;
+
+        /// <summary>
+        /// One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+        /// </summary>
+        public InputList<string> Ipv6Prefixes
+        {
+            get => _ipv6Prefixes ?? (_ipv6Prefixes = new InputList<string>());
+            set => _ipv6Prefixes = value;
         }
 
         /// <summary>

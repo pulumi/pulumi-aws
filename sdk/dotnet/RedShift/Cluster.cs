@@ -22,13 +22,13 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     public MyStack()
     ///     {
-    ///         var @default = new Aws.RedShift.Cluster("default", new Aws.RedShift.ClusterArgs
+    ///         var example = new Aws.RedShift.Cluster("example", new Aws.RedShift.ClusterArgs
     ///         {
     ///             ClusterIdentifier = "tf-redshift-cluster",
     ///             ClusterType = "single-node",
     ///             DatabaseName = "mydb",
     ///             MasterPassword = "Mustbe8characters",
-    ///             MasterUsername = "foo",
+    ///             MasterUsername = "exampleuser",
     ///             NodeType = "dc1.large",
     ///         });
     ///     }
@@ -66,14 +66,19 @@ namespace Pulumi.Aws.RedShift
         public Output<int?> AutomatedSnapshotRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The Cluster Identifier. Must be a lower case
-        /// string.
+        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        /// </summary>
+        [Output("availabilityZoneRelocationEnabled")]
+        public Output<bool?> AvailabilityZoneRelocationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The Cluster Identifier. Must be a lower case string.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
@@ -222,7 +227,9 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
-        /// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+        /// The cluster is accessible only via the JDBC and ODBC connection strings.
+        /// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+        /// Default port is 5439.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -341,14 +348,19 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? AutomatedSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The Cluster Identifier. Must be a lower case
-        /// string.
+        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        /// </summary>
+        [Input("availabilityZoneRelocationEnabled")]
+        public Input<bool>? AvailabilityZoneRelocationEnabled { get; set; }
+
+        /// <summary>
+        /// The Cluster Identifier. Must be a lower case string.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -497,7 +509,9 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
-        /// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+        /// The cluster is accessible only via the JDBC and ODBC connection strings.
+        /// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+        /// Default port is 5439.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -589,14 +603,19 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? AutomatedSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The Cluster Identifier. Must be a lower case
-        /// string.
+        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        /// </summary>
+        [Input("availabilityZoneRelocationEnabled")]
+        public Input<bool>? AvailabilityZoneRelocationEnabled { get; set; }
+
+        /// <summary>
+        /// The Cluster Identifier. Must be a lower case string.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -763,7 +782,9 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
-        /// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+        /// The cluster is accessible only via the JDBC and ODBC connection strings.
+        /// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+        /// Default port is 5439.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

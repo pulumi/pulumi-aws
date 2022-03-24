@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to define the attachment of the ENI. See below.
+        /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
         /// </summary>
         [Output("attachments")]
         public Output<ImmutableArray<Outputs.NetworkInterfaceAttachment>> Attachments { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.NetworkInterfaceAttachmentArgs>? _attachments;
 
         /// <summary>
-        /// Configuration block to define the attachment of the ENI. See below.
+        /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
         /// </summary>
         public InputList<Inputs.NetworkInterfaceAttachmentArgs> Attachments
         {
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.NetworkInterfaceAttachmentGetArgs>? _attachments;
 
         /// <summary>
-        /// Configuration block to define the attachment of the ENI. See below.
+        /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
         /// </summary>
         public InputList<Inputs.NetworkInterfaceAttachmentGetArgs> Attachments
         {

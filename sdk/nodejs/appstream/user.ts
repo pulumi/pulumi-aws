@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     authenticationType: "USERPOOL",
  *     firstName: "FIRST NAME",
  *     lastName: "LAST NAME",
- *     userName: "EMAIL ADDRESS",
+ *     userName: "EMAIL",
  * });
  * ```
  *

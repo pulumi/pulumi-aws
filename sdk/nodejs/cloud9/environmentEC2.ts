@@ -93,9 +93,23 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public readonly automaticStopTimeMinutes!: pulumi.Output<number | undefined>;
     /**
+     * The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+     */
+    public readonly connectionType!: pulumi.Output<string | undefined>;
+    /**
      * The description of the environment.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+     * * `amazonlinux-1-x86_64`
+     * * `amazonlinux-2-x86_64`
+     * * `ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     */
+    public readonly imageId!: pulumi.Output<string | undefined>;
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      */
@@ -140,7 +154,9 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             const state = argsOrState as EnvironmentEC2State | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
+            resourceInputs["connectionType"] = state ? state.connectionType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["imageId"] = state ? state.imageId : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerArn"] = state ? state.ownerArn : undefined;
@@ -154,7 +170,9 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
                 throw new Error("Missing required property 'instanceType'");
             }
             resourceInputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
+            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["imageId"] = args ? args.imageId : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ownerArn"] = args ? args.ownerArn : undefined;
@@ -182,9 +200,23 @@ export interface EnvironmentEC2State {
      */
     automaticStopTimeMinutes?: pulumi.Input<number>;
     /**
+     * The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+     */
+    connectionType?: pulumi.Input<string>;
+    /**
      * The description of the environment.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+     * * `amazonlinux-1-x86_64`
+     * * `amazonlinux-2-x86_64`
+     * * `ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     */
+    imageId?: pulumi.Input<string>;
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      */
@@ -224,9 +256,23 @@ export interface EnvironmentEC2Args {
      */
     automaticStopTimeMinutes?: pulumi.Input<number>;
     /**
+     * The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+     */
+    connectionType?: pulumi.Input<string>;
+    /**
      * The description of the environment.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+     * * `amazonlinux-1-x86_64`
+     * * `amazonlinux-2-x86_64`
+     * * `ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     */
+    imageId?: pulumi.Input<string>;
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      */

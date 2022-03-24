@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRepository = new aws.ecrpublic.Repository("exampleRepository", {repositoryName: "Example"});
+ * const exampleRepository = new aws.ecrpublic.Repository("exampleRepository", {repositoryName: "example"});
  * const exampleRepositoryPolicy = new aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy", {
  *     repositoryName: exampleRepository.repositoryName,
  *     policy: `{

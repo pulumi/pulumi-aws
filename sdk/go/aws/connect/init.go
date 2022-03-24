@@ -37,8 +37,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Queue{}
 	case "aws:connect/quickConnect:QuickConnect":
 		r = &QuickConnect{}
+	case "aws:connect/routingProfile:RoutingProfile":
+		r = &RoutingProfile{}
 	case "aws:connect/securityProfile:SecurityProfile":
 		r = &SecurityProfile{}
+	case "aws:connect/userHierarchyStructure:UserHierarchyStructure":
+		r = &UserHierarchyStructure{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -94,7 +98,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"connect/routingProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"connect/securityProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"connect/userHierarchyStructure",
 		&module{version},
 	)
 }

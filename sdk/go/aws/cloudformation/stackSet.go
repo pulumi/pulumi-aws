@@ -113,6 +113,8 @@ type StackSet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment StackSetAutoDeploymentPtrOutput `pulumi:"autoDeployment"`
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs pulumi.StringPtrOutput `pulumi:"callAs"`
 	// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
 	Capabilities pulumi.StringArrayOutput `pulumi:"capabilities"`
 	// Description of the StackSet.
@@ -127,7 +129,7 @@ type StackSet struct {
 	PermissionModel pulumi.StringPtrOutput `pulumi:"permissionModel"`
 	// Unique identifier of the StackSet.
 	StackSetId pulumi.StringOutput `pulumi:"stackSetId"`
-	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -172,6 +174,8 @@ type stackSetState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment *StackSetAutoDeployment `pulumi:"autoDeployment"`
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs *string `pulumi:"callAs"`
 	// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
 	Capabilities []string `pulumi:"capabilities"`
 	// Description of the StackSet.
@@ -186,7 +190,7 @@ type stackSetState struct {
 	PermissionModel *string `pulumi:"permissionModel"`
 	// Unique identifier of the StackSet.
 	StackSetId *string `pulumi:"stackSetId"`
-	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -203,6 +207,8 @@ type StackSetState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment StackSetAutoDeploymentPtrInput
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs pulumi.StringPtrInput
 	// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
 	Capabilities pulumi.StringArrayInput
 	// Description of the StackSet.
@@ -217,7 +223,7 @@ type StackSetState struct {
 	PermissionModel pulumi.StringPtrInput
 	// Unique identifier of the StackSet.
 	StackSetId pulumi.StringPtrInput
-	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -236,6 +242,8 @@ type stackSetArgs struct {
 	AdministrationRoleArn *string `pulumi:"administrationRoleArn"`
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment *StackSetAutoDeployment `pulumi:"autoDeployment"`
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs *string `pulumi:"callAs"`
 	// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
 	Capabilities []string `pulumi:"capabilities"`
 	// Description of the StackSet.
@@ -248,7 +256,7 @@ type stackSetArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel *string `pulumi:"permissionModel"`
-	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -262,6 +270,8 @@ type StackSetArgs struct {
 	AdministrationRoleArn pulumi.StringPtrInput
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment StackSetAutoDeploymentPtrInput
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs pulumi.StringPtrInput
 	// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
 	Capabilities pulumi.StringArrayInput
 	// Description of the StackSet.
@@ -274,7 +284,7 @@ type StackSetArgs struct {
 	Parameters pulumi.StringMapInput
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel pulumi.StringPtrInput
-	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
 	TemplateBody pulumi.StringPtrInput

@@ -10,6 +10,7 @@ from .activation import *
 from .association import *
 from .document import *
 from .get_document import *
+from .get_instances import *
 from .get_parameter import *
 from .get_parameters_by_path import *
 from .get_patch_baseline import *

@@ -88,6 +88,10 @@ export interface GetPublicKeyResult {
      */
     readonly publicKey: string;
     /**
+     * Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
+     */
+    readonly publicKeyPem: string;
+    /**
      * Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
      */
     readonly signingAlgorithms: string[];

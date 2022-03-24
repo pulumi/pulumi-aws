@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Instance{}
 	case "aws:ec2/internetGateway:InternetGateway":
 		r = &InternetGateway{}
+	case "aws:ec2/internetGatewayAttachment:InternetGatewayAttachment":
+		r = &InternetGatewayAttachment{}
 	case "aws:ec2/keyPair:KeyPair":
 		r = &KeyPair{}
 	case "aws:ec2/launchConfiguration:LaunchConfiguration":
@@ -89,6 +91,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkAclAssociation{}
 	case "aws:ec2/networkAclRule:NetworkAclRule":
 		r = &NetworkAclRule{}
+	case "aws:ec2/networkInsightsPath:NetworkInsightsPath":
+		r = &NetworkInsightsPath{}
 	case "aws:ec2/networkInterface:NetworkInterface":
 		r = &NetworkInterface{}
 	case "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment":
@@ -109,8 +113,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouteTableAssociation{}
 	case "aws:ec2/securityGroup:SecurityGroup":
 		r = &SecurityGroup{}
+	case "aws:ec2/securityGroupAssociation:SecurityGroupAssociation":
+		r = &SecurityGroupAssociation{}
 	case "aws:ec2/securityGroupRule:SecurityGroupRule":
 		r = &SecurityGroupRule{}
+	case "aws:ec2/serialConsoleAccess:SerialConsoleAccess":
+		r = &SerialConsoleAccess{}
 	case "aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission":
 		r = &SnapshotCreateVolumePermission{}
 	case "aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription":
@@ -149,6 +157,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcEndpointConnectionAccepter{}
 	case "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification":
 		r = &VpcEndpointConnectionNotification{}
+	case "aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy":
+		r = &VpcEndpointPolicy{}
 	case "aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation":
 		r = &VpcEndpointRouteTableAssociation{}
 	case "aws:ec2/vpcEndpointService:VpcEndpointService":
@@ -314,6 +324,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ec2/internetGatewayAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ec2/keyPair",
 		&module{version},
 	)
@@ -374,6 +389,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ec2/networkInsightsPath",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ec2/networkInterface",
 		&module{version},
 	)
@@ -424,7 +444,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ec2/securityGroupAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ec2/securityGroupRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/serialConsoleAccess",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -520,6 +550,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcEndpointConnectionNotification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcEndpointPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

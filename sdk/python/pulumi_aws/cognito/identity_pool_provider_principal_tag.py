@@ -19,9 +19,9 @@ class IdentityPoolProviderPrincipalTagArgs:
                  use_defaults: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
-        :param pulumi.Input[str] identity_provider_name: The name of the identity provider
-               * `principal_tags`: (Optional: []) - String to string map of variables
+        :param pulumi.Input[str] identity_pool_id: An identity pool ID.
+        :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
+               * `principal_tags`: (Optional: []) - String to string map of variables.
                * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
@@ -35,7 +35,7 @@ class IdentityPoolProviderPrincipalTagArgs:
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Input[str]:
         """
-        An identity pool ID in the format REGION:GUID.
+        An identity pool ID.
         """
         return pulumi.get(self, "identity_pool_id")
 
@@ -47,8 +47,8 @@ class IdentityPoolProviderPrincipalTagArgs:
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Input[str]:
         """
-        The name of the identity provider
-        * `principal_tags`: (Optional: []) - String to string map of variables
+        The name of the identity provider.
+        * `principal_tags`: (Optional: []) - String to string map of variables.
         * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "identity_provider_name")
@@ -85,9 +85,9 @@ class _IdentityPoolProviderPrincipalTagState:
                  use_defaults: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
-        :param pulumi.Input[str] identity_provider_name: The name of the identity provider
-               * `principal_tags`: (Optional: []) - String to string map of variables
+        :param pulumi.Input[str] identity_pool_id: An identity pool ID.
+        :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
+               * `principal_tags`: (Optional: []) - String to string map of variables.
                * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         if identity_pool_id is not None:
@@ -103,7 +103,7 @@ class _IdentityPoolProviderPrincipalTagState:
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        An identity pool ID in the format REGION:GUID.
+        An identity pool ID.
         """
         return pulumi.get(self, "identity_pool_id")
 
@@ -115,8 +115,8 @@ class _IdentityPoolProviderPrincipalTagState:
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the identity provider
-        * `principal_tags`: (Optional: []) - String to string map of variables
+        The name of the identity provider.
+        * `principal_tags`: (Optional: []) - String to string map of variables.
         * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "identity_provider_name")
@@ -159,17 +159,17 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.,
+        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example <identity-pool-id>:<identity_provider_name>
+         $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
-        :param pulumi.Input[str] identity_provider_name: The name of the identity provider
-               * `principal_tags`: (Optional: []) - String to string map of variables
+        :param pulumi.Input[str] identity_pool_id: An identity pool ID.
+        :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
+               * `principal_tags`: (Optional: []) - String to string map of variables.
                * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         ...
@@ -183,10 +183,10 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.,
+        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
 
         ```sh
-         $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example <identity-pool-id>:<identity_provider_name>
+         $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
         ```
 
         :param str resource_name: The name of the resource.
@@ -249,9 +249,9 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
-        :param pulumi.Input[str] identity_provider_name: The name of the identity provider
-               * `principal_tags`: (Optional: []) - String to string map of variables
+        :param pulumi.Input[str] identity_pool_id: An identity pool ID.
+        :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
+               * `principal_tags`: (Optional: []) - String to string map of variables.
                * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -268,7 +268,7 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Output[str]:
         """
-        An identity pool ID in the format REGION:GUID.
+        An identity pool ID.
         """
         return pulumi.get(self, "identity_pool_id")
 
@@ -276,8 +276,8 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Output[str]:
         """
-        The name of the identity provider
-        * `principal_tags`: (Optional: []) - String to string map of variables
+        The name of the identity provider.
+        * `principal_tags`: (Optional: []) - String to string map of variables.
         * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "identity_provider_name")

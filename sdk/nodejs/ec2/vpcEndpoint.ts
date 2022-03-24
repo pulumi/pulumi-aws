@@ -6,15 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a VPC Endpoint resource.
- *
- * > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
- * Route Tables - (an association between a VPC endpoint and a single `routeTableId`) and
- * Subnets - (an association between a VPC endpoint and a single `subnetId`) and
- * a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
- * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
- * Doing so will cause a conflict of associations and will overwrite the association.
- *
  * ## Example Usage
  * ### Basic
  *
@@ -157,7 +148,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public readonly routeTableIds!: pulumi.Output<string[]>;
     /**
-     * The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+     * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+     * If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
@@ -173,7 +165,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -304,7 +296,8 @@ export interface VpcEndpointState {
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+     * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+     * If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -320,7 +313,7 @@ export interface VpcEndpointState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -359,7 +352,8 @@ export interface VpcEndpointArgs {
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+     * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+     * If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -371,7 +365,7 @@ export interface VpcEndpointArgs {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

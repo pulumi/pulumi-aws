@@ -221,7 +221,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         example_key = aws.kms.Key("exampleKey", description="domain key")
         example_domain = aws.codeartifact.Domain("exampleDomain",
-            domain="example.com",
+            domain="example",
             encryption_key=example_key.arn)
         example_repository = aws.codeartifact.Repository("exampleRepository",
             repository="example",
@@ -276,7 +276,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         example_key = aws.kms.Key("exampleKey", description="domain key")
         example_domain = aws.codeartifact.Domain("exampleDomain",
-            domain="example.com",
+            domain="example",
             encryption_key=example_key.arn)
         example_repository = aws.codeartifact.Repository("exampleRepository",
             repository="example",

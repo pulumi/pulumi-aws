@@ -24,10 +24,10 @@ class EndpointElasticsearchSettingsArgs:
                  error_retry_duration: Optional[pulumi.Input[int]] = None,
                  full_load_error_percentage: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] endpoint_uri: Endpoint for the Elasticsearch cluster.
-        :param pulumi.Input[str] service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
-        :param pulumi.Input[int] error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
-        :param pulumi.Input[int] full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+        :param pulumi.Input[str] endpoint_uri: Endpoint for the OpenSearch cluster.
+        :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param pulumi.Input[int] error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
+        :param pulumi.Input[int] full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
         """
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
@@ -40,7 +40,7 @@ class EndpointElasticsearchSettingsArgs:
     @pulumi.getter(name="endpointUri")
     def endpoint_uri(self) -> pulumi.Input[str]:
         """
-        Endpoint for the Elasticsearch cluster.
+        Endpoint for the OpenSearch cluster.
         """
         return pulumi.get(self, "endpoint_uri")
 
@@ -52,7 +52,7 @@ class EndpointElasticsearchSettingsArgs:
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> pulumi.Input[str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
+        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -64,7 +64,7 @@ class EndpointElasticsearchSettingsArgs:
     @pulumi.getter(name="errorRetryDuration")
     def error_retry_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+        Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
         """
         return pulumi.get(self, "error_retry_duration")
 
@@ -76,7 +76,7 @@ class EndpointElasticsearchSettingsArgs:
     @pulumi.getter(name="fullLoadErrorPercentage")
     def full_load_error_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+        Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
         """
         return pulumi.get(self, "full_load_error_percentage")
 
@@ -108,23 +108,23 @@ class EndpointKafkaSettingsArgs:
                  topic: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] broker: Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-        :param pulumi.Input[bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
-        :param pulumi.Input[bool] include_null_and_empty: Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
-        :param pulumi.Input[bool] include_partition_value: Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
-        :param pulumi.Input[bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
-        :param pulumi.Input[bool] include_transaction_details: Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is `false`.
-        :param pulumi.Input[str] message_format: The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
-        :param pulumi.Input[int] message_max_bytes: The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+        :param pulumi.Input[bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+        :param pulumi.Input[bool] include_null_and_empty: Include NULL and empty columns in the target. Default is `false`.
+        :param pulumi.Input[bool] include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+        :param pulumi.Input[bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+        :param pulumi.Input[bool] include_transaction_details: Provides detailed transaction information from the source database. Default is `false`.
+        :param pulumi.Input[str] message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        :param pulumi.Input[int] message_max_bytes: Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         :param pulumi.Input[bool] no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-        :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
-        :param pulumi.Input[str] sasl_password: The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        :param pulumi.Input[str] sasl_username: The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+        :param pulumi.Input[str] sasl_password: Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        :param pulumi.Input[str] sasl_username: Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param pulumi.Input[str] security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
-        :param pulumi.Input[str] ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
-        :param pulumi.Input[str] ssl_client_certificate_arn: The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
-        :param pulumi.Input[str] ssl_client_key_arn: The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
-        :param pulumi.Input[str] ssl_client_key_password: The password for the client private key used to securely connect to a Kafka target endpoint.
-        :param pulumi.Input[str] topic: Kafka topic for migration. Defaults to `kafka-default-topic`.
+        :param pulumi.Input[str] ssl_ca_certificate_arn: ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        :param pulumi.Input[str] ssl_client_certificate_arn: ARN of the client certificate used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[str] ssl_client_key_arn: ARN for the client private key used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[str] ssl_client_key_password: Password for the client private key used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[str] topic: Kafka topic for migration. Default is `kafka-default-topic`.
         """
         pulumi.set(__self__, "broker", broker)
         if include_control_details is not None:
@@ -178,7 +178,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="includeControlDetails")
     def include_control_details(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         """
         return pulumi.get(self, "include_control_details")
 
@@ -190,7 +190,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="includeNullAndEmpty")
     def include_null_and_empty(self) -> Optional[pulumi.Input[bool]]:
         """
-        Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+        Include NULL and empty columns in the target. Default is `false`.
         """
         return pulumi.get(self, "include_null_and_empty")
 
@@ -202,7 +202,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="includePartitionValue")
     def include_partition_value(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         """
         return pulumi.get(self, "include_partition_value")
 
@@ -214,7 +214,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="includeTableAlterOperations")
     def include_table_alter_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+        Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         """
         return pulumi.get(self, "include_table_alter_operations")
 
@@ -226,7 +226,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="includeTransactionDetails")
     def include_transaction_details(self) -> Optional[pulumi.Input[bool]]:
         """
-        Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is `false`.
+        Provides detailed transaction information from the source database. Default is `false`.
         """
         return pulumi.get(self, "include_transaction_details")
 
@@ -238,7 +238,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+        Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
 
@@ -250,7 +250,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="messageMaxBytes")
     def message_max_bytes(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+        Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         """
         return pulumi.get(self, "message_max_bytes")
 
@@ -274,7 +274,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="partitionIncludeSchemaTable")
     def partition_include_schema_table(self) -> Optional[pulumi.Input[bool]]:
         """
-        Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+        Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         """
         return pulumi.get(self, "partition_include_schema_table")
 
@@ -286,7 +286,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="saslPassword")
     def sasl_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         """
         return pulumi.get(self, "sasl_password")
 
@@ -298,7 +298,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="saslUsername")
     def sasl_username(self) -> Optional[pulumi.Input[str]]:
         """
-        The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         """
         return pulumi.get(self, "sasl_username")
 
@@ -322,7 +322,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="sslCaCertificateArn")
     def ssl_ca_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
@@ -334,7 +334,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="sslClientCertificateArn")
     def ssl_client_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+        ARN of the client certificate used to securely connect to a Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_client_certificate_arn")
 
@@ -346,7 +346,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="sslClientKeyArn")
     def ssl_client_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+        ARN for the client private key used to securely connect to a Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_client_key_arn")
 
@@ -358,7 +358,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="sslClientKeyPassword")
     def ssl_client_key_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password for the client private key used to securely connect to a Kafka target endpoint.
+        Password for the client private key used to securely connect to a Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_client_key_password")
 
@@ -370,7 +370,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter
     def topic(self) -> Optional[pulumi.Input[str]]:
         """
-        Kafka topic for migration. Defaults to `kafka-default-topic`.
+        Kafka topic for migration. Default is `kafka-default-topic`.
         """
         return pulumi.get(self, "topic")
 
@@ -392,15 +392,15 @@ class EndpointKinesisSettingsArgs:
                  service_access_role_arn: Optional[pulumi.Input[str]] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
-        :param pulumi.Input[bool] include_null_and_empty: Include NULL and empty columns in the target. The default is `false`.
-        :param pulumi.Input[bool] include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
-        :param pulumi.Input[bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
-        :param pulumi.Input[bool] include_transaction_details: Provides detailed transaction information from the source database. The default is `false`.
-        :param pulumi.Input[str] message_format: Output format for the records created. Defaults to `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
-        :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
-        :param pulumi.Input[str] service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
-        :param pulumi.Input[str] stream_arn: Amazon Resource Name (ARN) of the Kinesis data stream.
+        :param pulumi.Input[bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+        :param pulumi.Input[bool] include_null_and_empty: Include NULL and empty columns in the target. Default is `false`.
+        :param pulumi.Input[bool] include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+        :param pulumi.Input[bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+        :param pulumi.Input[bool] include_transaction_details: Provides detailed transaction information from the source database. Default is `false`.
+        :param pulumi.Input[str] message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+        :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param pulumi.Input[str] stream_arn: ARN of the Kinesis data stream.
         """
         if include_control_details is not None:
             pulumi.set(__self__, "include_control_details", include_control_details)
@@ -425,7 +425,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="includeControlDetails")
     def include_control_details(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         """
         return pulumi.get(self, "include_control_details")
 
@@ -437,7 +437,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="includeNullAndEmpty")
     def include_null_and_empty(self) -> Optional[pulumi.Input[bool]]:
         """
-        Include NULL and empty columns in the target. The default is `false`.
+        Include NULL and empty columns in the target. Default is `false`.
         """
         return pulumi.get(self, "include_null_and_empty")
 
@@ -449,7 +449,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="includePartitionValue")
     def include_partition_value(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         """
         return pulumi.get(self, "include_partition_value")
 
@@ -461,7 +461,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="includeTableAlterOperations")
     def include_table_alter_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+        Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         """
         return pulumi.get(self, "include_table_alter_operations")
 
@@ -473,7 +473,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="includeTransactionDetails")
     def include_transaction_details(self) -> Optional[pulumi.Input[bool]]:
         """
-        Provides detailed transaction information from the source database. The default is `false`.
+        Provides detailed transaction information from the source database. Default is `false`.
         """
         return pulumi.get(self, "include_transaction_details")
 
@@ -485,7 +485,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Output format for the records created. Defaults to `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
 
@@ -497,7 +497,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="partitionIncludeSchemaTable")
     def partition_include_schema_table(self) -> Optional[pulumi.Input[bool]]:
         """
-        Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+        Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         """
         return pulumi.get(self, "partition_include_schema_table")
 
@@ -509,7 +509,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
+        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -521,7 +521,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the Kinesis data stream.
+        ARN of the Kinesis data stream.
         """
         return pulumi.get(self, "stream_arn")
 
@@ -540,12 +540,12 @@ class EndpointMongodbSettingsArgs:
                  extract_doc_id: Optional[pulumi.Input[str]] = None,
                  nesting_level: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] auth_mechanism: Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
-        :param pulumi.Input[str] auth_source: Authentication database name. Not used when `auth_type` is `no`. Defaults to `admin`.
-        :param pulumi.Input[str] auth_type: Authentication type to access the MongoDB source endpoint. Defaults to `password`.
-        :param pulumi.Input[str] docs_to_investigate: Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Defaults to `1000`.
-        :param pulumi.Input[str] extract_doc_id: Document ID. Use this setting when `nesting_level` is set to `none`. Defaults to `false`.
-        :param pulumi.Input[str] nesting_level: Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+        :param pulumi.Input[str] auth_mechanism: Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
+        :param pulumi.Input[str] auth_source: Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
+        :param pulumi.Input[str] auth_type: Authentication type to access the MongoDB source endpoint. Default is `password`.
+        :param pulumi.Input[str] docs_to_investigate: Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
+        :param pulumi.Input[str] extract_doc_id: Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
+        :param pulumi.Input[str] nesting_level: Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
         """
         if auth_mechanism is not None:
             pulumi.set(__self__, "auth_mechanism", auth_mechanism)
@@ -564,7 +564,7 @@ class EndpointMongodbSettingsArgs:
     @pulumi.getter(name="authMechanism")
     def auth_mechanism(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
+        Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         """
         return pulumi.get(self, "auth_mechanism")
 
@@ -576,7 +576,7 @@ class EndpointMongodbSettingsArgs:
     @pulumi.getter(name="authSource")
     def auth_source(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication database name. Not used when `auth_type` is `no`. Defaults to `admin`.
+        Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
         """
         return pulumi.get(self, "auth_source")
 
@@ -588,7 +588,7 @@ class EndpointMongodbSettingsArgs:
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication type to access the MongoDB source endpoint. Defaults to `password`.
+        Authentication type to access the MongoDB source endpoint. Default is `password`.
         """
         return pulumi.get(self, "auth_type")
 
@@ -600,7 +600,7 @@ class EndpointMongodbSettingsArgs:
     @pulumi.getter(name="docsToInvestigate")
     def docs_to_investigate(self) -> Optional[pulumi.Input[str]]:
         """
-        Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Defaults to `1000`.
+        Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
         """
         return pulumi.get(self, "docs_to_investigate")
 
@@ -612,7 +612,7 @@ class EndpointMongodbSettingsArgs:
     @pulumi.getter(name="extractDocId")
     def extract_doc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Document ID. Use this setting when `nesting_level` is set to `none`. Defaults to `false`.
+        Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         """
         return pulumi.get(self, "extract_doc_id")
 
@@ -624,7 +624,7 @@ class EndpointMongodbSettingsArgs:
     @pulumi.getter(name="nestingLevel")
     def nesting_level(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+        Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
         """
         return pulumi.get(self, "nesting_level")
 
@@ -636,66 +636,170 @@ class EndpointMongodbSettingsArgs:
 @pulumi.input_type
 class EndpointS3SettingsArgs:
     def __init__(__self__, *,
+                 add_column_name: Optional[pulumi.Input[bool]] = None,
                  bucket_folder: Optional[pulumi.Input[str]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
+                 canned_acl_for_objects: Optional[pulumi.Input[str]] = None,
+                 cdc_inserts_and_updates: Optional[pulumi.Input[bool]] = None,
+                 cdc_inserts_only: Optional[pulumi.Input[bool]] = None,
+                 cdc_max_batch_interval: Optional[pulumi.Input[int]] = None,
+                 cdc_min_file_size: Optional[pulumi.Input[int]] = None,
+                 cdc_path: Optional[pulumi.Input[str]] = None,
                  compression_type: Optional[pulumi.Input[str]] = None,
                  csv_delimiter: Optional[pulumi.Input[str]] = None,
+                 csv_no_sup_value: Optional[pulumi.Input[str]] = None,
+                 csv_null_value: Optional[pulumi.Input[str]] = None,
                  csv_row_delimiter: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
+                 data_page_size: Optional[pulumi.Input[int]] = None,
+                 date_partition_delimiter: Optional[pulumi.Input[str]] = None,
                  date_partition_enabled: Optional[pulumi.Input[bool]] = None,
+                 date_partition_sequence: Optional[pulumi.Input[str]] = None,
+                 dict_page_size_limit: Optional[pulumi.Input[int]] = None,
+                 enable_statistics: Optional[pulumi.Input[bool]] = None,
+                 encoding_type: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 ignore_headers_row: Optional[pulumi.Input[int]] = None,
+                 include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
+                 max_file_size: Optional[pulumi.Input[int]] = None,
                  parquet_timestamp_in_millisecond: Optional[pulumi.Input[bool]] = None,
                  parquet_version: Optional[pulumi.Input[str]] = None,
+                 preserve_transactions: Optional[pulumi.Input[bool]] = None,
+                 rfc4180: Optional[pulumi.Input[bool]] = None,
+                 row_group_length: Optional[pulumi.Input[int]] = None,
                  server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 service_access_role_arn: Optional[pulumi.Input[str]] = None):
+                 service_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 timestamp_column_name: Optional[pulumi.Input[str]] = None,
+                 use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_folder: S3 Object prefix.
-        :param pulumi.Input[str] bucket_name: S3 Bucket name.
-        :param pulumi.Input[str] compression_type: Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
-        :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Defaults to `,`.
-        :param pulumi.Input[str] csv_row_delimiter: Delimiter used to separate rows in the source files. Defaults to `\n`.
-        :param pulumi.Input[str] data_format: The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
-        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
-        :param pulumi.Input[str] encryption_mode: The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        :param pulumi.Input[bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
+        :param pulumi.Input[str] bucket_folder: S3 object prefix.
+        :param pulumi.Input[str] bucket_name: S3 bucket name.
+        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+        :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+        :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
+        :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+        :param pulumi.Input[str] cdc_path: Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        :param pulumi.Input[str] compression_type: Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
+        :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
+        :param pulumi.Input[str] csv_no_sup_value: String to use for all columns not included in the supplemental log.
+        :param pulumi.Input[str] csv_null_value: String to as null when writing to the target.
+        :param pulumi.Input[str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is `\n`.
+        :param pulumi.Input[str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
+        :param pulumi.Input[int] data_page_size: Size of one data page in bytes. Default is `1048576` (1 MiB).
+        :param pulumi.Input[str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
+        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
+        :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
+        :param pulumi.Input[bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
+        :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
+        :param pulumi.Input[str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
-        :param pulumi.Input[bool] parquet_timestamp_in_millisecond: - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
-        :param pulumi.Input[str] parquet_version: The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
-        :param pulumi.Input[str] server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
-        :param pulumi.Input[str] service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param pulumi.Input[int] ignore_headers_row: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        :param pulumi.Input[bool] parquet_timestamp_in_millisecond: - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+        :param pulumi.Input[str] parquet_version: Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
+        :param pulumi.Input[bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
+        :param pulumi.Input[int] row_group_length: Number of rows in a row group. Default is `10000`.
+        :param pulumi.Input[str] server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+        :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param pulumi.Input[str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
+        :param pulumi.Input[bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
         """
+        if add_column_name is not None:
+            pulumi.set(__self__, "add_column_name", add_column_name)
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if canned_acl_for_objects is not None:
+            pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+        if cdc_inserts_and_updates is not None:
+            pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+        if cdc_inserts_only is not None:
+            pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+        if cdc_max_batch_interval is not None:
+            pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+        if cdc_min_file_size is not None:
+            pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+        if cdc_path is not None:
+            pulumi.set(__self__, "cdc_path", cdc_path)
         if compression_type is not None:
             pulumi.set(__self__, "compression_type", compression_type)
         if csv_delimiter is not None:
             pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+        if csv_no_sup_value is not None:
+            pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+        if csv_null_value is not None:
+            pulumi.set(__self__, "csv_null_value", csv_null_value)
         if csv_row_delimiter is not None:
             pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
+        if data_page_size is not None:
+            pulumi.set(__self__, "data_page_size", data_page_size)
+        if date_partition_delimiter is not None:
+            pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
         if date_partition_enabled is not None:
             pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+        if date_partition_sequence is not None:
+            pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+        if dict_page_size_limit is not None:
+            pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+        if enable_statistics is not None:
+            pulumi.set(__self__, "enable_statistics", enable_statistics)
+        if encoding_type is not None:
+            pulumi.set(__self__, "encoding_type", encoding_type)
         if encryption_mode is not None:
             pulumi.set(__self__, "encryption_mode", encryption_mode)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if ignore_headers_row is not None:
+            pulumi.set(__self__, "ignore_headers_row", ignore_headers_row)
+        if include_op_for_full_load is not None:
+            pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
         if parquet_timestamp_in_millisecond is not None:
             pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
         if parquet_version is not None:
             pulumi.set(__self__, "parquet_version", parquet_version)
+        if preserve_transactions is not None:
+            pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+        if rfc4180 is not None:
+            pulumi.set(__self__, "rfc4180", rfc4180)
+        if row_group_length is not None:
+            pulumi.set(__self__, "row_group_length", row_group_length)
         if server_side_encryption_kms_key_id is not None:
             pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
             pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        if timestamp_column_name is not None:
+            pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+        if use_csv_no_sup_value is not None:
+            pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+
+    @property
+    @pulumi.getter(name="addColumnName")
+    def add_column_name(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to add column name information to the .csv output file. Default is `false`.
+        """
+        return pulumi.get(self, "add_column_name")
+
+    @add_column_name.setter
+    def add_column_name(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "add_column_name", value)
 
     @property
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 Object prefix.
+        S3 object prefix.
         """
         return pulumi.get(self, "bucket_folder")
 
@@ -707,7 +811,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 Bucket name.
+        S3 bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -716,10 +820,82 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
+    @pulumi.getter(name="cannedAclForObjects")
+    def canned_acl_for_objects(self) -> Optional[pulumi.Input[str]]:
+        """
+        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+        """
+        return pulumi.get(self, "canned_acl_for_objects")
+
+    @canned_acl_for_objects.setter
+    def canned_acl_for_objects(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "canned_acl_for_objects", value)
+
+    @property
+    @pulumi.getter(name="cdcInsertsAndUpdates")
+    def cdc_inserts_and_updates(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+        """
+        return pulumi.get(self, "cdc_inserts_and_updates")
+
+    @cdc_inserts_and_updates.setter
+    def cdc_inserts_and_updates(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdc_inserts_and_updates", value)
+
+    @property
+    @pulumi.getter(name="cdcInsertsOnly")
+    def cdc_inserts_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        """
+        return pulumi.get(self, "cdc_inserts_only")
+
+    @cdc_inserts_only.setter
+    def cdc_inserts_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdc_inserts_only", value)
+
+    @property
+    @pulumi.getter(name="cdcMaxBatchInterval")
+    def cdc_max_batch_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
+        """
+        return pulumi.get(self, "cdc_max_batch_interval")
+
+    @cdc_max_batch_interval.setter
+    def cdc_max_batch_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cdc_max_batch_interval", value)
+
+    @property
+    @pulumi.getter(name="cdcMinFileSize")
+    def cdc_min_file_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+        """
+        return pulumi.get(self, "cdc_min_file_size")
+
+    @cdc_min_file_size.setter
+    def cdc_min_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cdc_min_file_size", value)
+
+    @property
+    @pulumi.getter(name="cdcPath")
+    def cdc_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        """
+        return pulumi.get(self, "cdc_path")
+
+    @cdc_path.setter
+    def cdc_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdc_path", value)
+
+    @property
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+        Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
         """
         return pulumi.get(self, "compression_type")
 
@@ -731,7 +907,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="csvDelimiter")
     def csv_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        Delimiter used to separate columns in the source files. Defaults to `,`.
+        Delimiter used to separate columns in the source files. Default is `,`.
         """
         return pulumi.get(self, "csv_delimiter")
 
@@ -740,10 +916,34 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "csv_delimiter", value)
 
     @property
+    @pulumi.getter(name="csvNoSupValue")
+    def csv_no_sup_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        String to use for all columns not included in the supplemental log.
+        """
+        return pulumi.get(self, "csv_no_sup_value")
+
+    @csv_no_sup_value.setter
+    def csv_no_sup_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csv_no_sup_value", value)
+
+    @property
+    @pulumi.getter(name="csvNullValue")
+    def csv_null_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        String to as null when writing to the target.
+        """
+        return pulumi.get(self, "csv_null_value")
+
+    @csv_null_value.setter
+    def csv_null_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csv_null_value", value)
+
+    @property
     @pulumi.getter(name="csvRowDelimiter")
     def csv_row_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        Delimiter used to separate rows in the source files. Defaults to `\n`.
+        Delimiter used to separate rows in the source files. Default is `\n`.
         """
         return pulumi.get(self, "csv_row_delimiter")
 
@@ -755,7 +955,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+        Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
         """
         return pulumi.get(self, "data_format")
 
@@ -764,10 +964,34 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "data_format", value)
 
     @property
+    @pulumi.getter(name="dataPageSize")
+    def data_page_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Size of one data page in bytes. Default is `1048576` (1 MiB).
+        """
+        return pulumi.get(self, "data_page_size")
+
+    @data_page_size.setter
+    def data_page_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_page_size", value)
+
+    @property
+    @pulumi.getter(name="datePartitionDelimiter")
+    def date_partition_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
+        """
+        return pulumi.get(self, "date_partition_delimiter")
+
+    @date_partition_delimiter.setter
+    def date_partition_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_partition_delimiter", value)
+
+    @property
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+        Partition S3 bucket folders based on transaction commit dates. Default is `false`.
         """
         return pulumi.get(self, "date_partition_enabled")
 
@@ -776,10 +1000,58 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "date_partition_enabled", value)
 
     @property
+    @pulumi.getter(name="datePartitionSequence")
+    def date_partition_sequence(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
+        """
+        return pulumi.get(self, "date_partition_sequence")
+
+    @date_partition_sequence.setter
+    def date_partition_sequence(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_partition_sequence", value)
+
+    @property
+    @pulumi.getter(name="dictPageSizeLimit")
+    def dict_page_size_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
+        """
+        return pulumi.get(self, "dict_page_size_limit")
+
+    @dict_page_size_limit.setter
+    def dict_page_size_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dict_page_size_limit", value)
+
+    @property
+    @pulumi.getter(name="enableStatistics")
+    def enable_statistics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable statistics for Parquet pages and row groups. Default is `true`.
+        """
+        return pulumi.get(self, "enable_statistics")
+
+    @enable_statistics.setter
+    def enable_statistics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_statistics", value)
+
+    @property
+    @pulumi.getter(name="encodingType")
+    def encoding_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
+        """
+        return pulumi.get(self, "encoding_type")
+
+    @encoding_type.setter
+    def encoding_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding_type", value)
+
+    @property
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -800,10 +1072,46 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "external_table_definition", value)
 
     @property
+    @pulumi.getter(name="ignoreHeadersRow")
+    def ignore_headers_row(self) -> Optional[pulumi.Input[int]]:
+        """
+        When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        """
+        return pulumi.get(self, "ignore_headers_row")
+
+    @ignore_headers_row.setter
+    def ignore_headers_row(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ignore_headers_row", value)
+
+    @property
+    @pulumi.getter(name="includeOpForFullLoad")
+    def include_op_for_full_load(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        """
+        return pulumi.get(self, "include_op_for_full_load")
+
+    @include_op_for_full_load.setter
+    def include_op_for_full_load(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_op_for_full_load", value)
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @property
     @pulumi.getter(name="parquetTimestampInMillisecond")
     def parquet_timestamp_in_millisecond(self) -> Optional[pulumi.Input[bool]]:
         """
-        - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+        - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         """
         return pulumi.get(self, "parquet_timestamp_in_millisecond")
 
@@ -815,7 +1123,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="parquetVersion")
     def parquet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
         """
         return pulumi.get(self, "parquet_version")
 
@@ -824,10 +1132,46 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "parquet_version", value)
 
     @property
+    @pulumi.getter(name="preserveTransactions")
+    def preserve_transactions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
+        """
+        return pulumi.get(self, "preserve_transactions")
+
+    @preserve_transactions.setter
+    def preserve_transactions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_transactions", value)
+
+    @property
+    @pulumi.getter
+    def rfc4180(self) -> Optional[pulumi.Input[bool]]:
+        """
+        For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
+        """
+        return pulumi.get(self, "rfc4180")
+
+    @rfc4180.setter
+    def rfc4180(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rfc4180", value)
+
+    @property
+    @pulumi.getter(name="rowGroupLength")
+    def row_group_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of rows in a row group. Default is `10000`.
+        """
+        return pulumi.get(self, "row_group_length")
+
+    @row_group_length.setter
+    def row_group_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "row_group_length", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
@@ -839,12 +1183,36 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
     def service_access_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="timestampColumnName")
+    def timestamp_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column to add with timestamp information to the endpoint data for an Amazon S3 target.
+        """
+        return pulumi.get(self, "timestamp_column_name")
+
+    @timestamp_column_name.setter
+    def timestamp_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timestamp_column_name", value)
+
+    @property
+    @pulumi.getter(name="useCsvNoSupValue")
+    def use_csv_no_sup_value(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
+        """
+        return pulumi.get(self, "use_csv_no_sup_value")
+
+    @use_csv_no_sup_value.setter
+    def use_csv_no_sup_value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_csv_no_sup_value", value)
 
 

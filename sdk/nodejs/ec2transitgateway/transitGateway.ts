@@ -88,6 +88,7 @@ export class TransitGateway extends pulumi.CustomResource {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
+    public readonly multicastSupport!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
@@ -104,6 +105,10 @@ export class TransitGateway extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+     */
+    public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
@@ -130,10 +135,12 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["defaultRouteTablePropagation"] = state ? state.defaultRouteTablePropagation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
+            resourceInputs["multicastSupport"] = state ? state.multicastSupport : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["propagationDefaultRouteTableId"] = state ? state.propagationDefaultRouteTableId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayCidrBlocks"] = state ? state.transitGatewayCidrBlocks : undefined;
             resourceInputs["vpnEcmpSupport"] = state ? state.vpnEcmpSupport : undefined;
         } else {
             const args = argsOrState as TransitGatewayArgs | undefined;
@@ -143,7 +150,9 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["defaultRouteTablePropagation"] = args ? args.defaultRouteTablePropagation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
+            resourceInputs["multicastSupport"] = args ? args.multicastSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
             resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationDefaultRouteTableId"] = undefined /*out*/;
@@ -192,6 +201,7 @@ export interface TransitGatewayState {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     dnsSupport?: pulumi.Input<string>;
+    multicastSupport?: pulumi.Input<string>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
@@ -208,6 +218,10 @@ export interface TransitGatewayState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+     */
+    transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
@@ -242,10 +256,15 @@ export interface TransitGatewayArgs {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     dnsSupport?: pulumi.Input<string>;
+    multicastSupport?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+     */
+    transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */

@@ -141,9 +141,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
-// 			ObjectLockConfiguration: &s3.BucketV2ObjectLockConfigurationArgs{
-// 				ObjectLockEnabled: pulumi.String("Enabled"),
-// 			},
+// 			ObjectLockEnabled: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

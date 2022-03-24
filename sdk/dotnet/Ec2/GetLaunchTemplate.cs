@@ -221,131 +221,44 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetLaunchTemplateResult
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingResult> BlockDeviceMappings;
-        /// <summary>
-        /// Customize the credit specification of the instance. See Credit
-        /// Specification below for more details.
-        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateCapacityReservationSpecificationResult> CapacityReservationSpecifications;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateCpuOptionResult> CpuOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationResult> CreditSpecifications;
-        /// <summary>
-        /// The default version of the launch template.
-        /// </summary>
         public readonly int DefaultVersion;
-        /// <summary>
-        /// Description of the launch template.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// If `true`, enables [EC2 Instance
-        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
-        /// </summary>
         public readonly bool DisableApiTermination;
-        /// <summary>
-        /// If `true`, the launched EC2 instance will be EBS-optimized.
-        /// </summary>
         public readonly string EbsOptimized;
-        /// <summary>
-        /// The elastic GPU to attach to the instance. See Elastic GPU
-        /// below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> ElasticGpuSpecifications;
-        /// <summary>
-        /// The enclave options of the Instance.
-        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticInferenceAcceleratorResult> ElasticInferenceAccelerators;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> EnclaveOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateFilterResult> Filters;
-        /// <summary>
-        /// The hibernation options for the instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> HibernationOptions;
-        /// <summary>
-        /// The IAM Instance Profile to launch the instance with. See Instance Profile
-        /// below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfileResult> IamInstanceProfiles;
         /// <summary>
         /// The ID of the launch template.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The AMI from which to launch the instance.
-        /// </summary>
         public readonly string ImageId;
-        /// <summary>
-        /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-        /// (Default: `stop`).
-        /// </summary>
         public readonly string InstanceInitiatedShutdownBehavior;
-        /// <summary>
-        /// The market (purchasing) option for the instance.
-        /// below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionResult> InstanceMarketOptions;
-        /// <summary>
-        /// The type of the instance.
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// The kernel ID.
-        /// </summary>
         public readonly string KernelId;
-        /// <summary>
-        /// The key name to use for the instance.
-        /// </summary>
         public readonly string KeyName;
-        /// <summary>
-        /// The latest version of the launch template.
-        /// </summary>
         public readonly int LatestVersion;
-        /// <summary>
-        /// The metadata options for the instance.
-        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> LicenseSpecifications;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> MetadataOptions;
-        /// <summary>
-        /// The monitoring option for the instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> Monitorings;
-        public readonly string? Name;
-        /// <summary>
-        /// Customize network interfaces to be attached at instance boot time. See Network
-        /// Interfaces below for more details.
-        /// </summary>
+        public readonly string Name;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> NetworkInterfaces;
-        /// <summary>
-        /// The placement of the instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> Placements;
-        /// <summary>
-        /// The ID of the RAM disk.
-        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> PrivateDnsNameOptions;
         public readonly string RamDiskId;
-        /// <summary>
-        /// A list of security group names to associate with. If you are creating Instances in a VPC, use
-        /// `vpc_security_group_ids` instead.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupNames;
-        /// <summary>
-        /// The tags to apply to the resources during launch.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> TagSpecifications;
-        /// <summary>
-        /// (Optional) A map of tags to assign to the launch template.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The Base64-encoded user data to provide when launching the instance.
-        /// </summary>
         public readonly string UserData;
-        /// <summary>
-        /// A list of security group IDs to associate with.
-        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -353,6 +266,10 @@ namespace Pulumi.Aws.Ec2
             string arn,
 
             ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingResult> blockDeviceMappings,
+
+            ImmutableArray<Outputs.GetLaunchTemplateCapacityReservationSpecificationResult> capacityReservationSpecifications,
+
+            ImmutableArray<Outputs.GetLaunchTemplateCpuOptionResult> cpuOptions,
 
             ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationResult> creditSpecifications,
 
@@ -365,6 +282,8 @@ namespace Pulumi.Aws.Ec2
             string ebsOptimized,
 
             ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> elasticGpuSpecifications,
+
+            ImmutableArray<Outputs.GetLaunchTemplateElasticInferenceAcceleratorResult> elasticInferenceAccelerators,
 
             ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> enclaveOptions,
 
@@ -390,15 +309,19 @@ namespace Pulumi.Aws.Ec2
 
             int latestVersion,
 
+            ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> licenseSpecifications,
+
             ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> metadataOptions,
 
             ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> monitorings,
 
-            string? name,
+            string name,
 
             ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> networkInterfaces,
 
             ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> placements,
+
+            ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> privateDnsNameOptions,
 
             string ramDiskId,
 
@@ -414,12 +337,15 @@ namespace Pulumi.Aws.Ec2
         {
             Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;
+            CapacityReservationSpecifications = capacityReservationSpecifications;
+            CpuOptions = cpuOptions;
             CreditSpecifications = creditSpecifications;
             DefaultVersion = defaultVersion;
             Description = description;
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
             ElasticGpuSpecifications = elasticGpuSpecifications;
+            ElasticInferenceAccelerators = elasticInferenceAccelerators;
             EnclaveOptions = enclaveOptions;
             Filters = filters;
             HibernationOptions = hibernationOptions;
@@ -432,11 +358,13 @@ namespace Pulumi.Aws.Ec2
             KernelId = kernelId;
             KeyName = keyName;
             LatestVersion = latestVersion;
+            LicenseSpecifications = licenseSpecifications;
             MetadataOptions = metadataOptions;
             Monitorings = monitorings;
             Name = name;
             NetworkInterfaces = networkInterfaces;
             Placements = placements;
+            PrivateDnsNameOptions = privateDnsNameOptions;
             RamDiskId = ramDiskId;
             SecurityGroupNames = securityGroupNames;
             TagSpecifications = tagSpecifications;

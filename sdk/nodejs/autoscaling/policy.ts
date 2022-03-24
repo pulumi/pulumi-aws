@@ -6,14 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an AutoScaling Scaling Policy resource.
- *
- * > **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
- * when using autoscaling policies. It's good practice to pick either
- * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
- * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
- * (policy-based) scaling.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -34,6 +26,98 @@ import * as utilities from "../utilities";
  *     adjustmentType: "ChangeInCapacity",
  *     cooldown: 300,
  *     autoscalingGroupName: bar.name,
+ * });
+ * ```
+ * ### Create predictive scaling policy using customized metrics
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.autoscaling.Policy("example", {
+ *     autoscalingGroupName: "my-test-asg",
+ *     policyType: "PredictiveScaling",
+ *     predictiveScalingConfiguration: {
+ *         metricSpecification: {
+ *             customizedCapacityMetricSpecification: {
+ *                 metricDataQueries: [
+ *                     {
+ *                         expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
+ *                         id: "capacity_sum",
+ *                         returnData: false,
+ *                     },
+ *                     {
+ *                         expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
+ *                         id: "load_sum",
+ *                         returnData: false,
+ *                     },
+ *                     {
+ *                         expression: "load_sum / capacity_sum",
+ *                         id: "weighted_average",
+ *                     },
+ *                 ],
+ *             },
+ *             customizedLoadMetricSpecification: {
+ *                 metricDataQueries: [{
+ *                     expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
+ *                     id: "load_sum",
+ *                 }],
+ *             },
+ *             customizedScalingMetricSpecification: {
+ *                 metricDataQueries: [{
+ *                     id: "scaling",
+ *                     metricStat: {
+ *                         metric: {
+ *                             dimensions: [{
+ *                                 name: "AutoScalingGroupName",
+ *                                 value: "my-test-asg",
+ *                             }],
+ *                             metricName: "CPUUtilization",
+ *                             namespace: "AWS/EC2",
+ *                         },
+ *                         stat: "Average",
+ *                     },
+ *                 }],
+ *             },
+ *             targetValue: 10,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Create predictive scaling policy using customized scaling and predefined load metric
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.autoscaling.Policy("example", {
+ *     autoscalingGroupName: "my-test-asg",
+ *     policyType: "PredictiveScaling",
+ *     predictiveScalingConfiguration: {
+ *         metricSpecification: {
+ *             customizedScalingMetricSpecification: {
+ *                 metricDataQueries: [{
+ *                     id: "scaling",
+ *                     metricStat: {
+ *                         metric: {
+ *                             dimensions: [{
+ *                                 name: "AutoScalingGroupName",
+ *                                 value: "my-test-asg",
+ *                             }],
+ *                             metricName: "CPUUtilization",
+ *                             namespace: "AWS/EC2",
+ *                         },
+ *                         stat: "Average",
+ *                     },
+ *                 }],
+ *             },
+ *             predefinedLoadMetricSpecification: {
+ *                 predefinedMetricType: "ASGTotalCPUUtilization",
+ *                 resourceLabel: "testLabel",
+ *             },
+ *             targetValue: 10,
+ *         },
+ *     },
  * });
  * ```
  *

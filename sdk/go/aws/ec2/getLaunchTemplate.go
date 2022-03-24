@@ -86,74 +86,43 @@ type LookupLaunchTemplateArgs struct {
 
 // A collection of values returned by getLaunchTemplate.
 type LookupLaunchTemplateResult struct {
-	// Amazon Resource Name (ARN) of the launch template.
-	Arn string `pulumi:"arn"`
-	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	BlockDeviceMappings []GetLaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Customize the credit specification of the instance. See Credit
-	// Specification below for more details.
-	CreditSpecifications []GetLaunchTemplateCreditSpecification `pulumi:"creditSpecifications"`
-	// The default version of the launch template.
-	DefaultVersion int `pulumi:"defaultVersion"`
-	// Description of the launch template.
-	Description string `pulumi:"description"`
-	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
-	DisableApiTermination bool `pulumi:"disableApiTermination"`
-	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized string `pulumi:"ebsOptimized"`
-	// The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	ElasticGpuSpecifications []GetLaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// The enclave options of the Instance.
-	EnclaveOptions []GetLaunchTemplateEnclaveOption `pulumi:"enclaveOptions"`
-	Filters        []GetLaunchTemplateFilter        `pulumi:"filters"`
-	// The hibernation options for the instance.
-	HibernationOptions []GetLaunchTemplateHibernationOption `pulumi:"hibernationOptions"`
-	// The IAM Instance Profile to launch the instance with. See Instance Profile
-	// below for more details.
-	IamInstanceProfiles []GetLaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfiles"`
+	Arn                               string                                              `pulumi:"arn"`
+	BlockDeviceMappings               []GetLaunchTemplateBlockDeviceMapping               `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecifications []GetLaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecifications"`
+	CpuOptions                        []GetLaunchTemplateCpuOption                        `pulumi:"cpuOptions"`
+	CreditSpecifications              []GetLaunchTemplateCreditSpecification              `pulumi:"creditSpecifications"`
+	DefaultVersion                    int                                                 `pulumi:"defaultVersion"`
+	Description                       string                                              `pulumi:"description"`
+	DisableApiTermination             bool                                                `pulumi:"disableApiTermination"`
+	EbsOptimized                      string                                              `pulumi:"ebsOptimized"`
+	ElasticGpuSpecifications          []GetLaunchTemplateElasticGpuSpecification          `pulumi:"elasticGpuSpecifications"`
+	ElasticInferenceAccelerators      []GetLaunchTemplateElasticInferenceAccelerator      `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions                    []GetLaunchTemplateEnclaveOption                    `pulumi:"enclaveOptions"`
+	Filters                           []GetLaunchTemplateFilter                           `pulumi:"filters"`
+	HibernationOptions                []GetLaunchTemplateHibernationOption                `pulumi:"hibernationOptions"`
+	IamInstanceProfiles               []GetLaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfiles"`
 	// The ID of the launch template.
-	Id string `pulumi:"id"`
-	// The AMI from which to launch the instance.
-	ImageId string `pulumi:"imageId"`
-	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-	// (Default: `stop`).
-	InstanceInitiatedShutdownBehavior string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// The market (purchasing) option for the instance.
-	// below for details.
-	InstanceMarketOptions []GetLaunchTemplateInstanceMarketOption `pulumi:"instanceMarketOptions"`
-	// The type of the instance.
-	InstanceType string `pulumi:"instanceType"`
-	// The kernel ID.
-	KernelId string `pulumi:"kernelId"`
-	// The key name to use for the instance.
-	KeyName string `pulumi:"keyName"`
-	// The latest version of the launch template.
-	LatestVersion int `pulumi:"latestVersion"`
-	// The metadata options for the instance.
-	MetadataOptions []GetLaunchTemplateMetadataOption `pulumi:"metadataOptions"`
-	// The monitoring option for the instance.
-	Monitorings []GetLaunchTemplateMonitoring `pulumi:"monitorings"`
-	Name        *string                       `pulumi:"name"`
-	// Customize network interfaces to be attached at instance boot time. See Network
-	// Interfaces below for more details.
-	NetworkInterfaces []GetLaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
-	// The placement of the instance.
-	Placements []GetLaunchTemplatePlacement `pulumi:"placements"`
-	// The ID of the RAM disk.
-	RamDiskId string `pulumi:"ramDiskId"`
-	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// The tags to apply to the resources during launch.
-	TagSpecifications []GetLaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// (Optional) A map of tags to assign to the launch template.
-	Tags map[string]string `pulumi:"tags"`
-	// The Base64-encoded user data to provide when launching the instance.
-	UserData string `pulumi:"userData"`
-	// A list of security group IDs to associate with.
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	Id                                string                                  `pulumi:"id"`
+	ImageId                           string                                  `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior string                                  `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             []GetLaunchTemplateInstanceMarketOption `pulumi:"instanceMarketOptions"`
+	InstanceType                      string                                  `pulumi:"instanceType"`
+	KernelId                          string                                  `pulumi:"kernelId"`
+	KeyName                           string                                  `pulumi:"keyName"`
+	LatestVersion                     int                                     `pulumi:"latestVersion"`
+	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	MetadataOptions                   []GetLaunchTemplateMetadataOption       `pulumi:"metadataOptions"`
+	Monitorings                       []GetLaunchTemplateMonitoring           `pulumi:"monitorings"`
+	Name                              string                                  `pulumi:"name"`
+	NetworkInterfaces                 []GetLaunchTemplateNetworkInterface     `pulumi:"networkInterfaces"`
+	Placements                        []GetLaunchTemplatePlacement            `pulumi:"placements"`
+	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
+	RamDiskId                         string                                  `pulumi:"ramDiskId"`
+	SecurityGroupNames                []string                                `pulumi:"securityGroupNames"`
+	TagSpecifications                 []GetLaunchTemplateTagSpecification     `pulumi:"tagSpecifications"`
+	Tags                              map[string]string                       `pulumi:"tags"`
+	UserData                          string                                  `pulumi:"userData"`
+	VpcSecurityGroupIds               []string                                `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
@@ -196,54 +165,58 @@ func (o LookupLaunchTemplateResultOutput) ToLookupLaunchTemplateResultOutputWith
 	return o
 }
 
-// Amazon Resource Name (ARN) of the launch template.
 func (o LookupLaunchTemplateResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 func (o LookupLaunchTemplateResultOutput) BlockDeviceMappings() GetLaunchTemplateBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateBlockDeviceMapping { return v.BlockDeviceMappings }).(GetLaunchTemplateBlockDeviceMappingArrayOutput)
 }
 
-// Customize the credit specification of the instance. See Credit
-// Specification below for more details.
+func (o LookupLaunchTemplateResultOutput) CapacityReservationSpecifications() GetLaunchTemplateCapacityReservationSpecificationArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateCapacityReservationSpecification {
+		return v.CapacityReservationSpecifications
+	}).(GetLaunchTemplateCapacityReservationSpecificationArrayOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) CpuOptions() GetLaunchTemplateCpuOptionArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateCpuOption { return v.CpuOptions }).(GetLaunchTemplateCpuOptionArrayOutput)
+}
+
 func (o LookupLaunchTemplateResultOutput) CreditSpecifications() GetLaunchTemplateCreditSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateCreditSpecification {
 		return v.CreditSpecifications
 	}).(GetLaunchTemplateCreditSpecificationArrayOutput)
 }
 
-// The default version of the launch template.
 func (o LookupLaunchTemplateResultOutput) DefaultVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) int { return v.DefaultVersion }).(pulumi.IntOutput)
 }
 
-// Description of the launch template.
 func (o LookupLaunchTemplateResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// If `true`, enables [EC2 Instance
-// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 func (o LookupLaunchTemplateResultOutput) DisableApiTermination() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) bool { return v.DisableApiTermination }).(pulumi.BoolOutput)
 }
 
-// If `true`, the launched EC2 instance will be EBS-optimized.
 func (o LookupLaunchTemplateResultOutput) EbsOptimized() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.EbsOptimized }).(pulumi.StringOutput)
 }
 
-// The elastic GPU to attach to the instance. See Elastic GPU
-// below for more details.
 func (o LookupLaunchTemplateResultOutput) ElasticGpuSpecifications() GetLaunchTemplateElasticGpuSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateElasticGpuSpecification {
 		return v.ElasticGpuSpecifications
 	}).(GetLaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
-// The enclave options of the Instance.
+func (o LookupLaunchTemplateResultOutput) ElasticInferenceAccelerators() GetLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateElasticInferenceAccelerator {
+		return v.ElasticInferenceAccelerators
+	}).(GetLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
 func (o LookupLaunchTemplateResultOutput) EnclaveOptions() GetLaunchTemplateEnclaveOptionArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateEnclaveOption { return v.EnclaveOptions }).(GetLaunchTemplateEnclaveOptionArrayOutput)
 }
@@ -252,13 +225,10 @@ func (o LookupLaunchTemplateResultOutput) Filters() GetLaunchTemplateFilterArray
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateFilter { return v.Filters }).(GetLaunchTemplateFilterArrayOutput)
 }
 
-// The hibernation options for the instance.
 func (o LookupLaunchTemplateResultOutput) HibernationOptions() GetLaunchTemplateHibernationOptionArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateHibernationOption { return v.HibernationOptions }).(GetLaunchTemplateHibernationOptionArrayOutput)
 }
 
-// The IAM Instance Profile to launch the instance with. See Instance Profile
-// below for more details.
 func (o LookupLaunchTemplateResultOutput) IamInstanceProfiles() GetLaunchTemplateIamInstanceProfileArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateIamInstanceProfile { return v.IamInstanceProfiles }).(GetLaunchTemplateIamInstanceProfileArrayOutput)
 }
@@ -268,97 +238,88 @@ func (o LookupLaunchTemplateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The AMI from which to launch the instance.
 func (o LookupLaunchTemplateResultOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.ImageId }).(pulumi.StringOutput)
 }
 
-// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-// (Default: `stop`).
 func (o LookupLaunchTemplateResultOutput) InstanceInitiatedShutdownBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringOutput)
 }
 
-// The market (purchasing) option for the instance.
-// below for details.
 func (o LookupLaunchTemplateResultOutput) InstanceMarketOptions() GetLaunchTemplateInstanceMarketOptionArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateInstanceMarketOption {
 		return v.InstanceMarketOptions
 	}).(GetLaunchTemplateInstanceMarketOptionArrayOutput)
 }
 
-// The type of the instance.
 func (o LookupLaunchTemplateResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The kernel ID.
 func (o LookupLaunchTemplateResultOutput) KernelId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.KernelId }).(pulumi.StringOutput)
 }
 
-// The key name to use for the instance.
 func (o LookupLaunchTemplateResultOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The latest version of the launch template.
 func (o LookupLaunchTemplateResultOutput) LatestVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) int { return v.LatestVersion }).(pulumi.IntOutput)
 }
 
-// The metadata options for the instance.
+func (o LookupLaunchTemplateResultOutput) LicenseSpecifications() GetLaunchTemplateLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateLicenseSpecification {
+		return v.LicenseSpecifications
+	}).(GetLaunchTemplateLicenseSpecificationArrayOutput)
+}
+
 func (o LookupLaunchTemplateResultOutput) MetadataOptions() GetLaunchTemplateMetadataOptionArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateMetadataOption { return v.MetadataOptions }).(GetLaunchTemplateMetadataOptionArrayOutput)
 }
 
-// The monitoring option for the instance.
 func (o LookupLaunchTemplateResultOutput) Monitorings() GetLaunchTemplateMonitoringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateMonitoring { return v.Monitorings }).(GetLaunchTemplateMonitoringArrayOutput)
 }
 
-func (o LookupLaunchTemplateResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o LookupLaunchTemplateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Customize network interfaces to be attached at instance boot time. See Network
-// Interfaces below for more details.
 func (o LookupLaunchTemplateResultOutput) NetworkInterfaces() GetLaunchTemplateNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(GetLaunchTemplateNetworkInterfaceArrayOutput)
 }
 
-// The placement of the instance.
 func (o LookupLaunchTemplateResultOutput) Placements() GetLaunchTemplatePlacementArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplatePlacement { return v.Placements }).(GetLaunchTemplatePlacementArrayOutput)
 }
 
-// The ID of the RAM disk.
+func (o LookupLaunchTemplateResultOutput) PrivateDnsNameOptions() GetLaunchTemplatePrivateDnsNameOptionArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplatePrivateDnsNameOption {
+		return v.PrivateDnsNameOptions
+	}).(GetLaunchTemplatePrivateDnsNameOptionArrayOutput)
+}
+
 func (o LookupLaunchTemplateResultOutput) RamDiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.RamDiskId }).(pulumi.StringOutput)
 }
 
-// A list of security group names to associate with. If you are creating Instances in a VPC, use
-// `vpcSecurityGroupIds` instead.
 func (o LookupLaunchTemplateResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []string { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }
 
-// The tags to apply to the resources during launch.
 func (o LookupLaunchTemplateResultOutput) TagSpecifications() GetLaunchTemplateTagSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateTagSpecification { return v.TagSpecifications }).(GetLaunchTemplateTagSpecificationArrayOutput)
 }
 
-// (Optional) A map of tags to assign to the launch template.
 func (o LookupLaunchTemplateResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Base64-encoded user data to provide when launching the instance.
 func (o LookupLaunchTemplateResultOutput) UserData() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.UserData }).(pulumi.StringOutput)
 }
 
-// A list of security group IDs to associate with.
 func (o LookupLaunchTemplateResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

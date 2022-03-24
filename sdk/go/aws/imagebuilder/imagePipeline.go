@@ -52,6 +52,8 @@ type ImagePipeline struct {
 
 	// Amazon Resource Name (ARN) of the image pipeline.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
 	// Date the image pipeline was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Date the image pipeline was last run.
@@ -66,8 +68,8 @@ type ImagePipeline struct {
 	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
-	ImageRecipeArn pulumi.StringOutput `pulumi:"imageRecipeArn"`
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -93,9 +95,6 @@ func NewImagePipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ImageRecipeArn == nil {
-		return nil, errors.New("invalid value for required argument 'ImageRecipeArn'")
-	}
 	if args.InfrastructureConfigurationArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
@@ -123,6 +122,8 @@ func GetImagePipeline(ctx *pulumi.Context,
 type imagePipelineState struct {
 	// Amazon Resource Name (ARN) of the image pipeline.
 	Arn *string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Date the image pipeline was created.
 	DateCreated *string `pulumi:"dateCreated"`
 	// Date the image pipeline was last run.
@@ -137,7 +138,7 @@ type imagePipelineState struct {
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
@@ -160,6 +161,8 @@ type imagePipelineState struct {
 type ImagePipelineState struct {
 	// Amazon Resource Name (ARN) of the image pipeline.
 	Arn pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrInput
 	// Date the image pipeline was created.
 	DateCreated pulumi.StringPtrInput
 	// Date the image pipeline was last run.
@@ -174,7 +177,7 @@ type ImagePipelineState struct {
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
@@ -199,14 +202,16 @@ func (ImagePipelineState) ElementType() reflect.Type {
 }
 
 type imagePipelineArgs struct {
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Description of the image pipeline.
 	Description *string `pulumi:"description"`
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
-	ImageRecipeArn string `pulumi:"imageRecipeArn"`
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -223,14 +228,16 @@ type imagePipelineArgs struct {
 
 // The set of arguments for constructing a ImagePipeline resource.
 type ImagePipelineArgs struct {
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrInput
 	// Description of the image pipeline.
 	Description pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
-	ImageRecipeArn pulumi.StringInput
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.

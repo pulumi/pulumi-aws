@@ -21,12 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:backup/framework:Framework":
+		r = &Framework{}
 	case "aws:backup/globalSettings:GlobalSettings":
 		r = &GlobalSettings{}
 	case "aws:backup/plan:Plan":
 		r = &Plan{}
 	case "aws:backup/regionSettings:RegionSettings":
 		r = &RegionSettings{}
+	case "aws:backup/reportPlan:ReportPlan":
+		r = &ReportPlan{}
 	case "aws:backup/selection:Selection":
 		r = &Selection{}
 	case "aws:backup/vault:Vault":
@@ -52,6 +56,11 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"backup/framework",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"backup/globalSettings",
 		&module{version},
 	)
@@ -63,6 +72,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"backup/regionSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"backup/reportPlan",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -19,6 +19,7 @@ class TopicRuleArgs:
                  sql: pulumi.Input[str],
                  sql_version: pulumi.Input[str],
                  cloudwatch_alarm: Optional[pulumi.Input['TopicRuleCloudwatchAlarmArgs']] = None,
+                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
                  cloudwatch_metric: Optional[pulumi.Input['TopicRuleCloudwatchMetricArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb: Optional[pulumi.Input['TopicRuleDynamodbArgs']] = None,
@@ -43,15 +44,17 @@ class TopicRuleArgs:
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
         :param pulumi.Input[str] description: The description of the rule.
-        :param pulumi.Input['TopicRuleErrorActionArgs'] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        :param pulumi.Input['TopicRuleErrorActionArgs'] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         :param pulumi.Input[str] name: The name of the rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "sql", sql)
         pulumi.set(__self__, "sql_version", sql_version)
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
             pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
         if description is not None:
@@ -135,6 +138,15 @@ class TopicRuleArgs:
         pulumi.set(self, "cloudwatch_alarm", value)
 
     @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]:
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+    @property
     @pulumi.getter(name="cloudwatchMetric")
     def cloudwatch_metric(self) -> Optional[pulumi.Input['TopicRuleCloudwatchMetricArgs']]:
         return pulumi.get(self, "cloudwatch_metric")
@@ -186,7 +198,7 @@ class TopicRuleArgs:
     @pulumi.getter(name="errorAction")
     def error_action(self) -> Optional[pulumi.Input['TopicRuleErrorActionArgs']]:
         """
-        Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         """
         return pulumi.get(self, "error_action")
 
@@ -300,7 +312,7 @@ class TopicRuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -314,6 +326,7 @@ class _TopicRuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cloudwatch_alarm: Optional[pulumi.Input['TopicRuleCloudwatchAlarmArgs']] = None,
+                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
                  cloudwatch_metric: Optional[pulumi.Input['TopicRuleCloudwatchMetricArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb: Optional[pulumi.Input['TopicRuleDynamodbArgs']] = None,
@@ -341,17 +354,19 @@ class _TopicRuleState:
         :param pulumi.Input[str] arn: The ARN of the topic rule
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[bool] enabled: Specifies whether the rule is enabled.
-        :param pulumi.Input['TopicRuleErrorActionArgs'] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        :param pulumi.Input['TopicRuleErrorActionArgs'] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
             pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
         if description is not None:
@@ -419,6 +434,15 @@ class _TopicRuleState:
         pulumi.set(self, "cloudwatch_alarm", value)
 
     @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]:
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+    @property
     @pulumi.getter(name="cloudwatchMetric")
     def cloudwatch_metric(self) -> Optional[pulumi.Input['TopicRuleCloudwatchMetricArgs']]:
         return pulumi.get(self, "cloudwatch_metric")
@@ -482,7 +506,7 @@ class _TopicRuleState:
     @pulumi.getter(name="errorAction")
     def error_action(self) -> Optional[pulumi.Input['TopicRuleErrorActionArgs']]:
         """
-        Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         """
         return pulumi.get(self, "error_action")
 
@@ -620,7 +644,7 @@ class _TopicRuleState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -647,6 +671,7 @@ class TopicRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_alarm: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchAlarmArgs']]] = None,
+                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchLogArgs']]]]] = None,
                  cloudwatch_metric: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchMetricArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb: Optional[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]] = None,
@@ -737,11 +762,11 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[bool] enabled: Specifies whether the rule is enabled.
-        :param pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        :param pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -829,6 +854,7 @@ class TopicRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_alarm: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchAlarmArgs']]] = None,
+                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchLogArgs']]]]] = None,
                  cloudwatch_metric: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchMetricArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb: Optional[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]] = None,
@@ -863,6 +889,7 @@ class TopicRule(pulumi.CustomResource):
             __props__ = TopicRuleArgs.__new__(TopicRuleArgs)
 
             __props__.__dict__["cloudwatch_alarm"] = cloudwatch_alarm
+            __props__.__dict__["cloudwatch_logs"] = cloudwatch_logs
             __props__.__dict__["cloudwatch_metric"] = cloudwatch_metric
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamodb"] = dynamodb
@@ -904,6 +931,7 @@ class TopicRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cloudwatch_alarm: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchAlarmArgs']]] = None,
+            cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchLogArgs']]]]] = None,
             cloudwatch_metric: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchMetricArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dynamodb: Optional[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]] = None,
@@ -936,11 +964,11 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the topic rule
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[bool] enabled: Specifies whether the rule is enabled.
-        :param pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        :param pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -949,6 +977,7 @@ class TopicRule(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cloudwatch_alarm"] = cloudwatch_alarm
+        __props__.__dict__["cloudwatch_logs"] = cloudwatch_logs
         __props__.__dict__["cloudwatch_metric"] = cloudwatch_metric
         __props__.__dict__["description"] = description
         __props__.__dict__["dynamodb"] = dynamodb
@@ -985,6 +1014,11 @@ class TopicRule(pulumi.CustomResource):
     @pulumi.getter(name="cloudwatchAlarm")
     def cloudwatch_alarm(self) -> pulumi.Output[Optional['outputs.TopicRuleCloudwatchAlarm']]:
         return pulumi.get(self, "cloudwatch_alarm")
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleCloudwatchLog']]]:
+        return pulumi.get(self, "cloudwatch_logs")
 
     @property
     @pulumi.getter(name="cloudwatchMetric")
@@ -1026,7 +1060,7 @@ class TopicRule(pulumi.CustomResource):
     @pulumi.getter(name="errorAction")
     def error_action(self) -> pulumi.Output[Optional['outputs.TopicRuleErrorAction']]:
         """
-        Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         """
         return pulumi.get(self, "error_action")
 
@@ -1108,7 +1142,7 @@ class TopicRule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

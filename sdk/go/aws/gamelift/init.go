@@ -27,8 +27,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Build{}
 	case "aws:gamelift/fleet:Fleet":
 		r = &Fleet{}
+	case "aws:gamelift/gameServerGroup:GameServerGroup":
+		r = &GameServerGroup{}
 	case "aws:gamelift/gameSessionQueue:GameSessionQueue":
 		r = &GameSessionQueue{}
+	case "aws:gamelift/script:Script":
+		r = &Script{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -59,7 +63,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"gamelift/gameServerGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"gamelift/gameSessionQueue",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"gamelift/script",
 		&module{version},
 	)
 }

@@ -32,9 +32,7 @@ import (
 // 				Key:     pulumi.Any(aws_s3_object.Test.Key),
 // 				RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
 // 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_iam_role_policy.Test,
-// 		}))
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -45,7 +43,11 @@ import (
 //
 // ## Import
 //
-// Gamelift Builds cannot be imported at this time.
+// Gamelift Builds can be imported using the ID, e.g.,
+//
+// ```sh
+//  $ pulumi import aws:gamelift/build:Build example <build-id>
+// ```
 type Build struct {
 	pulumi.CustomResourceState
 

@@ -135,6 +135,9 @@ namespace Pulumi.Aws.Ec2
         [Input("keyName")]
         public string? KeyName { get; set; }
 
+        /// <summary>
+        /// The Key Pair ID.
+        /// </summary>
         [Input("keyPairId")]
         public string? KeyPairId { get; set; }
 
@@ -175,6 +178,9 @@ namespace Pulumi.Aws.Ec2
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
+        /// <summary>
+        /// The Key Pair ID.
+        /// </summary>
         [Input("keyPairId")]
         public Input<string>? KeyPairId { get; set; }
 

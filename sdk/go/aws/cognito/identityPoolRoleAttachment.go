@@ -84,15 +84,15 @@ import (
 //
 // ## Import
 //
-// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.,
+// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example <identity-pool-id>
+//  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2_abc123
 // ```
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
-	// An identity pool ID in the format REGION:GUID.
+	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
@@ -135,7 +135,7 @@ func GetIdentityPoolRoleAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
 type identityPoolRoleAttachmentState struct {
-	// An identity pool ID in the format REGION:GUID.
+	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId *string `pulumi:"identityPoolId"`
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
@@ -144,7 +144,7 @@ type identityPoolRoleAttachmentState struct {
 }
 
 type IdentityPoolRoleAttachmentState struct {
-	// An identity pool ID in the format REGION:GUID.
+	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringPtrInput
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
@@ -157,7 +157,7 @@ func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
 }
 
 type identityPoolRoleAttachmentArgs struct {
-	// An identity pool ID in the format REGION:GUID.
+	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId string `pulumi:"identityPoolId"`
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
@@ -167,7 +167,7 @@ type identityPoolRoleAttachmentArgs struct {
 
 // The set of arguments for constructing a IdentityPoolRoleAttachment resource.
 type IdentityPoolRoleAttachmentArgs struct {
-	// An identity pool ID in the format REGION:GUID.
+	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringInput
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput

@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Synthetics.Outputs
         /// </summary>
         public readonly bool? ActiveTracing;
         /// <summary>
+        /// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
+        /// <summary>
         /// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         /// </summary>
         public readonly int? MemoryInMb;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Synthetics.Outputs
         private CanaryRunConfig(
             bool? activeTracing,
 
+            ImmutableDictionary<string, string>? environmentVariables,
+
             int? memoryInMb,
 
             int? timeoutInSeconds)
         {
             ActiveTracing = activeTracing;
+            EnvironmentVariables = environmentVariables;
             MemoryInMb = memoryInMb;
             TimeoutInSeconds = timeoutInSeconds;
         }

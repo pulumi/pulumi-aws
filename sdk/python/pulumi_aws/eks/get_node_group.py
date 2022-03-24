@@ -21,7 +21,7 @@ class GetNodeGroupResult:
     """
     A collection of values returned by getNodeGroup.
     """
-    def __init__(__self__, ami_type=None, arn=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, node_group_name=None, node_role_arn=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, version=None):
+    def __init__(__self__, ami_type=None, arn=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, node_group_name=None, node_role_arn=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, version=None):
         if ami_type and not isinstance(ami_type, str):
             raise TypeError("Expected argument 'ami_type' to be a str")
         pulumi.set(__self__, "ami_type", ami_type)
@@ -70,6 +70,9 @@ class GetNodeGroupResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if taints and not isinstance(taints, list):
+            raise TypeError("Expected argument 'taints' to be a list")
+        pulumi.set(__self__, "taints", taints)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -198,6 +201,14 @@ class GetNodeGroupResult:
 
     @property
     @pulumi.getter
+    def taints(self) -> Sequence['outputs.GetNodeGroupTaintResult']:
+        """
+        List of objects containing information about taints applied to the nodes in the EKS Node Group.
+        """
+        return pulumi.get(self, "taints")
+
+    @property
+    @pulumi.getter
     def version(self) -> str:
         """
         Kubernetes version.
@@ -227,6 +238,7 @@ class AwaitableGetNodeGroupResult(GetNodeGroupResult):
             status=self.status,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
+            taints=self.taints,
             version=self.version)
 
 
@@ -279,6 +291,7 @@ def get_node_group(cluster_name: Optional[str] = None,
         status=__ret__.status,
         subnet_ids=__ret__.subnet_ids,
         tags=__ret__.tags,
+        taints=__ret__.taints,
         version=__ret__.version)
 
 

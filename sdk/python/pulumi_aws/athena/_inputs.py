@@ -9,12 +9,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DatabaseAclConfigurationArgs',
     'DatabaseEncryptionConfigurationArgs',
     'WorkgroupConfigurationArgs',
     'WorkgroupConfigurationEngineVersionArgs',
     'WorkgroupConfigurationResultConfigurationArgs',
     'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs',
 ]
+
+@pulumi.input_type
+class DatabaseAclConfigurationArgs:
+    def __init__(__self__, *,
+                 s3_acl_option: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] s3_acl_option: The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        """
+        pulumi.set(__self__, "s3_acl_option", s3_acl_option)
+
+    @property
+    @pulumi.getter(name="s3AclOption")
+    def s3_acl_option(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        """
+        return pulumi.get(self, "s3_acl_option")
+
+    @s3_acl_option.setter
+    def s3_acl_option(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_acl_option", value)
+
 
 @pulumi.input_type
 class DatabaseEncryptionConfigurationArgs:

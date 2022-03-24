@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
     public sealed class TrailInsightSelectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
+        /// Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
         /// </summary>
         [Input("insightType", required: true)]
         public Input<string> InsightType { get; set; } = null!;

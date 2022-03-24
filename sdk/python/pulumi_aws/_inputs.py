@@ -210,6 +210,7 @@ class ProviderEndpointArgs:
                  cloudwatch: Optional[pulumi.Input[str]] = None,
                  cloudwatchevents: Optional[pulumi.Input[str]] = None,
                  cloudwatchlogs: Optional[pulumi.Input[str]] = None,
+                 cloudwatchrum: Optional[pulumi.Input[str]] = None,
                  codeartifact: Optional[pulumi.Input[str]] = None,
                  codebuild: Optional[pulumi.Input[str]] = None,
                  codecommit: Optional[pulumi.Input[str]] = None,
@@ -316,6 +317,7 @@ class ProviderEndpointArgs:
                  kafka: Optional[pulumi.Input[str]] = None,
                  kafkaconnect: Optional[pulumi.Input[str]] = None,
                  kendra: Optional[pulumi.Input[str]] = None,
+                 keyspaces: Optional[pulumi.Input[str]] = None,
                  kinesis: Optional[pulumi.Input[str]] = None,
                  kinesisanalytics: Optional[pulumi.Input[str]] = None,
                  kinesisanalyticsv2: Optional[pulumi.Input[str]] = None,
@@ -564,6 +566,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "cloudwatchevents", cloudwatchevents)
         if cloudwatchlogs is not None:
             pulumi.set(__self__, "cloudwatchlogs", cloudwatchlogs)
+        if cloudwatchrum is not None:
+            pulumi.set(__self__, "cloudwatchrum", cloudwatchrum)
         if codeartifact is not None:
             pulumi.set(__self__, "codeartifact", codeartifact)
         if codebuild is not None:
@@ -776,6 +780,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "kafkaconnect", kafkaconnect)
         if kendra is not None:
             pulumi.set(__self__, "kendra", kendra)
+        if keyspaces is not None:
+            pulumi.set(__self__, "keyspaces", keyspaces)
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
         if kinesisanalytics is not None:
@@ -1522,6 +1528,15 @@ class ProviderEndpointArgs:
     @cloudwatchlogs.setter
     def cloudwatchlogs(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloudwatchlogs", value)
+
+    @property
+    @pulumi.getter
+    def cloudwatchrum(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloudwatchrum")
+
+    @cloudwatchrum.setter
+    def cloudwatchrum(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatchrum", value)
 
     @property
     @pulumi.getter
@@ -2476,6 +2491,15 @@ class ProviderEndpointArgs:
     @kendra.setter
     def kendra(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kendra", value)
+
+    @property
+    @pulumi.getter
+    def keyspaces(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "keyspaces")
+
+    @keyspaces.setter
+    def keyspaces(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keyspaces", value)
 
     @property
     @pulumi.getter

@@ -24,6 +24,7 @@ class PipelineDefinitionParameterObjectArgs:
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]] = None):
         """
         :param pulumi.Input[str] id: ID of the parameter value.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]] attributes: Configuration block for attributes of the parameter object. See below
         """
         pulumi.set(__self__, "id", id)
         if attributes is not None:
@@ -44,6 +45,9 @@ class PipelineDefinitionParameterObjectArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]:
+        """
+        Configuration block for attributes of the parameter object. See below
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter

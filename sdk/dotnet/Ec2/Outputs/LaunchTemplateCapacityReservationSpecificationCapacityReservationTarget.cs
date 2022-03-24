@@ -14,14 +14,22 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
     {
         /// <summary>
-        /// The ID of the Capacity Reservation to target.
+        /// The ID of the Capacity Reservation in which to run the instance.
         /// </summary>
         public readonly string? CapacityReservationId;
+        /// <summary>
+        /// The ARN of the Capacity Reservation resource group in which to run the instance.
+        /// </summary>
+        public readonly string? CapacityReservationResourceGroupArn;
 
         [OutputConstructor]
-        private LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(string? capacityReservationId)
+        private LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(
+            string? capacityReservationId,
+
+            string? capacityReservationResourceGroupArn)
         {
             CapacityReservationId = capacityReservationId;
+            CapacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
         }
     }
 }

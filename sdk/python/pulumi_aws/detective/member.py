@@ -289,6 +289,21 @@ class Member(pulumi.CustomResource):
         """
         Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph = aws.detective.Graph("exampleGraph")
+        example_member = aws.detective.Member("exampleMember",
+            account_id="AWS ACCOUNT ID",
+            email_address="EMAIL",
+            graph_arn=example_graph.id,
+            message="Message of the invitation",
+            disable_email_notification=True)
+        ```
+
         ## Import
 
         `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.
@@ -313,6 +328,21 @@ class Member(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph = aws.detective.Graph("exampleGraph")
+        example_member = aws.detective.Member("exampleMember",
+            account_id="AWS ACCOUNT ID",
+            email_address="EMAIL",
+            graph_arn=example_graph.id,
+            message="Message of the invitation",
+            disable_email_notification=True)
+        ```
 
         ## Import
 

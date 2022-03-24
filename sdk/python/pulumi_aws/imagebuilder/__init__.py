@@ -6,9 +6,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .component import *
+from .container_recipe import *
 from .distribution_configuration import *
 from .get_component import *
 from .get_components import *
+from .get_container_recipe import *
+from .get_container_recipes import *
 from .get_distribution_configuration import *
 from .get_distribution_configurations import *
 from .get_image import *

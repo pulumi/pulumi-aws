@@ -19,13 +19,19 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? RestoreTime { get; set; }
 
         /// <summary>
-        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_dbi_resource_id` is not specified.
+        /// The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        /// </summary>
+        [Input("sourceDbInstanceAutomatedBackupsArn")]
+        public Input<string>? SourceDbInstanceAutomatedBackupsArn { get; set; }
+
+        /// <summary>
+        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
         /// </summary>
         [Input("sourceDbInstanceIdentifier")]
         public Input<string>? SourceDbInstanceIdentifier { get; set; }
 
         /// <summary>
-        /// The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` is not specified.
+        /// The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
         /// </summary>
         [Input("sourceDbiResourceId")]
         public Input<string>? SourceDbiResourceId { get; set; }

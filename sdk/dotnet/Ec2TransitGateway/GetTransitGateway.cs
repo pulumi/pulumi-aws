@@ -224,15 +224,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string AssociationDefaultRouteTableId;
         /// <summary>
-        /// Whether resource attachment requests are automatically accepted.
+        /// Whether resource attachment requests are automatically accepted
         /// </summary>
         public readonly string AutoAcceptSharedAttachments;
         /// <summary>
-        /// Whether resource attachments are automatically associated with the default association route table.
+        /// Whether resource attachments are automatically associated with the default association route table
         /// </summary>
         public readonly string DefaultRouteTableAssociation;
         /// <summary>
-        /// Whether resource attachments automatically propagate routes to the default propagation route table.
+        /// Whether resource attachments automatically propagate routes to the default propagation route table
         /// </summary>
         public readonly string DefaultRouteTablePropagation;
         /// <summary>
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Whether DNS support is enabled.
+        /// Whether DNS support is enabled
         /// </summary>
         public readonly string DnsSupport;
         public readonly ImmutableArray<Outputs.GetTransitGatewayFilterResult> Filters;
@@ -249,11 +249,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Whether Multicast support is enabled
+        /// </summary>
+        public readonly string MulticastSupport;
+        /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// Identifier of the default propagation route table.
+        /// Identifier of the default propagation route table
         /// </summary>
         public readonly string PropagationDefaultRouteTableId;
         /// <summary>
@@ -261,7 +265,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Whether VPN Equal Cost Multipath Protocol support is enabled.
+        /// The list of associated CIDR blocks
+        /// </summary>
+        public readonly ImmutableArray<string> TransitGatewayCidrBlocks;
+        /// <summary>
+        /// Whether VPN Equal Cost Multipath Protocol support is enabled
         /// </summary>
         public readonly string VpnEcmpSupport;
 
@@ -287,11 +295,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string id,
 
+            string multicastSupport,
+
             string ownerId,
 
             string propagationDefaultRouteTableId,
 
             ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<string> transitGatewayCidrBlocks,
 
             string vpnEcmpSupport)
         {
@@ -305,9 +317,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
             DnsSupport = dnsSupport;
             Filters = filters;
             Id = id;
+            MulticastSupport = multicastSupport;
             OwnerId = ownerId;
             PropagationDefaultRouteTableId = propagationDefaultRouteTableId;
             Tags = tags;
+            TransitGatewayCidrBlocks = transitGatewayCidrBlocks;
             VpnEcmpSupport = vpnEcmpSupport;
         }
     }

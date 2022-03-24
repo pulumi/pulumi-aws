@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleExpiration? Expiration;
         /// <summary>
-        /// Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+        /// Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleFilter? Filter;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> NoncurrentVersionTransitions;
         /// <summary>
-        /// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+        /// **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

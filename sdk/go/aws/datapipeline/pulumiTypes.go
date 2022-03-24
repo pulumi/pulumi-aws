@@ -11,6 +11,7 @@ import (
 )
 
 type PipelineDefinitionParameterObject struct {
+	// Configuration block for attributes of the parameter object. See below
 	Attributes []PipelineDefinitionParameterObjectAttribute `pulumi:"attributes"`
 	// ID of the parameter value.
 	Id string `pulumi:"id"`
@@ -28,6 +29,7 @@ type PipelineDefinitionParameterObjectInput interface {
 }
 
 type PipelineDefinitionParameterObjectArgs struct {
+	// Configuration block for attributes of the parameter object. See below
 	Attributes PipelineDefinitionParameterObjectAttributeArrayInput `pulumi:"attributes"`
 	// ID of the parameter value.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -84,6 +86,7 @@ func (o PipelineDefinitionParameterObjectOutput) ToPipelineDefinitionParameterOb
 	return o
 }
 
+// Configuration block for attributes of the parameter object. See below
 func (o PipelineDefinitionParameterObjectOutput) Attributes() PipelineDefinitionParameterObjectAttributeArrayOutput {
 	return o.ApplyT(func(v PipelineDefinitionParameterObject) []PipelineDefinitionParameterObjectAttribute {
 		return v.Attributes

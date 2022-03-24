@@ -158,6 +158,7 @@ class Endpoints(dict):
                  cloudwatch: Optional[str] = None,
                  cloudwatchevents: Optional[str] = None,
                  cloudwatchlogs: Optional[str] = None,
+                 cloudwatchrum: Optional[str] = None,
                  codeartifact: Optional[str] = None,
                  codebuild: Optional[str] = None,
                  codecommit: Optional[str] = None,
@@ -264,6 +265,7 @@ class Endpoints(dict):
                  kafka: Optional[str] = None,
                  kafkaconnect: Optional[str] = None,
                  kendra: Optional[str] = None,
+                 keyspaces: Optional[str] = None,
                  kinesis: Optional[str] = None,
                  kinesisanalytics: Optional[str] = None,
                  kinesisanalyticsv2: Optional[str] = None,
@@ -512,6 +514,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "cloudwatchevents", cloudwatchevents)
         if cloudwatchlogs is not None:
             pulumi.set(__self__, "cloudwatchlogs", cloudwatchlogs)
+        if cloudwatchrum is not None:
+            pulumi.set(__self__, "cloudwatchrum", cloudwatchrum)
         if codeartifact is not None:
             pulumi.set(__self__, "codeartifact", codeartifact)
         if codebuild is not None:
@@ -724,6 +728,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "kafkaconnect", kafkaconnect)
         if kendra is not None:
             pulumi.set(__self__, "kendra", kendra)
+        if keyspaces is not None:
+            pulumi.set(__self__, "keyspaces", keyspaces)
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
         if kinesisanalytics is not None:
@@ -1273,6 +1279,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def cloudwatchrum(self) -> Optional[str]:
+        return pulumi.get(self, "cloudwatchrum")
+
+    @property
+    @pulumi.getter
     def codeartifact(self) -> Optional[str]:
         return pulumi.get(self, "codeartifact")
 
@@ -1800,6 +1811,11 @@ class Endpoints(dict):
     @pulumi.getter
     def kendra(self) -> Optional[str]:
         return pulumi.get(self, "kendra")
+
+    @property
+    @pulumi.getter
+    def keyspaces(self) -> Optional[str]:
+        return pulumi.get(self, "keyspaces")
 
     @property
     @pulumi.getter

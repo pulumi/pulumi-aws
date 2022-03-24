@@ -117,7 +117,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="Example")
+        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
         example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
             repository_name=example_repository.repository_name,
             policy=\"\"\"{
@@ -180,7 +180,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="Example")
+        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
         example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
             repository_name=example_repository.repository_name,
             policy=\"\"\"{

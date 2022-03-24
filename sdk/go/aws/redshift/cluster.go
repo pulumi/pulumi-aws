@@ -25,12 +25,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.NewCluster(ctx, "default", &redshift.ClusterArgs{
+// 		_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
 // 			ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
 // 			ClusterType:       pulumi.String("single-node"),
 // 			DatabaseName:      pulumi.String("mydb"),
 // 			MasterPassword:    pulumi.String("Mustbe8characters"),
-// 			MasterUsername:    pulumi.String("foo"),
+// 			MasterUsername:    pulumi.String("exampleuser"),
 // 			NodeType:          pulumi.String("dc1.large"),
 // 		})
 // 		if err != nil {
@@ -57,10 +57,11 @@ type Cluster struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"automatedSnapshotRetentionPeriod"`
-	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The Cluster Identifier. Must be a lower case
-	// string.
+	// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+	AvailabilityZoneRelocationEnabled pulumi.BoolPtrOutput `pulumi:"availabilityZoneRelocationEnabled"`
+	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes ClusterClusterNodeArrayOutput `pulumi:"clusterNodes"`
@@ -113,7 +114,9 @@ type Cluster struct {
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
 	// The port number on which the cluster accepts incoming connections.
-	// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+	// The cluster is accessible only via the JDBC and ODBC connection strings.
+	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+	// Default port is 5439.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -177,10 +180,11 @@ type clusterState struct {
 	Arn *string `pulumi:"arn"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod *int `pulumi:"automatedSnapshotRetentionPeriod"`
-	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The Cluster Identifier. Must be a lower case
-	// string.
+	// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+	AvailabilityZoneRelocationEnabled *bool `pulumi:"availabilityZoneRelocationEnabled"`
+	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes []ClusterClusterNode `pulumi:"clusterNodes"`
@@ -233,7 +237,9 @@ type clusterState struct {
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount *string `pulumi:"ownerAccount"`
 	// The port number on which the cluster accepts incoming connections.
-	// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+	// The cluster is accessible only via the JDBC and ODBC connection strings.
+	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+	// Default port is 5439.
 	Port *int `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -263,10 +269,11 @@ type ClusterState struct {
 	Arn pulumi.StringPtrInput
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrInput
-	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
 	AvailabilityZone pulumi.StringPtrInput
-	// The Cluster Identifier. Must be a lower case
-	// string.
+	// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+	AvailabilityZoneRelocationEnabled pulumi.BoolPtrInput
+	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringPtrInput
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes ClusterClusterNodeArrayInput
@@ -319,7 +326,9 @@ type ClusterState struct {
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount pulumi.StringPtrInput
 	// The port number on which the cluster accepts incoming connections.
-	// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+	// The cluster is accessible only via the JDBC and ODBC connection strings.
+	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+	// Default port is 5439.
 	Port pulumi.IntPtrInput
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -351,10 +360,11 @@ type clusterArgs struct {
 	AllowVersionUpgrade *bool `pulumi:"allowVersionUpgrade"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod *int `pulumi:"automatedSnapshotRetentionPeriod"`
-	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The Cluster Identifier. Must be a lower case
-	// string.
+	// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+	AvailabilityZoneRelocationEnabled *bool `pulumi:"availabilityZoneRelocationEnabled"`
+	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName *string `pulumi:"clusterParameterGroupName"`
@@ -403,7 +413,9 @@ type clusterArgs struct {
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount *string `pulumi:"ownerAccount"`
 	// The port number on which the cluster accepts incoming connections.
-	// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+	// The cluster is accessible only via the JDBC and ODBC connection strings.
+	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+	// Default port is 5439.
 	Port *int `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -430,10 +442,11 @@ type ClusterArgs struct {
 	AllowVersionUpgrade pulumi.BoolPtrInput
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrInput
-	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
 	AvailabilityZone pulumi.StringPtrInput
-	// The Cluster Identifier. Must be a lower case
-	// string.
+	// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+	AvailabilityZoneRelocationEnabled pulumi.BoolPtrInput
+	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringInput
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName pulumi.StringPtrInput
@@ -482,7 +495,9 @@ type ClusterArgs struct {
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount pulumi.StringPtrInput
 	// The port number on which the cluster accepts incoming connections.
-	// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
+	// The cluster is accessible only via the JDBC and ODBC connection strings.
+	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
+	// Default port is 5439.
 	Port pulumi.IntPtrInput
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi

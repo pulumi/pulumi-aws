@@ -89,6 +89,8 @@ type GetPublicKeyResult struct {
 	KeyUsage string `pulumi:"keyUsage"`
 	// Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
 	PublicKey string `pulumi:"publicKey"`
+	// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
+	PublicKeyPem string `pulumi:"publicKeyPem"`
 	// Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
 	SigningAlgorithms []string `pulumi:"signingAlgorithms"`
 }
@@ -169,6 +171,11 @@ func (o GetPublicKeyResultOutput) KeyUsage() pulumi.StringOutput {
 // Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
 func (o GetPublicKeyResultOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
+func (o GetPublicKeyResultOutput) PublicKeyPem() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) string { return v.PublicKeyPem }).(pulumi.StringOutput)
 }
 
 // Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.

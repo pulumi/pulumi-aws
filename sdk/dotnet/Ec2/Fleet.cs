@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Ec2
     public partial class Fleet : Pulumi.CustomResource
     {
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Output("context")]
+        public Output<string?> Context { get; private set; } = null!;
+
+        /// <summary>
         /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
         /// </summary>
         [Output("excessCapacityTerminationPolicy")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class FleetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
+
+        /// <summary>
         /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
         /// </summary>
         [Input("excessCapacityTerminationPolicy")]
@@ -239,6 +251,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class FleetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
+
         /// <summary>
         /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
         /// </summary>

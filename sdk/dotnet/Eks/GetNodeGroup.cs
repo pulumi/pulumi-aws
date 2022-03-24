@@ -198,6 +198,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// List of objects containing information about taints applied to the nodes in the EKS Node Group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNodeGroupTaintResult> Taints;
+        /// <summary>
         /// Kubernetes version.
         /// </summary>
         public readonly string Version;
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableDictionary<string, string> tags,
 
+            ImmutableArray<Outputs.GetNodeGroupTaintResult> taints,
+
             string version)
         {
             AmiType = amiType;
@@ -254,6 +260,7 @@ namespace Pulumi.Aws.Eks
             Status = status;
             SubnetIds = subnetIds;
             Tags = tags;
+            Taints = taints;
             Version = version;
         }
     }

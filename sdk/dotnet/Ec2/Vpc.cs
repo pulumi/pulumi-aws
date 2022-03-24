@@ -202,7 +202,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The association ID for the IPv6 CIDR block.
-        /// * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         /// </summary>
         [Output("ipv6AssociationId")]
         public Output<string> Ipv6AssociationId { get; private set; } = null!;
@@ -489,7 +488,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The association ID for the IPv6 CIDR block.
-        /// * ipv6_cidr_block_network_border_group - The Network Border Group Zone name
         /// </summary>
         [Input("ipv6AssociationId")]
         public Input<string>? Ipv6AssociationId { get; set; }

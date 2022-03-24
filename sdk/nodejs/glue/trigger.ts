@@ -151,6 +151,10 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     */
+    public readonly eventBatchingConditions!: pulumi.Output<outputs.glue.TriggerEventBatchingCondition[] | undefined>;
+    /**
      * The name of the trigger.
      */
     public readonly name!: pulumi.Output<string>;
@@ -204,6 +208,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["eventBatchingConditions"] = state ? state.eventBatchingConditions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["predicate"] = state ? state.predicate : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
@@ -224,6 +229,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventBatchingConditions"] = args ? args.eventBatchingConditions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["predicate"] = args ? args.predicate : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -260,6 +266,10 @@ export interface TriggerState {
      * Start the trigger. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     */
+    eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerEventBatchingCondition>[]>;
     /**
      * The name of the trigger.
      */
@@ -314,6 +324,10 @@ export interface TriggerArgs {
      * Start the trigger. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     */
+    eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerEventBatchingCondition>[]>;
     /**
      * The name of the trigger.
      */

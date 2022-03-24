@@ -117,6 +117,8 @@ type Association struct {
 
 	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
 	ApplyOnlyAtCronInterval pulumi.BoolPtrOutput `pulumi:"applyOnlyAtCronInterval"`
+	// The ARN of the SSM association
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the SSM association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The descriptive name for the association.
@@ -128,6 +130,8 @@ type Association struct {
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	//
+	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrOutput `pulumi:"maxConcurrency"`
@@ -143,6 +147,8 @@ type Association struct {
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayOutput `pulumi:"targets"`
+	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	WaitForSuccessTimeoutSeconds pulumi.IntPtrOutput `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 // NewAssociation registers a new resource with the given unique name, arguments, and options.
@@ -176,6 +182,8 @@ func GetAssociation(ctx *pulumi.Context,
 type associationState struct {
 	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
+	// The ARN of the SSM association
+	Arn *string `pulumi:"arn"`
 	// The ID of the SSM association.
 	AssociationId *string `pulumi:"associationId"`
 	// The descriptive name for the association.
@@ -187,6 +195,8 @@ type associationState struct {
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	//
+	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId *string `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
@@ -202,11 +212,15 @@ type associationState struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
+	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	WaitForSuccessTimeoutSeconds *int `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 type AssociationState struct {
 	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
 	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
+	// The ARN of the SSM association
+	Arn pulumi.StringPtrInput
 	// The ID of the SSM association.
 	AssociationId pulumi.StringPtrInput
 	// The descriptive name for the association.
@@ -218,6 +232,8 @@ type AssociationState struct {
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion pulumi.StringPtrInput
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	//
+	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId pulumi.StringPtrInput
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrInput
@@ -233,6 +249,8 @@ type AssociationState struct {
 	ScheduleExpression pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
+	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput
 }
 
 func (AssociationState) ElementType() reflect.Type {
@@ -251,6 +269,8 @@ type associationArgs struct {
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	//
+	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId *string `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
@@ -266,6 +286,8 @@ type associationArgs struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
+	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	WaitForSuccessTimeoutSeconds *int `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 // The set of arguments for constructing a Association resource.
@@ -281,6 +303,8 @@ type AssociationArgs struct {
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion pulumi.StringPtrInput
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	//
+	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId pulumi.StringPtrInput
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrInput
@@ -296,6 +320,8 @@ type AssociationArgs struct {
 	ScheduleExpression pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
+	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput
 }
 
 func (AssociationArgs) ElementType() reflect.Type {

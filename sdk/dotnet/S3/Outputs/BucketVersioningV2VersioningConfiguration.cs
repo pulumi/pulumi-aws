@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? MfaDelete;
         /// <summary>
-        /// The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+        /// The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
         /// </summary>
         public readonly string Status;
 

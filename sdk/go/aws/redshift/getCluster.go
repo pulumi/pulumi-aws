@@ -27,13 +27,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testCluster, err := redshift.LookupCluster(ctx, &redshift.LookupClusterArgs{
-// 			ClusterIdentifier: "test-cluster",
+// 		example, err := redshift.LookupCluster(ctx, &redshift.LookupClusterArgs{
+// 			ClusterIdentifier: "example-cluster",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+// 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "exampleStream", &kinesis.FirehoseDeliveryStreamArgs{
 // 			Destination: pulumi.String("redshift"),
 // 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
 // 				RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
@@ -44,12 +44,12 @@ import (
 // 			},
 // 			RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
 // 				RoleArn:          pulumi.Any(aws_iam_role.Firehose_role.Arn),
-// 				ClusterJdbcurl:   pulumi.String(fmt.Sprintf("%v%v%v%v", "jdbc:redshift://", testCluster.Endpoint, "/", testCluster.DatabaseName)),
-// 				Username:         pulumi.String("testuser"),
-// 				Password:         pulumi.String("T3stPass"),
-// 				DataTableName:    pulumi.String("test-table"),
+// 				ClusterJdbcurl:   pulumi.String(fmt.Sprintf("%v%v%v%v", "jdbc:redshift://", example.Endpoint, "/", example.DatabaseName)),
+// 				Username:         pulumi.String("exampleuser"),
+// 				Password:         pulumi.String("Exampl3Pass"),
+// 				DataTableName:    pulumi.String("example-table"),
 // 				CopyOptions:      pulumi.String("delimiter '|'"),
-// 				DataTableColumns: pulumi.String("test-col"),
+// 				DataTableColumns: pulumi.String("example-col"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -84,6 +84,8 @@ type LookupClusterResult struct {
 	AutomatedSnapshotRetentionPeriod int `pulumi:"automatedSnapshotRetentionPeriod"`
 	// The availability zone of the cluster
 	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Indicates whether the cluster is able to be relocated to another availability zone.
+	AvailabilityZoneRelocationEnabled bool `pulumi:"availabilityZoneRelocationEnabled"`
 	// The name of the S3 bucket where the log files are to be stored
 	BucketName string `pulumi:"bucketName"`
 	// The cluster identifier
@@ -190,6 +192,11 @@ func (o LookupClusterResultOutput) AutomatedSnapshotRetentionPeriod() pulumi.Int
 // The availability zone of the cluster
 func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Indicates whether the cluster is able to be relocated to another availability zone.
+func (o LookupClusterResultOutput) AvailabilityZoneRelocationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupClusterResult) bool { return v.AvailabilityZoneRelocationEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of the S3 bucket where the log files are to be stored

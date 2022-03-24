@@ -10,6 +10,911 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ContainerRecipeComponent struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn string `pulumi:"componentArn"`
+	// Configuration block(s) for parameters to configure the component. Detailed below.
+	Parameters []ContainerRecipeComponentParameter `pulumi:"parameters"`
+}
+
+// ContainerRecipeComponentInput is an input type that accepts ContainerRecipeComponentArgs and ContainerRecipeComponentOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentInput` via:
+//
+//          ContainerRecipeComponentArgs{...}
+type ContainerRecipeComponentInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentOutput() ContainerRecipeComponentOutput
+	ToContainerRecipeComponentOutputWithContext(context.Context) ContainerRecipeComponentOutput
+}
+
+type ContainerRecipeComponentArgs struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+	// Configuration block(s) for parameters to configure the component. Detailed below.
+	Parameters ContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
+}
+
+func (ContainerRecipeComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponent)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentArgs) ToContainerRecipeComponentOutput() ContainerRecipeComponentOutput {
+	return i.ToContainerRecipeComponentOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentArgs) ToContainerRecipeComponentOutputWithContext(ctx context.Context) ContainerRecipeComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentOutput)
+}
+
+// ContainerRecipeComponentArrayInput is an input type that accepts ContainerRecipeComponentArray and ContainerRecipeComponentArrayOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentArrayInput` via:
+//
+//          ContainerRecipeComponentArray{ ContainerRecipeComponentArgs{...} }
+type ContainerRecipeComponentArrayInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentArrayOutput() ContainerRecipeComponentArrayOutput
+	ToContainerRecipeComponentArrayOutputWithContext(context.Context) ContainerRecipeComponentArrayOutput
+}
+
+type ContainerRecipeComponentArray []ContainerRecipeComponentInput
+
+func (ContainerRecipeComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponent)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentArray) ToContainerRecipeComponentArrayOutput() ContainerRecipeComponentArrayOutput {
+	return i.ToContainerRecipeComponentArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentArray) ToContainerRecipeComponentArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentArrayOutput)
+}
+
+type ContainerRecipeComponentOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponent)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentOutput) ToContainerRecipeComponentOutput() ContainerRecipeComponentOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentOutput) ToContainerRecipeComponentOutputWithContext(ctx context.Context) ContainerRecipeComponentOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+func (o ContainerRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
+}
+
+// Configuration block(s) for parameters to configure the component. Detailed below.
+func (o ContainerRecipeComponentOutput) Parameters() ContainerRecipeComponentParameterArrayOutput {
+	return o.ApplyT(func(v ContainerRecipeComponent) []ContainerRecipeComponentParameter { return v.Parameters }).(ContainerRecipeComponentParameterArrayOutput)
+}
+
+type ContainerRecipeComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponent)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentArrayOutput) ToContainerRecipeComponentArrayOutput() ContainerRecipeComponentArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentArrayOutput) ToContainerRecipeComponentArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerRecipeComponent {
+		return vs[0].([]ContainerRecipeComponent)[vs[1].(int)]
+	}).(ContainerRecipeComponentOutput)
+}
+
+type ContainerRecipeComponentParameter struct {
+	// The name of the component parameter.
+	Name string `pulumi:"name"`
+	// The value for the named component parameter.
+	Value string `pulumi:"value"`
+}
+
+// ContainerRecipeComponentParameterInput is an input type that accepts ContainerRecipeComponentParameterArgs and ContainerRecipeComponentParameterOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentParameterInput` via:
+//
+//          ContainerRecipeComponentParameterArgs{...}
+type ContainerRecipeComponentParameterInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentParameterOutput() ContainerRecipeComponentParameterOutput
+	ToContainerRecipeComponentParameterOutputWithContext(context.Context) ContainerRecipeComponentParameterOutput
+}
+
+type ContainerRecipeComponentParameterArgs struct {
+	// The name of the component parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the named component parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContainerRecipeComponentParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentParameterArgs) ToContainerRecipeComponentParameterOutput() ContainerRecipeComponentParameterOutput {
+	return i.ToContainerRecipeComponentParameterOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentParameterArgs) ToContainerRecipeComponentParameterOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterOutput)
+}
+
+// ContainerRecipeComponentParameterArrayInput is an input type that accepts ContainerRecipeComponentParameterArray and ContainerRecipeComponentParameterArrayOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentParameterArrayInput` via:
+//
+//          ContainerRecipeComponentParameterArray{ ContainerRecipeComponentParameterArgs{...} }
+type ContainerRecipeComponentParameterArrayInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentParameterArrayOutput() ContainerRecipeComponentParameterArrayOutput
+	ToContainerRecipeComponentParameterArrayOutputWithContext(context.Context) ContainerRecipeComponentParameterArrayOutput
+}
+
+type ContainerRecipeComponentParameterArray []ContainerRecipeComponentParameterInput
+
+func (ContainerRecipeComponentParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentParameterArray) ToContainerRecipeComponentParameterArrayOutput() ContainerRecipeComponentParameterArrayOutput {
+	return i.ToContainerRecipeComponentParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentParameterArray) ToContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterArrayOutput)
+}
+
+type ContainerRecipeComponentParameterOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParameterOutput() ContainerRecipeComponentParameterOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParameterOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterOutput {
+	return o
+}
+
+// The name of the component parameter.
+func (o ContainerRecipeComponentParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value for the named component parameter.
+func (o ContainerRecipeComponentParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRecipeComponentParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContainerRecipeComponentParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponentParameterArrayOutput() ContainerRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerRecipeComponentParameter {
+		return vs[0].([]ContainerRecipeComponentParameter)[vs[1].(int)]
+	}).(ContainerRecipeComponentParameterOutput)
+}
+
+type ContainerRecipeInstanceConfiguration struct {
+	// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+	BlockDeviceMappings []ContainerRecipeInstanceConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+	Image *string `pulumi:"image"`
+}
+
+// ContainerRecipeInstanceConfigurationInput is an input type that accepts ContainerRecipeInstanceConfigurationArgs and ContainerRecipeInstanceConfigurationOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationInput` via:
+//
+//          ContainerRecipeInstanceConfigurationArgs{...}
+type ContainerRecipeInstanceConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationOutput() ContainerRecipeInstanceConfigurationOutput
+	ToContainerRecipeInstanceConfigurationOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationOutput
+}
+
+type ContainerRecipeInstanceConfigurationArgs struct {
+	// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+	BlockDeviceMappings ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
+	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+	Image pulumi.StringPtrInput `pulumi:"image"`
+}
+
+func (ContainerRecipeInstanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationOutput() ContainerRecipeInstanceConfigurationOutput {
+	return i.ToContainerRecipeInstanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationOutput)
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationOutput).ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerRecipeInstanceConfigurationPtrInput is an input type that accepts ContainerRecipeInstanceConfigurationArgs, ContainerRecipeInstanceConfigurationPtr and ContainerRecipeInstanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationPtrInput` via:
+//
+//          ContainerRecipeInstanceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerRecipeInstanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput
+	ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationPtrOutput
+}
+
+type containerRecipeInstanceConfigurationPtrType ContainerRecipeInstanceConfigurationArgs
+
+func ContainerRecipeInstanceConfigurationPtr(v *ContainerRecipeInstanceConfigurationArgs) ContainerRecipeInstanceConfigurationPtrInput {
+	return (*containerRecipeInstanceConfigurationPtrType)(v)
+}
+
+func (*containerRecipeInstanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (i *containerRecipeInstanceConfigurationPtrType) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerRecipeInstanceConfigurationPtrType) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationPtrOutput)
+}
+
+type ContainerRecipeInstanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationOutput() ContainerRecipeInstanceConfigurationOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return o.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeInstanceConfiguration) *ContainerRecipeInstanceConfiguration {
+		return &v
+	}).(ContainerRecipeInstanceConfigurationPtrOutput)
+}
+
+// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+func (o ContainerRecipeInstanceConfigurationOutput) BlockDeviceMappings() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceConfigurationBlockDeviceMapping {
+		return v.BlockDeviceMappings
+	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
+}
+
+// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+func (o ContainerRecipeInstanceConfigurationOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeInstanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationPtrOutput) Elem() ContainerRecipeInstanceConfigurationOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) ContainerRecipeInstanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRecipeInstanceConfiguration
+		return ret
+	}).(ContainerRecipeInstanceConfigurationOutput)
+}
+
+// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+func (o ContainerRecipeInstanceConfigurationPtrOutput) BlockDeviceMappings() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceConfigurationBlockDeviceMapping {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDeviceMappings
+	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
+}
+
+// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+func (o ContainerRecipeInstanceConfigurationPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMapping struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName *string `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice *bool `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName *string `pulumi:"virtualName"`
+}
+
+// ContainerRecipeInstanceConfigurationBlockDeviceMappingInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs and ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingInput` via:
+//
+//          ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...}
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
+}
+
+func (ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput)
+}
+
+// ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingArray and ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput` via:
+//
+//          ContainerRecipeInstanceConfigurationBlockDeviceMappingArray{ ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...} }
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingArray []ContainerRecipeInstanceConfigurationBlockDeviceMappingInput
+
+func (ContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return o
+}
+
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) Ebs() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
+		return v.Ebs
+	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput)
+}
+
+// Set to `true` to remove a mapping from the parent image.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) NoDevice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
+}
+
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerRecipeInstanceConfigurationBlockDeviceMapping {
+		return vs[0].([]ContainerRecipeInstanceConfigurationBlockDeviceMapping)[vs[1].(int)]
+	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput)
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted *string `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops *int `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs and ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput` via:
+//
+//          ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{...}
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput {
+	return i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput)
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput).ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(ctx)
+}
+
+// ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs, ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtr and ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput` via:
+//
+//          ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput
+	ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput
+}
+
+type containerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrType ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
+
+func ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtr(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput {
+	return (*containerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrType)(v)
+}
+
+func (*containerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (i *containerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrType) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
+}
+
+func (i *containerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrType) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput)
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return o.ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
+		return &v
+	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput)
+}
+
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
+		return v.DeleteOnTermination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
+}
+
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the EC2 Volume Snapshot.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// Size of the volume, in GiB.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+// Type of the volume. For example, `gp2` or `io2`.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Elem() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs
+		return ret
+	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput)
+}
+
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the EC2 Volume Snapshot.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the volume, in GiB.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Type of the volume. For example, `gp2` or `io2`.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeTargetRepository struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+	RepositoryName string `pulumi:"repositoryName"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service string `pulumi:"service"`
+}
+
+// ContainerRecipeTargetRepositoryInput is an input type that accepts ContainerRecipeTargetRepositoryArgs and ContainerRecipeTargetRepositoryOutput values.
+// You can construct a concrete instance of `ContainerRecipeTargetRepositoryInput` via:
+//
+//          ContainerRecipeTargetRepositoryArgs{...}
+type ContainerRecipeTargetRepositoryInput interface {
+	pulumi.Input
+
+	ToContainerRecipeTargetRepositoryOutput() ContainerRecipeTargetRepositoryOutput
+	ToContainerRecipeTargetRepositoryOutputWithContext(context.Context) ContainerRecipeTargetRepositoryOutput
+}
+
+type ContainerRecipeTargetRepositoryArgs struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (ContainerRecipeTargetRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (i ContainerRecipeTargetRepositoryArgs) ToContainerRecipeTargetRepositoryOutput() ContainerRecipeTargetRepositoryOutput {
+	return i.ToContainerRecipeTargetRepositoryOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeTargetRepositoryArgs) ToContainerRecipeTargetRepositoryOutputWithContext(ctx context.Context) ContainerRecipeTargetRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetRepositoryOutput)
+}
+
+func (i ContainerRecipeTargetRepositoryArgs) ToContainerRecipeTargetRepositoryPtrOutput() ContainerRecipeTargetRepositoryPtrOutput {
+	return i.ToContainerRecipeTargetRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeTargetRepositoryArgs) ToContainerRecipeTargetRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetRepositoryOutput).ToContainerRecipeTargetRepositoryPtrOutputWithContext(ctx)
+}
+
+// ContainerRecipeTargetRepositoryPtrInput is an input type that accepts ContainerRecipeTargetRepositoryArgs, ContainerRecipeTargetRepositoryPtr and ContainerRecipeTargetRepositoryPtrOutput values.
+// You can construct a concrete instance of `ContainerRecipeTargetRepositoryPtrInput` via:
+//
+//          ContainerRecipeTargetRepositoryArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerRecipeTargetRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToContainerRecipeTargetRepositoryPtrOutput() ContainerRecipeTargetRepositoryPtrOutput
+	ToContainerRecipeTargetRepositoryPtrOutputWithContext(context.Context) ContainerRecipeTargetRepositoryPtrOutput
+}
+
+type containerRecipeTargetRepositoryPtrType ContainerRecipeTargetRepositoryArgs
+
+func ContainerRecipeTargetRepositoryPtr(v *ContainerRecipeTargetRepositoryArgs) ContainerRecipeTargetRepositoryPtrInput {
+	return (*containerRecipeTargetRepositoryPtrType)(v)
+}
+
+func (*containerRecipeTargetRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (i *containerRecipeTargetRepositoryPtrType) ToContainerRecipeTargetRepositoryPtrOutput() ContainerRecipeTargetRepositoryPtrOutput {
+	return i.ToContainerRecipeTargetRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *containerRecipeTargetRepositoryPtrType) ToContainerRecipeTargetRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetRepositoryPtrOutput)
+}
+
+type ContainerRecipeTargetRepositoryOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeTargetRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (o ContainerRecipeTargetRepositoryOutput) ToContainerRecipeTargetRepositoryOutput() ContainerRecipeTargetRepositoryOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetRepositoryOutput) ToContainerRecipeTargetRepositoryOutputWithContext(ctx context.Context) ContainerRecipeTargetRepositoryOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetRepositoryOutput) ToContainerRecipeTargetRepositoryPtrOutput() ContainerRecipeTargetRepositoryPtrOutput {
+	return o.ToContainerRecipeTargetRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerRecipeTargetRepositoryOutput) ToContainerRecipeTargetRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeTargetRepository) *ContainerRecipeTargetRepository {
+		return &v
+	}).(ContainerRecipeTargetRepositoryPtrOutput)
+}
+
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+func (o ContainerRecipeTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRecipeTargetRepository) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+// The service in which this image is registered. Valid values: `ECR`.
+func (o ContainerRecipeTargetRepositoryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRecipeTargetRepository) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type ContainerRecipeTargetRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeTargetRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (o ContainerRecipeTargetRepositoryPtrOutput) ToContainerRecipeTargetRepositoryPtrOutput() ContainerRecipeTargetRepositoryPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetRepositoryPtrOutput) ToContainerRecipeTargetRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetRepositoryPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetRepositoryPtrOutput) Elem() ContainerRecipeTargetRepositoryOutput {
+	return o.ApplyT(func(v *ContainerRecipeTargetRepository) ContainerRecipeTargetRepository {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRecipeTargetRepository
+		return ret
+	}).(ContainerRecipeTargetRepositoryOutput)
+}
+
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+func (o ContainerRecipeTargetRepositoryPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeTargetRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The service in which this image is registered. Valid values: `ECR`.
+func (o ContainerRecipeTargetRepositoryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeTargetRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
 type DistributionConfigurationDistribution struct {
 	// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
 	AmiDistributionConfiguration *DistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfiguration"`
@@ -1545,6 +2450,8 @@ type ImagePipelineSchedule struct {
 	PipelineExecutionStartCondition *string `pulumi:"pipelineExecutionStartCondition"`
 	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
 	ScheduleExpression string `pulumi:"scheduleExpression"`
+	// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+	Timezone *string `pulumi:"timezone"`
 }
 
 // ImagePipelineScheduleInput is an input type that accepts ImagePipelineScheduleArgs and ImagePipelineScheduleOutput values.
@@ -1563,6 +2470,8 @@ type ImagePipelineScheduleArgs struct {
 	PipelineExecutionStartCondition pulumi.StringPtrInput `pulumi:"pipelineExecutionStartCondition"`
 	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
 func (ImagePipelineScheduleArgs) ElementType() reflect.Type {
@@ -1652,6 +2561,11 @@ func (o ImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
+// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+func (o ImagePipelineScheduleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
 type ImagePipelineSchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineSchedulePtrOutput) ElementType() reflect.Type {
@@ -1693,6 +2607,16 @@ func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOut
 			return nil
 		}
 		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+func (o ImagePipelineSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2283,6 +3207,143 @@ func (o ImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) Image
 	}).(ImageRecipeComponentParameterOutput)
 }
 
+type ImageRecipeSystemsManagerAgent struct {
+	// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+	UninstallAfterBuild bool `pulumi:"uninstallAfterBuild"`
+}
+
+// ImageRecipeSystemsManagerAgentInput is an input type that accepts ImageRecipeSystemsManagerAgentArgs and ImageRecipeSystemsManagerAgentOutput values.
+// You can construct a concrete instance of `ImageRecipeSystemsManagerAgentInput` via:
+//
+//          ImageRecipeSystemsManagerAgentArgs{...}
+type ImageRecipeSystemsManagerAgentInput interface {
+	pulumi.Input
+
+	ToImageRecipeSystemsManagerAgentOutput() ImageRecipeSystemsManagerAgentOutput
+	ToImageRecipeSystemsManagerAgentOutputWithContext(context.Context) ImageRecipeSystemsManagerAgentOutput
+}
+
+type ImageRecipeSystemsManagerAgentArgs struct {
+	// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+	UninstallAfterBuild pulumi.BoolInput `pulumi:"uninstallAfterBuild"`
+}
+
+func (ImageRecipeSystemsManagerAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentOutput() ImageRecipeSystemsManagerAgentOutput {
+	return i.ToImageRecipeSystemsManagerAgentOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentOutput)
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return i.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentOutput).ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx)
+}
+
+// ImageRecipeSystemsManagerAgentPtrInput is an input type that accepts ImageRecipeSystemsManagerAgentArgs, ImageRecipeSystemsManagerAgentPtr and ImageRecipeSystemsManagerAgentPtrOutput values.
+// You can construct a concrete instance of `ImageRecipeSystemsManagerAgentPtrInput` via:
+//
+//          ImageRecipeSystemsManagerAgentArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageRecipeSystemsManagerAgentPtrInput interface {
+	pulumi.Input
+
+	ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput
+	ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Context) ImageRecipeSystemsManagerAgentPtrOutput
+}
+
+type imageRecipeSystemsManagerAgentPtrType ImageRecipeSystemsManagerAgentArgs
+
+func ImageRecipeSystemsManagerAgentPtr(v *ImageRecipeSystemsManagerAgentArgs) ImageRecipeSystemsManagerAgentPtrInput {
+	return (*imageRecipeSystemsManagerAgentPtrType)(v)
+}
+
+func (*imageRecipeSystemsManagerAgentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (i *imageRecipeSystemsManagerAgentPtrType) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return i.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Background())
+}
+
+func (i *imageRecipeSystemsManagerAgentPtrType) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentPtrOutput)
+}
+
+type ImageRecipeSystemsManagerAgentOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeSystemsManagerAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentOutput() ImageRecipeSystemsManagerAgentOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return o.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Background())
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipeSystemsManagerAgent) *ImageRecipeSystemsManagerAgent {
+		return &v
+	}).(ImageRecipeSystemsManagerAgentPtrOutput)
+}
+
+// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolOutput {
+	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) bool { return v.UninstallAfterBuild }).(pulumi.BoolOutput)
+}
+
+type ImageRecipeSystemsManagerAgentPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeSystemsManagerAgentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManagerAgentOutput {
+	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) ImageRecipeSystemsManagerAgent {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRecipeSystemsManagerAgent
+		return ret
+	}).(ImageRecipeSystemsManagerAgentOutput)
+}
+
+// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UninstallAfterBuild
+	}).(pulumi.BoolPtrOutput)
+}
+
 type InfrastructureConfigurationLogging struct {
 	// Configuration block with S3 logging settings. Detailed below.
 	S3Logs InfrastructureConfigurationLoggingS3Logs `pulumi:"s3Logs"`
@@ -2680,6 +3741,815 @@ func (o GetComponentsFilterArrayOutput) Index(i pulumi.IntInput) GetComponentsFi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComponentsFilter {
 		return vs[0].([]GetComponentsFilter)[vs[1].(int)]
 	}).(GetComponentsFilterOutput)
+}
+
+type GetContainerRecipeComponent struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component.
+	ComponentArn string `pulumi:"componentArn"`
+	// Set of parameters that are used to configure the component.
+	Parameters []GetContainerRecipeComponentParameter `pulumi:"parameters"`
+}
+
+// GetContainerRecipeComponentInput is an input type that accepts GetContainerRecipeComponentArgs and GetContainerRecipeComponentOutput values.
+// You can construct a concrete instance of `GetContainerRecipeComponentInput` via:
+//
+//          GetContainerRecipeComponentArgs{...}
+type GetContainerRecipeComponentInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeComponentOutput() GetContainerRecipeComponentOutput
+	ToGetContainerRecipeComponentOutputWithContext(context.Context) GetContainerRecipeComponentOutput
+}
+
+type GetContainerRecipeComponentArgs struct {
+	// Amazon Resource Name (ARN) of the Image Builder Component.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+	// Set of parameters that are used to configure the component.
+	Parameters GetContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
+}
+
+func (GetContainerRecipeComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeComponent)(nil)).Elem()
+}
+
+func (i GetContainerRecipeComponentArgs) ToGetContainerRecipeComponentOutput() GetContainerRecipeComponentOutput {
+	return i.ToGetContainerRecipeComponentOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeComponentArgs) ToGetContainerRecipeComponentOutputWithContext(ctx context.Context) GetContainerRecipeComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentOutput)
+}
+
+// GetContainerRecipeComponentArrayInput is an input type that accepts GetContainerRecipeComponentArray and GetContainerRecipeComponentArrayOutput values.
+// You can construct a concrete instance of `GetContainerRecipeComponentArrayInput` via:
+//
+//          GetContainerRecipeComponentArray{ GetContainerRecipeComponentArgs{...} }
+type GetContainerRecipeComponentArrayInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeComponentArrayOutput() GetContainerRecipeComponentArrayOutput
+	ToGetContainerRecipeComponentArrayOutputWithContext(context.Context) GetContainerRecipeComponentArrayOutput
+}
+
+type GetContainerRecipeComponentArray []GetContainerRecipeComponentInput
+
+func (GetContainerRecipeComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeComponent)(nil)).Elem()
+}
+
+func (i GetContainerRecipeComponentArray) ToGetContainerRecipeComponentArrayOutput() GetContainerRecipeComponentArrayOutput {
+	return i.ToGetContainerRecipeComponentArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeComponentArray) ToGetContainerRecipeComponentArrayOutputWithContext(ctx context.Context) GetContainerRecipeComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentArrayOutput)
+}
+
+type GetContainerRecipeComponentOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeComponent)(nil)).Elem()
+}
+
+func (o GetContainerRecipeComponentOutput) ToGetContainerRecipeComponentOutput() GetContainerRecipeComponentOutput {
+	return o
+}
+
+func (o GetContainerRecipeComponentOutput) ToGetContainerRecipeComponentOutputWithContext(ctx context.Context) GetContainerRecipeComponentOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the Image Builder Component.
+func (o GetContainerRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
+}
+
+// Set of parameters that are used to configure the component.
+func (o GetContainerRecipeComponentOutput) Parameters() GetContainerRecipeComponentParameterArrayOutput {
+	return o.ApplyT(func(v GetContainerRecipeComponent) []GetContainerRecipeComponentParameter { return v.Parameters }).(GetContainerRecipeComponentParameterArrayOutput)
+}
+
+type GetContainerRecipeComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeComponent)(nil)).Elem()
+}
+
+func (o GetContainerRecipeComponentArrayOutput) ToGetContainerRecipeComponentArrayOutput() GetContainerRecipeComponentArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeComponentArrayOutput) ToGetContainerRecipeComponentArrayOutputWithContext(ctx context.Context) GetContainerRecipeComponentArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeComponentArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipeComponent {
+		return vs[0].([]GetContainerRecipeComponent)[vs[1].(int)]
+	}).(GetContainerRecipeComponentOutput)
+}
+
+type GetContainerRecipeComponentParameter struct {
+	// Name of the container recipe.
+	Name string `pulumi:"name"`
+	// Value of the component parameter.
+	Value string `pulumi:"value"`
+}
+
+// GetContainerRecipeComponentParameterInput is an input type that accepts GetContainerRecipeComponentParameterArgs and GetContainerRecipeComponentParameterOutput values.
+// You can construct a concrete instance of `GetContainerRecipeComponentParameterInput` via:
+//
+//          GetContainerRecipeComponentParameterArgs{...}
+type GetContainerRecipeComponentParameterInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeComponentParameterOutput() GetContainerRecipeComponentParameterOutput
+	ToGetContainerRecipeComponentParameterOutputWithContext(context.Context) GetContainerRecipeComponentParameterOutput
+}
+
+type GetContainerRecipeComponentParameterArgs struct {
+	// Name of the container recipe.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the component parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetContainerRecipeComponentParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i GetContainerRecipeComponentParameterArgs) ToGetContainerRecipeComponentParameterOutput() GetContainerRecipeComponentParameterOutput {
+	return i.ToGetContainerRecipeComponentParameterOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeComponentParameterArgs) ToGetContainerRecipeComponentParameterOutputWithContext(ctx context.Context) GetContainerRecipeComponentParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentParameterOutput)
+}
+
+// GetContainerRecipeComponentParameterArrayInput is an input type that accepts GetContainerRecipeComponentParameterArray and GetContainerRecipeComponentParameterArrayOutput values.
+// You can construct a concrete instance of `GetContainerRecipeComponentParameterArrayInput` via:
+//
+//          GetContainerRecipeComponentParameterArray{ GetContainerRecipeComponentParameterArgs{...} }
+type GetContainerRecipeComponentParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeComponentParameterArrayOutput() GetContainerRecipeComponentParameterArrayOutput
+	ToGetContainerRecipeComponentParameterArrayOutputWithContext(context.Context) GetContainerRecipeComponentParameterArrayOutput
+}
+
+type GetContainerRecipeComponentParameterArray []GetContainerRecipeComponentParameterInput
+
+func (GetContainerRecipeComponentParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i GetContainerRecipeComponentParameterArray) ToGetContainerRecipeComponentParameterArrayOutput() GetContainerRecipeComponentParameterArrayOutput {
+	return i.ToGetContainerRecipeComponentParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeComponentParameterArray) ToGetContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) GetContainerRecipeComponentParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentParameterArrayOutput)
+}
+
+type GetContainerRecipeComponentParameterOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeComponentParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o GetContainerRecipeComponentParameterOutput) ToGetContainerRecipeComponentParameterOutput() GetContainerRecipeComponentParameterOutput {
+	return o
+}
+
+func (o GetContainerRecipeComponentParameterOutput) ToGetContainerRecipeComponentParameterOutputWithContext(ctx context.Context) GetContainerRecipeComponentParameterOutput {
+	return o
+}
+
+// Name of the container recipe.
+func (o GetContainerRecipeComponentParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the component parameter.
+func (o GetContainerRecipeComponentParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeComponentParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetContainerRecipeComponentParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeComponentParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o GetContainerRecipeComponentParameterArrayOutput) ToGetContainerRecipeComponentParameterArrayOutput() GetContainerRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeComponentParameterArrayOutput) ToGetContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) GetContainerRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeComponentParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipeComponentParameter {
+		return vs[0].([]GetContainerRecipeComponentParameter)[vs[1].(int)]
+	}).(GetContainerRecipeComponentParameterOutput)
+}
+
+type GetContainerRecipeInstanceConfiguration struct {
+	// Set of objects with block device mappings for the instance configuration.
+	BlockDeviceMappings []GetContainerRecipeInstanceConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// AMI ID of the base image for container build and test instance.
+	Image string `pulumi:"image"`
+}
+
+// GetContainerRecipeInstanceConfigurationInput is an input type that accepts GetContainerRecipeInstanceConfigurationArgs and GetContainerRecipeInstanceConfigurationOutput values.
+// You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationInput` via:
+//
+//          GetContainerRecipeInstanceConfigurationArgs{...}
+type GetContainerRecipeInstanceConfigurationInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeInstanceConfigurationOutput() GetContainerRecipeInstanceConfigurationOutput
+	ToGetContainerRecipeInstanceConfigurationOutputWithContext(context.Context) GetContainerRecipeInstanceConfigurationOutput
+}
+
+type GetContainerRecipeInstanceConfigurationArgs struct {
+	// Set of objects with block device mappings for the instance configuration.
+	BlockDeviceMappings GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
+	// AMI ID of the base image for container build and test instance.
+	Image pulumi.StringInput `pulumi:"image"`
+}
+
+func (GetContainerRecipeInstanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (i GetContainerRecipeInstanceConfigurationArgs) ToGetContainerRecipeInstanceConfigurationOutput() GetContainerRecipeInstanceConfigurationOutput {
+	return i.ToGetContainerRecipeInstanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeInstanceConfigurationArgs) ToGetContainerRecipeInstanceConfigurationOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationOutput)
+}
+
+// GetContainerRecipeInstanceConfigurationArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationArray and GetContainerRecipeInstanceConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationArrayInput` via:
+//
+//          GetContainerRecipeInstanceConfigurationArray{ GetContainerRecipeInstanceConfigurationArgs{...} }
+type GetContainerRecipeInstanceConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeInstanceConfigurationArrayOutput() GetContainerRecipeInstanceConfigurationArrayOutput
+	ToGetContainerRecipeInstanceConfigurationArrayOutputWithContext(context.Context) GetContainerRecipeInstanceConfigurationArrayOutput
+}
+
+type GetContainerRecipeInstanceConfigurationArray []GetContainerRecipeInstanceConfigurationInput
+
+func (GetContainerRecipeInstanceConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (i GetContainerRecipeInstanceConfigurationArray) ToGetContainerRecipeInstanceConfigurationArrayOutput() GetContainerRecipeInstanceConfigurationArrayOutput {
+	return i.ToGetContainerRecipeInstanceConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeInstanceConfigurationArray) ToGetContainerRecipeInstanceConfigurationArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationArrayOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeInstanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (o GetContainerRecipeInstanceConfigurationOutput) ToGetContainerRecipeInstanceConfigurationOutput() GetContainerRecipeInstanceConfigurationOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationOutput) ToGetContainerRecipeInstanceConfigurationOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationOutput {
+	return o
+}
+
+// Set of objects with block device mappings for the instance configuration.
+func (o GetContainerRecipeInstanceConfigurationOutput) BlockDeviceMappings() GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfiguration) []GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
+		return v.BlockDeviceMappings
+	}).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
+}
+
+// AMI ID of the base image for container build and test instance.
+func (o GetContainerRecipeInstanceConfigurationOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfiguration) string { return v.Image }).(pulumi.StringOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeInstanceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (o GetContainerRecipeInstanceConfigurationArrayOutput) ToGetContainerRecipeInstanceConfigurationArrayOutput() GetContainerRecipeInstanceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationArrayOutput) ToGetContainerRecipeInstanceConfigurationArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeInstanceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipeInstanceConfiguration {
+		return vs[0].([]GetContainerRecipeInstanceConfiguration)[vs[1].(int)]
+	}).(GetContainerRecipeInstanceConfigurationOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMapping struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName string `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs []GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice string `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName string `pulumi:"virtualName"`
+}
+
+// GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs and GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput` via:
+//
+//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...}
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs struct {
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice pulumi.StringInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput)
+}
+
+// GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray and GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput` via:
+//
+//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray{ GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{...} }
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray []GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return o
+}
+
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) Ebs() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) []GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb {
+		return v.Ebs
+	}).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput)
+}
+
+// Whether to remove a mapping from the parent image.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) NoDevice() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) string { return v.NoDevice }).(pulumi.StringOutput)
+}
+
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) VirtualName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) string { return v.VirtualName }).(pulumi.StringOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeInstanceConfigurationBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
+		return vs[0].([]GetContainerRecipeInstanceConfigurationBlockDeviceMapping)[vs[1].(int)]
+	}).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted bool `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops int `pulumi:"iops"`
+	// KMS key used to encrypt the container image.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId string `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType string `pulumi:"volumeType"`
+}
+
+// GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs and GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput values.
+// You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput` via:
+//
+//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs{...}
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutputWithContext(context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// KMS key used to encrypt the container image.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput {
+	return i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput)
+}
+
+// GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray and GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput values.
+// You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput` via:
+//
+//          GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray{ GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs{...} }
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput
+	ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutputWithContext(context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray []GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput {
+	return i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput {
+	return o
+}
+
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
+}
+
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) int { return v.Iops }).(pulumi.IntOutput)
+}
+
+// KMS key used to encrypt the container image.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// Identifier of the EC2 Volume Snapshot.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// Size of the volume, in GiB.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) VolumeSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) int { return v.VolumeSize }).(pulumi.IntOutput)
+}
+
+// Type of the volume. For example, `gp2` or `io2`.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) VolumeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) string { return v.VolumeType }).(pulumi.StringOutput)
+}
+
+type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb)(nil)).Elem()
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb {
+		return vs[0].([]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb)[vs[1].(int)]
+	}).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput)
+}
+
+type GetContainerRecipeTargetRepository struct {
+	// Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+	RepositoryName string `pulumi:"repositoryName"`
+	// Service in which this image is registered.
+	Service string `pulumi:"service"`
+}
+
+// GetContainerRecipeTargetRepositoryInput is an input type that accepts GetContainerRecipeTargetRepositoryArgs and GetContainerRecipeTargetRepositoryOutput values.
+// You can construct a concrete instance of `GetContainerRecipeTargetRepositoryInput` via:
+//
+//          GetContainerRecipeTargetRepositoryArgs{...}
+type GetContainerRecipeTargetRepositoryInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeTargetRepositoryOutput() GetContainerRecipeTargetRepositoryOutput
+	ToGetContainerRecipeTargetRepositoryOutputWithContext(context.Context) GetContainerRecipeTargetRepositoryOutput
+}
+
+type GetContainerRecipeTargetRepositoryArgs struct {
+	// Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	// Service in which this image is registered.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (GetContainerRecipeTargetRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (i GetContainerRecipeTargetRepositoryArgs) ToGetContainerRecipeTargetRepositoryOutput() GetContainerRecipeTargetRepositoryOutput {
+	return i.ToGetContainerRecipeTargetRepositoryOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeTargetRepositoryArgs) ToGetContainerRecipeTargetRepositoryOutputWithContext(ctx context.Context) GetContainerRecipeTargetRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeTargetRepositoryOutput)
+}
+
+// GetContainerRecipeTargetRepositoryArrayInput is an input type that accepts GetContainerRecipeTargetRepositoryArray and GetContainerRecipeTargetRepositoryArrayOutput values.
+// You can construct a concrete instance of `GetContainerRecipeTargetRepositoryArrayInput` via:
+//
+//          GetContainerRecipeTargetRepositoryArray{ GetContainerRecipeTargetRepositoryArgs{...} }
+type GetContainerRecipeTargetRepositoryArrayInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipeTargetRepositoryArrayOutput() GetContainerRecipeTargetRepositoryArrayOutput
+	ToGetContainerRecipeTargetRepositoryArrayOutputWithContext(context.Context) GetContainerRecipeTargetRepositoryArrayOutput
+}
+
+type GetContainerRecipeTargetRepositoryArray []GetContainerRecipeTargetRepositoryInput
+
+func (GetContainerRecipeTargetRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (i GetContainerRecipeTargetRepositoryArray) ToGetContainerRecipeTargetRepositoryArrayOutput() GetContainerRecipeTargetRepositoryArrayOutput {
+	return i.ToGetContainerRecipeTargetRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipeTargetRepositoryArray) ToGetContainerRecipeTargetRepositoryArrayOutputWithContext(ctx context.Context) GetContainerRecipeTargetRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeTargetRepositoryArrayOutput)
+}
+
+type GetContainerRecipeTargetRepositoryOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeTargetRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (o GetContainerRecipeTargetRepositoryOutput) ToGetContainerRecipeTargetRepositoryOutput() GetContainerRecipeTargetRepositoryOutput {
+	return o
+}
+
+func (o GetContainerRecipeTargetRepositoryOutput) ToGetContainerRecipeTargetRepositoryOutputWithContext(ctx context.Context) GetContainerRecipeTargetRepositoryOutput {
+	return o
+}
+
+// Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+func (o GetContainerRecipeTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeTargetRepository) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+// Service in which this image is registered.
+func (o GetContainerRecipeTargetRepositoryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipeTargetRepository) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type GetContainerRecipeTargetRepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipeTargetRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipeTargetRepository)(nil)).Elem()
+}
+
+func (o GetContainerRecipeTargetRepositoryArrayOutput) ToGetContainerRecipeTargetRepositoryArrayOutput() GetContainerRecipeTargetRepositoryArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeTargetRepositoryArrayOutput) ToGetContainerRecipeTargetRepositoryArrayOutputWithContext(ctx context.Context) GetContainerRecipeTargetRepositoryArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipeTargetRepositoryArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeTargetRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipeTargetRepository {
+		return vs[0].([]GetContainerRecipeTargetRepository)[vs[1].(int)]
+	}).(GetContainerRecipeTargetRepositoryOutput)
+}
+
+type GetContainerRecipesFilter struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetContainerRecipesFilterInput is an input type that accepts GetContainerRecipesFilterArgs and GetContainerRecipesFilterOutput values.
+// You can construct a concrete instance of `GetContainerRecipesFilterInput` via:
+//
+//          GetContainerRecipesFilterArgs{...}
+type GetContainerRecipesFilterInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipesFilterOutput() GetContainerRecipesFilterOutput
+	ToGetContainerRecipesFilterOutputWithContext(context.Context) GetContainerRecipesFilterOutput
+}
+
+type GetContainerRecipesFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetContainerRecipesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipesFilter)(nil)).Elem()
+}
+
+func (i GetContainerRecipesFilterArgs) ToGetContainerRecipesFilterOutput() GetContainerRecipesFilterOutput {
+	return i.ToGetContainerRecipesFilterOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipesFilterArgs) ToGetContainerRecipesFilterOutputWithContext(ctx context.Context) GetContainerRecipesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipesFilterOutput)
+}
+
+// GetContainerRecipesFilterArrayInput is an input type that accepts GetContainerRecipesFilterArray and GetContainerRecipesFilterArrayOutput values.
+// You can construct a concrete instance of `GetContainerRecipesFilterArrayInput` via:
+//
+//          GetContainerRecipesFilterArray{ GetContainerRecipesFilterArgs{...} }
+type GetContainerRecipesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetContainerRecipesFilterArrayOutput() GetContainerRecipesFilterArrayOutput
+	ToGetContainerRecipesFilterArrayOutputWithContext(context.Context) GetContainerRecipesFilterArrayOutput
+}
+
+type GetContainerRecipesFilterArray []GetContainerRecipesFilterInput
+
+func (GetContainerRecipesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipesFilter)(nil)).Elem()
+}
+
+func (i GetContainerRecipesFilterArray) ToGetContainerRecipesFilterArrayOutput() GetContainerRecipesFilterArrayOutput {
+	return i.ToGetContainerRecipesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainerRecipesFilterArray) ToGetContainerRecipesFilterArrayOutputWithContext(ctx context.Context) GetContainerRecipesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipesFilterArrayOutput)
+}
+
+type GetContainerRecipesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainerRecipesFilter)(nil)).Elem()
+}
+
+func (o GetContainerRecipesFilterOutput) ToGetContainerRecipesFilterOutput() GetContainerRecipesFilterOutput {
+	return o
+}
+
+func (o GetContainerRecipesFilterOutput) ToGetContainerRecipesFilterOutputWithContext(ctx context.Context) GetContainerRecipesFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+func (o GetContainerRecipesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetContainerRecipesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetContainerRecipesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetContainerRecipesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainerRecipesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainerRecipesFilter)(nil)).Elem()
+}
+
+func (o GetContainerRecipesFilterArrayOutput) ToGetContainerRecipesFilterArrayOutput() GetContainerRecipesFilterArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipesFilterArrayOutput) ToGetContainerRecipesFilterArrayOutputWithContext(ctx context.Context) GetContainerRecipesFilterArrayOutput {
+	return o
+}
+
+func (o GetContainerRecipesFilterArrayOutput) Index(i pulumi.IntInput) GetContainerRecipesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipesFilter {
+		return vs[0].([]GetContainerRecipesFilter)[vs[1].(int)]
+	}).(GetContainerRecipesFilterOutput)
 }
 
 type GetDistributionConfigurationDistribution struct {
@@ -4979,6 +6849,18 @@ func (o GetInfrastructureConfigurationsFilterArrayOutput) Index(i pulumi.IntInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentInput)(nil)).Elem(), ContainerRecipeComponentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentArrayInput)(nil)).Elem(), ContainerRecipeComponentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentParameterInput)(nil)).Elem(), ContainerRecipeComponentParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentParameterArrayInput)(nil)).Elem(), ContainerRecipeComponentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceConfigurationInput)(nil)).Elem(), ContainerRecipeInstanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceConfigurationPtrInput)(nil)).Elem(), ContainerRecipeInstanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMappingInput)(nil)).Elem(), ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput)(nil)).Elem(), ContainerRecipeInstanceConfigurationBlockDeviceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput)(nil)).Elem(), ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput)(nil)).Elem(), ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeTargetRepositoryInput)(nil)).Elem(), ContainerRecipeTargetRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeTargetRepositoryPtrInput)(nil)).Elem(), ContainerRecipeTargetRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionInput)(nil)).Elem(), DistributionConfigurationDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionArrayInput)(nil)).Elem(), DistributionConfigurationDistributionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationArgs{})
@@ -5009,12 +6891,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeComponentArrayInput)(nil)).Elem(), ImageRecipeComponentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeComponentParameterInput)(nil)).Elem(), ImageRecipeComponentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeComponentParameterArrayInput)(nil)).Elem(), ImageRecipeComponentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentPtrInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingS3LogsInput)(nil)).Elem(), InfrastructureConfigurationLoggingS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingS3LogsPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsFilterInput)(nil)).Elem(), GetComponentsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsFilterArrayInput)(nil)).Elem(), GetComponentsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeComponentInput)(nil)).Elem(), GetContainerRecipeComponentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeComponentArrayInput)(nil)).Elem(), GetContainerRecipeComponentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeComponentParameterInput)(nil)).Elem(), GetContainerRecipeComponentParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeComponentParameterArrayInput)(nil)).Elem(), GetContainerRecipeComponentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeInstanceConfigurationInput)(nil)).Elem(), GetContainerRecipeInstanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeInstanceConfigurationArrayInput)(nil)).Elem(), GetContainerRecipeInstanceConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput)(nil)).Elem(), GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput)(nil)).Elem(), GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput)(nil)).Elem(), GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput)(nil)).Elem(), GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeTargetRepositoryInput)(nil)).Elem(), GetContainerRecipeTargetRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipeTargetRepositoryArrayInput)(nil)).Elem(), GetContainerRecipeTargetRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipesFilterInput)(nil)).Elem(), GetContainerRecipesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainerRecipesFilterArrayInput)(nil)).Elem(), GetContainerRecipesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionInput)(nil)).Elem(), GetDistributionConfigurationDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{})
@@ -5055,6 +6953,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3LogArrayInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingS3LogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationsFilterInput)(nil)).Elem(), GetInfrastructureConfigurationsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationsFilterArrayInput)(nil)).Elem(), GetInfrastructureConfigurationsFilterArray{})
+	pulumi.RegisterOutputType(ContainerRecipeComponentOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeComponentArrayOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeComponentParameterOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeComponentParameterArrayOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeTargetRepositoryOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeTargetRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationOutput{})
@@ -5085,12 +6995,28 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeComponentArrayOutput{})
 	pulumi.RegisterOutputType(ImageRecipeComponentParameterOutput{})
 	pulumi.RegisterOutputType(ImageRecipeComponentParameterArrayOutput{})
+	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
+	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingS3LogsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingS3LogsPtrOutput{})
 	pulumi.RegisterOutputType(GetComponentsFilterOutput{})
 	pulumi.RegisterOutputType(GetComponentsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeComponentOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeComponentArrayOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeComponentParameterOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeComponentParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeInstanceConfigurationOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeInstanceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeTargetRepositoryOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipeTargetRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipesFilterOutput{})
+	pulumi.RegisterOutputType(GetContainerRecipesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput{})

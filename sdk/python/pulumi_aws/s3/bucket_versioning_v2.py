@@ -165,13 +165,8 @@ class BucketVersioningV2(pulumi.CustomResource):
                  versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Provides a resource for controlling versioning on an S3 bucket.
-        Deleting this resource will suspend versioning on the associated S3 bucket.
-        For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
-
-        > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
-
         ## Example Usage
+        ### With Versioning Enabled
 
         ```python
         import pulumi
@@ -185,6 +180,22 @@ class BucketVersioningV2(pulumi.CustomResource):
             bucket=example_bucket_v2.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
+            ))
+        ```
+        ### With Versioning Disabled
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            acl="private")
+        versioning_example = aws.s3.BucketVersioningV2("versioningExample",
+            bucket=example_bucket_v2.id,
+            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
+                status="Disabled",
             ))
         ```
         ### Object Dependency On Versioning
@@ -213,13 +224,13 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket versioning can be imported using the `bucket`, e.g.
+        S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
         ```
 
-         In addition, S3 bucket versioning can be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`), e.g.
+         If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
@@ -239,13 +250,8 @@ class BucketVersioningV2(pulumi.CustomResource):
                  args: BucketVersioningV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource for controlling versioning on an S3 bucket.
-        Deleting this resource will suspend versioning on the associated S3 bucket.
-        For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
-
-        > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
-
         ## Example Usage
+        ### With Versioning Enabled
 
         ```python
         import pulumi
@@ -259,6 +265,22 @@ class BucketVersioningV2(pulumi.CustomResource):
             bucket=example_bucket_v2.id,
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
+            ))
+        ```
+        ### With Versioning Disabled
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            acl="private")
+        versioning_example = aws.s3.BucketVersioningV2("versioningExample",
+            bucket=example_bucket_v2.id,
+            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
+                status="Disabled",
             ))
         ```
         ### Object Dependency On Versioning
@@ -287,13 +309,13 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket versioning can be imported using the `bucket`, e.g.
+        S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
         ```
 
-         In addition, S3 bucket versioning can be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`), e.g.
+         If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012

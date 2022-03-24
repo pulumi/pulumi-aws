@@ -267,7 +267,7 @@ class VolumeAttachment(pulumi.CustomResource):
         Provides an AWS EBS Volume Attachment as a top level resource, to attach and
         detach volumes from AWS Instances.
 
-        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `aws_ebs_volume_attachment` resources for a given instance.
+        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `ec2.VolumeAttachment` resources for a given instance.
 
         ## Example Usage
 
@@ -329,7 +329,7 @@ class VolumeAttachment(pulumi.CustomResource):
         Provides an AWS EBS Volume Attachment as a top level resource, to attach and
         detach volumes from AWS Instances.
 
-        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `aws_ebs_volume_attachment` resources for a given instance.
+        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `ec2.VolumeAttachment` resources for a given instance.
 
         ## Example Usage
 

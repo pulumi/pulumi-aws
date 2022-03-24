@@ -249,14 +249,11 @@ namespace Pulumi.Aws.Route53
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-        /// </summary>
         [Output("records")]
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
         /// </summary>
         [Output("setIdentifier")]
         public Output<string?> SetIdentifier { get; private set; } = null!;
@@ -406,10 +403,6 @@ namespace Pulumi.Aws.Route53
 
         [Input("records")]
         private InputList<string>? _records;
-
-        /// <summary>
-        /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-        /// </summary>
         public InputList<string> Records
         {
             get => _records ?? (_records = new InputList<string>());
@@ -417,7 +410,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
@@ -540,10 +533,6 @@ namespace Pulumi.Aws.Route53
 
         [Input("records")]
         private InputList<string>? _records;
-
-        /// <summary>
-        /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-        /// </summary>
         public InputList<string> Records
         {
             get => _records ?? (_records = new InputList<string>());
@@ -551,7 +540,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }

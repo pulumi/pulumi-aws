@@ -19,6 +19,7 @@ class TriggerArgs:
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class TriggerArgs:
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
@@ -44,6 +46,8 @@ class TriggerArgs:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if event_batching_conditions is not None:
+            pulumi.set(__self__, "event_batching_conditions", event_batching_conditions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if predicate is not None:
@@ -104,6 +108,18 @@ class TriggerArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="eventBatchingConditions")
+    def event_batching_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]]:
+        """
+        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        """
+        return pulumi.get(self, "event_batching_conditions")
+
+    @event_batching_conditions.setter
+    def event_batching_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]]):
+        pulumi.set(self, "event_batching_conditions", value)
 
     @property
     @pulumi.getter
@@ -185,6 +201,7 @@ class _TriggerState:
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -200,6 +217,7 @@ class _TriggerState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Trigger
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
@@ -218,6 +236,8 @@ class _TriggerState:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if event_batching_conditions is not None:
+            pulumi.set(__self__, "event_batching_conditions", event_batching_conditions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if predicate is not None:
@@ -284,6 +304,18 @@ class _TriggerState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="eventBatchingConditions")
+    def event_batching_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]]:
+        """
+        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        """
+        return pulumi.get(self, "event_batching_conditions")
+
+    @event_batching_conditions.setter
+    def event_batching_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]]):
+        pulumi.set(self, "event_batching_conditions", value)
 
     @property
     @pulumi.getter
@@ -402,6 +434,7 @@ class Trigger(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -511,6 +544,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
@@ -639,6 +673,7 @@ class Trigger(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -663,6 +698,7 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["actions"] = actions
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["event_batching_conditions"] = event_batching_conditions
             __props__.__dict__["name"] = name
             __props__.__dict__["predicate"] = predicate
             __props__.__dict__["schedule"] = schedule
@@ -689,6 +725,7 @@ class Trigger(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
@@ -709,6 +746,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Trigger
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
@@ -727,6 +765,7 @@ class Trigger(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["event_batching_conditions"] = event_batching_conditions
         __props__.__dict__["name"] = name
         __props__.__dict__["predicate"] = predicate
         __props__.__dict__["schedule"] = schedule
@@ -769,6 +808,14 @@ class Trigger(pulumi.CustomResource):
         Start the trigger. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="eventBatchingConditions")
+    def event_batching_conditions(self) -> pulumi.Output[Optional[Sequence['outputs.TriggerEventBatchingCondition']]]:
+        """
+        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        """
+        return pulumi.get(self, "event_batching_conditions")
 
     @property
     @pulumi.getter

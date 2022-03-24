@@ -166,6 +166,7 @@ class AuthorizerArgs:
 @pulumi.input_type
 class _AuthorizerState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  authorizer_credentials: Optional[pulumi.Input[str]] = None,
                  authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
@@ -177,6 +178,7 @@ class _AuthorizerState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the API Gateway Authorizer
         :param pulumi.Input[str] authorizer_credentials: The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL of cached authorizer results in seconds. Defaults to `300`.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
@@ -188,6 +190,8 @@ class _AuthorizerState:
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] type: The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if authorizer_credentials is not None:
             pulumi.set(__self__, "authorizer_credentials", authorizer_credentials)
         if authorizer_result_ttl_in_seconds is not None:
@@ -206,6 +210,18 @@ class _AuthorizerState:
             pulumi.set(__self__, "rest_api", rest_api)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the API Gateway Authorizer
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="authorizerCredentials")
@@ -540,6 +556,7 @@ class Authorizer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
             __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
         super(Authorizer, __self__).__init__(
             'aws:apigateway/authorizer:Authorizer',
             resource_name,
@@ -550,6 +567,7 @@ class Authorizer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             authorizer_credentials: Optional[pulumi.Input[str]] = None,
             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
             authorizer_uri: Optional[pulumi.Input[str]] = None,
@@ -566,6 +584,7 @@ class Authorizer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the API Gateway Authorizer
         :param pulumi.Input[str] authorizer_credentials: The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL of cached authorizer results in seconds. Defaults to `300`.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
@@ -581,6 +600,7 @@ class Authorizer(pulumi.CustomResource):
 
         __props__ = _AuthorizerState.__new__(_AuthorizerState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["authorizer_credentials"] = authorizer_credentials
         __props__.__dict__["authorizer_result_ttl_in_seconds"] = authorizer_result_ttl_in_seconds
         __props__.__dict__["authorizer_uri"] = authorizer_uri
@@ -591,6 +611,14 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["type"] = type
         return Authorizer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the API Gateway Authorizer
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authorizerCredentials")

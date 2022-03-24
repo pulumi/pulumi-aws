@@ -82,15 +82,15 @@ export interface GetTransitGatewayResult {
      */
     readonly associationDefaultRouteTableId: string;
     /**
-     * Whether resource attachment requests are automatically accepted.
+     * Whether resource attachment requests are automatically accepted
      */
     readonly autoAcceptSharedAttachments: string;
     /**
-     * Whether resource attachments are automatically associated with the default association route table.
+     * Whether resource attachments are automatically associated with the default association route table
      */
     readonly defaultRouteTableAssociation: string;
     /**
-     * Whether resource attachments automatically propagate routes to the default propagation route table.
+     * Whether resource attachments automatically propagate routes to the default propagation route table
      */
     readonly defaultRouteTablePropagation: string;
     /**
@@ -98,7 +98,7 @@ export interface GetTransitGatewayResult {
      */
     readonly description: string;
     /**
-     * Whether DNS support is enabled.
+     * Whether DNS support is enabled
      */
     readonly dnsSupport: string;
     readonly filters?: outputs.ec2transitgateway.GetTransitGatewayFilter[];
@@ -107,11 +107,15 @@ export interface GetTransitGatewayResult {
      */
     readonly id: string;
     /**
+     * Whether Multicast support is enabled
+     */
+    readonly multicastSupport: string;
+    /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
     readonly ownerId: string;
     /**
-     * Identifier of the default propagation route table.
+     * Identifier of the default propagation route table
      */
     readonly propagationDefaultRouteTableId: string;
     /**
@@ -119,7 +123,11 @@ export interface GetTransitGatewayResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * Whether VPN Equal Cost Multipath Protocol support is enabled.
+     * The list of associated CIDR blocks
+     */
+    readonly transitGatewayCidrBlocks: string[];
+    /**
+     * Whether VPN Equal Cost Multipath Protocol support is enabled
      */
     readonly vpnEcmpSupport: string;
 }

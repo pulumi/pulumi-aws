@@ -51,7 +51,7 @@ export interface GetImageRecipeArgs {
 export interface GetImageRecipeResult {
     readonly arn: string;
     /**
-     * Set of objects with block device mappings for the the image recipe.
+     * Set of objects with block device mappings for the image recipe.
      */
     readonly blockDeviceMappings: outputs.imagebuilder.GetImageRecipeBlockDeviceMapping[];
     /**
@@ -79,7 +79,7 @@ export interface GetImageRecipeResult {
      */
     readonly owner: string;
     /**
-     * Platform of the image recipe.
+     * Base image of the image recipe.
      */
     readonly parentImage: string;
     /**

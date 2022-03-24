@@ -18,31 +18,31 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string Broker;
         /// <summary>
-        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         /// </summary>
         public readonly bool? IncludeControlDetails;
         /// <summary>
-        /// Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+        /// Include NULL and empty columns in the target. Default is `false`.
         /// </summary>
         public readonly bool? IncludeNullAndEmpty;
         /// <summary>
-        /// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         /// </summary>
         public readonly bool? IncludePartitionValue;
         /// <summary>
-        /// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+        /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         /// </summary>
         public readonly bool? IncludeTableAlterOperations;
         /// <summary>
-        /// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is `false`.
+        /// Provides detailed transaction information from the source database. Default is `false`.
         /// </summary>
         public readonly bool? IncludeTransactionDetails;
         /// <summary>
-        /// The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+        /// Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
         /// </summary>
         public readonly string? MessageFormat;
         /// <summary>
-        /// The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+        /// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         /// </summary>
         public readonly int? MessageMaxBytes;
         /// <summary>
@@ -50,15 +50,15 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly bool? NoHexPrefix;
         /// <summary>
-        /// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         /// </summary>
         public readonly bool? PartitionIncludeSchemaTable;
         /// <summary>
-        /// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        /// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         /// </summary>
         public readonly string? SaslPassword;
         /// <summary>
-        /// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        /// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         /// </summary>
         public readonly string? SaslUsername;
         /// <summary>
@@ -66,23 +66,23 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? SecurityProtocol;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        /// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         /// </summary>
         public readonly string? SslCaCertificateArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+        /// ARN of the client certificate used to securely connect to a Kafka target endpoint.
         /// </summary>
         public readonly string? SslClientCertificateArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+        /// ARN for the client private key used to securely connect to a Kafka target endpoint.
         /// </summary>
         public readonly string? SslClientKeyArn;
         /// <summary>
-        /// The password for the client private key used to securely connect to a Kafka target endpoint.
+        /// Password for the client private key used to securely connect to a Kafka target endpoint.
         /// </summary>
         public readonly string? SslClientKeyPassword;
         /// <summary>
-        /// Kafka topic for migration. Defaults to `kafka-default-topic`.
+        /// Kafka topic for migration. Default is `kafka-default-topic`.
         /// </summary>
         public readonly string? Topic;
 

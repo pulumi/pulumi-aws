@@ -35,6 +35,9 @@ import * as utilities from "../utilities";
  *             overrideCustomerWebACLAssociation: false,
  *         })),
  *     },
+ *     tags: {
+ *         Name: "example-fms-policy",
+ *     },
  * });
  * ```
  *
@@ -80,6 +83,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly deleteAllPolicyResources!: pulumi.Output<boolean | undefined>;
     /**
+     * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+     */
+    public readonly deleteUnusedFmManagedResources!: pulumi.Output<boolean | undefined>;
+    /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
     public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyExcludeMap | undefined>;
@@ -119,6 +126,14 @@ export class Policy extends pulumi.CustomResource {
      * The objects to include in Security Service Policy Data. Documented below.
      */
     public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -135,6 +150,7 @@ export class Policy extends pulumi.CustomResource {
             const state = argsOrState as PolicyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["deleteAllPolicyResources"] = state ? state.deleteAllPolicyResources : undefined;
+            resourceInputs["deleteUnusedFmManagedResources"] = state ? state.deleteUnusedFmManagedResources : undefined;
             resourceInputs["excludeMap"] = state ? state.excludeMap : undefined;
             resourceInputs["excludeResourceTags"] = state ? state.excludeResourceTags : undefined;
             resourceInputs["includeMap"] = state ? state.includeMap : undefined;
@@ -145,6 +161,8 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
             resourceInputs["securityServicePolicyData"] = state ? state.securityServicePolicyData : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
@@ -154,6 +172,7 @@ export class Policy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
             resourceInputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
+            resourceInputs["deleteUnusedFmManagedResources"] = args ? args.deleteUnusedFmManagedResources : undefined;
             resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
             resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
             resourceInputs["includeMap"] = args ? args.includeMap : undefined;
@@ -163,6 +182,8 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
             resourceInputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyUpdateToken"] = undefined /*out*/;
         }
@@ -180,6 +201,10 @@ export interface PolicyState {
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
      */
     deleteAllPolicyResources?: pulumi.Input<boolean>;
+    /**
+     * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+     */
+    deleteUnusedFmManagedResources?: pulumi.Input<boolean>;
     /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
@@ -220,6 +245,14 @@ export interface PolicyState {
      * The objects to include in Security Service Policy Data. Documented below.
      */
     securityServicePolicyData?: pulumi.Input<inputs.fms.PolicySecurityServicePolicyData>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -230,6 +263,10 @@ export interface PolicyArgs {
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
      */
     deleteAllPolicyResources?: pulumi.Input<boolean>;
+    /**
+     * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+     */
+    deleteUnusedFmManagedResources?: pulumi.Input<boolean>;
     /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
@@ -266,4 +303,12 @@ export interface PolicyArgs {
      * The objects to include in Security Service Policy Data. Documented below.
      */
     securityServicePolicyData: pulumi.Input<inputs.fms.PolicySecurityServicePolicyData>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

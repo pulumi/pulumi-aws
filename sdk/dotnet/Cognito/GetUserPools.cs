@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
+        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolsInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
+        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

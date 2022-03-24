@@ -162,6 +162,9 @@ namespace Pulumi.Aws.Inputs
         [Input("cloudwatchlogs")]
         public Input<string>? Cloudwatchlogs { get; set; }
 
+        [Input("cloudwatchrum")]
+        public Input<string>? Cloudwatchrum { get; set; }
+
         [Input("codeartifact")]
         public Input<string>? Codeartifact { get; set; }
 
@@ -479,6 +482,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("kendra")]
         public Input<string>? Kendra { get; set; }
+
+        [Input("keyspaces")]
+        public Input<string>? Keyspaces { get; set; }
 
         [Input("kinesis")]
         public Input<string>? Kinesis { get; set; }

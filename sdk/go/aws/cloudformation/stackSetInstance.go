@@ -82,6 +82,8 @@ type StackSetInstance struct {
 
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs pulumi.StringPtrOutput `pulumi:"callAs"`
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrOutput `pulumi:"deploymentTargets"`
 	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
@@ -132,6 +134,8 @@ func GetStackSetInstance(ctx *pulumi.Context,
 type stackSetInstanceState struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId *string `pulumi:"accountId"`
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs *string `pulumi:"callAs"`
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
 	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
@@ -151,6 +155,8 @@ type stackSetInstanceState struct {
 type StackSetInstanceState struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId pulumi.StringPtrInput
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs pulumi.StringPtrInput
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
 	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
@@ -174,6 +180,8 @@ func (StackSetInstanceState) ElementType() reflect.Type {
 type stackSetInstanceArgs struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId *string `pulumi:"accountId"`
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs *string `pulumi:"callAs"`
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
@@ -190,6 +198,8 @@ type stackSetInstanceArgs struct {
 type StackSetInstanceArgs struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId pulumi.StringPtrInput
+	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+	CallAs pulumi.StringPtrInput
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.

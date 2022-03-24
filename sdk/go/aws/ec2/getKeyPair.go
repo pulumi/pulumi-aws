@@ -61,7 +61,8 @@ type LookupKeyPairArgs struct {
 	// Custom filter block as described below.
 	Filters []GetKeyPairFilter `pulumi:"filters"`
 	// The Key Pair name.
-	KeyName   *string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
+	// The Key Pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
 	// Any tags assigned to the Key Pair.
 	Tags map[string]string `pulumi:"tags"`
@@ -96,7 +97,8 @@ type LookupKeyPairOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetKeyPairFilterArrayInput `pulumi:"filters"`
 	// The Key Pair name.
-	KeyName   pulumi.StringPtrInput `pulumi:"keyName"`
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The Key Pair ID.
 	KeyPairId pulumi.StringPtrInput `pulumi:"keyPairId"`
 	// Any tags assigned to the Key Pair.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

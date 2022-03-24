@@ -18,6 +18,22 @@ import * as utilities from "../utilities";
  *     name: "MyCatalogDatabase",
  * });
  * ```
+ * ### Create Table Default Permissions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("aws_glue_catalog_database", {
+ *     createTableDefaultPermissions: [{
+ *         permissions: ["SELECT"],
+ *         principal: {
+ *             dataLakePrincipalIdentifier: "IAM_ALLOWED_PRINCIPALS",
+ *         },
+ *     }],
+ *     name: "MyCatalogDatabase",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -64,6 +80,10 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     public readonly catalogId!: pulumi.Output<string>;
     /**
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     */
+    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[]>;
+    /**
      * Description of the database.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -99,6 +119,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             const state = argsOrState as CatalogDatabaseState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["locationUri"] = state ? state.locationUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -107,6 +128,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
         } else {
             const args = argsOrState as CatalogDatabaseArgs | undefined;
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -131,6 +153,10 @@ export interface CatalogDatabaseState {
      * ID of the Data Catalog in which the database resides.
      */
     catalogId?: pulumi.Input<string>;
+    /**
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     */
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
     /**
      * Description of the database.
      */
@@ -161,6 +187,10 @@ export interface CatalogDatabaseArgs {
      * ID of the Data Catalog in which the database resides.
      */
     catalogId?: pulumi.Input<string>;
+    /**
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     */
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
     /**
      * Description of the database.
      */

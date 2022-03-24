@@ -12,6 +12,32 @@ namespace Pulumi.Aws.Detective
     /// <summary>
     /// Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleGraph = new Aws.Detective.Graph("exampleGraph", new Aws.Detective.GraphArgs
+    ///         {
+    ///         });
+    ///         var exampleMember = new Aws.Detective.Member("exampleMember", new Aws.Detective.MemberArgs
+    ///         {
+    ///             AccountId = "AWS ACCOUNT ID",
+    ///             EmailAddress = "EMAIL",
+    ///             GraphArn = exampleGraph.Id,
+    ///             Message = "Message of the invitation",
+    ///             DisableEmailNotification = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.

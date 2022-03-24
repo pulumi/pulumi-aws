@@ -13,6 +13,8 @@ __all__ = [
     'ServiceEncryptionConfigurationArgs',
     'ServiceHealthCheckConfigurationArgs',
     'ServiceInstanceConfigurationArgs',
+    'ServiceNetworkConfigurationArgs',
+    'ServiceNetworkConfigurationEgressConfigurationArgs',
     'ServiceSourceConfigurationArgs',
     'ServiceSourceConfigurationAuthenticationConfigurationArgs',
     'ServiceSourceConfigurationCodeRepositoryArgs',
@@ -272,6 +274,68 @@ class ServiceInstanceConfigurationArgs:
     @memory.setter
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class ServiceNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 egress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic.
+        """
+        if egress_configuration is not None:
+            pulumi.set(__self__, "egress_configuration", egress_configuration)
+
+    @property
+    @pulumi.getter(name="egressConfiguration")
+    def egress_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']]:
+        """
+        Network configuration settings for outbound message traffic.
+        """
+        return pulumi.get(self, "egress_configuration")
+
+    @egress_configuration.setter
+    def egress_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']]):
+        pulumi.set(self, "egress_configuration", value)
+
+
+@pulumi.input_type
+class ServiceNetworkConfigurationEgressConfigurationArgs:
+    def __init__(__self__, *,
+                 egress_type: Optional[pulumi.Input[str]] = None,
+                 vpc_connector_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] egress_type: The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        :param pulumi.Input[str] vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        """
+        if egress_type is not None:
+            pulumi.set(__self__, "egress_type", egress_type)
+        if vpc_connector_arn is not None:
+            pulumi.set(__self__, "vpc_connector_arn", vpc_connector_arn)
+
+    @property
+    @pulumi.getter(name="egressType")
+    def egress_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        """
+        return pulumi.get(self, "egress_type")
+
+    @egress_type.setter
+    def egress_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "egress_type", value)
+
+    @property
+    @pulumi.getter(name="vpcConnectorArn")
+    def vpc_connector_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        """
+        return pulumi.get(self, "vpc_connector_arn")
+
+    @vpc_connector_arn.setter
+    def vpc_connector_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_connector_arn", value)
 
 
 @pulumi.input_type

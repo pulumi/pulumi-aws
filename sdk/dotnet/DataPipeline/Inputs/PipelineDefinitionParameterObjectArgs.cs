@@ -14,6 +14,10 @@ namespace Pulumi.Aws.DataPipeline.Inputs
     {
         [Input("attributes")]
         private InputList<Inputs.PipelineDefinitionParameterObjectAttributeArgs>? _attributes;
+
+        /// <summary>
+        /// Configuration block for attributes of the parameter object. See below
+        /// </summary>
         public InputList<Inputs.PipelineDefinitionParameterObjectAttributeArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.PipelineDefinitionParameterObjectAttributeArgs>());

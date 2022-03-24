@@ -21,10 +21,13 @@ class GetImagePipelineResult:
     """
     A collection of values returned by getImagePipeline.
     """
-    def __init__(__self__, arn=None, date_created=None, date_last_run=None, date_next_run=None, date_updated=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, platform=None, schedules=None, status=None, tags=None):
+    def __init__(__self__, arn=None, container_recipe_arn=None, date_created=None, date_last_run=None, date_next_run=None, date_updated=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, platform=None, schedules=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if container_recipe_arn and not isinstance(container_recipe_arn, str):
+            raise TypeError("Expected argument 'container_recipe_arn' to be a str")
+        pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if date_created and not isinstance(date_created, str):
             raise TypeError("Expected argument 'date_created' to be a str")
         pulumi.set(__self__, "date_created", date_created)
@@ -78,6 +81,14 @@ class GetImagePipelineResult:
     @pulumi.getter
     def arn(self) -> str:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="containerRecipeArn")
+    def container_recipe_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the container recipe.
+        """
+        return pulumi.get(self, "container_recipe_arn")
 
     @property
     @pulumi.getter(name="dateCreated")
@@ -147,7 +158,7 @@ class GetImagePipelineResult:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        Amazon Resource Name (ARN) of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -215,6 +226,7 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
             yield self
         return GetImagePipelineResult(
             arn=self.arn,
+            container_recipe_arn=self.container_recipe_arn,
             date_created=self.date_created,
             date_last_run=self.date_last_run,
             date_next_run=self.date_next_run,
@@ -263,6 +275,7 @@ def get_image_pipeline(arn: Optional[str] = None,
 
     return AwaitableGetImagePipelineResult(
         arn=__ret__.arn,
+        container_recipe_arn=__ret__.container_recipe_arn,
         date_created=__ret__.date_created,
         date_last_run=__ret__.date_last_run,
         date_next_run=__ret__.date_next_run,

@@ -44,7 +44,7 @@ import {PolicyDocument} from "../iam";
  * S3 bucket policies can be imported using the bucket name, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
+ *  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
  * ```
  */
 export class BucketPolicy extends pulumi.CustomResource {

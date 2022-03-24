@@ -22,6 +22,7 @@ from .get_partition import *
 from .get_prefix_list import *
 from .get_region import *
 from .get_regions import *
+from .get_service import *
 from .provider import *
 from ._inputs import *
 from . import outputs
@@ -184,6 +185,8 @@ if typing.TYPE_CHECKING:
     globalaccelerator = __globalaccelerator
     import pulumi_aws.glue as __glue
     glue = __glue
+    import pulumi_aws.grafana as __grafana
+    grafana = __grafana
     import pulumi_aws.guardduty as __guardduty
     guardduty = __guardduty
     import pulumi_aws.iam as __iam
@@ -238,6 +241,8 @@ if typing.TYPE_CHECKING:
     neptune = __neptune
     import pulumi_aws.networkfirewall as __networkfirewall
     networkfirewall = __networkfirewall
+    import pulumi_aws.networkmanager as __networkmanager
+    networkmanager = __networkmanager
     import pulumi_aws.opsworks as __opsworks
     opsworks = __opsworks
     import pulumi_aws.organizations as __organizations
@@ -264,6 +269,8 @@ if typing.TYPE_CHECKING:
     resourcegroupstaggingapi = __resourcegroupstaggingapi
     import pulumi_aws.route53 as __route53
     route53 = __route53
+    import pulumi_aws.route53domains as __route53domains
+    route53domains = __route53domains
     import pulumi_aws.route53recoverycontrol as __route53recoverycontrol
     route53recoverycontrol = __route53recoverycontrol
     import pulumi_aws.route53recoveryreadiness as __route53recoveryreadiness
@@ -409,6 +416,7 @@ else:
     glacier = _utilities.lazy_import('pulumi_aws.glacier')
     globalaccelerator = _utilities.lazy_import('pulumi_aws.globalaccelerator')
     glue = _utilities.lazy_import('pulumi_aws.glue')
+    grafana = _utilities.lazy_import('pulumi_aws.grafana')
     guardduty = _utilities.lazy_import('pulumi_aws.guardduty')
     iam = _utilities.lazy_import('pulumi_aws.iam')
     identitystore = _utilities.lazy_import('pulumi_aws.identitystore')
@@ -436,6 +444,7 @@ else:
     mwaa = _utilities.lazy_import('pulumi_aws.mwaa')
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
+    networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
@@ -449,6 +458,7 @@ else:
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
     route53 = _utilities.lazy_import('pulumi_aws.route53')
+    route53domains = _utilities.lazy_import('pulumi_aws.route53domains')
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws.route53recoveryreadiness')
     s3 = _utilities.lazy_import('pulumi_aws.s3')
@@ -1152,6 +1162,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apprunner/vpcConnector",
+  "fqn": "pulumi_aws.apprunner",
+  "classes": {
+   "aws:apprunner/vpcConnector:VpcConnector": "VpcConnector"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appstream/directoryConfig",
   "fqn": "pulumi_aws.appstream",
   "classes": {
@@ -1360,6 +1378,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "backup/framework",
+  "fqn": "pulumi_aws.backup",
+  "classes": {
+   "aws:backup/framework:Framework": "Framework"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "backup/globalSettings",
   "fqn": "pulumi_aws.backup",
   "classes": {
@@ -1380,6 +1406,14 @@ _utilities.register(
   "fqn": "pulumi_aws.backup",
   "classes": {
    "aws:backup/regionSettings:RegionSettings": "RegionSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "backup/reportPlan",
+  "fqn": "pulumi_aws.backup",
+  "classes": {
+   "aws:backup/reportPlan:ReportPlan": "ReportPlan"
   }
  },
  {
@@ -1796,6 +1830,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudsearch",
   "classes": {
    "aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy": "DomainServiceAccessPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudtrail/eventDataStore",
+  "fqn": "pulumi_aws.cloudtrail",
+  "classes": {
+   "aws:cloudtrail/eventDataStore:EventDataStore": "EventDataStore"
   }
  },
  {
@@ -2288,10 +2330,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/routingProfile",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/routingProfile:RoutingProfile": "RoutingProfile"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/securityProfile",
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/securityProfile:SecurityProfile": "SecurityProfile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/userHierarchyStructure",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/userHierarchyStructure:UserHierarchyStructure": "UserHierarchyStructure"
   }
  },
  {
@@ -3040,6 +3098,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/internetGatewayAttachment",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/internetGatewayAttachment:InternetGatewayAttachment": "InternetGatewayAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/keyPair",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -3136,6 +3202,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/networkInsightsPath",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/networkInsightsPath:NetworkInsightsPath": "NetworkInsightsPath"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/networkInterface",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -3216,10 +3290,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/securityGroupAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/securityGroupAssociation:SecurityGroupAssociation": "SecurityGroupAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/securityGroupRule",
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/securityGroupRule:SecurityGroupRule": "SecurityGroupRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/serialConsoleAccess",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/serialConsoleAccess:SerialConsoleAccess": "SerialConsoleAccess"
   }
  },
  {
@@ -3372,6 +3462,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification": "VpcEndpointConnectionNotification"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcEndpointPolicy",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy": "VpcEndpointPolicy"
   }
  },
  {
@@ -3564,6 +3662,54 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2clientvpn",
   "classes": {
    "aws:ec2clientvpn/route:Route": "Route"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/connect",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/connect:Connect": "Connect"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/connectPeer",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/connectPeer:ConnectPeer": "ConnectPeer"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/multicastDomain",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/multicastDomain:MulticastDomain": "MulticastDomain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/multicastDomainAssociation",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation": "MulticastDomainAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/multicastGroupMember",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember": "MulticastGroupMember"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/multicastGroupSource",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource": "MulticastGroupSource"
   }
  },
  {
@@ -4344,10 +4490,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "gamelift/gameServerGroup",
+  "fqn": "pulumi_aws.gamelift",
+  "classes": {
+   "aws:gamelift/gameServerGroup:GameServerGroup": "GameServerGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "gamelift/gameSessionQueue",
   "fqn": "pulumi_aws.gamelift",
   "classes": {
    "aws:gamelift/gameSessionQueue:GameSessionQueue": "GameSessionQueue"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "gamelift/script",
+  "fqn": "pulumi_aws.gamelift",
+  "classes": {
+   "aws:gamelift/script:Script": "Script"
   }
  },
  {
@@ -4532,6 +4694,30 @@ _utilities.register(
   "fqn": "pulumi_aws.glue",
   "classes": {
    "aws:glue/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "grafana/licenseAssociation",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/licenseAssociation:LicenseAssociation": "LicenseAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "grafana/workspace",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "grafana/workspaceSamlConfiguration",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration": "WorkspaceSamlConfiguration"
   }
  },
  {
@@ -4744,6 +4930,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/serviceSpecificCredential",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/serviceSpecificCredential:ServiceSpecificCredential": "ServiceSpecificCredential"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iam/signingCertificate",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/signingCertificate:SigningCertificate": "SigningCertificate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iam/sshKey",
   "fqn": "pulumi_aws.iam",
   "classes": {
@@ -4792,10 +4994,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/virtualMfaDevice",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/virtualMfaDevice:VirtualMfaDevice": "VirtualMfaDevice"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "imagebuilder/component",
   "fqn": "pulumi_aws.imagebuilder",
   "classes": {
    "aws:imagebuilder/component:Component": "Component"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "imagebuilder/containerRecipe",
+  "fqn": "pulumi_aws.imagebuilder",
+  "classes": {
+   "aws:imagebuilder/containerRecipe:ContainerRecipe": "ContainerRecipe"
   }
  },
  {
@@ -5632,6 +5850,78 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/connection",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/connection:Connection": "Connection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/customerGatewayAssociation",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation": "CustomerGatewayAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/device",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/device:Device": "Device"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/globalNetwork",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/globalNetwork:GlobalNetwork": "GlobalNetwork"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/link",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/link:Link": "Link"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/linkAssociation",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/linkAssociation:LinkAssociation": "LinkAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/site",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/site:Site": "Site"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/transitGatewayConnectPeerAssociation",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation": "TransitGatewayConnectPeerAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/transitGatewayRegistration",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration": "TransitGatewayRegistration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opsworks/application",
   "fqn": "pulumi_aws.opsworks",
   "classes": {
@@ -5644,6 +5934,14 @@ _utilities.register(
   "fqn": "pulumi_aws.opsworks",
   "classes": {
    "aws:opsworks/customLayer:CustomLayer": "CustomLayer"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opsworks/ecsClusterLayer",
+  "fqn": "pulumi_aws.opsworks",
+  "classes": {
+   "aws:opsworks/ecsClusterLayer:EcsClusterLayer": "EcsClusterLayer"
   }
  },
  {
@@ -6356,6 +6654,14 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/zoneAssociation:ZoneAssociation": "ZoneAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53domains/registeredDomain",
+  "fqn": "pulumi_aws.route53domains",
+  "classes": {
+   "aws:route53domains/registeredDomain:RegisteredDomain": "RegisteredDomain"
   }
  },
  {

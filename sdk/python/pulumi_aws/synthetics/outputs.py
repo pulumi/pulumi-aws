@@ -111,6 +111,8 @@ class CanaryRunConfig(dict):
         suggest = None
         if key == "activeTracing":
             suggest = "active_tracing"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
         elif key == "memoryInMb":
             suggest = "memory_in_mb"
         elif key == "timeoutInSeconds":
@@ -129,15 +131,19 @@ class CanaryRunConfig(dict):
 
     def __init__(__self__, *,
                  active_tracing: Optional[bool] = None,
+                 environment_variables: Optional[Mapping[str, str]] = None,
                  memory_in_mb: Optional[int] = None,
                  timeout_in_seconds: Optional[int] = None):
         """
         :param bool active_tracing: Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
+        :param Mapping[str, str] environment_variables: Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
         :param int memory_in_mb: Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         :param int timeout_in_seconds: Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
         """
         if active_tracing is not None:
             pulumi.set(__self__, "active_tracing", active_tracing)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if memory_in_mb is not None:
             pulumi.set(__self__, "memory_in_mb", memory_in_mb)
         if timeout_in_seconds is not None:
@@ -150,6 +156,14 @@ class CanaryRunConfig(dict):
         Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
         """
         return pulumi.get(self, "active_tracing")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+        """
+        return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="memoryInMb")

@@ -458,14 +458,6 @@ class Policy(pulumi.CustomResource):
                  target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Provides an AutoScaling Scaling Policy resource.
-
-        > **NOTE:** You may want to omit `desired_capacity` attribute from attached `autoscaling.Group`
-        when using autoscaling policies. It's good practice to pick either
-        [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
-        or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
-        (policy-based) scaling.
-
         ## Example Usage
 
         ```python
@@ -485,6 +477,96 @@ class Policy(pulumi.CustomResource):
             adjustment_type="ChangeInCapacity",
             cooldown=300,
             autoscaling_group_name=bar.name)
+        ```
+        ### Create predictive scaling policy using customized metrics
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            policy_type="PredictiveScaling",
+            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
+                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
+                    customized_capacity_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs(
+                        metric_data_queries=[
+                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
+                                expression="SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
+                                id="capacity_sum",
+                                return_data=False,
+                            ),
+                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
+                                expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
+                                id="load_sum",
+                                return_data=False,
+                            ),
+                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
+                                expression="load_sum / capacity_sum",
+                                id="weighted_average",
+                            ),
+                        ],
+                    ),
+                    customized_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs(
+                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs(
+                            expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
+                            id="load_sum",
+                        )],
+                    ),
+                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
+                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
+                            id="scaling",
+                            metric_stat=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs(
+                                metric=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs(
+                                        name="AutoScalingGroupName",
+                                        value="my-test-asg",
+                                    )],
+                                    metric_name="CPUUtilization",
+                                    namespace="AWS/EC2",
+                                ),
+                                stat="Average",
+                            ),
+                        )],
+                    ),
+                    target_value=10,
+                ),
+            ))
+        ```
+        ### Create predictive scaling policy using customized scaling and predefined load metric
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            policy_type="PredictiveScaling",
+            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
+                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
+                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
+                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
+                            id="scaling",
+                            metric_stat=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs(
+                                metric=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs(
+                                        name="AutoScalingGroupName",
+                                        value="my-test-asg",
+                                    )],
+                                    metric_name="CPUUtilization",
+                                    namespace="AWS/EC2",
+                                ),
+                                stat="Average",
+                            ),
+                        )],
+                    ),
+                    predefined_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs(
+                        predefined_metric_type="ASGTotalCPUUtilization",
+                        resource_label="testLabel",
+                    ),
+                    target_value=10,
+                ),
+            ))
         ```
 
         ## Import
@@ -520,14 +602,6 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AutoScaling Scaling Policy resource.
-
-        > **NOTE:** You may want to omit `desired_capacity` attribute from attached `autoscaling.Group`
-        when using autoscaling policies. It's good practice to pick either
-        [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
-        or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
-        (policy-based) scaling.
-
         ## Example Usage
 
         ```python
@@ -547,6 +621,96 @@ class Policy(pulumi.CustomResource):
             adjustment_type="ChangeInCapacity",
             cooldown=300,
             autoscaling_group_name=bar.name)
+        ```
+        ### Create predictive scaling policy using customized metrics
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            policy_type="PredictiveScaling",
+            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
+                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
+                    customized_capacity_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs(
+                        metric_data_queries=[
+                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
+                                expression="SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
+                                id="capacity_sum",
+                                return_data=False,
+                            ),
+                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
+                                expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
+                                id="load_sum",
+                                return_data=False,
+                            ),
+                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
+                                expression="load_sum / capacity_sum",
+                                id="weighted_average",
+                            ),
+                        ],
+                    ),
+                    customized_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs(
+                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs(
+                            expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
+                            id="load_sum",
+                        )],
+                    ),
+                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
+                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
+                            id="scaling",
+                            metric_stat=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs(
+                                metric=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs(
+                                        name="AutoScalingGroupName",
+                                        value="my-test-asg",
+                                    )],
+                                    metric_name="CPUUtilization",
+                                    namespace="AWS/EC2",
+                                ),
+                                stat="Average",
+                            ),
+                        )],
+                    ),
+                    target_value=10,
+                ),
+            ))
+        ```
+        ### Create predictive scaling policy using customized scaling and predefined load metric
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            policy_type="PredictiveScaling",
+            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
+                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
+                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
+                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
+                            id="scaling",
+                            metric_stat=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs(
+                                metric=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs(
+                                        name="AutoScalingGroupName",
+                                        value="my-test-asg",
+                                    )],
+                                    metric_name="CPUUtilization",
+                                    namespace="AWS/EC2",
+                                ),
+                                stat="Average",
+                            ),
+                        )],
+                    ),
+                    predefined_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs(
+                        predefined_metric_type="ASGTotalCPUUtilization",
+                        resource_label="testLabel",
+                    ),
+                    target_value=10,
+                ),
+            ))
         ```
 
         ## Import

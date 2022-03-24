@@ -17,6 +17,7 @@ class ProviderArgs:
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
+                 custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
@@ -39,12 +40,15 @@ class ProviderArgs:
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
+                 sts_region: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+               variable. (Setting `ca_bundle` in the shared config file is not supported.)
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with settings to default resource tags across all resources.
         :param pulumi.Input[str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
@@ -74,6 +78,7 @@ class ProviderArgs:
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
+        :param pulumi.Input[str] sts_region: The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
         :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
         :param pulumi.Input[bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
@@ -84,6 +89,8 @@ class ProviderArgs:
             pulumi.set(__self__, "allowed_account_ids", allowed_account_ids)
         if assume_role is not None:
             pulumi.set(__self__, "assume_role", assume_role)
+        if custom_ca_bundle is not None:
+            pulumi.set(__self__, "custom_ca_bundle", custom_ca_bundle)
         if default_tags is not None:
             pulumi.set(__self__, "default_tags", default_tags)
         if ec2_metadata_service_endpoint is not None:
@@ -146,6 +153,8 @@ class ProviderArgs:
             pulumi.set(__self__, "skip_region_validation", skip_region_validation)
         if skip_requesting_account_id is not None:
             pulumi.set(__self__, "skip_requesting_account_id", skip_requesting_account_id)
+        if sts_region is not None:
+            pulumi.set(__self__, "sts_region", sts_region)
         if token is not None:
             pulumi.set(__self__, "token", token)
         if use_dualstack_endpoint is not None:
@@ -182,6 +191,19 @@ class ProviderArgs:
     @assume_role.setter
     def assume_role(self, value: Optional[pulumi.Input['ProviderAssumeRoleArgs']]):
         pulumi.set(self, "assume_role", value)
+
+    @property
+    @pulumi.getter(name="customCaBundle")
+    def custom_ca_bundle(self) -> Optional[pulumi.Input[str]]:
+        """
+        File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+        variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        """
+        return pulumi.get(self, "custom_ca_bundle")
+
+    @custom_ca_bundle.setter
+    def custom_ca_bundle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_ca_bundle", value)
 
     @property
     @pulumi.getter(name="defaultTags")
@@ -451,6 +473,18 @@ class ProviderArgs:
         pulumi.set(self, "skip_requesting_account_id", value)
 
     @property
+    @pulumi.getter(name="stsRegion")
+    def sts_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        """
+        return pulumi.get(self, "sts_region")
+
+    @sts_region.setter
+    def sts_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sts_region", value)
+
+    @property
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[str]]:
         """
@@ -495,6 +529,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
+                 custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
@@ -517,6 +552,7 @@ class Provider(pulumi.ProviderResource):
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
+                 sts_region: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -530,6 +566,8 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+               variable. (Setting `ca_bundle` in the shared config file is not supported.)
         :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with settings to default resource tags across all resources.
         :param pulumi.Input[str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
@@ -559,6 +597,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
+        :param pulumi.Input[str] sts_region: The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
         :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
         :param pulumi.Input[bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
@@ -593,6 +632,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
+                 custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
@@ -615,6 +655,7 @@ class Provider(pulumi.ProviderResource):
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
+                 sts_region: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
                  use_fips_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -633,6 +674,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["access_key"] = access_key
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
+            __props__.__dict__["custom_ca_bundle"] = custom_ca_bundle
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["ec2_metadata_service_endpoint"] = ec2_metadata_service_endpoint
             __props__.__dict__["ec2_metadata_service_endpoint_mode"] = ec2_metadata_service_endpoint_mode
@@ -673,6 +715,7 @@ class Provider(pulumi.ProviderResource):
                 skip_region_validation = True
             __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
+            __props__.__dict__["sts_region"] = sts_region
             __props__.__dict__["token"] = token
             __props__.__dict__["use_dualstack_endpoint"] = pulumi.Output.from_input(use_dualstack_endpoint).apply(pulumi.runtime.to_json) if use_dualstack_endpoint is not None else None
             __props__.__dict__["use_fips_endpoint"] = pulumi.Output.from_input(use_fips_endpoint).apply(pulumi.runtime.to_json) if use_fips_endpoint is not None else None
@@ -689,6 +732,15 @@ class Provider(pulumi.ProviderResource):
         The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="customCaBundle")
+    def custom_ca_bundle(self) -> pulumi.Output[Optional[str]]:
+        """
+        File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+        variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        """
+        return pulumi.get(self, "custom_ca_bundle")
 
     @property
     @pulumi.getter(name="ec2MetadataServiceEndpoint")
@@ -748,6 +800,14 @@ class Provider(pulumi.ProviderResource):
         The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         """
         return pulumi.get(self, "shared_credentials_file")
+
+    @property
+    @pulumi.getter(name="stsRegion")
+    def sts_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        """
+        return pulumi.get(self, "sts_region")
 
     @property
     @pulumi.getter

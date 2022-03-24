@@ -49,6 +49,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("dataFormatConversionConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs>? DataFormatConversionConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+        /// </summary>
         [Input("dynamicPartitioningConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs>? DynamicPartitioningConfiguration { get; set; }
 

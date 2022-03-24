@@ -15,7 +15,9 @@ class EnvironmentEC2Args:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -24,7 +26,15 @@ class EnvironmentEC2Args:
         The set of arguments for constructing a EnvironmentEC2 resource.
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
+        :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+               * `amazonlinux-1-x86_64`
+               * `amazonlinux-2-x86_64`
+               * `ubuntu-18.04-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
@@ -33,8 +43,12 @@ class EnvironmentEC2Args:
         pulumi.set(__self__, "instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
             pulumi.set(__self__, "automatic_stop_time_minutes", automatic_stop_time_minutes)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner_arn is not None:
@@ -69,6 +83,18 @@ class EnvironmentEC2Args:
         pulumi.set(self, "automatic_stop_time_minutes", value)
 
     @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_type", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -79,6 +105,24 @@ class EnvironmentEC2Args:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        * `amazonlinux-1-x86_64`
+        * `amazonlinux-2-x86_64`
+        * `ubuntu-18.04-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        """
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter
@@ -134,7 +178,9 @@ class _EnvironmentEC2State:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
@@ -146,7 +192,15 @@ class _EnvironmentEC2State:
         Input properties used for looking up and filtering EnvironmentEC2 resources.
         :param pulumi.Input[str] arn: The ARN of the environment.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
+        :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+               * `amazonlinux-1-x86_64`
+               * `amazonlinux-2-x86_64`
+               * `ubuntu-18.04-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
@@ -159,8 +213,12 @@ class _EnvironmentEC2State:
             pulumi.set(__self__, "arn", arn)
         if automatic_stop_time_minutes is not None:
             pulumi.set(__self__, "automatic_stop_time_minutes", automatic_stop_time_minutes)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if name is not None:
@@ -201,6 +259,18 @@ class _EnvironmentEC2State:
         pulumi.set(self, "automatic_stop_time_minutes", value)
 
     @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_type", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -211,6 +281,24 @@ class _EnvironmentEC2State:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        * `amazonlinux-1-x86_64`
+        * `amazonlinux-2-x86_64`
+        * `ubuntu-18.04-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        """
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -303,7 +391,9 @@ class EnvironmentEC2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
@@ -358,7 +448,15 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
+        :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+               * `amazonlinux-1-x86_64`
+               * `amazonlinux-2-x86_64`
+               * `ubuntu-18.04-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
@@ -432,7 +530,9 @@ class EnvironmentEC2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
@@ -451,7 +551,9 @@ class EnvironmentEC2(pulumi.CustomResource):
             __props__ = EnvironmentEC2Args.__new__(EnvironmentEC2Args)
 
             __props__.__dict__["automatic_stop_time_minutes"] = automatic_stop_time_minutes
+            __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["description"] = description
+            __props__.__dict__["image_id"] = image_id
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
@@ -474,7 +576,9 @@ class EnvironmentEC2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
+            connection_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            image_id: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_arn: Optional[pulumi.Input[str]] = None,
@@ -491,7 +595,15 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the environment.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
+        :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+               * `amazonlinux-1-x86_64`
+               * `amazonlinux-2-x86_64`
+               * `ubuntu-18.04-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
@@ -506,7 +618,9 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["automatic_stop_time_minutes"] = automatic_stop_time_minutes
+        __props__.__dict__["connection_type"] = connection_type
         __props__.__dict__["description"] = description
+        __props__.__dict__["image_id"] = image_id
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_arn"] = owner_arn
@@ -533,12 +647,34 @@ class EnvironmentEC2(pulumi.CustomResource):
         return pulumi.get(self, "automatic_stop_time_minutes")
 
     @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        """
+        return pulumi.get(self, "connection_type")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the environment.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        * `amazonlinux-1-x86_64`
+        * `amazonlinux-2-x86_64`
+        * `ubuntu-18.04-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        """
+        return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="instanceType")

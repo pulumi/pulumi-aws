@@ -16,6 +16,7 @@ __all__ = [
     'ThingGroupPropertiesAttributePayload',
     'ThingTypeProperties',
     'TopicRuleCloudwatchAlarm',
+    'TopicRuleCloudwatchLog',
     'TopicRuleCloudwatchMetric',
     'TopicRuleDynamodb',
     'TopicRuleDynamodbv2',
@@ -23,6 +24,7 @@ __all__ = [
     'TopicRuleElasticsearch',
     'TopicRuleErrorAction',
     'TopicRuleErrorActionCloudwatchAlarm',
+    'TopicRuleErrorActionCloudwatchLogs',
     'TopicRuleErrorActionCloudwatchMetric',
     'TopicRuleErrorActionDynamodb',
     'TopicRuleErrorActionDynamodbv2',
@@ -333,6 +335,54 @@ class TopicRuleCloudwatchAlarm(dict):
         The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
         """
         return pulumi.get(self, "state_value")
+
+
+@pulumi.output_type
+class TopicRuleCloudwatchLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleCloudwatchLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleCloudwatchLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: str,
+                 role_arn: str):
+        """
+        :param str log_group_name: The CloudWatch log group name.
+        :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        """
+        The CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type
@@ -762,6 +812,8 @@ class TopicRuleErrorAction(dict):
         suggest = None
         if key == "cloudwatchAlarm":
             suggest = "cloudwatch_alarm"
+        elif key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
         elif key == "cloudwatchMetric":
             suggest = "cloudwatch_metric"
         elif key == "iotAnalytics":
@@ -786,6 +838,7 @@ class TopicRuleErrorAction(dict):
 
     def __init__(__self__, *,
                  cloudwatch_alarm: Optional['outputs.TopicRuleErrorActionCloudwatchAlarm'] = None,
+                 cloudwatch_logs: Optional['outputs.TopicRuleErrorActionCloudwatchLogs'] = None,
                  cloudwatch_metric: Optional['outputs.TopicRuleErrorActionCloudwatchMetric'] = None,
                  dynamodb: Optional['outputs.TopicRuleErrorActionDynamodb'] = None,
                  dynamodbv2: Optional['outputs.TopicRuleErrorActionDynamodbv2'] = None,
@@ -802,6 +855,8 @@ class TopicRuleErrorAction(dict):
                  step_functions: Optional['outputs.TopicRuleErrorActionStepFunctions'] = None):
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
             pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
         if dynamodb is not None:
@@ -835,6 +890,11 @@ class TopicRuleErrorAction(dict):
     @pulumi.getter(name="cloudwatchAlarm")
     def cloudwatch_alarm(self) -> Optional['outputs.TopicRuleErrorActionCloudwatchAlarm']:
         return pulumi.get(self, "cloudwatch_alarm")
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional['outputs.TopicRuleErrorActionCloudwatchLogs']:
+        return pulumi.get(self, "cloudwatch_logs")
 
     @property
     @pulumi.getter(name="cloudwatchMetric")
@@ -979,6 +1039,54 @@ class TopicRuleErrorActionCloudwatchAlarm(dict):
         The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
         """
         return pulumi.get(self, "state_value")
+
+
+@pulumi.output_type
+class TopicRuleErrorActionCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: str,
+                 role_arn: str):
+        """
+        :param str log_group_name: The CloudWatch log group name.
+        :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        """
+        The CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The IAM role ARN that allows access to the CloudWatch alarm.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

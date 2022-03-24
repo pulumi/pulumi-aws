@@ -21,6 +21,7 @@ class ConfigurationProfileArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
@@ -30,6 +31,7 @@ class ConfigurationProfileArgs:
         :param pulumi.Input[str] name: The name for the configuration profile. Must be between 1 and 64 characters in length.
         :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -42,6 +44,8 @@ class ConfigurationProfileArgs:
             pulumi.set(__self__, "retrieval_role_arn", retrieval_role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if validators is not None:
             pulumi.set(__self__, "validators", validators)
 
@@ -119,6 +123,18 @@ class ConfigurationProfileArgs:
 
     @property
     @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
     def validators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]]:
         """
         A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
@@ -142,6 +158,7 @@ class _ConfigurationProfileState:
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationProfile resources.
@@ -154,6 +171,7 @@ class _ConfigurationProfileState:
         :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         if application_id is not None:
@@ -174,6 +192,8 @@ class _ConfigurationProfileState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if validators is not None:
             pulumi.set(__self__, "validators", validators)
 
@@ -287,6 +307,18 @@ class _ConfigurationProfileState:
 
     @property
     @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
     def validators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]]:
         """
         A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
@@ -309,6 +341,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]]] = None,
                  __props__=None):
         """
@@ -349,6 +382,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the configuration profile. Must be between 1 and 64 characters in length.
         :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         ...
@@ -408,6 +442,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -431,6 +466,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["retrieval_role_arn"] = retrieval_role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
             __props__.__dict__["validators"] = validators
             __props__.__dict__["arn"] = None
             __props__.__dict__["configuration_profile_id"] = None
@@ -454,6 +490,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             retrieval_role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            type: Optional[pulumi.Input[str]] = None,
             validators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]]] = None) -> 'ConfigurationProfile':
         """
         Get an existing ConfigurationProfile resource's state with the given name, id, and optional extra
@@ -471,6 +508,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -486,6 +524,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         __props__.__dict__["retrieval_role_arn"] = retrieval_role_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["type"] = type
         __props__.__dict__["validators"] = validators
         return ConfigurationProfile(resource_name, opts=opts, __props__=__props__)
 
@@ -560,6 +599,14 @@ class ConfigurationProfile(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter

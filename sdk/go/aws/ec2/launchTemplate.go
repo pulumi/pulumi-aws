@@ -185,8 +185,7 @@ type LaunchTemplate struct {
 	MetadataOptions LaunchTemplateMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrOutput `pulumi:"monitoring"`
-	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -194,6 +193,8 @@ type LaunchTemplate struct {
 	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// The placement of the instance. See Placement below for more details.
 	Placement LaunchTemplatePlacementPtrOutput `pulumi:"placement"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrOutput `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrOutput `pulumi:"ramDiskId"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
@@ -201,13 +202,13 @@ type LaunchTemplate struct {
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrOutput `pulumi:"updateDefaultVersion"`
-	// The Base64-encoded user data to provide when launching the instance.
+	// The base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -297,8 +298,7 @@ type launchTemplateState struct {
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
-	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-	Name *string `pulumi:"name"`
+	Name       *string                   `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -306,6 +306,8 @@ type launchTemplateState struct {
 	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
 	// The placement of the instance. See Placement below for more details.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId *string `pulumi:"ramDiskId"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
@@ -313,13 +315,13 @@ type launchTemplateState struct {
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
-	// The Base64-encoded user data to provide when launching the instance.
+	// The base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
 	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -381,8 +383,7 @@ type LaunchTemplateState struct {
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrInput
-	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-	Name pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -390,6 +391,8 @@ type LaunchTemplateState struct {
 	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput
 	// The placement of the instance. See Placement below for more details.
 	Placement LaunchTemplatePlacementPtrInput
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
@@ -397,13 +400,13 @@ type LaunchTemplateState struct {
 	SecurityGroupNames pulumi.StringArrayInput
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrInput
-	// The Base64-encoded user data to provide when launching the instance.
+	// The base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput
 	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -465,8 +468,7 @@ type launchTemplateArgs struct {
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
-	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-	Name *string `pulumi:"name"`
+	Name       *string                   `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -474,6 +476,8 @@ type launchTemplateArgs struct {
 	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
 	// The placement of the instance. See Placement below for more details.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId *string `pulumi:"ramDiskId"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
@@ -481,11 +485,11 @@ type launchTemplateArgs struct {
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
-	// The Base64-encoded user data to provide when launching the instance.
+	// The base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
 	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -544,8 +548,7 @@ type LaunchTemplateArgs struct {
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrInput
-	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-	Name pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -553,6 +556,8 @@ type LaunchTemplateArgs struct {
 	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput
 	// The placement of the instance. See Placement below for more details.
 	Placement LaunchTemplatePlacementPtrInput
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
@@ -560,11 +565,11 @@ type LaunchTemplateArgs struct {
 	SecurityGroupNames pulumi.StringArrayInput
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrInput
-	// The Base64-encoded user data to provide when launching the instance.
+	// The base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput
 	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds pulumi.StringArrayInput

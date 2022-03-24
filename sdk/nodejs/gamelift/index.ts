@@ -8,13 +8,17 @@ import * as utilities from "../utilities";
 export * from "./alias";
 export * from "./build";
 export * from "./fleet";
+export * from "./gameServerGroup";
 export * from "./gameSessionQueue";
+export * from "./script";
 
 // Import resources to register:
 import { Alias } from "./alias";
 import { Build } from "./build";
 import { Fleet } from "./fleet";
+import { GameServerGroup } from "./gameServerGroup";
 import { GameSessionQueue } from "./gameSessionQueue";
+import { Script } from "./script";
 
 const _module = {
     version: utilities.getVersion(),
@@ -26,8 +30,12 @@ const _module = {
                 return new Build(name, <any>undefined, { urn })
             case "aws:gamelift/fleet:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
+            case "aws:gamelift/gameServerGroup:GameServerGroup":
+                return new GameServerGroup(name, <any>undefined, { urn })
             case "aws:gamelift/gameSessionQueue:GameSessionQueue":
                 return new GameSessionQueue(name, <any>undefined, { urn })
+            case "aws:gamelift/script:Script":
+                return new Script(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -36,4 +44,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "gamelift/alias", _module)
 pulumi.runtime.registerResourceModule("aws", "gamelift/build", _module)
 pulumi.runtime.registerResourceModule("aws", "gamelift/fleet", _module)
+pulumi.runtime.registerResourceModule("aws", "gamelift/gameServerGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "gamelift/gameSessionQueue", _module)
+pulumi.runtime.registerResourceModule("aws", "gamelift/script", _module)

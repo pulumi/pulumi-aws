@@ -157,8 +157,9 @@ import {InstanceProfile} from "../iam";
  *
  * Each `ephemeralBlockDevice` supports the following:
  *
- * * `deviceName` - The name of the block device to mount on the instance.
- * * `virtualName` - The [Instance Store Device
+ * * `deviceName` - (Required) The name of the block device to mount on the instance.
+ * * `noDevice` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+ * * `virtualName` - (Optional) The [Instance Store Device
  *   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
  *   (e.g., `"ephemeral0"`)
  *

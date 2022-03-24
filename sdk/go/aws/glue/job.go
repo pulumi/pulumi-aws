@@ -73,6 +73,34 @@ import (
 // 	})
 // }
 // ```
+// ### Streaming Job
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
+// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// 			Command: &glue.JobCommandArgs{
+// 				Name:           pulumi.String("gluestreaming"),
+// 				ScriptLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/example.script")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Enabling CloudWatch Logs and Metrics
 //
 // ```go
@@ -148,12 +176,12 @@ type Job struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The job timeout in minutes. The default is 2880 minutes (48 hours).
-	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+	Timeout pulumi.IntOutput `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
 }
@@ -223,11 +251,11 @@ type jobState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The job timeout in minutes. The default is 2880 minutes (48 hours).
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType *string `pulumi:"workerType"`
@@ -264,11 +292,11 @@ type JobState struct {
 	RoleArn pulumi.StringPtrInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The job timeout in minutes. The default is 2880 minutes (48 hours).
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrInput
@@ -307,9 +335,9 @@ type jobArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The job timeout in minutes. The default is 2880 minutes (48 hours).
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType *string `pulumi:"workerType"`
@@ -345,9 +373,9 @@ type JobArgs struct {
 	RoleArn pulumi.StringInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The job timeout in minutes. The default is 2880 minutes (48 hours).
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrInput

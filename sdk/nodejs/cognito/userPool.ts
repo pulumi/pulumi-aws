@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * Cognito User Pools can be imported using the `id`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:cognito/userPool:UserPool pool <id>
+ *  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
  * ```
  */
 export class UserPool extends pulumi.CustomResource {

@@ -12,11 +12,17 @@ from . import outputs
 __all__ = [
     'AliasRoutingStrategy',
     'BuildStorageLocation',
+    'FleetCertificateConfiguration',
     'FleetEc2InboundPermission',
     'FleetResourceCreationLimitPolicy',
     'FleetRuntimeConfiguration',
     'FleetRuntimeConfigurationServerProcess',
+    'GameServerGroupAutoScalingPolicy',
+    'GameServerGroupAutoScalingPolicyTargetTrackingConfiguration',
+    'GameServerGroupInstanceDefinition',
+    'GameServerGroupLaunchTemplate',
     'GameSessionQueuePlayerLatencyPolicy',
+    'ScriptStorageLocation',
 ]
 
 @pulumi.output_type
@@ -85,6 +91,8 @@ class BuildStorageLocation(dict):
         suggest = None
         if key == "roleArn":
             suggest = "role_arn"
+        elif key == "objectVersion":
+            suggest = "object_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BuildStorageLocation. Access the value via the '{suggest}' property getter instead.")
@@ -100,15 +108,19 @@ class BuildStorageLocation(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str,
-                 role_arn: str):
+                 role_arn: str,
+                 object_version: Optional[str] = None):
         """
         :param str bucket: Name of your S3 bucket.
         :param str key: Name of the zip file containing your build files.
         :param str role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+        :param str object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
+        if object_version is not None:
+            pulumi.set(__self__, "object_version", object_version)
 
     @property
     @pulumi.getter
@@ -133,6 +145,50 @@ class BuildStorageLocation(dict):
         ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="objectVersion")
+    def object_version(self) -> Optional[str]:
+        """
+        A specific version of the file. If not set, the latest version of the file is retrieved.
+        """
+        return pulumi.get(self, "object_version")
+
+
+@pulumi.output_type
+class FleetCertificateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateType":
+            suggest = "certificate_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_type: Optional[str] = None):
+        """
+        :param str certificate_type: Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+        """
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional[str]:
+        """
+        Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+        """
+        return pulumi.get(self, "certificate_type")
 
 
 @pulumi.output_type
@@ -382,6 +438,190 @@ class FleetRuntimeConfigurationServerProcess(dict):
 
 
 @pulumi.output_type
+class GameServerGroupAutoScalingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetTrackingConfiguration":
+            suggest = "target_tracking_configuration"
+        elif key == "estimatedInstanceWarmup":
+            suggest = "estimated_instance_warmup"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameServerGroupAutoScalingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameServerGroupAutoScalingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameServerGroupAutoScalingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_tracking_configuration: 'outputs.GameServerGroupAutoScalingPolicyTargetTrackingConfiguration',
+                 estimated_instance_warmup: Optional[int] = None):
+        """
+        :param int estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start
+               new game server processes and register with GameLift FleetIQ.
+               Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+               because it avoids prematurely starting new instances. Defaults to `60`.
+        """
+        pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
+        if estimated_instance_warmup is not None:
+            pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
+
+    @property
+    @pulumi.getter(name="targetTrackingConfiguration")
+    def target_tracking_configuration(self) -> 'outputs.GameServerGroupAutoScalingPolicyTargetTrackingConfiguration':
+        return pulumi.get(self, "target_tracking_configuration")
+
+    @property
+    @pulumi.getter(name="estimatedInstanceWarmup")
+    def estimated_instance_warmup(self) -> Optional[int]:
+        """
+        Length of time, in seconds, it takes for a new instance to start
+        new game server processes and register with GameLift FleetIQ.
+        Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+        because it avoids prematurely starting new instances. Defaults to `60`.
+        """
+        return pulumi.get(self, "estimated_instance_warmup")
+
+
+@pulumi.output_type
+class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameServerGroupAutoScalingPolicyTargetTrackingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameServerGroupAutoScalingPolicyTargetTrackingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameServerGroupAutoScalingPolicyTargetTrackingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_value: float):
+        """
+        :param float target_value: Desired value to use with a game server group target-based scaling policy.
+        """
+        pulumi.set(__self__, "target_value", target_value)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> float:
+        """
+        Desired value to use with a game server group target-based scaling policy.
+        """
+        return pulumi.get(self, "target_value")
+
+
+@pulumi.output_type
+class GameServerGroupInstanceDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "weightedCapacity":
+            suggest = "weighted_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameServerGroupInstanceDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameServerGroupInstanceDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameServerGroupInstanceDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: str,
+                 weighted_capacity: Optional[str] = None):
+        """
+        :param str instance_type: An EC2 instance type.
+        :param str weighted_capacity: Instance weighting that indicates how much this instance type contributes
+               to the total capacity of a game server group.
+               Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
+               the most cost-effective options.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        An EC2 instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="weightedCapacity")
+    def weighted_capacity(self) -> Optional[str]:
+        """
+        Instance weighting that indicates how much this instance type contributes
+        to the total capacity of a game server group.
+        Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
+        the most cost-effective options.
+        """
+        return pulumi.get(self, "weighted_capacity")
+
+
+@pulumi.output_type
+class GameServerGroupLaunchTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str id: A unique identifier for an existing EC2 launch template.
+        :param str name: A readable identifier for an existing EC2 launch template.
+        :param str version: The version of the EC2 launch template to use. If none is set, the default is the first version created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        A unique identifier for an existing EC2 launch template.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        A readable identifier for an existing EC2 launch template.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version of the EC2 launch template to use. If none is set, the default is the first version created.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class GameSessionQueuePlayerLatencyPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -428,5 +668,76 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
         Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """
         return pulumi.get(self, "policy_duration_seconds")
+
+
+@pulumi.output_type
+class ScriptStorageLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "objectVersion":
+            suggest = "object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptStorageLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptStorageLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptStorageLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 key: str,
+                 role_arn: str,
+                 object_version: Optional[str] = None):
+        """
+        :param str bucket: Name of your S3 bucket.
+        :param str key: Name of the zip file containing your script files.
+        :param str role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+        :param str object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if object_version is not None:
+            pulumi.set(__self__, "object_version", object_version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        Name of your S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Name of the zip file containing your script files.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="objectVersion")
+    def object_version(self) -> Optional[str]:
+        """
+        A specific version of the file. If not set, the latest version of the file is retrieved.
+        """
+        return pulumi.get(self, "object_version")
 
 

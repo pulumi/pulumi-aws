@@ -371,13 +371,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tenancy { get; private set; } = null!;
 
         /// <summary>
-        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Output("userData")]
         public Output<string> UserData { get; private set; } = null!;
 
         /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Output("userDataBase64")]
         public Output<string> UserDataBase64 { get; private set; } = null!;
@@ -748,13 +748,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tenancy { get; set; }
 
         /// <summary>
-        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
         /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
@@ -1167,13 +1167,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tenancy { get; set; }
 
         /// <summary>
-        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
         /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }

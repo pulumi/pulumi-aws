@@ -28,7 +28,7 @@ namespace Pulumi.Aws.EcrPublic
     ///     {
     ///         var exampleRepository = new Aws.EcrPublic.Repository("exampleRepository", new Aws.EcrPublic.RepositoryArgs
     ///         {
-    ///             RepositoryName = "Example",
+    ///             RepositoryName = "example",
     ///         });
     ///         var exampleRepositoryPolicy = new Aws.EcrPublic.RepositoryPolicy("exampleRepositoryPolicy", new Aws.EcrPublic.RepositoryPolicyArgs
     ///         {

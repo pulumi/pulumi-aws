@@ -124,7 +124,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
-// 			RuntimeEnvironment:   pulumi.String("SQL-1.0"),
+// 			RuntimeEnvironment:   pulumi.String("SQL-1_0"),
 // 			ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
 // 			ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
 // 				ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{

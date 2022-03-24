@@ -74,7 +74,7 @@ class GetImageRecipeResult:
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Sequence['outputs.GetImageRecipeBlockDeviceMappingResult']:
         """
-        Set of objects with block device mappings for the the image recipe.
+        Set of objects with block device mappings for the image recipe.
         """
         return pulumi.get(self, "block_device_mappings")
 
@@ -130,7 +130,7 @@ class GetImageRecipeResult:
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> str:
         """
-        Platform of the image recipe.
+        Base image of the image recipe.
         """
         return pulumi.get(self, "parent_image")
 

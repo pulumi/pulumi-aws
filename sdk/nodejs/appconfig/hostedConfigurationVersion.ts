@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Provides an AppConfig Hosted Configuration Version resource.
  *
  * ## Example Usage
+ * ### Freeform
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -16,10 +17,51 @@ import * as utilities from "../utilities";
  * const example = new aws.appconfig.HostedConfigurationVersion("example", {
  *     applicationId: aws_appconfig_application.example.id,
  *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
- *     description: "Example Hosted Configuration Version",
+ *     description: "Example Freeform Hosted Configuration Version",
  *     contentType: "application/json",
  *     content: JSON.stringify({
  *         foo: "bar",
+ *         fruit: [
+ *             "apple",
+ *             "pear",
+ *             "orange",
+ *         ],
+ *         isThingEnabled: true,
+ *     }),
+ * });
+ * ```
+ * ### Feature Flags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appconfig.HostedConfigurationVersion("example", {
+ *     applicationId: aws_appconfig_application.example.id,
+ *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
+ *     description: "Example Freeform Hosted Configuration Version",
+ *     contentType: "application/json",
+ *     content: JSON.stringify({
+ *         flags: {
+ *             foo: {
+ *                 name: "foo",
+ *                 _deprecation: {
+ *                     status: "planned",
+ *                 },
+ *             },
+ *             bar: {
+ *                 name: "bar",
+ *             },
+ *         },
+ *         values: {
+ *             foo: {
+ *                 enabled: "true",
+ *             },
+ *             bar: {
+ *                 enabled: "true",
+ *             },
+ *         },
+ *         version: "1",
  *     }),
  * });
  * ```

@@ -156,7 +156,6 @@ export class Vpc extends pulumi.CustomResource {
     public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
-     * * ipv6CidrBlockNetworkBorderGroup - The Network Border Group Zone name
      */
     public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string>;
     /**
@@ -323,7 +322,6 @@ export interface VpcState {
     ipv4NetmaskLength?: pulumi.Input<number>;
     /**
      * The association ID for the IPv6 CIDR block.
-     * * ipv6CidrBlockNetworkBorderGroup - The Network Border Group Zone name
      */
     ipv6AssociationId?: pulumi.Input<string>;
     /**

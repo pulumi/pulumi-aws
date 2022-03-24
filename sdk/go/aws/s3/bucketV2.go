@@ -10,83 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a S3 bucket resource.
-//
-// > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
-//
-// ## Example Usage
-// ### Private Bucket w/ Tags
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Tags: pulumi.StringMap{
-// 				"Name":        pulumi.String("My bucket"),
-// 				"Environment": pulumi.String("Dev"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-// 			Bucket: bucketV2.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Static Website Hosting
-//
-// The `website` argument is read-only as of the last major version of the Provider.
-// See the `s3.BucketWebsiteConfigurationV2` resource for configuration details.
-//
-// ### Using CORS
-//
-// The `corsRule` argument is read-only as of the last major version of the Provider.
-// See the `s3.BucketCorsConfigurationV2` resource for configuration details.
-//
-// ### Using versioning
-//
-// The `versioning` argument is read-only as of the last major version of the Provider.
-// See the `s3.BucketVersioningV2` resource for configuration details.
-//
-// ### Enable Logging
-//
-// The `logging` argument is read-only as of the last major version of the Provider.
-// See the `s3.BucketLoggingV2` resource for configuration details.
-//
-// ### Using object lifecycle
-//
-// The `lifecycleRule` argument is read-only as of the last major version of the Provider.
-// See the `s3.BucketLifecycleConfigurationV2` resource for configuration details.
-//
-// ### Using replication configuration
-//
-// The `replicationConfiguration` argument is read-only as of the last major version of the Provider.
-// See the `s3.BucketReplicationConfig` resource for configuration details.
-//
-// ### Enable Default Server Side Encryption
-//
-// The `serverSideEncryptionConfiguration` argument is read-only as of the last major version of the Provider.
-// See the `s3.BucketServerSideEncryptionConfigurationV2` resource for configuration details.
-//
-// ### Using ACL policy grants
-//
-// The `acl` and `grant` arguments are read-only as of the last major version of the Provider.
-// See the `s3.BucketAclV2` resource for configuration details.
-//
 // ## Import
 //
 // S3 bucket can be imported using the `bucket`, e.g.,
@@ -135,8 +58,10 @@ type BucketV2 struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings BucketV2LoggingArrayOutput `pulumi:"loggings"`
-	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
 	ObjectLockConfiguration BucketV2ObjectLockConfigurationOutput `pulumi:"objectLockConfiguration"`
+	// Indicates whether this bucket has an Object Lock configuration enabled.
+	ObjectLockEnabled pulumi.BoolOutput `pulumi:"objectLockEnabled"`
 	// The [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -155,7 +80,7 @@ type BucketV2 struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations BucketV2ServerSideEncryptionConfigurationArrayOutput `pulumi:"serverSideEncryptionConfigurations"`
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -250,8 +175,10 @@ type bucketV2State struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings []BucketV2Logging `pulumi:"loggings"`
-	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
 	ObjectLockConfiguration *BucketV2ObjectLockConfiguration `pulumi:"objectLockConfiguration"`
+	// Indicates whether this bucket has an Object Lock configuration enabled.
+	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
 	// The [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -270,7 +197,7 @@ type bucketV2State struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations []BucketV2ServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfigurations"`
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -331,8 +258,10 @@ type BucketV2State struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings BucketV2LoggingArrayInput
-	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
 	ObjectLockConfiguration BucketV2ObjectLockConfigurationPtrInput
+	// Indicates whether this bucket has an Object Lock configuration enabled.
+	ObjectLockEnabled pulumi.BoolPtrInput
 	// The [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -351,7 +280,7 @@ type BucketV2State struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations BucketV2ServerSideEncryptionConfigurationArrayInput
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -388,9 +317,11 @@ type bucketV2Args struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
 	ObjectLockConfiguration *BucketV2ObjectLockConfiguration `pulumi:"objectLockConfiguration"`
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Indicates whether this bucket has an Object Lock configuration enabled.
+	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -406,9 +337,11 @@ type BucketV2Args struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
 	HostedZoneId pulumi.StringPtrInput
-	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
 	ObjectLockConfiguration BucketV2ObjectLockConfigurationPtrInput
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Indicates whether this bucket has an Object Lock configuration enabled.
+	ObjectLockEnabled pulumi.BoolPtrInput
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

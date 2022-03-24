@@ -10,78 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
-    /// Provides a S3 bucket resource.
-    /// 
-    /// &gt; This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
-    /// 
-    /// ## Example Usage
-    /// ### Private Bucket w/ Tags
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "My bucket" },
-    ///                 { "Environment", "Dev" },
-    ///             },
-    ///         });
-    ///         var example = new Aws.S3.BucketAclV2("example", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = bucketV2.Id,
-    ///             Acl = "private",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Static Website Hosting
-    /// 
-    /// The `website` argument is read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketWebsiteConfigurationV2` resource for configuration details.
-    /// 
-    /// ### Using CORS
-    /// 
-    /// The `cors_rule` argument is read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketCorsConfigurationV2` resource for configuration details.
-    /// 
-    /// ### Using versioning
-    /// 
-    /// The `versioning` argument is read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketVersioningV2` resource for configuration details.
-    /// 
-    /// ### Enable Logging
-    /// 
-    /// The `logging` argument is read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketLoggingV2` resource for configuration details.
-    /// 
-    /// ### Using object lifecycle
-    /// 
-    /// The `lifecycle_rule` argument is read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketLifecycleConfigurationV2` resource for configuration details.
-    /// 
-    /// ### Using replication configuration
-    /// 
-    /// The `replication_configuration` argument is read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketReplicationConfig` resource for configuration details.
-    /// 
-    /// ### Enable Default Server Side Encryption
-    /// 
-    /// The `server_side_encryption_configuration` argument is read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketServerSideEncryptionConfigurationV2` resource for configuration details.
-    /// 
-    /// ### Using ACL policy grants
-    /// 
-    /// The `acl` and `grant` arguments are read-only as of the last major version of the Provider.
-    /// See the `aws.s3.BucketAclV2` resource for configuration details.
-    /// 
     /// ## Import
     /// 
     /// S3 bucket can be imported using the `bucket`, e.g.,
@@ -172,10 +100,16 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableArray<Outputs.BucketV2Logging>> Loggings { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
         /// </summary>
         [Output("objectLockConfiguration")]
         public Output<Outputs.BucketV2ObjectLockConfiguration> ObjectLockConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this bucket has an Object Lock configuration enabled.
+        /// </summary>
+        [Output("objectLockEnabled")]
+        public Output<bool> ObjectLockEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
@@ -208,7 +142,7 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableArray<Outputs.BucketV2ServerSideEncryptionConfiguration>> ServerSideEncryptionConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -324,16 +258,22 @@ namespace Pulumi.Aws.S3
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
         /// </summary>
         [Input("objectLockConfiguration")]
         public Input<Inputs.BucketV2ObjectLockConfigurationArgs>? ObjectLockConfiguration { get; set; }
+
+        /// <summary>
+        /// Indicates whether this bucket has an Object Lock configuration enabled.
+        /// </summary>
+        [Input("objectLockEnabled")]
+        public Input<bool>? ObjectLockEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -455,10 +395,16 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
         /// </summary>
         [Input("objectLockConfiguration")]
         public Input<Inputs.BucketV2ObjectLockConfigurationGetArgs>? ObjectLockConfiguration { get; set; }
+
+        /// <summary>
+        /// Indicates whether this bucket has an Object Lock configuration enabled.
+        /// </summary>
+        [Input("objectLockEnabled")]
+        public Input<bool>? ObjectLockEnabled { get; set; }
 
         /// <summary>
         /// The [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
@@ -508,7 +454,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

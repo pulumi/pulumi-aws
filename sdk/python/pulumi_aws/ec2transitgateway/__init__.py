@@ -5,12 +5,22 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .connect import *
+from .connect_peer import *
+from .get_connect import *
+from .get_connect_peer import *
 from .get_direct_connect_gateway_attachment import *
+from .get_multicast_domain import *
 from .get_peering_attachment import *
 from .get_route_table import *
 from .get_transit_gateway import *
 from .get_vpc_attachment import *
+from .get_vpc_attachments import *
 from .get_vpn_attachment import *
+from .multicast_domain import *
+from .multicast_domain_association import *
+from .multicast_group_member import *
+from .multicast_group_source import *
 from .peering_attachment import *
 from .prefix_list_reference import *
 from .route import *

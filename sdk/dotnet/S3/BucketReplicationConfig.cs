@@ -12,6 +12,8 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an independent configuration resource for S3 bucket [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html).
     /// 
+    /// &gt; **NOTE:** S3 Buckets only support a single replication configuration. Declaring multiple `aws.s3.BucketReplicationConfig` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+    /// 
     /// ## Example Usage
     /// ### Using replication configuration
     /// 
@@ -115,6 +117,9 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             Bucket = sourceBucketV2.Id,
     ///             Acl = "private",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Central,
     ///         });
     ///         var sourceBucketVersioningV2 = new Aws.S3.BucketVersioningV2("sourceBucketVersioningV2", new Aws.S3.BucketVersioningV2Args
     ///         {
@@ -136,7 +141,10 @@ namespace Pulumi.Aws.S3
     ///                 new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
     ///                 {
     ///                     Id = "foobar",
-    ///                     Prefix = "foo",
+    ///                     Filter = new Aws.S3.Inputs.BucketReplicationConfigRuleFilterArgs
+    ///                     {
+    ///                         Prefix = "foo",
+    ///                     },
     ///                     Status = "Enabled",
     ///                     Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                     {
@@ -147,6 +155,7 @@ namespace Pulumi.Aws.S3
     ///             },
     ///         }, new CustomResourceOptions
     ///         {
+    ///             Provider = aws.Central,
     ///             DependsOn = 
     ///             {
     ///                 sourceBucketVersioningV2,
@@ -182,7 +191,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = west,
+    ///             Provider = aws.West,
     ///         });
     ///         var westBucketVersioningV2 = new Aws.S3.BucketVersioningV2("westBucketVersioningV2", new Aws.S3.BucketVersioningV2Args
     ///         {
@@ -193,7 +202,7 @@ namespace Pulumi.Aws.S3
     ///             },
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = west,
+    ///             Provider = aws.West,
     ///         });
     ///         var eastToWest = new Aws.S3.BucketReplicationConfig("eastToWest", new Aws.S3.BucketReplicationConfigArgs
     ///         {
@@ -204,7 +213,10 @@ namespace Pulumi.Aws.S3
     ///                 new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
     ///                 {
     ///                     Id = "foobar",
-    ///                     Prefix = "foo",
+    ///                     Filter = new Aws.S3.Inputs.BucketReplicationConfigRuleFilterArgs
+    ///                     {
+    ///                         Prefix = "foo",
+    ///                     },
     ///                     Status = "Enabled",
     ///                     Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                     {
@@ -229,7 +241,10 @@ namespace Pulumi.Aws.S3
     ///                 new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
     ///                 {
     ///                     Id = "foobar",
-    ///                     Prefix = "foo",
+    ///                     Filter = new Aws.S3.Inputs.BucketReplicationConfigRuleFilterArgs
+    ///                     {
+    ///                         Prefix = "foo",
+    ///                     },
     ///                     Status = "Enabled",
     ///                     Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                     {
@@ -240,6 +255,7 @@ namespace Pulumi.Aws.S3
     ///             },
     ///         }, new CustomResourceOptions
     ///         {
+    ///             Provider = aws.West,
     ///             DependsOn = 
     ///             {
     ///                 westBucketVersioningV2,
@@ -274,10 +290,17 @@ namespace Pulumi.Aws.S3
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// Set of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication documented below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketReplicationConfigRule>> Rules { get; private set; } = null!;
+
+        /// <summary>
+        /// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+        /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+        /// </summary>
+        [Output("token")]
+        public Output<string?> Token { get; private set; } = null!;
 
 
         /// <summary>
@@ -341,13 +364,20 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketReplicationConfigRuleArgs>? _rules;
 
         /// <summary>
-        /// Set of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication documented below.
         /// </summary>
         public InputList<Inputs.BucketReplicationConfigRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketReplicationConfigRuleArgs>());
             set => _rules = value;
         }
+
+        /// <summary>
+        /// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+        /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+        /// </summary>
+        [Input("token")]
+        public Input<string>? Token { get; set; }
 
         public BucketReplicationConfigArgs()
         {
@@ -372,13 +402,20 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketReplicationConfigRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Set of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication documented below.
         /// </summary>
         public InputList<Inputs.BucketReplicationConfigRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketReplicationConfigRuleGetArgs>());
             set => _rules = value;
         }
+
+        /// <summary>
+        /// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+        /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+        /// </summary>
+        [Input("token")]
+        public Input<string>? Token { get; set; }
 
         public BucketReplicationConfigState()
         {

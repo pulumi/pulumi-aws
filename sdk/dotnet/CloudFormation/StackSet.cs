@@ -142,6 +142,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<Outputs.StackSetAutoDeployment?> AutoDeployment { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Output("callAs")]
+        public Output<string?> CallAs { get; private set; } = null!;
+
+        /// <summary>
         /// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         /// </summary>
         [Output("capabilities")]
@@ -184,7 +190,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> StackSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -265,6 +271,12 @@ namespace Pulumi.Aws.CloudFormation
         [Input("autoDeployment")]
         public Input<Inputs.StackSetAutoDeploymentArgs>? AutoDeployment { get; set; }
 
+        /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Input("callAs")]
+        public Input<string>? CallAs { get; set; }
+
         [Input("capabilities")]
         private InputList<string>? _capabilities;
 
@@ -317,7 +329,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -361,6 +373,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("autoDeployment")]
         public Input<Inputs.StackSetAutoDeploymentGetArgs>? AutoDeployment { get; set; }
+
+        /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Input("callAs")]
+        public Input<string>? CallAs { get; set; }
 
         [Input("capabilities")]
         private InputList<string>? _capabilities;
@@ -420,7 +438,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

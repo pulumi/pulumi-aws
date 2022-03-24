@@ -91,26 +91,30 @@ type LookupTransitGatewayResult struct {
 	Arn string `pulumi:"arn"`
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId string `pulumi:"associationDefaultRouteTableId"`
-	// Whether resource attachment requests are automatically accepted.
+	// Whether resource attachment requests are automatically accepted
 	AutoAcceptSharedAttachments string `pulumi:"autoAcceptSharedAttachments"`
-	// Whether resource attachments are automatically associated with the default association route table.
+	// Whether resource attachments are automatically associated with the default association route table
 	DefaultRouteTableAssociation string `pulumi:"defaultRouteTableAssociation"`
-	// Whether resource attachments automatically propagate routes to the default propagation route table.
+	// Whether resource attachments automatically propagate routes to the default propagation route table
 	DefaultRouteTablePropagation string `pulumi:"defaultRouteTablePropagation"`
 	// Description of the EC2 Transit Gateway
 	Description string `pulumi:"description"`
-	// Whether DNS support is enabled.
+	// Whether DNS support is enabled
 	DnsSupport string                    `pulumi:"dnsSupport"`
 	Filters    []GetTransitGatewayFilter `pulumi:"filters"`
 	// EC2 Transit Gateway identifier
 	Id string `pulumi:"id"`
+	// Whether Multicast support is enabled
+	MulticastSupport string `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId string `pulumi:"ownerId"`
-	// Identifier of the default propagation route table.
+	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId string `pulumi:"propagationDefaultRouteTableId"`
 	// Key-value tags for the EC2 Transit Gateway
 	Tags map[string]string `pulumi:"tags"`
-	// Whether VPN Equal Cost Multipath Protocol support is enabled.
+	// The list of associated CIDR blocks
+	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
+	// Whether VPN Equal Cost Multipath Protocol support is enabled
 	VpnEcmpSupport string `pulumi:"vpnEcmpSupport"`
 }
 
@@ -167,17 +171,17 @@ func (o LookupTransitGatewayResultOutput) AssociationDefaultRouteTableId() pulum
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.AssociationDefaultRouteTableId }).(pulumi.StringOutput)
 }
 
-// Whether resource attachment requests are automatically accepted.
+// Whether resource attachment requests are automatically accepted
 func (o LookupTransitGatewayResultOutput) AutoAcceptSharedAttachments() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.AutoAcceptSharedAttachments }).(pulumi.StringOutput)
 }
 
-// Whether resource attachments are automatically associated with the default association route table.
+// Whether resource attachments are automatically associated with the default association route table
 func (o LookupTransitGatewayResultOutput) DefaultRouteTableAssociation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.DefaultRouteTableAssociation }).(pulumi.StringOutput)
 }
 
-// Whether resource attachments automatically propagate routes to the default propagation route table.
+// Whether resource attachments automatically propagate routes to the default propagation route table
 func (o LookupTransitGatewayResultOutput) DefaultRouteTablePropagation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.DefaultRouteTablePropagation }).(pulumi.StringOutput)
 }
@@ -187,7 +191,7 @@ func (o LookupTransitGatewayResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Whether DNS support is enabled.
+// Whether DNS support is enabled
 func (o LookupTransitGatewayResultOutput) DnsSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.DnsSupport }).(pulumi.StringOutput)
 }
@@ -201,12 +205,17 @@ func (o LookupTransitGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Whether Multicast support is enabled
+func (o LookupTransitGatewayResultOutput) MulticastSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.MulticastSupport }).(pulumi.StringOutput)
+}
+
 // Identifier of the AWS account that owns the EC2 Transit Gateway
 func (o LookupTransitGatewayResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Identifier of the default propagation route table.
+// Identifier of the default propagation route table
 func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
 }
@@ -216,7 +225,12 @@ func (o LookupTransitGatewayResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Whether VPN Equal Cost Multipath Protocol support is enabled.
+// The list of associated CIDR blocks
+func (o LookupTransitGatewayResultOutput) TransitGatewayCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) []string { return v.TransitGatewayCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// Whether VPN Equal Cost Multipath Protocol support is enabled
 func (o LookupTransitGatewayResultOutput) VpnEcmpSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.VpnEcmpSupport }).(pulumi.StringOutput)
 }

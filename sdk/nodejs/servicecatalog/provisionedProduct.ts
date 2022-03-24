@@ -117,6 +117,10 @@ export class ProvisionedProduct extends pulumi.CustomResource {
      */
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
+     * The set of outputs for the product created.
+     */
+    public /*out*/ readonly outputs!: pulumi.Output<outputs.servicecatalog.ProvisionedProductOutput[]>;
+    /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */
     public readonly pathId!: pulumi.Output<string>;
@@ -197,6 +201,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["launchRoleArn"] = state ? state.launchRoleArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationArns"] = state ? state.notificationArns : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
             resourceInputs["pathId"] = state ? state.pathId : undefined;
             resourceInputs["pathName"] = state ? state.pathName : undefined;
             resourceInputs["productId"] = state ? state.productId : undefined;
@@ -234,6 +239,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["lastRecordId"] = undefined /*out*/;
             resourceInputs["lastSuccessfulProvisioningRecordId"] = undefined /*out*/;
             resourceInputs["launchRoleArn"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -292,6 +298,10 @@ export interface ProvisionedProductState {
      * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
      */
     notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The set of outputs for the product created.
+     */
+    outputs?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductOutput>[]>;
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */

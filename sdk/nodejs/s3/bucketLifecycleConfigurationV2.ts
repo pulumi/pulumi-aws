@@ -6,120 +6,15 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
- *     bucket: bucket.id,
- *     acl: "private",
- * });
- * const bucket_config = new aws.s3.BucketLifecycleConfigurationV2("bucket-config", {
- *     bucket: bucket.bucket,
- *     rules: [
- *         {
- *             id: "log",
- *             expiration: {
- *                 days: 90,
- *             },
- *             filter: {
- *                 and: {
- *                     prefix: "log/",
- *                     tags: {
- *                         rule: "log",
- *                         autoclean: "true",
- *                     },
- *                 },
- *             },
- *             status: "Enabled",
- *             transitions: [
- *                 {
- *                     days: 30,
- *                     storageClass: "STANDARD_IA",
- *                 },
- *                 {
- *                     days: 60,
- *                     storageClass: "GLACIER",
- *                 },
- *             ],
- *         },
- *         {
- *             id: "tmp",
- *             filter: {
- *                 prefix: "tmp/",
- *             },
- *             expiration: {
- *                 date: "2023-01-13T00:00:00Z",
- *             },
- *             status: "Enabled",
- *         },
- *     ],
- * });
- * const versioningBucket = new aws.s3.BucketV2("versioningBucket", {});
- * const versioningBucketAcl = new aws.s3.BucketAclV2("versioningBucketAcl", {
- *     bucket: versioningBucket.id,
- *     acl: "private",
- * });
- * const versioning = new aws.s3.BucketVersioningV2("versioning", {
- *     bucket: versioningBucket.id,
- *     versioningConfiguration: {
- *         status: "Enabled",
- *     },
- * });
- * const versioning_bucket_config = new aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config", {
- *     bucket: versioningBucket.bucket,
- *     rules: [{
- *         id: "config",
- *         filter: {
- *             prefix: "config/",
- *         },
- *         noncurrentVersionExpiration: {
- *             noncurrentDays: 90,
- *         },
- *         noncurrentVersionTransitions: [
- *             {
- *                 noncurrentDays: 30,
- *                 storageClass: "STANDARD_IA",
- *             },
- *             {
- *                 noncurrentDays: 60,
- *                 storageClass: "GLACIER",
- *             },
- *         ],
- *         status: "Enabled",
- *     }],
- * }, {
- *     dependsOn: [versioning],
- * });
- * ```
- * ## Usage Notes
- *
- * > **NOTE:** To avoid conflicts always add the following lifecycle object to the `aws.s3.BucketV2` resource of the source bucket.
- *
- * This resource implements the same features that are provided by the `lifecycleRule` object of the `aws.s3.BucketV2` resource. To avoid conflicts or unexpected apply results, a lifecycle configuration is needed on the `aws.s3.BucketV2` to ignore changes to the internal `lifecycleRule` object.  Failure to add the `lifecycle` configuration to the `aws.s3.BucketV2` will result in conflicting state results.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * The `aws.s3.BucketLifecycleConfigurationV2` resource provides the following features that are not available in the `aws.s3.BucketV2` resource:
- *
- * * `filter` - Added to the `rule` configuration block documented below.
- *
  * ## Import
  *
- * S3 bucket lifecycle configuration can be imported using the `bucket`, e.g.
+ * S3 bucket lifecycle configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
  * ```
  *
- *  In addition, S3 bucket lifecycle configuration can be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012

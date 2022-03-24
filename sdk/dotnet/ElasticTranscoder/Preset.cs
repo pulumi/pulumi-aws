@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// Codec options for the audio parameters (documented below)
         /// </summary>
         [Output("audioCodecOptions")]
-        public Output<Outputs.PresetAudioCodecOptions?> AudioCodecOptions { get; private set; } = null!;
+        public Output<Outputs.PresetAudioCodecOptions> AudioCodecOptions { get; private set; } = null!;
 
         /// <summary>
         /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.

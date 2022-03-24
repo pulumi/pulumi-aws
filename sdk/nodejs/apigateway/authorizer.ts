@@ -110,6 +110,10 @@ export class Authorizer extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the API Gateway Authorizer
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */
     public readonly authorizerCredentials!: pulumi.Output<string | undefined>;
@@ -160,6 +164,7 @@ export class Authorizer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
             resourceInputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
             resourceInputs["authorizerUri"] = state ? state.authorizerUri : undefined;
@@ -183,6 +188,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["providerArns"] = args ? args.providerArns : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Authorizer.__pulumiType, name, resourceInputs, opts);
@@ -193,6 +199,10 @@ export class Authorizer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Authorizer resources.
  */
 export interface AuthorizerState {
+    /**
+     * Amazon Resource Name (ARN) of the API Gateway Authorizer
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */

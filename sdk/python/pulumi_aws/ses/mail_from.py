@@ -18,7 +18,7 @@ class MailFromArgs:
                  behavior_on_mx_failure: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MailFrom resource.
-        :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
+        :param pulumi.Input[str] domain: Verified domain name or email identity to generate DKIM tokens for.
         :param pulumi.Input[str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         :param pulumi.Input[str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         """
@@ -31,7 +31,7 @@ class MailFromArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
         """
-        Verified domain name to generate DKIM tokens for.
+        Verified domain name or email identity to generate DKIM tokens for.
         """
         return pulumi.get(self, "domain")
 
@@ -73,7 +73,7 @@ class _MailFromState:
         """
         Input properties used for looking up and filtering MailFrom resources.
         :param pulumi.Input[str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-        :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
+        :param pulumi.Input[str] domain: Verified domain name or email identity to generate DKIM tokens for.
         :param pulumi.Input[str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         """
         if behavior_on_mx_failure is not None:
@@ -99,7 +99,7 @@ class _MailFromState:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        Verified domain name to generate DKIM tokens for.
+        Verified domain name or email identity to generate DKIM tokens for.
         """
         return pulumi.get(self, "domain")
 
@@ -132,9 +132,10 @@ class MailFrom(pulumi.CustomResource):
         """
         Provides an SES domain MAIL FROM resource.
 
-        > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the `ses.DomainIdentity` resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+        > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
+        ### Domain Identity MAIL FROM
 
         ```python
         import pulumi
@@ -160,6 +161,18 @@ class MailFrom(pulumi.CustomResource):
             type="TXT",
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
+        ```
+        ### Email Identity MAIL FROM
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Example SES Email Identity
+        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
+        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+            domain=example_email_identity.email,
+            mail_from_domain="mail.example.com")
         ```
 
         ## Import
@@ -173,7 +186,7 @@ class MailFrom(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-        :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
+        :param pulumi.Input[str] domain: Verified domain name or email identity to generate DKIM tokens for.
         :param pulumi.Input[str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         """
         ...
@@ -185,9 +198,10 @@ class MailFrom(pulumi.CustomResource):
         """
         Provides an SES domain MAIL FROM resource.
 
-        > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the `ses.DomainIdentity` resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+        > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
+        ### Domain Identity MAIL FROM
 
         ```python
         import pulumi
@@ -213,6 +227,18 @@ class MailFrom(pulumi.CustomResource):
             type="TXT",
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
+        ```
+        ### Email Identity MAIL FROM
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Example SES Email Identity
+        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
+        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+            domain=example_email_identity.email,
+            mail_from_domain="mail.example.com")
         ```
 
         ## Import
@@ -281,7 +307,7 @@ class MailFrom(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-        :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
+        :param pulumi.Input[str] domain: Verified domain name or email identity to generate DKIM tokens for.
         :param pulumi.Input[str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -305,7 +331,7 @@ class MailFrom(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
         """
-        Verified domain name to generate DKIM tokens for.
+        Verified domain name or email identity to generate DKIM tokens for.
         """
         return pulumi.get(self, "domain")
 

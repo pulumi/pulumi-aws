@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .application import *
 from .custom_layer import *
+from .ecs_cluster_layer import *
 from .ganglia_layer import *
 from .haproxy_layer import *
 from .instance import *

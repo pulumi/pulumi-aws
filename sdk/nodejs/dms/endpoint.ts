@@ -71,31 +71,31 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      */
     public readonly certificateArn!: pulumi.Output<string>;
     /**
-     * The name of the endpoint database.
+     * Name of the endpoint database.
      */
     public readonly databaseName!: pulumi.Output<string | undefined>;
     /**
-     * Configuration block with Elasticsearch settings. Detailed below.
+     * Configuration block for OpenSearch settings. See below.
      */
     public readonly elasticsearchSettings!: pulumi.Output<outputs.dms.EndpointElasticsearchSettings | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the endpoint.
+     * ARN for the endpoint.
      */
     public /*out*/ readonly endpointArn!: pulumi.Output<string>;
     /**
-     * The database endpoint identifier.
+     * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
     public readonly endpointId!: pulumi.Output<string>;
     /**
-     * The type of endpoint. Can be one of `source | target`.
+     * Type of endpoint. Valid values are `source`, `target`.
      */
     public readonly endpointType!: pulumi.Output<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
      */
     public readonly engineName!: pulumi.Output<string>;
     /**
@@ -103,63 +103,63 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly extraConnectionAttributes!: pulumi.Output<string>;
     /**
-     * Configuration block with Kafka settings. Detailed below.
+     * Configuration block for Kafka settings. See below.
      */
     public readonly kafkaSettings!: pulumi.Output<outputs.dms.EndpointKafkaSettings | undefined>;
     /**
-     * Configuration block with Kinesis settings. Detailed below.
+     * Configuration block for Kinesis settings. See below.
      */
     public readonly kinesisSettings!: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
-     * Configuration block with MongoDB settings. Detailed below.
+     * Configuration block for MongoDB settings. See below.
      */
     public readonly mongodbSettings!: pulumi.Output<outputs.dms.EndpointMongodbSettings | undefined>;
     /**
-     * The password to be used to login to the endpoint database.
+     * Password to be used to login to the endpoint database.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * The port used by the endpoint database.
+     * Port used by the endpoint database.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * Configuration block with S3 settings. Detailed below.
+     * Configuration block for S3 settings. See below.
      */
     public readonly s3Settings!: pulumi.Output<outputs.dms.EndpointS3Settings | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
      */
     public readonly secretsManagerAccessRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
      */
     public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
     /**
-     * The host name of the server.
+     * Host name of the server.
      */
     public readonly serverName!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for dynamodb endpoints.
      */
     public readonly serviceAccessRole!: pulumi.Output<string | undefined>;
     /**
-     * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
+     * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      */
     public readonly sslMode!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The user name to be used to login to the endpoint database.
+     * User name to be used to login to the endpoint database.
      */
     public readonly username!: pulumi.Output<string | undefined>;
 
@@ -244,31 +244,31 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      */
     certificateArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint database.
+     * Name of the endpoint database.
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * Configuration block with Elasticsearch settings. Detailed below.
+     * Configuration block for OpenSearch settings. See below.
      */
     elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings>;
     /**
-     * The Amazon Resource Name (ARN) for the endpoint.
+     * ARN for the endpoint.
      */
     endpointArn?: pulumi.Input<string>;
     /**
-     * The database endpoint identifier.
+     * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
     endpointId?: pulumi.Input<string>;
     /**
-     * The type of endpoint. Can be one of `source | target`.
+     * Type of endpoint. Valid values are `source`, `target`.
      */
     endpointType?: pulumi.Input<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
      */
     engineName?: pulumi.Input<string>;
     /**
@@ -276,63 +276,63 @@ export interface EndpointState {
      */
     extraConnectionAttributes?: pulumi.Input<string>;
     /**
-     * Configuration block with Kafka settings. Detailed below.
+     * Configuration block for Kafka settings. See below.
      */
     kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings>;
     /**
-     * Configuration block with Kinesis settings. Detailed below.
+     * Configuration block for Kinesis settings. See below.
      */
     kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Configuration block with MongoDB settings. Detailed below.
+     * Configuration block for MongoDB settings. See below.
      */
     mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
     /**
-     * The password to be used to login to the endpoint database.
+     * Password to be used to login to the endpoint database.
      */
     password?: pulumi.Input<string>;
     /**
-     * The port used by the endpoint database.
+     * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
     /**
-     * Configuration block with S3 settings. Detailed below.
+     * Configuration block for S3 settings. See below.
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
-     * The host name of the server.
+     * Host name of the server.
      */
     serverName?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for dynamodb endpoints.
      */
     serviceAccessRole?: pulumi.Input<string>;
     /**
-     * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
+     * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      */
     sslMode?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The user name to be used to login to the endpoint database.
+     * User name to be used to login to the endpoint database.
      */
     username?: pulumi.Input<string>;
 }
@@ -342,27 +342,27 @@ export interface EndpointState {
  */
 export interface EndpointArgs {
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      */
     certificateArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint database.
+     * Name of the endpoint database.
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * Configuration block with Elasticsearch settings. Detailed below.
+     * Configuration block for OpenSearch settings. See below.
      */
     elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings>;
     /**
-     * The database endpoint identifier.
+     * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
     endpointId: pulumi.Input<string>;
     /**
-     * The type of endpoint. Can be one of `source | target`.
+     * Type of endpoint. Valid values are `source`, `target`.
      */
     endpointType: pulumi.Input<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
      */
     engineName: pulumi.Input<string>;
     /**
@@ -370,59 +370,59 @@ export interface EndpointArgs {
      */
     extraConnectionAttributes?: pulumi.Input<string>;
     /**
-     * Configuration block with Kafka settings. Detailed below.
+     * Configuration block for Kafka settings. See below.
      */
     kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings>;
     /**
-     * Configuration block with Kinesis settings. Detailed below.
+     * Configuration block for Kinesis settings. See below.
      */
     kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Configuration block with MongoDB settings. Detailed below.
+     * Configuration block for MongoDB settings. See below.
      */
     mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
     /**
-     * The password to be used to login to the endpoint database.
+     * Password to be used to login to the endpoint database.
      */
     password?: pulumi.Input<string>;
     /**
-     * The port used by the endpoint database.
+     * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
     /**
-     * Configuration block with S3 settings. Detailed below.
+     * Configuration block for S3 settings. See below.
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
-     * The host name of the server.
+     * Host name of the server.
      */
     serverName?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for dynamodb endpoints.
      */
     serviceAccessRole?: pulumi.Input<string>;
     /**
-     * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
+     * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      */
     sslMode?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The user name to be used to login to the endpoint database.
+     * User name to be used to login to the endpoint database.
      */
     username?: pulumi.Input<string>;
 }

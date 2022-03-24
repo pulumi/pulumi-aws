@@ -216,6 +216,10 @@ type Server struct {
 	InvocationRole pulumi.StringPtrOutput `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
+	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+	PostAuthenticationLoginBanner pulumi.StringPtrOutput `pulumi:"postAuthenticationLoginBanner"`
+	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+	PreAuthenticationLoginBanner pulumi.StringPtrOutput `pulumi:"preAuthenticationLoginBanner"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `SFTP`: File transfer over SSH
 	// * `FTPS`: File transfer with TLS encryption
@@ -288,6 +292,10 @@ type serverState struct {
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+	PostAuthenticationLoginBanner *string `pulumi:"postAuthenticationLoginBanner"`
+	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+	PreAuthenticationLoginBanner *string `pulumi:"preAuthenticationLoginBanner"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `SFTP`: File transfer over SSH
 	// * `FTPS`: File transfer with TLS encryption
@@ -332,6 +340,10 @@ type ServerState struct {
 	InvocationRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
+	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+	PostAuthenticationLoginBanner pulumi.StringPtrInput
+	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+	PreAuthenticationLoginBanner pulumi.StringPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `SFTP`: File transfer over SSH
 	// * `FTPS`: File transfer with TLS encryption
@@ -374,6 +386,10 @@ type serverArgs struct {
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+	PostAuthenticationLoginBanner *string `pulumi:"postAuthenticationLoginBanner"`
+	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+	PreAuthenticationLoginBanner *string `pulumi:"preAuthenticationLoginBanner"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `SFTP`: File transfer over SSH
 	// * `FTPS`: File transfer with TLS encryption
@@ -411,6 +427,10 @@ type ServerArgs struct {
 	InvocationRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
+	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
+	PostAuthenticationLoginBanner pulumi.StringPtrInput
+	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
+	PreAuthenticationLoginBanner pulumi.StringPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	// * `SFTP`: File transfer over SSH
 	// * `FTPS`: File transfer with TLS encryption

@@ -16,17 +16,18 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string AssociateCarrierIpAddress;
         public readonly bool? AssociatePublicIpAddress;
         public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// Description of the launch template.
-        /// </summary>
         public readonly string Description;
         public readonly int DeviceIndex;
         public readonly string InterfaceType;
         public readonly int Ipv4AddressCount;
         public readonly ImmutableArray<string> Ipv4Addresses;
+        public readonly int Ipv4PrefixCount;
+        public readonly ImmutableArray<string> Ipv4Prefixes;
         public readonly int Ipv6AddressCount;
         public readonly ImmutableArray<string> Ipv6Addresses;
-        public readonly int? NetworkCardIndex;
+        public readonly int Ipv6PrefixCount;
+        public readonly ImmutableArray<string> Ipv6Prefixes;
+        public readonly int NetworkCardIndex;
         public readonly string NetworkInterfaceId;
         public readonly string PrivateIpAddress;
         public readonly ImmutableArray<string> SecurityGroups;
@@ -50,11 +51,19 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> ipv4Addresses,
 
+            int ipv4PrefixCount,
+
+            ImmutableArray<string> ipv4Prefixes,
+
             int ipv6AddressCount,
 
             ImmutableArray<string> ipv6Addresses,
 
-            int? networkCardIndex,
+            int ipv6PrefixCount,
+
+            ImmutableArray<string> ipv6Prefixes,
+
+            int networkCardIndex,
 
             string networkInterfaceId,
 
@@ -72,8 +81,12 @@ namespace Pulumi.Aws.Ec2.Outputs
             InterfaceType = interfaceType;
             Ipv4AddressCount = ipv4AddressCount;
             Ipv4Addresses = ipv4Addresses;
+            Ipv4PrefixCount = ipv4PrefixCount;
+            Ipv4Prefixes = ipv4Prefixes;
             Ipv6AddressCount = ipv6AddressCount;
             Ipv6Addresses = ipv6Addresses;
+            Ipv6PrefixCount = ipv6PrefixCount;
+            Ipv6Prefixes = ipv6Prefixes;
             NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
             PrivateIpAddress = privateIpAddress;

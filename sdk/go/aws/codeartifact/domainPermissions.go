@@ -35,7 +35,7 @@ import (
 // 			return err
 // 		}
 // 		exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
-// 			Domain:        pulumi.String("example.com"),
+// 			Domain:        pulumi.String("example"),
 // 			EncryptionKey: exampleKey.Arn,
 // 		})
 // 		if err != nil {

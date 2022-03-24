@@ -106,7 +106,7 @@ type Preset struct {
 	// Audio parameters object (documented below).
 	Audio PresetAudioPtrOutput `pulumi:"audio"`
 	// Codec options for the audio parameters (documented below)
-	AudioCodecOptions PresetAudioCodecOptionsPtrOutput `pulumi:"audioCodecOptions"`
+	AudioCodecOptions PresetAudioCodecOptionsOutput `pulumi:"audioCodecOptions"`
 	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
 	Container pulumi.StringOutput `pulumi:"container"`
 	// A description of the preset (maximum 255 characters)

@@ -86,6 +86,8 @@ type ProvisionedProduct struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
+	// The set of outputs for the product created.
+	Outputs ProvisionedProductOutputTypeArrayOutput `pulumi:"outputs"`
 	// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
 	PathId pulumi.StringOutput `pulumi:"pathId"`
 	// Name of the path. You must provide `pathId` or `pathName`, but not both.
@@ -167,6 +169,8 @@ type provisionedProductState struct {
 	Name *string `pulumi:"name"`
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns []string `pulumi:"notificationArns"`
+	// The set of outputs for the product created.
+	Outputs []ProvisionedProductOutputType `pulumi:"outputs"`
 	// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
 	PathId *string `pulumi:"pathId"`
 	// Name of the path. You must provide `pathId` or `pathName`, but not both.
@@ -220,6 +224,8 @@ type ProvisionedProductState struct {
 	Name pulumi.StringPtrInput
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns pulumi.StringArrayInput
+	// The set of outputs for the product created.
+	Outputs ProvisionedProductOutputTypeArrayInput
 	// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
 	PathId pulumi.StringPtrInput
 	// Name of the path. You must provide `pathId` or `pathName`, but not both.

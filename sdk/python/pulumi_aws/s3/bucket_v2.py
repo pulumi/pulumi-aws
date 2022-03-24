@@ -21,6 +21,7 @@ class BucketV2Args:
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  object_lock_configuration: Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']] = None,
+                 object_lock_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BucketV2 resource.
@@ -29,8 +30,9 @@ class BucketV2Args:
         :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -44,6 +46,8 @@ class BucketV2Args:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if object_lock_configuration is not None:
             pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+        if object_lock_enabled is not None:
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -111,7 +115,7 @@ class BucketV2Args:
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
         """
-        A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
         """
         return pulumi.get(self, "object_lock_configuration")
 
@@ -120,10 +124,22 @@ class BucketV2Args:
         pulumi.set(self, "object_lock_configuration", value)
 
     @property
+    @pulumi.getter(name="objectLockEnabled")
+    def object_lock_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled.
+        """
+        return pulumi.get(self, "object_lock_enabled")
+
+    @object_lock_enabled.setter
+    def object_lock_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "object_lock_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -149,6 +165,7 @@ class _BucketV2State:
                  lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]]] = None,
                  loggings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]]] = None,
                  object_lock_configuration: Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']] = None,
+                 object_lock_enabled: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  replication_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]]] = None,
@@ -175,13 +192,14 @@ class _BucketV2State:
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html).
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]] loggings: The [logging parameters](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) for the bucket.
-        :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
         :param pulumi.Input[str] policy: The [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         :param pulumi.Input[str] region: The AWS region this bucket resides in.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]] replication_configurations: The [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html).
         :param pulumi.Input[str] request_payer: Either `BucketOwner` or `Requester` that pays for the download and request fees.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]] server_side_encryption_configurations: The [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: The [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) state of the bucket.
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
@@ -234,6 +252,8 @@ class _BucketV2State:
             pulumi.set(__self__, "loggings", loggings)
         if object_lock_configuration is not None:
             pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+        if object_lock_enabled is not None:
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if policy is not None:
             warnings.warn("""Use the aws_s3_bucket_policy resource instead""", DeprecationWarning)
             pulumi.log.warn("""policy is deprecated: Use the aws_s3_bucket_policy resource instead""")
@@ -441,13 +461,25 @@ class _BucketV2State:
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
         """
-        A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
         """
         return pulumi.get(self, "object_lock_configuration")
 
     @object_lock_configuration.setter
     def object_lock_configuration(self, value: Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]):
         pulumi.set(self, "object_lock_configuration", value)
+
+    @property
+    @pulumi.getter(name="objectLockEnabled")
+    def object_lock_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled.
+        """
+        return pulumi.get(self, "object_lock_enabled")
+
+    @object_lock_enabled.setter
+    def object_lock_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "object_lock_enabled", value)
 
     @property
     @pulumi.getter
@@ -513,7 +545,7 @@ class _BucketV2State:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -593,68 +625,10 @@ class BucketV2(pulumi.CustomResource):
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  object_lock_configuration: Optional[pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']]] = None,
+                 object_lock_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a S3 bucket resource.
-
-        > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
-
-        ## Example Usage
-        ### Private Bucket w/ Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-            "Environment": "Dev",
-        })
-        example = aws.s3.BucketAclV2("example",
-            bucket=bucket_v2.id,
-            acl="private")
-        ```
-        ### Static Website Hosting
-
-        The `website` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketWebsiteConfigurationV2` resource for configuration details.
-
-        ### Using CORS
-
-        The `cors_rule` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketCorsConfigurationV2` resource for configuration details.
-
-        ### Using versioning
-
-        The `versioning` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketVersioningV2` resource for configuration details.
-
-        ### Enable Logging
-
-        The `logging` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketLoggingV2` resource for configuration details.
-
-        ### Using object lifecycle
-
-        The `lifecycle_rule` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketLifecycleConfigurationV2` resource for configuration details.
-
-        ### Using replication configuration
-
-        The `replication_configuration` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketReplicationConfig` resource for configuration details.
-
-        ### Enable Default Server Side Encryption
-
-        The `server_side_encryption_configuration` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketServerSideEncryptionConfigurationV2` resource for configuration details.
-
-        ### Using ACL policy grants
-
-        The `acl` and `grant` arguments are read-only as of the last major version of the Provider.
-        See the `s3.BucketAclV2` resource for configuration details.
-
         ## Import
 
         S3 bucket can be imported using the `bucket`, e.g.,
@@ -670,8 +644,9 @@ class BucketV2(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        :param pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -680,65 +655,6 @@ class BucketV2(pulumi.CustomResource):
                  args: Optional[BucketV2Args] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a S3 bucket resource.
-
-        > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
-
-        ## Example Usage
-        ### Private Bucket w/ Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-            "Environment": "Dev",
-        })
-        example = aws.s3.BucketAclV2("example",
-            bucket=bucket_v2.id,
-            acl="private")
-        ```
-        ### Static Website Hosting
-
-        The `website` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketWebsiteConfigurationV2` resource for configuration details.
-
-        ### Using CORS
-
-        The `cors_rule` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketCorsConfigurationV2` resource for configuration details.
-
-        ### Using versioning
-
-        The `versioning` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketVersioningV2` resource for configuration details.
-
-        ### Enable Logging
-
-        The `logging` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketLoggingV2` resource for configuration details.
-
-        ### Using object lifecycle
-
-        The `lifecycle_rule` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketLifecycleConfigurationV2` resource for configuration details.
-
-        ### Using replication configuration
-
-        The `replication_configuration` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketReplicationConfig` resource for configuration details.
-
-        ### Enable Default Server Side Encryption
-
-        The `server_side_encryption_configuration` argument is read-only as of the last major version of the Provider.
-        See the `s3.BucketServerSideEncryptionConfigurationV2` resource for configuration details.
-
-        ### Using ACL policy grants
-
-        The `acl` and `grant` arguments are read-only as of the last major version of the Provider.
-        See the `s3.BucketAclV2` resource for configuration details.
-
         ## Import
 
         S3 bucket can be imported using the `bucket`, e.g.,
@@ -768,6 +684,7 @@ class BucketV2(pulumi.CustomResource):
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  object_lock_configuration: Optional[pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']]] = None,
+                 object_lock_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -787,6 +704,7 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
+            __props__.__dict__["object_lock_enabled"] = object_lock_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["acceleration_status"] = None
             __props__.__dict__["acl"] = None
@@ -832,6 +750,7 @@ class BucketV2(pulumi.CustomResource):
             lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2LifecycleRuleArgs']]]]] = None,
             loggings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2LoggingArgs']]]]] = None,
             object_lock_configuration: Optional[pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']]] = None,
+            object_lock_enabled: Optional[pulumi.Input[bool]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
             replication_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ReplicationConfigurationArgs']]]]] = None,
@@ -863,13 +782,14 @@ class BucketV2(pulumi.CustomResource):
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2LifecycleRuleArgs']]]] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2LoggingArgs']]]] loggings: The [logging parameters](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) for the bucket.
-        :param pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        :param pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
         :param pulumi.Input[str] policy: The [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         :param pulumi.Input[str] region: The AWS region this bucket resides in.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ReplicationConfigurationArgs']]]] replication_configurations: The [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html).
         :param pulumi.Input[str] request_payer: Either `BucketOwner` or `Requester` that pays for the download and request fees.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ServerSideEncryptionConfigurationArgs']]]] server_side_encryption_configurations: The [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]] versionings: The [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) state of the bucket.
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
@@ -894,6 +814,7 @@ class BucketV2(pulumi.CustomResource):
         __props__.__dict__["lifecycle_rules"] = lifecycle_rules
         __props__.__dict__["loggings"] = loggings
         __props__.__dict__["object_lock_configuration"] = object_lock_configuration
+        __props__.__dict__["object_lock_enabled"] = object_lock_enabled
         __props__.__dict__["policy"] = policy
         __props__.__dict__["region"] = region
         __props__.__dict__["replication_configurations"] = replication_configurations
@@ -1015,9 +936,17 @@ class BucketV2(pulumi.CustomResource):
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> pulumi.Output['outputs.BucketV2ObjectLockConfiguration']:
         """
-        A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below.
         """
         return pulumi.get(self, "object_lock_configuration")
+
+    @property
+    @pulumi.getter(name="objectLockEnabled")
+    def object_lock_enabled(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled.
+        """
+        return pulumi.get(self, "object_lock_enabled")
 
     @property
     @pulumi.getter
@@ -1063,7 +992,7 @@ class BucketV2(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

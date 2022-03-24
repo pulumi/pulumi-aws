@@ -60,7 +60,8 @@ type TransitGateway struct {
 	// Description of the EC2 Transit Gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
+	DnsSupport       pulumi.StringPtrOutput `pulumi:"dnsSupport"`
+	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
@@ -69,6 +70,8 @@ type TransitGateway struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+	TransitGatewayCidrBlocks pulumi.StringArrayOutput `pulumi:"transitGatewayCidrBlocks"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrOutput `pulumi:"vpnEcmpSupport"`
 }
@@ -117,7 +120,8 @@ type transitGatewayState struct {
 	// Description of the EC2 Transit Gateway.
 	Description *string `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport *string `pulumi:"dnsSupport"`
+	DnsSupport       *string `pulumi:"dnsSupport"`
+	MulticastSupport *string `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId *string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
@@ -126,6 +130,8 @@ type transitGatewayState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
@@ -146,7 +152,8 @@ type TransitGatewayState struct {
 	// Description of the EC2 Transit Gateway.
 	Description pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport pulumi.StringPtrInput
+	DnsSupport       pulumi.StringPtrInput
+	MulticastSupport pulumi.StringPtrInput
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId pulumi.StringPtrInput
 	// Identifier of the default propagation route table
@@ -155,6 +162,8 @@ type TransitGatewayState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+	TransitGatewayCidrBlocks pulumi.StringArrayInput
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrInput
 }
@@ -175,9 +184,12 @@ type transitGatewayArgs struct {
 	// Description of the EC2 Transit Gateway.
 	Description *string `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport *string `pulumi:"dnsSupport"`
+	DnsSupport       *string `pulumi:"dnsSupport"`
+	MulticastSupport *string `pulumi:"multicastSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
@@ -195,9 +207,12 @@ type TransitGatewayArgs struct {
 	// Description of the EC2 Transit Gateway.
 	Description pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport pulumi.StringPtrInput
+	DnsSupport       pulumi.StringPtrInput
+	MulticastSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+	TransitGatewayCidrBlocks pulumi.StringArrayInput
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrInput
 }

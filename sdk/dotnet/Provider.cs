@@ -25,6 +25,13 @@ namespace Pulumi.Aws
         public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+        /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// </summary>
+        [Output("customCaBundle")]
+        public Output<string?> CustomCaBundle { get; private set; } = null!;
+
+        /// <summary>
         /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
         /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         /// </summary>
@@ -68,6 +75,12 @@ namespace Pulumi.Aws
         /// </summary>
         [Output("sharedCredentialsFile")]
         public Output<string?> SharedCredentialsFile { get; private set; } = null!;
+
+        /// <summary>
+        /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        /// </summary>
+        [Output("stsRegion")]
+        public Output<string?> StsRegion { get; private set; } = null!;
 
         /// <summary>
         /// session token. A session token is only required if you are using temporary security credentials.
@@ -119,6 +132,13 @@ namespace Pulumi.Aws
 
         [Input("assumeRole", json: true)]
         public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
+
+        /// <summary>
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+        /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// </summary>
+        [Input("customCaBundle")]
+        public Input<string>? CustomCaBundle { get; set; }
 
         /// <summary>
         /// Configuration block with settings to default resource tags across all resources.
@@ -276,6 +296,12 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("skipRequestingAccountId", json: true)]
         public Input<bool>? SkipRequestingAccountId { get; set; }
+
+        /// <summary>
+        /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        /// </summary>
+        [Input("stsRegion")]
+        public Input<string>? StsRegion { get; set; }
 
         /// <summary>
         /// session token. A session token is only required if you are using temporary security credentials.

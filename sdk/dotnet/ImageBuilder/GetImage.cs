@@ -133,6 +133,10 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string BuildVersionArn;
         /// <summary>
+        /// Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
+        public readonly string ContainerRecipeArn;
+        /// <summary>
         /// Date the image was created.
         /// </summary>
         public readonly string DateCreated;
@@ -149,7 +153,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         public readonly string ImageRecipeArn;
         /// <summary>
@@ -191,6 +195,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string buildVersionArn,
 
+            string containerRecipeArn,
+
             string dateCreated,
 
             string distributionConfigurationArn,
@@ -219,6 +225,7 @@ namespace Pulumi.Aws.ImageBuilder
         {
             Arn = arn;
             BuildVersionArn = buildVersionArn;
+            ContainerRecipeArn = containerRecipeArn;
             DateCreated = dateCreated;
             DistributionConfigurationArn = distributionConfigurationArn;
             EnhancedImageMetadataEnabled = enhancedImageMetadataEnabled;

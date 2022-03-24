@@ -14,15 +14,19 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchConfigurationEphemeralBlockDevice
     {
         public readonly string DeviceName;
-        public readonly string VirtualName;
+        public readonly bool? NoDevice;
+        public readonly string? VirtualName;
 
         [OutputConstructor]
         private LaunchConfigurationEphemeralBlockDevice(
             string deviceName,
 
-            string virtualName)
+            bool? noDevice,
+
+            string? virtualName)
         {
             DeviceName = deviceName;
+            NoDevice = noDevice;
             VirtualName = virtualName;
         }
     }

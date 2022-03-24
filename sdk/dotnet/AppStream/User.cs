@@ -27,7 +27,7 @@ namespace Pulumi.Aws.AppStream
     ///             AuthenticationType = "USERPOOL",
     ///             FirstName = "FIRST NAME",
     ///             LastName = "LAST NAME",
-    ///             UserName = "EMAIL ADDRESS",
+    ///             UserName = "EMAIL",
     ///         });
     ///     }
     /// 

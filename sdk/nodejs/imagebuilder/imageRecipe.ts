@@ -82,7 +82,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+     * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
     public readonly blockDeviceMappings!: pulumi.Output<outputs.imagebuilder.ImageRecipeBlockDeviceMapping[] | undefined>;
     /**
@@ -113,6 +113,10 @@ export class ImageRecipe extends pulumi.CustomResource {
      * Platform of the image recipe.
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
+    /**
+     * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+     */
+    public readonly systemsManagerAgent!: pulumi.Output<outputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -156,6 +160,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["parentImage"] = state ? state.parentImage : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["systemsManagerAgent"] = state ? state.systemsManagerAgent : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
@@ -177,6 +182,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentImage"] = args ? args.parentImage : undefined;
+            resourceInputs["systemsManagerAgent"] = args ? args.systemsManagerAgent : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -201,7 +207,7 @@ export interface ImageRecipeState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+     * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
     blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
     /**
@@ -233,6 +239,10 @@ export interface ImageRecipeState {
      */
     platform?: pulumi.Input<string>;
     /**
+     * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+     */
+    systemsManagerAgent?: pulumi.Input<inputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
+    /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -259,7 +269,7 @@ export interface ImageRecipeState {
  */
 export interface ImageRecipeArgs {
     /**
-     * Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+     * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
     blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
     /**
@@ -278,6 +288,10 @@ export interface ImageRecipeArgs {
      * Platform of the image recipe.
      */
     parentImage: pulumi.Input<string>;
+    /**
+     * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+     */
+    systemsManagerAgent?: pulumi.Input<inputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCluster = aws.redshift.getCluster({
- *     clusterIdentifier: "test-cluster",
+ * const example = aws.redshift.getCluster({
+ *     clusterIdentifier: "example-cluster",
  * });
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
+ * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("exampleStream", {
  *     destination: "redshift",
  *     s3Configuration: {
  *         roleArn: aws_iam_role.firehose_role.arn,
@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  *     },
  *     redshiftConfiguration: {
  *         roleArn: aws_iam_role.firehose_role.arn,
- *         clusterJdbcurl: Promise.all([testCluster, testCluster]).then(([testCluster, testCluster1]) => `jdbc:redshift://${testCluster.endpoint}/${testCluster1.databaseName}`),
- *         username: "testuser",
- *         password: "T3stPass",
- *         dataTableName: "test-table",
+ *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
+ *         username: "exampleuser",
+ *         password: "Exampl3Pass",
+ *         dataTableName: "example-table",
  *         copyOptions: "delimiter '|'",
- *         dataTableColumns: "test-col",
+ *         dataTableColumns: "example-col",
  *     },
  * });
  * ```
@@ -79,6 +79,10 @@ export interface GetClusterResult {
      * The availability zone of the cluster
      */
     readonly availabilityZone: string;
+    /**
+     * Indicates whether the cluster is able to be relocated to another availability zone.
+     */
+    readonly availabilityZoneRelocationEnabled: boolean;
     /**
      * The name of the S3 bucket where the log files are to be stored
      */

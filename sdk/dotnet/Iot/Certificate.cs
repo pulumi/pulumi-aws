@@ -51,6 +51,26 @@ namespace Pulumi.Aws.Iot
     /// 
     /// }
     /// ```
+    /// ### From existing certificate without a CA
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
+    ///         {
+    ///             CertificatePem = File.ReadAllText("/my/cert.pem"),
+    ///             Active = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iot/certificate:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
@@ -68,7 +88,17 @@ namespace Pulumi.Aws.Iot
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate data, in PEM format.
+        /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        /// </summary>
+        [Output("caPem")]
+        public Output<string?> CaPem { get; private set; } = null!;
+
+        /// <summary>
+        /// The certificate to be registered. If `ca_pem` is unspecified, review
+        /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+        /// If `ca_pem` is specified, review
+        /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+        /// for more information on registering a certificate.
         /// </summary>
         [Output("certificatePem")]
         public Output<string> CertificatePem { get; private set; } = null!;
@@ -84,13 +114,13 @@ namespace Pulumi.Aws.Iot
         public Output<string?> Csr { get; private set; } = null!;
 
         /// <summary>
-        /// When no CSR is provided, the private key.
+        /// When neither CSR nor certificate is provided, the private key.
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// When no CSR is provided, the public key.
+        /// When neither CSR nor certificate is provided, the public key.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -148,6 +178,22 @@ namespace Pulumi.Aws.Iot
         public Input<bool> Active { get; set; } = null!;
 
         /// <summary>
+        /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        /// </summary>
+        [Input("caPem")]
+        public Input<string>? CaPem { get; set; }
+
+        /// <summary>
+        /// The certificate to be registered. If `ca_pem` is unspecified, review
+        /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+        /// If `ca_pem` is specified, review
+        /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+        /// for more information on registering a certificate.
+        /// </summary>
+        [Input("certificatePem")]
+        public Input<string>? CertificatePem { get; set; }
+
+        /// <summary>
         /// The certificate signing request. Review
         /// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
         /// for more information on generating a certificate from a certificate signing request (CSR).
@@ -177,7 +223,17 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The certificate data, in PEM format.
+        /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        /// </summary>
+        [Input("caPem")]
+        public Input<string>? CaPem { get; set; }
+
+        /// <summary>
+        /// The certificate to be registered. If `ca_pem` is unspecified, review
+        /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+        /// If `ca_pem` is specified, review
+        /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+        /// for more information on registering a certificate.
         /// </summary>
         [Input("certificatePem")]
         public Input<string>? CertificatePem { get; set; }
@@ -193,13 +249,13 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Csr { get; set; }
 
         /// <summary>
-        /// When no CSR is provided, the private key.
+        /// When neither CSR nor certificate is provided, the private key.
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
         /// <summary>
-        /// When no CSR is provided, the public key.
+        /// When neither CSR nor certificate is provided, the public key.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }

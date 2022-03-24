@@ -34,6 +34,38 @@ import (
 // 	})
 // }
 // ```
+// ### Create Table Default Permissions
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
+// 			CreateTableDefaultPermissions: glue.CatalogDatabaseCreateTableDefaultPermissionArray{
+// 				&glue.CatalogDatabaseCreateTableDefaultPermissionArgs{
+// 					Permissions: pulumi.StringArray{
+// 						pulumi.String("SELECT"),
+// 					},
+// 					Principal: &glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{
+// 						DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
+// 					},
+// 				},
+// 			},
+// 			Name: pulumi.String("MyCatalogDatabase"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -49,6 +81,8 @@ type CatalogDatabase struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Data Catalog in which the database resides.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Location of the database (for example, an HDFS path).
@@ -94,6 +128,8 @@ type catalogDatabaseState struct {
 	Arn *string `pulumi:"arn"`
 	// ID of the Data Catalog in which the database resides.
 	CatalogId *string `pulumi:"catalogId"`
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
 	// Location of the database (for example, an HDFS path).
@@ -111,6 +147,8 @@ type CatalogDatabaseState struct {
 	Arn pulumi.StringPtrInput
 	// ID of the Data Catalog in which the database resides.
 	CatalogId pulumi.StringPtrInput
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
 	// Location of the database (for example, an HDFS path).
@@ -130,6 +168,8 @@ func (CatalogDatabaseState) ElementType() reflect.Type {
 type catalogDatabaseArgs struct {
 	// ID of the Data Catalog in which the database resides.
 	CatalogId *string `pulumi:"catalogId"`
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
 	// Location of the database (for example, an HDFS path).
@@ -146,6 +186,8 @@ type catalogDatabaseArgs struct {
 type CatalogDatabaseArgs struct {
 	// ID of the Data Catalog in which the database resides.
 	CatalogId pulumi.StringPtrInput
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
 	// Location of the database (for example, an HDFS path).

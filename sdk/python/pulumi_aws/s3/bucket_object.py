@@ -926,9 +926,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
-            object_lock_enabled="Enabled",
-        ))
+        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")
@@ -1054,9 +1052,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_configuration=aws.s3.BucketV2ObjectLockConfigurationArgs(
-            object_lock_enabled="Enabled",
-        ))
+        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=examplebucket.id,
             acl="private")

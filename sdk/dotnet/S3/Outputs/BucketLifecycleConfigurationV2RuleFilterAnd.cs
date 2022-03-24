@@ -14,17 +14,20 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLifecycleConfigurationV2RuleFilterAnd
     {
         /// <summary>
-        /// Minimum object size to which the rule applies.
+        /// Minimum object size to which the rule applies. Value must be at least `0` if specified.
         /// </summary>
         public readonly int? ObjectSizeGreaterThan;
         /// <summary>
-        /// Maximum object size to which the rule applies.
+        /// Maximum object size to which the rule applies. Value must be at least `1` if specified.
         /// </summary>
         public readonly int? ObjectSizeLessThan;
         /// <summary>
-        /// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+        /// Prefix identifying one or more objects to which the rule applies.
         /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

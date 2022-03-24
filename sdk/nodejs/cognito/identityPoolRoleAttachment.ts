@@ -83,10 +83,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.,
+ * Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example <identity-pool-id>
+ *  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2_abc123
  * ```
  */
 export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
@@ -118,7 +118,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * An identity pool ID in the format REGION:GUID.
+     * An identity pool ID in the format `REGION_GUID`.
      */
     public readonly identityPoolId!: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
  */
 export interface IdentityPoolRoleAttachmentState {
     /**
-     * An identity pool ID in the format REGION:GUID.
+     * An identity pool ID in the format `REGION_GUID`.
      */
     identityPoolId?: pulumi.Input<string>;
     /**
@@ -186,7 +186,7 @@ export interface IdentityPoolRoleAttachmentState {
  */
 export interface IdentityPoolRoleAttachmentArgs {
     /**
-     * An identity pool ID in the format REGION:GUID.
+     * An identity pool ID in the format `REGION_GUID`.
      */
     identityPoolId: pulumi.Input<string>;
     /**

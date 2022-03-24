@@ -18,11 +18,15 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? RestoreTime;
         /// <summary>
-        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_dbi_resource_id` is not specified.
+        /// The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        /// </summary>
+        public readonly string? SourceDbInstanceAutomatedBackupsArn;
+        /// <summary>
+        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
         /// </summary>
         public readonly string? SourceDbInstanceIdentifier;
         /// <summary>
-        /// The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` is not specified.
+        /// The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
         /// </summary>
         public readonly string? SourceDbiResourceId;
         /// <summary>
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.Rds.Outputs
         private InstanceRestoreToPointInTime(
             string? restoreTime,
 
+            string? sourceDbInstanceAutomatedBackupsArn,
+
             string? sourceDbInstanceIdentifier,
 
             string? sourceDbiResourceId,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.Rds.Outputs
             bool? useLatestRestorableTime)
         {
             RestoreTime = restoreTime;
+            SourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
             SourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
             SourceDbiResourceId = sourceDbiResourceId;
             UseLatestRestorableTime = useLatestRestorableTime;

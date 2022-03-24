@@ -2458,7 +2458,7 @@ type BucketLifecycleConfigurationV2Rule struct {
 	AbortIncompleteMultipartUpload *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
 	Expiration *BucketLifecycleConfigurationV2RuleExpiration `pulumi:"expiration"`
-	// Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+	// Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
 	Filter *BucketLifecycleConfigurationV2RuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id string `pulumi:"id"`
@@ -2466,7 +2466,9 @@ type BucketLifecycleConfigurationV2Rule struct {
 	NoncurrentVersionExpiration *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
 	NoncurrentVersionTransitions []BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
-	// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+	// **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
+	//
+	// Deprecated: Use filter instead
 	Prefix *string `pulumi:"prefix"`
 	// Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
 	Status string `pulumi:"status"`
@@ -2490,7 +2492,7 @@ type BucketLifecycleConfigurationV2RuleArgs struct {
 	AbortIncompleteMultipartUpload BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
 	Expiration BucketLifecycleConfigurationV2RuleExpirationPtrInput `pulumi:"expiration"`
-	// Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+	// Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
 	Filter BucketLifecycleConfigurationV2RuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2498,7 +2500,9 @@ type BucketLifecycleConfigurationV2RuleArgs struct {
 	NoncurrentVersionExpiration BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
 	NoncurrentVersionTransitions BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
-	// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+	// **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
+	//
+	// Deprecated: Use filter instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -2571,7 +2575,7 @@ func (o BucketLifecycleConfigurationV2RuleOutput) Expiration() BucketLifecycleCo
 	}).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
 }
 
-// Configuration block used to identify objects that a Lifecycle Rule applies to documented below.
+// Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
 func (o BucketLifecycleConfigurationV2RuleOutput) Filter() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *BucketLifecycleConfigurationV2RuleFilter { return v.Filter }).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
 }
@@ -2595,7 +2599,9 @@ func (o BucketLifecycleConfigurationV2RuleOutput) NoncurrentVersionTransitions()
 	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput)
 }
 
-// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+// **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
+//
+// Deprecated: Use filter instead
 func (o BucketLifecycleConfigurationV2RuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2772,7 +2778,7 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutpu
 }
 
 type BucketLifecycleConfigurationV2RuleExpiration struct {
-	// The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+	// The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	Date *string `pulumi:"date"`
 	// The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days *int `pulumi:"days"`
@@ -2792,7 +2798,7 @@ type BucketLifecycleConfigurationV2RuleExpirationInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleExpirationArgs struct {
-	// The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+	// The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -2877,7 +2883,7 @@ func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToBucketLifecycleCon
 	}).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
 }
 
-// The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+// The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
@@ -2916,7 +2922,7 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Elem() BucketLife
 	}).(BucketLifecycleConfigurationV2RuleExpirationOutput)
 }
 
-// The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+// The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *string {
 		if v == nil {
@@ -2947,13 +2953,13 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ExpiredObjectDele
 }
 
 type BucketLifecycleConfigurationV2RuleFilter struct {
-	// Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
+	// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
 	And *BucketLifecycleConfigurationV2RuleFilterAnd `pulumi:"and"`
-	// Minimum object size to which the rule applies.
-	ObjectSizeGreaterThan *int `pulumi:"objectSizeGreaterThan"`
-	// Maximum object size to which the rule applies.
-	ObjectSizeLessThan *int `pulumi:"objectSizeLessThan"`
-	// Prefix identifying one or more objects to which the rule applies.
+	// Minimum object size (in bytes) to which the rule applies.
+	ObjectSizeGreaterThan *string `pulumi:"objectSizeGreaterThan"`
+	// Maximum object size (in bytes) to which the rule applies.
+	ObjectSizeLessThan *string `pulumi:"objectSizeLessThan"`
+	// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
 	Prefix *string `pulumi:"prefix"`
 	// A configuration block for specifying a tag key and value documented below.
 	Tag *BucketLifecycleConfigurationV2RuleFilterTag `pulumi:"tag"`
@@ -2971,13 +2977,13 @@ type BucketLifecycleConfigurationV2RuleFilterInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleFilterArgs struct {
-	// Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
+	// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
 	And BucketLifecycleConfigurationV2RuleFilterAndPtrInput `pulumi:"and"`
-	// Minimum object size to which the rule applies.
-	ObjectSizeGreaterThan pulumi.IntPtrInput `pulumi:"objectSizeGreaterThan"`
-	// Maximum object size to which the rule applies.
-	ObjectSizeLessThan pulumi.IntPtrInput `pulumi:"objectSizeLessThan"`
-	// Prefix identifying one or more objects to which the rule applies.
+	// Minimum object size (in bytes) to which the rule applies.
+	ObjectSizeGreaterThan pulumi.StringPtrInput `pulumi:"objectSizeGreaterThan"`
+	// Maximum object size (in bytes) to which the rule applies.
+	ObjectSizeLessThan pulumi.StringPtrInput `pulumi:"objectSizeLessThan"`
+	// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// A configuration block for specifying a tag key and value documented below.
 	Tag BucketLifecycleConfigurationV2RuleFilterTagPtrInput `pulumi:"tag"`
@@ -3060,24 +3066,24 @@ func (o BucketLifecycleConfigurationV2RuleFilterOutput) ToBucketLifecycleConfigu
 	}).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
 }
 
-// Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
+// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
 func (o BucketLifecycleConfigurationV2RuleFilterOutput) And() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilterAnd {
 		return v.And
 	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
 }
 
-// Minimum object size to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
+// Minimum object size (in bytes) to which the rule applies.
+func (o BucketLifecycleConfigurationV2RuleFilterOutput) ObjectSizeGreaterThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *string { return v.ObjectSizeGreaterThan }).(pulumi.StringPtrOutput)
 }
 
-// Maximum object size to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *int { return v.ObjectSizeLessThan }).(pulumi.IntPtrOutput)
+// Maximum object size (in bytes) to which the rule applies.
+func (o BucketLifecycleConfigurationV2RuleFilterOutput) ObjectSizeLessThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *string { return v.ObjectSizeLessThan }).(pulumi.StringPtrOutput)
 }
 
-// Prefix identifying one or more objects to which the rule applies.
+// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
 func (o BucketLifecycleConfigurationV2RuleFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3113,7 +3119,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Elem() BucketLifecycl
 	}).(BucketLifecycleConfigurationV2RuleFilterOutput)
 }
 
-// Configuration block used to apply a logical `AND` to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the `and` block.
+// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
 func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) And() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilterAnd {
 		if v == nil {
@@ -3123,27 +3129,27 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) And() BucketLifecycle
 	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
 }
 
-// Minimum object size to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *int {
+// Minimum object size (in bytes) to which the rule applies.
+func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeGreaterThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ObjectSizeGreaterThan
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum object size to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *int {
+// Maximum object size (in bytes) to which the rule applies.
+func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeLessThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ObjectSizeLessThan
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix identifying one or more objects to which the rule applies.
+// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
 func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *string {
 		if v == nil {
@@ -3164,13 +3170,14 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Tag() BucketLifecycle
 }
 
 type BucketLifecycleConfigurationV2RuleFilterAnd struct {
-	// Minimum object size to which the rule applies.
+	// Minimum object size to which the rule applies. Value must be at least `0` if specified.
 	ObjectSizeGreaterThan *int `pulumi:"objectSizeGreaterThan"`
-	// Maximum object size to which the rule applies.
+	// Maximum object size to which the rule applies. Value must be at least `1` if specified.
 	ObjectSizeLessThan *int `pulumi:"objectSizeLessThan"`
-	// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
-	Prefix *string           `pulumi:"prefix"`
-	Tags   map[string]string `pulumi:"tags"`
+	// Prefix identifying one or more objects to which the rule applies.
+	Prefix *string `pulumi:"prefix"`
+	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // BucketLifecycleConfigurationV2RuleFilterAndInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterAndArgs and BucketLifecycleConfigurationV2RuleFilterAndOutput values.
@@ -3185,13 +3192,14 @@ type BucketLifecycleConfigurationV2RuleFilterAndInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleFilterAndArgs struct {
-	// Minimum object size to which the rule applies.
+	// Minimum object size to which the rule applies. Value must be at least `0` if specified.
 	ObjectSizeGreaterThan pulumi.IntPtrInput `pulumi:"objectSizeGreaterThan"`
-	// Maximum object size to which the rule applies.
+	// Maximum object size to which the rule applies. Value must be at least `1` if specified.
 	ObjectSizeLessThan pulumi.IntPtrInput `pulumi:"objectSizeLessThan"`
-	// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+	// Prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (BucketLifecycleConfigurationV2RuleFilterAndArgs) ElementType() reflect.Type {
@@ -3271,21 +3279,22 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToBucketLifecycleConf
 	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
 }
 
-// Minimum object size to which the rule applies.
+// Minimum object size to which the rule applies. Value must be at least `0` if specified.
 func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-// Maximum object size to which the rule applies.
+// Maximum object size to which the rule applies. Value must be at least `1` if specified.
 func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *int { return v.ObjectSizeLessThan }).(pulumi.IntPtrOutput)
 }
 
-// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+// Prefix identifying one or more objects to which the rule applies.
 func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
 func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -3314,7 +3323,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Elem() BucketLifec
 	}).(BucketLifecycleConfigurationV2RuleFilterAndOutput)
 }
 
-// Minimum object size to which the rule applies.
+// Minimum object size to which the rule applies. Value must be at least `0` if specified.
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) *int {
 		if v == nil {
@@ -3324,7 +3333,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeGreaterT
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum object size to which the rule applies.
+// Maximum object size to which the rule applies. Value must be at least `1` if specified.
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) *int {
 		if v == nil {
@@ -3334,7 +3343,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeLessThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// Prefix identifying one or more objects to which the rule applies. This has been deprecated by Amazon S3 and `filter` should be used instead.
+// Prefix identifying one or more objects to which the rule applies.
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) *string {
 		if v == nil {
@@ -3344,6 +3353,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Prefix() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string {
 		if v == nil {
@@ -3511,7 +3521,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Value() pulumi.Str
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration struct {
 	// The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions *string `pulumi:"newerNoncurrentVersions"`
 	// The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
 	NoncurrentDays *int `pulumi:"noncurrentDays"`
 }
@@ -3529,7 +3539,7 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput interfac
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs struct {
 	// The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions pulumi.StringPtrInput `pulumi:"newerNoncurrentVersions"`
 	// The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
 	NoncurrentDays pulumi.IntPtrInput `pulumi:"noncurrentDays"`
 }
@@ -3612,10 +3622,10 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToB
 }
 
 // The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *string {
 		return v.NewerNoncurrentVersions
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
@@ -3648,13 +3658,13 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) 
 }
 
 // The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NewerNoncurrentVersions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.NewerNoncurrentVersions
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
@@ -3668,8 +3678,8 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) 
 }
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition struct {
-	// The number of noncurrent versions Amazon S3 will retain.
-	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
+	// The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+	NewerNoncurrentVersions *string `pulumi:"newerNoncurrentVersions"`
 	// The number of days an object is noncurrent before Amazon S3 can perform the associated action.
 	NoncurrentDays *int `pulumi:"noncurrentDays"`
 	// The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
@@ -3688,8 +3698,8 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput interfac
 }
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs struct {
-	// The number of noncurrent versions Amazon S3 will retain.
-	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
+	// The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+	NewerNoncurrentVersions pulumi.StringPtrInput `pulumi:"newerNoncurrentVersions"`
 	// The number of days an object is noncurrent before Amazon S3 can perform the associated action.
 	NoncurrentDays pulumi.IntPtrInput `pulumi:"noncurrentDays"`
 	// The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
@@ -3747,11 +3757,11 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ToB
 	return o
 }
 
-// The number of noncurrent versions Amazon S3 will retain.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *int {
+// The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NewerNoncurrentVersions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *string {
 		return v.NewerNoncurrentVersions
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of days an object is noncurrent before Amazon S3 can perform the associated action.
@@ -3785,9 +3795,9 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput
 }
 
 type BucketLifecycleConfigurationV2RuleTransition struct {
-	// The date objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+	// The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
 	Date *string `pulumi:"date"`
-	// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+	// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
 	Days *int `pulumi:"days"`
 	// The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass string `pulumi:"storageClass"`
@@ -3805,9 +3815,9 @@ type BucketLifecycleConfigurationV2RuleTransitionInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleTransitionArgs struct {
-	// The date objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+	// The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+	// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
@@ -3864,12 +3874,12 @@ func (o BucketLifecycleConfigurationV2RuleTransitionOutput) ToBucketLifecycleCon
 	return o
 }
 
-// The date objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+// The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
 func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+// The number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
 func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -6385,11 +6395,13 @@ type BucketReplicationConfigRule struct {
 	Destination BucketReplicationConfigRuleDestination `pulumi:"destination"`
 	// Replicate existing objects in the source bucket according to the rule configurations documented below.
 	ExistingObjectReplication *BucketReplicationConfigRuleExistingObjectReplication `pulumi:"existingObjectReplication"`
-	// Filter that identifies subset of objects to which the replication rule applies documented below.
+	// Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
 	Filter *BucketReplicationConfigRuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id *string `pulumi:"id"`
-	// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+	// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
+	//
+	// Deprecated: Use filter instead
 	Prefix *string `pulumi:"prefix"`
 	// The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority *int `pulumi:"priority"`
@@ -6417,11 +6429,13 @@ type BucketReplicationConfigRuleArgs struct {
 	Destination BucketReplicationConfigRuleDestinationInput `pulumi:"destination"`
 	// Replicate existing objects in the source bucket according to the rule configurations documented below.
 	ExistingObjectReplication BucketReplicationConfigRuleExistingObjectReplicationPtrInput `pulumi:"existingObjectReplication"`
-	// Filter that identifies subset of objects to which the replication rule applies documented below.
+	// Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
 	Filter BucketReplicationConfigRuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+	// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
+	//
+	// Deprecated: Use filter instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -6501,7 +6515,7 @@ func (o BucketReplicationConfigRuleOutput) ExistingObjectReplication() BucketRep
 	}).(BucketReplicationConfigRuleExistingObjectReplicationPtrOutput)
 }
 
-// Filter that identifies subset of objects to which the replication rule applies documented below.
+// Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
 func (o BucketReplicationConfigRuleOutput) Filter() BucketReplicationConfigRuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRule) *BucketReplicationConfigRuleFilter { return v.Filter }).(BucketReplicationConfigRuleFilterPtrOutput)
 }
@@ -6511,7 +6525,9 @@ func (o BucketReplicationConfigRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
+//
+// Deprecated: Use filter instead
 func (o BucketReplicationConfigRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -11116,7 +11132,7 @@ type BucketV2LifecycleRule struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_lifecycle_configuration resource instead
 	Prefix *string `pulumi:"prefix"`
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Deprecated: Use the aws_s3_bucket_lifecycle_configuration resource instead
 	Tags map[string]string `pulumi:"tags"`
@@ -11166,7 +11182,7 @@ type BucketV2LifecycleRuleArgs struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_lifecycle_configuration resource instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Deprecated: Use the aws_s3_bucket_lifecycle_configuration resource instead
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -11280,7 +11296,7 @@ func (o BucketV2LifecycleRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 //
 // Deprecated: Use the aws_s3_bucket_lifecycle_configuration resource instead
 func (o BucketV2LifecycleRuleOutput) Tags() pulumi.StringMapOutput {
@@ -11920,8 +11936,10 @@ func (o BucketV2LoggingArrayOutput) Index(i pulumi.IntInput) BucketV2LoggingOutp
 }
 
 type BucketV2ObjectLockConfiguration struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-	ObjectLockEnabled string `pulumi:"objectLockEnabled"`
+	// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+	//
+	// Deprecated: Use the top-level parameter object_lock_enabled instead
+	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
 	// (required) Information about a particular server-side encryption configuration rule.
 	//
 	// Deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead
@@ -11940,8 +11958,10 @@ type BucketV2ObjectLockConfigurationInput interface {
 }
 
 type BucketV2ObjectLockConfigurationArgs struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-	ObjectLockEnabled pulumi.StringInput `pulumi:"objectLockEnabled"`
+	// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+	//
+	// Deprecated: Use the top-level parameter object_lock_enabled instead
+	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
 	// (required) Information about a particular server-side encryption configuration rule.
 	//
 	// Deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead
@@ -12025,9 +12045,11 @@ func (o BucketV2ObjectLockConfigurationOutput) ToBucketV2ObjectLockConfiguration
 	}).(BucketV2ObjectLockConfigurationPtrOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-func (o BucketV2ObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) string { return v.ObjectLockEnabled }).(pulumi.StringOutput)
+// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+//
+// Deprecated: Use the top-level parameter object_lock_enabled instead
+func (o BucketV2ObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
 // (required) Information about a particular server-side encryption configuration rule.
@@ -12061,13 +12083,15 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) Elem() BucketV2ObjectLockConfi
 	}).(BucketV2ObjectLockConfigurationOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+//
+// Deprecated: Use the top-level parameter object_lock_enabled instead
 func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketV2ObjectLockConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ObjectLockEnabled
+		return v.ObjectLockEnabled
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13198,7 +13222,7 @@ type BucketV2ReplicationConfigurationRuleFilter struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_replication_configuration resource instead
 	Prefix *string `pulumi:"prefix"`
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Deprecated: Use the aws_s3_bucket_replication_configuration resource instead
 	Tags map[string]string `pulumi:"tags"`
@@ -13220,7 +13244,7 @@ type BucketV2ReplicationConfigurationRuleFilterArgs struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_replication_configuration resource instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// Deprecated: Use the aws_s3_bucket_replication_configuration resource instead
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -13284,7 +13308,7 @@ func (o BucketV2ReplicationConfigurationRuleFilterOutput) Prefix() pulumi.String
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
 //
 // Deprecated: Use the aws_s3_bucket_replication_configuration resource instead
 func (o BucketV2ReplicationConfigurationRuleFilterOutput) Tags() pulumi.StringMapOutput {
@@ -14293,7 +14317,7 @@ func (o BucketVersioningPtrOutput) MfaDelete() pulumi.BoolPtrOutput {
 type BucketVersioningV2VersioningConfiguration struct {
 	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete *string `pulumi:"mfaDelete"`
-	// The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+	// The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status string `pulumi:"status"`
 }
 
@@ -14311,7 +14335,7 @@ type BucketVersioningV2VersioningConfigurationInput interface {
 type BucketVersioningV2VersioningConfigurationArgs struct {
 	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete pulumi.StringPtrInput `pulumi:"mfaDelete"`
-	// The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+	// The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -14397,7 +14421,7 @@ func (o BucketVersioningV2VersioningConfigurationOutput) MfaDelete() pulumi.Stri
 	return o.ApplyT(func(v BucketVersioningV2VersioningConfiguration) *string { return v.MfaDelete }).(pulumi.StringPtrOutput)
 }
 
-// The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+// The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 func (o BucketVersioningV2VersioningConfigurationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketVersioningV2VersioningConfiguration) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -14436,7 +14460,7 @@ func (o BucketVersioningV2VersioningConfigurationPtrOutput) MfaDelete() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+// The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 func (o BucketVersioningV2VersioningConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioningV2VersioningConfiguration) *string {
 		if v == nil {

@@ -880,8 +880,9 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         Each `ephemeral_block_device` supports the following:
 
-        * `device_name` - The name of the block device to mount on the instance.
-        * `virtual_name` - The [Instance Store Device
+        * `device_name` - (Required) The name of the block device to mount on the instance.
+        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+        * `virtual_name` - (Optional) The [Instance Store Device
           Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
           (e.g., `"ephemeral0"`)
 
@@ -1081,8 +1082,9 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         Each `ephemeral_block_device` supports the following:
 
-        * `device_name` - The name of the block device to mount on the instance.
-        * `virtual_name` - The [Instance Store Device
+        * `device_name` - (Required) The name of the block device to mount on the instance.
+        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+        * `virtual_name` - (Optional) The [Instance Store Device
           Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
           (e.g., `"ephemeral0"`)
 

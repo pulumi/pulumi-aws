@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Iot.Inputs
         [Input("cloudwatchAlarm")]
         public Input<Inputs.TopicRuleErrorActionCloudwatchAlarmGetArgs>? CloudwatchAlarm { get; set; }
 
+        [Input("cloudwatchLogs")]
+        public Input<Inputs.TopicRuleErrorActionCloudwatchLogsGetArgs>? CloudwatchLogs { get; set; }
+
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleErrorActionCloudwatchMetricGetArgs>? CloudwatchMetric { get; set; }
 

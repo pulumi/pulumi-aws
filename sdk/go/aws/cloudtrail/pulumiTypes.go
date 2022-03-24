@@ -10,6 +10,265 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type EventDataStoreAdvancedEventSelector struct {
+	// Specifies the selector statements in an advanced event selector. Fields documented below.
+	FieldSelectors []EventDataStoreAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
+	// Specifies the name of the advanced event selector.
+	Name *string `pulumi:"name"`
+}
+
+// EventDataStoreAdvancedEventSelectorInput is an input type that accepts EventDataStoreAdvancedEventSelectorArgs and EventDataStoreAdvancedEventSelectorOutput values.
+// You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorInput` via:
+//
+//          EventDataStoreAdvancedEventSelectorArgs{...}
+type EventDataStoreAdvancedEventSelectorInput interface {
+	pulumi.Input
+
+	ToEventDataStoreAdvancedEventSelectorOutput() EventDataStoreAdvancedEventSelectorOutput
+	ToEventDataStoreAdvancedEventSelectorOutputWithContext(context.Context) EventDataStoreAdvancedEventSelectorOutput
+}
+
+type EventDataStoreAdvancedEventSelectorArgs struct {
+	// Specifies the selector statements in an advanced event selector. Fields documented below.
+	FieldSelectors EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
+	// Specifies the name of the advanced event selector.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (EventDataStoreAdvancedEventSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i EventDataStoreAdvancedEventSelectorArgs) ToEventDataStoreAdvancedEventSelectorOutput() EventDataStoreAdvancedEventSelectorOutput {
+	return i.ToEventDataStoreAdvancedEventSelectorOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreAdvancedEventSelectorArgs) ToEventDataStoreAdvancedEventSelectorOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorOutput)
+}
+
+// EventDataStoreAdvancedEventSelectorArrayInput is an input type that accepts EventDataStoreAdvancedEventSelectorArray and EventDataStoreAdvancedEventSelectorArrayOutput values.
+// You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorArrayInput` via:
+//
+//          EventDataStoreAdvancedEventSelectorArray{ EventDataStoreAdvancedEventSelectorArgs{...} }
+type EventDataStoreAdvancedEventSelectorArrayInput interface {
+	pulumi.Input
+
+	ToEventDataStoreAdvancedEventSelectorArrayOutput() EventDataStoreAdvancedEventSelectorArrayOutput
+	ToEventDataStoreAdvancedEventSelectorArrayOutputWithContext(context.Context) EventDataStoreAdvancedEventSelectorArrayOutput
+}
+
+type EventDataStoreAdvancedEventSelectorArray []EventDataStoreAdvancedEventSelectorInput
+
+func (EventDataStoreAdvancedEventSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i EventDataStoreAdvancedEventSelectorArray) ToEventDataStoreAdvancedEventSelectorArrayOutput() EventDataStoreAdvancedEventSelectorArrayOutput {
+	return i.ToEventDataStoreAdvancedEventSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreAdvancedEventSelectorArray) ToEventDataStoreAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorArrayOutput)
+}
+
+type EventDataStoreAdvancedEventSelectorOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreAdvancedEventSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o EventDataStoreAdvancedEventSelectorOutput) ToEventDataStoreAdvancedEventSelectorOutput() EventDataStoreAdvancedEventSelectorOutput {
+	return o
+}
+
+func (o EventDataStoreAdvancedEventSelectorOutput) ToEventDataStoreAdvancedEventSelectorOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorOutput {
+	return o
+}
+
+// Specifies the selector statements in an advanced event selector. Fields documented below.
+func (o EventDataStoreAdvancedEventSelectorOutput) FieldSelectors() EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelector) []EventDataStoreAdvancedEventSelectorFieldSelector {
+		return v.FieldSelectors
+	}).(EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+// Specifies the name of the advanced event selector.
+func (o EventDataStoreAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type EventDataStoreAdvancedEventSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreAdvancedEventSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o EventDataStoreAdvancedEventSelectorArrayOutput) ToEventDataStoreAdvancedEventSelectorArrayOutput() EventDataStoreAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreAdvancedEventSelectorArrayOutput) ToEventDataStoreAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreAdvancedEventSelectorArrayOutput) Index(i pulumi.IntInput) EventDataStoreAdvancedEventSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDataStoreAdvancedEventSelector {
+		return vs[0].([]EventDataStoreAdvancedEventSelector)[vs[1].(int)]
+	}).(EventDataStoreAdvancedEventSelectorOutput)
+}
+
+type EventDataStoreAdvancedEventSelectorFieldSelector struct {
+	// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+	EndsWiths []string `pulumi:"endsWiths"`
+	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+	Equals []string `pulumi:"equals"`
+	// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	Field *string `pulumi:"field"`
+	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+	NotEndsWiths []string `pulumi:"notEndsWiths"`
+	// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+	NotEquals []string `pulumi:"notEquals"`
+	// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+	NotStartsWiths []string `pulumi:"notStartsWiths"`
+	// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+	StartsWiths []string `pulumi:"startsWiths"`
+}
+
+// EventDataStoreAdvancedEventSelectorFieldSelectorInput is an input type that accepts EventDataStoreAdvancedEventSelectorFieldSelectorArgs and EventDataStoreAdvancedEventSelectorFieldSelectorOutput values.
+// You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorFieldSelectorInput` via:
+//
+//          EventDataStoreAdvancedEventSelectorFieldSelectorArgs{...}
+type EventDataStoreAdvancedEventSelectorFieldSelectorInput interface {
+	pulumi.Input
+
+	ToEventDataStoreAdvancedEventSelectorFieldSelectorOutput() EventDataStoreAdvancedEventSelectorFieldSelectorOutput
+	ToEventDataStoreAdvancedEventSelectorFieldSelectorOutputWithContext(context.Context) EventDataStoreAdvancedEventSelectorFieldSelectorOutput
+}
+
+type EventDataStoreAdvancedEventSelectorFieldSelectorArgs struct {
+	// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+	EndsWiths pulumi.StringArrayInput `pulumi:"endsWiths"`
+	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+	Equals pulumi.StringArrayInput `pulumi:"equals"`
+	// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+	NotEndsWiths pulumi.StringArrayInput `pulumi:"notEndsWiths"`
+	// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+	NotEquals pulumi.StringArrayInput `pulumi:"notEquals"`
+	// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+	NotStartsWiths pulumi.StringArrayInput `pulumi:"notStartsWiths"`
+	// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+	StartsWiths pulumi.StringArrayInput `pulumi:"startsWiths"`
+}
+
+func (EventDataStoreAdvancedEventSelectorFieldSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i EventDataStoreAdvancedEventSelectorFieldSelectorArgs) ToEventDataStoreAdvancedEventSelectorFieldSelectorOutput() EventDataStoreAdvancedEventSelectorFieldSelectorOutput {
+	return i.ToEventDataStoreAdvancedEventSelectorFieldSelectorOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreAdvancedEventSelectorFieldSelectorArgs) ToEventDataStoreAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorFieldSelectorOutput)
+}
+
+// EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts EventDataStoreAdvancedEventSelectorFieldSelectorArray and EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput values.
+// You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput` via:
+//
+//          EventDataStoreAdvancedEventSelectorFieldSelectorArray{ EventDataStoreAdvancedEventSelectorFieldSelectorArgs{...} }
+type EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput interface {
+	pulumi.Input
+
+	ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput() EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput
+	ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Context) EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput
+}
+
+type EventDataStoreAdvancedEventSelectorFieldSelectorArray []EventDataStoreAdvancedEventSelectorFieldSelectorInput
+
+func (EventDataStoreAdvancedEventSelectorFieldSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i EventDataStoreAdvancedEventSelectorFieldSelectorArray) ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput() EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput {
+	return i.ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreAdvancedEventSelectorFieldSelectorArray) ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+type EventDataStoreAdvancedEventSelectorFieldSelectorOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreAdvancedEventSelectorFieldSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) ToEventDataStoreAdvancedEventSelectorFieldSelectorOutput() EventDataStoreAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) ToEventDataStoreAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) EndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelectorFieldSelector) []string { return v.EndsWiths }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelectorFieldSelector) []string { return v.Equals }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelectorFieldSelector) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) NotEndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelectorFieldSelector) []string { return v.NotEndsWiths }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) NotEquals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelectorFieldSelector) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) NotStartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelectorFieldSelector) []string { return v.NotStartsWiths }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) StartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventDataStoreAdvancedEventSelectorFieldSelector) []string { return v.StartsWiths }).(pulumi.StringArrayOutput)
+}
+
+type EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput() EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pulumi.IntInput) EventDataStoreAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDataStoreAdvancedEventSelectorFieldSelector {
+		return vs[0].([]EventDataStoreAdvancedEventSelectorFieldSelector)[vs[1].(int)]
+	}).(EventDataStoreAdvancedEventSelectorFieldSelectorOutput)
+}
+
 type TrailAdvancedEventSelector struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors []TrailAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
@@ -498,7 +757,7 @@ func (o TrailEventSelectorDataResourceArrayOutput) Index(i pulumi.IntInput) Trai
 }
 
 type TrailInsightSelector struct {
-	// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
+	// Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
 	InsightType string `pulumi:"insightType"`
 }
 
@@ -514,7 +773,7 @@ type TrailInsightSelectorInput interface {
 }
 
 type TrailInsightSelectorArgs struct {
-	// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
+	// Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
 	InsightType pulumi.StringInput `pulumi:"insightType"`
 }
 
@@ -569,7 +828,7 @@ func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutputWithContext(ctx 
 	return o
 }
 
-// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
+// Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
 func (o TrailInsightSelectorOutput) InsightType() pulumi.StringOutput {
 	return o.ApplyT(func(v TrailInsightSelector) string { return v.InsightType }).(pulumi.StringOutput)
 }
@@ -595,6 +854,10 @@ func (o TrailInsightSelectorArrayOutput) Index(i pulumi.IntInput) TrailInsightSe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorFieldSelectorInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorFieldSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorFieldSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorInput)(nil)).Elem(), TrailAdvancedEventSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorArrayInput)(nil)).Elem(), TrailAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorFieldSelectorInput)(nil)).Elem(), TrailAdvancedEventSelectorFieldSelectorArgs{})
@@ -605,6 +868,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorDataResourceArrayInput)(nil)).Elem(), TrailEventSelectorDataResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorInput)(nil)).Elem(), TrailInsightSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorArrayInput)(nil)).Elem(), TrailInsightSelectorArray{})
+	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorOutput{})
+	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorArrayOutput{})
+	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorFieldSelectorOutput{})
+	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorFieldSelectorOutput{})

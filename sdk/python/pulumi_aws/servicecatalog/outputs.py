@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'ProductProvisioningArtifactParameters',
+    'ProvisionedProductOutput',
     'ProvisionedProductProvisioningParameter',
     'ProvisionedProductStackSetProvisioningPreferences',
     'ServiceActionDefinition',
@@ -117,6 +118,49 @@ class ProductProvisioningArtifactParameters(dict):
         Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ProvisionedProductOutput(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str description: The description of the output.
+        :param str key: Parameter key.
+        :param str value: Parameter value.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the output.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Parameter key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Parameter value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

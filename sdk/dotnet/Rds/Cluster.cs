@@ -143,6 +143,41 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
+    /// ### RDS Multi-AZ Cluster
+    /// 
+    /// &gt; More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
+    /// 
+    /// To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Rds.Cluster("example", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             AllocatedStorage = 100,
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///                 "us-west-2c",
+    ///             },
+    ///             ClusterIdentifier = "example",
+    ///             DbClusterInstanceClass = "db.r6gd.xlarge",
+    ///             Engine = "mysql",
+    ///             Iops = 1000,
+    ///             MasterPassword = "mustbeeightcharaters",
+    ///             MasterUsername = "test",
+    ///             StorageType = "io1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -155,6 +190,12 @@ namespace Pulumi.Aws.Rds
     [AwsResourceType("aws:rds/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        /// </summary>
+        [Output("allocatedStorage")]
+        public Output<int> AllocatedStorage { get; private set; } = null!;
+
         /// <summary>
         /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         /// </summary>
@@ -228,6 +269,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        /// </summary>
+        [Output("dbClusterInstanceClass")]
+        public Output<string?> DbClusterInstanceClass { get; private set; } = null!;
+
+        /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
         [Output("dbClusterParameterGroupName")]
@@ -276,7 +323,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
+        /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -328,6 +375,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("iamRoles")]
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
+
+        /// <summary>
+        /// The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        /// </summary>
+        [Output("iops")]
+        public Output<int?> Iops { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
@@ -412,13 +465,19 @@ namespace Pulumi.Aws.Rds
         public Output<string?> SourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        /// Specifies whether the DB cluster is encrypted
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster.
+        /// Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        /// </summary>
+        [Output("storageType")]
+        public Output<string?> StorageType { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -481,6 +540,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        /// </summary>
+        [Input("allocatedStorage")]
+        public Input<int>? AllocatedStorage { get; set; }
+
         /// <summary>
         /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         /// </summary>
@@ -554,6 +619,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        /// </summary>
+        [Input("dbClusterInstanceClass")]
+        public Input<string>? DbClusterInstanceClass { get; set; }
+
+        /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
         [Input("dbClusterParameterGroupName")]
@@ -602,7 +673,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
+        /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine")]
         public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
@@ -648,6 +719,12 @@ namespace Pulumi.Aws.Rds
             get => _iamRoles ?? (_iamRoles = new InputList<string>());
             set => _iamRoles = value;
         }
+
+        /// <summary>
+        /// The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        /// </summary>
+        [Input("iops")]
+        public Input<int>? Iops { get; set; }
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
@@ -725,16 +802,22 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        /// Specifies whether the DB cluster is encrypted
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -761,6 +844,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        /// </summary>
+        [Input("allocatedStorage")]
+        public Input<int>? AllocatedStorage { get; set; }
+
         /// <summary>
         /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         /// </summary>
@@ -846,6 +935,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        /// </summary>
+        [Input("dbClusterInstanceClass")]
+        public Input<string>? DbClusterInstanceClass { get; set; }
+
+        /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
         [Input("dbClusterParameterGroupName")]
@@ -900,7 +995,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
+        /// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine")]
         public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
@@ -958,6 +1053,12 @@ namespace Pulumi.Aws.Rds
             get => _iamRoles ?? (_iamRoles = new InputList<string>());
             set => _iamRoles = value;
         }
+
+        /// <summary>
+        /// The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        /// </summary>
+        [Input("iops")]
+        public Input<int>? Iops { get; set; }
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
@@ -1042,16 +1143,22 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        /// Specifies whether the DB cluster is encrypted
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

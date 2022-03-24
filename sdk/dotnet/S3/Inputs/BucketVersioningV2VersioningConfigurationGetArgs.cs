@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? MfaDelete { get; set; }
 
         /// <summary>
-        /// The versioning state of the bucket. Valid values: `Enabled` or `Suspended`.
+        /// The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

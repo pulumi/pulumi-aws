@@ -131,7 +131,7 @@ class BucketPolicy(pulumi.CustomResource):
         S3 bucket policies can be imported using the bucket name, e.g.,
 
         ```sh
-         $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
+         $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,7 +180,7 @@ class BucketPolicy(pulumi.CustomResource):
         S3 bucket policies can be imported using the bucket name, e.g.,
 
         ```sh
-         $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
+         $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
         ```
 
         :param str resource_name: The name of the resource.

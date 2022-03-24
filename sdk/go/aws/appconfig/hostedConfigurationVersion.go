@@ -14,6 +14,7 @@ import (
 // Provides an AppConfig Hosted Configuration Version resource.
 //
 // ## Example Usage
+// ### Freeform
 //
 // ```go
 // package main
@@ -29,6 +30,12 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		tmpJSON0, err := json.Marshal(map[string]interface{}{
 // 			"foo": "bar",
+// 			"fruit": []string{
+// 				"apple",
+// 				"pear",
+// 				"orange",
+// 			},
+// 			"isThingEnabled": true,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -37,7 +44,61 @@ import (
 // 		_, err := appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
 // 			ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
 // 			ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
-// 			Description:            pulumi.String("Example Hosted Configuration Version"),
+// 			Description:            pulumi.String("Example Freeform Hosted Configuration Version"),
+// 			ContentType:            pulumi.String("application/json"),
+// 			Content:                pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Feature Flags
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"flags": map[string]interface{}{
+// 				"foo": map[string]interface{}{
+// 					"name": "foo",
+// 					"_deprecation": map[string]interface{}{
+// 						"status": "planned",
+// 					},
+// 				},
+// 				"bar": map[string]interface{}{
+// 					"name": "bar",
+// 				},
+// 			},
+// 			"values": map[string]interface{}{
+// 				"foo": map[string]interface{}{
+// 					"enabled": "true",
+// 				},
+// 				"bar": map[string]interface{}{
+// 					"enabled": "true",
+// 				},
+// 			},
+// 			"version": "1",
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		_, err := appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
+// 			ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
+// 			ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
+// 			Description:            pulumi.String("Example Freeform Hosted Configuration Version"),
 // 			ContentType:            pulumi.String("application/json"),
 // 			Content:                pulumi.String(json0),
 // 		})

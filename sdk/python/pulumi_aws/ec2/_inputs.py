@@ -62,6 +62,7 @@ __all__ = [
     'LaunchTemplateMonitoringArgs',
     'LaunchTemplateNetworkInterfaceArgs',
     'LaunchTemplatePlacementArgs',
+    'LaunchTemplatePrivateDnsNameOptionsArgs',
     'LaunchTemplateTagSpecificationArgs',
     'ManagedPrefixListEntryArgs',
     'NetworkAclEgressArgs',
@@ -2801,9 +2802,13 @@ class LaunchConfigurationEbsBlockDeviceArgs:
 class LaunchConfigurationEphemeralBlockDeviceArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
-                 virtual_name: pulumi.Input[str]):
+                 no_device: Optional[pulumi.Input[bool]] = None,
+                 virtual_name: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2815,12 +2820,21 @@ class LaunchConfigurationEphemeralBlockDeviceArgs:
         pulumi.set(self, "device_name", value)
 
     @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "no_device")
+
+    @no_device.setter
+    def no_device(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_device", value)
+
+    @property
     @pulumi.getter(name="virtualName")
-    def virtual_name(self) -> pulumi.Input[str]:
+    def virtual_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_name")
 
     @virtual_name.setter
-    def virtual_name(self, value: pulumi.Input[str]):
+    def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
 
 
@@ -3216,24 +3230,40 @@ class LaunchTemplateCapacityReservationSpecificationArgs:
 @pulumi.input_type
 class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs:
     def __init__(__self__, *,
-                 capacity_reservation_id: Optional[pulumi.Input[str]] = None):
+                 capacity_reservation_id: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation to target.
+        :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        :param pulumi.Input[str] capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
 
     @property
     @pulumi.getter(name="capacityReservationId")
     def capacity_reservation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Capacity Reservation to target.
+        The ID of the Capacity Reservation in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_id")
 
     @capacity_reservation_id.setter
     def capacity_reservation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_id", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+    @capacity_reservation_resource_group_arn.setter
+    def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
 
 @pulumi.input_type
@@ -3699,8 +3729,12 @@ class LaunchTemplateNetworkInterfaceArgs:
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv4_address_count: Optional[pulumi.Input[int]] = None,
                  ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
+                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_prefix_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_card_index: Optional[pulumi.Input[int]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -3715,8 +3749,12 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         :param pulumi.Input[int] ipv4_address_count: The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_addresses: One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+        :param pulumi.Input[int] ipv4_prefix_count: The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_prefixes: One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        :param pulumi.Input[int] ipv6_prefix_count: The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_prefixes: One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
         :param pulumi.Input[int] network_card_index: The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface to attach.
         :param pulumi.Input[str] private_ip_address: The primary private IPv4 address.
@@ -3739,10 +3777,18 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
         if ipv4_addresses is not None:
             pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if ipv4_prefix_count is not None:
+            pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+        if ipv4_prefixes is not None:
+            pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
             pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if ipv6_prefix_count is not None:
+            pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+        if ipv6_prefixes is not None:
+            pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
         if network_card_index is not None:
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
@@ -3851,6 +3897,30 @@ class LaunchTemplateNetworkInterfaceArgs:
         pulumi.set(self, "ipv4_addresses", value)
 
     @property
+    @pulumi.getter(name="ipv4PrefixCount")
+    def ipv4_prefix_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        """
+        return pulumi.get(self, "ipv4_prefix_count")
+
+    @ipv4_prefix_count.setter
+    def ipv4_prefix_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4_prefix_count", value)
+
+    @property
+    @pulumi.getter(name="ipv4Prefixes")
+    def ipv4_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+        """
+        return pulumi.get(self, "ipv4_prefixes")
+
+    @ipv4_prefixes.setter
+    def ipv4_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv4_prefixes", value)
+
+    @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -3873,6 +3943,30 @@ class LaunchTemplateNetworkInterfaceArgs:
     @ipv6_addresses.setter
     def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="ipv6PrefixCount")
+    def ipv6_prefix_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        """
+        return pulumi.get(self, "ipv6_prefix_count")
+
+    @ipv6_prefix_count.setter
+    def ipv6_prefix_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_prefix_count", value)
+
+    @property
+    @pulumi.getter(name="ipv6Prefixes")
+    def ipv6_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+        """
+        return pulumi.get(self, "ipv6_prefixes")
+
+    @ipv6_prefixes.setter
+    def ipv6_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv6_prefixes", value)
 
     @property
     @pulumi.getter(name="networkCardIndex")
@@ -4068,6 +4162,61 @@ class LaunchTemplatePlacementArgs:
     @tenancy.setter
     def tenancy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenancy", value)
+
+
+@pulumi.input_type
+class LaunchTemplatePrivateDnsNameOptionsArgs:
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
+                 hostname_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        :param pulumi.Input[str] hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @enable_resource_name_dns_a_record.setter
+    def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        return pulumi.get(self, "hostname_type")
+
+    @hostname_type.setter
+    def hostname_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname_type", value)
 
 
 @pulumi.input_type

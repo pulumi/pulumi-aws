@@ -80,26 +80,27 @@ export class UserLoginProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserLoginProfile.__pulumiType;
     }
 
-    /**
-     * The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
-     */
     public /*out*/ readonly encryptedPassword!: pulumi.Output<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
-     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+     * The plain text password, only available when `pgpKey` is not provided.
+     */
+    public /*out*/ readonly password!: pulumi.Output<string>;
+    /**
+     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      */
     public readonly passwordLength!: pulumi.Output<number | undefined>;
     /**
-     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      */
-    public readonly passwordResetRequired!: pulumi.Output<boolean | undefined>;
+    public readonly passwordResetRequired!: pulumi.Output<boolean>;
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    public readonly pgpKey!: pulumi.Output<string>;
+    public readonly pgpKey!: pulumi.Output<string | undefined>;
     /**
      * The IAM user's name.
      */
@@ -120,15 +121,13 @@ export class UserLoginProfile extends pulumi.CustomResource {
             const state = argsOrState as UserLoginProfileState | undefined;
             resourceInputs["encryptedPassword"] = state ? state.encryptedPassword : undefined;
             resourceInputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["passwordLength"] = state ? state.passwordLength : undefined;
             resourceInputs["passwordResetRequired"] = state ? state.passwordResetRequired : undefined;
             resourceInputs["pgpKey"] = state ? state.pgpKey : undefined;
             resourceInputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as UserLoginProfileArgs | undefined;
-            if ((!args || args.pgpKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pgpKey'");
-            }
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
@@ -138,6 +137,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
             resourceInputs["user"] = args ? args.user : undefined;
             resourceInputs["encryptedPassword"] = undefined /*out*/;
             resourceInputs["keyFingerprint"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserLoginProfile.__pulumiType, name, resourceInputs, opts);
@@ -148,20 +148,21 @@ export class UserLoginProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserLoginProfile resources.
  */
 export interface UserLoginProfileState {
-    /**
-     * The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
-     */
     encryptedPassword?: pulumi.Input<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      */
     keyFingerprint?: pulumi.Input<string>;
     /**
-     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+     * The plain text password, only available when `pgpKey` is not provided.
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      */
     passwordLength?: pulumi.Input<number>;
     /**
-     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      */
     passwordResetRequired?: pulumi.Input<boolean>;
     /**
@@ -179,17 +180,17 @@ export interface UserLoginProfileState {
  */
 export interface UserLoginProfileArgs {
     /**
-     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      */
     passwordLength?: pulumi.Input<number>;
     /**
-     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      */
     passwordResetRequired?: pulumi.Input<boolean>;
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    pgpKey: pulumi.Input<string>;
+    pgpKey?: pulumi.Input<string>;
     /**
      * The IAM user's name.
      */

@@ -18,15 +18,13 @@ class ProjectArgs:
                  project_name: pulumi.Input[str],
                  service_catalog_provisioning_details: pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'],
                  project_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] project_name: The name of the Project.
         :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
@@ -34,8 +32,6 @@ class ProjectArgs:
             pulumi.set(__self__, "project_description", project_description)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="projectName")
@@ -84,18 +80,6 @@ class ProjectArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -227,7 +211,6 @@ class Project(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Sagemaker Project resource.
@@ -261,7 +244,6 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: The name of the Project.
         :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -314,7 +296,6 @@ class Project(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -335,9 +316,9 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_catalog_provisioning_details'")
             __props__.__dict__["service_catalog_provisioning_details"] = service_catalog_provisioning_details
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["project_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(Project, __self__).__init__(
             'aws:sagemaker/project:Project',
             resource_name,

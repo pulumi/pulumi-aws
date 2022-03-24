@@ -54,6 +54,8 @@ type LookupImagePipelineArgs struct {
 // A collection of values returned by getImagePipeline.
 type LookupImagePipelineResult struct {
 	Arn string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn string `pulumi:"containerRecipeArn"`
 	// Date the image pipeline was created.
 	DateCreated string `pulumi:"dateCreated"`
 	// Date the image pipeline was last run.
@@ -70,7 +72,7 @@ type LookupImagePipelineResult struct {
 	EnhancedImageMetadataEnabled bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn string `pulumi:"imageRecipeArn"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
@@ -128,6 +130,11 @@ func (o LookupImagePipelineResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the container recipe.
+func (o LookupImagePipelineResultOutput) ContainerRecipeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ContainerRecipeArn }).(pulumi.StringOutput)
+}
+
 // Date the image pipeline was created.
 func (o LookupImagePipelineResultOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.DateCreated }).(pulumi.StringOutput)
@@ -168,7 +175,7 @@ func (o LookupImagePipelineResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+// Amazon Resource Name (ARN) of the image recipe.
 func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
 }

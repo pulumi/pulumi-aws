@@ -76,7 +76,7 @@ type NetworkInterface struct {
 
 	// ARN of the network interface.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block to define the attachment of the ENI. See below.
+	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// Description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -158,7 +158,7 @@ func GetNetworkInterface(ctx *pulumi.Context,
 type networkInterfaceState struct {
 	// ARN of the network interface.
 	Arn *string `pulumi:"arn"`
-	// Configuration block to define the attachment of the ENI. See below.
+	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
@@ -209,7 +209,7 @@ type networkInterfaceState struct {
 type NetworkInterfaceState struct {
 	// ARN of the network interface.
 	Arn pulumi.StringPtrInput
-	// Configuration block to define the attachment of the ENI. See below.
+	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput
@@ -262,7 +262,7 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
-	// Configuration block to define the attachment of the ENI. See below.
+	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
@@ -303,7 +303,7 @@ type networkInterfaceArgs struct {
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
-	// Configuration block to define the attachment of the ENI. See below.
+	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput

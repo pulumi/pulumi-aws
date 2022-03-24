@@ -55,6 +55,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerCertificate{}
 	case "aws:iam/serviceLinkedRole:ServiceLinkedRole":
 		r = &ServiceLinkedRole{}
+	case "aws:iam/serviceSpecificCredential:ServiceSpecificCredential":
+		r = &ServiceSpecificCredential{}
+	case "aws:iam/signingCertificate:SigningCertificate":
+		r = &SigningCertificate{}
 	case "aws:iam/sshKey:SshKey":
 		r = &SshKey{}
 	case "aws:iam/user:User":
@@ -67,6 +71,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserPolicy{}
 	case "aws:iam/userPolicyAttachment:UserPolicyAttachment":
 		r = &UserPolicyAttachment{}
+	case "aws:iam/virtualMfaDevice:VirtualMfaDevice":
+		r = &VirtualMfaDevice{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -167,6 +173,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"iam/serviceSpecificCredential",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/signingCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"iam/sshKey",
 		&module{version},
 	)
@@ -193,6 +209,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/userPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/virtualMfaDevice",
 		&module{version},
 	)
 }

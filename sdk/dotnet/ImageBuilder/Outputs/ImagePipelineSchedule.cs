@@ -21,15 +21,22 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
         /// </summary>
         public readonly string ScheduleExpression;
+        /// <summary>
+        /// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+        /// </summary>
+        public readonly string? Timezone;
 
         [OutputConstructor]
         private ImagePipelineSchedule(
             string? pipelineExecutionStartCondition,
 
-            string scheduleExpression)
+            string scheduleExpression,
+
+            string? timezone)
         {
             PipelineExecutionStartCondition = pipelineExecutionStartCondition;
             ScheduleExpression = scheduleExpression;
+            Timezone = timezone;
         }
     }
 }

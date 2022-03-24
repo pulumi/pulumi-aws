@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const exampleGraph = new aws.detective.Graph("exampleGraph", {});
  * const exampleMember = new aws.detective.Member("exampleMember", {
  *     accountId: "AWS ACCOUNT ID",
- *     email: "EMAIL",
+ *     emailAddress: "EMAIL",
  *     graphArn: exampleGraph.id,
  *     message: "Message of the invitation",
  *     disableEmailNotification: true,

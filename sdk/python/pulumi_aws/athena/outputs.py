@@ -10,12 +10,48 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DatabaseAclConfiguration',
     'DatabaseEncryptionConfiguration',
     'WorkgroupConfiguration',
     'WorkgroupConfigurationEngineVersion',
     'WorkgroupConfigurationResultConfiguration',
     'WorkgroupConfigurationResultConfigurationEncryptionConfiguration',
 ]
+
+@pulumi.output_type
+class DatabaseAclConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3AclOption":
+            suggest = "s3_acl_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseAclConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseAclConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseAclConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_acl_option: str):
+        """
+        :param str s3_acl_option: The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        """
+        pulumi.set(__self__, "s3_acl_option", s3_acl_option)
+
+    @property
+    @pulumi.getter(name="s3AclOption")
+    def s3_acl_option(self) -> str:
+        """
+        The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        """
+        return pulumi.get(self, "s3_acl_option")
+
 
 @pulumi.output_type
 class DatabaseEncryptionConfiguration(dict):

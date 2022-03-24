@@ -10,7 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
-    /// Provides a S3 bucket logging resource.
+    /// Provides an S3 bucket (server access) logging resource. For more information, see [Logging requests using server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html)
+    /// in the AWS S3 User Guide.
+    /// 
+    /// &gt; **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
+    /// to decide which method meets your requirements.
     /// 
     /// ## Example Usage
     /// 
@@ -51,13 +55,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket logging can be imported using the `bucket` e.g.,
+    /// S3 bucket logging can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket logging resource should be imported using the `bucket` e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
     /// ```
     /// 
-    ///  In addition, S3 bucket logging can be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+    ///  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket logging resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
@@ -79,7 +83,7 @@ namespace Pulumi.Aws.S3
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The bucket where you want Amazon S3 to store server access logs.
+        /// The name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Output("targetBucket")]
         public Output<string> TargetBucket { get; private set; } = null!;
@@ -155,7 +159,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The bucket where you want Amazon S3 to store server access logs.
+        /// The name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Input("targetBucket", required: true)]
         public Input<string> TargetBucket { get; set; } = null!;
@@ -198,7 +202,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The bucket where you want Amazon S3 to store server access logs.
+        /// The name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Input("targetBucket")]
         public Input<string>? TargetBucket { get; set; }

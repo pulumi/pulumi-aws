@@ -332,6 +332,7 @@ class KeySigningKey(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
+        current = aws.get_caller_identity()
         example_key = aws.kms.Key("exampleKey",
             customer_master_key_spec="ECC_NIST_P256",
             deletion_window_in_days=7,
@@ -350,6 +351,14 @@ class KeySigningKey(pulumi.CustomResource):
                         },
                         "Sid": "Allow Route 53 DNSSEC Service",
                         "Resource": "*",
+                        "Condition": {
+                            "StringEquals": {
+                                "aws:SourceAccount": current.account_id,
+                            },
+                            "ArnLike": {
+                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
+                            },
+                        },
                     },
                     {
                         "Action": "kms:CreateGrant",
@@ -369,10 +378,10 @@ class KeySigningKey(pulumi.CustomResource):
                         "Action": "kms:*",
                         "Effect": "Allow",
                         "Principal": {
-                            "AWS": "*",
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
                         },
                         "Resource": "*",
-                        "Sid": "IAM User Permissions",
+                        "Sid": "Enable IAM User Permissions",
                     },
                 ],
                 "Version": "2012-10-17",
@@ -416,6 +425,7 @@ class KeySigningKey(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
+        current = aws.get_caller_identity()
         example_key = aws.kms.Key("exampleKey",
             customer_master_key_spec="ECC_NIST_P256",
             deletion_window_in_days=7,
@@ -434,6 +444,14 @@ class KeySigningKey(pulumi.CustomResource):
                         },
                         "Sid": "Allow Route 53 DNSSEC Service",
                         "Resource": "*",
+                        "Condition": {
+                            "StringEquals": {
+                                "aws:SourceAccount": current.account_id,
+                            },
+                            "ArnLike": {
+                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
+                            },
+                        },
                     },
                     {
                         "Action": "kms:CreateGrant",
@@ -453,10 +471,10 @@ class KeySigningKey(pulumi.CustomResource):
                         "Action": "kms:*",
                         "Effect": "Allow",
                         "Principal": {
-                            "AWS": "*",
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
                         },
                         "Resource": "*",
-                        "Sid": "IAM User Permissions",
+                        "Sid": "Enable IAM User Permissions",
                     },
                 ],
                 "Version": "2012-10-17",

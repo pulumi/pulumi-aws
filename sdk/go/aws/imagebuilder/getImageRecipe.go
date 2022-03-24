@@ -54,7 +54,7 @@ type LookupImageRecipeArgs struct {
 // A collection of values returned by getImageRecipe.
 type LookupImageRecipeResult struct {
 	Arn string `pulumi:"arn"`
-	// Set of objects with block device mappings for the the image recipe.
+	// Set of objects with block device mappings for the image recipe.
 	BlockDeviceMappings []GetImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// List of objects with components for the image recipe.
 	Components []GetImageRecipeComponent `pulumi:"components"`
@@ -68,7 +68,7 @@ type LookupImageRecipeResult struct {
 	Name string `pulumi:"name"`
 	// Owner of the image recipe.
 	Owner string `pulumi:"owner"`
-	// Platform of the image recipe.
+	// Base image of the image recipe.
 	ParentImage string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform string `pulumi:"platform"`
@@ -122,7 +122,7 @@ func (o LookupImageRecipeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Set of objects with block device mappings for the the image recipe.
+// Set of objects with block device mappings for the image recipe.
 func (o LookupImageRecipeResultOutput) BlockDeviceMappings() GetImageRecipeBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) []GetImageRecipeBlockDeviceMapping { return v.BlockDeviceMappings }).(GetImageRecipeBlockDeviceMappingArrayOutput)
 }
@@ -157,7 +157,7 @@ func (o LookupImageRecipeResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Platform of the image recipe.
+// Base image of the image recipe.
 func (o LookupImageRecipeResultOutput) ParentImage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.ParentImage }).(pulumi.StringOutput)
 }

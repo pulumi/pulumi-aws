@@ -12,6 +12,7 @@ export * from "./documents";
 export * from "./getAccountAlias";
 export * from "./getGroup";
 export * from "./getInstanceProfile";
+export * from "./getOpenidConnectProvider";
 export * from "./getPolicy";
 export * from "./getPolicyDocument";
 export * from "./getRole";
@@ -37,12 +38,15 @@ export * from "./rolePolicyAttachment";
 export * from "./samlProvider";
 export * from "./serverCertificate";
 export * from "./serviceLinkedRole";
+export * from "./serviceSpecificCredential";
+export * from "./signingCertificate";
 export * from "./sshKey";
 export * from "./user";
 export * from "./userGroupMembership";
 export * from "./userLoginProfile";
 export * from "./userPolicy";
 export * from "./userPolicyAttachment";
+export * from "./virtualMfaDevice";
 
 // Export enums:
 export * from "../types/enums/iam";
@@ -65,12 +69,15 @@ import { RolePolicyAttachment } from "./rolePolicyAttachment";
 import { SamlProvider } from "./samlProvider";
 import { ServerCertificate } from "./serverCertificate";
 import { ServiceLinkedRole } from "./serviceLinkedRole";
+import { ServiceSpecificCredential } from "./serviceSpecificCredential";
+import { SigningCertificate } from "./signingCertificate";
 import { SshKey } from "./sshKey";
 import { User } from "./user";
 import { UserGroupMembership } from "./userGroupMembership";
 import { UserLoginProfile } from "./userLoginProfile";
 import { UserPolicy } from "./userPolicy";
 import { UserPolicyAttachment } from "./userPolicyAttachment";
+import { VirtualMfaDevice } from "./virtualMfaDevice";
 
 const _module = {
     version: utilities.getVersion(),
@@ -110,6 +117,10 @@ const _module = {
                 return new ServerCertificate(name, <any>undefined, { urn })
             case "aws:iam/serviceLinkedRole:ServiceLinkedRole":
                 return new ServiceLinkedRole(name, <any>undefined, { urn })
+            case "aws:iam/serviceSpecificCredential:ServiceSpecificCredential":
+                return new ServiceSpecificCredential(name, <any>undefined, { urn })
+            case "aws:iam/signingCertificate:SigningCertificate":
+                return new SigningCertificate(name, <any>undefined, { urn })
             case "aws:iam/sshKey:SshKey":
                 return new SshKey(name, <any>undefined, { urn })
             case "aws:iam/user:User":
@@ -122,6 +133,8 @@ const _module = {
                 return new UserPolicy(name, <any>undefined, { urn })
             case "aws:iam/userPolicyAttachment:UserPolicyAttachment":
                 return new UserPolicyAttachment(name, <any>undefined, { urn })
+            case "aws:iam/virtualMfaDevice:VirtualMfaDevice":
+                return new VirtualMfaDevice(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -144,9 +157,12 @@ pulumi.runtime.registerResourceModule("aws", "iam/rolePolicyAttachment", _module
 pulumi.runtime.registerResourceModule("aws", "iam/samlProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serverCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serviceLinkedRole", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/serviceSpecificCredential", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/signingCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/sshKey", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/user", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userGroupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userLoginProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/virtualMfaDevice", _module)

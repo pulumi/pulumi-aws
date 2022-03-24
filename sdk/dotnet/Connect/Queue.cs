@@ -164,6 +164,9 @@ namespace Pulumi.Aws.Connect
         [Output("quickConnectIds")]
         public Output<ImmutableArray<string>> QuickConnectIds { get; private set; } = null!;
 
+        [Output("quickConnectIdsAssociateds")]
+        public Output<ImmutableArray<string>> QuickConnectIdsAssociateds { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
@@ -294,18 +297,6 @@ namespace Pulumi.Aws.Connect
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public QueueArgs()
         {
         }
@@ -371,6 +362,14 @@ namespace Pulumi.Aws.Connect
         {
             get => _quickConnectIds ?? (_quickConnectIds = new InputList<string>());
             set => _quickConnectIds = value;
+        }
+
+        [Input("quickConnectIdsAssociateds")]
+        private InputList<string>? _quickConnectIdsAssociateds;
+        public InputList<string> QuickConnectIdsAssociateds
+        {
+            get => _quickConnectIdsAssociateds ?? (_quickConnectIdsAssociateds = new InputList<string>());
+            set => _quickConnectIdsAssociateds = value;
         }
 
         /// <summary>

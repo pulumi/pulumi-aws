@@ -15,8 +15,11 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
+        [Input("noDevice")]
+        public Input<bool>? NoDevice { get; set; }
+
+        [Input("virtualName")]
+        public Input<string>? VirtualName { get; set; }
 
         public LaunchConfigurationEphemeralBlockDeviceGetArgs()
         {

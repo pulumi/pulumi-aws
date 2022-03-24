@@ -21,6 +21,7 @@ class ServiceArgs:
                  encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
                  health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
                  instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
@@ -30,7 +31,8 @@ class ServiceArgs:
         :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "source_configuration", source_configuration)
@@ -42,6 +44,8 @@ class ServiceArgs:
             pulumi.set(__self__, "health_check_configuration", health_check_configuration)
         if instance_configuration is not None:
             pulumi.set(__self__, "instance_configuration", instance_configuration)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -118,10 +122,22 @@ class ServiceArgs:
         pulumi.set(self, "instance_configuration", value)
 
     @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+        """
+        Configuration settings related to network traffic of the web application that the App Runner service runs.
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -138,6 +154,7 @@ class _ServiceState:
                  encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
                  health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
                  instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
@@ -152,12 +169,13 @@ class _ServiceState:
         :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
         :param pulumi.Input[str] status: The current state of the App Runner service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -170,6 +188,8 @@ class _ServiceState:
             pulumi.set(__self__, "health_check_configuration", health_check_configuration)
         if instance_configuration is not None:
             pulumi.set(__self__, "instance_configuration", instance_configuration)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if service_id is not None:
             pulumi.set(__self__, "service_id", service_id)
         if service_name is not None:
@@ -246,6 +266,18 @@ class _ServiceState:
         pulumi.set(self, "instance_configuration", value)
 
     @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+        """
+        Configuration settings related to network traffic of the web application that the App Runner service runs.
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -309,7 +341,7 @@ class _ServiceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -339,6 +371,7 @@ class Service(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -374,6 +407,12 @@ class Service(pulumi.CustomResource):
                         type="BRANCH",
                         value="main",
                     ),
+                ),
+            ),
+            network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
+                egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
+                    egress_type="VPC",
+                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
                 ),
             ),
             tags={
@@ -416,9 +455,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -457,6 +497,12 @@ class Service(pulumi.CustomResource):
                         type="BRANCH",
                         value="main",
                     ),
+                ),
+            ),
+            network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
+                egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
+                    egress_type="VPC",
+                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
                 ),
             ),
             tags={
@@ -512,6 +558,7 @@ class Service(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -531,6 +578,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["health_check_configuration"] = health_check_configuration
             __props__.__dict__["instance_configuration"] = instance_configuration
+            __props__.__dict__["network_configuration"] = network_configuration
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
@@ -558,6 +606,7 @@ class Service(pulumi.CustomResource):
             encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
             health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
             instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
+            network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
             service_id: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
@@ -577,12 +626,13 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
         :param pulumi.Input[str] status: The current state of the App Runner service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -594,6 +644,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["health_check_configuration"] = health_check_configuration
         __props__.__dict__["instance_configuration"] = instance_configuration
+        __props__.__dict__["network_configuration"] = network_configuration
         __props__.__dict__["service_id"] = service_id
         __props__.__dict__["service_name"] = service_name
         __props__.__dict__["service_url"] = service_url
@@ -644,6 +695,14 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "instance_configuration")
 
     @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Output['outputs.ServiceNetworkConfiguration']:
+        """
+        Configuration settings related to network traffic of the web application that the App Runner service runs.
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Output[str]:
         """
@@ -687,7 +746,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

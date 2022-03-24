@@ -101,7 +101,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      */
@@ -150,10 +150,10 @@ export class OpenZfsVolume extends pulumi.CustomResource {
             resourceInputs["storageCapacityQuotaGib"] = args ? args.storageCapacityQuotaGib : undefined;
             resourceInputs["storageCapacityReservationGib"] = args ? args.storageCapacityReservationGib : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["userAndGroupQuotas"] = args ? args.userAndGroupQuotas : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OpenZfsVolume.__pulumiType, name, resourceInputs, opts);
@@ -263,10 +263,6 @@ export interface OpenZfsVolumeArgs {
      * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      */

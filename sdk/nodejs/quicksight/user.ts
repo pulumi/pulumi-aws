@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *     email: "author@example.com",
  *     iamArn: "arn:aws:iam::123456789012:user/Example",
  *     identityType: "IAM",
+ *     namespace: "foo",
  *     sessionName: "an-author",
  *     userRole: "AUTHOR",
  * });
@@ -75,7 +76,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly identityType!: pulumi.Output<string>;
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
     /**
@@ -164,7 +165,7 @@ export interface UserState {
      */
     identityType?: pulumi.Input<string>;
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
     /**
@@ -202,7 +203,7 @@ export interface UserArgs {
      */
     identityType: pulumi.Input<string>;
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
     /**

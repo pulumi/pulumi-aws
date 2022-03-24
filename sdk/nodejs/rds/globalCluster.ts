@@ -6,139 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
- *
- * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
- *
- * ## Example Usage
- * ### New MySQL Global Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.GlobalCluster("example", {
- *     globalClusterIdentifier: "global-test",
- *     engine: "aurora",
- *     engineVersion: "5.6.mysql_aurora.1.22.2",
- *     databaseName: "example_db",
- * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     clusterIdentifier: "test-primary-cluster",
- *     masterUsername: "username",
- *     masterPassword: "somepass123",
- *     databaseName: "example_db",
- *     globalClusterIdentifier: example.id,
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
- * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
- *     instanceClass: "db.r4.large",
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
- * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     clusterIdentifier: "test-secondary-cluster",
- *     globalClusterIdentifier: example.id,
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
- *     instanceClass: "db.r4.large",
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
- * });
- * ```
- * ### New PostgreSQL Global Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
- * const example = new aws.rds.GlobalCluster("example", {
- *     globalClusterIdentifier: "global-test",
- *     engine: "aurora-postgresql",
- *     engineVersion: "11.9",
- *     databaseName: "example_db",
- * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     clusterIdentifier: "test-primary-cluster",
- *     masterUsername: "username",
- *     masterPassword: "somepass123",
- *     databaseName: "example_db",
- *     globalClusterIdentifier: example.id,
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
- * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
- *     instanceClass: "db.r4.large",
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
- * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     clusterIdentifier: "test-secondary-cluster",
- *     globalClusterIdentifier: example.id,
- *     skipFinalSnapshot: true,
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
- * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
- *     instanceClass: "db.r4.large",
- *     dbSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- * });
- * ```
- * ### New Global Cluster From Existing DB Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration ...
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
- *     forceDestroy: true,
- *     globalClusterIdentifier: "example",
- *     sourceDbClusterIdentifier: exampleCluster.arn,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.,
@@ -199,21 +66,14 @@ export class GlobalCluster extends pulumi.CustomResource {
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
-     */
     public readonly engine!: pulumi.Output<string>;
-    /**
-     * Engine version of the Aurora global database.
-     * * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
-     */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string>;
     /**
@@ -295,21 +155,14 @@ export interface GlobalClusterState {
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Engine version of the Aurora global database.
-     * * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
-     */
     engineVersion?: pulumi.Input<string>;
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -342,21 +195,14 @@ export interface GlobalClusterArgs {
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Engine version of the Aurora global database.
-     * * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
-     */
     engineVersion?: pulumi.Input<string>;
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      */
     globalClusterIdentifier: pulumi.Input<string>;
     /**

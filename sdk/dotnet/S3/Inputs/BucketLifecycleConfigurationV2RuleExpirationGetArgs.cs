@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketLifecycleConfigurationV2RuleExpirationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
+        /// The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("date")]
         public Input<string>? Date { get; set; }

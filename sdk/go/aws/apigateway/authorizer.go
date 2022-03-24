@@ -87,6 +87,8 @@ import (
 type Authorizer struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the API Gateway Authorizer
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
 	AuthorizerCredentials pulumi.StringPtrOutput `pulumi:"authorizerCredentials"`
 	// The TTL of cached authorizer results in seconds. Defaults to `300`.
@@ -140,6 +142,8 @@ func GetAuthorizer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authorizer resources.
 type authorizerState struct {
+	// Amazon Resource Name (ARN) of the API Gateway Authorizer
+	Arn *string `pulumi:"arn"`
 	// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
 	AuthorizerCredentials *string `pulumi:"authorizerCredentials"`
 	// The TTL of cached authorizer results in seconds. Defaults to `300`.
@@ -162,6 +166,8 @@ type authorizerState struct {
 }
 
 type AuthorizerState struct {
+	// Amazon Resource Name (ARN) of the API Gateway Authorizer
+	Arn pulumi.StringPtrInput
 	// The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
 	AuthorizerCredentials pulumi.StringPtrInput
 	// The TTL of cached authorizer results in seconds. Defaults to `300`.

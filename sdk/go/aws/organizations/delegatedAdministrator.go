@@ -26,8 +26,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := organizations.NewDelegatedAdministrator(ctx, "example", &organizations.DelegatedAdministratorArgs{
-// 			AccountId:        pulumi.String("AWS ACCOUNT ID"),
-// 			ServicePrincipal: pulumi.String("Service principal"),
+// 			AccountId:        pulumi.String("123456789012"),
+// 			ServicePrincipal: pulumi.String("principal"),
 // 		})
 // 		if err != nil {
 // 			return err

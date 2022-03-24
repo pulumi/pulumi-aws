@@ -10,6 +10,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ContainerRecipeComponent',
+    'ContainerRecipeComponentParameter',
+    'ContainerRecipeInstanceConfiguration',
+    'ContainerRecipeInstanceConfigurationBlockDeviceMapping',
+    'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs',
+    'ContainerRecipeTargetRepository',
     'DistributionConfigurationDistribution',
     'DistributionConfigurationDistributionAmiDistributionConfiguration',
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission',
@@ -25,9 +31,17 @@ __all__ = [
     'ImageRecipeBlockDeviceMappingEbs',
     'ImageRecipeComponent',
     'ImageRecipeComponentParameter',
+    'ImageRecipeSystemsManagerAgent',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationLoggingS3Logs',
     'GetComponentsFilterResult',
+    'GetContainerRecipeComponentResult',
+    'GetContainerRecipeComponentParameterResult',
+    'GetContainerRecipeInstanceConfigurationResult',
+    'GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult',
+    'GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult',
+    'GetContainerRecipeTargetRepositoryResult',
+    'GetContainerRecipesFilterResult',
     'GetDistributionConfigurationDistributionResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult',
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult',
@@ -49,6 +63,368 @@ __all__ = [
     'GetInfrastructureConfigurationLoggingS3LogResult',
     'GetInfrastructureConfigurationsFilterResult',
 ]
+
+@pulumi.output_type
+class ContainerRecipeComponent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentArn":
+            suggest = "component_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRecipeComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRecipeComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRecipeComponent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_arn: str,
+                 parameters: Optional[Sequence['outputs.ContainerRecipeComponentParameter']] = None):
+        """
+        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        :param Sequence['ContainerRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
+        """
+        pulumi.set(__self__, "component_arn", component_arn)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="componentArn")
+    def component_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        """
+        return pulumi.get(self, "component_arn")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ContainerRecipeComponentParameter']]:
+        """
+        Configuration block(s) for parameters to configure the component. Detailed below.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ContainerRecipeComponentParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the component parameter.
+        :param str value: The value for the named component parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the component parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the named component parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContainerRecipeInstanceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockDeviceMappings":
+            suggest = "block_device_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRecipeInstanceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRecipeInstanceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRecipeInstanceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_device_mappings: Optional[Sequence['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping']] = None,
+                 image: Optional[str] = None):
+        """
+        :param Sequence['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+        :param str image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+        """
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[Sequence['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping']]:
+        """
+        Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+        """
+        return pulumi.get(self, "block_device_mappings")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+        """
+        return pulumi.get(self, "image")
+
+
+@pulumi.output_type
+class ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "noDevice":
+            suggest = "no_device"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRecipeInstanceConfigurationBlockDeviceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRecipeInstanceConfigurationBlockDeviceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRecipeInstanceConfigurationBlockDeviceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_name: Optional[str] = None,
+                 ebs: Optional['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs'] = None,
+                 no_device: Optional[bool] = None,
+                 virtual_name: Optional[str] = None):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        :param bool no_device: Set to `true` to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[str]:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs']:
+        """
+        Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        """
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[bool]:
+        """
+        Set to `true` to remove a mapping from the parent image.
+        """
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[str]:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[str] = None,
+                 encrypted: Optional[str] = None,
+                 iops: Optional[int] = None,
+                 kms_key_id: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
+        """
+        :param str delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param str encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[str]:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[str]:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[int]:
+        """
+        Size of the volume, in GiB.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[str]:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class ContainerRecipeTargetRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryName":
+            suggest = "repository_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRecipeTargetRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRecipeTargetRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRecipeTargetRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_name: str,
+                 service: str):
+        """
+        :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        :param str service: The service in which this image is registered. Valid values: `ECR`.
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        The service in which this image is registered. Valid values: `ECR`.
+        """
+        return pulumi.get(self, "service")
+
 
 @pulumi.output_type
 class DistributionConfigurationDistribution(dict):
@@ -671,14 +1047,18 @@ class ImagePipelineSchedule(dict):
 
     def __init__(__self__, *,
                  schedule_expression: str,
-                 pipeline_execution_start_condition: Optional[str] = None):
+                 pipeline_execution_start_condition: Optional[str] = None,
+                 timezone: Optional[str] = None):
         """
         :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
         :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+        :param str timezone: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if pipeline_execution_start_condition is not None:
             pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -695,6 +1075,14 @@ class ImagePipelineSchedule(dict):
         Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
         """
         return pulumi.get(self, "pipeline_execution_start_condition")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+        """
+        return pulumi.get(self, "timezone")
 
 
 @pulumi.output_type
@@ -966,6 +1354,41 @@ class ImageRecipeComponentParameter(dict):
 
 
 @pulumi.output_type
+class ImageRecipeSystemsManagerAgent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uninstallAfterBuild":
+            suggest = "uninstall_after_build"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRecipeSystemsManagerAgent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRecipeSystemsManagerAgent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRecipeSystemsManagerAgent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uninstall_after_build: bool):
+        """
+        :param bool uninstall_after_build: Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        """
+        pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
+
+    @property
+    @pulumi.getter(name="uninstallAfterBuild")
+    def uninstall_after_build(self) -> bool:
+        """
+        Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        """
+        return pulumi.get(self, "uninstall_after_build")
+
+
+@pulumi.output_type
 class InfrastructureConfigurationLogging(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1066,6 +1489,286 @@ class GetComponentsFilterResult(dict):
     def name(self) -> str:
         """
         The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetContainerRecipeComponentResult(dict):
+    def __init__(__self__, *,
+                 component_arn: str,
+                 parameters: Sequence['outputs.GetContainerRecipeComponentParameterResult']):
+        """
+        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component.
+        :param Sequence['GetContainerRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
+        """
+        pulumi.set(__self__, "component_arn", component_arn)
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="componentArn")
+    def component_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Component.
+        """
+        return pulumi.get(self, "component_arn")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetContainerRecipeComponentParameterResult']:
+        """
+        Set of parameters that are used to configure the component.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class GetContainerRecipeComponentParameterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Name of the container recipe.
+        :param str value: Value of the component parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the container recipe.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the component parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetContainerRecipeInstanceConfigurationResult(dict):
+    def __init__(__self__, *,
+                 block_device_mappings: Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult'],
+                 image: str):
+        """
+        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Set of objects with block device mappings for the instance configuration.
+        :param str image: AMI ID of the base image for container build and test instance.
+        """
+        pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        pulumi.set(__self__, "image", image)
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult']:
+        """
+        Set of objects with block device mappings for the instance configuration.
+        """
+        return pulumi.get(self, "block_device_mappings")
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        AMI ID of the base image for container build and test instance.
+        """
+        return pulumi.get(self, "image")
+
+
+@pulumi.output_type
+class GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
+    def __init__(__self__, *,
+                 device_name: str,
+                 ebs: Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult'],
+                 no_device: str,
+                 virtual_name: str):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        :param str no_device: Whether to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "ebs", ebs)
+        pulumi.set(__self__, "no_device", no_device)
+        pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult']:
+        """
+        Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        """
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> str:
+        """
+        Whether to remove a mapping from the parent image.
+        """
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> str:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(dict):
+    def __init__(__self__, *,
+                 delete_on_termination: bool,
+                 encrypted: bool,
+                 iops: int,
+                 kms_key_id: str,
+                 snapshot_id: str,
+                 volume_size: int,
+                 volume_type: str):
+        """
+        :param bool delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param bool encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: KMS key used to encrypt the container image.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
+        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "snapshot_id", snapshot_id)
+        pulumi.set(__self__, "volume_size", volume_size)
+        pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> bool:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> int:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        """
+        KMS key used to encrypt the container image.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> str:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> int:
+        """
+        Size of the volume, in GiB.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> str:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class GetContainerRecipeTargetRepositoryResult(dict):
+    def __init__(__self__, *,
+                 repository_name: str,
+                 service: str):
+        """
+        :param str repository_name: Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+        :param str service: Service in which this image is registered.
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        Service in which this image is registered.
+        """
+        return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class GetContainerRecipesFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
         """
         return pulumi.get(self, "name")
 

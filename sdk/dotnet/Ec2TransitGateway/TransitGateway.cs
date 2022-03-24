@@ -90,6 +90,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("dnsSupport")]
         public Output<string?> DnsSupport { get; private set; } = null!;
 
+        [Output("multicastSupport")]
+        public Output<string?> MulticastSupport { get; private set; } = null!;
+
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
         /// </summary>
@@ -113,6 +116,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+        /// </summary>
+        [Output("transitGatewayCidrBlocks")]
+        public Output<ImmutableArray<string>> TransitGatewayCidrBlocks { get; private set; } = null!;
 
         /// <summary>
         /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -202,6 +211,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
+        [Input("multicastSupport")]
+        public Input<string>? MulticastSupport { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -212,6 +224,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("transitGatewayCidrBlocks")]
+        private InputList<string>? _transitGatewayCidrBlocks;
+
+        /// <summary>
+        /// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+        /// </summary>
+        public InputList<string> TransitGatewayCidrBlocks
+        {
+            get => _transitGatewayCidrBlocks ?? (_transitGatewayCidrBlocks = new InputList<string>());
+            set => _transitGatewayCidrBlocks = value;
         }
 
         /// <summary>
@@ -275,6 +299,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
+        [Input("multicastSupport")]
+        public Input<string>? MulticastSupport { get; set; }
+
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
         /// </summary>
@@ -309,6 +336,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("transitGatewayCidrBlocks")]
+        private InputList<string>? _transitGatewayCidrBlocks;
+
+        /// <summary>
+        /// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+        /// </summary>
+        public InputList<string> TransitGatewayCidrBlocks
+        {
+            get => _transitGatewayCidrBlocks ?? (_transitGatewayCidrBlocks = new InputList<string>());
+            set => _transitGatewayCidrBlocks = value;
         }
 
         /// <summary>

@@ -72,9 +72,7 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {objectLockConfiguration: {
- *     objectLockEnabled: "Enabled",
- * }});
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {objectLockEnabled: true});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",

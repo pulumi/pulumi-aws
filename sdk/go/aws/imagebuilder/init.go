@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:imagebuilder/component:Component":
 		r = &Component{}
+	case "aws:imagebuilder/containerRecipe:ContainerRecipe":
+		r = &ContainerRecipe{}
 	case "aws:imagebuilder/distributionConfiguration:DistributionConfiguration":
 		r = &DistributionConfiguration{}
 	case "aws:imagebuilder/image:Image":
@@ -49,6 +51,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"imagebuilder/component",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"imagebuilder/containerRecipe",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

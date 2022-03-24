@@ -10,6 +10,253 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CatalogDatabaseCreateTableDefaultPermission struct {
+	// The permissions that are granted to the principal.
+	Permissions []string `pulumi:"permissions"`
+	// The principal who is granted permissions.. See `principal` below.
+	Principal *CatalogDatabaseCreateTableDefaultPermissionPrincipal `pulumi:"principal"`
+}
+
+// CatalogDatabaseCreateTableDefaultPermissionInput is an input type that accepts CatalogDatabaseCreateTableDefaultPermissionArgs and CatalogDatabaseCreateTableDefaultPermissionOutput values.
+// You can construct a concrete instance of `CatalogDatabaseCreateTableDefaultPermissionInput` via:
+//
+//          CatalogDatabaseCreateTableDefaultPermissionArgs{...}
+type CatalogDatabaseCreateTableDefaultPermissionInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseCreateTableDefaultPermissionOutput() CatalogDatabaseCreateTableDefaultPermissionOutput
+	ToCatalogDatabaseCreateTableDefaultPermissionOutputWithContext(context.Context) CatalogDatabaseCreateTableDefaultPermissionOutput
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionArgs struct {
+	// The permissions that are granted to the principal.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// The principal who is granted permissions.. See `principal` below.
+	Principal CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput `pulumi:"principal"`
+}
+
+func (CatalogDatabaseCreateTableDefaultPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionArgs) ToCatalogDatabaseCreateTableDefaultPermissionOutput() CatalogDatabaseCreateTableDefaultPermissionOutput {
+	return i.ToCatalogDatabaseCreateTableDefaultPermissionOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionArgs) ToCatalogDatabaseCreateTableDefaultPermissionOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseCreateTableDefaultPermissionOutput)
+}
+
+// CatalogDatabaseCreateTableDefaultPermissionArrayInput is an input type that accepts CatalogDatabaseCreateTableDefaultPermissionArray and CatalogDatabaseCreateTableDefaultPermissionArrayOutput values.
+// You can construct a concrete instance of `CatalogDatabaseCreateTableDefaultPermissionArrayInput` via:
+//
+//          CatalogDatabaseCreateTableDefaultPermissionArray{ CatalogDatabaseCreateTableDefaultPermissionArgs{...} }
+type CatalogDatabaseCreateTableDefaultPermissionArrayInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseCreateTableDefaultPermissionArrayOutput() CatalogDatabaseCreateTableDefaultPermissionArrayOutput
+	ToCatalogDatabaseCreateTableDefaultPermissionArrayOutputWithContext(context.Context) CatalogDatabaseCreateTableDefaultPermissionArrayOutput
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionArray []CatalogDatabaseCreateTableDefaultPermissionInput
+
+func (CatalogDatabaseCreateTableDefaultPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogDatabaseCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionArray) ToCatalogDatabaseCreateTableDefaultPermissionArrayOutput() CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
+	return i.ToCatalogDatabaseCreateTableDefaultPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionArray) ToCatalogDatabaseCreateTableDefaultPermissionArrayOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseCreateTableDefaultPermissionArrayOutput)
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseCreateTableDefaultPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionOutput) ToCatalogDatabaseCreateTableDefaultPermissionOutput() CatalogDatabaseCreateTableDefaultPermissionOutput {
+	return o
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionOutput) ToCatalogDatabaseCreateTableDefaultPermissionOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionOutput {
+	return o
+}
+
+// The permissions that are granted to the principal.
+func (o CatalogDatabaseCreateTableDefaultPermissionOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogDatabaseCreateTableDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// The principal who is granted permissions.. See `principal` below.
+func (o CatalogDatabaseCreateTableDefaultPermissionOutput) Principal() CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o.ApplyT(func(v CatalogDatabaseCreateTableDefaultPermission) *CatalogDatabaseCreateTableDefaultPermissionPrincipal {
+		return v.Principal
+	}).(CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput)
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseCreateTableDefaultPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogDatabaseCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionArrayOutput) ToCatalogDatabaseCreateTableDefaultPermissionArrayOutput() CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionArrayOutput) ToCatalogDatabaseCreateTableDefaultPermissionArrayOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionArrayOutput) Index(i pulumi.IntInput) CatalogDatabaseCreateTableDefaultPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogDatabaseCreateTableDefaultPermission {
+		return vs[0].([]CatalogDatabaseCreateTableDefaultPermission)[vs[1].(int)]
+	}).(CatalogDatabaseCreateTableDefaultPermissionOutput)
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionPrincipal struct {
+	// An identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// CatalogDatabaseCreateTableDefaultPermissionPrincipalInput is an input type that accepts CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs and CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput values.
+// You can construct a concrete instance of `CatalogDatabaseCreateTableDefaultPermissionPrincipalInput` via:
+//
+//          CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{...}
+type CatalogDatabaseCreateTableDefaultPermissionPrincipalInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseCreateTableDefaultPermissionPrincipalOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput
+	ToCatalogDatabaseCreateTableDefaultPermissionPrincipalOutputWithContext(context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs struct {
+	// An identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput {
+	return i.ToCatalogDatabaseCreateTableDefaultPermissionPrincipalOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput)
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return i.ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput).ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx)
+}
+
+// CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput is an input type that accepts CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs, CatalogDatabaseCreateTableDefaultPermissionPrincipalPtr and CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput values.
+// You can construct a concrete instance of `CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput` via:
+//
+//          CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{...}
+//
+//  or:
+//
+//          nil
+type CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput
+	ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput
+}
+
+type catalogDatabaseCreateTableDefaultPermissionPrincipalPtrType CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs
+
+func CatalogDatabaseCreateTableDefaultPermissionPrincipalPtr(v *CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs) CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput {
+	return (*catalogDatabaseCreateTableDefaultPermissionPrincipalPtrType)(v)
+}
+
+func (*catalogDatabaseCreateTableDefaultPermissionPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabaseCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i *catalogDatabaseCreateTableDefaultPermissionPrincipalPtrType) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return i.ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogDatabaseCreateTableDefaultPermissionPrincipalPtrType) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput)
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o.ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogDatabaseCreateTableDefaultPermissionPrincipal) *CatalogDatabaseCreateTableDefaultPermissionPrincipal {
+		return &v
+	}).(CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput)
+}
+
+// An identifier for the Lake Formation principal.
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDatabaseCreateTableDefaultPermissionPrincipal) *string {
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabaseCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput() CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) ToCatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) Elem() CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput {
+	return o.ApplyT(func(v *CatalogDatabaseCreateTableDefaultPermissionPrincipal) CatalogDatabaseCreateTableDefaultPermissionPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogDatabaseCreateTableDefaultPermissionPrincipal
+		return ret
+	}).(CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput)
+}
+
+// An identifier for the Lake Formation principal.
+func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabaseCreateTableDefaultPermissionPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type CatalogDatabaseTargetDatabase struct {
 	// ID of the Data Catalog in which the database resides.
 	CatalogId string `pulumi:"catalogId"`
@@ -4363,7 +4610,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 }
 
 type JobCommand struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
 	PythonVersion *string `pulumi:"pythonVersion"`
@@ -4383,7 +4630,7 @@ type JobCommandInput interface {
 }
 
 type JobCommandArgs struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
@@ -4468,7 +4715,7 @@ func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) 
 	}).(JobCommandPtrOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4507,7 +4754,7 @@ func (o JobCommandPtrOutput) Elem() JobCommandOutput {
 	}).(JobCommandOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCommand) *string {
 		if v == nil {
@@ -7405,6 +7652,112 @@ func (o TriggerActionNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+type TriggerEventBatchingCondition struct {
+	// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+	BatchSize int `pulumi:"batchSize"`
+	// Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+	BatchWindow *int `pulumi:"batchWindow"`
+}
+
+// TriggerEventBatchingConditionInput is an input type that accepts TriggerEventBatchingConditionArgs and TriggerEventBatchingConditionOutput values.
+// You can construct a concrete instance of `TriggerEventBatchingConditionInput` via:
+//
+//          TriggerEventBatchingConditionArgs{...}
+type TriggerEventBatchingConditionInput interface {
+	pulumi.Input
+
+	ToTriggerEventBatchingConditionOutput() TriggerEventBatchingConditionOutput
+	ToTriggerEventBatchingConditionOutputWithContext(context.Context) TriggerEventBatchingConditionOutput
+}
+
+type TriggerEventBatchingConditionArgs struct {
+	// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+	BatchSize pulumi.IntInput `pulumi:"batchSize"`
+	// Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+	BatchWindow pulumi.IntPtrInput `pulumi:"batchWindow"`
+}
+
+func (TriggerEventBatchingConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (i TriggerEventBatchingConditionArgs) ToTriggerEventBatchingConditionOutput() TriggerEventBatchingConditionOutput {
+	return i.ToTriggerEventBatchingConditionOutputWithContext(context.Background())
+}
+
+func (i TriggerEventBatchingConditionArgs) ToTriggerEventBatchingConditionOutputWithContext(ctx context.Context) TriggerEventBatchingConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerEventBatchingConditionOutput)
+}
+
+// TriggerEventBatchingConditionArrayInput is an input type that accepts TriggerEventBatchingConditionArray and TriggerEventBatchingConditionArrayOutput values.
+// You can construct a concrete instance of `TriggerEventBatchingConditionArrayInput` via:
+//
+//          TriggerEventBatchingConditionArray{ TriggerEventBatchingConditionArgs{...} }
+type TriggerEventBatchingConditionArrayInput interface {
+	pulumi.Input
+
+	ToTriggerEventBatchingConditionArrayOutput() TriggerEventBatchingConditionArrayOutput
+	ToTriggerEventBatchingConditionArrayOutputWithContext(context.Context) TriggerEventBatchingConditionArrayOutput
+}
+
+type TriggerEventBatchingConditionArray []TriggerEventBatchingConditionInput
+
+func (TriggerEventBatchingConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (i TriggerEventBatchingConditionArray) ToTriggerEventBatchingConditionArrayOutput() TriggerEventBatchingConditionArrayOutput {
+	return i.ToTriggerEventBatchingConditionArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerEventBatchingConditionArray) ToTriggerEventBatchingConditionArrayOutputWithContext(ctx context.Context) TriggerEventBatchingConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerEventBatchingConditionArrayOutput)
+}
+
+type TriggerEventBatchingConditionOutput struct{ *pulumi.OutputState }
+
+func (TriggerEventBatchingConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (o TriggerEventBatchingConditionOutput) ToTriggerEventBatchingConditionOutput() TriggerEventBatchingConditionOutput {
+	return o
+}
+
+func (o TriggerEventBatchingConditionOutput) ToTriggerEventBatchingConditionOutputWithContext(ctx context.Context) TriggerEventBatchingConditionOutput {
+	return o
+}
+
+// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+func (o TriggerEventBatchingConditionOutput) BatchSize() pulumi.IntOutput {
+	return o.ApplyT(func(v TriggerEventBatchingCondition) int { return v.BatchSize }).(pulumi.IntOutput)
+}
+
+// Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+func (o TriggerEventBatchingConditionOutput) BatchWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TriggerEventBatchingCondition) *int { return v.BatchWindow }).(pulumi.IntPtrOutput)
+}
+
+type TriggerEventBatchingConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerEventBatchingConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (o TriggerEventBatchingConditionArrayOutput) ToTriggerEventBatchingConditionArrayOutput() TriggerEventBatchingConditionArrayOutput {
+	return o
+}
+
+func (o TriggerEventBatchingConditionArrayOutput) ToTriggerEventBatchingConditionArrayOutputWithContext(ctx context.Context) TriggerEventBatchingConditionArrayOutput {
+	return o
+}
+
+func (o TriggerEventBatchingConditionArrayOutput) Index(i pulumi.IntInput) TriggerEventBatchingConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerEventBatchingCondition {
+		return vs[0].([]TriggerEventBatchingCondition)[vs[1].(int)]
+	}).(TriggerEventBatchingConditionOutput)
+}
+
 type TriggerPredicate struct {
 	// A list of the conditions that determine when the trigger will fire. See Conditions.
 	Conditions []TriggerPredicateCondition `pulumi:"conditions"`
@@ -8591,6 +8944,10 @@ func (o GetScriptDagNodeArgArrayOutput) Index(i pulumi.IntInput) GetScriptDagNod
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionArrayInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipalInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabaseInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabasePtrInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionIndexInput)(nil)).Elem(), CatalogTablePartitionIndexArgs{})
@@ -8685,6 +9042,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionArrayInput)(nil)).Elem(), TriggerActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionNotificationPropertyInput)(nil)).Elem(), TriggerActionNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionNotificationPropertyPtrInput)(nil)).Elem(), TriggerActionNotificationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerEventBatchingConditionInput)(nil)).Elem(), TriggerEventBatchingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerEventBatchingConditionArrayInput)(nil)).Elem(), TriggerEventBatchingConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateInput)(nil)).Elem(), TriggerPredicateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicatePtrInput)(nil)).Elem(), TriggerPredicateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateConditionInput)(nil)).Elem(), TriggerPredicateConditionArgs{})
@@ -8705,6 +9064,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagNodeArrayInput)(nil)).Elem(), GetScriptDagNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagNodeArgInput)(nil)).Elem(), GetScriptDagNodeArgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagNodeArgArrayInput)(nil)).Elem(), GetScriptDagNodeArgArray{})
+	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabaseOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabasePtrOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexOutput{})
@@ -8799,6 +9162,8 @@ func init() {
 	pulumi.RegisterOutputType(TriggerActionArrayOutput{})
 	pulumi.RegisterOutputType(TriggerActionNotificationPropertyOutput{})
 	pulumi.RegisterOutputType(TriggerActionNotificationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(TriggerEventBatchingConditionOutput{})
+	pulumi.RegisterOutputType(TriggerEventBatchingConditionArrayOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateOutput{})
 	pulumi.RegisterOutputType(TriggerPredicatePtrOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateConditionOutput{})

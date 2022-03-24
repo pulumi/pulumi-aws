@@ -367,17 +367,21 @@ class GlobalClusterGlobalClusterMemberArgs:
 class InstanceRestoreToPointInTimeArgs:
     def __init__(__self__, *,
                  restore_time: Optional[pulumi.Input[str]] = None,
+                 source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] restore_time: The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-        :param pulumi.Input[str] source_db_instance_identifier: The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_dbi_resource_id` is not specified.
-        :param pulumi.Input[str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` is not specified.
+        :param pulumi.Input[str] source_db_instance_automated_backups_arn: The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        :param pulumi.Input[str] source_db_instance_identifier: The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+        :param pulumi.Input[str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
         :param pulumi.Input[bool] use_latest_restorable_time: A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
         """
         if restore_time is not None:
             pulumi.set(__self__, "restore_time", restore_time)
+        if source_db_instance_automated_backups_arn is not None:
+            pulumi.set(__self__, "source_db_instance_automated_backups_arn", source_db_instance_automated_backups_arn)
         if source_db_instance_identifier is not None:
             pulumi.set(__self__, "source_db_instance_identifier", source_db_instance_identifier)
         if source_dbi_resource_id is not None:
@@ -398,10 +402,22 @@ class InstanceRestoreToPointInTimeArgs:
         pulumi.set(self, "restore_time", value)
 
     @property
+    @pulumi.getter(name="sourceDbInstanceAutomatedBackupsArn")
+    def source_db_instance_automated_backups_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        """
+        return pulumi.get(self, "source_db_instance_automated_backups_arn")
+
+    @source_db_instance_automated_backups_arn.setter
+    def source_db_instance_automated_backups_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_db_instance_automated_backups_arn", value)
+
+    @property
     @pulumi.getter(name="sourceDbInstanceIdentifier")
     def source_db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_dbi_resource_id` is not specified.
+        The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
         """
         return pulumi.get(self, "source_db_instance_identifier")
 
@@ -413,7 +429,7 @@ class InstanceRestoreToPointInTimeArgs:
     @pulumi.getter(name="sourceDbiResourceId")
     def source_dbi_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` is not specified.
+        The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
         """
         return pulumi.get(self, "source_dbi_resource_id")
 

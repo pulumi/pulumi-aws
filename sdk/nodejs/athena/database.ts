@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
- * const hogeDatabase = new aws.athena.Database("hogeDatabase", {
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleDatabase = new aws.athena.Database("exampleDatabase", {
  *     name: "database_name",
- *     bucket: hogeBucketV2.bucket,
+ *     bucket: exampleBucketV2.bucket,
  * });
  * ```
  */
@@ -50,13 +50,25 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
-     * Name of s3 bucket to save the results of the query execution.
+     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    public readonly aclConfiguration!: pulumi.Output<outputs.athena.DatabaseAclConfiguration | undefined>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
+     * Name of S3 bucket to save the results of the query execution.
+     */
+    public readonly bucket!: pulumi.Output<string | undefined>;
+    /**
+     * Description of the database.
+     */
+    public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.athena.DatabaseEncryptionConfiguration | undefined>;
+    /**
+     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     */
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
@@ -73,23 +85,26 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
+            resourceInputs["aclConfiguration"] = state ? state.aclConfiguration : undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bucket'");
-            }
+            resourceInputs["aclConfiguration"] = args ? args.aclConfiguration : undefined;
             resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         }
@@ -103,13 +118,25 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     /**
-     * Name of s3 bucket to save the results of the query execution.
+     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     */
+    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
+    /**
+     * Name of S3 bucket to save the results of the query execution.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
+     * Description of the database.
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    /**
+     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     */
+    expectedBucketOwner?: pulumi.Input<string>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
@@ -125,13 +152,25 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     /**
-     * Name of s3 bucket to save the results of the query execution.
+     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    bucket: pulumi.Input<string>;
+    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
+     * Name of S3 bucket to save the results of the query execution.
+     */
+    bucket?: pulumi.Input<string>;
+    /**
+     * Description of the database.
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    /**
+     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     */
+    expectedBucketOwner?: pulumi.Input<string>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */

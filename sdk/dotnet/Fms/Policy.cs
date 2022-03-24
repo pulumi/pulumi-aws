@@ -61,6 +61,10 @@ namespace Pulumi.Aws.Fms
     ///                     { "overrideCustomerWebACLAssociation", false },
     ///                 })),
     ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example-fms-policy" },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -86,6 +90,12 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Output("deleteAllPolicyResources")]
         public Output<bool?> DeleteAllPolicyResources { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        /// </summary>
+        [Output("deleteUnusedFmManagedResources")]
+        public Output<bool?> DeleteUnusedFmManagedResources { get; private set; } = null!;
 
         /// <summary>
         /// A map of lists of accounts and OU's to exclude from the policy.
@@ -147,6 +157,18 @@ namespace Pulumi.Aws.Fms
         [Output("securityServicePolicyData")]
         public Output<Outputs.PolicySecurityServicePolicyData> SecurityServicePolicyData { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Policy resource with the given unique name, arguments, and options.
@@ -198,6 +220,12 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Input("deleteAllPolicyResources")]
         public Input<bool>? DeleteAllPolicyResources { get; set; }
+
+        /// <summary>
+        /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        /// </summary>
+        [Input("deleteUnusedFmManagedResources")]
+        public Input<bool>? DeleteUnusedFmManagedResources { get; set; }
 
         /// <summary>
         /// A map of lists of accounts and OU's to exclude from the policy.
@@ -265,6 +293,30 @@ namespace Pulumi.Aws.Fms
         [Input("securityServicePolicyData", required: true)]
         public Input<Inputs.PolicySecurityServicePolicyDataArgs> SecurityServicePolicyData { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public PolicyArgs()
         {
         }
@@ -280,6 +332,12 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Input("deleteAllPolicyResources")]
         public Input<bool>? DeleteAllPolicyResources { get; set; }
+
+        /// <summary>
+        /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        /// </summary>
+        [Input("deleteUnusedFmManagedResources")]
+        public Input<bool>? DeleteUnusedFmManagedResources { get; set; }
 
         /// <summary>
         /// A map of lists of accounts and OU's to exclude from the policy.
@@ -352,6 +410,30 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Input("securityServicePolicyData")]
         public Input<Inputs.PolicySecurityServicePolicyDataGetArgs>? SecurityServicePolicyData { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public PolicyState()
         {
