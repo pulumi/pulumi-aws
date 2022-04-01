@@ -2,7 +2,6 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PULUMI_EXTRA_MAPPING_ERROR: false
   PULUMI_MISSING_MAPPING_ERROR: false
-
 jobs:
   update_bridge:
     name: update-bridge
@@ -46,7 +45,8 @@ jobs:
         }} && go mod tidy
     - run: make tfgen
     - run: make build_sdks
-    - name: Create PR
+    - id: create-pr
+      name: Create PR
       uses: peter-evans/create-pull-request@v3.12.0
       with:
         author: pulumi-bot <bot@pulumi.com>
@@ -61,6 +61,14 @@ jobs:
         team-reviewers: platform-integrations
         title: Update pulumi-terraform-bridge to v${{ github.event.inputs.bridge_version
           }}
+        token: ${{ secrets.PULUMI_BOT_TOKEN }}
+    - if: steps.create-pr.outputs.pull-request-operation == 'created'
+      name: Set Automerge
+      uses: peter-evans/enable-pull-request-automerge@v1
+      with:
+        merge-method: squash
+        pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
+        repository: ${{ github.repository }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
     strategy:
       fail-fast: true
