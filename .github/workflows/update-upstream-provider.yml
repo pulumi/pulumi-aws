@@ -18,7 +18,6 @@ env:
   UPSTREAM_PROVIDER_MAJOR_VERSION: ""
   UPSTREAM_PROVIDER_ORG: pulumi
   UPSTREAM_PROVIDER_REPO: terraform-provider-aws
-
 jobs:
   update_upstream_provider:
     name: update-upstream_provider
