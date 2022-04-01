@@ -1433,15 +1433,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ecr_registry_policy": {
 				Tok: awsResource(ecrMod, "RegistryPolicy"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"policy": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:      "string",
-							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-							Transform: tfbridge.TransformJSONDocument,
-						},
-					},
-				},
 			},
 			"aws_ecr_replication_configuration": {
 				Tok: awsResource(ecrMod, "ReplicationConfiguration"),
@@ -1454,15 +1445,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecr_pull_through_cache_rule": {Tok: awsResource(ecrMod, "PullThroughCacheRule")},
 			"aws_ecr_registry_scanning_configuration": {
 				Tok: awsResource(ecrMod, "RegistryScanningConfiguration"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"policy": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:      "string",
-							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-							Transform: tfbridge.TransformJSONDocument,
-						},
-					},
-				},
 			},
 			// ecr public
 			"aws_ecrpublic_repository":        {Tok: awsResource(ecrPublicMod, "Repository")},
@@ -4283,7 +4265,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ebs_volume":                {Tok: awsDataSource(ebsMod, "getVolume")},
 			"aws_ebs_volumes":               {Tok: awsDataSource(ebsMod, "getEbsVolumes")},
 			// Elastic Container Registry
-			"aws_ecr_credentials":         {Tok: awsDataSource(ecrMod, "getCredentials")},
+			"aws_ecr_credentials": {
+				Tok: awsDataSource(ecrMod, "getCredentials"),
+				// This is a data source added by Pulumi which only exists in our fork. The data source has no docs, so
+				// we override with whitespace to avoid the build failing on missing docs:
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 			"aws_ecr_image":               {Tok: awsDataSource(ecrMod, "getImage")},
 			"aws_ecr_repository":          {Tok: awsDataSource(ecrMod, "getRepository")},
 			"aws_ecr_authorization_token": {Tok: awsDataSource(ecrMod, "getAuthorizationToken")},
