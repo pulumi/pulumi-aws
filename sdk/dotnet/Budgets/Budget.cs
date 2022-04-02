@@ -27,13 +27,13 @@ namespace Pulumi.Aws.Budgets
     ///             BudgetType = "COST",
     ///             CostFilters = 
     ///             {
-    ///                 
+    ///                 new Aws.Budgets.Inputs.BudgetCostFilterArgs
     ///                 {
-    ///                     { "name", "Service" },
-    ///                     { "values", 
+    ///                     Name = "Service",
+    ///                     Values = 
     ///                     {
     ///                         "Amazon Elastic Compute Cloud - Compute",
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///             LimitAmount = "1200",
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.Budgets
     ///             BudgetType = "RI_UTILIZATION",
     ///             CostFilters = 
     ///             {
-    ///                 
+    ///                 new Aws.Budgets.Inputs.BudgetCostFilterArgs
     ///                 {
-    ///                     { "name", "Service" },
-    ///                     { "values", 
+    ///                     Name = "Service",
+    ///                     Values = 
     ///                     {
     ///                         "Amazon Relational Database Service",
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///             CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
@@ -214,8 +214,14 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
+        [Output("costFilterLegacy")]
+        public Output<ImmutableDictionary<string, string>> CostFilterLegacy { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of CostFilter name/values pair to apply to budget.
+        /// </summary>
         [Output("costFilters")]
-        public Output<ImmutableDictionary<string, string>> CostFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BudgetCostFilter>> CostFilters { get; private set; } = null!;
 
         /// <summary>
         /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -329,16 +335,28 @@ namespace Pulumi.Aws.Budgets
         [Input("budgetType", required: true)]
         public Input<string> BudgetType { get; set; } = null!;
 
-        [Input("costFilters")]
-        private InputMap<string>? _costFilters;
+        [Input("costFilterLegacy")]
+        private InputMap<string>? _costFilterLegacy;
 
         /// <summary>
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
         [Obsolete(@"Use the attribute ""cost_filter"" instead.")]
-        public InputMap<string> CostFilters
+        public InputMap<string> CostFilterLegacy
         {
-            get => _costFilters ?? (_costFilters = new InputMap<string>());
+            get => _costFilterLegacy ?? (_costFilterLegacy = new InputMap<string>());
+            set => _costFilterLegacy = value;
+        }
+
+        [Input("costFilters")]
+        private InputList<Inputs.BudgetCostFilterArgs>? _costFilters;
+
+        /// <summary>
+        /// A list of CostFilter name/values pair to apply to budget.
+        /// </summary>
+        public InputList<Inputs.BudgetCostFilterArgs> CostFilters
+        {
+            get => _costFilters ?? (_costFilters = new InputList<Inputs.BudgetCostFilterArgs>());
             set => _costFilters = value;
         }
 
@@ -427,16 +445,28 @@ namespace Pulumi.Aws.Budgets
         [Input("budgetType")]
         public Input<string>? BudgetType { get; set; }
 
-        [Input("costFilters")]
-        private InputMap<string>? _costFilters;
+        [Input("costFilterLegacy")]
+        private InputMap<string>? _costFilterLegacy;
 
         /// <summary>
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
         [Obsolete(@"Use the attribute ""cost_filter"" instead.")]
-        public InputMap<string> CostFilters
+        public InputMap<string> CostFilterLegacy
         {
-            get => _costFilters ?? (_costFilters = new InputMap<string>());
+            get => _costFilterLegacy ?? (_costFilterLegacy = new InputMap<string>());
+            set => _costFilterLegacy = value;
+        }
+
+        [Input("costFilters")]
+        private InputList<Inputs.BudgetCostFilterGetArgs>? _costFilters;
+
+        /// <summary>
+        /// A list of CostFilter name/values pair to apply to budget.
+        /// </summary>
+        public InputList<Inputs.BudgetCostFilterGetArgs> CostFilters
+        {
+            get => _costFilters ?? (_costFilters = new InputList<Inputs.BudgetCostFilterGetArgs>());
             set => _costFilters = value;
         }
 

@@ -16,6 +16,7 @@ __all__ = [
     'BudgetActionDefinitionScpActionDefinition',
     'BudgetActionDefinitionSsmActionDefinition',
     'BudgetActionSubscriber',
+    'BudgetCostFilter',
     'BudgetCostTypes',
     'BudgetNotification',
 ]
@@ -354,6 +355,31 @@ class BudgetActionSubscriber(dict):
         The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         """
         return pulumi.get(self, "subscription_type")
+
+
+@pulumi.output_type
+class BudgetCostFilter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of a budget. Unique within accounts.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of a budget. Unique within accounts.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
