@@ -6267,6 +6267,14 @@ export namespace budgets {
         subscriptionType: string;
     }
 
+    export interface BudgetCostFilter {
+        /**
+         * The name of a budget. Unique within accounts.
+         */
+        name: string;
+        values: string[];
+    }
+
     export interface BudgetCostTypes {
         /**
          * A boolean value whether to include credits in the cost budget. Defaults to `true`

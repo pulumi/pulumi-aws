@@ -27,11 +27,11 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := budgets.NewBudget(ctx, "ec2", &budgets.BudgetArgs{
 // 			BudgetType: pulumi.String("COST"),
-// 			CostFilters: pulumi.StringMap{
-// 				pulumi.String{
-// 					Name: "Service",
-// 					Values: []string{
-// 						"Amazon Elastic Compute Cloud - Compute",
+// 			CostFilters: budgets.BudgetCostFilterArray{
+// 				&budgets.BudgetCostFilterArgs{
+// 					Name: pulumi.String("Service"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("Amazon Elastic Compute Cloud - Compute"),
 // 					},
 // 				},
 // 			},
@@ -161,11 +161,11 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := budgets.NewBudget(ctx, "riUtilization", &budgets.BudgetArgs{
 // 			BudgetType: pulumi.String("RI_UTILIZATION"),
-// 			CostFilters: pulumi.StringMap{
-// 				pulumi.String{
-// 					Name: "Service",
-// 					Values: []string{
-// 						"Amazon Relational Database Service",
+// 			CostFilters: budgets.BudgetCostFilterArray{
+// 				&budgets.BudgetCostFilterArgs{
+// 					Name: pulumi.String("Service"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("Amazon Relational Database Service"),
 // 					},
 // 				},
 // 			},
@@ -211,7 +211,9 @@ type Budget struct {
 	// Map of CostFilters key/value pairs to apply to the budget.
 	//
 	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilters pulumi.StringMapOutput `pulumi:"costFilters"`
+	CostFilterLegacy pulumi.StringMapOutput `pulumi:"costFilterLegacy"`
+	// A list of CostFilter name/values pair to apply to budget.
+	CostFilters BudgetCostFilterArrayOutput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
@@ -282,7 +284,9 @@ type budgetState struct {
 	// Map of CostFilters key/value pairs to apply to the budget.
 	//
 	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilters map[string]string `pulumi:"costFilters"`
+	CostFilterLegacy map[string]string `pulumi:"costFilterLegacy"`
+	// A list of CostFilter name/values pair to apply to budget.
+	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
@@ -313,7 +317,9 @@ type BudgetState struct {
 	// Map of CostFilters key/value pairs to apply to the budget.
 	//
 	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilters pulumi.StringMapInput
+	CostFilterLegacy pulumi.StringMapInput
+	// A list of CostFilter name/values pair to apply to budget.
+	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.
@@ -346,7 +352,9 @@ type budgetArgs struct {
 	// Map of CostFilters key/value pairs to apply to the budget.
 	//
 	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilters map[string]string `pulumi:"costFilters"`
+	CostFilterLegacy map[string]string `pulumi:"costFilterLegacy"`
+	// A list of CostFilter name/values pair to apply to budget.
+	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
@@ -376,7 +384,9 @@ type BudgetArgs struct {
 	// Map of CostFilters key/value pairs to apply to the budget.
 	//
 	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilters pulumi.StringMapInput
+	CostFilterLegacy pulumi.StringMapInput
+	// A list of CostFilter name/values pair to apply to budget.
+	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.

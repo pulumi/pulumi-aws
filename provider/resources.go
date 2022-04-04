@@ -715,7 +715,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
 			// Budgets
-			"aws_budgets_budget":        {Tok: awsResource(budgetsMod, "Budget")},
+			"aws_budgets_budget": {
+				Tok: awsResource(budgetsMod, "Budget"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"cost_filters": {
+						Name:               "costFilterLegacy",
+						DeprecationMessage: "The now-deprecated original cost filters. Use CostFilters instead.",
+					},
+				},
+			},
 			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
 			// Chime
 			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},

@@ -20,7 +20,8 @@ class BudgetArgs:
                  limit_unit: pulumi.Input[str],
                  time_unit: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[str]] = None,
-                 cost_filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
                  cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,8 @@ class BudgetArgs:
         :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         :param pulumi.Input[str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] name: The name of a budget. Unique within accounts.
         :param pulumi.Input[str] name_prefix: The prefix of the name of a budget. Unique within accounts.
@@ -48,9 +50,11 @@ class BudgetArgs:
         pulumi.set(__self__, "time_unit", time_unit)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
-        if cost_filters is not None:
+        if cost_filter_legacy is not None:
             warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""cost_filters is deprecated: Use the attribute \"cost_filter\" instead.""")
+            pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
+        if cost_filter_legacy is not None:
+            pulumi.set(__self__, "cost_filter_legacy", cost_filter_legacy)
         if cost_filters is not None:
             pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
@@ -127,15 +131,27 @@ class BudgetArgs:
         pulumi.set(self, "account_id", value)
 
     @property
-    @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    @pulumi.getter(name="costFilterLegacy")
+    def cost_filter_legacy(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of CostFilters key/value pairs to apply to the budget.
+        """
+        return pulumi.get(self, "cost_filter_legacy")
+
+    @cost_filter_legacy.setter
+    def cost_filter_legacy(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "cost_filter_legacy", value)
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
+        """
+        A list of CostFilter name/values pair to apply to budget.
         """
         return pulumi.get(self, "cost_filters")
 
     @cost_filters.setter
-    def cost_filters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def cost_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]):
         pulumi.set(self, "cost_filters", value)
 
     @property
@@ -217,7 +233,8 @@ class _BudgetState:
                  account_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  budget_type: Optional[pulumi.Input[str]] = None,
-                 cost_filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
                  cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
                  limit_amount: Optional[pulumi.Input[str]] = None,
                  limit_unit: Optional[pulumi.Input[str]] = None,
@@ -232,7 +249,8 @@ class _BudgetState:
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[str] arn: The ARN of the budget.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
         :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -249,9 +267,11 @@ class _BudgetState:
             pulumi.set(__self__, "arn", arn)
         if budget_type is not None:
             pulumi.set(__self__, "budget_type", budget_type)
-        if cost_filters is not None:
+        if cost_filter_legacy is not None:
             warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""cost_filters is deprecated: Use the attribute \"cost_filter\" instead.""")
+            pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
+        if cost_filter_legacy is not None:
+            pulumi.set(__self__, "cost_filter_legacy", cost_filter_legacy)
         if cost_filters is not None:
             pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
@@ -310,15 +330,27 @@ class _BudgetState:
         pulumi.set(self, "budget_type", value)
 
     @property
-    @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    @pulumi.getter(name="costFilterLegacy")
+    def cost_filter_legacy(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of CostFilters key/value pairs to apply to the budget.
+        """
+        return pulumi.get(self, "cost_filter_legacy")
+
+    @cost_filter_legacy.setter
+    def cost_filter_legacy(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "cost_filter_legacy", value)
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
+        """
+        A list of CostFilter name/values pair to apply to budget.
         """
         return pulumi.get(self, "cost_filters")
 
     @cost_filters.setter
-    def cost_filters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def cost_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]):
         pulumi.set(self, "cost_filters", value)
 
     @property
@@ -437,7 +469,8 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  budget_type: Optional[pulumi.Input[str]] = None,
-                 cost_filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]]] = None,
                  cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
                  limit_amount: Optional[pulumi.Input[str]] = None,
                  limit_unit: Optional[pulumi.Input[str]] = None,
@@ -459,10 +492,10 @@ class Budget(pulumi.CustomResource):
 
         ec2 = aws.budgets.Budget("ec2",
             budget_type="COST",
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Elastic Compute Cloud - Compute"],
-            }],
+            cost_filters=[aws.budgets.BudgetCostFilterArgs(
+                name="Service",
+                values=["Amazon Elastic Compute Cloud - Compute"],
+            )],
             limit_amount="1200",
             limit_unit="USD",
             notifications=[aws.budgets.BudgetNotificationArgs(
@@ -533,10 +566,10 @@ class Budget(pulumi.CustomResource):
 
         ri_utilization = aws.budgets.Budget("riUtilization",
             budget_type="RI_UTILIZATION",
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Relational Database Service"],
-            }],
+            cost_filters=[aws.budgets.BudgetCostFilterArgs(
+                name="Service",
+                values=["Amazon Relational Database Service"],
+            )],
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -565,7 +598,8 @@ class Budget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
         :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -593,10 +627,10 @@ class Budget(pulumi.CustomResource):
 
         ec2 = aws.budgets.Budget("ec2",
             budget_type="COST",
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Elastic Compute Cloud - Compute"],
-            }],
+            cost_filters=[aws.budgets.BudgetCostFilterArgs(
+                name="Service",
+                values=["Amazon Elastic Compute Cloud - Compute"],
+            )],
             limit_amount="1200",
             limit_unit="USD",
             notifications=[aws.budgets.BudgetNotificationArgs(
@@ -667,10 +701,10 @@ class Budget(pulumi.CustomResource):
 
         ri_utilization = aws.budgets.Budget("riUtilization",
             budget_type="RI_UTILIZATION",
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Relational Database Service"],
-            }],
+            cost_filters=[aws.budgets.BudgetCostFilterArgs(
+                name="Service",
+                values=["Amazon Relational Database Service"],
+            )],
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -712,7 +746,8 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  budget_type: Optional[pulumi.Input[str]] = None,
-                 cost_filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]]] = None,
                  cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
                  limit_amount: Optional[pulumi.Input[str]] = None,
                  limit_unit: Optional[pulumi.Input[str]] = None,
@@ -738,9 +773,10 @@ class Budget(pulumi.CustomResource):
             if budget_type is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_type'")
             __props__.__dict__["budget_type"] = budget_type
-            if cost_filters is not None and not opts.urn:
+            if cost_filter_legacy is not None and not opts.urn:
                 warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
-                pulumi.log.warn("""cost_filters is deprecated: Use the attribute \"cost_filter\" instead.""")
+                pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
+            __props__.__dict__["cost_filter_legacy"] = cost_filter_legacy
             __props__.__dict__["cost_filters"] = cost_filters
             __props__.__dict__["cost_types"] = cost_types
             if limit_amount is None and not opts.urn:
@@ -771,7 +807,8 @@ class Budget(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             budget_type: Optional[pulumi.Input[str]] = None,
-            cost_filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]]] = None,
             cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
             limit_amount: Optional[pulumi.Input[str]] = None,
             limit_unit: Optional[pulumi.Input[str]] = None,
@@ -791,7 +828,8 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[str] arn: The ARN of the budget.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
         :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -809,6 +847,7 @@ class Budget(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["arn"] = arn
         __props__.__dict__["budget_type"] = budget_type
+        __props__.__dict__["cost_filter_legacy"] = cost_filter_legacy
         __props__.__dict__["cost_filters"] = cost_filters
         __props__.__dict__["cost_types"] = cost_types
         __props__.__dict__["limit_amount"] = limit_amount
@@ -846,10 +885,18 @@ class Budget(pulumi.CustomResource):
         return pulumi.get(self, "budget_type")
 
     @property
-    @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> pulumi.Output[Mapping[str, str]]:
+    @pulumi.getter(name="costFilterLegacy")
+    def cost_filter_legacy(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of CostFilters key/value pairs to apply to the budget.
+        """
+        return pulumi.get(self, "cost_filter_legacy")
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> pulumi.Output[Sequence['outputs.BudgetCostFilter']]:
+        """
+        A list of CostFilter name/values pair to apply to budget.
         """
         return pulumi.get(self, "cost_filters")
 

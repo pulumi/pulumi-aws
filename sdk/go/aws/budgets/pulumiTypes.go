@@ -1013,6 +1013,31 @@ func (i BudgetCostFilterArgs) ToBudgetCostFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostFilterOutput)
 }
 
+// BudgetCostFilterArrayInput is an input type that accepts BudgetCostFilterArray and BudgetCostFilterArrayOutput values.
+// You can construct a concrete instance of `BudgetCostFilterArrayInput` via:
+//
+//          BudgetCostFilterArray{ BudgetCostFilterArgs{...} }
+type BudgetCostFilterArrayInput interface {
+	pulumi.Input
+
+	ToBudgetCostFilterArrayOutput() BudgetCostFilterArrayOutput
+	ToBudgetCostFilterArrayOutputWithContext(context.Context) BudgetCostFilterArrayOutput
+}
+
+type BudgetCostFilterArray []BudgetCostFilterInput
+
+func (BudgetCostFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetCostFilter)(nil)).Elem()
+}
+
+func (i BudgetCostFilterArray) ToBudgetCostFilterArrayOutput() BudgetCostFilterArrayOutput {
+	return i.ToBudgetCostFilterArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetCostFilterArray) ToBudgetCostFilterArrayOutputWithContext(ctx context.Context) BudgetCostFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostFilterArrayOutput)
+}
+
 type BudgetCostFilterOutput struct{ *pulumi.OutputState }
 
 func (BudgetCostFilterOutput) ElementType() reflect.Type {
@@ -1034,6 +1059,26 @@ func (o BudgetCostFilterOutput) Name() pulumi.StringOutput {
 
 func (o BudgetCostFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetCostFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetCostFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetCostFilter)(nil)).Elem()
+}
+
+func (o BudgetCostFilterArrayOutput) ToBudgetCostFilterArrayOutput() BudgetCostFilterArrayOutput {
+	return o
+}
+
+func (o BudgetCostFilterArrayOutput) ToBudgetCostFilterArrayOutputWithContext(ctx context.Context) BudgetCostFilterArrayOutput {
+	return o
+}
+
+func (o BudgetCostFilterArrayOutput) Index(i pulumi.IntInput) BudgetCostFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetCostFilter {
+		return vs[0].([]BudgetCostFilter)[vs[1].(int)]
+	}).(BudgetCostFilterOutput)
 }
 
 type BudgetCostTypes struct {
@@ -1519,6 +1564,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberInput)(nil)).Elem(), BudgetActionSubscriberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberArrayInput)(nil)).Elem(), BudgetActionSubscriberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostFilterInput)(nil)).Elem(), BudgetCostFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostFilterArrayInput)(nil)).Elem(), BudgetCostFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesInput)(nil)).Elem(), BudgetCostTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesPtrInput)(nil)).Elem(), BudgetCostTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationInput)(nil)).Elem(), BudgetNotificationArgs{})
@@ -1536,6 +1582,7 @@ func init() {
 	pulumi.RegisterOutputType(BudgetActionSubscriberOutput{})
 	pulumi.RegisterOutputType(BudgetActionSubscriberArrayOutput{})
 	pulumi.RegisterOutputType(BudgetCostFilterOutput{})
+	pulumi.RegisterOutputType(BudgetCostFilterArrayOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationOutput{})

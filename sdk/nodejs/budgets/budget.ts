@@ -174,7 +174,11 @@ export class Budget extends pulumi.CustomResource {
      *
      * @deprecated Use the attribute "cost_filter" instead.
      */
-    public readonly costFilters!: pulumi.Output<{[key: string]: string}>;
+    public readonly costFilterLegacy!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A list of CostFilter name/values pair to apply to budget.
+     */
+    public readonly costFilters!: pulumi.Output<outputs.budgets.BudgetCostFilter[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
@@ -228,6 +232,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["budgetType"] = state ? state.budgetType : undefined;
+            resourceInputs["costFilterLegacy"] = state ? state.costFilterLegacy : undefined;
             resourceInputs["costFilters"] = state ? state.costFilters : undefined;
             resourceInputs["costTypes"] = state ? state.costTypes : undefined;
             resourceInputs["limitAmount"] = state ? state.limitAmount : undefined;
@@ -254,6 +259,7 @@ export class Budget extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["budgetType"] = args ? args.budgetType : undefined;
+            resourceInputs["costFilterLegacy"] = args ? args.costFilterLegacy : undefined;
             resourceInputs["costFilters"] = args ? args.costFilters : undefined;
             resourceInputs["costTypes"] = args ? args.costTypes : undefined;
             resourceInputs["limitAmount"] = args ? args.limitAmount : undefined;
@@ -292,7 +298,11 @@ export interface BudgetState {
      *
      * @deprecated Use the attribute "cost_filter" instead.
      */
-    costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    costFilterLegacy?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of CostFilter name/values pair to apply to budget.
+     */
+    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
@@ -348,7 +358,11 @@ export interface BudgetArgs {
      *
      * @deprecated Use the attribute "cost_filter" instead.
      */
-    costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    costFilterLegacy?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of CostFilter name/values pair to apply to budget.
+     */
+    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */

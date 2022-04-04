@@ -6252,6 +6252,14 @@ export namespace budgets {
         subscriptionType: pulumi.Input<string>;
     }
 
+    export interface BudgetCostFilter {
+        /**
+         * The name of a budget. Unique within accounts.
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface BudgetCostTypes {
         /**
          * A boolean value whether to include credits in the cost budget. Defaults to `true`
