@@ -2390,6 +2390,31 @@ func (i GetClusterCertificateAuthorityArgs) ToGetClusterCertificateAuthorityOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCertificateAuthorityOutput)
 }
 
+// GetClusterCertificateAuthorityArrayInput is an input type that accepts GetClusterCertificateAuthorityArray and GetClusterCertificateAuthorityArrayOutput values.
+// You can construct a concrete instance of `GetClusterCertificateAuthorityArrayInput` via:
+//
+//          GetClusterCertificateAuthorityArray{ GetClusterCertificateAuthorityArgs{...} }
+type GetClusterCertificateAuthorityArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterCertificateAuthorityArrayOutput() GetClusterCertificateAuthorityArrayOutput
+	ToGetClusterCertificateAuthorityArrayOutputWithContext(context.Context) GetClusterCertificateAuthorityArrayOutput
+}
+
+type GetClusterCertificateAuthorityArray []GetClusterCertificateAuthorityInput
+
+func (GetClusterCertificateAuthorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterCertificateAuthority)(nil)).Elem()
+}
+
+func (i GetClusterCertificateAuthorityArray) ToGetClusterCertificateAuthorityArrayOutput() GetClusterCertificateAuthorityArrayOutput {
+	return i.ToGetClusterCertificateAuthorityArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterCertificateAuthorityArray) ToGetClusterCertificateAuthorityArrayOutputWithContext(ctx context.Context) GetClusterCertificateAuthorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCertificateAuthorityArrayOutput)
+}
+
 type GetClusterCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (GetClusterCertificateAuthorityOutput) ElementType() reflect.Type {
@@ -2407,6 +2432,26 @@ func (o GetClusterCertificateAuthorityOutput) ToGetClusterCertificateAuthorityOu
 // The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o GetClusterCertificateAuthorityOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCertificateAuthority) string { return v.Data }).(pulumi.StringOutput)
+}
+
+type GetClusterCertificateAuthorityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterCertificateAuthorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterCertificateAuthority)(nil)).Elem()
+}
+
+func (o GetClusterCertificateAuthorityArrayOutput) ToGetClusterCertificateAuthorityArrayOutput() GetClusterCertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o GetClusterCertificateAuthorityArrayOutput) ToGetClusterCertificateAuthorityArrayOutputWithContext(ctx context.Context) GetClusterCertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o GetClusterCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) GetClusterCertificateAuthorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterCertificateAuthority {
+		return vs[0].([]GetClusterCertificateAuthority)[vs[1].(int)]
+	}).(GetClusterCertificateAuthorityOutput)
 }
 
 type GetClusterIdentity struct {
@@ -3385,6 +3430,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigPtrInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityInput)(nil)).Elem(), GetClusterCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityArrayInput)(nil)).Elem(), GetClusterCertificateAuthorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityInput)(nil)).Elem(), GetClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityArrayInput)(nil)).Elem(), GetClusterIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcInput)(nil)).Elem(), GetClusterIdentityOidcArgs{})
@@ -3435,6 +3481,7 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigOutput{})
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(GetClusterCertificateAuthorityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcOutput{})

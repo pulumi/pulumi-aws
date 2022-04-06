@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Eks
         ///             Name = "example",
         ///         }));
         ///         this.Endpoint = example.Apply(example =&gt; example.Endpoint);
-        ///         this.Kubeconfig_certificate_authority_data = example.Apply(example =&gt; example.CertificateAuthority?.Data);
+        ///         this.Kubeconfig_certificate_authority_data = example.Apply(example =&gt; example.CertificateAuthority);
         ///         this.Identity_oidc_issuer = example.Apply(example =&gt; example.Identities?[0]?.Oidcs?[0]?.Issuer);
         ///     }
         /// 
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Eks
         ///             Name = "example",
         ///         }));
         ///         this.Endpoint = example.Apply(example =&gt; example.Endpoint);
-        ///         this.Kubeconfig_certificate_authority_data = example.Apply(example =&gt; example.CertificateAuthority?.Data);
+        ///         this.Kubeconfig_certificate_authority_data = example.Apply(example =&gt; example.CertificateAuthority);
         ///         this.Identity_oidc_issuer = example.Apply(example =&gt; example.Identities?[0]?.Oidcs?[0]?.Issuer);
         ///     }
         /// 
@@ -150,7 +150,11 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Nested attribute containing `certificate-authority-data` for your cluster.
         /// </summary>
-        public readonly Outputs.GetClusterCertificateAuthorityResult CertificateAuthority;
+        public readonly ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> CertificateAuthorities;
+        /// <summary>
+        /// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+        /// </summary>
+        public readonly string CertificateAuthority;
         /// <summary>
         /// The Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
@@ -205,7 +209,9 @@ namespace Pulumi.Aws.Eks
         private GetClusterResult(
             string arn,
 
-            Outputs.GetClusterCertificateAuthorityResult certificateAuthority,
+            ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> certificateAuthorities,
+
+            string certificateAuthority,
 
             string createdAt,
 
@@ -234,6 +240,7 @@ namespace Pulumi.Aws.Eks
             Outputs.GetClusterVpcConfigResult vpcConfig)
         {
             Arn = arn;
+            CertificateAuthorities = certificateAuthorities;
             CertificateAuthority = certificateAuthority;
             CreatedAt = createdAt;
             EnabledClusterLogTypes = enabledClusterLogTypes;

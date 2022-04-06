@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * export const endpoint = example.then(example => example.endpoint);
- * export const kubeconfig_certificate_authority_data = example.then(example => example.certificateAuthority?.data);
+ * export const kubeconfig_certificate_authority_data = example.then(example => example.certificateAuthority);
  * export const identity_oidc_issuer = example.then(example => example.identities?[0]?.oidcs?[0]?.issuer);
  * ```
  */
@@ -59,7 +59,11 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
-    readonly certificateAuthority: outputs.eks.GetClusterCertificateAuthority;
+    readonly certificateAuthorities: outputs.eks.GetClusterCertificateAuthority[];
+    /**
+     * The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+     */
+    readonly certificateAuthority: string;
     /**
      * The Unix epoch time stamp in seconds for when the cluster was created.
      */
