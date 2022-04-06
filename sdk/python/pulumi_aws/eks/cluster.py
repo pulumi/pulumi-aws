@@ -151,6 +151,7 @@ class _ClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
+                 certificate_authority: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
@@ -169,6 +170,7 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]] certificate_authorities: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+        :param pulumi.Input[str] certificate_authority: The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
@@ -188,6 +190,8 @@ class _ClusterState:
             pulumi.set(__self__, "arn", arn)
         if certificate_authorities is not None:
             pulumi.set(__self__, "certificate_authorities", certificate_authorities)
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if enabled_cluster_log_types is not None:
@@ -240,6 +244,18 @@ class _ClusterState:
     @certificate_authorities.setter
     def certificate_authorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]]):
         pulumi.set(self, "certificate_authorities", value)
+
+    @property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+        """
+        return pulumi.get(self, "certificate_authority")
+
+    @certificate_authority.setter
+    def certificate_authority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_authority", value)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -447,7 +463,7 @@ class Cluster(pulumi.CustomResource):
                     aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
                 ]))
         pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
+        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority)
         ```
         ### Example IAM Role for EKS Cluster
 
@@ -549,7 +565,7 @@ class Cluster(pulumi.CustomResource):
                     aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
                 ]))
         pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
+        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority)
         ```
         ### Example IAM Role for EKS Cluster
 
@@ -660,6 +676,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_authorities"] = None
+            __props__.__dict__["certificate_authority"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["identities"] = None
@@ -678,6 +695,7 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]]] = None,
+            certificate_authority: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
@@ -701,6 +719,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]] certificate_authorities: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+        :param pulumi.Input[str] certificate_authority: The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
@@ -722,6 +741,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["certificate_authorities"] = certificate_authorities
+        __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
         __props__.__dict__["encryption_config"] = encryption_config
@@ -753,6 +773,14 @@ class Cluster(pulumi.CustomResource):
         Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         """
         return pulumi.get(self, "certificate_authorities")
+
+    @property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> pulumi.Output[str]:
+        """
+        The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+        """
+        return pulumi.get(self, "certificate_authority")
 
     @property
     @pulumi.getter(name="createdAt")

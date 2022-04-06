@@ -4318,9 +4318,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_eks_cluster": {
 				Tok: awsDataSource(eksMod, "getCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"certificate_authority": {
-						MaxItemsOne: boolRef(true),
-					},
 					"vpc_config": {
 						MaxItemsOne: boolRef(true),
 					},
