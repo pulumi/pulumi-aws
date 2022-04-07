@@ -21,16 +21,13 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authorities=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, certificate_authorities=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if certificate_authorities and not isinstance(certificate_authorities, list):
             raise TypeError("Expected argument 'certificate_authorities' to be a list")
         pulumi.set(__self__, "certificate_authorities", certificate_authorities)
-        if certificate_authority and not isinstance(certificate_authority, str):
-            raise TypeError("Expected argument 'certificate_authority' to be a str")
-        pulumi.set(__self__, "certificate_authority", certificate_authority)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -86,14 +83,6 @@ class GetClusterResult:
         Nested attribute containing `certificate-authority-data` for your cluster.
         """
         return pulumi.get(self, "certificate_authorities")
-
-    @property
-    @pulumi.getter(name="certificateAuthority")
-    def certificate_authority(self) -> str:
-        """
-        The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
-        """
-        return pulumi.get(self, "certificate_authority")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -205,7 +194,6 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             arn=self.arn,
             certificate_authorities=self.certificate_authorities,
-            certificate_authority=self.certificate_authority,
             created_at=self.created_at,
             enabled_cluster_log_types=self.enabled_cluster_log_types,
             endpoint=self.endpoint,
@@ -235,7 +223,7 @@ def get_cluster(name: Optional[str] = None,
 
     example = aws.eks.get_cluster(name="example")
     pulumi.export("endpoint", example.endpoint)
-    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority)
+    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
     pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
     ```
 
@@ -255,7 +243,6 @@ def get_cluster(name: Optional[str] = None,
     return AwaitableGetClusterResult(
         arn=__ret__.arn,
         certificate_authorities=__ret__.certificate_authorities,
-        certificate_authority=__ret__.certificate_authority,
         created_at=__ret__.created_at,
         enabled_cluster_log_types=__ret__.enabled_cluster_log_types,
         endpoint=__ret__.endpoint,
@@ -286,7 +273,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
 
     example = aws.eks.get_cluster(name="example")
     pulumi.export("endpoint", example.endpoint)
-    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority)
+    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
     pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
     ```
 

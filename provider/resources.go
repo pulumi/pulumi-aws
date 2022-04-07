@@ -1516,7 +1516,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
+			"aws_eks_cluster": {
+				Tok: awsResource(eksMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate_authority": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_eks_node_group": {
 				Tok: awsResource(eksMod, "NodeGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
