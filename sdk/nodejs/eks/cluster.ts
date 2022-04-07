@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * export const endpoint = example.endpoint;
- * export const kubeconfig_certificate_authority_data = example.certificateAuthority;
+ * export const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
  * ```
  * ### Example IAM Role for EKS Cluster
  *
@@ -132,7 +132,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
      */
-    public /*out*/ readonly certificateAuthority!: pulumi.Output<string>;
+    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
@@ -266,7 +266,7 @@ export interface ClusterState {
     /**
      * The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
      */
-    certificateAuthority?: pulumi.Input<string>;
+    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */

@@ -31,7 +31,7 @@ import (
 // 			return err
 // 		}
 // 		ctx.Export("endpoint", example.Endpoint)
-// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority)
+// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthorities[0].Data)
 // 		ctx.Export("identity-oidc-issuer", example.Identities[0].Oidcs[0].Issuer)
 // 		return nil
 // 	})
@@ -60,8 +60,6 @@ type LookupClusterResult struct {
 	Arn string `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthorities []GetClusterCertificateAuthority `pulumi:"certificateAuthorities"`
-	// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
-	CertificateAuthority string `pulumi:"certificateAuthority"`
 	// The Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The enabled control plane logs.
@@ -133,11 +131,6 @@ func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 // Nested attribute containing `certificate-authority-data` for your cluster.
 func (o LookupClusterResultOutput) CertificateAuthorities() GetClusterCertificateAuthorityArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCertificateAuthority { return v.CertificateAuthorities }).(GetClusterCertificateAuthorityArrayOutput)
-}
-
-// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
-func (o LookupClusterResultOutput) CertificateAuthority() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.CertificateAuthority }).(pulumi.StringOutput)
 }
 
 // The Unix epoch time stamp in seconds for when the cluster was created.

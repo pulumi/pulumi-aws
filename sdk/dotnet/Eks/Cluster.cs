@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Eks
     ///             },
     ///         });
     ///         this.Endpoint = example.Endpoint;
-    ///         this.Kubeconfig_certificate_authority_data = example.CertificateAuthority;
+    ///         this.Kubeconfig_certificate_authority_data = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data);
     ///     }
     /// 
     ///     [Output("endpoint")]
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Eks
         /// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
         /// </summary>
         [Output("certificateAuthority")]
-        public Output<string> CertificateAuthority { get; private set; } = null!;
+        public Output<Outputs.ClusterCertificateAuthority> CertificateAuthority { get; private set; } = null!;
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.Eks
         /// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
         /// </summary>
         [Input("certificateAuthority")]
-        public Input<string>? CertificateAuthority { get; set; }
+        public Input<Inputs.ClusterCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.

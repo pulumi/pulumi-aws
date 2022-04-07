@@ -42,7 +42,9 @@ import (
 // 			return err
 // 		}
 // 		ctx.Export("endpoint", example.Endpoint)
-// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority)
+// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.ApplyT(func(certificateAuthority eks.ClusterCertificateAuthority) (string, error) {
+// 			return certificateAuthority.Data, nil
+// 		}).(pulumi.StringOutput))
 // 		return nil
 // 	})
 // }
@@ -145,7 +147,7 @@ type Cluster struct {
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
 	// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
-	CertificateAuthority pulumi.StringOutput `pulumi:"certificateAuthority"`
+	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -216,7 +218,7 @@ type clusterState struct {
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
 	// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
-	CertificateAuthority *string `pulumi:"certificateAuthority"`
+	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -253,7 +255,7 @@ type ClusterState struct {
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthorities ClusterCertificateAuthorityArrayInput
 	// The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
-	CertificateAuthority pulumi.StringPtrInput
+	CertificateAuthority ClusterCertificateAuthorityPtrInput
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringPtrInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
