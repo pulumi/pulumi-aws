@@ -47,8 +47,8 @@ import (
 // 			ExecutionRoleArn: dlmLifecycleRole.Arn,
 // 			State:            pulumi.String("ENABLED"),
 // 			PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-// 				ResourceTypes: pulumi.StringArray{
-// 					pulumi.String("VOLUME"),
+// 				ResourceTypes: pulumi.String{
+// 					"VOLUME",
 // 				},
 // 				Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
 // 					&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
@@ -108,8 +108,8 @@ import (
 // 			ExecutionRoleArn: pulumi.Any(aws_iam_role.Dlm_lifecycle_role.Arn),
 // 			State:            pulumi.String("ENABLED"),
 // 			PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-// 				ResourceTypes: pulumi.StringArray{
-// 					pulumi.String("VOLUME"),
+// 				ResourceTypes: pulumi.String{
+// 					"VOLUME",
 // 				},
 // 				Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
 // 					&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{

@@ -161,6 +161,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<Outputs.StackSetInstanceDeploymentTargets?> DeploymentTargets { get; private set; } = null!;
 
         /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
+        [Output("operationPreferences")]
+        public Output<Outputs.StackSetInstanceOperationPreferences?> OperationPreferences { get; private set; } = null!;
+
+        /// <summary>
         /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
         /// </summary>
         [Output("organizationalUnitId")]
@@ -260,6 +266,12 @@ namespace Pulumi.Aws.CloudFormation
         [Input("deploymentTargets")]
         public Input<Inputs.StackSetInstanceDeploymentTargetsArgs>? DeploymentTargets { get; set; }
 
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
+        [Input("operationPreferences")]
+        public Input<Inputs.StackSetInstanceOperationPreferencesArgs>? OperationPreferences { get; set; }
+
         [Input("parameterOverrides")]
         private InputMap<string>? _parameterOverrides;
 
@@ -314,6 +326,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("deploymentTargets")]
         public Input<Inputs.StackSetInstanceDeploymentTargetsGetArgs>? DeploymentTargets { get; set; }
+
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
+        [Input("operationPreferences")]
+        public Input<Inputs.StackSetInstanceOperationPreferencesGetArgs>? OperationPreferences { get; set; }
 
         /// <summary>
         /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.

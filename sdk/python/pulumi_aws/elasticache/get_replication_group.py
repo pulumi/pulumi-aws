@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetReplicationGroupResult',
@@ -20,7 +21,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, description=None, id=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replicas_per_node_group=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, description=None, id=None, log_delivery_configurations=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replicas_per_node_group=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetReplicationGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if log_delivery_configurations and not isinstance(log_delivery_configurations, list):
+            raise TypeError("Expected argument 'log_delivery_configurations' to be a list")
+        pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if member_clusters and not isinstance(member_clusters, list):
             raise TypeError("Expected argument 'member_clusters' to be a list")
         pulumi.set(__self__, "member_clusters", member_clusters)
@@ -137,6 +141,14 @@ class GetReplicationGroupResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="logDeliveryConfigurations")
+    def log_delivery_configurations(self) -> Sequence['outputs.GetReplicationGroupLogDeliveryConfigurationResult']:
+        """
+        Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+        """
+        return pulumi.get(self, "log_delivery_configurations")
 
     @property
     @pulumi.getter(name="memberClusters")
@@ -260,6 +272,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             configuration_endpoint_address=self.configuration_endpoint_address,
             description=self.description,
             id=self.id,
+            log_delivery_configurations=self.log_delivery_configurations,
             member_clusters=self.member_clusters,
             multi_az_enabled=self.multi_az_enabled,
             node_type=self.node_type,
@@ -308,6 +321,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         configuration_endpoint_address=__ret__.configuration_endpoint_address,
         description=__ret__.description,
         id=__ret__.id,
+        log_delivery_configurations=__ret__.log_delivery_configurations,
         member_clusters=__ret__.member_clusters,
         multi_az_enabled=__ret__.multi_az_enabled,
         node_type=__ret__.node_type,

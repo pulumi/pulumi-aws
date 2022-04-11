@@ -197,6 +197,10 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly principal!: pulumi.Output<string>;
     /**
+     * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+     */
+    public readonly principalOrgId!: pulumi.Output<string | undefined>;
+    /**
      * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
@@ -238,6 +242,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
             resourceInputs["function"] = state ? state.function : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["principalOrgId"] = state ? state.principalOrgId : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
             resourceInputs["sourceAccount"] = state ? state.sourceAccount : undefined;
             resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
@@ -258,6 +263,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
             resourceInputs["function"] = args ? args.function : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["principalOrgId"] = args ? args.principalOrgId : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
             resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
@@ -289,6 +295,10 @@ export interface PermissionState {
      * The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     principal?: pulumi.Input<string>;
+    /**
+     * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+     */
+    principalOrgId?: pulumi.Input<string>;
     /**
      * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
@@ -335,6 +345,10 @@ export interface PermissionArgs {
      * The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     principal: pulumi.Input<string>;
+    /**
+     * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+     */
+    principalOrgId?: pulumi.Input<string>;
     /**
      * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */

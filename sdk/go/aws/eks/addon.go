@@ -53,7 +53,7 @@ type Addon struct {
 	pulumi.CustomResourceState
 
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName pulumi.StringOutput `pulumi:"addonName"`
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -119,7 +119,7 @@ func GetAddon(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Addon resources.
 type addonState struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName *string `pulumi:"addonName"`
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -151,7 +151,7 @@ type addonState struct {
 
 type AddonState struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName pulumi.StringPtrInput
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -187,7 +187,7 @@ func (AddonState) ElementType() reflect.Type {
 
 type addonArgs struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName string `pulumi:"addonName"`
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -212,7 +212,7 @@ type addonArgs struct {
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName pulumi.StringInput
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).

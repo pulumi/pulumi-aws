@@ -648,6 +648,12 @@ namespace Pulumi.Aws.Inputs
         [Input("nimblestudio")]
         public Input<string>? Nimblestudio { get; set; }
 
+        [Input("opensearch")]
+        public Input<string>? Opensearch { get; set; }
+
+        [Input("opensearchservice")]
+        public Input<string>? Opensearchservice { get; set; }
+
         [Input("opsworks")]
         public Input<string>? Opsworks { get; set; }
 

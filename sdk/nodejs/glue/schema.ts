@@ -67,7 +67,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly compatibility!: pulumi.Output<string>;
     /**
-     * The data format of the schema definition. Valid values are `AVRO` and `JSON`.
+     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      */
     public readonly dataFormat!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface SchemaState {
      */
     compatibility?: pulumi.Input<string>;
     /**
-     * The data format of the schema definition. Valid values are `AVRO` and `JSON`.
+     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      */
     dataFormat?: pulumi.Input<string>;
     /**
@@ -237,7 +237,7 @@ export interface SchemaArgs {
      */
     compatibility: pulumi.Input<string>;
     /**
-     * The data format of the schema definition. Valid values are `AVRO` and `JSON`.
+     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      */
     dataFormat: pulumi.Input<string>;
     /**

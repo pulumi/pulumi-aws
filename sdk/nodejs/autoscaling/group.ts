@@ -213,9 +213,12 @@ import {Metric} from "./index";
  *     maxSize: 5,
  *     minSize: 1,
  *     warmPool: {
- *         poolState: "Stopped",
+ *         poolState: "Hibernated",
  *         minSize: 1,
  *         maxGroupPreparedCapacity: 10,
+ *         instanceReusePolicy: {
+ *             reuseOnScaleIn: true,
+ *         },
  *     },
  * });
  * ```

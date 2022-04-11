@@ -26,6 +26,11 @@ namespace Pulumi.Aws.Xray
     ///         {
     ///             FilterExpression = "responsetime &gt; 5",
     ///             GroupName = "example",
+    ///             InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
+    ///             {
+    ///                 InsightsEnabled = true,
+    ///                 NotificationsEnabled = true,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -60,6 +65,12 @@ namespace Pulumi.Aws.Xray
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration options for enabling insights.
+        /// </summary>
+        [Output("insightsConfiguration")]
+        public Output<Outputs.GroupInsightsConfiguration> InsightsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,6 +142,12 @@ namespace Pulumi.Aws.Xray
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration options for enabling insights.
+        /// </summary>
+        [Input("insightsConfiguration")]
+        public Input<Inputs.GroupInsightsConfigurationArgs>? InsightsConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -167,6 +184,12 @@ namespace Pulumi.Aws.Xray
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
+
+        /// <summary>
+        /// Configuration options for enabling insights.
+        /// </summary>
+        [Input("insightsConfiguration")]
+        public Input<Inputs.GroupInsightsConfigurationGetArgs>? InsightsConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

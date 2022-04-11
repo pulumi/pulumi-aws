@@ -13,16 +13,16 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2LifecycleRuleNoncurrentVersionTransitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days specified for the default retention period.
+        /// Specifies the number of days noncurrent object versions transition.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
+        /// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         /// </summary>
-        [Input("storageClass")]
-        public Input<string>? StorageClass { get; set; }
+        [Input("storageClass", required: true)]
+        public Input<string> StorageClass { get; set; } = null!;
 
         public BucketV2LifecycleRuleNoncurrentVersionTransitionArgs()
         {

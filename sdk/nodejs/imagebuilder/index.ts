@@ -16,6 +16,7 @@ export * from "./getDistributionConfiguration";
 export * from "./getDistributionConfigurations";
 export * from "./getImage";
 export * from "./getImagePipeline";
+export * from "./getImagePipelines";
 export * from "./getImageRecipe";
 export * from "./getImageRecipes";
 export * from "./getInfrastructureConfiguration";

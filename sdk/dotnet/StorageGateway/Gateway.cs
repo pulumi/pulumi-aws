@@ -263,6 +263,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> HostEnvironment { get; private set; } = null!;
 
         /// <summary>
+        /// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        /// </summary>
+        [Output("maintenanceStartTime")]
+        public Output<Outputs.GatewayMaintenanceStartTime> MaintenanceStartTime { get; private set; } = null!;
+
+        /// <summary>
         /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         /// </summary>
         [Output("mediumChangerType")]
@@ -411,6 +417,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayVpcEndpoint { get; set; }
 
         /// <summary>
+        /// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        /// </summary>
+        [Input("maintenanceStartTime")]
+        public Input<Inputs.GatewayMaintenanceStartTimeArgs>? MaintenanceStartTime { get; set; }
+
+        /// <summary>
         /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         /// </summary>
         [Input("mediumChangerType")]
@@ -450,6 +462,18 @@ namespace Pulumi.Aws.StorageGateway
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -560,6 +584,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("hostEnvironment")]
         public Input<string>? HostEnvironment { get; set; }
+
+        /// <summary>
+        /// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        /// </summary>
+        [Input("maintenanceStartTime")]
+        public Input<Inputs.GatewayMaintenanceStartTimeGetArgs>? MaintenanceStartTime { get; set; }
 
         /// <summary>
         /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.

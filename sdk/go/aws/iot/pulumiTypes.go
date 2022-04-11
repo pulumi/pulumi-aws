@@ -10,6 +10,999 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type IndexingConfigurationThingGroupIndexingConfiguration struct {
+	// A list of thing group fields to index. This list cannot contain any managed fields. See below.
+	CustomFields []IndexingConfigurationThingGroupIndexingConfigurationCustomField `pulumi:"customFields"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields []IndexingConfigurationThingGroupIndexingConfigurationManagedField `pulumi:"managedFields"`
+	// Thing group indexing mode. Valid values: `OFF`, `ON`.
+	ThingGroupIndexingMode string `pulumi:"thingGroupIndexingMode"`
+}
+
+// IndexingConfigurationThingGroupIndexingConfigurationInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationArgs and IndexingConfigurationThingGroupIndexingConfigurationOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationInput` via:
+//
+//          IndexingConfigurationThingGroupIndexingConfigurationArgs{...}
+type IndexingConfigurationThingGroupIndexingConfigurationInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingGroupIndexingConfigurationOutput() IndexingConfigurationThingGroupIndexingConfigurationOutput
+	ToIndexingConfigurationThingGroupIndexingConfigurationOutputWithContext(context.Context) IndexingConfigurationThingGroupIndexingConfigurationOutput
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationArgs struct {
+	// A list of thing group fields to index. This list cannot contain any managed fields. See below.
+	CustomFields IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput `pulumi:"customFields"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput `pulumi:"managedFields"`
+	// Thing group indexing mode. Valid values: `OFF`, `ON`.
+	ThingGroupIndexingMode pulumi.StringInput `pulumi:"thingGroupIndexingMode"`
+}
+
+func (IndexingConfigurationThingGroupIndexingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfiguration)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationArgs) ToIndexingConfigurationThingGroupIndexingConfigurationOutput() IndexingConfigurationThingGroupIndexingConfigurationOutput {
+	return i.ToIndexingConfigurationThingGroupIndexingConfigurationOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationArgs) ToIndexingConfigurationThingGroupIndexingConfigurationOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingGroupIndexingConfigurationOutput)
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationArgs) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutput() IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return i.ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationArgs) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingGroupIndexingConfigurationOutput).ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(ctx)
+}
+
+// IndexingConfigurationThingGroupIndexingConfigurationPtrInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationArgs, IndexingConfigurationThingGroupIndexingConfigurationPtr and IndexingConfigurationThingGroupIndexingConfigurationPtrOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationPtrInput` via:
+//
+//          IndexingConfigurationThingGroupIndexingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type IndexingConfigurationThingGroupIndexingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutput() IndexingConfigurationThingGroupIndexingConfigurationPtrOutput
+	ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(context.Context) IndexingConfigurationThingGroupIndexingConfigurationPtrOutput
+}
+
+type indexingConfigurationThingGroupIndexingConfigurationPtrType IndexingConfigurationThingGroupIndexingConfigurationArgs
+
+func IndexingConfigurationThingGroupIndexingConfigurationPtr(v *IndexingConfigurationThingGroupIndexingConfigurationArgs) IndexingConfigurationThingGroupIndexingConfigurationPtrInput {
+	return (*indexingConfigurationThingGroupIndexingConfigurationPtrType)(v)
+}
+
+func (*indexingConfigurationThingGroupIndexingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingConfigurationThingGroupIndexingConfiguration)(nil)).Elem()
+}
+
+func (i *indexingConfigurationThingGroupIndexingConfigurationPtrType) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutput() IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return i.ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *indexingConfigurationThingGroupIndexingConfigurationPtrType) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingGroupIndexingConfigurationPtrOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingGroupIndexingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfiguration)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ToIndexingConfigurationThingGroupIndexingConfigurationOutput() IndexingConfigurationThingGroupIndexingConfigurationOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ToIndexingConfigurationThingGroupIndexingConfigurationOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutput() IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return o.ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexingConfigurationThingGroupIndexingConfiguration) *IndexingConfigurationThingGroupIndexingConfiguration {
+		return &v
+	}).(IndexingConfigurationThingGroupIndexingConfigurationPtrOutput)
+}
+
+// A list of thing group fields to index. This list cannot contain any managed fields. See below.
+func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) CustomFields() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationCustomField {
+		return v.CustomFields
+	}).(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput)
+}
+
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ManagedFields() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationManagedField {
+		return v.ManagedFields
+	}).(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput)
+}
+
+// Thing group indexing mode. Valid values: `OFF`, `ON`.
+func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ThingGroupIndexingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfiguration) string { return v.ThingGroupIndexingMode }).(pulumi.StringOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingConfigurationThingGroupIndexingConfiguration)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutput() IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ToIndexingConfigurationThingGroupIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationPtrOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) Elem() IndexingConfigurationThingGroupIndexingConfigurationOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingGroupIndexingConfiguration) IndexingConfigurationThingGroupIndexingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IndexingConfigurationThingGroupIndexingConfiguration
+		return ret
+	}).(IndexingConfigurationThingGroupIndexingConfigurationOutput)
+}
+
+// A list of thing group fields to index. This list cannot contain any managed fields. See below.
+func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) CustomFields() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationCustomField {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFields
+	}).(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput)
+}
+
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ManagedFields() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationManagedField {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedFields
+	}).(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput)
+}
+
+// Thing group indexing mode. Valid values: `OFF`, `ON`.
+func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ThingGroupIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingGroupIndexingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ThingGroupIndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationCustomField struct {
+	// The name of the field.
+	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type *string `pulumi:"type"`
+}
+
+// IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs and IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput` via:
+//
+//          IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{...}
+type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput
+	ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutputWithContext(context.Context) IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs struct {
+	// The name of the field.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput {
+	return i.ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput)
+}
+
+// IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray and IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput` via:
+//
+//          IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray{ IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{...} }
+type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput
+	ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutputWithContext(context.Context) IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray []IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput
+
+func (IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingGroupIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
+	return i.ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput {
+	return o
+}
+
+// The name of the field.
+func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationCustomField) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationCustomField) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingGroupIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput) ToIndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput) Index(i pulumi.IntInput) IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexingConfigurationThingGroupIndexingConfigurationCustomField {
+		return vs[0].([]IndexingConfigurationThingGroupIndexingConfigurationCustomField)[vs[1].(int)]
+	}).(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationManagedField struct {
+	// The name of the field.
+	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type *string `pulumi:"type"`
+}
+
+// IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs and IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput` via:
+//
+//          IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs{...}
+type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput
+	ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutputWithContext(context.Context) IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs struct {
+	// The name of the field.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput {
+	return i.ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput)
+}
+
+// IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray and IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput` via:
+//
+//          IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray{ IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs{...} }
+type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput
+	ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutputWithContext(context.Context) IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray []IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput
+
+func (IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingGroupIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
+	return i.ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput {
+	return o
+}
+
+// The name of the field.
+func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationManagedField) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationManagedField) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingGroupIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput) ToIndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput) Index(i pulumi.IntInput) IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexingConfigurationThingGroupIndexingConfigurationManagedField {
+		return vs[0].([]IndexingConfigurationThingGroupIndexingConfigurationManagedField)[vs[1].(int)]
+	}).(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput)
+}
+
+type IndexingConfigurationThingIndexingConfiguration struct {
+	// Contains custom field names and their data type. See below.
+	CustomFields []IndexingConfigurationThingIndexingConfigurationCustomField `pulumi:"customFields"`
+	// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+	DeviceDefenderIndexingMode *string `pulumi:"deviceDefenderIndexingMode"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields []IndexingConfigurationThingIndexingConfigurationManagedField `pulumi:"managedFields"`
+	// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+	NamedShadowIndexingMode *string `pulumi:"namedShadowIndexingMode"`
+	// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+	ThingConnectivityIndexingMode *string `pulumi:"thingConnectivityIndexingMode"`
+	// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+	ThingIndexingMode string `pulumi:"thingIndexingMode"`
+}
+
+// IndexingConfigurationThingIndexingConfigurationInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationArgs and IndexingConfigurationThingIndexingConfigurationOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationInput` via:
+//
+//          IndexingConfigurationThingIndexingConfigurationArgs{...}
+type IndexingConfigurationThingIndexingConfigurationInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingIndexingConfigurationOutput() IndexingConfigurationThingIndexingConfigurationOutput
+	ToIndexingConfigurationThingIndexingConfigurationOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationOutput
+}
+
+type IndexingConfigurationThingIndexingConfigurationArgs struct {
+	// Contains custom field names and their data type. See below.
+	CustomFields IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput `pulumi:"customFields"`
+	// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+	DeviceDefenderIndexingMode pulumi.StringPtrInput `pulumi:"deviceDefenderIndexingMode"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput `pulumi:"managedFields"`
+	// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+	NamedShadowIndexingMode pulumi.StringPtrInput `pulumi:"namedShadowIndexingMode"`
+	// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+	ThingConnectivityIndexingMode pulumi.StringPtrInput `pulumi:"thingConnectivityIndexingMode"`
+	// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+	ThingIndexingMode pulumi.StringInput `pulumi:"thingIndexingMode"`
+}
+
+func (IndexingConfigurationThingIndexingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfiguration)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationArgs) ToIndexingConfigurationThingIndexingConfigurationOutput() IndexingConfigurationThingIndexingConfigurationOutput {
+	return i.ToIndexingConfigurationThingIndexingConfigurationOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationArgs) ToIndexingConfigurationThingIndexingConfigurationOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationOutput)
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationArgs) ToIndexingConfigurationThingIndexingConfigurationPtrOutput() IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return i.ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationArgs) ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationOutput).ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(ctx)
+}
+
+// IndexingConfigurationThingIndexingConfigurationPtrInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationArgs, IndexingConfigurationThingIndexingConfigurationPtr and IndexingConfigurationThingIndexingConfigurationPtrOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationPtrInput` via:
+//
+//          IndexingConfigurationThingIndexingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type IndexingConfigurationThingIndexingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingIndexingConfigurationPtrOutput() IndexingConfigurationThingIndexingConfigurationPtrOutput
+	ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationPtrOutput
+}
+
+type indexingConfigurationThingIndexingConfigurationPtrType IndexingConfigurationThingIndexingConfigurationArgs
+
+func IndexingConfigurationThingIndexingConfigurationPtr(v *IndexingConfigurationThingIndexingConfigurationArgs) IndexingConfigurationThingIndexingConfigurationPtrInput {
+	return (*indexingConfigurationThingIndexingConfigurationPtrType)(v)
+}
+
+func (*indexingConfigurationThingIndexingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingConfigurationThingIndexingConfiguration)(nil)).Elem()
+}
+
+func (i *indexingConfigurationThingIndexingConfigurationPtrType) ToIndexingConfigurationThingIndexingConfigurationPtrOutput() IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return i.ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *indexingConfigurationThingIndexingConfigurationPtrType) ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationPtrOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingIndexingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfiguration)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationOutput) ToIndexingConfigurationThingIndexingConfigurationOutput() IndexingConfigurationThingIndexingConfigurationOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationOutput) ToIndexingConfigurationThingIndexingConfigurationOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationOutput) ToIndexingConfigurationThingIndexingConfigurationPtrOutput() IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return o.ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationOutput) ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexingConfigurationThingIndexingConfiguration) *IndexingConfigurationThingIndexingConfiguration {
+		return &v
+	}).(IndexingConfigurationThingIndexingConfigurationPtrOutput)
+}
+
+// Contains custom field names and their data type. See below.
+func (o IndexingConfigurationThingIndexingConfigurationOutput) CustomFields() IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationCustomField {
+		return v.CustomFields
+	}).(IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput)
+}
+
+// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationOutput) DeviceDefenderIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *string { return v.DeviceDefenderIndexingMode }).(pulumi.StringPtrOutput)
+}
+
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+func (o IndexingConfigurationThingIndexingConfigurationOutput) ManagedFields() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationManagedField {
+		return v.ManagedFields
+	}).(IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput)
+}
+
+// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationOutput) NamedShadowIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *string { return v.NamedShadowIndexingMode }).(pulumi.StringPtrOutput)
+}
+
+// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationOutput) ThingConnectivityIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *string {
+		return v.ThingConnectivityIndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationOutput) ThingIndexingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) string { return v.ThingIndexingMode }).(pulumi.StringOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingIndexingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingConfigurationThingIndexingConfiguration)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ToIndexingConfigurationThingIndexingConfigurationPtrOutput() IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ToIndexingConfigurationThingIndexingConfigurationPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationPtrOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) Elem() IndexingConfigurationThingIndexingConfigurationOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) IndexingConfigurationThingIndexingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IndexingConfigurationThingIndexingConfiguration
+		return ret
+	}).(IndexingConfigurationThingIndexingConfigurationOutput)
+}
+
+// Contains custom field names and their data type. See below.
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) CustomFields() IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationCustomField {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFields
+	}).(IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput)
+}
+
+// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) DeviceDefenderIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceDefenderIndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ManagedFields() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationManagedField {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedFields
+	}).(IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput)
+}
+
+// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) NamedShadowIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NamedShadowIndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ThingConnectivityIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThingConnectivityIndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ThingIndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ThingIndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationCustomField struct {
+	// The name of the field.
+	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type *string `pulumi:"type"`
+}
+
+// IndexingConfigurationThingIndexingConfigurationCustomFieldInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationCustomFieldArgs and IndexingConfigurationThingIndexingConfigurationCustomFieldOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationCustomFieldInput` via:
+//
+//          IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{...}
+type IndexingConfigurationThingIndexingConfigurationCustomFieldInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingIndexingConfigurationCustomFieldOutput() IndexingConfigurationThingIndexingConfigurationCustomFieldOutput
+	ToIndexingConfigurationThingIndexingConfigurationCustomFieldOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationCustomFieldOutput
+}
+
+type IndexingConfigurationThingIndexingConfigurationCustomFieldArgs struct {
+	// The name of the field.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IndexingConfigurationThingIndexingConfigurationCustomFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationCustomFieldArgs) ToIndexingConfigurationThingIndexingConfigurationCustomFieldOutput() IndexingConfigurationThingIndexingConfigurationCustomFieldOutput {
+	return i.ToIndexingConfigurationThingIndexingConfigurationCustomFieldOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationCustomFieldArgs) ToIndexingConfigurationThingIndexingConfigurationCustomFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationCustomFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationCustomFieldOutput)
+}
+
+// IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationCustomFieldArray and IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput` via:
+//
+//          IndexingConfigurationThingIndexingConfigurationCustomFieldArray{ IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{...} }
+type IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput() IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput
+	ToIndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput
+}
+
+type IndexingConfigurationThingIndexingConfigurationCustomFieldArray []IndexingConfigurationThingIndexingConfigurationCustomFieldInput
+
+func (IndexingConfigurationThingIndexingConfigurationCustomFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationCustomFieldArray) ToIndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput() IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
+	return i.ToIndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationCustomFieldArray) ToIndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationCustomFieldOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) ToIndexingConfigurationThingIndexingConfigurationCustomFieldOutput() IndexingConfigurationThingIndexingConfigurationCustomFieldOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) ToIndexingConfigurationThingIndexingConfigurationCustomFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationCustomFieldOutput {
+	return o
+}
+
+// The name of the field.
+func (o IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationCustomField) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+func (o IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationCustomField) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingIndexingConfigurationCustomField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput) ToIndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput() IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput) ToIndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput) Index(i pulumi.IntInput) IndexingConfigurationThingIndexingConfigurationCustomFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexingConfigurationThingIndexingConfigurationCustomField {
+		return vs[0].([]IndexingConfigurationThingIndexingConfigurationCustomField)[vs[1].(int)]
+	}).(IndexingConfigurationThingIndexingConfigurationCustomFieldOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationManagedField struct {
+	// The name of the field.
+	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type *string `pulumi:"type"`
+}
+
+// IndexingConfigurationThingIndexingConfigurationManagedFieldInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationManagedFieldArgs and IndexingConfigurationThingIndexingConfigurationManagedFieldOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationManagedFieldInput` via:
+//
+//          IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{...}
+type IndexingConfigurationThingIndexingConfigurationManagedFieldInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingIndexingConfigurationManagedFieldOutput() IndexingConfigurationThingIndexingConfigurationManagedFieldOutput
+	ToIndexingConfigurationThingIndexingConfigurationManagedFieldOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationManagedFieldOutput
+}
+
+type IndexingConfigurationThingIndexingConfigurationManagedFieldArgs struct {
+	// The name of the field.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IndexingConfigurationThingIndexingConfigurationManagedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationManagedFieldArgs) ToIndexingConfigurationThingIndexingConfigurationManagedFieldOutput() IndexingConfigurationThingIndexingConfigurationManagedFieldOutput {
+	return i.ToIndexingConfigurationThingIndexingConfigurationManagedFieldOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationManagedFieldArgs) ToIndexingConfigurationThingIndexingConfigurationManagedFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationManagedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationManagedFieldOutput)
+}
+
+// IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationManagedFieldArray and IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput values.
+// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput` via:
+//
+//          IndexingConfigurationThingIndexingConfigurationManagedFieldArray{ IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{...} }
+type IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput interface {
+	pulumi.Input
+
+	ToIndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput
+	ToIndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput
+}
+
+type IndexingConfigurationThingIndexingConfigurationManagedFieldArray []IndexingConfigurationThingIndexingConfigurationManagedFieldInput
+
+func (IndexingConfigurationThingIndexingConfigurationManagedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationManagedFieldArray) ToIndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
+	return i.ToIndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i IndexingConfigurationThingIndexingConfigurationManagedFieldArray) ToIndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationManagedFieldOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) ToIndexingConfigurationThingIndexingConfigurationManagedFieldOutput() IndexingConfigurationThingIndexingConfigurationManagedFieldOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) ToIndexingConfigurationThingIndexingConfigurationManagedFieldOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationManagedFieldOutput {
+	return o
+}
+
+// The name of the field.
+func (o IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationManagedField) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+func (o IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationManagedField) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexingConfigurationThingIndexingConfigurationManagedField)(nil)).Elem()
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput) ToIndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput) ToIndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
+	return o
+}
+
+func (o IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput) Index(i pulumi.IntInput) IndexingConfigurationThingIndexingConfigurationManagedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexingConfigurationThingIndexingConfigurationManagedField {
+		return vs[0].([]IndexingConfigurationThingIndexingConfigurationManagedField)[vs[1].(int)]
+	}).(IndexingConfigurationThingIndexingConfigurationManagedFieldOutput)
+}
+
+type ProvisioningTemplatePreProvisioningHook struct {
+	// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+	PayloadVersion *string `pulumi:"payloadVersion"`
+	TargetArn      string  `pulumi:"targetArn"`
+}
+
+// ProvisioningTemplatePreProvisioningHookInput is an input type that accepts ProvisioningTemplatePreProvisioningHookArgs and ProvisioningTemplatePreProvisioningHookOutput values.
+// You can construct a concrete instance of `ProvisioningTemplatePreProvisioningHookInput` via:
+//
+//          ProvisioningTemplatePreProvisioningHookArgs{...}
+type ProvisioningTemplatePreProvisioningHookInput interface {
+	pulumi.Input
+
+	ToProvisioningTemplatePreProvisioningHookOutput() ProvisioningTemplatePreProvisioningHookOutput
+	ToProvisioningTemplatePreProvisioningHookOutputWithContext(context.Context) ProvisioningTemplatePreProvisioningHookOutput
+}
+
+type ProvisioningTemplatePreProvisioningHookArgs struct {
+	// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+	PayloadVersion pulumi.StringPtrInput `pulumi:"payloadVersion"`
+	TargetArn      pulumi.StringInput    `pulumi:"targetArn"`
+}
+
+func (ProvisioningTemplatePreProvisioningHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplatePreProvisioningHook)(nil)).Elem()
+}
+
+func (i ProvisioningTemplatePreProvisioningHookArgs) ToProvisioningTemplatePreProvisioningHookOutput() ProvisioningTemplatePreProvisioningHookOutput {
+	return i.ToProvisioningTemplatePreProvisioningHookOutputWithContext(context.Background())
+}
+
+func (i ProvisioningTemplatePreProvisioningHookArgs) ToProvisioningTemplatePreProvisioningHookOutputWithContext(ctx context.Context) ProvisioningTemplatePreProvisioningHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplatePreProvisioningHookOutput)
+}
+
+func (i ProvisioningTemplatePreProvisioningHookArgs) ToProvisioningTemplatePreProvisioningHookPtrOutput() ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return i.ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(context.Background())
+}
+
+func (i ProvisioningTemplatePreProvisioningHookArgs) ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(ctx context.Context) ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplatePreProvisioningHookOutput).ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(ctx)
+}
+
+// ProvisioningTemplatePreProvisioningHookPtrInput is an input type that accepts ProvisioningTemplatePreProvisioningHookArgs, ProvisioningTemplatePreProvisioningHookPtr and ProvisioningTemplatePreProvisioningHookPtrOutput values.
+// You can construct a concrete instance of `ProvisioningTemplatePreProvisioningHookPtrInput` via:
+//
+//          ProvisioningTemplatePreProvisioningHookArgs{...}
+//
+//  or:
+//
+//          nil
+type ProvisioningTemplatePreProvisioningHookPtrInput interface {
+	pulumi.Input
+
+	ToProvisioningTemplatePreProvisioningHookPtrOutput() ProvisioningTemplatePreProvisioningHookPtrOutput
+	ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(context.Context) ProvisioningTemplatePreProvisioningHookPtrOutput
+}
+
+type provisioningTemplatePreProvisioningHookPtrType ProvisioningTemplatePreProvisioningHookArgs
+
+func ProvisioningTemplatePreProvisioningHookPtr(v *ProvisioningTemplatePreProvisioningHookArgs) ProvisioningTemplatePreProvisioningHookPtrInput {
+	return (*provisioningTemplatePreProvisioningHookPtrType)(v)
+}
+
+func (*provisioningTemplatePreProvisioningHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisioningTemplatePreProvisioningHook)(nil)).Elem()
+}
+
+func (i *provisioningTemplatePreProvisioningHookPtrType) ToProvisioningTemplatePreProvisioningHookPtrOutput() ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return i.ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(context.Background())
+}
+
+func (i *provisioningTemplatePreProvisioningHookPtrType) ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(ctx context.Context) ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplatePreProvisioningHookPtrOutput)
+}
+
+type ProvisioningTemplatePreProvisioningHookOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningTemplatePreProvisioningHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplatePreProvisioningHook)(nil)).Elem()
+}
+
+func (o ProvisioningTemplatePreProvisioningHookOutput) ToProvisioningTemplatePreProvisioningHookOutput() ProvisioningTemplatePreProvisioningHookOutput {
+	return o
+}
+
+func (o ProvisioningTemplatePreProvisioningHookOutput) ToProvisioningTemplatePreProvisioningHookOutputWithContext(ctx context.Context) ProvisioningTemplatePreProvisioningHookOutput {
+	return o
+}
+
+func (o ProvisioningTemplatePreProvisioningHookOutput) ToProvisioningTemplatePreProvisioningHookPtrOutput() ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return o.ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisioningTemplatePreProvisioningHookOutput) ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(ctx context.Context) ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningTemplatePreProvisioningHook) *ProvisioningTemplatePreProvisioningHook {
+		return &v
+	}).(ProvisioningTemplatePreProvisioningHookPtrOutput)
+}
+
+// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+func (o ProvisioningTemplatePreProvisioningHookOutput) PayloadVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisioningTemplatePreProvisioningHook) *string { return v.PayloadVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ProvisioningTemplatePreProvisioningHookOutput) TargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ProvisioningTemplatePreProvisioningHook) string { return v.TargetArn }).(pulumi.StringOutput)
+}
+
+type ProvisioningTemplatePreProvisioningHookPtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningTemplatePreProvisioningHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisioningTemplatePreProvisioningHook)(nil)).Elem()
+}
+
+func (o ProvisioningTemplatePreProvisioningHookPtrOutput) ToProvisioningTemplatePreProvisioningHookPtrOutput() ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return o
+}
+
+func (o ProvisioningTemplatePreProvisioningHookPtrOutput) ToProvisioningTemplatePreProvisioningHookPtrOutputWithContext(ctx context.Context) ProvisioningTemplatePreProvisioningHookPtrOutput {
+	return o
+}
+
+func (o ProvisioningTemplatePreProvisioningHookPtrOutput) Elem() ProvisioningTemplatePreProvisioningHookOutput {
+	return o.ApplyT(func(v *ProvisioningTemplatePreProvisioningHook) ProvisioningTemplatePreProvisioningHook {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisioningTemplatePreProvisioningHook
+		return ret
+	}).(ProvisioningTemplatePreProvisioningHookOutput)
+}
+
+// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+func (o ProvisioningTemplatePreProvisioningHookPtrOutput) PayloadVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplatePreProvisioningHook) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProvisioningTemplatePreProvisioningHookPtrOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplatePreProvisioningHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ThingGroupMetadata struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The name of the parent Thing Group.
@@ -6935,6 +7928,20 @@ func (o TopicRuleStepFunctionArrayOutput) Index(i pulumi.IntInput) TopicRuleStep
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationPtrInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationPtrInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationCustomFieldInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationCustomFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationManagedFieldInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationManagedFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplatePreProvisioningHookInput)(nil)).Elem(), ProvisioningTemplatePreProvisioningHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplatePreProvisioningHookPtrInput)(nil)).Elem(), ProvisioningTemplatePreProvisioningHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataInput)(nil)).Elem(), ThingGroupMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataArrayInput)(nil)).Elem(), ThingGroupMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataRootToParentGroupInput)(nil)).Elem(), ThingGroupMetadataRootToParentGroupArgs{})
@@ -7015,6 +8022,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqsPtrInput)(nil)).Elem(), TopicRuleSqsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionInput)(nil)).Elem(), TopicRuleStepFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionArrayInput)(nil)).Elem(), TopicRuleStepFunctionArray{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationCustomFieldOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationManagedFieldOutput{})
+	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput{})
+	pulumi.RegisterOutputType(ProvisioningTemplatePreProvisioningHookOutput{})
+	pulumi.RegisterOutputType(ProvisioningTemplatePreProvisioningHookPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupMetadataOutput{})
 	pulumi.RegisterOutputType(ThingGroupMetadataArrayOutput{})
 	pulumi.RegisterOutputType(ThingGroupMetadataRootToParentGroupOutput{})

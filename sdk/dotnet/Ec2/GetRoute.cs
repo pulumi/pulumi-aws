@@ -110,6 +110,12 @@ namespace Pulumi.Aws.Ec2
         public string? CarrierGatewayId { get; set; }
 
         /// <summary>
+        /// Core network ARN of the Route belonging to the Route Table.
+        /// </summary>
+        [Input("coreNetworkArn")]
+        public string? CoreNetworkArn { get; set; }
+
+        /// <summary>
         /// CIDR block of the Route belonging to the Route Table.
         /// </summary>
         [Input("destinationCidrBlock")]
@@ -195,6 +201,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CarrierGatewayId { get; set; }
 
         /// <summary>
+        /// Core network ARN of the Route belonging to the Route Table.
+        /// </summary>
+        [Input("coreNetworkArn")]
+        public Input<string>? CoreNetworkArn { get; set; }
+
+        /// <summary>
         /// CIDR block of the Route belonging to the Route Table.
         /// </summary>
         [Input("destinationCidrBlock")]
@@ -276,6 +288,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetRouteResult
     {
         public readonly string CarrierGatewayId;
+        public readonly string CoreNetworkArn;
         public readonly string DestinationCidrBlock;
         public readonly string DestinationIpv6CidrBlock;
         public readonly string DestinationPrefixListId;
@@ -296,6 +309,8 @@ namespace Pulumi.Aws.Ec2
         [OutputConstructor]
         private GetRouteResult(
             string carrierGatewayId,
+
+            string coreNetworkArn,
 
             string destinationCidrBlock,
 
@@ -324,6 +339,7 @@ namespace Pulumi.Aws.Ec2
             string vpcPeeringConnectionId)
         {
             CarrierGatewayId = carrierGatewayId;
+            CoreNetworkArn = coreNetworkArn;
             DestinationCidrBlock = destinationCidrBlock;
             DestinationIpv6CidrBlock = destinationIpv6CidrBlock;
             DestinationPrefixListId = destinationPrefixListId;

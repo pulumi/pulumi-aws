@@ -57,10 +57,70 @@ import (
 // This is a multistep process that requires AWS Support intervention.
 //
 // 1. Enable versioning on your S3 bucket, if you have not already done so.
-// Doing so will generate an "Object Lock token" in the back-end.
+//    Doing so will generate an "Object Lock token" in the back-end.
+//
+// <!-- markdownlint-disable MD029 -->
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
+// 			Bucket: exampleBucketV2.Bucket,
+// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+// 				Status: pulumi.String("Enabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// <!-- markdownlint-disable MD029 -->
 //
 // 2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
-// Notice the `objectLockEnabled` argument does not need to be specified as it defaults to `Enabled`.
+//    Notice the `objectLockEnabled` argument does not need to be specified as it defaults to `Enabled`.
+//
+// <!-- markdownlint-disable MD029 -->
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := s3.NewBucketObjectLockConfigurationV2(ctx, "example", &s3.BucketObjectLockConfigurationV2Args{
+// 			Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
+// 			Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
+// 				DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
+// 					Mode: pulumi.String("COMPLIANCE"),
+// 					Days: pulumi.Int(5),
+// 				},
+// 			},
+// 			Token: pulumi.String("NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w=="),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// <!-- markdownlint-disable MD029 -->
 //
 // ## Import
 //

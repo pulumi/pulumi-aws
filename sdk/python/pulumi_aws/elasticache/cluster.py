@@ -16,12 +16,14 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -41,14 +43,19 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
+        :param pulumi.Input[str] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Defaults to `true`.
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
+               If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -70,6 +77,8 @@ class ClusterArgs:
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if az_mode is not None:
@@ -82,6 +91,8 @@ class ClusterArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+        if log_delivery_configurations is not None:
+            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if node_type is not None:
@@ -126,6 +137,20 @@ class ClusterArgs:
     @apply_immediately.setter
     def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "apply_immediately", value)
+
+    @property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+        Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @auto_minor_version_upgrade.setter
+    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -180,6 +205,7 @@ class ClusterArgs:
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
         Version number of the cache engine to be used.
+        If not set, defaults to the latest version.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
         in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
@@ -200,6 +226,18 @@ class ClusterArgs:
     @final_snapshot_identifier.setter
     def final_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "final_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter(name="logDeliveryConfigurations")
+    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]:
+        """
+        Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        """
+        return pulumi.get(self, "log_delivery_configurations")
+
+    @log_delivery_configurations.setter
+    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]):
+        pulumi.set(self, "log_delivery_configurations", value)
 
     @property
     @pulumi.getter(name="maintenanceWindow")
@@ -401,6 +439,7 @@ class _ClusterState:
     def __init__(__self__, *,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
                  cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]]] = None,
@@ -411,6 +450,7 @@ class _ClusterState:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -432,6 +472,9 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache Cluster.
+        :param pulumi.Input[str] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Defaults to `true`.
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
@@ -440,10 +483,12 @@ class _ClusterState:
         :param pulumi.Input[str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
+               If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -467,6 +512,8 @@ class _ClusterState:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if az_mode is not None:
@@ -487,6 +534,8 @@ class _ClusterState:
             pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+        if log_delivery_configurations is not None:
+            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if node_type is not None:
@@ -545,6 +594,20 @@ class _ClusterState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+        Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @auto_minor_version_upgrade.setter
+    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -635,6 +698,7 @@ class _ClusterState:
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
         Version number of the cache engine to be used.
+        If not set, defaults to the latest version.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
         in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
@@ -667,6 +731,18 @@ class _ClusterState:
     @final_snapshot_identifier.setter
     def final_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "final_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter(name="logDeliveryConfigurations")
+    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]:
+        """
+        Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        """
+        return pulumi.get(self, "log_delivery_configurations")
+
+    @log_delivery_configurations.setter
+    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]):
+        pulumi.set(self, "log_delivery_configurations", value)
 
     @property
     @pulumi.getter(name="maintenanceWindow")
@@ -878,12 +954,14 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -960,6 +1038,33 @@ class Cluster(pulumi.CustomResource):
 
         replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
         ```
+        ### Redis Log Delivery configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.elasticache.Cluster("test",
+            engine="redis",
+            node_type="cache.t3.micro",
+            num_cache_nodes=1,
+            port=6379,
+            apply_immediately=True,
+            log_delivery_configurations=[
+                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination_type="cloudwatch-logs",
+                    log_format="text",
+                    log_type="slow-log",
+                ),
+                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination_type="kinesis-firehose",
+                    log_format="json",
+                    log_type="engine-log",
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -972,14 +1077,19 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
+        :param pulumi.Input[str] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Defaults to `true`.
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
+               If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -1064,6 +1174,33 @@ class Cluster(pulumi.CustomResource):
 
         replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
         ```
+        ### Redis Log Delivery configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.elasticache.Cluster("test",
+            engine="redis",
+            node_type="cache.t3.micro",
+            num_cache_nodes=1,
+            port=6379,
+            apply_immediately=True,
+            log_delivery_configurations=[
+                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination_type="cloudwatch-logs",
+                    log_format="text",
+                    log_type="slow-log",
+                ),
+                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination_type="kinesis-firehose",
+                    log_format="json",
+                    log_type="engine-log",
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -1089,12 +1226,14 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -1124,12 +1263,14 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["apply_immediately"] = apply_immediately
+            __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["az_mode"] = az_mode
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
+            __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["node_type"] = node_type
             __props__.__dict__["notification_topic_arn"] = notification_topic_arn
@@ -1164,6 +1305,7 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             apply_immediately: Optional[pulumi.Input[bool]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             az_mode: Optional[pulumi.Input[str]] = None,
             cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]]] = None,
@@ -1174,6 +1316,7 @@ class Cluster(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+            log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
             notification_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -1200,6 +1343,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache Cluster.
+        :param pulumi.Input[str] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Defaults to `true`.
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
@@ -1208,10 +1354,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
+               If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
                in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -1237,6 +1385,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["apply_immediately"] = apply_immediately
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["az_mode"] = az_mode
         __props__.__dict__["cache_nodes"] = cache_nodes
@@ -1247,6 +1396,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
+        __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
         __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["notification_topic_arn"] = notification_topic_arn
@@ -1281,6 +1431,16 @@ class Cluster(pulumi.CustomResource):
         The ARN of the created ElastiCache Cluster.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+        Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -1343,6 +1503,7 @@ class Cluster(pulumi.CustomResource):
     def engine_version(self) -> pulumi.Output[str]:
         """
         Version number of the cache engine to be used.
+        If not set, defaults to the latest version.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
         in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
@@ -1363,6 +1524,14 @@ class Cluster(pulumi.CustomResource):
         Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
+
+    @property
+    @pulumi.getter(name="logDeliveryConfigurations")
+    def log_delivery_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterLogDeliveryConfiguration']]]:
+        """
+        Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        """
+        return pulumi.get(self, "log_delivery_configurations")
 
     @property
     @pulumi.getter(name="maintenanceWindow")

@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetDocumentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+        /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
         /// </summary>
         [Input("documentFormat")]
         public string? DocumentFormat { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetDocumentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+        /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
         /// </summary>
         [Input("documentFormat")]
         public Input<string>? DocumentFormat { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetDocumentResult
     {
         /// <summary>
-        /// The ARN of the document.
+        /// The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// Identity Notification Topics can be imported using ID of the record. The ID is made up as IDENTITY|TYPE where IDENTITY is the SES Identity and TYPE is the Notification Type.
+    /// Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
     /// 
     /// ```sh
     ///  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
@@ -52,19 +52,19 @@ namespace Pulumi.Aws.Ses
         public Output<string> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+        /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         /// </summary>
         [Output("includeOriginalHeaders")]
         public Output<bool?> IncludeOriginalHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
         [Output("notificationType")]
         public Output<string> NotificationType { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
         [Output("topicArn")]
         public Output<string?> TopicArn { get; private set; } = null!;
@@ -122,19 +122,19 @@ namespace Pulumi.Aws.Ses
         public Input<string> Identity { get; set; } = null!;
 
         /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+        /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         /// </summary>
         [Input("includeOriginalHeaders")]
         public Input<bool>? IncludeOriginalHeaders { get; set; }
 
         /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }
@@ -153,19 +153,19 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Identity { get; set; }
 
         /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+        /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         /// </summary>
         [Input("includeOriginalHeaders")]
         public Input<bool>? IncludeOriginalHeaders { get; set; }
 
         /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
         [Input("notificationType")]
         public Input<string>? NotificationType { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:rds/cluster:Cluster":
 		r = &Cluster{}
+	case "aws:rds/clusterActivityStream:ClusterActivityStream":
+		r = &ClusterActivityStream{}
 	case "aws:rds/clusterEndpoint:ClusterEndpoint":
 		r = &ClusterEndpoint{}
 	case "aws:rds/clusterInstance:ClusterInstance":
@@ -39,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GlobalCluster{}
 	case "aws:rds/instance:Instance":
 		r = &Instance{}
+	case "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication":
+		r = &InstanceAutomatedBackupsReplication{}
 	case "aws:rds/optionGroup:OptionGroup":
 		r = &OptionGroup{}
 	case "aws:rds/parameterGroup:ParameterGroup":
@@ -79,6 +83,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"rds/clusterActivityStream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"rds/clusterEndpoint",
 		&module{version},
 	)
@@ -115,6 +124,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/instanceAutomatedBackupsReplication",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

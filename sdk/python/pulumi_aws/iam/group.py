@@ -131,8 +131,6 @@ class Group(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an IAM group.
-
         ## Example Usage
 
         ```python
@@ -162,8 +160,6 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IAM group.
-
         ## Example Usage
 
         ```python

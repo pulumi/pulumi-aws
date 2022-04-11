@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'FileSystemAssociationCacheAttributes',
     'GatewayGatewayNetworkInterface',
+    'GatewayMaintenanceStartTime',
     'GatewaySmbActiveDirectorySettings',
     'NfsFileShareCacheAttributes',
     'NfsFileShareNfsFileShareDefaults',
@@ -91,6 +92,83 @@ class GatewayGatewayNetworkInterface(dict):
         The Internet Protocol version 4 (IPv4) address of the interface.
         """
         return pulumi.get(self, "ipv4_address")
+
+
+@pulumi.output_type
+class GatewayMaintenanceStartTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hourOfDay":
+            suggest = "hour_of_day"
+        elif key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "minuteOfHour":
+            suggest = "minute_of_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayMaintenanceStartTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayMaintenanceStartTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayMaintenanceStartTime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 day_of_month: Optional[str] = None,
+                 day_of_week: Optional[str] = None,
+                 minute_of_hour: Optional[int] = None):
+        """
+        :param int hour_of_day: The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+        :param str day_of_month: The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+        :param str day_of_week: The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+        :param int minute_of_hour: The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if minute_of_hour is not None:
+            pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[str]:
+        """
+        The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[str]:
+        """
+        The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> Optional[int]:
+        """
+        The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+        """
+        return pulumi.get(self, "minute_of_hour")
 
 
 @pulumi.output_type

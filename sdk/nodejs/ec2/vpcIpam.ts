@@ -91,6 +91,10 @@ export class VpcIpam extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     */
+    public readonly cascade!: pulumi.Output<boolean | undefined>;
+    /**
      * A description for the IPAM.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -134,6 +138,7 @@ export class VpcIpam extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcIpamState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cascade"] = state ? state.cascade : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["operatingRegions"] = state ? state.operatingRegions : undefined;
             resourceInputs["privateDefaultScopeId"] = state ? state.privateDefaultScopeId : undefined;
@@ -146,6 +151,7 @@ export class VpcIpam extends pulumi.CustomResource {
             if ((!args || args.operatingRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operatingRegions'");
             }
+            resourceInputs["cascade"] = args ? args.cascade : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -168,6 +174,10 @@ export interface VpcIpamState {
      * Amazon Resource Name (ARN) of IPAM
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     */
+    cascade?: pulumi.Input<boolean>;
     /**
      * A description for the IPAM.
      */
@@ -203,6 +213,10 @@ export interface VpcIpamState {
  * The set of arguments for constructing a VpcIpam resource.
  */
 export interface VpcIpamArgs {
+    /**
+     * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     */
+    cascade?: pulumi.Input<boolean>;
     /**
      * A description for the IPAM.
      */

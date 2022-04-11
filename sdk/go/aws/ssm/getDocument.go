@@ -73,7 +73,7 @@ func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulum
 
 // A collection of arguments for invoking getDocument.
 type LookupDocumentArgs struct {
-	// Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+	// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
 	DocumentFormat *string `pulumi:"documentFormat"`
 	// The document version for which you want information.
 	DocumentVersion *string `pulumi:"documentVersion"`
@@ -83,7 +83,7 @@ type LookupDocumentArgs struct {
 
 // A collection of values returned by getDocument.
 type LookupDocumentResult struct {
-	// The ARN of the document.
+	// The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
 	Arn string `pulumi:"arn"`
 	// The contents of the document.
 	Content        string  `pulumi:"content"`
@@ -107,7 +107,7 @@ func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, op
 
 // A collection of arguments for invoking getDocument.
 type LookupDocumentOutputArgs struct {
-	// Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+	// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
 	DocumentFormat pulumi.StringPtrInput `pulumi:"documentFormat"`
 	// The document version for which you want information.
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
@@ -134,7 +134,7 @@ func (o LookupDocumentResultOutput) ToLookupDocumentResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the document.
+// The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
 func (o LookupDocumentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Arn }).(pulumi.StringOutput)
 }

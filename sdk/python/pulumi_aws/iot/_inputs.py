@@ -9,6 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'IndexingConfigurationThingGroupIndexingConfigurationArgs',
+    'IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs',
+    'IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs',
+    'IndexingConfigurationThingIndexingConfigurationArgs',
+    'IndexingConfigurationThingIndexingConfigurationCustomFieldArgs',
+    'IndexingConfigurationThingIndexingConfigurationManagedFieldArgs',
+    'ProvisioningTemplatePreProvisioningHookArgs',
     'ThingGroupMetadataArgs',
     'ThingGroupMetadataRootToParentGroupArgs',
     'ThingGroupPropertiesArgs',
@@ -50,6 +57,352 @@ __all__ = [
     'TopicRuleSqsArgs',
     'TopicRuleStepFunctionArgs',
 ]
+
+@pulumi.input_type
+class IndexingConfigurationThingGroupIndexingConfigurationArgs:
+    def __init__(__self__, *,
+                 thing_group_indexing_mode: pulumi.Input[str],
+                 custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]] = None,
+                 managed_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]] = None):
+        """
+        :param pulumi.Input[str] thing_group_indexing_mode: Thing group indexing mode. Valid values: `OFF`, `ON`.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]] custom_fields: A list of thing group fields to index. This list cannot contain any managed fields. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+        """
+        pulumi.set(__self__, "thing_group_indexing_mode", thing_group_indexing_mode)
+        if custom_fields is not None:
+            pulumi.set(__self__, "custom_fields", custom_fields)
+        if managed_fields is not None:
+            pulumi.set(__self__, "managed_fields", managed_fields)
+
+    @property
+    @pulumi.getter(name="thingGroupIndexingMode")
+    def thing_group_indexing_mode(self) -> pulumi.Input[str]:
+        """
+        Thing group indexing mode. Valid values: `OFF`, `ON`.
+        """
+        return pulumi.get(self, "thing_group_indexing_mode")
+
+    @thing_group_indexing_mode.setter
+    def thing_group_indexing_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "thing_group_indexing_mode", value)
+
+    @property
+    @pulumi.getter(name="customFields")
+    def custom_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]:
+        """
+        A list of thing group fields to index. This list cannot contain any managed fields. See below.
+        """
+        return pulumi.get(self, "custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]):
+        pulumi.set(self, "custom_fields", value)
+
+    @property
+    @pulumi.getter(name="managedFields")
+    def managed_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]:
+        """
+        Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+        """
+        return pulumi.get(self, "managed_fields")
+
+    @managed_fields.setter
+    def managed_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]):
+        pulumi.set(self, "managed_fields", value)
+
+
+@pulumi.input_type
+class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the field.
+        :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the field.
+        :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class IndexingConfigurationThingIndexingConfigurationArgs:
+    def __init__(__self__, *,
+                 thing_indexing_mode: pulumi.Input[str],
+                 custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]] = None,
+                 device_defender_indexing_mode: Optional[pulumi.Input[str]] = None,
+                 managed_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]] = None,
+                 named_shadow_indexing_mode: Optional[pulumi.Input[str]] = None,
+                 thing_connectivity_indexing_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] thing_indexing_mode: Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]] custom_fields: Contains custom field names and their data type. See below.
+        :param pulumi.Input[str] device_defender_indexing_mode: Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+        :param pulumi.Input[str] named_shadow_indexing_mode: [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+        :param pulumi.Input[str] thing_connectivity_indexing_mode: Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+        """
+        pulumi.set(__self__, "thing_indexing_mode", thing_indexing_mode)
+        if custom_fields is not None:
+            pulumi.set(__self__, "custom_fields", custom_fields)
+        if device_defender_indexing_mode is not None:
+            pulumi.set(__self__, "device_defender_indexing_mode", device_defender_indexing_mode)
+        if managed_fields is not None:
+            pulumi.set(__self__, "managed_fields", managed_fields)
+        if named_shadow_indexing_mode is not None:
+            pulumi.set(__self__, "named_shadow_indexing_mode", named_shadow_indexing_mode)
+        if thing_connectivity_indexing_mode is not None:
+            pulumi.set(__self__, "thing_connectivity_indexing_mode", thing_connectivity_indexing_mode)
+
+    @property
+    @pulumi.getter(name="thingIndexingMode")
+    def thing_indexing_mode(self) -> pulumi.Input[str]:
+        """
+        Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+        """
+        return pulumi.get(self, "thing_indexing_mode")
+
+    @thing_indexing_mode.setter
+    def thing_indexing_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "thing_indexing_mode", value)
+
+    @property
+    @pulumi.getter(name="customFields")
+    def custom_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]:
+        """
+        Contains custom field names and their data type. See below.
+        """
+        return pulumi.get(self, "custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]):
+        pulumi.set(self, "custom_fields", value)
+
+    @property
+    @pulumi.getter(name="deviceDefenderIndexingMode")
+    def device_defender_indexing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+        """
+        return pulumi.get(self, "device_defender_indexing_mode")
+
+    @device_defender_indexing_mode.setter
+    def device_defender_indexing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_defender_indexing_mode", value)
+
+    @property
+    @pulumi.getter(name="managedFields")
+    def managed_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]:
+        """
+        Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+        """
+        return pulumi.get(self, "managed_fields")
+
+    @managed_fields.setter
+    def managed_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]):
+        pulumi.set(self, "managed_fields", value)
+
+    @property
+    @pulumi.getter(name="namedShadowIndexingMode")
+    def named_shadow_indexing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+        """
+        return pulumi.get(self, "named_shadow_indexing_mode")
+
+    @named_shadow_indexing_mode.setter
+    def named_shadow_indexing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "named_shadow_indexing_mode", value)
+
+    @property
+    @pulumi.getter(name="thingConnectivityIndexingMode")
+    def thing_connectivity_indexing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+        """
+        return pulumi.get(self, "thing_connectivity_indexing_mode")
+
+    @thing_connectivity_indexing_mode.setter
+    def thing_connectivity_indexing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing_connectivity_indexing_mode", value)
+
+
+@pulumi.input_type
+class IndexingConfigurationThingIndexingConfigurationCustomFieldArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the field.
+        :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class IndexingConfigurationThingIndexingConfigurationManagedFieldArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the field.
+        :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ProvisioningTemplatePreProvisioningHookArgs:
+    def __init__(__self__, *,
+                 target_arn: pulumi.Input[str],
+                 payload_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] payload_version: The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+        """
+        pulumi.set(__self__, "target_arn", target_arn)
+        if payload_version is not None:
+            pulumi.set(__self__, "payload_version", payload_version)
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "target_arn")
+
+    @target_arn.setter
+    def target_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_arn", value)
+
+    @property
+    @pulumi.getter(name="payloadVersion")
+    def payload_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+        """
+        return pulumi.get(self, "payload_version")
+
+    @payload_version.setter
+    def payload_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload_version", value)
+
 
 @pulumi.input_type
 class ThingGroupMetadataArgs:

@@ -126,6 +126,10 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetReplicationGroupLogDeliveryConfigurationResult> LogDeliveryConfigurations;
+        /// <summary>
         /// The identifiers of all the nodes that are part of this replication group.
         /// </summary>
         public readonly ImmutableArray<string> MemberClusters;
@@ -193,6 +197,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string id,
 
+            ImmutableArray<Outputs.GetReplicationGroupLogDeliveryConfigurationResult> logDeliveryConfigurations,
+
             ImmutableArray<string> memberClusters,
 
             bool multiAzEnabled,
@@ -227,6 +233,7 @@ namespace Pulumi.Aws.ElastiCache
             ConfigurationEndpointAddress = configurationEndpointAddress;
             Description = description;
             Id = id;
+            LogDeliveryConfigurations = logDeliveryConfigurations;
             MemberClusters = memberClusters;
             MultiAzEnabled = multiAzEnabled;
             NodeType = nodeType;

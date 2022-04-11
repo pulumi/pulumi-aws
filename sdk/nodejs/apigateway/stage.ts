@@ -116,7 +116,7 @@ export class Stage extends pulumi.CustomResource {
     }
 
     /**
-     * Enables access logs for the API stage. Detailed below.
+     * Enables access logs for the API stage. See Access Log Settings below.
      */
     public readonly accessLogSettings!: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
     /**
@@ -132,6 +132,10 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly cacheClusterSize!: pulumi.Output<string | undefined>;
     /**
+     * Configuration settings of a canary deployment. See Canary Settings below.
+     */
+    public readonly canarySettings!: pulumi.Output<outputs.apigateway.StageCanarySettings | undefined>;
+    /**
      * The identifier of a client certificate for the stage.
      */
     public readonly clientCertificateId!: pulumi.Output<string | undefined>;
@@ -140,7 +144,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly deployment!: pulumi.Output<string>;
     /**
-     * The description of the stage
+     * The description of the stage.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -204,6 +208,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
             resourceInputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;
+            resourceInputs["canarySettings"] = state ? state.canarySettings : undefined;
             resourceInputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
             resourceInputs["deployment"] = state ? state.deployment : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -231,6 +236,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
             resourceInputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
             resourceInputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
+            resourceInputs["canarySettings"] = args ? args.canarySettings : undefined;
             resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
             resourceInputs["deployment"] = args ? args.deployment : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -256,7 +262,7 @@ export class Stage extends pulumi.CustomResource {
  */
 export interface StageState {
     /**
-     * Enables access logs for the API stage. Detailed below.
+     * Enables access logs for the API stage. See Access Log Settings below.
      */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
@@ -272,6 +278,10 @@ export interface StageState {
      */
     cacheClusterSize?: pulumi.Input<string>;
     /**
+     * Configuration settings of a canary deployment. See Canary Settings below.
+     */
+    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
+    /**
      * The identifier of a client certificate for the stage.
      */
     clientCertificateId?: pulumi.Input<string>;
@@ -280,7 +290,7 @@ export interface StageState {
      */
     deployment?: pulumi.Input<string | Deployment>;
     /**
-     * The description of the stage
+     * The description of the stage.
      */
     description?: pulumi.Input<string>;
     /**
@@ -333,7 +343,7 @@ export interface StageState {
  */
 export interface StageArgs {
     /**
-     * Enables access logs for the API stage. Detailed below.
+     * Enables access logs for the API stage. See Access Log Settings below.
      */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
@@ -345,6 +355,10 @@ export interface StageArgs {
      */
     cacheClusterSize?: pulumi.Input<string>;
     /**
+     * Configuration settings of a canary deployment. See Canary Settings below.
+     */
+    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
+    /**
      * The identifier of a client certificate for the stage.
      */
     clientCertificateId?: pulumi.Input<string>;
@@ -353,7 +367,7 @@ export interface StageArgs {
      */
     deployment: pulumi.Input<string | Deployment>;
     /**
-     * The description of the stage
+     * The description of the stage.
      */
     description?: pulumi.Input<string>;
     /**

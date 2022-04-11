@@ -959,6 +959,880 @@ func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetClusterClusterEndpoint struct {
+	// DNS hostname of the node.
+	Address string `pulumi:"address"`
+	// Port number that this node is listening on.
+	Port int `pulumi:"port"`
+}
+
+// GetClusterClusterEndpointInput is an input type that accepts GetClusterClusterEndpointArgs and GetClusterClusterEndpointOutput values.
+// You can construct a concrete instance of `GetClusterClusterEndpointInput` via:
+//
+//          GetClusterClusterEndpointArgs{...}
+type GetClusterClusterEndpointInput interface {
+	pulumi.Input
+
+	ToGetClusterClusterEndpointOutput() GetClusterClusterEndpointOutput
+	ToGetClusterClusterEndpointOutputWithContext(context.Context) GetClusterClusterEndpointOutput
+}
+
+type GetClusterClusterEndpointArgs struct {
+	// DNS hostname of the node.
+	Address pulumi.StringInput `pulumi:"address"`
+	// Port number that this node is listening on.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetClusterClusterEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterClusterEndpoint)(nil)).Elem()
+}
+
+func (i GetClusterClusterEndpointArgs) ToGetClusterClusterEndpointOutput() GetClusterClusterEndpointOutput {
+	return i.ToGetClusterClusterEndpointOutputWithContext(context.Background())
+}
+
+func (i GetClusterClusterEndpointArgs) ToGetClusterClusterEndpointOutputWithContext(ctx context.Context) GetClusterClusterEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterClusterEndpointOutput)
+}
+
+// GetClusterClusterEndpointArrayInput is an input type that accepts GetClusterClusterEndpointArray and GetClusterClusterEndpointArrayOutput values.
+// You can construct a concrete instance of `GetClusterClusterEndpointArrayInput` via:
+//
+//          GetClusterClusterEndpointArray{ GetClusterClusterEndpointArgs{...} }
+type GetClusterClusterEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterClusterEndpointArrayOutput() GetClusterClusterEndpointArrayOutput
+	ToGetClusterClusterEndpointArrayOutputWithContext(context.Context) GetClusterClusterEndpointArrayOutput
+}
+
+type GetClusterClusterEndpointArray []GetClusterClusterEndpointInput
+
+func (GetClusterClusterEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterClusterEndpoint)(nil)).Elem()
+}
+
+func (i GetClusterClusterEndpointArray) ToGetClusterClusterEndpointArrayOutput() GetClusterClusterEndpointArrayOutput {
+	return i.ToGetClusterClusterEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterClusterEndpointArray) ToGetClusterClusterEndpointArrayOutputWithContext(ctx context.Context) GetClusterClusterEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterClusterEndpointArrayOutput)
+}
+
+type GetClusterClusterEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetClusterClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterClusterEndpoint)(nil)).Elem()
+}
+
+func (o GetClusterClusterEndpointOutput) ToGetClusterClusterEndpointOutput() GetClusterClusterEndpointOutput {
+	return o
+}
+
+func (o GetClusterClusterEndpointOutput) ToGetClusterClusterEndpointOutputWithContext(ctx context.Context) GetClusterClusterEndpointOutput {
+	return o
+}
+
+// DNS hostname of the node.
+func (o GetClusterClusterEndpointOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterClusterEndpoint) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// Port number that this node is listening on.
+func (o GetClusterClusterEndpointOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterClusterEndpoint) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetClusterClusterEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterClusterEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterClusterEndpoint)(nil)).Elem()
+}
+
+func (o GetClusterClusterEndpointArrayOutput) ToGetClusterClusterEndpointArrayOutput() GetClusterClusterEndpointArrayOutput {
+	return o
+}
+
+func (o GetClusterClusterEndpointArrayOutput) ToGetClusterClusterEndpointArrayOutputWithContext(ctx context.Context) GetClusterClusterEndpointArrayOutput {
+	return o
+}
+
+func (o GetClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) GetClusterClusterEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterClusterEndpoint {
+		return vs[0].([]GetClusterClusterEndpoint)[vs[1].(int)]
+	}).(GetClusterClusterEndpointOutput)
+}
+
+type GetClusterShard struct {
+	// Name of the cluster.
+	Name string `pulumi:"name"`
+	// Set of nodes in this shard.
+	Nodes []GetClusterShardNode `pulumi:"nodes"`
+	// Number of individual nodes in this shard.
+	NumNodes int `pulumi:"numNodes"`
+	// Keyspace for this shard. Example: `0-16383`.
+	Slots string `pulumi:"slots"`
+}
+
+// GetClusterShardInput is an input type that accepts GetClusterShardArgs and GetClusterShardOutput values.
+// You can construct a concrete instance of `GetClusterShardInput` via:
+//
+//          GetClusterShardArgs{...}
+type GetClusterShardInput interface {
+	pulumi.Input
+
+	ToGetClusterShardOutput() GetClusterShardOutput
+	ToGetClusterShardOutputWithContext(context.Context) GetClusterShardOutput
+}
+
+type GetClusterShardArgs struct {
+	// Name of the cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of nodes in this shard.
+	Nodes GetClusterShardNodeArrayInput `pulumi:"nodes"`
+	// Number of individual nodes in this shard.
+	NumNodes pulumi.IntInput `pulumi:"numNodes"`
+	// Keyspace for this shard. Example: `0-16383`.
+	Slots pulumi.StringInput `pulumi:"slots"`
+}
+
+func (GetClusterShardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterShard)(nil)).Elem()
+}
+
+func (i GetClusterShardArgs) ToGetClusterShardOutput() GetClusterShardOutput {
+	return i.ToGetClusterShardOutputWithContext(context.Background())
+}
+
+func (i GetClusterShardArgs) ToGetClusterShardOutputWithContext(ctx context.Context) GetClusterShardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterShardOutput)
+}
+
+// GetClusterShardArrayInput is an input type that accepts GetClusterShardArray and GetClusterShardArrayOutput values.
+// You can construct a concrete instance of `GetClusterShardArrayInput` via:
+//
+//          GetClusterShardArray{ GetClusterShardArgs{...} }
+type GetClusterShardArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterShardArrayOutput() GetClusterShardArrayOutput
+	ToGetClusterShardArrayOutputWithContext(context.Context) GetClusterShardArrayOutput
+}
+
+type GetClusterShardArray []GetClusterShardInput
+
+func (GetClusterShardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterShard)(nil)).Elem()
+}
+
+func (i GetClusterShardArray) ToGetClusterShardArrayOutput() GetClusterShardArrayOutput {
+	return i.ToGetClusterShardArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterShardArray) ToGetClusterShardArrayOutputWithContext(ctx context.Context) GetClusterShardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterShardArrayOutput)
+}
+
+type GetClusterShardOutput struct{ *pulumi.OutputState }
+
+func (GetClusterShardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterShard)(nil)).Elem()
+}
+
+func (o GetClusterShardOutput) ToGetClusterShardOutput() GetClusterShardOutput {
+	return o
+}
+
+func (o GetClusterShardOutput) ToGetClusterShardOutputWithContext(ctx context.Context) GetClusterShardOutput {
+	return o
+}
+
+// Name of the cluster.
+func (o GetClusterShardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterShard) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of nodes in this shard.
+func (o GetClusterShardOutput) Nodes() GetClusterShardNodeArrayOutput {
+	return o.ApplyT(func(v GetClusterShard) []GetClusterShardNode { return v.Nodes }).(GetClusterShardNodeArrayOutput)
+}
+
+// Number of individual nodes in this shard.
+func (o GetClusterShardOutput) NumNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterShard) int { return v.NumNodes }).(pulumi.IntOutput)
+}
+
+// Keyspace for this shard. Example: `0-16383`.
+func (o GetClusterShardOutput) Slots() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterShard) string { return v.Slots }).(pulumi.StringOutput)
+}
+
+type GetClusterShardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterShardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterShard)(nil)).Elem()
+}
+
+func (o GetClusterShardArrayOutput) ToGetClusterShardArrayOutput() GetClusterShardArrayOutput {
+	return o
+}
+
+func (o GetClusterShardArrayOutput) ToGetClusterShardArrayOutputWithContext(ctx context.Context) GetClusterShardArrayOutput {
+	return o
+}
+
+func (o GetClusterShardArrayOutput) Index(i pulumi.IntInput) GetClusterShardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterShard {
+		return vs[0].([]GetClusterShard)[vs[1].(int)]
+	}).(GetClusterShardOutput)
+}
+
+type GetClusterShardNode struct {
+	// The Availability Zone in which the node resides.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+	CreateTime string                        `pulumi:"createTime"`
+	Endpoints  []GetClusterShardNodeEndpoint `pulumi:"endpoints"`
+	// Name of the cluster.
+	Name string `pulumi:"name"`
+}
+
+// GetClusterShardNodeInput is an input type that accepts GetClusterShardNodeArgs and GetClusterShardNodeOutput values.
+// You can construct a concrete instance of `GetClusterShardNodeInput` via:
+//
+//          GetClusterShardNodeArgs{...}
+type GetClusterShardNodeInput interface {
+	pulumi.Input
+
+	ToGetClusterShardNodeOutput() GetClusterShardNodeOutput
+	ToGetClusterShardNodeOutputWithContext(context.Context) GetClusterShardNodeOutput
+}
+
+type GetClusterShardNodeArgs struct {
+	// The Availability Zone in which the node resides.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+	CreateTime pulumi.StringInput                    `pulumi:"createTime"`
+	Endpoints  GetClusterShardNodeEndpointArrayInput `pulumi:"endpoints"`
+	// Name of the cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetClusterShardNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterShardNode)(nil)).Elem()
+}
+
+func (i GetClusterShardNodeArgs) ToGetClusterShardNodeOutput() GetClusterShardNodeOutput {
+	return i.ToGetClusterShardNodeOutputWithContext(context.Background())
+}
+
+func (i GetClusterShardNodeArgs) ToGetClusterShardNodeOutputWithContext(ctx context.Context) GetClusterShardNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterShardNodeOutput)
+}
+
+// GetClusterShardNodeArrayInput is an input type that accepts GetClusterShardNodeArray and GetClusterShardNodeArrayOutput values.
+// You can construct a concrete instance of `GetClusterShardNodeArrayInput` via:
+//
+//          GetClusterShardNodeArray{ GetClusterShardNodeArgs{...} }
+type GetClusterShardNodeArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterShardNodeArrayOutput() GetClusterShardNodeArrayOutput
+	ToGetClusterShardNodeArrayOutputWithContext(context.Context) GetClusterShardNodeArrayOutput
+}
+
+type GetClusterShardNodeArray []GetClusterShardNodeInput
+
+func (GetClusterShardNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterShardNode)(nil)).Elem()
+}
+
+func (i GetClusterShardNodeArray) ToGetClusterShardNodeArrayOutput() GetClusterShardNodeArrayOutput {
+	return i.ToGetClusterShardNodeArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterShardNodeArray) ToGetClusterShardNodeArrayOutputWithContext(ctx context.Context) GetClusterShardNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterShardNodeArrayOutput)
+}
+
+type GetClusterShardNodeOutput struct{ *pulumi.OutputState }
+
+func (GetClusterShardNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterShardNode)(nil)).Elem()
+}
+
+func (o GetClusterShardNodeOutput) ToGetClusterShardNodeOutput() GetClusterShardNodeOutput {
+	return o
+}
+
+func (o GetClusterShardNodeOutput) ToGetClusterShardNodeOutputWithContext(ctx context.Context) GetClusterShardNodeOutput {
+	return o
+}
+
+// The Availability Zone in which the node resides.
+func (o GetClusterShardNodeOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterShardNode) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+func (o GetClusterShardNodeOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterShardNode) string { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+func (o GetClusterShardNodeOutput) Endpoints() GetClusterShardNodeEndpointArrayOutput {
+	return o.ApplyT(func(v GetClusterShardNode) []GetClusterShardNodeEndpoint { return v.Endpoints }).(GetClusterShardNodeEndpointArrayOutput)
+}
+
+// Name of the cluster.
+func (o GetClusterShardNodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterShardNode) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetClusterShardNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterShardNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterShardNode)(nil)).Elem()
+}
+
+func (o GetClusterShardNodeArrayOutput) ToGetClusterShardNodeArrayOutput() GetClusterShardNodeArrayOutput {
+	return o
+}
+
+func (o GetClusterShardNodeArrayOutput) ToGetClusterShardNodeArrayOutputWithContext(ctx context.Context) GetClusterShardNodeArrayOutput {
+	return o
+}
+
+func (o GetClusterShardNodeArrayOutput) Index(i pulumi.IntInput) GetClusterShardNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterShardNode {
+		return vs[0].([]GetClusterShardNode)[vs[1].(int)]
+	}).(GetClusterShardNodeOutput)
+}
+
+type GetClusterShardNodeEndpoint struct {
+	// DNS hostname of the node.
+	Address string `pulumi:"address"`
+	// Port number that this node is listening on.
+	Port int `pulumi:"port"`
+}
+
+// GetClusterShardNodeEndpointInput is an input type that accepts GetClusterShardNodeEndpointArgs and GetClusterShardNodeEndpointOutput values.
+// You can construct a concrete instance of `GetClusterShardNodeEndpointInput` via:
+//
+//          GetClusterShardNodeEndpointArgs{...}
+type GetClusterShardNodeEndpointInput interface {
+	pulumi.Input
+
+	ToGetClusterShardNodeEndpointOutput() GetClusterShardNodeEndpointOutput
+	ToGetClusterShardNodeEndpointOutputWithContext(context.Context) GetClusterShardNodeEndpointOutput
+}
+
+type GetClusterShardNodeEndpointArgs struct {
+	// DNS hostname of the node.
+	Address pulumi.StringInput `pulumi:"address"`
+	// Port number that this node is listening on.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetClusterShardNodeEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterShardNodeEndpoint)(nil)).Elem()
+}
+
+func (i GetClusterShardNodeEndpointArgs) ToGetClusterShardNodeEndpointOutput() GetClusterShardNodeEndpointOutput {
+	return i.ToGetClusterShardNodeEndpointOutputWithContext(context.Background())
+}
+
+func (i GetClusterShardNodeEndpointArgs) ToGetClusterShardNodeEndpointOutputWithContext(ctx context.Context) GetClusterShardNodeEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterShardNodeEndpointOutput)
+}
+
+// GetClusterShardNodeEndpointArrayInput is an input type that accepts GetClusterShardNodeEndpointArray and GetClusterShardNodeEndpointArrayOutput values.
+// You can construct a concrete instance of `GetClusterShardNodeEndpointArrayInput` via:
+//
+//          GetClusterShardNodeEndpointArray{ GetClusterShardNodeEndpointArgs{...} }
+type GetClusterShardNodeEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterShardNodeEndpointArrayOutput() GetClusterShardNodeEndpointArrayOutput
+	ToGetClusterShardNodeEndpointArrayOutputWithContext(context.Context) GetClusterShardNodeEndpointArrayOutput
+}
+
+type GetClusterShardNodeEndpointArray []GetClusterShardNodeEndpointInput
+
+func (GetClusterShardNodeEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterShardNodeEndpoint)(nil)).Elem()
+}
+
+func (i GetClusterShardNodeEndpointArray) ToGetClusterShardNodeEndpointArrayOutput() GetClusterShardNodeEndpointArrayOutput {
+	return i.ToGetClusterShardNodeEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterShardNodeEndpointArray) ToGetClusterShardNodeEndpointArrayOutputWithContext(ctx context.Context) GetClusterShardNodeEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterShardNodeEndpointArrayOutput)
+}
+
+type GetClusterShardNodeEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetClusterShardNodeEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterShardNodeEndpoint)(nil)).Elem()
+}
+
+func (o GetClusterShardNodeEndpointOutput) ToGetClusterShardNodeEndpointOutput() GetClusterShardNodeEndpointOutput {
+	return o
+}
+
+func (o GetClusterShardNodeEndpointOutput) ToGetClusterShardNodeEndpointOutputWithContext(ctx context.Context) GetClusterShardNodeEndpointOutput {
+	return o
+}
+
+// DNS hostname of the node.
+func (o GetClusterShardNodeEndpointOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterShardNodeEndpoint) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// Port number that this node is listening on.
+func (o GetClusterShardNodeEndpointOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterShardNodeEndpoint) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetClusterShardNodeEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterShardNodeEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterShardNodeEndpoint)(nil)).Elem()
+}
+
+func (o GetClusterShardNodeEndpointArrayOutput) ToGetClusterShardNodeEndpointArrayOutput() GetClusterShardNodeEndpointArrayOutput {
+	return o
+}
+
+func (o GetClusterShardNodeEndpointArrayOutput) ToGetClusterShardNodeEndpointArrayOutputWithContext(ctx context.Context) GetClusterShardNodeEndpointArrayOutput {
+	return o
+}
+
+func (o GetClusterShardNodeEndpointArrayOutput) Index(i pulumi.IntInput) GetClusterShardNodeEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterShardNodeEndpoint {
+		return vs[0].([]GetClusterShardNodeEndpoint)[vs[1].(int)]
+	}).(GetClusterShardNodeEndpointOutput)
+}
+
+type GetParameterGroupParameter struct {
+	// Name of the parameter group.
+	Name string `pulumi:"name"`
+	// Value of the parameter.
+	Value string `pulumi:"value"`
+}
+
+// GetParameterGroupParameterInput is an input type that accepts GetParameterGroupParameterArgs and GetParameterGroupParameterOutput values.
+// You can construct a concrete instance of `GetParameterGroupParameterInput` via:
+//
+//          GetParameterGroupParameterArgs{...}
+type GetParameterGroupParameterInput interface {
+	pulumi.Input
+
+	ToGetParameterGroupParameterOutput() GetParameterGroupParameterOutput
+	ToGetParameterGroupParameterOutputWithContext(context.Context) GetParameterGroupParameterOutput
+}
+
+type GetParameterGroupParameterArgs struct {
+	// Name of the parameter group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetParameterGroupParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetParameterGroupParameter)(nil)).Elem()
+}
+
+func (i GetParameterGroupParameterArgs) ToGetParameterGroupParameterOutput() GetParameterGroupParameterOutput {
+	return i.ToGetParameterGroupParameterOutputWithContext(context.Background())
+}
+
+func (i GetParameterGroupParameterArgs) ToGetParameterGroupParameterOutputWithContext(ctx context.Context) GetParameterGroupParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetParameterGroupParameterOutput)
+}
+
+// GetParameterGroupParameterArrayInput is an input type that accepts GetParameterGroupParameterArray and GetParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `GetParameterGroupParameterArrayInput` via:
+//
+//          GetParameterGroupParameterArray{ GetParameterGroupParameterArgs{...} }
+type GetParameterGroupParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetParameterGroupParameterArrayOutput() GetParameterGroupParameterArrayOutput
+	ToGetParameterGroupParameterArrayOutputWithContext(context.Context) GetParameterGroupParameterArrayOutput
+}
+
+type GetParameterGroupParameterArray []GetParameterGroupParameterInput
+
+func (GetParameterGroupParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetParameterGroupParameter)(nil)).Elem()
+}
+
+func (i GetParameterGroupParameterArray) ToGetParameterGroupParameterArrayOutput() GetParameterGroupParameterArrayOutput {
+	return i.ToGetParameterGroupParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetParameterGroupParameterArray) ToGetParameterGroupParameterArrayOutputWithContext(ctx context.Context) GetParameterGroupParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetParameterGroupParameterArrayOutput)
+}
+
+type GetParameterGroupParameterOutput struct{ *pulumi.OutputState }
+
+func (GetParameterGroupParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetParameterGroupParameter)(nil)).Elem()
+}
+
+func (o GetParameterGroupParameterOutput) ToGetParameterGroupParameterOutput() GetParameterGroupParameterOutput {
+	return o
+}
+
+func (o GetParameterGroupParameterOutput) ToGetParameterGroupParameterOutputWithContext(ctx context.Context) GetParameterGroupParameterOutput {
+	return o
+}
+
+// Name of the parameter group.
+func (o GetParameterGroupParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the parameter.
+func (o GetParameterGroupParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetParameterGroupParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetParameterGroupParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetParameterGroupParameter)(nil)).Elem()
+}
+
+func (o GetParameterGroupParameterArrayOutput) ToGetParameterGroupParameterArrayOutput() GetParameterGroupParameterArrayOutput {
+	return o
+}
+
+func (o GetParameterGroupParameterArrayOutput) ToGetParameterGroupParameterArrayOutputWithContext(ctx context.Context) GetParameterGroupParameterArrayOutput {
+	return o
+}
+
+func (o GetParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) GetParameterGroupParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetParameterGroupParameter {
+		return vs[0].([]GetParameterGroupParameter)[vs[1].(int)]
+	}).(GetParameterGroupParameterOutput)
+}
+
+type GetSnapshotClusterConfiguration struct {
+	// Description for the cluster.
+	Description string `pulumi:"description"`
+	// Version number of the Redis engine used by the cluster.
+	EngineVersion string `pulumi:"engineVersion"`
+	// The weekly time range during which maintenance on the cluster is performed.
+	MaintenanceWindow string `pulumi:"maintenanceWindow"`
+	// Name of the snapshot.
+	Name string `pulumi:"name"`
+	// Compute and memory capacity of the nodes in the cluster.
+	NodeType string `pulumi:"nodeType"`
+	// Number of shards in the cluster.
+	NumShards int `pulumi:"numShards"`
+	// Name of the parameter group associated with the cluster.
+	ParameterGroupName string `pulumi:"parameterGroupName"`
+	// Port number on which the cluster accepts connections.
+	Port int `pulumi:"port"`
+	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
+	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
+	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+	SnapshotWindow string `pulumi:"snapshotWindow"`
+	// Name of the subnet group used by the cluster.
+	SubnetGroupName string `pulumi:"subnetGroupName"`
+	// ARN of the SNS topic to which cluster notifications are sent.
+	TopicArn string `pulumi:"topicArn"`
+	// The VPC in which the cluster exists.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetSnapshotClusterConfigurationInput is an input type that accepts GetSnapshotClusterConfigurationArgs and GetSnapshotClusterConfigurationOutput values.
+// You can construct a concrete instance of `GetSnapshotClusterConfigurationInput` via:
+//
+//          GetSnapshotClusterConfigurationArgs{...}
+type GetSnapshotClusterConfigurationInput interface {
+	pulumi.Input
+
+	ToGetSnapshotClusterConfigurationOutput() GetSnapshotClusterConfigurationOutput
+	ToGetSnapshotClusterConfigurationOutputWithContext(context.Context) GetSnapshotClusterConfigurationOutput
+}
+
+type GetSnapshotClusterConfigurationArgs struct {
+	// Description for the cluster.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Version number of the Redis engine used by the cluster.
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
+	// The weekly time range during which maintenance on the cluster is performed.
+	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
+	// Name of the snapshot.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Compute and memory capacity of the nodes in the cluster.
+	NodeType pulumi.StringInput `pulumi:"nodeType"`
+	// Number of shards in the cluster.
+	NumShards pulumi.IntInput `pulumi:"numShards"`
+	// Name of the parameter group associated with the cluster.
+	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
+	// Port number on which the cluster accepts connections.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
+	SnapshotRetentionLimit pulumi.IntInput `pulumi:"snapshotRetentionLimit"`
+	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+	SnapshotWindow pulumi.StringInput `pulumi:"snapshotWindow"`
+	// Name of the subnet group used by the cluster.
+	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
+	// ARN of the SNS topic to which cluster notifications are sent.
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+	// The VPC in which the cluster exists.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetSnapshotClusterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (i GetSnapshotClusterConfigurationArgs) ToGetSnapshotClusterConfigurationOutput() GetSnapshotClusterConfigurationOutput {
+	return i.ToGetSnapshotClusterConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotClusterConfigurationArgs) ToGetSnapshotClusterConfigurationOutputWithContext(ctx context.Context) GetSnapshotClusterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotClusterConfigurationOutput)
+}
+
+// GetSnapshotClusterConfigurationArrayInput is an input type that accepts GetSnapshotClusterConfigurationArray and GetSnapshotClusterConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotClusterConfigurationArrayInput` via:
+//
+//          GetSnapshotClusterConfigurationArray{ GetSnapshotClusterConfigurationArgs{...} }
+type GetSnapshotClusterConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotClusterConfigurationArrayOutput() GetSnapshotClusterConfigurationArrayOutput
+	ToGetSnapshotClusterConfigurationArrayOutputWithContext(context.Context) GetSnapshotClusterConfigurationArrayOutput
+}
+
+type GetSnapshotClusterConfigurationArray []GetSnapshotClusterConfigurationInput
+
+func (GetSnapshotClusterConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (i GetSnapshotClusterConfigurationArray) ToGetSnapshotClusterConfigurationArrayOutput() GetSnapshotClusterConfigurationArrayOutput {
+	return i.ToGetSnapshotClusterConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotClusterConfigurationArray) ToGetSnapshotClusterConfigurationArrayOutputWithContext(ctx context.Context) GetSnapshotClusterConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotClusterConfigurationArrayOutput)
+}
+
+type GetSnapshotClusterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (o GetSnapshotClusterConfigurationOutput) ToGetSnapshotClusterConfigurationOutput() GetSnapshotClusterConfigurationOutput {
+	return o
+}
+
+func (o GetSnapshotClusterConfigurationOutput) ToGetSnapshotClusterConfigurationOutputWithContext(ctx context.Context) GetSnapshotClusterConfigurationOutput {
+	return o
+}
+
+// Description for the cluster.
+func (o GetSnapshotClusterConfigurationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Version number of the Redis engine used by the cluster.
+func (o GetSnapshotClusterConfigurationOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// The weekly time range during which maintenance on the cluster is performed.
+func (o GetSnapshotClusterConfigurationOutput) MaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// Name of the snapshot.
+func (o GetSnapshotClusterConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Compute and memory capacity of the nodes in the cluster.
+func (o GetSnapshotClusterConfigurationOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.NodeType }).(pulumi.StringOutput)
+}
+
+// Number of shards in the cluster.
+func (o GetSnapshotClusterConfigurationOutput) NumShards() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) int { return v.NumShards }).(pulumi.IntOutput)
+}
+
+// Name of the parameter group associated with the cluster.
+func (o GetSnapshotClusterConfigurationOutput) ParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.ParameterGroupName }).(pulumi.StringOutput)
+}
+
+// Port number on which the cluster accepts connections.
+func (o GetSnapshotClusterConfigurationOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Number of days for which MemoryDB retains automatic snapshots before deleting them.
+func (o GetSnapshotClusterConfigurationOutput) SnapshotRetentionLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
+}
+
+// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+func (o GetSnapshotClusterConfigurationOutput) SnapshotWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.SnapshotWindow }).(pulumi.StringOutput)
+}
+
+// Name of the subnet group used by the cluster.
+func (o GetSnapshotClusterConfigurationOutput) SubnetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.SubnetGroupName }).(pulumi.StringOutput)
+}
+
+// ARN of the SNS topic to which cluster notifications are sent.
+func (o GetSnapshotClusterConfigurationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+// The VPC in which the cluster exists.
+func (o GetSnapshotClusterConfigurationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetSnapshotClusterConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotClusterConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotClusterConfiguration)(nil)).Elem()
+}
+
+func (o GetSnapshotClusterConfigurationArrayOutput) ToGetSnapshotClusterConfigurationArrayOutput() GetSnapshotClusterConfigurationArrayOutput {
+	return o
+}
+
+func (o GetSnapshotClusterConfigurationArrayOutput) ToGetSnapshotClusterConfigurationArrayOutputWithContext(ctx context.Context) GetSnapshotClusterConfigurationArrayOutput {
+	return o
+}
+
+func (o GetSnapshotClusterConfigurationArrayOutput) Index(i pulumi.IntInput) GetSnapshotClusterConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotClusterConfiguration {
+		return vs[0].([]GetSnapshotClusterConfiguration)[vs[1].(int)]
+	}).(GetSnapshotClusterConfigurationOutput)
+}
+
+type GetUserAuthenticationMode struct {
+	// The number of passwords belonging to the user.
+	PasswordCount int `pulumi:"passwordCount"`
+	// Indicates whether the user requires a password to authenticate.
+	Type string `pulumi:"type"`
+}
+
+// GetUserAuthenticationModeInput is an input type that accepts GetUserAuthenticationModeArgs and GetUserAuthenticationModeOutput values.
+// You can construct a concrete instance of `GetUserAuthenticationModeInput` via:
+//
+//          GetUserAuthenticationModeArgs{...}
+type GetUserAuthenticationModeInput interface {
+	pulumi.Input
+
+	ToGetUserAuthenticationModeOutput() GetUserAuthenticationModeOutput
+	ToGetUserAuthenticationModeOutputWithContext(context.Context) GetUserAuthenticationModeOutput
+}
+
+type GetUserAuthenticationModeArgs struct {
+	// The number of passwords belonging to the user.
+	PasswordCount pulumi.IntInput `pulumi:"passwordCount"`
+	// Indicates whether the user requires a password to authenticate.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetUserAuthenticationModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (i GetUserAuthenticationModeArgs) ToGetUserAuthenticationModeOutput() GetUserAuthenticationModeOutput {
+	return i.ToGetUserAuthenticationModeOutputWithContext(context.Background())
+}
+
+func (i GetUserAuthenticationModeArgs) ToGetUserAuthenticationModeOutputWithContext(ctx context.Context) GetUserAuthenticationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAuthenticationModeOutput)
+}
+
+// GetUserAuthenticationModeArrayInput is an input type that accepts GetUserAuthenticationModeArray and GetUserAuthenticationModeArrayOutput values.
+// You can construct a concrete instance of `GetUserAuthenticationModeArrayInput` via:
+//
+//          GetUserAuthenticationModeArray{ GetUserAuthenticationModeArgs{...} }
+type GetUserAuthenticationModeArrayInput interface {
+	pulumi.Input
+
+	ToGetUserAuthenticationModeArrayOutput() GetUserAuthenticationModeArrayOutput
+	ToGetUserAuthenticationModeArrayOutputWithContext(context.Context) GetUserAuthenticationModeArrayOutput
+}
+
+type GetUserAuthenticationModeArray []GetUserAuthenticationModeInput
+
+func (GetUserAuthenticationModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (i GetUserAuthenticationModeArray) ToGetUserAuthenticationModeArrayOutput() GetUserAuthenticationModeArrayOutput {
+	return i.ToGetUserAuthenticationModeArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserAuthenticationModeArray) ToGetUserAuthenticationModeArrayOutputWithContext(ctx context.Context) GetUserAuthenticationModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAuthenticationModeArrayOutput)
+}
+
+type GetUserAuthenticationModeOutput struct{ *pulumi.OutputState }
+
+func (GetUserAuthenticationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutput() GetUserAuthenticationModeOutput {
+	return o
+}
+
+func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutputWithContext(ctx context.Context) GetUserAuthenticationModeOutput {
+	return o
+}
+
+// The number of passwords belonging to the user.
+func (o GetUserAuthenticationModeOutput) PasswordCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserAuthenticationMode) int { return v.PasswordCount }).(pulumi.IntOutput)
+}
+
+// Indicates whether the user requires a password to authenticate.
+func (o GetUserAuthenticationModeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetUserAuthenticationModeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserAuthenticationModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (o GetUserAuthenticationModeArrayOutput) ToGetUserAuthenticationModeArrayOutput() GetUserAuthenticationModeArrayOutput {
+	return o
+}
+
+func (o GetUserAuthenticationModeArrayOutput) ToGetUserAuthenticationModeArrayOutputWithContext(ctx context.Context) GetUserAuthenticationModeArrayOutput {
+	return o
+}
+
+func (o GetUserAuthenticationModeArrayOutput) Index(i pulumi.IntInput) GetUserAuthenticationModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserAuthenticationMode {
+		return vs[0].([]GetUserAuthenticationMode)[vs[1].(int)]
+	}).(GetUserAuthenticationModeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterEndpointInput)(nil)).Elem(), ClusterClusterEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterEndpointArrayInput)(nil)).Elem(), ClusterClusterEndpointArray{})
@@ -974,6 +1848,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotClusterConfigurationArrayInput)(nil)).Elem(), SnapshotClusterConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModeInput)(nil)).Elem(), UserAuthenticationModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePtrInput)(nil)).Elem(), UserAuthenticationModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterEndpointInput)(nil)).Elem(), GetClusterClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterEndpointArrayInput)(nil)).Elem(), GetClusterClusterEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterShardInput)(nil)).Elem(), GetClusterShardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterShardArrayInput)(nil)).Elem(), GetClusterShardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterShardNodeInput)(nil)).Elem(), GetClusterShardNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterShardNodeArrayInput)(nil)).Elem(), GetClusterShardNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterShardNodeEndpointInput)(nil)).Elem(), GetClusterShardNodeEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterShardNodeEndpointArrayInput)(nil)).Elem(), GetClusterShardNodeEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetParameterGroupParameterInput)(nil)).Elem(), GetParameterGroupParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetParameterGroupParameterArrayInput)(nil)).Elem(), GetParameterGroupParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotClusterConfigurationInput)(nil)).Elem(), GetSnapshotClusterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotClusterConfigurationArrayInput)(nil)).Elem(), GetSnapshotClusterConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAuthenticationModeInput)(nil)).Elem(), GetUserAuthenticationModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAuthenticationModeArrayInput)(nil)).Elem(), GetUserAuthenticationModeArray{})
 	pulumi.RegisterOutputType(ClusterClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterClusterEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ClusterShardOutput{})
@@ -988,4 +1876,18 @@ func init() {
 	pulumi.RegisterOutputType(SnapshotClusterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePtrOutput{})
+	pulumi.RegisterOutputType(GetClusterClusterEndpointOutput{})
+	pulumi.RegisterOutputType(GetClusterClusterEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterShardOutput{})
+	pulumi.RegisterOutputType(GetClusterShardArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterShardNodeOutput{})
+	pulumi.RegisterOutputType(GetClusterShardNodeArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterShardNodeEndpointOutput{})
+	pulumi.RegisterOutputType(GetClusterShardNodeEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetParameterGroupParameterOutput{})
+	pulumi.RegisterOutputType(GetParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(GetSnapshotClusterConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetUserAuthenticationModeOutput{})
+	pulumi.RegisterOutputType(GetUserAuthenticationModeArrayOutput{})
 }

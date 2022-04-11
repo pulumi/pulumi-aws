@@ -1100,6 +1100,8 @@ class DefaultRouteTableRoute(dict):
         suggest = None
         if key == "cidrBlock":
             suggest = "cidr_block"
+        elif key == "coreNetworkArn":
+            suggest = "core_network_arn"
         elif key == "destinationPrefixListId":
             suggest = "destination_prefix_list_id"
         elif key == "egressOnlyGatewayId":
@@ -1134,6 +1136,7 @@ class DefaultRouteTableRoute(dict):
 
     def __init__(__self__, *,
                  cidr_block: Optional[str] = None,
+                 core_network_arn: Optional[str] = None,
                  destination_prefix_list_id: Optional[str] = None,
                  egress_only_gateway_id: Optional[str] = None,
                  gateway_id: Optional[str] = None,
@@ -1146,6 +1149,7 @@ class DefaultRouteTableRoute(dict):
                  vpc_peering_connection_id: Optional[str] = None):
         """
         :param str cidr_block: The CIDR block of the route.
+        :param str core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param str egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param str gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
@@ -1159,6 +1163,8 @@ class DefaultRouteTableRoute(dict):
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if destination_prefix_list_id is not None:
             pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_gateway_id is not None:
@@ -1187,6 +1193,14 @@ class DefaultRouteTableRoute(dict):
         The CIDR block of the route.
         """
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
@@ -4938,6 +4952,8 @@ class RouteTableRoute(dict):
             suggest = "carrier_gateway_id"
         elif key == "cidrBlock":
             suggest = "cidr_block"
+        elif key == "coreNetworkArn":
+            suggest = "core_network_arn"
         elif key == "destinationPrefixListId":
             suggest = "destination_prefix_list_id"
         elif key == "egressOnlyGatewayId":
@@ -4975,6 +4991,7 @@ class RouteTableRoute(dict):
     def __init__(__self__, *,
                  carrier_gateway_id: Optional[str] = None,
                  cidr_block: Optional[str] = None,
+                 core_network_arn: Optional[str] = None,
                  destination_prefix_list_id: Optional[str] = None,
                  egress_only_gateway_id: Optional[str] = None,
                  gateway_id: Optional[str] = None,
@@ -4989,6 +5006,7 @@ class RouteTableRoute(dict):
         """
         :param str carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param str cidr_block: The CIDR block of the route.
+        :param str core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param str egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param str gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
@@ -5005,6 +5023,8 @@ class RouteTableRoute(dict):
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if destination_prefix_list_id is not None:
             pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_gateway_id is not None:
@@ -5043,6 +5063,14 @@ class RouteTableRoute(dict):
         The CIDR block of the route.
         """
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
@@ -10052,6 +10080,7 @@ class GetRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  carrier_gateway_id: str,
                  cidr_block: str,
+                 core_network_arn: str,
                  destination_prefix_list_id: str,
                  egress_only_gateway_id: str,
                  gateway_id: str,
@@ -10066,6 +10095,7 @@ class GetRouteTableRouteResult(dict):
         """
         :param str carrier_gateway_id: ID of the Carrier Gateway.
         :param str cidr_block: CIDR block of the route.
+        :param str core_network_arn: ARN of the core network.
         :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param str egress_only_gateway_id: ID of the Egress Only Internet Gateway.
         :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
@@ -10080,6 +10110,7 @@ class GetRouteTableRouteResult(dict):
         """
         pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "core_network_arn", core_network_arn)
         pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         pulumi.set(__self__, "gateway_id", gateway_id)
@@ -10107,6 +10138,14 @@ class GetRouteTableRouteResult(dict):
         CIDR block of the route.
         """
         return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> str:
+        """
+        ARN of the core network.
+        """
+        return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")

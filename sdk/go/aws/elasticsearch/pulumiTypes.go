@@ -718,6 +718,8 @@ func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) Value() pulumi.I
 }
 
 type DomainClusterConfig struct {
+	// Configuration block containing cold storage configuration. Detailed below.
+	ColdStorageOptions *DomainClusterConfigColdStorageOptions `pulumi:"coldStorageOptions"`
 	// Number of dedicated main nodes in the cluster.
 	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
 	// Whether dedicated main nodes are enabled for the cluster.
@@ -752,6 +754,8 @@ type DomainClusterConfigInput interface {
 }
 
 type DomainClusterConfigArgs struct {
+	// Configuration block containing cold storage configuration. Detailed below.
+	ColdStorageOptions DomainClusterConfigColdStorageOptionsPtrInput `pulumi:"coldStorageOptions"`
 	// Number of dedicated main nodes in the cluster.
 	DedicatedMasterCount pulumi.IntPtrInput `pulumi:"dedicatedMasterCount"`
 	// Whether dedicated main nodes are enabled for the cluster.
@@ -851,6 +855,11 @@ func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutputWithContext(ctx
 	}).(DomainClusterConfigPtrOutput)
 }
 
+// Configuration block containing cold storage configuration. Detailed below.
+func (o DomainClusterConfigOutput) ColdStorageOptions() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigColdStorageOptions { return v.ColdStorageOptions }).(DomainClusterConfigColdStorageOptionsPtrOutput)
+}
+
 // Number of dedicated main nodes in the cluster.
 func (o DomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
@@ -923,6 +932,16 @@ func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
 		var ret DomainClusterConfig
 		return ret
 	}).(DomainClusterConfigOutput)
+}
+
+// Configuration block containing cold storage configuration. Detailed below.
+func (o DomainClusterConfigPtrOutput) ColdStorageOptions() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *DomainClusterConfigColdStorageOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ColdStorageOptions
+	}).(DomainClusterConfigColdStorageOptionsPtrOutput)
 }
 
 // Number of dedicated main nodes in the cluster.
@@ -1022,6 +1041,143 @@ func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutpu
 			return nil
 		}
 		return v.ZoneAwarenessEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DomainClusterConfigColdStorageOptions struct {
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DomainClusterConfigColdStorageOptionsInput is an input type that accepts DomainClusterConfigColdStorageOptionsArgs and DomainClusterConfigColdStorageOptionsOutput values.
+// You can construct a concrete instance of `DomainClusterConfigColdStorageOptionsInput` via:
+//
+//          DomainClusterConfigColdStorageOptionsArgs{...}
+type DomainClusterConfigColdStorageOptionsInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigColdStorageOptionsOutput() DomainClusterConfigColdStorageOptionsOutput
+	ToDomainClusterConfigColdStorageOptionsOutputWithContext(context.Context) DomainClusterConfigColdStorageOptionsOutput
+}
+
+type DomainClusterConfigColdStorageOptionsArgs struct {
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DomainClusterConfigColdStorageOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsOutput() DomainClusterConfigColdStorageOptionsOutput {
+	return i.ToDomainClusterConfigColdStorageOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsOutput)
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return i.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsOutput).ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainClusterConfigColdStorageOptionsPtrInput is an input type that accepts DomainClusterConfigColdStorageOptionsArgs, DomainClusterConfigColdStorageOptionsPtr and DomainClusterConfigColdStorageOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainClusterConfigColdStorageOptionsPtrInput` via:
+//
+//          DomainClusterConfigColdStorageOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainClusterConfigColdStorageOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput
+	ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Context) DomainClusterConfigColdStorageOptionsPtrOutput
+}
+
+type domainClusterConfigColdStorageOptionsPtrType DomainClusterConfigColdStorageOptionsArgs
+
+func DomainClusterConfigColdStorageOptionsPtr(v *DomainClusterConfigColdStorageOptionsArgs) DomainClusterConfigColdStorageOptionsPtrInput {
+	return (*domainClusterConfigColdStorageOptionsPtrType)(v)
+}
+
+func (*domainClusterConfigColdStorageOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (i *domainClusterConfigColdStorageOptionsPtrType) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return i.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainClusterConfigColdStorageOptionsPtrType) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsPtrOutput)
+}
+
+type DomainClusterConfigColdStorageOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigColdStorageOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsOutput() DomainClusterConfigColdStorageOptionsOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainClusterConfigColdStorageOptions) *DomainClusterConfigColdStorageOptions {
+		return &v
+	}).(DomainClusterConfigColdStorageOptionsPtrOutput)
+}
+
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+func (o DomainClusterConfigColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfigColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainClusterConfigColdStorageOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigColdStorageOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) Elem() DomainClusterConfigColdStorageOptionsOutput {
+	return o.ApplyT(func(v *DomainClusterConfigColdStorageOptions) DomainClusterConfigColdStorageOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainClusterConfigColdStorageOptions
+		return ret
+	}).(DomainClusterConfigColdStorageOptionsOutput)
+}
+
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfigColdStorageOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2180,7 +2336,7 @@ type DomainSamlOptionsSamlOptions struct {
 	RolesKey *string `pulumi:"rolesKey"`
 	// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
 	SessionTimeoutMinutes *int `pulumi:"sessionTimeoutMinutes"`
-	// Element of the SAML assertion to use for username. Default is NameID.
+	// Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
 	SubjectKey *string `pulumi:"subjectKey"`
 }
 
@@ -2208,7 +2364,7 @@ type DomainSamlOptionsSamlOptionsArgs struct {
 	RolesKey pulumi.StringPtrInput `pulumi:"rolesKey"`
 	// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
 	SessionTimeoutMinutes pulumi.IntPtrInput `pulumi:"sessionTimeoutMinutes"`
-	// Element of the SAML assertion to use for username. Default is NameID.
+	// Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
 	SubjectKey pulumi.StringPtrInput `pulumi:"subjectKey"`
 }
 
@@ -2319,7 +2475,7 @@ func (o DomainSamlOptionsSamlOptionsOutput) SessionTimeoutMinutes() pulumi.IntPt
 	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *int { return v.SessionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Element of the SAML assertion to use for username. Default is NameID.
+// Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
 func (o DomainSamlOptionsSamlOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
 }
@@ -2408,7 +2564,7 @@ func (o DomainSamlOptionsSamlOptionsPtrOutput) SessionTimeoutMinutes() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Element of the SAML assertion to use for username. Default is NameID.
+// Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
 func (o DomainSamlOptionsSamlOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *string {
 		if v == nil {
@@ -3344,6 +3500,8 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) Index(i p
 }
 
 type GetDomainClusterConfig struct {
+	// Configuration block containing cold storage configuration.
+	ColdStorageOptions []GetDomainClusterConfigColdStorageOption `pulumi:"coldStorageOptions"`
 	// Number of dedicated master nodes in the cluster.
 	DedicatedMasterCount int `pulumi:"dedicatedMasterCount"`
 	// Indicates whether dedicated master nodes are enabled for the cluster.
@@ -3357,7 +3515,7 @@ type GetDomainClusterConfig struct {
 	// The number of warm nodes in the cluster.
 	WarmCount int `pulumi:"warmCount"`
 	// Indicates warm storage is enabled.
-	WarmEnabled *bool `pulumi:"warmEnabled"`
+	WarmEnabled bool `pulumi:"warmEnabled"`
 	// The instance type for the Elasticsearch cluster's warm nodes.
 	WarmType string `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
@@ -3378,6 +3536,8 @@ type GetDomainClusterConfigInput interface {
 }
 
 type GetDomainClusterConfigArgs struct {
+	// Configuration block containing cold storage configuration.
+	ColdStorageOptions GetDomainClusterConfigColdStorageOptionArrayInput `pulumi:"coldStorageOptions"`
 	// Number of dedicated master nodes in the cluster.
 	DedicatedMasterCount pulumi.IntInput `pulumi:"dedicatedMasterCount"`
 	// Indicates whether dedicated master nodes are enabled for the cluster.
@@ -3391,7 +3551,7 @@ type GetDomainClusterConfigArgs struct {
 	// The number of warm nodes in the cluster.
 	WarmCount pulumi.IntInput `pulumi:"warmCount"`
 	// Indicates warm storage is enabled.
-	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
+	WarmEnabled pulumi.BoolInput `pulumi:"warmEnabled"`
 	// The instance type for the Elasticsearch cluster's warm nodes.
 	WarmType pulumi.StringInput `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
@@ -3451,6 +3611,11 @@ func (o GetDomainClusterConfigOutput) ToGetDomainClusterConfigOutputWithContext(
 	return o
 }
 
+// Configuration block containing cold storage configuration.
+func (o GetDomainClusterConfigOutput) ColdStorageOptions() GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) []GetDomainClusterConfigColdStorageOption { return v.ColdStorageOptions }).(GetDomainClusterConfigColdStorageOptionArrayOutput)
+}
+
 // Number of dedicated master nodes in the cluster.
 func (o GetDomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.DedicatedMasterCount }).(pulumi.IntOutput)
@@ -3482,8 +3647,8 @@ func (o GetDomainClusterConfigOutput) WarmCount() pulumi.IntOutput {
 }
 
 // Indicates warm storage is enabled.
-func (o GetDomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetDomainClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
+func (o GetDomainClusterConfigOutput) WarmEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.WarmEnabled }).(pulumi.BoolOutput)
 }
 
 // The instance type for the Elasticsearch cluster's warm nodes.
@@ -3521,6 +3686,103 @@ func (o GetDomainClusterConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfig {
 		return vs[0].([]GetDomainClusterConfig)[vs[1].(int)]
 	}).(GetDomainClusterConfigOutput)
+}
+
+type GetDomainClusterConfigColdStorageOption struct {
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetDomainClusterConfigColdStorageOptionInput is an input type that accepts GetDomainClusterConfigColdStorageOptionArgs and GetDomainClusterConfigColdStorageOptionOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigColdStorageOptionInput` via:
+//
+//          GetDomainClusterConfigColdStorageOptionArgs{...}
+type GetDomainClusterConfigColdStorageOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigColdStorageOptionOutput() GetDomainClusterConfigColdStorageOptionOutput
+	ToGetDomainClusterConfigColdStorageOptionOutputWithContext(context.Context) GetDomainClusterConfigColdStorageOptionOutput
+}
+
+type GetDomainClusterConfigColdStorageOptionArgs struct {
+	// Whether node to node encryption is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetDomainClusterConfigColdStorageOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArgs) ToGetDomainClusterConfigColdStorageOptionOutput() GetDomainClusterConfigColdStorageOptionOutput {
+	return i.ToGetDomainClusterConfigColdStorageOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArgs) ToGetDomainClusterConfigColdStorageOptionOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigColdStorageOptionOutput)
+}
+
+// GetDomainClusterConfigColdStorageOptionArrayInput is an input type that accepts GetDomainClusterConfigColdStorageOptionArray and GetDomainClusterConfigColdStorageOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigColdStorageOptionArrayInput` via:
+//
+//          GetDomainClusterConfigColdStorageOptionArray{ GetDomainClusterConfigColdStorageOptionArgs{...} }
+type GetDomainClusterConfigColdStorageOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigColdStorageOptionArrayOutput() GetDomainClusterConfigColdStorageOptionArrayOutput
+	ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(context.Context) GetDomainClusterConfigColdStorageOptionArrayOutput
+}
+
+type GetDomainClusterConfigColdStorageOptionArray []GetDomainClusterConfigColdStorageOptionInput
+
+func (GetDomainClusterConfigColdStorageOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArray) ToGetDomainClusterConfigColdStorageOptionArrayOutput() GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return i.ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArray) ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigColdStorageOptionArrayOutput)
+}
+
+type GetDomainClusterConfigColdStorageOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigColdStorageOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigColdStorageOptionOutput) ToGetDomainClusterConfigColdStorageOptionOutput() GetDomainClusterConfigColdStorageOptionOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigColdStorageOptionOutput) ToGetDomainClusterConfigColdStorageOptionOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionOutput {
+	return o
+}
+
+// Whether node to node encryption is enabled.
+func (o GetDomainClusterConfigColdStorageOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigColdStorageOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetDomainClusterConfigColdStorageOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigColdStorageOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigColdStorageOptionArrayOutput) ToGetDomainClusterConfigColdStorageOptionArrayOutput() GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigColdStorageOptionArrayOutput) ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigColdStorageOptionArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigColdStorageOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfigColdStorageOption {
+		return vs[0].([]GetDomainClusterConfigColdStorageOption)[vs[1].(int)]
+	}).(GetDomainClusterConfigColdStorageOptionOutput)
 }
 
 type GetDomainClusterConfigZoneAwarenessConfig struct {
@@ -4419,6 +4681,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleDurationInput)(nil)).Elem(), DomainAutoTuneOptionsMaintenanceScheduleDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigPtrInput)(nil)).Elem(), DomainClusterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigColdStorageOptionsInput)(nil)).Elem(), DomainClusterConfigColdStorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigColdStorageOptionsPtrInput)(nil)).Elem(), DomainClusterConfigColdStorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), DomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfigPtrInput)(nil)).Elem(), DomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
@@ -4451,6 +4715,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleDurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigInput)(nil)).Elem(), GetDomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigColdStorageOptionInput)(nil)).Elem(), GetDomainClusterConfigColdStorageOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigColdStorageOptionArrayInput)(nil)).Elem(), GetDomainClusterConfigColdStorageOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainCognitoOptionInput)(nil)).Elem(), GetDomainCognitoOptionArgs{})
@@ -4478,6 +4744,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsMaintenanceScheduleDurationOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigColdStorageOptionsOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigColdStorageOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
@@ -4510,6 +4778,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigColdStorageOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigColdStorageOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainCognitoOptionOutput{})

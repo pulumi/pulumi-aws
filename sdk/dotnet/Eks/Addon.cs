@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
-        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Output("addonName")]
         public Output<string> AddonName { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
-        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Input("addonName", required: true)]
         public Input<string> AddonName { get; set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
-        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Input("addonName")]
         public Input<string>? AddonName { get; set; }

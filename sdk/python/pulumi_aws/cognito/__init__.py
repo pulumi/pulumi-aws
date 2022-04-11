@@ -16,6 +16,7 @@ from .identity_provider import *
 from .resource_server import *
 from .user import *
 from .user_group import *
+from .user_in_group import *
 from .user_pool import *
 from .user_pool_client import *
 from .user_pool_domain import *

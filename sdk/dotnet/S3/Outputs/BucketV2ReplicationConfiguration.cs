@@ -14,17 +14,17 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfiguration
     {
         /// <summary>
-        /// The ARN of the IAM role for Amazon S3 assumed when replicating the objects.
+        /// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
-        public readonly string? Role;
+        public readonly string Role;
         /// <summary>
-        /// The rules managing the replication.
+        /// Specifies the rules managing the replication (documented below).
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRule> Rules;
 
         [OutputConstructor]
         private BucketV2ReplicationConfiguration(
-            string? role,
+            string role,
 
             ImmutableArray<Outputs.BucketV2ReplicationConfigurationRule> rules)
         {

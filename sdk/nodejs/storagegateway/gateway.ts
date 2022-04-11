@@ -203,6 +203,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostEnvironment!: pulumi.Output<string>;
     /**
+     * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+     */
+    public readonly maintenanceStartTime!: pulumi.Output<outputs.storagegateway.GatewayMaintenanceStartTime>;
+    /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
@@ -229,7 +233,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
@@ -263,6 +267,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayType"] = state ? state.gatewayType : undefined;
             resourceInputs["gatewayVpcEndpoint"] = state ? state.gatewayVpcEndpoint : undefined;
             resourceInputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
+            resourceInputs["maintenanceStartTime"] = state ? state.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
             resourceInputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
@@ -288,12 +293,14 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
             resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
             resourceInputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
+            resourceInputs["maintenanceStartTime"] = args ? args.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
             resourceInputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
             resourceInputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
             resourceInputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ec2InstanceId"] = undefined /*out*/;
@@ -301,7 +308,6 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayId"] = undefined /*out*/;
             resourceInputs["gatewayNetworkInterfaces"] = undefined /*out*/;
             resourceInputs["hostEnvironment"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
@@ -372,6 +378,10 @@ export interface GatewayState {
      * The type of hypervisor environment used by the host.
      */
     hostEnvironment?: pulumi.Input<string>;
+    /**
+     * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+     */
+    maintenanceStartTime?: pulumi.Input<inputs.storagegateway.GatewayMaintenanceStartTime>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
@@ -447,6 +457,10 @@ export interface GatewayArgs {
      */
     gatewayVpcEndpoint?: pulumi.Input<string>;
     /**
+     * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+     */
+    maintenanceStartTime?: pulumi.Input<inputs.storagegateway.GatewayMaintenanceStartTime>;
+    /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     mediumChangerType?: pulumi.Input<string>;
@@ -470,6 +484,10 @@ export interface GatewayArgs {
      * Key-value map of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */

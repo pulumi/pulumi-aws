@@ -14,6 +14,7 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
+                 close_on_deletion: Optional[pulumi.Input[bool]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_id: Optional[pulumi.Input[str]] = None,
@@ -22,6 +23,7 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
         :param pulumi.Input[str] name: A friendly name for the member account.
         :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
@@ -29,6 +31,8 @@ class AccountArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags.
         """
         pulumi.set(__self__, "email", email)
+        if close_on_deletion is not None:
+            pulumi.set(__self__, "close_on_deletion", close_on_deletion)
         if iam_user_access_to_billing is not None:
             pulumi.set(__self__, "iam_user_access_to_billing", iam_user_access_to_billing)
         if name is not None:
@@ -51,6 +55,18 @@ class AccountArgs:
     @email.setter
     def email(self, value: pulumi.Input[str]):
         pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="closeOnDeletion")
+    def close_on_deletion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        """
+        return pulumi.get(self, "close_on_deletion")
+
+    @close_on_deletion.setter
+    def close_on_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "close_on_deletion", value)
 
     @property
     @pulumi.getter(name="iamUserAccessToBilling")
@@ -117,6 +133,7 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 close_on_deletion: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  joined_method: Optional[pulumi.Input[str]] = None,
@@ -130,6 +147,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] arn: The ARN for this account.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
         :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
         :param pulumi.Input[str] name: A friendly name for the member account.
@@ -140,6 +158,8 @@ class _AccountState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if close_on_deletion is not None:
+            pulumi.set(__self__, "close_on_deletion", close_on_deletion)
         if email is not None:
             pulumi.set(__self__, "email", email)
         if iam_user_access_to_billing is not None:
@@ -172,6 +192,18 @@ class _AccountState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="closeOnDeletion")
+    def close_on_deletion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        """
+        return pulumi.get(self, "close_on_deletion")
+
+    @close_on_deletion.setter
+    def close_on_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "close_on_deletion", value)
 
     @property
     @pulumi.getter
@@ -290,6 +322,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 close_on_deletion: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -302,7 +335,7 @@ class Account(pulumi.CustomResource):
 
         > **Note:** Account management must be done from the organization's master account.
 
-        !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
+        > **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `close_on_deletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `close_on_deletion` argument, which you can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
 
         ## Example Usage
 
@@ -318,7 +351,7 @@ class Account(pulumi.CustomResource):
         The AWS member account can be imported by using the `account_id`, e.g.,
 
         ```sh
-         $ pulumi import aws:organizations/account:Account my_org 111111111111
+         $ pulumi import aws:organizations/account:Account my_account 111111111111
         ```
 
          Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
@@ -343,6 +376,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
         :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
         :param pulumi.Input[str] name: A friendly name for the member account.
@@ -361,7 +395,7 @@ class Account(pulumi.CustomResource):
 
         > **Note:** Account management must be done from the organization's master account.
 
-        !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
+        > **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `close_on_deletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `close_on_deletion` argument, which you can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
 
         ## Example Usage
 
@@ -377,7 +411,7 @@ class Account(pulumi.CustomResource):
         The AWS member account can be imported by using the `account_id`, e.g.,
 
         ```sh
-         $ pulumi import aws:organizations/account:Account my_org 111111111111
+         $ pulumi import aws:organizations/account:Account my_account 111111111111
         ```
 
          Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
@@ -415,6 +449,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 close_on_deletion: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -433,6 +468,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            __props__.__dict__["close_on_deletion"] = close_on_deletion
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
@@ -457,6 +493,7 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            close_on_deletion: Optional[pulumi.Input[bool]] = None,
             email: Optional[pulumi.Input[str]] = None,
             iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
             joined_method: Optional[pulumi.Input[str]] = None,
@@ -475,6 +512,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN for this account.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
         :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
         :param pulumi.Input[str] name: A friendly name for the member account.
@@ -488,6 +526,7 @@ class Account(pulumi.CustomResource):
         __props__ = _AccountState.__new__(_AccountState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["close_on_deletion"] = close_on_deletion
         __props__.__dict__["email"] = email
         __props__.__dict__["iam_user_access_to_billing"] = iam_user_access_to_billing
         __props__.__dict__["joined_method"] = joined_method
@@ -507,6 +546,14 @@ class Account(pulumi.CustomResource):
         The ARN for this account.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="closeOnDeletion")
+    def close_on_deletion(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        """
+        return pulumi.get(self, "close_on_deletion")
 
     @property
     @pulumi.getter

@@ -21,7 +21,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, log_delivery_configurations=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if log_delivery_configurations and not isinstance(log_delivery_configurations, list):
+            raise TypeError("Expected argument 'log_delivery_configurations' to be a list")
+        pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window and not isinstance(maintenance_window, str):
             raise TypeError("Expected argument 'maintenance_window' to be a str")
         pulumi.set(__self__, "maintenance_window", maintenance_window)
@@ -155,6 +158,14 @@ class GetClusterResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="logDeliveryConfigurations")
+    def log_delivery_configurations(self) -> Sequence['outputs.GetClusterLogDeliveryConfigurationResult']:
+        """
+        Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+        """
+        return pulumi.get(self, "log_delivery_configurations")
 
     @property
     @pulumi.getter(name="maintenanceWindow")
@@ -281,6 +292,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             engine=self.engine,
             engine_version=self.engine_version,
             id=self.id,
+            log_delivery_configurations=self.log_delivery_configurations,
             maintenance_window=self.maintenance_window,
             node_type=self.node_type,
             notification_topic_arn=self.notification_topic_arn,
@@ -334,6 +346,7 @@ def get_cluster(cluster_id: Optional[str] = None,
         engine=__ret__.engine,
         engine_version=__ret__.engine_version,
         id=__ret__.id,
+        log_delivery_configurations=__ret__.log_delivery_configurations,
         maintenance_window=__ret__.maintenance_window,
         node_type=__ret__.node_type,
         notification_topic_arn=__ret__.notification_topic_arn,

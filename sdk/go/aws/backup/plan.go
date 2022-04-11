@@ -31,6 +31,9 @@ import (
 // 					RuleName:        pulumi.String("tf_example_backup_rule"),
 // 					TargetVaultName: pulumi.Any(aws_backup_vault.Test.Name),
 // 					Schedule:        pulumi.String("cron(0 12 * * ? *)"),
+// 					Lifecycle: &backup.PlanRuleLifecycleArgs{
+// 						DeleteAfter: pulumi.Int(14),
+// 					},
 // 				},
 // 			},
 // 			AdvancedBackupSettings: backup.PlanAdvancedBackupSettingArray{

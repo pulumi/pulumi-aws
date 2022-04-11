@@ -13,19 +13,19 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2LifecycleRuleExpirationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date after which you want the corresponding action to take effect.
+        /// Specifies the date after which you want the corresponding action to take effect.
         /// </summary>
         [Input("date")]
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// The number of days specified for the default retention period.
+        /// Specifies the number of days after object creation when the specific rule action takes effect.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions.
+        /// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
         /// </summary>
         [Input("expiredObjectDeleteMarker")]
         public Input<bool>? ExpiredObjectDeleteMarker { get; set; }

@@ -320,6 +320,8 @@ class Endpoints(dict):
                  networkfirewall: Optional[str] = None,
                  networkmanager: Optional[str] = None,
                  nimblestudio: Optional[str] = None,
+                 opensearch: Optional[str] = None,
+                 opensearchservice: Optional[str] = None,
                  opsworks: Optional[str] = None,
                  opsworkscm: Optional[str] = None,
                  organizations: Optional[str] = None,
@@ -838,6 +840,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "networkmanager", networkmanager)
         if nimblestudio is not None:
             pulumi.set(__self__, "nimblestudio", nimblestudio)
+        if opensearch is not None:
+            pulumi.set(__self__, "opensearch", opensearch)
+        if opensearchservice is not None:
+            pulumi.set(__self__, "opensearchservice", opensearchservice)
         if opsworks is not None:
             pulumi.set(__self__, "opsworks", opsworks)
         if opsworkscm is not None:
@@ -2086,6 +2092,16 @@ class Endpoints(dict):
     @pulumi.getter
     def nimblestudio(self) -> Optional[str]:
         return pulumi.get(self, "nimblestudio")
+
+    @property
+    @pulumi.getter
+    def opensearch(self) -> Optional[str]:
+        return pulumi.get(self, "opensearch")
+
+    @property
+    @pulumi.getter
+    def opensearchservice(self) -> Optional[str]:
+        return pulumi.get(self, "opensearchservice")
 
     @property
     @pulumi.getter

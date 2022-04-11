@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2LoggingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket that receives the log objects.
+        /// The name of the bucket that will receive the log objects.
         /// </summary>
-        [Input("targetBucket")]
-        public Input<string>? TargetBucket { get; set; }
+        [Input("targetBucket", required: true)]
+        public Input<string> TargetBucket { get; set; } = null!;
 
         /// <summary>
-        /// The prefix for all log object keys/
+        /// To specify a key prefix for log objects.
         /// </summary>
         [Input("targetPrefix")]
         public Input<string>? TargetPrefix { get; set; }

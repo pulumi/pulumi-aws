@@ -1484,9 +1484,12 @@ class Group(pulumi.CustomResource):
             max_size=5,
             min_size=1,
             warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Stopped",
+                pool_state="Hibernated",
                 min_size=1,
                 max_group_prepared_capacity=10,
+                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
+                    reuse_on_scale_in=True,
+                ),
             ))
         ```
         ## Waiting for Capacity
@@ -1823,9 +1826,12 @@ class Group(pulumi.CustomResource):
             max_size=5,
             min_size=1,
             warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Stopped",
+                pool_state="Hibernated",
                 min_size=1,
                 max_group_prepared_capacity=10,
+                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
+                    reuse_on_scale_in=True,
+                ),
             ))
         ```
         ## Waiting for Capacity

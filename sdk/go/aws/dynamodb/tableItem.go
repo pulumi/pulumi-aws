@@ -65,12 +65,11 @@ type TableItem struct {
 
 	// Hash key to use for lookups and identification of the item
 	HashKey pulumi.StringOutput `pulumi:"hashKey"`
-	// JSON representation of a map of attribute name/value pairs, one for each attribute.
-	// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item pulumi.StringOutput `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
-	// The name of the table to contain the item.
+	// Name of the table to contain the item.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
@@ -114,24 +113,22 @@ func GetTableItem(ctx *pulumi.Context,
 type tableItemState struct {
 	// Hash key to use for lookups and identification of the item
 	HashKey *string `pulumi:"hashKey"`
-	// JSON representation of a map of attribute name/value pairs, one for each attribute.
-	// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item *string `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey *string `pulumi:"rangeKey"`
-	// The name of the table to contain the item.
+	// Name of the table to contain the item.
 	TableName *string `pulumi:"tableName"`
 }
 
 type TableItemState struct {
 	// Hash key to use for lookups and identification of the item
 	HashKey pulumi.StringPtrInput
-	// JSON representation of a map of attribute name/value pairs, one for each attribute.
-	// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item pulumi.StringPtrInput
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrInput
-	// The name of the table to contain the item.
+	// Name of the table to contain the item.
 	TableName pulumi.StringPtrInput
 }
 
@@ -142,12 +139,11 @@ func (TableItemState) ElementType() reflect.Type {
 type tableItemArgs struct {
 	// Hash key to use for lookups and identification of the item
 	HashKey string `pulumi:"hashKey"`
-	// JSON representation of a map of attribute name/value pairs, one for each attribute.
-	// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item string `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey *string `pulumi:"rangeKey"`
-	// The name of the table to contain the item.
+	// Name of the table to contain the item.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -155,12 +151,11 @@ type tableItemArgs struct {
 type TableItemArgs struct {
 	// Hash key to use for lookups and identification of the item
 	HashKey pulumi.StringInput
-	// JSON representation of a map of attribute name/value pairs, one for each attribute.
-	// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item pulumi.StringInput
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrInput
-	// The name of the table to contain the item.
+	// Name of the table to contain the item.
 	TableName pulumi.StringInput
 }
 

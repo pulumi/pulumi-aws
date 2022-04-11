@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? CidrBlock;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of a core network.
+        /// </summary>
+        public readonly string? CoreNetworkArn;
+        /// <summary>
         /// The ID of a managed prefix list destination of the route.
         /// </summary>
         public readonly string? DestinationPrefixListId;
@@ -62,6 +66,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         private DefaultRouteTableRoute(
             string? cidrBlock,
 
+            string? coreNetworkArn,
+
             string? destinationPrefixListId,
 
             string? egressOnlyGatewayId,
@@ -83,6 +89,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             string? vpcPeeringConnectionId)
         {
             CidrBlock = cidrBlock;
+            CoreNetworkArn = coreNetworkArn;
             DestinationPrefixListId = destinationPrefixListId;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;

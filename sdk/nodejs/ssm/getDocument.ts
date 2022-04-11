@@ -52,7 +52,7 @@ export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetDocumentArgs {
     /**
-     * Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+     * Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
      */
     documentFormat?: string;
     /**
@@ -70,7 +70,7 @@ export interface GetDocumentArgs {
  */
 export interface GetDocumentResult {
     /**
-     * The ARN of the document.
+     * The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      */
     readonly arn: string;
     /**
@@ -99,7 +99,7 @@ export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.Inv
  */
 export interface GetDocumentOutputArgs {
     /**
-     * Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+     * Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
      */
     documentFormat?: pulumi.Input<string>;
     /**

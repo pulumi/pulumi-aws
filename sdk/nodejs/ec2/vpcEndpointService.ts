@@ -88,11 +88,11 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The Availability Zones in which the service is available.
+     * A set of Availability Zones in which the service is available.
      */
     public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
     /**
-     * The DNS names for the service.
+     * A set of DNS names for the service.
      */
     public /*out*/ readonly baseEndpointDnsNames!: pulumi.Output<string[]>;
     /**
@@ -207,11 +207,11 @@ export interface VpcEndpointServiceState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The Availability Zones in which the service is available.
+     * A set of Availability Zones in which the service is available.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The DNS names for the service.
+     * A set of DNS names for the service.
      */
     baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

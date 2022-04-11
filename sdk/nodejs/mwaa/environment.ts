@@ -215,6 +215,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly requirementsS3Path!: pulumi.Output<string | undefined>;
     /**
+     * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+     */
+    public readonly schedulers!: pulumi.Output<number>;
+    /**
      * The Service Role ARN of the Amazon MWAA Environment
      */
     public /*out*/ readonly serviceRoleArn!: pulumi.Output<string>;
@@ -278,6 +282,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["pluginsS3Path"] = state ? state.pluginsS3Path : undefined;
             resourceInputs["requirementsS3ObjectVersion"] = state ? state.requirementsS3ObjectVersion : undefined;
             resourceInputs["requirementsS3Path"] = state ? state.requirementsS3Path : undefined;
+            resourceInputs["schedulers"] = state ? state.schedulers : undefined;
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["sourceBucketArn"] = state ? state.sourceBucketArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -315,6 +320,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["pluginsS3Path"] = args ? args.pluginsS3Path : undefined;
             resourceInputs["requirementsS3ObjectVersion"] = args ? args.requirementsS3ObjectVersion : undefined;
             resourceInputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
+            resourceInputs["schedulers"] = args ? args.schedulers : undefined;
             resourceInputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
@@ -406,6 +412,10 @@ export interface EnvironmentState {
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     requirementsS3Path?: pulumi.Input<string>;
+    /**
+     * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+     */
+    schedulers?: pulumi.Input<number>;
     /**
      * The Service Role ARN of the Amazon MWAA Environment
      */
@@ -504,6 +514,10 @@ export interface EnvironmentArgs {
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     requirementsS3Path?: pulumi.Input<string>;
+    /**
+     * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+     */
+    schedulers?: pulumi.Input<number>;
     /**
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      */

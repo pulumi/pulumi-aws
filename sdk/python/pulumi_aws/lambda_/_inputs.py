@@ -21,12 +21,14 @@ __all__ = [
     'EventSourceMappingSourceAccessConfigurationArgs',
     'FunctionDeadLetterConfigArgs',
     'FunctionEnvironmentArgs',
+    'FunctionEphemeralStorageArgs',
     'FunctionEventInvokeConfigDestinationConfigArgs',
     'FunctionEventInvokeConfigDestinationConfigOnFailureArgs',
     'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
     'FunctionTracingConfigArgs',
+    'FunctionUrlCorsArgs',
     'FunctionVpcConfigArgs',
 ]
 
@@ -293,6 +295,29 @@ class FunctionEnvironmentArgs:
 
 
 @pulumi.input_type
+class FunctionEphemeralStorageArgs:
+    def __init__(__self__, *,
+                 size: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] size: The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
 class FunctionEventInvokeConfigDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']] = None,
@@ -487,6 +512,109 @@ class FunctionTracingConfigArgs:
     @mode.setter
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class FunctionUrlCorsArgs:
+    def __init__(__self__, *,
+                 allow_credentials: Optional[pulumi.Input[bool]] = None,
+                 allow_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allow_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allow_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_age: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] allow_credentials: Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_headers: The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_methods: The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_origins: The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: The HTTP headers in your function response that you want to expose to origins that call the function URL.
+        :param pulumi.Input[int] max_age: The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if allow_headers is not None:
+            pulumi.set(__self__, "allow_headers", allow_headers)
+        if allow_methods is not None:
+            pulumi.set(__self__, "allow_methods", allow_methods)
+        if allow_origins is not None:
+            pulumi.set(__self__, "allow_origins", allow_origins)
+        if expose_headers is not None:
+            pulumi.set(__self__, "expose_headers", expose_headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @allow_credentials.setter
+    def allow_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_credentials", value)
+
+    @property
+    @pulumi.getter(name="allowHeaders")
+    def allow_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+        """
+        return pulumi.get(self, "allow_headers")
+
+    @allow_headers.setter
+    def allow_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allow_headers", value)
+
+    @property
+    @pulumi.getter(name="allowMethods")
+    def allow_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+        """
+        return pulumi.get(self, "allow_methods")
+
+    @allow_methods.setter
+    def allow_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allow_methods", value)
+
+    @property
+    @pulumi.getter(name="allowOrigins")
+    def allow_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+        """
+        return pulumi.get(self, "allow_origins")
+
+    @allow_origins.setter
+    def allow_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allow_origins", value)
+
+    @property
+    @pulumi.getter(name="exposeHeaders")
+    def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The HTTP headers in your function response that you want to expose to origins that call the function URL.
+        """
+        return pulumi.get(self, "expose_headers")
+
+    @expose_headers.setter
+    def expose_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "expose_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+        """
+        return pulumi.get(self, "max_age")
+
+    @max_age.setter
+    def max_age(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_age", value)
 
 
 @pulumi.input_type

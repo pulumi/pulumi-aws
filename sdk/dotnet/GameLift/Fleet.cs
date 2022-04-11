@@ -132,7 +132,6 @@ namespace Pulumi.Aws.GameLift
 
         /// <summary>
         /// Operating system of the fleet's computing resources.
-        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
@@ -168,8 +167,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.1.0
+        /// A map of tags assigned to the resource, including those inherited from the provider .
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -423,7 +421,6 @@ namespace Pulumi.Aws.GameLift
 
         /// <summary>
         /// Operating system of the fleet's computing resources.
-        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
@@ -468,8 +465,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.1.0
+        /// A map of tags assigned to the resource, including those inherited from the provider .
         /// </summary>
         public InputMap<string> TagsAll
         {

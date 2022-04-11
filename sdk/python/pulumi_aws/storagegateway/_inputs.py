@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'FileSystemAssociationCacheAttributesArgs',
     'GatewayGatewayNetworkInterfaceArgs',
+    'GatewayMaintenanceStartTimeArgs',
     'GatewaySmbActiveDirectorySettingsArgs',
     'NfsFileShareCacheAttributesArgs',
     'NfsFileShareNfsFileShareDefaultsArgs',
@@ -65,6 +66,76 @@ class GatewayGatewayNetworkInterfaceArgs:
     @ipv4_address.setter
     def ipv4_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv4_address", value)
+
+
+@pulumi.input_type
+class GatewayMaintenanceStartTimeArgs:
+    def __init__(__self__, *,
+                 hour_of_day: pulumi.Input[int],
+                 day_of_month: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input[str]] = None,
+                 minute_of_hour: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] hour_of_day: The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+        :param pulumi.Input[str] day_of_month: The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+        :param pulumi.Input[str] day_of_week: The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+        :param pulumi.Input[int] minute_of_hour: The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if minute_of_hour is not None:
+            pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> pulumi.Input[int]:
+        """
+        The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @hour_of_day.setter
+    def hour_of_day(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour_of_day", value)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[pulumi.Input[str]]:
+        """
+        The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "day_of_month", value)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input[str]]:
+        """
+        The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+    @minute_of_hour.setter
+    def minute_of_hour(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minute_of_hour", value)
 
 
 @pulumi.input_type

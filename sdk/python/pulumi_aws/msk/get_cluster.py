@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetClusterResult:
         if zookeeper_connect_string and not isinstance(zookeeper_connect_string, str):
             raise TypeError("Expected argument 'zookeeper_connect_string' to be a str")
         pulumi.set(__self__, "zookeeper_connect_string", zookeeper_connect_string)
+        if zookeeper_connect_string_tls and not isinstance(zookeeper_connect_string_tls, str):
+            raise TypeError("Expected argument 'zookeeper_connect_string_tls' to be a str")
+        pulumi.set(__self__, "zookeeper_connect_string_tls", zookeeper_connect_string_tls)
 
     @property
     @pulumi.getter
@@ -140,6 +143,14 @@ class GetClusterResult:
         """
         return pulumi.get(self, "zookeeper_connect_string")
 
+    @property
+    @pulumi.getter(name="zookeeperConnectStringTls")
+    def zookeeper_connect_string_tls(self) -> str:
+        """
+        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        """
+        return pulumi.get(self, "zookeeper_connect_string_tls")
+
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -157,7 +168,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             kafka_version=self.kafka_version,
             number_of_broker_nodes=self.number_of_broker_nodes,
             tags=self.tags,
-            zookeeper_connect_string=self.zookeeper_connect_string)
+            zookeeper_connect_string=self.zookeeper_connect_string,
+            zookeeper_connect_string_tls=self.zookeeper_connect_string_tls)
 
 
 def get_cluster(cluster_name: Optional[str] = None,
@@ -199,7 +211,8 @@ def get_cluster(cluster_name: Optional[str] = None,
         kafka_version=__ret__.kafka_version,
         number_of_broker_nodes=__ret__.number_of_broker_nodes,
         tags=__ret__.tags,
-        zookeeper_connect_string=__ret__.zookeeper_connect_string)
+        zookeeper_connect_string=__ret__.zookeeper_connect_string,
+        zookeeper_connect_string_tls=__ret__.zookeeper_connect_string_tls)
 
 
 @_utilities.lift_output_func(get_cluster)

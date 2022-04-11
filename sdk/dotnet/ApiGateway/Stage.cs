@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Stage : Pulumi.CustomResource
     {
         /// <summary>
-        /// Enables access logs for the API stage. Detailed below.
+        /// Enables access logs for the API stage. See Access Log Settings below.
         /// </summary>
         [Output("accessLogSettings")]
         public Output<Outputs.StageAccessLogSettings?> AccessLogSettings { get; private set; } = null!;
@@ -166,6 +166,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> CacheClusterSize { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration settings of a canary deployment. See Canary Settings below.
+        /// </summary>
+        [Output("canarySettings")]
+        public Output<Outputs.StageCanarySettings?> CanarySettings { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of a client certificate for the stage.
         /// </summary>
         [Output("clientCertificateId")]
@@ -178,7 +184,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Deployment { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the stage
+        /// The description of the stage.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -293,7 +299,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class StageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables access logs for the API stage. Detailed below.
+        /// Enables access logs for the API stage. See Access Log Settings below.
         /// </summary>
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsArgs>? AccessLogSettings { get; set; }
@@ -311,6 +317,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CacheClusterSize { get; set; }
 
         /// <summary>
+        /// Configuration settings of a canary deployment. See Canary Settings below.
+        /// </summary>
+        [Input("canarySettings")]
+        public Input<Inputs.StageCanarySettingsArgs>? CanarySettings { get; set; }
+
+        /// <summary>
         /// The identifier of a client certificate for the stage.
         /// </summary>
         [Input("clientCertificateId")]
@@ -323,7 +335,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> Deployment { get; set; } = null!;
 
         /// <summary>
-        /// The description of the stage
+        /// The description of the stage.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -384,7 +396,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class StageState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables access logs for the API stage. Detailed below.
+        /// Enables access logs for the API stage. See Access Log Settings below.
         /// </summary>
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsGetArgs>? AccessLogSettings { get; set; }
@@ -408,6 +420,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CacheClusterSize { get; set; }
 
         /// <summary>
+        /// Configuration settings of a canary deployment. See Canary Settings below.
+        /// </summary>
+        [Input("canarySettings")]
+        public Input<Inputs.StageCanarySettingsGetArgs>? CanarySettings { get; set; }
+
+        /// <summary>
         /// The identifier of a client certificate for the stage.
         /// </summary>
         [Input("clientCertificateId")]
@@ -420,7 +438,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Deployment { get; set; }
 
         /// <summary>
-        /// The description of the stage
+        /// The description of the stage.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

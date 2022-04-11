@@ -23,6 +23,7 @@ __all__ = [
     'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification',
     'GroupTag',
     'GroupWarmPool',
+    'GroupWarmPoolInstanceReusePolicy',
     'PolicyPredictiveScalingConfiguration',
     'PolicyPredictiveScalingConfigurationMetricSpecification',
     'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification',
@@ -762,7 +763,9 @@ class GroupWarmPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxGroupPreparedCapacity":
+        if key == "instanceReusePolicy":
+            suggest = "instance_reuse_policy"
+        elif key == "maxGroupPreparedCapacity":
             suggest = "max_group_prepared_capacity"
         elif key == "minSize":
             suggest = "min_size"
@@ -781,20 +784,32 @@ class GroupWarmPool(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 instance_reuse_policy: Optional['outputs.GroupWarmPoolInstanceReusePolicy'] = None,
                  max_group_prepared_capacity: Optional[int] = None,
                  min_size: Optional[int] = None,
                  pool_state: Optional[str] = None):
         """
+        :param 'GroupWarmPoolInstanceReusePolicyArgs' instance_reuse_policy: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         :param int max_group_prepared_capacity: Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
         :param int min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-        :param str pool_state: Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+        :param str pool_state: Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
         """
+        if instance_reuse_policy is not None:
+            pulumi.set(__self__, "instance_reuse_policy", instance_reuse_policy)
         if max_group_prepared_capacity is not None:
             pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
         if min_size is not None:
             pulumi.set(__self__, "min_size", min_size)
         if pool_state is not None:
             pulumi.set(__self__, "pool_state", pool_state)
+
+    @property
+    @pulumi.getter(name="instanceReusePolicy")
+    def instance_reuse_policy(self) -> Optional['outputs.GroupWarmPoolInstanceReusePolicy']:
+        """
+        Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        """
+        return pulumi.get(self, "instance_reuse_policy")
 
     @property
     @pulumi.getter(name="maxGroupPreparedCapacity")
@@ -816,9 +831,45 @@ class GroupWarmPool(dict):
     @pulumi.getter(name="poolState")
     def pool_state(self) -> Optional[str]:
         """
-        Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+        Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
         """
         return pulumi.get(self, "pool_state")
+
+
+@pulumi.output_type
+class GroupWarmPoolInstanceReusePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reuseOnScaleIn":
+            suggest = "reuse_on_scale_in"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupWarmPoolInstanceReusePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupWarmPoolInstanceReusePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupWarmPoolInstanceReusePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reuse_on_scale_in: Optional[bool] = None):
+        """
+        :param bool reuse_on_scale_in: Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+        """
+        if reuse_on_scale_in is not None:
+            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+
+    @property
+    @pulumi.getter(name="reuseOnScaleIn")
+    def reuse_on_scale_in(self) -> Optional[bool]:
+        """
+        Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+        """
+        return pulumi.get(self, "reuse_on_scale_in")
 
 
 @pulumi.output_type

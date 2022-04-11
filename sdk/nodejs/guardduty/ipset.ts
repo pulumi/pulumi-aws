@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * const bucket = new aws.s3.BucketV2("bucket", {});
  * // ... other configuration
  * const myIPSet = new aws.s3.BucketObjectv2("myIPSet", {
- *     acl: "public-read",
  *     content: "10.0.0.0/8\n",
  *     bucket: bucket.id,
  *     key: "MyIPSet",

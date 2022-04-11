@@ -7,11 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getWorkspace";
 export * from "./licenseAssociation";
+export * from "./roleAssociation";
 export * from "./workspace";
 export * from "./workspaceSamlConfiguration";
 
 // Import resources to register:
 import { LicenseAssociation } from "./licenseAssociation";
+import { RoleAssociation } from "./roleAssociation";
 import { Workspace } from "./workspace";
 import { WorkspaceSamlConfiguration } from "./workspaceSamlConfiguration";
 
@@ -21,6 +23,8 @@ const _module = {
         switch (type) {
             case "aws:grafana/licenseAssociation:LicenseAssociation":
                 return new LicenseAssociation(name, <any>undefined, { urn })
+            case "aws:grafana/roleAssociation:RoleAssociation":
+                return new RoleAssociation(name, <any>undefined, { urn })
             case "aws:grafana/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration":
@@ -31,5 +35,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "grafana/licenseAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "grafana/roleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "grafana/workspace", _module)
 pulumi.runtime.registerResourceModule("aws", "grafana/workspaceSamlConfiguration", _module)

@@ -1239,6 +1239,8 @@ func (o DefaultNetworkAclIngressArrayOutput) Index(i pulumi.IntInput) DefaultNet
 type DefaultRouteTableRoute struct {
 	// The CIDR block of the route.
 	CidrBlock *string `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -1275,6 +1277,8 @@ type DefaultRouteTableRouteInput interface {
 type DefaultRouteTableRouteArgs struct {
 	// The CIDR block of the route.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn pulumi.StringPtrInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -1351,6 +1355,11 @@ func (o DefaultRouteTableRouteOutput) ToDefaultRouteTableRouteOutputWithContext(
 // The CIDR block of the route.
 func (o DefaultRouteTableRouteOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a core network.
+func (o DefaultRouteTableRouteOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a managed prefix list destination of the route.
@@ -9798,6 +9807,8 @@ type RouteTableRoute struct {
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
 	// The CIDR block of the route.
 	CidrBlock *string `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -9840,6 +9851,8 @@ type RouteTableRouteArgs struct {
 	CarrierGatewayId pulumi.StringPtrInput `pulumi:"carrierGatewayId"`
 	// The CIDR block of the route.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn pulumi.StringPtrInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -9925,6 +9938,11 @@ func (o RouteTableRouteOutput) CarrierGatewayId() pulumi.StringPtrOutput {
 // The CIDR block of the route.
 func (o RouteTableRouteOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a core network.
+func (o RouteTableRouteOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableRoute) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a managed prefix list destination of the route.
@@ -23013,6 +23031,8 @@ type GetRouteTableRoute struct {
 	CarrierGatewayId string `pulumi:"carrierGatewayId"`
 	// CIDR block of the route.
 	CidrBlock string `pulumi:"cidrBlock"`
+	// ARN of the core network.
+	CoreNetworkArn string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId string `pulumi:"destinationPrefixListId"`
 	// ID of the Egress Only Internet Gateway.
@@ -23053,6 +23073,8 @@ type GetRouteTableRouteArgs struct {
 	CarrierGatewayId pulumi.StringInput `pulumi:"carrierGatewayId"`
 	// CIDR block of the route.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// ARN of the core network.
+	CoreNetworkArn pulumi.StringInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId pulumi.StringInput `pulumi:"destinationPrefixListId"`
 	// ID of the Egress Only Internet Gateway.
@@ -23136,6 +23158,11 @@ func (o GetRouteTableRouteOutput) CarrierGatewayId() pulumi.StringOutput {
 // CIDR block of the route.
 func (o GetRouteTableRouteOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+// ARN of the core network.
+func (o GetRouteTableRouteOutput) CoreNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoute) string { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
 // The ID of a managed prefix list destination of the route.

@@ -565,6 +565,8 @@ namespace Pulumi.Aws
                 public string? Networkfirewall { get; set; } = null!;
                 public string? Networkmanager { get; set; } = null!;
                 public string? Nimblestudio { get; set; } = null!;
+                public string? Opensearch { get; set; } = null!;
+                public string? Opensearchservice { get; set; } = null!;
                 public string? Opsworks { get; set; } = null!;
                 public string? Opsworkscm { get; set; } = null!;
                 public string? Organizations { get; set; } = null!;

@@ -50,6 +50,9 @@ namespace Pulumi.Aws.Neptune
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the endpoint.
+        /// </summary>
         [Output("clusterEndpointIdentifier")]
         public Output<string> ClusterEndpointIdentifier { get; private set; } = null!;
 
@@ -141,6 +144,9 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ClusterEndpointArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the endpoint.
+        /// </summary>
         [Input("clusterEndpointIdentifier", required: true)]
         public Input<string> ClusterEndpointIdentifier { get; set; } = null!;
 
@@ -205,6 +211,9 @@ namespace Pulumi.Aws.Neptune
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The identifier of the endpoint.
+        /// </summary>
         [Input("clusterEndpointIdentifier")]
         public Input<string>? ClusterEndpointIdentifier { get; set; }
 

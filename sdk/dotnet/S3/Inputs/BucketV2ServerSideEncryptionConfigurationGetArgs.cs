@@ -12,18 +12,11 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketV2ServerSideEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
     {
-        [Input("rules")]
-        private InputList<Inputs.BucketV2ServerSideEncryptionConfigurationRuleGetArgs>? _rules;
-
         /// <summary>
-        /// (required) Information about a particular server-side encryption configuration rule.
+        /// A single object for server-side encryption by default configuration. (documented below)
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_server_side_encryption_configuration resource instead")]
-        public InputList<Inputs.BucketV2ServerSideEncryptionConfigurationRuleGetArgs> Rules
-        {
-            get => _rules ?? (_rules = new InputList<Inputs.BucketV2ServerSideEncryptionConfigurationRuleGetArgs>());
-            set => _rules = value;
-        }
+        [Input("rule", required: true)]
+        public Input<Inputs.BucketV2ServerSideEncryptionConfigurationRuleGetArgs> Rule { get; set; } = null!;
 
         public BucketV2ServerSideEncryptionConfigurationGetArgs()
         {

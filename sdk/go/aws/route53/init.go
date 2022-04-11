@@ -55,6 +55,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResolverRule{}
 	case "aws:route53/resolverRuleAssociation:ResolverRuleAssociation":
 		r = &ResolverRuleAssociation{}
+	case "aws:route53/trafficPolicy:TrafficPolicy":
+		r = &TrafficPolicy{}
+	case "aws:route53/trafficPolicyInstance:TrafficPolicyInstance":
+		r = &TrafficPolicyInstance{}
 	case "aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization":
 		r = &VpcAssociationAuthorization{}
 	case "aws:route53/zone:Zone":
@@ -157,6 +161,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53/resolverRuleAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/trafficPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/trafficPolicyInstance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

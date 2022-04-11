@@ -372,6 +372,8 @@ class ProviderEndpointArgs:
                  networkfirewall: Optional[pulumi.Input[str]] = None,
                  networkmanager: Optional[pulumi.Input[str]] = None,
                  nimblestudio: Optional[pulumi.Input[str]] = None,
+                 opensearch: Optional[pulumi.Input[str]] = None,
+                 opensearchservice: Optional[pulumi.Input[str]] = None,
                  opsworks: Optional[pulumi.Input[str]] = None,
                  opsworkscm: Optional[pulumi.Input[str]] = None,
                  organizations: Optional[pulumi.Input[str]] = None,
@@ -890,6 +892,10 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "networkmanager", networkmanager)
         if nimblestudio is not None:
             pulumi.set(__self__, "nimblestudio", nimblestudio)
+        if opensearch is not None:
+            pulumi.set(__self__, "opensearch", opensearch)
+        if opensearchservice is not None:
+            pulumi.set(__self__, "opensearchservice", opensearchservice)
         if opsworks is not None:
             pulumi.set(__self__, "opsworks", opsworks)
         if opsworkscm is not None:
@@ -2986,6 +2992,24 @@ class ProviderEndpointArgs:
     @nimblestudio.setter
     def nimblestudio(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nimblestudio", value)
+
+    @property
+    @pulumi.getter
+    def opensearch(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "opensearch")
+
+    @opensearch.setter
+    def opensearch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "opensearch", value)
+
+    @property
+    @pulumi.getter
+    def opensearchservice(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "opensearchservice")
+
+    @opensearchservice.setter
+    def opensearchservice(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "opensearchservice", value)
 
     @property
     @pulumi.getter

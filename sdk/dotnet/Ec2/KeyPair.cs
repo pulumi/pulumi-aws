@@ -63,14 +63,11 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the key pair.
+        /// The key pair name.
         /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
-        /// </summary>
         [Output("keyNamePrefix")]
         public Output<string> KeyNamePrefix { get; private set; } = null!;
 
@@ -145,14 +142,11 @@ namespace Pulumi.Aws.Ec2
     public sealed class KeyPairArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name for the key pair.
+        /// The key pair name.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
-        /// </summary>
         [Input("keyNamePrefix")]
         public Input<string>? KeyNamePrefix { get; set; }
 
@@ -194,14 +188,11 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Fingerprint { get; set; }
 
         /// <summary>
-        /// The name for the key pair.
+        /// The key pair name.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
-        /// </summary>
         [Input("keyNamePrefix")]
         public Input<string>? KeyNamePrefix { get; set; }
 

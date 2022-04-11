@@ -52,10 +52,64 @@ namespace Pulumi.Aws.S3
     /// This is a multistep process that requires AWS Support intervention.
     /// 
     /// 1. Enable versioning on your S3 bucket, if you have not already done so.
-    /// Doing so will generate an "Object Lock token" in the back-end.
+    ///    Doing so will generate an "Object Lock token" in the back-end.
+    /// 
+    /// &lt;!-- markdownlint-disable MD029 --&gt;
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
+    ///         {
+    ///         });
+    ///         var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new Aws.S3.BucketVersioningV2Args
+    ///         {
+    ///             Bucket = exampleBucketV2.Bucket,
+    ///             VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///             {
+    ///                 Status = "Enabled",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// &lt;!-- markdownlint-disable MD029 --&gt;
     /// 
     /// 2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `aws.s3.BucketObjectLockConfigurationV2` resource.
-    /// Notice the `object_lock_enabled` argument does not need to be specified as it defaults to `Enabled`.
+    ///    Notice the `object_lock_enabled` argument does not need to be specified as it defaults to `Enabled`.
+    /// 
+    /// &lt;!-- markdownlint-disable MD029 --&gt;
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3.BucketObjectLockConfigurationV2("example", new Aws.S3.BucketObjectLockConfigurationV2Args
+    ///         {
+    ///             Bucket = aws_s3_bucket.Example.Bucket,
+    ///             Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
+    ///             {
+    ///                 DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
+    ///                 {
+    ///                     Mode = "COMPLIANCE",
+    ///                     Days = 5,
+    ///                 },
+    ///             },
+    ///             Token = "NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// &lt;!-- markdownlint-disable MD029 --&gt;
     /// 
     /// ## Import
     /// 

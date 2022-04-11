@@ -613,6 +613,8 @@ type ProviderEndpoint struct {
 	Networkfirewall                 *string `pulumi:"networkfirewall"`
 	Networkmanager                  *string `pulumi:"networkmanager"`
 	Nimblestudio                    *string `pulumi:"nimblestudio"`
+	Opensearch                      *string `pulumi:"opensearch"`
+	Opensearchservice               *string `pulumi:"opensearchservice"`
 	Opsworks                        *string `pulumi:"opsworks"`
 	Opsworkscm                      *string `pulumi:"opsworkscm"`
 	Organizations                   *string `pulumi:"organizations"`
@@ -933,6 +935,8 @@ type ProviderEndpointArgs struct {
 	Networkfirewall                 pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	Networkmanager                  pulumi.StringPtrInput `pulumi:"networkmanager"`
 	Nimblestudio                    pulumi.StringPtrInput `pulumi:"nimblestudio"`
+	Opensearch                      pulumi.StringPtrInput `pulumi:"opensearch"`
+	Opensearchservice               pulumi.StringPtrInput `pulumi:"opensearchservice"`
 	Opsworks                        pulumi.StringPtrInput `pulumi:"opsworks"`
 	Opsworkscm                      pulumi.StringPtrInput `pulumi:"opsworkscm"`
 	Organizations                   pulumi.StringPtrInput `pulumi:"organizations"`
@@ -1926,6 +1930,14 @@ func (o ProviderEndpointOutput) Networkmanager() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Nimblestudio() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Nimblestudio }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Opensearch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Opensearch }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Opensearchservice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Opensearchservice }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Opsworks() pulumi.StringPtrOutput {

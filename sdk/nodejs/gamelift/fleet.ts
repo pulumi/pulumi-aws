@@ -114,7 +114,6 @@ export class Fleet extends pulumi.CustomResource {
     public readonly newGameSessionProtectionPolicy!: pulumi.Output<string | undefined>;
     /**
      * Operating system of the fleet's computing resources.
-     * <<<<<<< HEAD
      */
     public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
     /**
@@ -138,8 +137,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     * >>>>>>> v4.1.0
+     * A map of tags assigned to the resource, including those inherited from the provider .
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -262,7 +260,6 @@ export interface FleetState {
     newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**
      * Operating system of the fleet's computing resources.
-     * <<<<<<< HEAD
      */
     operatingSystem?: pulumi.Input<string>;
     /**
@@ -286,8 +283,7 @@ export interface FleetState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     * >>>>>>> v4.1.0
+     * A map of tags assigned to the resource, including those inherited from the provider .
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

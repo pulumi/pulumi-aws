@@ -372,6 +372,8 @@ type Endpoints struct {
 	Networkfirewall                 *string `pulumi:"networkfirewall"`
 	Networkmanager                  *string `pulumi:"networkmanager"`
 	Nimblestudio                    *string `pulumi:"nimblestudio"`
+	Opensearch                      *string `pulumi:"opensearch"`
+	Opensearchservice               *string `pulumi:"opensearchservice"`
 	Opsworks                        *string `pulumi:"opsworks"`
 	Opsworkscm                      *string `pulumi:"opsworkscm"`
 	Organizations                   *string `pulumi:"organizations"`
@@ -692,6 +694,8 @@ type EndpointsArgs struct {
 	Networkfirewall                 pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	Networkmanager                  pulumi.StringPtrInput `pulumi:"networkmanager"`
 	Nimblestudio                    pulumi.StringPtrInput `pulumi:"nimblestudio"`
+	Opensearch                      pulumi.StringPtrInput `pulumi:"opensearch"`
+	Opensearchservice               pulumi.StringPtrInput `pulumi:"opensearchservice"`
 	Opsworks                        pulumi.StringPtrInput `pulumi:"opsworks"`
 	Opsworkscm                      pulumi.StringPtrInput `pulumi:"opsworkscm"`
 	Organizations                   pulumi.StringPtrInput `pulumi:"organizations"`
@@ -1685,6 +1689,14 @@ func (o EndpointsOutput) Networkmanager() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Nimblestudio() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Nimblestudio }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Opensearch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Opensearch }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Opensearchservice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Opensearchservice }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Opsworks() pulumi.StringPtrOutput {

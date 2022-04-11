@@ -279,6 +279,8 @@ type Permission struct {
 	Function pulumi.StringOutput `pulumi:"function"`
 	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
@@ -341,6 +343,8 @@ type permissionState struct {
 	Function interface{} `pulumi:"function"`
 	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal *string `pulumi:"principal"`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
@@ -366,6 +370,8 @@ type PermissionState struct {
 	Function pulumi.Input
 	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringPtrInput
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
@@ -395,6 +401,8 @@ type permissionArgs struct {
 	Function interface{} `pulumi:"function"`
 	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal string `pulumi:"principal"`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
@@ -421,6 +429,8 @@ type PermissionArgs struct {
 	Function pulumi.Input
 	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringInput
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.

@@ -14,21 +14,21 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ServerSideEncryptionConfigurationRule
     {
         /// <summary>
-        /// The default server-side encryption applied to new objects in the bucket.
+        /// A single object for setting server-side encryption by default. (documented below)
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> ApplyServerSideEncryptionByDefaults;
+        public readonly Outputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault ApplyServerSideEncryptionByDefault;
         /// <summary>
-        /// (Optional) Whether an [Amazon S3 Bucket Key](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) is used for SSE-KMS.
+        /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
         public readonly bool? BucketKeyEnabled;
 
         [OutputConstructor]
         private BucketV2ServerSideEncryptionConfigurationRule(
-            ImmutableArray<Outputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults,
+            Outputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault,
 
             bool? bucketKeyEnabled)
         {
-            ApplyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
+            ApplyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
             BucketKeyEnabled = bucketKeyEnabled;
         }
     }

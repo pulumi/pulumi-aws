@@ -281,14 +281,12 @@ class _FleetState:
         :param pulumi.Input[str] name: The name of the fleet.
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[str] operating_system: Operating system of the fleet's computing resources.
-               <<<<<<< HEAD
         :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_arn: Script ARN.
         :param pulumi.Input[str] script_id: ID of the Gamelift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-               >>>>>>> v4.1.0
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -489,7 +487,6 @@ class _FleetState:
     def operating_system(self) -> Optional[pulumi.Input[str]]:
         """
         Operating system of the fleet's computing resources.
-        <<<<<<< HEAD
         """
         return pulumi.get(self, "operating_system")
 
@@ -561,8 +558,7 @@ class _FleetState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        >>>>>>> v4.1.0
+        A map of tags assigned to the resource, including those inherited from the provider .
         """
         return pulumi.get(self, "tags_all")
 
@@ -785,14 +781,12 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the fleet.
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[str] operating_system: Operating system of the fleet's computing resources.
-               <<<<<<< HEAD
         :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_arn: Script ARN.
         :param pulumi.Input[str] script_id: ID of the Gamelift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-               >>>>>>> v4.1.0
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -926,7 +920,6 @@ class Fleet(pulumi.CustomResource):
     def operating_system(self) -> pulumi.Output[str]:
         """
         Operating system of the fleet's computing resources.
-        <<<<<<< HEAD
         """
         return pulumi.get(self, "operating_system")
 
@@ -974,8 +967,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        >>>>>>> v4.1.0
+        A map of tags assigned to the resource, including those inherited from the provider .
         """
         return pulumi.get(self, "tags_all")
 

@@ -12,6 +12,8 @@ __all__ = [
     'CloudFormationTypeLoggingConfig',
     'StackSetAutoDeployment',
     'StackSetInstanceDeploymentTargets',
+    'StackSetInstanceOperationPreferences',
+    'StackSetOperationPreferences',
     'GetCloudFormationTypeLoggingConfigResult',
 ]
 
@@ -139,6 +141,166 @@ class StackSetInstanceDeploymentTargets(dict):
     @pulumi.getter(name="organizationalUnitIds")
     def organizational_unit_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "organizational_unit_ids")
+
+
+@pulumi.output_type
+class StackSetInstanceOperationPreferences(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureToleranceCount":
+            suggest = "failure_tolerance_count"
+        elif key == "failureTolerancePercentage":
+            suggest = "failure_tolerance_percentage"
+        elif key == "maxConcurrentCount":
+            suggest = "max_concurrent_count"
+        elif key == "maxConcurrentPercentage":
+            suggest = "max_concurrent_percentage"
+        elif key == "regionConcurrencyType":
+            suggest = "region_concurrency_type"
+        elif key == "regionOrders":
+            suggest = "region_orders"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetInstanceOperationPreferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetInstanceOperationPreferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetInstanceOperationPreferences.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_tolerance_count: Optional[int] = None,
+                 failure_tolerance_percentage: Optional[int] = None,
+                 max_concurrent_count: Optional[int] = None,
+                 max_concurrent_percentage: Optional[int] = None,
+                 region_concurrency_type: Optional[str] = None,
+                 region_orders: Optional[Sequence[str]] = None):
+        if failure_tolerance_count is not None:
+            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+        if failure_tolerance_percentage is not None:
+            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+        if max_concurrent_count is not None:
+            pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
+        if max_concurrent_percentage is not None:
+            pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+        if region_concurrency_type is not None:
+            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
+        if region_orders is not None:
+            pulumi.set(__self__, "region_orders", region_orders)
+
+    @property
+    @pulumi.getter(name="failureToleranceCount")
+    def failure_tolerance_count(self) -> Optional[int]:
+        return pulumi.get(self, "failure_tolerance_count")
+
+    @property
+    @pulumi.getter(name="failureTolerancePercentage")
+    def failure_tolerance_percentage(self) -> Optional[int]:
+        return pulumi.get(self, "failure_tolerance_percentage")
+
+    @property
+    @pulumi.getter(name="maxConcurrentCount")
+    def max_concurrent_count(self) -> Optional[int]:
+        return pulumi.get(self, "max_concurrent_count")
+
+    @property
+    @pulumi.getter(name="maxConcurrentPercentage")
+    def max_concurrent_percentage(self) -> Optional[int]:
+        return pulumi.get(self, "max_concurrent_percentage")
+
+    @property
+    @pulumi.getter(name="regionConcurrencyType")
+    def region_concurrency_type(self) -> Optional[str]:
+        return pulumi.get(self, "region_concurrency_type")
+
+    @property
+    @pulumi.getter(name="regionOrders")
+    def region_orders(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "region_orders")
+
+
+@pulumi.output_type
+class StackSetOperationPreferences(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureToleranceCount":
+            suggest = "failure_tolerance_count"
+        elif key == "failureTolerancePercentage":
+            suggest = "failure_tolerance_percentage"
+        elif key == "maxConcurrentCount":
+            suggest = "max_concurrent_count"
+        elif key == "maxConcurrentPercentage":
+            suggest = "max_concurrent_percentage"
+        elif key == "regionConcurrencyType":
+            suggest = "region_concurrency_type"
+        elif key == "regionOrders":
+            suggest = "region_orders"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetOperationPreferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetOperationPreferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetOperationPreferences.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_tolerance_count: Optional[int] = None,
+                 failure_tolerance_percentage: Optional[int] = None,
+                 max_concurrent_count: Optional[int] = None,
+                 max_concurrent_percentage: Optional[int] = None,
+                 region_concurrency_type: Optional[str] = None,
+                 region_orders: Optional[Sequence[str]] = None):
+        if failure_tolerance_count is not None:
+            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+        if failure_tolerance_percentage is not None:
+            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+        if max_concurrent_count is not None:
+            pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
+        if max_concurrent_percentage is not None:
+            pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+        if region_concurrency_type is not None:
+            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
+        if region_orders is not None:
+            pulumi.set(__self__, "region_orders", region_orders)
+
+    @property
+    @pulumi.getter(name="failureToleranceCount")
+    def failure_tolerance_count(self) -> Optional[int]:
+        return pulumi.get(self, "failure_tolerance_count")
+
+    @property
+    @pulumi.getter(name="failureTolerancePercentage")
+    def failure_tolerance_percentage(self) -> Optional[int]:
+        return pulumi.get(self, "failure_tolerance_percentage")
+
+    @property
+    @pulumi.getter(name="maxConcurrentCount")
+    def max_concurrent_count(self) -> Optional[int]:
+        return pulumi.get(self, "max_concurrent_count")
+
+    @property
+    @pulumi.getter(name="maxConcurrentPercentage")
+    def max_concurrent_percentage(self) -> Optional[int]:
+        return pulumi.get(self, "max_concurrent_percentage")
+
+    @property
+    @pulumi.getter(name="regionConcurrencyType")
+    def region_concurrency_type(self) -> Optional[str]:
+        return pulumi.get(self, "region_concurrency_type")
+
+    @property
+    @pulumi.getter(name="regionOrders")
+    def region_orders(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "region_orders")
 
 
 @pulumi.output_type

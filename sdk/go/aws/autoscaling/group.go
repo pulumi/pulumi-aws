@@ -333,9 +333,12 @@ import (
 // 			MaxSize:         pulumi.Int(5),
 // 			MinSize:         pulumi.Int(1),
 // 			WarmPool: &autoscaling.GroupWarmPoolArgs{
-// 				PoolState:                pulumi.String("Stopped"),
+// 				PoolState:                pulumi.String("Hibernated"),
 // 				MinSize:                  pulumi.Int(1),
 // 				MaxGroupPreparedCapacity: pulumi.Int(10),
+// 				InstanceReusePolicy: &autoscaling.GroupWarmPoolInstanceReusePolicyArgs{
+// 					ReuseOnScaleIn: pulumi.Bool(true),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {

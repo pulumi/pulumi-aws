@@ -199,6 +199,8 @@ if typing.TYPE_CHECKING:
     inspector = __inspector
     import pulumi_aws.iot as __iot
     iot = __iot
+    import pulumi_aws.keyspaces as __keyspaces
+    keyspaces = __keyspaces
     import pulumi_aws.kinesis as __kinesis
     kinesis = __kinesis
     import pulumi_aws.kinesisanalyticsv2 as __kinesisanalyticsv2
@@ -243,6 +245,8 @@ if typing.TYPE_CHECKING:
     networkfirewall = __networkfirewall
     import pulumi_aws.networkmanager as __networkmanager
     networkmanager = __networkmanager
+    import pulumi_aws.opensearch as __opensearch
+    opensearch = __opensearch
     import pulumi_aws.opsworks as __opsworks
     opsworks = __opsworks
     import pulumi_aws.organizations as __organizations
@@ -423,6 +427,7 @@ else:
     imagebuilder = _utilities.lazy_import('pulumi_aws.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws.inspector')
     iot = _utilities.lazy_import('pulumi_aws.iot')
+    keyspaces = _utilities.lazy_import('pulumi_aws.keyspaces')
     kinesis = _utilities.lazy_import('pulumi_aws.kinesis')
     kinesisanalyticsv2 = _utilities.lazy_import('pulumi_aws.kinesisanalyticsv2')
     kms = _utilities.lazy_import('pulumi_aws.kms')
@@ -445,6 +450,7 @@ else:
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
+    opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
@@ -2234,6 +2240,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/userInGroup",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/userInGroup:UserInGroup": "UserInGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/userPool",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -2830,6 +2844,14 @@ _utilities.register(
   "fqn": "pulumi_aws.docdb",
   "classes": {
    "aws:docdb/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dynamodb/contributorInsights",
+  "fqn": "pulumi_aws.dynamodb",
+  "classes": {
+   "aws:dynamodb/contributorInsights:ContributorInsights": "ContributorInsights"
   }
  },
  {
@@ -4706,6 +4728,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "grafana/roleAssociation",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/roleAssociation:RoleAssociation": "RoleAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "grafana/workspace",
   "fqn": "pulumi_aws.grafana",
   "classes": {
@@ -5098,6 +5128,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iot/indexingConfiguration",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/indexingConfiguration:IndexingConfiguration": "IndexingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iot/loggingOptions",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/loggingOptions:LoggingOptions": "LoggingOptions"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iot/policy",
   "fqn": "pulumi_aws.iot",
   "classes": {
@@ -5110,6 +5156,14 @@ _utilities.register(
   "fqn": "pulumi_aws.iot",
   "classes": {
    "aws:iot/policyAttachment:PolicyAttachment": "PolicyAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iot/provisioningTemplate",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/provisioningTemplate:ProvisioningTemplate": "ProvisioningTemplate"
   }
  },
  {
@@ -5166,6 +5220,14 @@ _utilities.register(
   "fqn": "pulumi_aws.iot",
   "classes": {
    "aws:iot/topicRule:TopicRule": "TopicRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "keyspaces/keyspace",
+  "fqn": "pulumi_aws.keyspaces",
+  "classes": {
+   "aws:keyspaces/keyspace:Keyspace": "Keyspace"
   }
  },
  {
@@ -5342,6 +5404,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig": "FunctionEventInvokeConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambda/functionUrl",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/functionUrl:FunctionUrl": "FunctionUrl"
   }
  },
  {
@@ -5722,6 +5792,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "mskconnect/connector",
+  "fqn": "pulumi_aws.mskconnect",
+  "classes": {
+   "aws:mskconnect/connector:Connector": "Connector"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mskconnect/customPlugin",
   "fqn": "pulumi_aws.mskconnect",
   "classes": {
@@ -5918,6 +5996,30 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration": "TransitGatewayRegistration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/domain",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/domainPolicy",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/domainPolicy:DomainPolicy": "DomainPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/domainSamlOptions",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/domainSamlOptions:DomainSamlOptions": "DomainSamlOptions"
   }
  },
  {
@@ -6274,6 +6376,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rds/clusterActivityStream",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/clusterActivityStream:ClusterActivityStream": "ClusterActivityStream"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rds/clusterEndpoint",
   "fqn": "pulumi_aws.rds",
   "classes": {
@@ -6334,6 +6444,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/instanceAutomatedBackupsReplication",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication": "InstanceAutomatedBackupsReplication"
   }
  },
  {
@@ -6630,6 +6748,22 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/resolverRuleAssociation:ResolverRuleAssociation": "ResolverRuleAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53/trafficPolicy",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/trafficPolicy:TrafficPolicy": "TrafficPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53/trafficPolicyInstance",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/trafficPolicyInstance:TrafficPolicyInstance": "TrafficPolicyInstance"
   }
  },
  {

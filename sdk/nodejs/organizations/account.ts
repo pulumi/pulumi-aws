@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Account management must be done from the organization's master account.
  *
- * !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
+ * > **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `closeOnDeletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `closeOnDeletion` argument, which you can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
  *
  * ## Example Usage
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * The AWS member account can be imported by using the `account_id`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:organizations/account:Account my_org 111111111111
+ *  $ pulumi import aws:organizations/account:Account my_account 111111111111
  * ```
  *
  *  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
@@ -83,6 +83,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+     */
+    public readonly closeOnDeletion!: pulumi.Output<boolean | undefined>;
+    /**
      * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
     public readonly email!: pulumi.Output<string>;
@@ -128,6 +132,7 @@ export class Account extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["closeOnDeletion"] = state ? state.closeOnDeletion : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;
             resourceInputs["joinedMethod"] = state ? state.joinedMethod : undefined;
@@ -143,6 +148,7 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
+            resourceInputs["closeOnDeletion"] = args ? args.closeOnDeletion : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["iamUserAccessToBilling"] = args ? args.iamUserAccessToBilling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -168,6 +174,10 @@ export interface AccountState {
      * The ARN for this account.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+     */
+    closeOnDeletion?: pulumi.Input<boolean>;
     /**
      * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
@@ -205,6 +215,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+     */
+    closeOnDeletion?: pulumi.Input<boolean>;
     /**
      * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */

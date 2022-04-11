@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
-    /// Provides an IAM group.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

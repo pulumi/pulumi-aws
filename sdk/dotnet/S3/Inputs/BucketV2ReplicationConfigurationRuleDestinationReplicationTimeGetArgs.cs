@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2ReplicationConfigurationRuleDestinationReplicationTimeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Threshold within which objects are to be replicated.
+        /// Threshold within which objects are to be replicated. The only valid value is `15`.
         /// </summary>
         [Input("minutes")]
         public Input<int>? Minutes { get; set; }
 
         /// <summary>
-        /// The status of the rule.
+        /// The status of RTC. Either `Enabled` or `Disabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

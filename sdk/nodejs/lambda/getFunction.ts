@@ -78,6 +78,10 @@ export interface GetFunctionResult {
      */
     readonly environment: outputs.lambda.GetFunctionEnvironment;
     /**
+     * The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+     */
+    readonly ephemeralStorages: outputs.lambda.GetFunctionEphemeralStorage[];
+    /**
      * The connection settings for an Amazon EFS file system.
      */
     readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];

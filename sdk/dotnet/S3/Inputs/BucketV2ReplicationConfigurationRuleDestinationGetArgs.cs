@@ -12,65 +12,45 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketV2ReplicationConfigurationRuleDestinationGetArgs : Pulumi.ResourceArgs
     {
-        [Input("accessControlTranslations")]
-        private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs>? _accessControlTranslations;
-
         /// <summary>
-        /// The overrides to use for object owners on replication.
+        /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
-        public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs> AccessControlTranslations
-        {
-            get => _accessControlTranslations ?? (_accessControlTranslations = new InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs>());
-            set => _accessControlTranslations = value;
-        }
+        [Input("accessControlTranslation")]
+        public Input<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs>? AccessControlTranslation { get; set; }
 
         /// <summary>
-        /// The Account ID to use for overriding the object owner on replication.
+        /// The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
+        [Input("bucket", required: true)]
+        public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Enables replication metrics (required for S3 RTC) (documented below).
+        /// </summary>
         [Input("metrics")]
-        private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationMetricGetArgs>? _metrics;
+        public Input<Inputs.BucketV2ReplicationConfigurationRuleDestinationMetricsGetArgs>? Metrics { get; set; }
 
         /// <summary>
-        /// Replication metrics.
-        /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
-        public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationMetricGetArgs> Metrics
-        {
-            get => _metrics ?? (_metrics = new InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationMetricGetArgs>());
-            set => _metrics = value;
-        }
-
-        /// <summary>
-        /// Destination KMS encryption key ARN for SSE-KMS replication.
+        /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
+        /// `sse_kms_encrypted_objects` source selection criteria.
         /// </summary>
         [Input("replicaKmsKeyId")]
         public Input<string>? ReplicaKmsKeyId { get; set; }
 
-        [Input("replicationTimes")]
-        private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeGetArgs>? _replicationTimes;
-
         /// <summary>
-        /// S3 Replication Time Control (S3 RTC).
+        /// Enables S3 Replication Time Control (S3 RTC) (documented below).
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
-        public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeGetArgs> ReplicationTimes
-        {
-            get => _replicationTimes ?? (_replicationTimes = new InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeGetArgs>());
-            set => _replicationTimes = value;
-        }
+        [Input("replicationTime")]
+        public Input<Inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeGetArgs>? ReplicationTime { get; set; }
 
         /// <summary>
-        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
+        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }

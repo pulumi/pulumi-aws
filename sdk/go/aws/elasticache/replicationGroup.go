@@ -140,6 +140,48 @@ import (
 // 	})
 // }
 // ```
+// ### Redis Log Delivery configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewReplicationGroup(ctx, "test", &elasticache.ReplicationGroupArgs{
+// 			ReplicationGroupDescription: pulumi.String("test description"),
+// 			NodeType:                    pulumi.String("cache.t3.small"),
+// 			Port:                        pulumi.Int(6379),
+// 			ApplyImmediately:            pulumi.Bool(true),
+// 			AutoMinorVersionUpgrade:     pulumi.String("false"),
+// 			MaintenanceWindow:           pulumi.String("tue:06:30-tue:07:30"),
+// 			SnapshotWindow:              pulumi.String("01:00-02:00"),
+// 			LogDeliveryConfigurations: elasticache.ReplicationGroupLogDeliveryConfigurationArray{
+// 				&elasticache.ReplicationGroupLogDeliveryConfigurationArgs{
+// 					Destination:     pulumi.Any(aws_cloudwatch_log_group.Example.Name),
+// 					DestinationType: pulumi.String("cloudwatch-logs"),
+// 					LogFormat:       pulumi.String("text"),
+// 					LogType:         pulumi.String("slow-log"),
+// 				},
+// 				&elasticache.ReplicationGroupLogDeliveryConfigurationArgs{
+// 					Destination:     pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
+// 					DestinationType: pulumi.String("kinesis-firehose"),
+// 					LogFormat:       pulumi.String("json"),
+// 					LogType:         pulumi.String("engine-log"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
 //
@@ -208,8 +250,10 @@ type ReplicationGroup struct {
 	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrOutput `pulumi:"authToken"`
-	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
-	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.StringPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
@@ -238,6 +282,8 @@ type ReplicationGroup struct {
 	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayOutput `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
 	// Identifiers of all the nodes that are part of this replication group.
@@ -333,8 +379,10 @@ type replicationGroupState struct {
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
-	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
-	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade *string `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
@@ -363,6 +411,8 @@ type replicationGroupState struct {
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations []ReplicationGroupLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Identifiers of all the nodes that are part of this replication group.
@@ -430,8 +480,10 @@ type ReplicationGroupState struct {
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
-	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
-	AutoMinorVersionUpgrade pulumi.BoolPtrInput
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.StringPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
@@ -460,6 +512,8 @@ type ReplicationGroupState struct {
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayInput
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// Identifiers of all the nodes that are part of this replication group.
@@ -529,8 +583,10 @@ type replicationGroupArgs struct {
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
-	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
-	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade *string `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
@@ -553,6 +609,8 @@ type replicationGroupArgs struct {
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations []ReplicationGroupLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
@@ -612,8 +670,10 @@ type ReplicationGroupArgs struct {
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
-	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
-	AutoMinorVersionUpgrade pulumi.BoolPtrInput
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.StringPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
@@ -636,6 +696,8 @@ type ReplicationGroupArgs struct {
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayInput
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.

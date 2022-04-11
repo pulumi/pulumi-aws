@@ -20,8 +20,7 @@ class KeyPairArgs:
         """
         The set of arguments for constructing a KeyPair resource.
         :param pulumi.Input[str] public_key: The public key material.
-        :param pulumi.Input[str] key_name: The name for the key pair.
-        :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+        :param pulumi.Input[str] key_name: The key pair name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "public_key", public_key)
@@ -48,7 +47,7 @@ class KeyPairArgs:
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the key pair.
+        The key pair name.
         """
         return pulumi.get(self, "key_name")
 
@@ -59,9 +58,6 @@ class KeyPairArgs:
     @property
     @pulumi.getter(name="keyNamePrefix")
     def key_name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
-        """
         return pulumi.get(self, "key_name_prefix")
 
     @key_name_prefix.setter
@@ -96,8 +92,7 @@ class _KeyPairState:
         Input properties used for looking up and filtering KeyPair resources.
         :param pulumi.Input[str] arn: The key pair ARN.
         :param pulumi.Input[str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        :param pulumi.Input[str] key_name: The name for the key pair.
-        :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+        :param pulumi.Input[str] key_name: The key pair name.
         :param pulumi.Input[str] key_pair_id: The key pair ID.
         :param pulumi.Input[str] public_key: The public key material.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -148,7 +143,7 @@ class _KeyPairState:
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the key pair.
+        The key pair name.
         """
         return pulumi.get(self, "key_name")
 
@@ -159,9 +154,6 @@ class _KeyPairState:
     @property
     @pulumi.getter(name="keyNamePrefix")
     def key_name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
-        """
         return pulumi.get(self, "key_name_prefix")
 
     @key_name_prefix.setter
@@ -257,8 +249,7 @@ class KeyPair(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_name: The name for the key pair.
-        :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+        :param pulumi.Input[str] key_name: The key pair name.
         :param pulumi.Input[str] public_key: The public key material.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -364,8 +355,7 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The key pair ARN.
         :param pulumi.Input[str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        :param pulumi.Input[str] key_name: The name for the key pair.
-        :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+        :param pulumi.Input[str] key_name: The key pair name.
         :param pulumi.Input[str] key_pair_id: The key pair ID.
         :param pulumi.Input[str] public_key: The public key material.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -405,16 +395,13 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[str]:
         """
-        The name for the key pair.
+        The key pair name.
         """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="keyNamePrefix")
     def key_name_prefix(self) -> pulumi.Output[str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
-        """
         return pulumi.get(self, "key_name_prefix")
 
     @property

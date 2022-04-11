@@ -37,6 +37,18 @@ namespace Pulumi.Aws.Dlm.Inputs
         }
 
         /// <summary>
+        /// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        /// </summary>
+        [Input("deprecateRule")]
+        public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleGetArgs>? DeprecateRule { get; set; }
+
+        /// <summary>
+        /// See the `fast_restore_rule` block. Max of 1 per schedule.
+        /// </summary>
+        [Input("fastRestoreRule")]
+        public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs>? FastRestoreRule { get; set; }
+
+        /// <summary>
         /// A name for the schedule.
         /// </summary>
         [Input("name", required: true)]
@@ -48,6 +60,12 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("retainRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleGetArgs> RetainRule { get; set; } = null!;
 
+        /// <summary>
+        /// See the `share_rule` block. Max of 1 per schedule.
+        /// </summary>
+        [Input("shareRule")]
+        public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleGetArgs>? ShareRule { get; set; }
+
         [Input("tagsToAdd")]
         private InputMap<string>? _tagsToAdd;
 
@@ -58,6 +76,18 @@ namespace Pulumi.Aws.Dlm.Inputs
         {
             get => _tagsToAdd ?? (_tagsToAdd = new InputMap<string>());
             set => _tagsToAdd = value;
+        }
+
+        [Input("variableTags")]
+        private InputMap<string>? _variableTags;
+
+        /// <summary>
+        /// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+        /// </summary>
+        public InputMap<string> VariableTags
+        {
+            get => _variableTags ?? (_variableTags = new InputMap<string>());
+            set => _variableTags = value;
         }
 
         public LifecyclePolicyPolicyDetailsScheduleGetArgs()

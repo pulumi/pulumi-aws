@@ -15,8 +15,8 @@ namespace Pulumi.Aws.S3.Inputs
         /// <summary>
         /// The override value for the owner on replicated objects.
         /// </summary>
-        [Input("owner")]
-        public Input<string>? Owner { get; set; }
+        [Input("owner", required: true)]
+        public Input<string> Owner { get; set; } = null!;
 
         public BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs()
         {

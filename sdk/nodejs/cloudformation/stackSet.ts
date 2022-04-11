@@ -138,6 +138,10 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Preferences for how AWS CloudFormation performs a stack set update.
+     */
+    public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetOperationPreferences | undefined>;
+    /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -187,6 +191,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["executionRoleName"] = state ? state.executionRoleName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operationPreferences"] = state ? state.operationPreferences : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["permissionModel"] = state ? state.permissionModel : undefined;
             resourceInputs["stackSetId"] = state ? state.stackSetId : undefined;
@@ -203,6 +208,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["executionRoleName"] = args ? args.executionRoleName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -253,6 +259,10 @@ export interface StackSetState {
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Preferences for how AWS CloudFormation performs a stack set update.
+     */
+    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferences>;
     /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
@@ -315,6 +325,10 @@ export interface StackSetArgs {
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Preferences for how AWS CloudFormation performs a stack set update.
+     */
+    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferences>;
     /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */

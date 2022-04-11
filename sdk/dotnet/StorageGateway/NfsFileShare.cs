@@ -61,6 +61,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> AuditDestinationArn { get; private set; } = null!;
 
         /// <summary>
+        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// </summary>
+        [Output("bucketRegion")]
+        public Output<string?> BucketRegion { get; private set; } = null!;
+
+        /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
         /// </summary>
         [Output("cacheAttributes")]
@@ -180,6 +186,12 @@ namespace Pulumi.Aws.StorageGateway
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS name of the VPC endpoint for S3 PrivateLink.
+        /// </summary>
+        [Output("vpcEndpointDnsName")]
+        public Output<string?> VpcEndpointDnsName { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NfsFileShare resource with the given unique name, arguments, and options.
@@ -231,6 +243,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
+
+        /// <summary>
+        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// </summary>
+        [Input("bucketRegion")]
+        public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
@@ -346,6 +364,12 @@ namespace Pulumi.Aws.StorageGateway
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The DNS name of the VPC endpoint for S3 PrivateLink.
+        /// </summary>
+        [Input("vpcEndpointDnsName")]
+        public Input<string>? VpcEndpointDnsName { get; set; }
+
         public NfsFileShareArgs()
         {
         }
@@ -364,6 +388,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
+
+        /// <summary>
+        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// </summary>
+        [Input("bucketRegion")]
+        public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
@@ -502,6 +532,12 @@ namespace Pulumi.Aws.StorageGateway
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The DNS name of the VPC endpoint for S3 PrivateLink.
+        /// </summary>
+        [Input("vpcEndpointDnsName")]
+        public Input<string>? VpcEndpointDnsName { get; set; }
 
         public NfsFileShareState()
         {

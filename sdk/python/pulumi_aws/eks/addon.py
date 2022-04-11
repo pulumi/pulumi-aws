@@ -22,7 +22,7 @@ class AddonArgs:
         """
         The set of arguments for constructing a Addon resource.
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
-               the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+               the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -53,7 +53,7 @@ class AddonArgs:
     def addon_name(self) -> pulumi.Input[str]:
         """
         Name of the EKS add-on. The name must match one of
-        the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         """
         return pulumi.get(self, "addon_name")
 
@@ -146,7 +146,7 @@ class _AddonState:
         """
         Input properties used for looking up and filtering Addon resources.
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
-               the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+               the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
@@ -191,7 +191,7 @@ class _AddonState:
     def addon_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the EKS add-on. The name must match one of
-        the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         """
         return pulumi.get(self, "addon_name")
 
@@ -358,7 +358,7 @@ class Addon(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
-               the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+               the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -481,7 +481,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
-               the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+               the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
@@ -521,7 +521,7 @@ class Addon(pulumi.CustomResource):
     def addon_name(self) -> pulumi.Output[str]:
         """
         Name of the EKS add-on. The name must match one of
-        the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         """
         return pulumi.get(self, "addon_name")
 

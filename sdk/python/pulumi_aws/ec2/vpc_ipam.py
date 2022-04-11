@@ -16,15 +16,19 @@ __all__ = ['VpcIpamArgs', 'VpcIpam']
 class VpcIpamArgs:
     def __init__(__self__, *,
                  operating_regions: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]],
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcIpam resource.
         :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "operating_regions", operating_regions)
+        if cascade is not None:
+            pulumi.set(__self__, "cascade", cascade)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if tags is not None:
@@ -41,6 +45,18 @@ class VpcIpamArgs:
     @operating_regions.setter
     def operating_regions(self, value: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]):
         pulumi.set(self, "operating_regions", value)
+
+    @property
+    @pulumi.getter
+    def cascade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+        """
+        return pulumi.get(self, "cascade")
+
+    @cascade.setter
+    def cascade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cascade", value)
 
     @property
     @pulumi.getter
@@ -71,6 +87,7 @@ class VpcIpamArgs:
 class _VpcIpamState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]] = None,
                  private_default_scope_id: Optional[pulumi.Input[str]] = None,
@@ -81,6 +98,7 @@ class _VpcIpamState:
         """
         Input properties used for looking up and filtering VpcIpam resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of IPAM
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
         :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
@@ -92,6 +110,8 @@ class _VpcIpamState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if cascade is not None:
+            pulumi.set(__self__, "cascade", cascade)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if operating_regions is not None:
@@ -118,6 +138,18 @@ class _VpcIpamState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def cascade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+        """
+        return pulumi.get(self, "cascade")
+
+    @cascade.setter
+    def cascade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cascade", value)
 
     @property
     @pulumi.getter
@@ -210,6 +242,7 @@ class VpcIpam(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -227,6 +260,7 @@ class VpcIpam(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -263,6 +297,7 @@ class VpcIpam(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -278,6 +313,7 @@ class VpcIpam(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcIpamArgs.__new__(VpcIpamArgs)
 
+            __props__.__dict__["cascade"] = cascade
             __props__.__dict__["description"] = description
             if operating_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_regions'")
@@ -299,6 +335,7 @@ class VpcIpam(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            cascade: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]]] = None,
             private_default_scope_id: Optional[pulumi.Input[str]] = None,
@@ -314,6 +351,7 @@ class VpcIpam(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of IPAM
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
@@ -328,6 +366,7 @@ class VpcIpam(pulumi.CustomResource):
         __props__ = _VpcIpamState.__new__(_VpcIpamState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["cascade"] = cascade
         __props__.__dict__["description"] = description
         __props__.__dict__["operating_regions"] = operating_regions
         __props__.__dict__["private_default_scope_id"] = private_default_scope_id
@@ -344,6 +383,14 @@ class VpcIpam(pulumi.CustomResource):
         Amazon Resource Name (ARN) of IPAM
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def cascade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+        """
+        return pulumi.get(self, "cascade")
 
     @property
     @pulumi.getter

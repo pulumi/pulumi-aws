@@ -14,14 +14,14 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ObjectLockConfigurationRule
     {
         /// <summary>
-        /// The default retention period applied to new objects placed in this bucket.
+        /// The default retention period that you want to apply to new objects placed in this bucket (documented below).
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketV2ObjectLockConfigurationRuleDefaultRetention> DefaultRetentions;
+        public readonly Outputs.BucketV2ObjectLockConfigurationRuleDefaultRetention DefaultRetention;
 
         [OutputConstructor]
-        private BucketV2ObjectLockConfigurationRule(ImmutableArray<Outputs.BucketV2ObjectLockConfigurationRuleDefaultRetention> defaultRetentions)
+        private BucketV2ObjectLockConfigurationRule(Outputs.BucketV2ObjectLockConfigurationRuleDefaultRetention defaultRetention)
         {
-            DefaultRetentions = defaultRetentions;
+            DefaultRetention = defaultRetention;
         }
     }
 }

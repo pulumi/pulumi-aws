@@ -325,9 +325,13 @@ namespace Pulumi.Aws.AutoScaling
     ///             MinSize = 1,
     ///             WarmPool = new Aws.AutoScaling.Inputs.GroupWarmPoolArgs
     ///             {
-    ///                 PoolState = "Stopped",
+    ///                 PoolState = "Hibernated",
     ///                 MinSize = 1,
     ///                 MaxGroupPreparedCapacity = 10,
+    ///                 InstanceReusePolicy = new Aws.AutoScaling.Inputs.GroupWarmPoolInstanceReusePolicyArgs
+    ///                 {
+    ///                     ReuseOnScaleIn = true,
+    ///                 },
     ///             },
     ///         });
     ///     }

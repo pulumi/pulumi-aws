@@ -64,7 +64,7 @@ class GetEipsResult:
     @pulumi.getter(name="publicIps")
     def public_ips(self) -> Sequence[str]:
         """
-        A list of all the Elastic IP addresses for use with EC2-Classic.
+        A list of all the Elastic IP addresses.
         """
         return pulumi.get(self, "public_ips")
 

@@ -257,6 +257,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// </summary>
+        [Output("principalOrgId")]
+        public Output<string?> PrincipalOrgId { get; private set; } = null!;
+
+        /// <summary>
         /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         /// </summary>
         [Output("qualifier")]
@@ -361,6 +367,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
+        /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// </summary>
+        [Input("principalOrgId")]
+        public Input<string>? PrincipalOrgId { get; set; }
+
+        /// <summary>
         /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         /// </summary>
         [Input("qualifier")]
@@ -424,6 +436,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
+
+        /// <summary>
+        /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// </summary>
+        [Input("principalOrgId")]
+        public Input<string>? PrincipalOrgId { get; set; }
 
         /// <summary>
         /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`

@@ -9,6 +9,7 @@ export * from "./addon";
 export * from "./cluster";
 export * from "./fargateProfile";
 export * from "./getAddon";
+export * from "./getAddonVersion";
 export * from "./getCluster";
 export * from "./getClusterAuth";
 export * from "./getClusters";

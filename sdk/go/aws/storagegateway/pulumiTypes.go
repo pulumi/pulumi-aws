@@ -252,6 +252,200 @@ func (o GatewayGatewayNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Gate
 	}).(GatewayGatewayNetworkInterfaceOutput)
 }
 
+type GatewayMaintenanceStartTime struct {
+	// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+	DayOfMonth *string `pulumi:"dayOfMonth"`
+	// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+	DayOfWeek *string `pulumi:"dayOfWeek"`
+	// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+	HourOfDay int `pulumi:"hourOfDay"`
+	// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+	MinuteOfHour *int `pulumi:"minuteOfHour"`
+}
+
+// GatewayMaintenanceStartTimeInput is an input type that accepts GatewayMaintenanceStartTimeArgs and GatewayMaintenanceStartTimeOutput values.
+// You can construct a concrete instance of `GatewayMaintenanceStartTimeInput` via:
+//
+//          GatewayMaintenanceStartTimeArgs{...}
+type GatewayMaintenanceStartTimeInput interface {
+	pulumi.Input
+
+	ToGatewayMaintenanceStartTimeOutput() GatewayMaintenanceStartTimeOutput
+	ToGatewayMaintenanceStartTimeOutputWithContext(context.Context) GatewayMaintenanceStartTimeOutput
+}
+
+type GatewayMaintenanceStartTimeArgs struct {
+	// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+	DayOfMonth pulumi.StringPtrInput `pulumi:"dayOfMonth"`
+	// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
+	// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+	// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+	MinuteOfHour pulumi.IntPtrInput `pulumi:"minuteOfHour"`
+}
+
+func (GatewayMaintenanceStartTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayMaintenanceStartTime)(nil)).Elem()
+}
+
+func (i GatewayMaintenanceStartTimeArgs) ToGatewayMaintenanceStartTimeOutput() GatewayMaintenanceStartTimeOutput {
+	return i.ToGatewayMaintenanceStartTimeOutputWithContext(context.Background())
+}
+
+func (i GatewayMaintenanceStartTimeArgs) ToGatewayMaintenanceStartTimeOutputWithContext(ctx context.Context) GatewayMaintenanceStartTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayMaintenanceStartTimeOutput)
+}
+
+func (i GatewayMaintenanceStartTimeArgs) ToGatewayMaintenanceStartTimePtrOutput() GatewayMaintenanceStartTimePtrOutput {
+	return i.ToGatewayMaintenanceStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayMaintenanceStartTimeArgs) ToGatewayMaintenanceStartTimePtrOutputWithContext(ctx context.Context) GatewayMaintenanceStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayMaintenanceStartTimeOutput).ToGatewayMaintenanceStartTimePtrOutputWithContext(ctx)
+}
+
+// GatewayMaintenanceStartTimePtrInput is an input type that accepts GatewayMaintenanceStartTimeArgs, GatewayMaintenanceStartTimePtr and GatewayMaintenanceStartTimePtrOutput values.
+// You can construct a concrete instance of `GatewayMaintenanceStartTimePtrInput` via:
+//
+//          GatewayMaintenanceStartTimeArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayMaintenanceStartTimePtrInput interface {
+	pulumi.Input
+
+	ToGatewayMaintenanceStartTimePtrOutput() GatewayMaintenanceStartTimePtrOutput
+	ToGatewayMaintenanceStartTimePtrOutputWithContext(context.Context) GatewayMaintenanceStartTimePtrOutput
+}
+
+type gatewayMaintenanceStartTimePtrType GatewayMaintenanceStartTimeArgs
+
+func GatewayMaintenanceStartTimePtr(v *GatewayMaintenanceStartTimeArgs) GatewayMaintenanceStartTimePtrInput {
+	return (*gatewayMaintenanceStartTimePtrType)(v)
+}
+
+func (*gatewayMaintenanceStartTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayMaintenanceStartTime)(nil)).Elem()
+}
+
+func (i *gatewayMaintenanceStartTimePtrType) ToGatewayMaintenanceStartTimePtrOutput() GatewayMaintenanceStartTimePtrOutput {
+	return i.ToGatewayMaintenanceStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayMaintenanceStartTimePtrType) ToGatewayMaintenanceStartTimePtrOutputWithContext(ctx context.Context) GatewayMaintenanceStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayMaintenanceStartTimePtrOutput)
+}
+
+type GatewayMaintenanceStartTimeOutput struct{ *pulumi.OutputState }
+
+func (GatewayMaintenanceStartTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayMaintenanceStartTime)(nil)).Elem()
+}
+
+func (o GatewayMaintenanceStartTimeOutput) ToGatewayMaintenanceStartTimeOutput() GatewayMaintenanceStartTimeOutput {
+	return o
+}
+
+func (o GatewayMaintenanceStartTimeOutput) ToGatewayMaintenanceStartTimeOutputWithContext(ctx context.Context) GatewayMaintenanceStartTimeOutput {
+	return o
+}
+
+func (o GatewayMaintenanceStartTimeOutput) ToGatewayMaintenanceStartTimePtrOutput() GatewayMaintenanceStartTimePtrOutput {
+	return o.ToGatewayMaintenanceStartTimePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayMaintenanceStartTimeOutput) ToGatewayMaintenanceStartTimePtrOutputWithContext(ctx context.Context) GatewayMaintenanceStartTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayMaintenanceStartTime) *GatewayMaintenanceStartTime {
+		return &v
+	}).(GatewayMaintenanceStartTimePtrOutput)
+}
+
+// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+func (o GatewayMaintenanceStartTimeOutput) DayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayMaintenanceStartTime) *string { return v.DayOfMonth }).(pulumi.StringPtrOutput)
+}
+
+// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+func (o GatewayMaintenanceStartTimeOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayMaintenanceStartTime) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+}
+
+// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+func (o GatewayMaintenanceStartTimeOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v GatewayMaintenanceStartTime) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+func (o GatewayMaintenanceStartTimeOutput) MinuteOfHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayMaintenanceStartTime) *int { return v.MinuteOfHour }).(pulumi.IntPtrOutput)
+}
+
+type GatewayMaintenanceStartTimePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayMaintenanceStartTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayMaintenanceStartTime)(nil)).Elem()
+}
+
+func (o GatewayMaintenanceStartTimePtrOutput) ToGatewayMaintenanceStartTimePtrOutput() GatewayMaintenanceStartTimePtrOutput {
+	return o
+}
+
+func (o GatewayMaintenanceStartTimePtrOutput) ToGatewayMaintenanceStartTimePtrOutputWithContext(ctx context.Context) GatewayMaintenanceStartTimePtrOutput {
+	return o
+}
+
+func (o GatewayMaintenanceStartTimePtrOutput) Elem() GatewayMaintenanceStartTimeOutput {
+	return o.ApplyT(func(v *GatewayMaintenanceStartTime) GatewayMaintenanceStartTime {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayMaintenanceStartTime
+		return ret
+	}).(GatewayMaintenanceStartTimeOutput)
+}
+
+// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+func (o GatewayMaintenanceStartTimePtrOutput) DayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfMonth
+	}).(pulumi.StringPtrOutput)
+}
+
+// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+func (o GatewayMaintenanceStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+func (o GatewayMaintenanceStartTimePtrOutput) HourOfDay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HourOfDay
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+func (o GatewayMaintenanceStartTimePtrOutput) MinuteOfHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinuteOfHour
+	}).(pulumi.IntPtrOutput)
+}
+
 type GatewaySmbActiveDirectorySettings struct {
 	ActiveDirectoryStatus *string `pulumi:"activeDirectoryStatus"`
 	// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
@@ -996,6 +1190,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationCacheAttributesPtrInput)(nil)).Elem(), FileSystemAssociationCacheAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGatewayNetworkInterfaceInput)(nil)).Elem(), GatewayGatewayNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGatewayNetworkInterfaceArrayInput)(nil)).Elem(), GatewayGatewayNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMaintenanceStartTimeInput)(nil)).Elem(), GatewayMaintenanceStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMaintenanceStartTimePtrInput)(nil)).Elem(), GatewayMaintenanceStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySmbActiveDirectorySettingsInput)(nil)).Elem(), GatewaySmbActiveDirectorySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySmbActiveDirectorySettingsPtrInput)(nil)).Elem(), GatewaySmbActiveDirectorySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareCacheAttributesInput)(nil)).Elem(), NfsFileShareCacheAttributesArgs{})
@@ -1008,6 +1204,8 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemAssociationCacheAttributesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayGatewayNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(GatewayGatewayNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(GatewayMaintenanceStartTimeOutput{})
+	pulumi.RegisterOutputType(GatewayMaintenanceStartTimePtrOutput{})
 	pulumi.RegisterOutputType(GatewaySmbActiveDirectorySettingsOutput{})
 	pulumi.RegisterOutputType(GatewaySmbActiveDirectorySettingsPtrOutput{})
 	pulumi.RegisterOutputType(NfsFileShareCacheAttributesOutput{})

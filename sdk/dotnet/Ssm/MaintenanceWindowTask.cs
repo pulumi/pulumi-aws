@@ -184,6 +184,18 @@ namespace Pulumi.Aws.Ssm
     public partial class MaintenanceWindowTask : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the maintenance window task.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+        /// </summary>
+        [Output("cutoffBehavior")]
+        public Output<string?> CutoffBehavior { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the maintenance window task.
         /// </summary>
         [Output("description")]
@@ -249,6 +261,12 @@ namespace Pulumi.Aws.Ssm
         [Output("windowId")]
         public Output<string> WindowId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the maintenance window task.
+        /// </summary>
+        [Output("windowTaskId")]
+        public Output<string> WindowTaskId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a MaintenanceWindowTask resource with the given unique name, arguments, and options.
@@ -296,6 +314,12 @@ namespace Pulumi.Aws.Ssm
     public sealed class MaintenanceWindowTaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+        /// </summary>
+        [Input("cutoffBehavior")]
+        public Input<string>? CutoffBehavior { get; set; }
+
+        /// <summary>
         /// The description of the maintenance window task.
         /// </summary>
         [Input("description")]
@@ -304,14 +328,14 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
         /// </summary>
-        [Input("maxConcurrency", required: true)]
-        public Input<string> MaxConcurrency { get; set; } = null!;
+        [Input("maxConcurrency")]
+        public Input<string>? MaxConcurrency { get; set; }
 
         /// <summary>
         /// The maximum number of errors allowed before this task stops being scheduled.
         /// </summary>
-        [Input("maxErrors", required: true)]
-        public Input<string> MaxErrors { get; set; } = null!;
+        [Input("maxErrors")]
+        public Input<string>? MaxErrors { get; set; }
 
         /// <summary>
         /// The name of the maintenance window task.
@@ -374,6 +398,18 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class MaintenanceWindowTaskState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the maintenance window task.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+        /// </summary>
+        [Input("cutoffBehavior")]
+        public Input<string>? CutoffBehavior { get; set; }
+
         /// <summary>
         /// The description of the maintenance window task.
         /// </summary>
@@ -445,6 +481,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("windowId")]
         public Input<string>? WindowId { get; set; }
+
+        /// <summary>
+        /// The ID of the maintenance window task.
+        /// </summary>
+        [Input("windowTaskId")]
+        public Input<string>? WindowTaskId { get; set; }
 
         public MaintenanceWindowTaskState()
         {

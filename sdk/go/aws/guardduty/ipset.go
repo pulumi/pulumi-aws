@@ -41,7 +41,6 @@ import (
 // 			return err
 // 		}
 // 		myIPSet, err := s3.NewBucketObjectv2(ctx, "myIPSet", &s3.BucketObjectv2Args{
-// 			Acl:     pulumi.String("public-read"),
 // 			Content: pulumi.String("10.0.0.0/8\n"),
 // 			Bucket:  bucket.ID(),
 // 			Key:     pulumi.String("MyIPSet"),

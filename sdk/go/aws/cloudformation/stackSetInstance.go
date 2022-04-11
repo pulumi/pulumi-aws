@@ -86,6 +86,8 @@ type StackSetInstance struct {
 	CallAs pulumi.StringPtrOutput `pulumi:"callAs"`
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrOutput `pulumi:"deploymentTargets"`
+	// Preferences for how AWS CloudFormation performs a stack set operation.
+	OperationPreferences StackSetInstanceOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
 	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
 	OrganizationalUnitId pulumi.StringOutput `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
@@ -138,6 +140,8 @@ type stackSetInstanceState struct {
 	CallAs *string `pulumi:"callAs"`
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
+	// Preferences for how AWS CloudFormation performs a stack set operation.
+	OperationPreferences *StackSetInstanceOperationPreferences `pulumi:"operationPreferences"`
 	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
 	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
@@ -159,6 +163,8 @@ type StackSetInstanceState struct {
 	CallAs pulumi.StringPtrInput
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
+	// Preferences for how AWS CloudFormation performs a stack set operation.
+	OperationPreferences StackSetInstanceOperationPreferencesPtrInput
 	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
 	OrganizationalUnitId pulumi.StringPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
@@ -184,6 +190,8 @@ type stackSetInstanceArgs struct {
 	CallAs *string `pulumi:"callAs"`
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
+	// Preferences for how AWS CloudFormation performs a stack set operation.
+	OperationPreferences *StackSetInstanceOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
 	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
@@ -202,6 +210,8 @@ type StackSetInstanceArgs struct {
 	CallAs pulumi.StringPtrInput
 	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
+	// Preferences for how AWS CloudFormation performs a stack set operation.
+	OperationPreferences StackSetInstanceOperationPreferencesPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapInput
 	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.

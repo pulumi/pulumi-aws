@@ -18,6 +18,7 @@ __all__ = [
     'MethodSettingsSettings',
     'RestApiEndpointConfiguration',
     'StageAccessLogSettings',
+    'StageCanarySettings',
     'UsagePlanApiStage',
     'UsagePlanApiStageThrottle',
     'UsagePlanQuotaSettings',
@@ -517,6 +518,70 @@ class StageAccessLogSettings(dict):
         For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         """
         return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class StageCanarySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "percentTraffic":
+            suggest = "percent_traffic"
+        elif key == "stageVariableOverrides":
+            suggest = "stage_variable_overrides"
+        elif key == "useStageCache":
+            suggest = "use_stage_cache"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageCanarySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageCanarySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageCanarySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 percent_traffic: Optional[float] = None,
+                 stage_variable_overrides: Optional[Mapping[str, Any]] = None,
+                 use_stage_cache: Optional[bool] = None):
+        """
+        :param float percent_traffic: The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        :param Mapping[str, Any] stage_variable_overrides: A map of overridden stage `variables` (including new variables) for the canary deployment.
+        :param bool use_stage_cache: Whether the canary deployment uses the stage cache. Defaults to false.
+        """
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[float]:
+        """
+        The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        """
+        return pulumi.get(self, "percent_traffic")
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[Mapping[str, Any]]:
+        """
+        A map of overridden stage `variables` (including new variables) for the canary deployment.
+        """
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[bool]:
+        """
+        Whether the canary deployment uses the stage cache. Defaults to false.
+        """
+        return pulumi.get(self, "use_stage_cache")
 
 
 @pulumi.output_type

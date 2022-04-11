@@ -62,7 +62,7 @@ export class Addon extends pulumi.CustomResource {
 
     /**
      * Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
     public readonly addonName!: pulumi.Output<string>;
     /**
@@ -163,7 +163,7 @@ export class Addon extends pulumi.CustomResource {
 export interface AddonState {
     /**
      * Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
     addonName?: pulumi.Input<string>;
     /**
@@ -218,7 +218,7 @@ export interface AddonState {
 export interface AddonArgs {
     /**
      * Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
     addonName: pulumi.Input<string>;
     /**

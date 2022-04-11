@@ -9,6 +9,7 @@ from .addon import *
 from .cluster import *
 from .fargate_profile import *
 from .get_addon import *
+from .get_addon_version import *
 from .get_cluster import *
 from .get_cluster_auth import *
 from .get_clusters import *

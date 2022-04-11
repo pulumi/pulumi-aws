@@ -1448,6 +1448,143 @@ func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+type FunctionEphemeralStorage struct {
+	// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+	Size *int `pulumi:"size"`
+}
+
+// FunctionEphemeralStorageInput is an input type that accepts FunctionEphemeralStorageArgs and FunctionEphemeralStorageOutput values.
+// You can construct a concrete instance of `FunctionEphemeralStorageInput` via:
+//
+//          FunctionEphemeralStorageArgs{...}
+type FunctionEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToFunctionEphemeralStorageOutput() FunctionEphemeralStorageOutput
+	ToFunctionEphemeralStorageOutputWithContext(context.Context) FunctionEphemeralStorageOutput
+}
+
+type FunctionEphemeralStorageArgs struct {
+	// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+	Size pulumi.IntPtrInput `pulumi:"size"`
+}
+
+func (FunctionEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStorageOutput() FunctionEphemeralStorageOutput {
+	return i.ToFunctionEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStorageOutputWithContext(ctx context.Context) FunctionEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStorageOutput)
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return i.ToFunctionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStorageOutput).ToFunctionEphemeralStoragePtrOutputWithContext(ctx)
+}
+
+// FunctionEphemeralStoragePtrInput is an input type that accepts FunctionEphemeralStorageArgs, FunctionEphemeralStoragePtr and FunctionEphemeralStoragePtrOutput values.
+// You can construct a concrete instance of `FunctionEphemeralStoragePtrInput` via:
+//
+//          FunctionEphemeralStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionEphemeralStoragePtrInput interface {
+	pulumi.Input
+
+	ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput
+	ToFunctionEphemeralStoragePtrOutputWithContext(context.Context) FunctionEphemeralStoragePtrOutput
+}
+
+type functionEphemeralStoragePtrType FunctionEphemeralStorageArgs
+
+func FunctionEphemeralStoragePtr(v *FunctionEphemeralStorageArgs) FunctionEphemeralStoragePtrInput {
+	return (*functionEphemeralStoragePtrType)(v)
+}
+
+func (*functionEphemeralStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (i *functionEphemeralStoragePtrType) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return i.ToFunctionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *functionEphemeralStoragePtrType) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStoragePtrOutput)
+}
+
+type FunctionEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (FunctionEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStorageOutput() FunctionEphemeralStorageOutput {
+	return o
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStorageOutputWithContext(ctx context.Context) FunctionEphemeralStorageOutput {
+	return o
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return o.ToFunctionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEphemeralStorage) *FunctionEphemeralStorage {
+		return &v
+	}).(FunctionEphemeralStoragePtrOutput)
+}
+
+// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+func (o FunctionEphemeralStorageOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionEphemeralStorage) *int { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+type FunctionEphemeralStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionEphemeralStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (o FunctionEphemeralStoragePtrOutput) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o FunctionEphemeralStoragePtrOutput) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o FunctionEphemeralStoragePtrOutput) Elem() FunctionEphemeralStorageOutput {
+	return o.ApplyT(func(v *FunctionEphemeralStorage) FunctionEphemeralStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionEphemeralStorage
+		return ret
+	}).(FunctionEphemeralStorageOutput)
+}
+
+// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionEphemeralStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
 type FunctionEventInvokeConfigDestinationConfig struct {
 	// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
 	OnFailure *FunctionEventInvokeConfigDestinationConfigOnFailure `pulumi:"onFailure"`
@@ -2350,6 +2487,238 @@ func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionUrlCors struct {
+	// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+	AllowHeaders []string `pulumi:"allowHeaders"`
+	// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+	AllowMethods []string `pulumi:"allowMethods"`
+	// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+	AllowOrigins []string `pulumi:"allowOrigins"`
+	// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+	MaxAge *int `pulumi:"maxAge"`
+}
+
+// FunctionUrlCorsInput is an input type that accepts FunctionUrlCorsArgs and FunctionUrlCorsOutput values.
+// You can construct a concrete instance of `FunctionUrlCorsInput` via:
+//
+//          FunctionUrlCorsArgs{...}
+type FunctionUrlCorsInput interface {
+	pulumi.Input
+
+	ToFunctionUrlCorsOutput() FunctionUrlCorsOutput
+	ToFunctionUrlCorsOutputWithContext(context.Context) FunctionUrlCorsOutput
+}
+
+type FunctionUrlCorsArgs struct {
+	// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
+	// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+	AllowMethods pulumi.StringArrayInput `pulumi:"allowMethods"`
+	// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
+	// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+}
+
+func (FunctionUrlCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionUrlCors)(nil)).Elem()
+}
+
+func (i FunctionUrlCorsArgs) ToFunctionUrlCorsOutput() FunctionUrlCorsOutput {
+	return i.ToFunctionUrlCorsOutputWithContext(context.Background())
+}
+
+func (i FunctionUrlCorsArgs) ToFunctionUrlCorsOutputWithContext(ctx context.Context) FunctionUrlCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlCorsOutput)
+}
+
+func (i FunctionUrlCorsArgs) ToFunctionUrlCorsPtrOutput() FunctionUrlCorsPtrOutput {
+	return i.ToFunctionUrlCorsPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionUrlCorsArgs) ToFunctionUrlCorsPtrOutputWithContext(ctx context.Context) FunctionUrlCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlCorsOutput).ToFunctionUrlCorsPtrOutputWithContext(ctx)
+}
+
+// FunctionUrlCorsPtrInput is an input type that accepts FunctionUrlCorsArgs, FunctionUrlCorsPtr and FunctionUrlCorsPtrOutput values.
+// You can construct a concrete instance of `FunctionUrlCorsPtrInput` via:
+//
+//          FunctionUrlCorsArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionUrlCorsPtrInput interface {
+	pulumi.Input
+
+	ToFunctionUrlCorsPtrOutput() FunctionUrlCorsPtrOutput
+	ToFunctionUrlCorsPtrOutputWithContext(context.Context) FunctionUrlCorsPtrOutput
+}
+
+type functionUrlCorsPtrType FunctionUrlCorsArgs
+
+func FunctionUrlCorsPtr(v *FunctionUrlCorsArgs) FunctionUrlCorsPtrInput {
+	return (*functionUrlCorsPtrType)(v)
+}
+
+func (*functionUrlCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionUrlCors)(nil)).Elem()
+}
+
+func (i *functionUrlCorsPtrType) ToFunctionUrlCorsPtrOutput() FunctionUrlCorsPtrOutput {
+	return i.ToFunctionUrlCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *functionUrlCorsPtrType) ToFunctionUrlCorsPtrOutputWithContext(ctx context.Context) FunctionUrlCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlCorsPtrOutput)
+}
+
+type FunctionUrlCorsOutput struct{ *pulumi.OutputState }
+
+func (FunctionUrlCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionUrlCors)(nil)).Elem()
+}
+
+func (o FunctionUrlCorsOutput) ToFunctionUrlCorsOutput() FunctionUrlCorsOutput {
+	return o
+}
+
+func (o FunctionUrlCorsOutput) ToFunctionUrlCorsOutputWithContext(ctx context.Context) FunctionUrlCorsOutput {
+	return o
+}
+
+func (o FunctionUrlCorsOutput) ToFunctionUrlCorsPtrOutput() FunctionUrlCorsPtrOutput {
+	return o.ToFunctionUrlCorsPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionUrlCorsOutput) ToFunctionUrlCorsPtrOutputWithContext(ctx context.Context) FunctionUrlCorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionUrlCors) *FunctionUrlCors {
+		return &v
+	}).(FunctionUrlCorsPtrOutput)
+}
+
+// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+func (o FunctionUrlCorsOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionUrlCors) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+func (o FunctionUrlCorsOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionUrlCors) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+func (o FunctionUrlCorsOutput) AllowMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionUrlCors) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
+}
+
+// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+func (o FunctionUrlCorsOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionUrlCors) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
+}
+
+// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+func (o FunctionUrlCorsOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionUrlCors) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+func (o FunctionUrlCorsOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionUrlCors) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+type FunctionUrlCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionUrlCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionUrlCors)(nil)).Elem()
+}
+
+func (o FunctionUrlCorsPtrOutput) ToFunctionUrlCorsPtrOutput() FunctionUrlCorsPtrOutput {
+	return o
+}
+
+func (o FunctionUrlCorsPtrOutput) ToFunctionUrlCorsPtrOutputWithContext(ctx context.Context) FunctionUrlCorsPtrOutput {
+	return o
+}
+
+func (o FunctionUrlCorsPtrOutput) Elem() FunctionUrlCorsOutput {
+	return o.ApplyT(func(v *FunctionUrlCors) FunctionUrlCors {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionUrlCors
+		return ret
+	}).(FunctionUrlCorsOutput)
+}
+
+// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+func (o FunctionUrlCorsPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionUrlCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+func (o FunctionUrlCorsPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionUrlCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+func (o FunctionUrlCorsPtrOutput) AllowMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionUrlCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+func (o FunctionUrlCorsPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionUrlCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+func (o FunctionUrlCorsPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionUrlCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExposeHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+func (o FunctionUrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionUrlCors) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
 type FunctionVpcConfig struct {
 	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -2813,6 +3182,100 @@ func (o GetFunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
+type GetFunctionEphemeralStorage struct {
+	Size int `pulumi:"size"`
+}
+
+// GetFunctionEphemeralStorageInput is an input type that accepts GetFunctionEphemeralStorageArgs and GetFunctionEphemeralStorageOutput values.
+// You can construct a concrete instance of `GetFunctionEphemeralStorageInput` via:
+//
+//          GetFunctionEphemeralStorageArgs{...}
+type GetFunctionEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToGetFunctionEphemeralStorageOutput() GetFunctionEphemeralStorageOutput
+	ToGetFunctionEphemeralStorageOutputWithContext(context.Context) GetFunctionEphemeralStorageOutput
+}
+
+type GetFunctionEphemeralStorageArgs struct {
+	Size pulumi.IntInput `pulumi:"size"`
+}
+
+func (GetFunctionEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (i GetFunctionEphemeralStorageArgs) ToGetFunctionEphemeralStorageOutput() GetFunctionEphemeralStorageOutput {
+	return i.ToGetFunctionEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i GetFunctionEphemeralStorageArgs) ToGetFunctionEphemeralStorageOutputWithContext(ctx context.Context) GetFunctionEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEphemeralStorageOutput)
+}
+
+// GetFunctionEphemeralStorageArrayInput is an input type that accepts GetFunctionEphemeralStorageArray and GetFunctionEphemeralStorageArrayOutput values.
+// You can construct a concrete instance of `GetFunctionEphemeralStorageArrayInput` via:
+//
+//          GetFunctionEphemeralStorageArray{ GetFunctionEphemeralStorageArgs{...} }
+type GetFunctionEphemeralStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionEphemeralStorageArrayOutput() GetFunctionEphemeralStorageArrayOutput
+	ToGetFunctionEphemeralStorageArrayOutputWithContext(context.Context) GetFunctionEphemeralStorageArrayOutput
+}
+
+type GetFunctionEphemeralStorageArray []GetFunctionEphemeralStorageInput
+
+func (GetFunctionEphemeralStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (i GetFunctionEphemeralStorageArray) ToGetFunctionEphemeralStorageArrayOutput() GetFunctionEphemeralStorageArrayOutput {
+	return i.ToGetFunctionEphemeralStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionEphemeralStorageArray) ToGetFunctionEphemeralStorageArrayOutputWithContext(ctx context.Context) GetFunctionEphemeralStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEphemeralStorageArrayOutput)
+}
+
+type GetFunctionEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (o GetFunctionEphemeralStorageOutput) ToGetFunctionEphemeralStorageOutput() GetFunctionEphemeralStorageOutput {
+	return o
+}
+
+func (o GetFunctionEphemeralStorageOutput) ToGetFunctionEphemeralStorageOutputWithContext(ctx context.Context) GetFunctionEphemeralStorageOutput {
+	return o
+}
+
+func (o GetFunctionEphemeralStorageOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionEphemeralStorage) int { return v.Size }).(pulumi.IntOutput)
+}
+
+type GetFunctionEphemeralStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionEphemeralStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionEphemeralStorage)(nil)).Elem()
+}
+
+func (o GetFunctionEphemeralStorageArrayOutput) ToGetFunctionEphemeralStorageArrayOutput() GetFunctionEphemeralStorageArrayOutput {
+	return o
+}
+
+func (o GetFunctionEphemeralStorageArrayOutput) ToGetFunctionEphemeralStorageArrayOutputWithContext(ctx context.Context) GetFunctionEphemeralStorageArrayOutput {
+	return o
+}
+
+func (o GetFunctionEphemeralStorageArrayOutput) Index(i pulumi.IntInput) GetFunctionEphemeralStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionEphemeralStorage {
+		return vs[0].([]GetFunctionEphemeralStorage)[vs[1].(int)]
+	}).(GetFunctionEphemeralStorageOutput)
+}
+
 type GetFunctionFileSystemConfig struct {
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
 	Arn            string `pulumi:"arn"`
@@ -2965,6 +3428,130 @@ func (o GetFunctionTracingConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
 }
 
+type GetFunctionUrlCor struct {
+	AllowCredentials bool     `pulumi:"allowCredentials"`
+	AllowHeaders     []string `pulumi:"allowHeaders"`
+	AllowMethods     []string `pulumi:"allowMethods"`
+	AllowOrigins     []string `pulumi:"allowOrigins"`
+	ExposeHeaders    []string `pulumi:"exposeHeaders"`
+	MaxAge           int      `pulumi:"maxAge"`
+}
+
+// GetFunctionUrlCorInput is an input type that accepts GetFunctionUrlCorArgs and GetFunctionUrlCorOutput values.
+// You can construct a concrete instance of `GetFunctionUrlCorInput` via:
+//
+//          GetFunctionUrlCorArgs{...}
+type GetFunctionUrlCorInput interface {
+	pulumi.Input
+
+	ToGetFunctionUrlCorOutput() GetFunctionUrlCorOutput
+	ToGetFunctionUrlCorOutputWithContext(context.Context) GetFunctionUrlCorOutput
+}
+
+type GetFunctionUrlCorArgs struct {
+	AllowCredentials pulumi.BoolInput        `pulumi:"allowCredentials"`
+	AllowHeaders     pulumi.StringArrayInput `pulumi:"allowHeaders"`
+	AllowMethods     pulumi.StringArrayInput `pulumi:"allowMethods"`
+	AllowOrigins     pulumi.StringArrayInput `pulumi:"allowOrigins"`
+	ExposeHeaders    pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	MaxAge           pulumi.IntInput         `pulumi:"maxAge"`
+}
+
+func (GetFunctionUrlCorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionUrlCor)(nil)).Elem()
+}
+
+func (i GetFunctionUrlCorArgs) ToGetFunctionUrlCorOutput() GetFunctionUrlCorOutput {
+	return i.ToGetFunctionUrlCorOutputWithContext(context.Background())
+}
+
+func (i GetFunctionUrlCorArgs) ToGetFunctionUrlCorOutputWithContext(ctx context.Context) GetFunctionUrlCorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionUrlCorOutput)
+}
+
+// GetFunctionUrlCorArrayInput is an input type that accepts GetFunctionUrlCorArray and GetFunctionUrlCorArrayOutput values.
+// You can construct a concrete instance of `GetFunctionUrlCorArrayInput` via:
+//
+//          GetFunctionUrlCorArray{ GetFunctionUrlCorArgs{...} }
+type GetFunctionUrlCorArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionUrlCorArrayOutput() GetFunctionUrlCorArrayOutput
+	ToGetFunctionUrlCorArrayOutputWithContext(context.Context) GetFunctionUrlCorArrayOutput
+}
+
+type GetFunctionUrlCorArray []GetFunctionUrlCorInput
+
+func (GetFunctionUrlCorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionUrlCor)(nil)).Elem()
+}
+
+func (i GetFunctionUrlCorArray) ToGetFunctionUrlCorArrayOutput() GetFunctionUrlCorArrayOutput {
+	return i.ToGetFunctionUrlCorArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionUrlCorArray) ToGetFunctionUrlCorArrayOutputWithContext(ctx context.Context) GetFunctionUrlCorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionUrlCorArrayOutput)
+}
+
+type GetFunctionUrlCorOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionUrlCorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionUrlCor)(nil)).Elem()
+}
+
+func (o GetFunctionUrlCorOutput) ToGetFunctionUrlCorOutput() GetFunctionUrlCorOutput {
+	return o
+}
+
+func (o GetFunctionUrlCorOutput) ToGetFunctionUrlCorOutputWithContext(ctx context.Context) GetFunctionUrlCorOutput {
+	return o
+}
+
+func (o GetFunctionUrlCorOutput) AllowCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) bool { return v.AllowCredentials }).(pulumi.BoolOutput)
+}
+
+func (o GetFunctionUrlCorOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionUrlCorOutput) AllowMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionUrlCorOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionUrlCorOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionUrlCorOutput) MaxAge() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) int { return v.MaxAge }).(pulumi.IntOutput)
+}
+
+type GetFunctionUrlCorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionUrlCorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionUrlCor)(nil)).Elem()
+}
+
+func (o GetFunctionUrlCorArrayOutput) ToGetFunctionUrlCorArrayOutput() GetFunctionUrlCorArrayOutput {
+	return o
+}
+
+func (o GetFunctionUrlCorArrayOutput) ToGetFunctionUrlCorArrayOutputWithContext(ctx context.Context) GetFunctionUrlCorArrayOutput {
+	return o
+}
+
+func (o GetFunctionUrlCorArrayOutput) Index(i pulumi.IntInput) GetFunctionUrlCorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionUrlCor {
+		return vs[0].([]GetFunctionUrlCor)[vs[1].(int)]
+	}).(GetFunctionUrlCorOutput)
+}
+
 type GetFunctionVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
@@ -3049,6 +3636,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigPtrInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentInput)(nil)).Elem(), FunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentPtrInput)(nil)).Elem(), FunctionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEphemeralStorageInput)(nil)).Elem(), FunctionEphemeralStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEphemeralStoragePtrInput)(nil)).Elem(), FunctionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigDestinationConfigInput)(nil)).Elem(), FunctionEventInvokeConfigDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigDestinationConfigPtrInput)(nil)).Elem(), FunctionEventInvokeConfigDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigDestinationConfigOnFailureInput)(nil)).Elem(), FunctionEventInvokeConfigDestinationConfigOnFailureArgs{})
@@ -3061,6 +3650,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigPtrInput)(nil)).Elem(), FunctionTracingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionUrlCorsInput)(nil)).Elem(), FunctionUrlCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionUrlCorsPtrInput)(nil)).Elem(), FunctionUrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigPtrInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArgs{})
@@ -3069,9 +3660,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyArrayInput)(nil)).Elem(), GetCodeSigningConfigPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionDeadLetterConfigInput)(nil)).Elem(), GetFunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEnvironmentInput)(nil)).Elem(), GetFunctionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEphemeralStorageInput)(nil)).Elem(), GetFunctionEphemeralStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEphemeralStorageArrayInput)(nil)).Elem(), GetFunctionEphemeralStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigInput)(nil)).Elem(), GetFunctionFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigArrayInput)(nil)).Elem(), GetFunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTracingConfigInput)(nil)).Elem(), GetFunctionTracingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorInput)(nil)).Elem(), GetFunctionUrlCorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorArrayInput)(nil)).Elem(), GetFunctionUrlCorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionVpcConfigInput)(nil)).Elem(), GetFunctionVpcConfigArgs{})
 	pulumi.RegisterOutputType(AliasRoutingConfigOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigPtrOutput{})
@@ -3095,6 +3690,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FunctionEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(FunctionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnFailureOutput{})
@@ -3107,6 +3704,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionUrlCorsOutput{})
+	pulumi.RegisterOutputType(FunctionUrlCorsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherOutput{})
@@ -3115,8 +3714,12 @@ func init() {
 	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFunctionEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(GetFunctionEphemeralStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionTracingConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionUrlCorOutput{})
+	pulumi.RegisterOutputType(GetFunctionUrlCorArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionVpcConfigOutput{})
 }

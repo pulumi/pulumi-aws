@@ -81,6 +81,10 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
+     * Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+     */
+    readonly logDeliveryConfigurations: outputs.elasticache.GetClusterLogDeliveryConfiguration[];
+    /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
      */

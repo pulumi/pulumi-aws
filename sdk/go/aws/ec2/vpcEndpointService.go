@@ -88,9 +88,9 @@ type VpcEndpointService struct {
 	AllowedPrincipals pulumi.StringArrayOutput `pulumi:"allowedPrincipals"`
 	// The Amazon Resource Name (ARN) of the VPC endpoint service.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Availability Zones in which the service is available.
+	// A set of Availability Zones in which the service is available.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// The DNS names for the service.
+	// A set of DNS names for the service.
 	BaseEndpointDnsNames pulumi.StringArrayOutput `pulumi:"baseEndpointDnsNames"`
 	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
 	GatewayLoadBalancerArns pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
@@ -152,9 +152,9 @@ type vpcEndpointServiceState struct {
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
 	// The Amazon Resource Name (ARN) of the VPC endpoint service.
 	Arn *string `pulumi:"arn"`
-	// The Availability Zones in which the service is available.
+	// A set of Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The DNS names for the service.
+	// A set of DNS names for the service.
 	BaseEndpointDnsNames []string `pulumi:"baseEndpointDnsNames"`
 	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
 	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
@@ -185,9 +185,9 @@ type VpcEndpointServiceState struct {
 	AllowedPrincipals pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the VPC endpoint service.
 	Arn pulumi.StringPtrInput
-	// The Availability Zones in which the service is available.
+	// A set of Availability Zones in which the service is available.
 	AvailabilityZones pulumi.StringArrayInput
-	// The DNS names for the service.
+	// A set of DNS names for the service.
 	BaseEndpointDnsNames pulumi.StringArrayInput
 	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
 	GatewayLoadBalancerArns pulumi.StringArrayInput

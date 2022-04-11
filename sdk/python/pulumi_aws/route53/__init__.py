@@ -11,6 +11,7 @@ from .get_delegation_set import *
 from .get_resolver_endpoint import *
 from .get_resolver_rule import *
 from .get_resolver_rules import *
+from .get_traffic_policy_document import *
 from .get_zone import *
 from .health_check import *
 from .hosted_zone_dns_sec import *
@@ -28,6 +29,8 @@ from .resolver_query_log_config import *
 from .resolver_query_log_config_association import *
 from .resolver_rule import *
 from .resolver_rule_association import *
+from .traffic_policy import *
+from .traffic_policy_instance import *
 from .vpc_association_authorization import *
 from .zone import *
 from .zone_association import *
