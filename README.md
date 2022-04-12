@@ -9,7 +9,7 @@
 # Amazon Web Services (AWS) provider
 
 The Amazon Web Services (AWS) resource provider for Pulumi lets you use AWS resources in your cloud programs. To use
-this package, please [install the Pulumi CLI first](https://pulumi.com/). For a streamlined Pulumi walkthrough, including language runtime installation and AWS configuration, click "Get Started" below.
+this package, [install the Pulumi CLI](https://www.pulumi.com/docs/get-started/install/). For a streamlined Pulumi walkthrough, including language runtime installation and AWS configuration, select "Get Started" below.
 
 <div>
     <a href="https://www.pulumi.com/docs/get-started/aws" title="Get Started">
@@ -147,5 +147,5 @@ provider = pulumi_aws.Provider('named-provider', skip_metadata_api_check=False)
 
 ## Reference
 
-For further information, please visit [the AWS provider docs](https://www.pulumi.com/docs/intro/cloud-providers/aws)
-or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/aws).
+For further information, visit [AWS in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/)
+or for detailed API reference documentation, visit [AWS API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/api-docs/).
