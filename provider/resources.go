@@ -311,11 +311,6 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
 			},
-			"profile": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AWS_PROFILE"},
-				},
-			},
 			"skip_get_ec2_platforms": {
 				Default: &tfbridge.DefaultInfo{
 					Value: true,

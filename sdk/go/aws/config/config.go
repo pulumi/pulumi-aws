@@ -71,11 +71,7 @@ func GetMaxRetries(ctx *pulumi.Context) int {
 
 // The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 func GetProfile(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "aws:profile")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "AWS_PROFILE").(string)
+	return config.Get(ctx, "aws:profile")
 }
 
 // The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.

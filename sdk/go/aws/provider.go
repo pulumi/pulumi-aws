@@ -54,9 +54,6 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if isZero(args.Profile) {
-		args.Profile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_PROFILE").(string))
-	}
 	if isZero(args.Region) {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
 	}
