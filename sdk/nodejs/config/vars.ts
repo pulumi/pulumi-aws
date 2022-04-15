@@ -151,7 +151,7 @@ Object.defineProperty(exports, "maxRetries", {
 export declare const profile: string | undefined;
 Object.defineProperty(exports, "profile", {
     get() {
-        return __config.get("profile") ?? utilities.getEnv("AWS_PROFILE");
+        return __config.get("profile");
     },
     enumerable: true,
 });

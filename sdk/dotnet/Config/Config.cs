@@ -154,7 +154,7 @@ namespace Pulumi.Aws
             set => _maxRetries.Set(value);
         }
 
-        private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile") ?? Utilities.GetEnv("AWS_PROFILE"));
+        private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile"));
         /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         /// </summary>

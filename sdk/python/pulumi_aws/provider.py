@@ -109,8 +109,6 @@ class ProviderArgs:
             pulumi.set(__self__, "insecure", insecure)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
-        if profile is None:
-            profile = _utilities.get_env('AWS_PROFILE')
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
         if region is None:
@@ -684,8 +682,6 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["ignore_tags"] = pulumi.Output.from_input(ignore_tags).apply(pulumi.runtime.to_json) if ignore_tags is not None else None
             __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
-            if profile is None:
-                profile = _utilities.get_env('AWS_PROFILE')
             __props__.__dict__["profile"] = profile
             if region is None:
                 region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')

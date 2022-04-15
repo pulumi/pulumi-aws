@@ -103,7 +103,7 @@ class _ExportableConfig(types.ModuleType):
         """
         The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         """
-        return __config__.get('profile') or _utilities.get_env('AWS_PROFILE')
+        return __config__.get('profile')
 
     @property
     def region(self) -> Optional[str]:
